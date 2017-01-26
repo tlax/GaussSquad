@@ -34,8 +34,8 @@ class CParent:UIViewController
     {
         super.viewDidLoad()
         
-        let controllerFight:CFight = CFight()
-        mainController(controller:controllerFight)
+        let controllerHome:CHome = CHome()
+        mainController(controller:controllerHome)
         
         MSession.sharedInstance.loadSettings()
     }
