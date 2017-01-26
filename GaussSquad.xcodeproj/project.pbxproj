@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA033CEA1E3A935700F7645C /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA033CE91E3A935700F7645C /* VHome.swift */; };
 		DAA4BD701E3A4BDE00B0360D /* MHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4BD6F1E3A4BDE00B0360D /* MHome.swift */; };
 		DAA4BD721E3A4C4100B0360D /* MHomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4BD711E3A4C4100B0360D /* MHomeItem.swift */; };
 		DAA4BD741E3A5DBD00B0360D /* MHomeItemLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4BD731E3A5DBD00B0360D /* MHomeItemLinearEquations.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA033CE91E3A935700F7645C /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DAA4BD6F1E3A4BDE00B0360D /* MHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHome.swift; sourceTree = "<group>"; };
 		DAA4BD711E3A4C4100B0360D /* MHomeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItem.swift; sourceTree = "<group>"; };
 		DAA4BD731E3A5DBD00B0360D /* MHomeItemLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemLinearEquations.swift; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA033CE81E3A934800F7645C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DA033CE91E3A935700F7645C /* VHome.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		DAA4BD6E1E3A4A1E00B0360D /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +382,7 @@
 		DAFF4A881E397B9600A2DD4B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA033CE81E3A934800F7645C /* Home */,
 				DAFF4A891E397B9600A2DD4B /* Help */,
 				DAFF4A8C1E397B9600A2DD4B /* Main */,
 			);
@@ -510,6 +521,7 @@
 				DAFF4A9B1E397B9600A2DD4B /* ExtensionFileManager.swift in Sources */,
 				DAFF4AC31E397B9600A2DD4B /* VParent.swift in Sources */,
 				DAFF4A9C1E397B9600A2DD4B /* ExtensionMTKTextureLoader.swift in Sources */,
+				DA033CEA1E3A935700F7645C /* VHome.swift in Sources */,
 				DAFF4AB51E397B9600A2DD4B /* MetalSpatialChar.swift in Sources */,
 				DAFF4A9E1E397B9600A2DD4B /* ExtensionMTLRenderCommandEncoder.swift in Sources */,
 				DAFF4AC71E397B9600A2DD4B /* VCollection.swift in Sources */,
