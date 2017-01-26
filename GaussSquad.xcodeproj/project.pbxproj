@@ -60,6 +60,7 @@
 		DAFF4AC81E397B9600A2DD4B /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A941E397B9600A2DD4B /* VSpinner.swift */; };
 		DAFF4AC91E397B9600A2DD4B /* VView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A951E397B9600A2DD4B /* VView.swift */; };
 		DAFF4AD31E397D9A00A2DD4B /* CHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4AD21E397D9A00A2DD4B /* CHelp.swift */; };
+		DAFF4AD61E397E0100A2DD4B /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4AD51E397E0100A2DD4B /* CHome.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		DAFF4A941E397B9600A2DD4B /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
 		DAFF4A951E397B9600A2DD4B /* VView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VView.swift; sourceTree = "<group>"; };
 		DAFF4AD21E397D9A00A2DD4B /* CHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHelp.swift; sourceTree = "<group>"; };
+		DAFF4AD51E397E0100A2DD4B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,8 +176,9 @@
 		DAFF4A4B1E397B9500A2DD4B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DAFF4AD11E397D9A00A2DD4B /* Help */,
+				DAFF4AD41E397DF700A2DD4B /* Home */,
 				DAFF4A4C1E397B9500A2DD4B /* Main */,
+				DAFF4AD11E397D9A00A2DD4B /* Help */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -400,6 +403,14 @@
 			path = Help;
 			sourceTree = "<group>";
 		};
+		DAFF4AD41E397DF700A2DD4B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4AD51E397E0100A2DD4B /* CHome.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -505,6 +516,7 @@
 				DAFF4AC81E397B9600A2DD4B /* VSpinner.swift in Sources */,
 				DAFF4AAA1E397B9600A2DD4B /* MetalProjection.swift in Sources */,
 				DAFF4AD31E397D9A00A2DD4B /* CHelp.swift in Sources */,
+				DAFF4AD61E397E0100A2DD4B /* CHome.swift in Sources */,
 				DAFF4AB21E397B9600A2DD4B /* MetalSpatialBaseTexturedDirectionNegative.swift in Sources */,
 				DAFF4ABA1E397B9600A2DD4B /* MetalVertex.swift in Sources */,
 				DAFF4AC11E397B9600A2DD4B /* VHelp.swift in Sources */,
