@@ -11,6 +11,7 @@
 		DAA4BD721E3A4C4100B0360D /* MHomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4BD711E3A4C4100B0360D /* MHomeItem.swift */; };
 		DAA4BD741E3A5DBD00B0360D /* MHomeItemLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4BD731E3A5DBD00B0360D /* MHomeItemLinearEquations.swift */; };
 		DAA4BD761E3A700C00B0360D /* MHomeItemArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4BD751E3A700C00B0360D /* MHomeItemArithmetic.swift */; };
+		DAA4BD781E3A703900B0360D /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAA4BD771E3A703900B0360D /* brand.xcassets */; };
 		DAFF4A961E397B9600A2DD4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */; };
 		DAFF4A971E397B9600A2DD4B /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */; };
 		DAFF4A981E397B9600A2DD4B /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4E1E397B9500A2DD4B /* CController.swift */; };
@@ -71,6 +72,7 @@
 		DAA4BD711E3A4C4100B0360D /* MHomeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItem.swift; sourceTree = "<group>"; };
 		DAA4BD731E3A5DBD00B0360D /* MHomeItemLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemLinearEquations.swift; sourceTree = "<group>"; };
 		DAA4BD751E3A700C00B0360D /* MHomeItemArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemArithmetic.swift; sourceTree = "<group>"; };
+		DAA4BD771E3A703900B0360D /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DAFF4A341E3979B600A2DD4B /* GaussSquad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GaussSquad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */,
+				DAA4BD771E3A703900B0360D /* brand.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 			files = (
 				DAFF4AC01E397B9600A2DD4B /* Localizable.strings in Resources */,
 				DAFF4A961E397B9600A2DD4B /* LaunchScreen.storyboard in Resources */,
+				DAA4BD781E3A703900B0360D /* brand.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +673,7 @@
 		DAFF4A471E3979B600A2DD4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = GaussSquad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -683,6 +688,7 @@
 		DAFF4A481E3979B600A2DD4B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = GaussSquad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
