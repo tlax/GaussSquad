@@ -3,7 +3,6 @@ import Foundation
 class MSession
 {
     static let sharedInstance:MSession = MSession()
-    static let kFroobMaxRecords:Int = 3
     //private(set) var settings:DSettings?
     private let kTtlDelta:Int16 = 1
     
@@ -31,10 +30,8 @@ class MSession
                 return
             }
             
-            settings.ttl += self.kTtlDelta
-            DManager.sharedInstance.save()
-            
             self.settingsReady(settings:settings)
+             self.addTtl()
         }
     }
     
@@ -76,5 +73,20 @@ class MSession
 //                self.asyncLoadSettings()
 //            }
         }
+    }
+    
+    func addTtl()
+    {/*
+        guard
+            
+            let settings:DSettings = self.settings
+            
+        else
+        {
+            return
+        }
+        
+        settings.ttl += kTtlDelta
+        DManager.sharedInstance.save()*/
     }
 }
