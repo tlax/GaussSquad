@@ -25,7 +25,7 @@ class VCollection:UICollectionView
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     //MARK: public

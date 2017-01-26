@@ -3,13 +3,13 @@ import CoreData
 
 class DManager
 {
-    static let sharedInstance:DManager = DManager()
+    static let sharedInstance:DManager? = DManager()
     private let managedObjectContext:NSManagedObjectContext
     private let kModelName:String = "DGaussSquad"
     private let kModelExtension:String = "momd"
     private let kSQLiteExtension:String = ".sqlite"
     
-    private init()
+    private init?()
     {
         let sqliteFile:String = "\(kModelName)\(kSQLiteExtension)"
         let storeCoordinatorURL:URL = FileManager.appDirectory.appendingPathComponent(
@@ -25,7 +25,7 @@ class DManager
         
         else
         {
-            fatalError()
+            return nil
         }
         
         let persistentStoreCoordinator:NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(

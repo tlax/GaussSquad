@@ -23,6 +23,6 @@ class VParentBarButton:UIButton
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
 }

@@ -9,7 +9,7 @@ class CController:UIViewController
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     var parentController:CParent
