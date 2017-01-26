@@ -6,8 +6,116 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DAFF4A961E397B9600A2DD4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */; };
+		DAFF4A971E397B9600A2DD4B /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */; };
+		DAFF4A981E397B9600A2DD4B /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4E1E397B9500A2DD4B /* CController.swift */; };
+		DAFF4A991E397B9600A2DD4B /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4F1E397B9500A2DD4B /* CParent.swift */; };
+		DAFF4A9A1E397B9600A2DD4B /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A511E397B9500A2DD4B /* DManager.swift */; };
+		DAFF4A9B1E397B9600A2DD4B /* ExtensionFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A531E397B9500A2DD4B /* ExtensionFileManager.swift */; };
+		DAFF4A9C1E397B9600A2DD4B /* ExtensionMTKTextureLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A541E397B9500A2DD4B /* ExtensionMTKTextureLoader.swift */; };
+		DAFF4A9D1E397B9600A2DD4B /* ExtensionMTLDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A551E397B9500A2DD4B /* ExtensionMTLDevice.swift */; };
+		DAFF4A9E1E397B9600A2DD4B /* ExtensionMTLRenderCommandEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A561E397B9500A2DD4B /* ExtensionMTLRenderCommandEncoder.swift */; };
+		DAFF4A9F1E397B9600A2DD4B /* ExtensionMTLTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A571E397B9500A2DD4B /* ExtensionMTLTexture.swift */; };
+		DAFF4AA01E397B9600A2DD4B /* ExtensionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A581E397B9500A2DD4B /* ExtensionNotification.swift */; };
+		DAFF4AA11E397B9600A2DD4B /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A591E397B9600A2DD4B /* ExtensionNSLayoutConstraint.swift */; };
+		DAFF4AA21E397B9600A2DD4B /* ExtensionNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A5A1E397B9600A2DD4B /* ExtensionNSManagedObject.swift */; };
+		DAFF4AA31E397B9600A2DD4B /* ExtensionUICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A5B1E397B9600A2DD4B /* ExtensionUICollectionReusableView.swift */; };
+		DAFF4AA41E397B9600A2DD4B /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A5C1E397B9600A2DD4B /* ExtensionUIColor.swift */; };
+		DAFF4AA51E397B9600A2DD4B /* ExtensionUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A5D1E397B9600A2DD4B /* ExtensionUIFont.swift */; };
+		DAFF4AA61E397B9600A2DD4B /* ExtensionURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A5E1E397B9600A2DD4B /* ExtensionURL.swift */; };
+		DAFF4AA71E397B9600A2DD4B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAFF4A5F1E397B9600A2DD4B /* Info.plist */; };
+		DAFF4AA81E397B9600A2DD4B /* MetalBufferableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A621E397B9600A2DD4B /* MetalBufferableProtocol.swift */; };
+		DAFF4AA91E397B9600A2DD4B /* MetalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A631E397B9600A2DD4B /* MetalConstants.swift */; };
+		DAFF4AAA1E397B9600A2DD4B /* MetalProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A641E397B9600A2DD4B /* MetalProjection.swift */; };
+		DAFF4AAB1E397B9600A2DD4B /* MetalProjectionMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A651E397B9600A2DD4B /* MetalProjectionMatrix.swift */; };
+		DAFF4AAC1E397B9600A2DD4B /* MetalRenderableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A661E397B9600A2DD4B /* MetalRenderableProtocol.swift */; };
+		DAFF4AAD1E397B9600A2DD4B /* MetalShaderFragmentSimple.metal in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A681E397B9600A2DD4B /* MetalShaderFragmentSimple.metal */; };
+		DAFF4AAE1E397B9600A2DD4B /* MetalShaderVertexTextured.metal in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A6A1E397B9600A2DD4B /* MetalShaderVertexTextured.metal */; };
+		DAFF4AAF1E397B9600A2DD4B /* MetalSpatialBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A6D1E397B9600A2DD4B /* MetalSpatialBase.swift */; };
+		DAFF4AB01E397B9600A2DD4B /* MetalSpatialBaseTextured.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A6E1E397B9600A2DD4B /* MetalSpatialBaseTextured.swift */; };
+		DAFF4AB11E397B9600A2DD4B /* MetalSpatialBaseTexturedDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A6F1E397B9600A2DD4B /* MetalSpatialBaseTexturedDirection.swift */; };
+		DAFF4AB21E397B9600A2DD4B /* MetalSpatialBaseTexturedDirectionNegative.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A701E397B9600A2DD4B /* MetalSpatialBaseTexturedDirectionNegative.swift */; };
+		DAFF4AB31E397B9600A2DD4B /* MetalSpatialBaseTexturedDirectionPositive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A711E397B9600A2DD4B /* MetalSpatialBaseTexturedDirectionPositive.swift */; };
+		DAFF4AB41E397B9600A2DD4B /* MetalSpatialBaseTexturedPositive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A721E397B9600A2DD4B /* MetalSpatialBaseTexturedPositive.swift */; };
+		DAFF4AB51E397B9600A2DD4B /* MetalSpatialChar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A741E397B9600A2DD4B /* MetalSpatialChar.swift */; };
+		DAFF4AB61E397B9600A2DD4B /* MetalSpatialCharTextures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A751E397B9600A2DD4B /* MetalSpatialCharTextures.swift */; };
+		DAFF4AB71E397B9600A2DD4B /* MetalSpatialCharTexturesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A761E397B9600A2DD4B /* MetalSpatialCharTexturesList.swift */; };
+		DAFF4AB81E397B9600A2DD4B /* MetalSpatialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A781E397B9600A2DD4B /* MetalSpatialScene.swift */; };
+		DAFF4AB91E397B9600A2DD4B /* MetalSpatialSceneTextures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A791E397B9600A2DD4B /* MetalSpatialSceneTextures.swift */; };
+		DAFF4ABA1E397B9600A2DD4B /* MetalVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A7B1E397B9600A2DD4B /* MetalVertex.swift */; };
+		DAFF4ABB1E397B9600A2DD4B /* MetalVertexFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A7C1E397B9600A2DD4B /* MetalVertexFace.swift */; };
+		DAFF4ABC1E397B9600A2DD4B /* MetalVertexTextured.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A7D1E397B9600A2DD4B /* MetalVertexTextured.swift */; };
+		DAFF4ABD1E397B9600A2DD4B /* MHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A811E397B9600A2DD4B /* MHelp.swift */; };
+		DAFF4ABE1E397B9600A2DD4B /* MHelpItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A821E397B9600A2DD4B /* MHelpItem.swift */; };
+		DAFF4ABF1E397B9600A2DD4B /* MSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A841E397B9600A2DD4B /* MSession.swift */; };
+		DAFF4AC01E397B9600A2DD4B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAFF4A861E397B9600A2DD4B /* Localizable.strings */; };
+		DAFF4AC11E397B9600A2DD4B /* VHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A8A1E397B9600A2DD4B /* VHelp.swift */; };
+		DAFF4AC21E397B9600A2DD4B /* VHelpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A8B1E397B9600A2DD4B /* VHelpCell.swift */; };
+		DAFF4AC31E397B9600A2DD4B /* VParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A8E1E397B9600A2DD4B /* VParent.swift */; };
+		DAFF4AC41E397B9600A2DD4B /* VAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A901E397B9600A2DD4B /* VAlert.swift */; };
+		DAFF4AC51E397B9600A2DD4B /* VBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A911E397B9600A2DD4B /* VBlur.swift */; };
+		DAFF4AC61E397B9600A2DD4B /* VBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A921E397B9600A2DD4B /* VBorder.swift */; };
+		DAFF4AC71E397B9600A2DD4B /* VCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A931E397B9600A2DD4B /* VCollection.swift */; };
+		DAFF4AC81E397B9600A2DD4B /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A941E397B9600A2DD4B /* VSpinner.swift */; };
+		DAFF4AC91E397B9600A2DD4B /* VView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A951E397B9600A2DD4B /* VView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		DAFF4A341E3979B600A2DD4B /* GaussSquad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GaussSquad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
+		DAFF4A4E1E397B9500A2DD4B /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
+		DAFF4A4F1E397B9500A2DD4B /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
+		DAFF4A511E397B9500A2DD4B /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
+		DAFF4A531E397B9500A2DD4B /* ExtensionFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFileManager.swift; sourceTree = "<group>"; };
+		DAFF4A541E397B9500A2DD4B /* ExtensionMTKTextureLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTKTextureLoader.swift; sourceTree = "<group>"; };
+		DAFF4A551E397B9500A2DD4B /* ExtensionMTLDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLDevice.swift; sourceTree = "<group>"; };
+		DAFF4A561E397B9500A2DD4B /* ExtensionMTLRenderCommandEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLRenderCommandEncoder.swift; sourceTree = "<group>"; };
+		DAFF4A571E397B9500A2DD4B /* ExtensionMTLTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLTexture.swift; sourceTree = "<group>"; };
+		DAFF4A581E397B9500A2DD4B /* ExtensionNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNotification.swift; sourceTree = "<group>"; };
+		DAFF4A591E397B9600A2DD4B /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
+		DAFF4A5A1E397B9600A2DD4B /* ExtensionNSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSManagedObject.swift; sourceTree = "<group>"; };
+		DAFF4A5B1E397B9600A2DD4B /* ExtensionUICollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionReusableView.swift; sourceTree = "<group>"; };
+		DAFF4A5C1E397B9600A2DD4B /* ExtensionUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
+		DAFF4A5D1E397B9600A2DD4B /* ExtensionUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIFont.swift; sourceTree = "<group>"; };
+		DAFF4A5E1E397B9600A2DD4B /* ExtensionURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionURL.swift; sourceTree = "<group>"; };
+		DAFF4A5F1E397B9600A2DD4B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAFF4A621E397B9600A2DD4B /* MetalBufferableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalBufferableProtocol.swift; sourceTree = "<group>"; };
+		DAFF4A631E397B9600A2DD4B /* MetalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalConstants.swift; sourceTree = "<group>"; };
+		DAFF4A641E397B9600A2DD4B /* MetalProjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalProjection.swift; sourceTree = "<group>"; };
+		DAFF4A651E397B9600A2DD4B /* MetalProjectionMatrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalProjectionMatrix.swift; sourceTree = "<group>"; };
+		DAFF4A661E397B9600A2DD4B /* MetalRenderableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalRenderableProtocol.swift; sourceTree = "<group>"; };
+		DAFF4A681E397B9600A2DD4B /* MetalShaderFragmentSimple.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderFragmentSimple.metal; sourceTree = "<group>"; };
+		DAFF4A691E397B9600A2DD4B /* MetalShaderStructs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalShaderStructs.h; sourceTree = "<group>"; };
+		DAFF4A6A1E397B9600A2DD4B /* MetalShaderVertexTextured.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderVertexTextured.metal; sourceTree = "<group>"; };
+		DAFF4A6D1E397B9600A2DD4B /* MetalSpatialBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialBase.swift; sourceTree = "<group>"; };
+		DAFF4A6E1E397B9600A2DD4B /* MetalSpatialBaseTextured.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialBaseTextured.swift; sourceTree = "<group>"; };
+		DAFF4A6F1E397B9600A2DD4B /* MetalSpatialBaseTexturedDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialBaseTexturedDirection.swift; sourceTree = "<group>"; };
+		DAFF4A701E397B9600A2DD4B /* MetalSpatialBaseTexturedDirectionNegative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialBaseTexturedDirectionNegative.swift; sourceTree = "<group>"; };
+		DAFF4A711E397B9600A2DD4B /* MetalSpatialBaseTexturedDirectionPositive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialBaseTexturedDirectionPositive.swift; sourceTree = "<group>"; };
+		DAFF4A721E397B9600A2DD4B /* MetalSpatialBaseTexturedPositive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialBaseTexturedPositive.swift; sourceTree = "<group>"; };
+		DAFF4A741E397B9600A2DD4B /* MetalSpatialChar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialChar.swift; sourceTree = "<group>"; };
+		DAFF4A751E397B9600A2DD4B /* MetalSpatialCharTextures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialCharTextures.swift; sourceTree = "<group>"; };
+		DAFF4A761E397B9600A2DD4B /* MetalSpatialCharTexturesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialCharTexturesList.swift; sourceTree = "<group>"; };
+		DAFF4A781E397B9600A2DD4B /* MetalSpatialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialScene.swift; sourceTree = "<group>"; };
+		DAFF4A791E397B9600A2DD4B /* MetalSpatialSceneTextures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialSceneTextures.swift; sourceTree = "<group>"; };
+		DAFF4A7B1E397B9600A2DD4B /* MetalVertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertex.swift; sourceTree = "<group>"; };
+		DAFF4A7C1E397B9600A2DD4B /* MetalVertexFace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertexFace.swift; sourceTree = "<group>"; };
+		DAFF4A7D1E397B9600A2DD4B /* MetalVertexTextured.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertexTextured.swift; sourceTree = "<group>"; };
+		DAFF4A811E397B9600A2DD4B /* MHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelp.swift; sourceTree = "<group>"; };
+		DAFF4A821E397B9600A2DD4B /* MHelpItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpItem.swift; sourceTree = "<group>"; };
+		DAFF4A841E397B9600A2DD4B /* MSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSession.swift; sourceTree = "<group>"; };
+		DAFF4A871E397B9600A2DD4B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DAFF4A8A1E397B9600A2DD4B /* VHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHelp.swift; sourceTree = "<group>"; };
+		DAFF4A8B1E397B9600A2DD4B /* VHelpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHelpCell.swift; sourceTree = "<group>"; };
+		DAFF4A8E1E397B9600A2DD4B /* VParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParent.swift; sourceTree = "<group>"; };
+		DAFF4A901E397B9600A2DD4B /* VAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAlert.swift; sourceTree = "<group>"; };
+		DAFF4A911E397B9600A2DD4B /* VBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBlur.swift; sourceTree = "<group>"; };
+		DAFF4A921E397B9600A2DD4B /* VBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBorder.swift; sourceTree = "<group>"; };
+		DAFF4A931E397B9600A2DD4B /* VCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCollection.swift; sourceTree = "<group>"; };
+		DAFF4A941E397B9600A2DD4B /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
+		DAFF4A951E397B9600A2DD4B /* VView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,8 +148,245 @@
 		DAFF4A361E3979B600A2DD4B /* GaussSquad */ = {
 			isa = PBXGroup;
 			children = (
+				DAFF4A491E397B9500A2DD4B /* Assets */,
+				DAFF4A4B1E397B9500A2DD4B /* Controller */,
+				DAFF4A501E397B9500A2DD4B /* Data */,
+				DAFF4A521E397B9500A2DD4B /* Extensions */,
+				DAFF4A5F1E397B9600A2DD4B /* Info.plist */,
+				DAFF4A601E397B9600A2DD4B /* Metal */,
+				DAFF4A7E1E397B9600A2DD4B /* Model */,
+				DAFF4A851E397B9600A2DD4B /* Resource */,
+				DAFF4A881E397B9600A2DD4B /* View */,
 			);
 			path = GaussSquad;
+			sourceTree = "<group>";
+		};
+		DAFF4A491E397B9500A2DD4B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		DAFF4A4B1E397B9500A2DD4B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A4C1E397B9500A2DD4B /* Main */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DAFF4A4C1E397B9500A2DD4B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */,
+				DAFF4A4E1E397B9500A2DD4B /* CController.swift */,
+				DAFF4A4F1E397B9500A2DD4B /* CParent.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DAFF4A501E397B9500A2DD4B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A511E397B9500A2DD4B /* DManager.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DAFF4A521E397B9500A2DD4B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A531E397B9500A2DD4B /* ExtensionFileManager.swift */,
+				DAFF4A541E397B9500A2DD4B /* ExtensionMTKTextureLoader.swift */,
+				DAFF4A551E397B9500A2DD4B /* ExtensionMTLDevice.swift */,
+				DAFF4A561E397B9500A2DD4B /* ExtensionMTLRenderCommandEncoder.swift */,
+				DAFF4A571E397B9500A2DD4B /* ExtensionMTLTexture.swift */,
+				DAFF4A581E397B9500A2DD4B /* ExtensionNotification.swift */,
+				DAFF4A591E397B9600A2DD4B /* ExtensionNSLayoutConstraint.swift */,
+				DAFF4A5A1E397B9600A2DD4B /* ExtensionNSManagedObject.swift */,
+				DAFF4A5B1E397B9600A2DD4B /* ExtensionUICollectionReusableView.swift */,
+				DAFF4A5C1E397B9600A2DD4B /* ExtensionUIColor.swift */,
+				DAFF4A5D1E397B9600A2DD4B /* ExtensionUIFont.swift */,
+				DAFF4A5E1E397B9600A2DD4B /* ExtensionURL.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DAFF4A601E397B9600A2DD4B /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A611E397B9600A2DD4B /* General */,
+				DAFF4A671E397B9600A2DD4B /* Shader */,
+				DAFF4A6B1E397B9600A2DD4B /* Spatial */,
+				DAFF4A7A1E397B9600A2DD4B /* Vertex */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		DAFF4A611E397B9600A2DD4B /* General */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A621E397B9600A2DD4B /* MetalBufferableProtocol.swift */,
+				DAFF4A631E397B9600A2DD4B /* MetalConstants.swift */,
+				DAFF4A641E397B9600A2DD4B /* MetalProjection.swift */,
+				DAFF4A651E397B9600A2DD4B /* MetalProjectionMatrix.swift */,
+				DAFF4A661E397B9600A2DD4B /* MetalRenderableProtocol.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		DAFF4A671E397B9600A2DD4B /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A681E397B9600A2DD4B /* MetalShaderFragmentSimple.metal */,
+				DAFF4A691E397B9600A2DD4B /* MetalShaderStructs.h */,
+				DAFF4A6A1E397B9600A2DD4B /* MetalShaderVertexTextured.metal */,
+			);
+			path = Shader;
+			sourceTree = "<group>";
+		};
+		DAFF4A6B1E397B9600A2DD4B /* Spatial */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A6C1E397B9600A2DD4B /* Base */,
+				DAFF4A731E397B9600A2DD4B /* Char */,
+				DAFF4A771E397B9600A2DD4B /* Scene */,
+			);
+			path = Spatial;
+			sourceTree = "<group>";
+		};
+		DAFF4A6C1E397B9600A2DD4B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A6D1E397B9600A2DD4B /* MetalSpatialBase.swift */,
+				DAFF4A6E1E397B9600A2DD4B /* MetalSpatialBaseTextured.swift */,
+				DAFF4A6F1E397B9600A2DD4B /* MetalSpatialBaseTexturedDirection.swift */,
+				DAFF4A701E397B9600A2DD4B /* MetalSpatialBaseTexturedDirectionNegative.swift */,
+				DAFF4A711E397B9600A2DD4B /* MetalSpatialBaseTexturedDirectionPositive.swift */,
+				DAFF4A721E397B9600A2DD4B /* MetalSpatialBaseTexturedPositive.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DAFF4A731E397B9600A2DD4B /* Char */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A741E397B9600A2DD4B /* MetalSpatialChar.swift */,
+				DAFF4A751E397B9600A2DD4B /* MetalSpatialCharTextures.swift */,
+				DAFF4A761E397B9600A2DD4B /* MetalSpatialCharTexturesList.swift */,
+			);
+			path = Char;
+			sourceTree = "<group>";
+		};
+		DAFF4A771E397B9600A2DD4B /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A781E397B9600A2DD4B /* MetalSpatialScene.swift */,
+				DAFF4A791E397B9600A2DD4B /* MetalSpatialSceneTextures.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		DAFF4A7A1E397B9600A2DD4B /* Vertex */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A7B1E397B9600A2DD4B /* MetalVertex.swift */,
+				DAFF4A7C1E397B9600A2DD4B /* MetalVertexFace.swift */,
+				DAFF4A7D1E397B9600A2DD4B /* MetalVertexTextured.swift */,
+			);
+			path = Vertex;
+			sourceTree = "<group>";
+		};
+		DAFF4A7E1E397B9600A2DD4B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A7F1E397B9600A2DD4B /* Help */,
+				DAFF4A831E397B9600A2DD4B /* Session */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DAFF4A7F1E397B9600A2DD4B /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A801E397B9600A2DD4B /* Main */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		DAFF4A801E397B9600A2DD4B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A811E397B9600A2DD4B /* MHelp.swift */,
+				DAFF4A821E397B9600A2DD4B /* MHelpItem.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DAFF4A831E397B9600A2DD4B /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A841E397B9600A2DD4B /* MSession.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		DAFF4A851E397B9600A2DD4B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A861E397B9600A2DD4B /* Localizable.strings */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DAFF4A881E397B9600A2DD4B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A891E397B9600A2DD4B /* Help */,
+				DAFF4A8C1E397B9600A2DD4B /* Main */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DAFF4A891E397B9600A2DD4B /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A8A1E397B9600A2DD4B /* VHelp.swift */,
+				DAFF4A8B1E397B9600A2DD4B /* VHelpCell.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		DAFF4A8C1E397B9600A2DD4B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A8D1E397B9600A2DD4B /* Parent */,
+				DAFF4A8F1E397B9600A2DD4B /* Subclasses */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DAFF4A8D1E397B9600A2DD4B /* Parent */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A8E1E397B9600A2DD4B /* VParent.swift */,
+			);
+			path = Parent;
+			sourceTree = "<group>";
+		};
+		DAFF4A8F1E397B9600A2DD4B /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				DAFF4A901E397B9600A2DD4B /* VAlert.swift */,
+				DAFF4A911E397B9600A2DD4B /* VBlur.swift */,
+				DAFF4A921E397B9600A2DD4B /* VBorder.swift */,
+				DAFF4A931E397B9600A2DD4B /* VCollection.swift */,
+				DAFF4A941E397B9600A2DD4B /* VSpinner.swift */,
+				DAFF4A951E397B9600A2DD4B /* VView.swift */,
+			);
+			path = Subclasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +449,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAFF4AA71E397B9600A2DD4B /* Info.plist in Resources */,
+				DAFF4AC01E397B9600A2DD4B /* Localizable.strings in Resources */,
+				DAFF4A961E397B9600A2DD4B /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,10 +462,70 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAFF4AAC1E397B9600A2DD4B /* MetalRenderableProtocol.swift in Sources */,
+				DAFF4AA01E397B9600A2DD4B /* ExtensionNotification.swift in Sources */,
+				DAFF4A9B1E397B9600A2DD4B /* ExtensionFileManager.swift in Sources */,
+				DAFF4AC31E397B9600A2DD4B /* VParent.swift in Sources */,
+				DAFF4A9C1E397B9600A2DD4B /* ExtensionMTKTextureLoader.swift in Sources */,
+				DAFF4AB51E397B9600A2DD4B /* MetalSpatialChar.swift in Sources */,
+				DAFF4A9E1E397B9600A2DD4B /* ExtensionMTLRenderCommandEncoder.swift in Sources */,
+				DAFF4AC71E397B9600A2DD4B /* VCollection.swift in Sources */,
+				DAFF4ABE1E397B9600A2DD4B /* MHelpItem.swift in Sources */,
+				DAFF4AAF1E397B9600A2DD4B /* MetalSpatialBase.swift in Sources */,
+				DAFF4AB91E397B9600A2DD4B /* MetalSpatialSceneTextures.swift in Sources */,
+				DAFF4AC21E397B9600A2DD4B /* VHelpCell.swift in Sources */,
+				DAFF4A9A1E397B9600A2DD4B /* DManager.swift in Sources */,
+				DAFF4AB81E397B9600A2DD4B /* MetalSpatialScene.swift in Sources */,
+				DAFF4ABC1E397B9600A2DD4B /* MetalVertexTextured.swift in Sources */,
+				DAFF4AB31E397B9600A2DD4B /* MetalSpatialBaseTexturedDirectionPositive.swift in Sources */,
+				DAFF4AB41E397B9600A2DD4B /* MetalSpatialBaseTexturedPositive.swift in Sources */,
+				DAFF4AA41E397B9600A2DD4B /* ExtensionUIColor.swift in Sources */,
+				DAFF4AA81E397B9600A2DD4B /* MetalBufferableProtocol.swift in Sources */,
+				DAFF4AB71E397B9600A2DD4B /* MetalSpatialCharTexturesList.swift in Sources */,
+				DAFF4ABD1E397B9600A2DD4B /* MHelp.swift in Sources */,
+				DAFF4ABF1E397B9600A2DD4B /* MSession.swift in Sources */,
+				DAFF4AA51E397B9600A2DD4B /* ExtensionUIFont.swift in Sources */,
+				DAFF4AA11E397B9600A2DD4B /* ExtensionNSLayoutConstraint.swift in Sources */,
+				DAFF4A9F1E397B9600A2DD4B /* ExtensionMTLTexture.swift in Sources */,
+				DAFF4AA21E397B9600A2DD4B /* ExtensionNSManagedObject.swift in Sources */,
+				DAFF4AC41E397B9600A2DD4B /* VAlert.swift in Sources */,
+				DAFF4AB61E397B9600A2DD4B /* MetalSpatialCharTextures.swift in Sources */,
+				DAFF4ABB1E397B9600A2DD4B /* MetalVertexFace.swift in Sources */,
+				DAFF4AAB1E397B9600A2DD4B /* MetalProjectionMatrix.swift in Sources */,
+				DAFF4AC81E397B9600A2DD4B /* VSpinner.swift in Sources */,
+				DAFF4AAA1E397B9600A2DD4B /* MetalProjection.swift in Sources */,
+				DAFF4AB21E397B9600A2DD4B /* MetalSpatialBaseTexturedDirectionNegative.swift in Sources */,
+				DAFF4ABA1E397B9600A2DD4B /* MetalVertex.swift in Sources */,
+				DAFF4AC11E397B9600A2DD4B /* VHelp.swift in Sources */,
+				DAFF4AB01E397B9600A2DD4B /* MetalSpatialBaseTextured.swift in Sources */,
+				DAFF4AA91E397B9600A2DD4B /* MetalConstants.swift in Sources */,
+				DAFF4A9D1E397B9600A2DD4B /* ExtensionMTLDevice.swift in Sources */,
+				DAFF4AAD1E397B9600A2DD4B /* MetalShaderFragmentSimple.metal in Sources */,
+				DAFF4A971E397B9600A2DD4B /* CAppDelegate.swift in Sources */,
+				DAFF4AA31E397B9600A2DD4B /* ExtensionUICollectionReusableView.swift in Sources */,
+				DAFF4AC51E397B9600A2DD4B /* VBlur.swift in Sources */,
+				DAFF4AA61E397B9600A2DD4B /* ExtensionURL.swift in Sources */,
+				DAFF4AAE1E397B9600A2DD4B /* MetalShaderVertexTextured.metal in Sources */,
+				DAFF4A981E397B9600A2DD4B /* CController.swift in Sources */,
+				DAFF4AB11E397B9600A2DD4B /* MetalSpatialBaseTexturedDirection.swift in Sources */,
+				DAFF4AC61E397B9600A2DD4B /* VBorder.swift in Sources */,
+				DAFF4A991E397B9600A2DD4B /* CParent.swift in Sources */,
+				DAFF4AC91E397B9600A2DD4B /* VView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DAFF4A861E397B9600A2DD4B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAFF4A871E397B9600A2DD4B /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DAFF4A441E3979B600A2DD4B /* Debug */ = {
