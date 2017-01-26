@@ -18,7 +18,7 @@ class CParent:UIViewController
     
     weak var viewParent:VParent!
     private let kStatusBarStyle:UIStatusBarStyle = UIStatusBarStyle.default
-    private let kBarHidden:Bool = true
+    private let kBarHidden:Bool = false
     
     init()
     {

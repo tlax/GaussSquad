@@ -2,10 +2,11 @@ import UIKit
 
 class VParent:UIView
 {
+    weak var viewBar:VParentBar!
     private weak var controller:CParent!
     private weak var layoutBarTop:NSLayoutConstraint!
     private let kAnimationDuration:TimeInterval = 0.4
-    private let kBarHeight:CGFloat = 64
+    private let kBarHeight:CGFloat = 70
     
     convenience init(controller:CParent)
     {
@@ -13,6 +14,21 @@ class VParent:UIView
         clipsToBounds = true
         backgroundColor = UIColor.white
         self.controller = controller
+        
+        let viewBar:VParentBar = VParentBar(controller:controller)
+        self.viewBar = viewBar
+        
+        addSubview(viewBar)
+        
+        NSLayoutConstraint.height(
+            view:viewBar,
+            constant:kBarHeight)
+        NSLayoutConstraint.topToTop(
+            view:viewBar,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:viewBar,
+            toView:self)
     }
     
     //MARK: public
