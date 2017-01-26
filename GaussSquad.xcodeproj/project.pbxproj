@@ -163,8 +163,8 @@
 			children = (
 				DAA4BD6F1E3A4BDE00B0360D /* MHome.swift */,
 				DAA4BD711E3A4C4100B0360D /* MHomeItem.swift */,
-				DAA4BD731E3A5DBD00B0360D /* MHomeItemLinearEquations.swift */,
 				DAA4BD751E3A700C00B0360D /* MHomeItemArithmetic.swift */,
+				DAA4BD731E3A5DBD00B0360D /* MHomeItemLinearEquations.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

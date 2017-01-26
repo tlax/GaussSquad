@@ -1,6 +1,9 @@
 import Foundation
 
-class MHomeItemLinearArithmetic:MHomeItem
+class MHomeItemArithmetic:MHomeItem
 {
-    
+    init()
+    {
+        let title:String = NSLocalizedString("MHomeItemArithmetic_title", comment:"")
+    }
 }
