@@ -6,6 +6,8 @@ class MHome
     
     init()
     {
-        items = []
+        let itemLinearEquations:MHomeItemLinearEquations = MHomeItemLinearEquations()
+        
+        items = [itemLinearEquations]
     }
 }
