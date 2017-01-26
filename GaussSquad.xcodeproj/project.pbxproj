@@ -24,7 +24,6 @@
 		DAFF4AA41E397B9600A2DD4B /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A5C1E397B9600A2DD4B /* ExtensionUIColor.swift */; };
 		DAFF4AA51E397B9600A2DD4B /* ExtensionUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A5D1E397B9600A2DD4B /* ExtensionUIFont.swift */; };
 		DAFF4AA61E397B9600A2DD4B /* ExtensionURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A5E1E397B9600A2DD4B /* ExtensionURL.swift */; };
-		DAFF4AA71E397B9600A2DD4B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAFF4A5F1E397B9600A2DD4B /* Info.plist */; };
 		DAFF4AA81E397B9600A2DD4B /* MetalBufferableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A621E397B9600A2DD4B /* MetalBufferableProtocol.swift */; };
 		DAFF4AA91E397B9600A2DD4B /* MetalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A631E397B9600A2DD4B /* MetalConstants.swift */; };
 		DAFF4AAA1E397B9600A2DD4B /* MetalProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A641E397B9600A2DD4B /* MetalProjection.swift */; };
@@ -470,7 +469,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAFF4AA71E397B9600A2DD4B /* Info.plist in Resources */,
 				DAFF4AC01E397B9600A2DD4B /* Localizable.strings in Resources */,
 				DAFF4A961E397B9600A2DD4B /* LaunchScreen.storyboard in Resources */,
 			);
