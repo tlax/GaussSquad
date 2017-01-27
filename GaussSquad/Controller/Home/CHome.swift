@@ -3,6 +3,7 @@ import UIKit
 class CHome:CController
 {
     let model:MHome
+    private weak var viewHome:VHome!
     
     override init()
     {
@@ -14,5 +15,12 @@ class CHome:CController
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func loadView()
+    {
+        let viewHome:VHome = VHome(controller:self)
+        self.viewHome = viewHome
+        view = viewHome
     }
 }

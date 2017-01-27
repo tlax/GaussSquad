@@ -49,6 +49,14 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     //MARK: collectionView delegate
     
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
+    
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
