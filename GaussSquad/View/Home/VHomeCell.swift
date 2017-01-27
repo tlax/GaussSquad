@@ -5,12 +5,15 @@ class VHomeCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var labelSymbol:UILabel!
     private weak var labelTitle:UILabel!
+    private let kImageSize:CGFloat = 70
+    private let kAlphaSelected:CGFloat = 1
+    private let kAlphaNotSelected:CGFloat = 0.2
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.white
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -24,7 +27,7 @@ class VHomeCell:UICollectionViewCell
         labelSymbol.translatesAutoresizingMaskIntoConstraints = false
         labelSymbol.font = UIFont.bold(size:20)
         labelSymbol.textColor = UIColor.black
-        labelSymbol.backgroundColor = UIColor.black
+        labelSymbol.backgroundColor = UIColor.clear
         self.labelSymbol = labelSymbol
         
         let labelTitle:UILabel = UILabel()
@@ -38,11 +41,53 @@ class VHomeCell:UICollectionViewCell
         addSubview(labelTitle)
         addSubview(labelSymbol)
         addSubview(imageView)
+        
+        NSLayoutConstraint.topToTop(
+            view:imageView,
+            toView:self,
+            constant:0)
+        NSLayoutConstraint.leftToLeft(
+            view:imageView,
+            toView:self,
+            constant:0)
+        NSLayoutConstraint.size(
+            view:imageView,
+            constant:kImageSize)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            alpha = kAlphaNotSelected
+        }
+        else
+        {
+            alpha = kAlphaNotSelected
+        }
     }
     
     //MARK: public

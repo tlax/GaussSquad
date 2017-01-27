@@ -51,7 +51,7 @@ class VParent:UIView
     
     func mainView(view:VView)
     {
-        addSubview(view)
+        insertSubview(view, belowSubview:viewBar)
         
         view.layoutTop = NSLayoutConstraint.topToTop(
             view:view,
