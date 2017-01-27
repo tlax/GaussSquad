@@ -97,5 +97,6 @@ class VHomeCell:UICollectionViewCell
         imageView.image = model.image
         labelSymbol.text = model.symbol
         labelTitle.text = model.title
+        hover()
     }
 }
