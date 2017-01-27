@@ -25,10 +25,51 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         collectionView.delegate = self
         collectionView.dataSource = self
         self.collectionView = collectionView
+        
+        addSubview(collectionView)
+        
+        NSLayoutConstraint.equals(
+            view:collectionView,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MHomeItem
+    {
+        let item:MHomeItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        let count:Int = controller.model.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
+        let item:MHomeItem = modelAtIndex(index:indexPath)
+        let cell:VHomeCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VHomeCell.reusableIdentifier,
+            for:indexPath) as! VHomeCell
+        cell.config(model:item)
+        
+        return cell
     }
 }
