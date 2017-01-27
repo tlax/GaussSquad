@@ -6,8 +6,8 @@ class VHomeCell:UICollectionViewCell
     private weak var labelSymbol:UILabel!
     private weak var labelTitle:UILabel!
     private let kImageSize:CGFloat = 70
-    private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.2
+    private let kAlphaSelected:CGFloat = 0.3
+    private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)
     {
@@ -25,7 +25,7 @@ class VHomeCell:UICollectionViewCell
         let labelSymbol:UILabel = UILabel()
         labelSymbol.isUserInteractionEnabled = false
         labelSymbol.translatesAutoresizingMaskIntoConstraints = false
-        labelSymbol.font = UIFont.bold(size:20)
+        labelSymbol.font = UIFont.bold(size:24)
         labelSymbol.textColor = UIColor.black
         labelSymbol.backgroundColor = UIColor.clear
         self.labelSymbol = labelSymbol
@@ -82,7 +82,7 @@ class VHomeCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            alpha = kAlphaNotSelected
+            alpha = kAlphaSelected
         }
         else
         {
