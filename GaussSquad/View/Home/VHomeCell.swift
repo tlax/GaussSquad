@@ -5,9 +5,12 @@ class VHomeCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var labelSymbol:UILabel!
     private weak var labelTitle:UILabel!
-    private let kImageSize:CGFloat = 100
+    private let kImageSize:CGFloat = 90
     private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
+    private let kLabelsTop:CGFloat = 20
+    private let kSymbolHeight:CGFloat = 35
+    private let kTitleHeight:CGFloat = 20
     
     override init(frame:CGRect)
     {
@@ -52,6 +55,33 @@ class VHomeCell:UICollectionViewCell
         NSLayoutConstraint.width(
             view:imageView,
             constant:kImageSize)
+        
+        NSLayoutConstraint.topToTop(
+            view:labelSymbol,
+            toView:self,
+            constant:kLabelsTop)
+        NSLayoutConstraint.height(
+            view:labelSymbol,
+            constant:kSymbolHeight)
+        NSLayoutConstraint.leftToRight(
+            view:labelSymbol,
+            toView:imageView)
+        NSLayoutConstraint.rightToRight(
+            view:labelSymbol,
+            toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:labelTitle,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:labelTitle,
+            constant:kTitleHeight)
+        NSLayoutConstraint.leftToRight(
+            view:labelTitle,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:labelTitle,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
