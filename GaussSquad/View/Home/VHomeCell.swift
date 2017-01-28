@@ -5,7 +5,7 @@ class VHomeCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var labelSymbol:UILabel!
     private weak var labelTitle:UILabel!
-    private let kImageSize:CGFloat = 70
+    private let kImageSize:CGFloat = 100
     private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
     
@@ -42,15 +42,14 @@ class VHomeCell:UICollectionViewCell
         addSubview(labelSymbol)
         addSubview(imageView)
         
-        NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsVertical(
             view:imageView,
-            toView:self,
-            constant:0)
+            toView:self)
         NSLayoutConstraint.leftToLeft(
             view:imageView,
             toView:self,
             constant:0)
-        NSLayoutConstraint.size(
+        NSLayoutConstraint.width(
             view:imageView,
             constant:kImageSize)
     }
