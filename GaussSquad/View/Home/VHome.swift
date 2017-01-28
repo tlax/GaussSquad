@@ -7,7 +7,7 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     private let kCollectionTop:CGFloat = 71
     private let kCollectionBottom:CGFloat = 10
     private let kCollectionInterline:CGFloat = 1
-    private let kCellHeight:CGFloat = 120
+    private let kCellHeight:CGFloat = 100
     private let kDeselectTime:TimeInterval = 0.2
     
     override init(controller:CController)

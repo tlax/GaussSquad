@@ -72,13 +72,13 @@ class VHomeCell:UICollectionViewCell
         
         NSLayoutConstraint.topToBottom(
             view:labelTitle,
-            toView:self)
+            toView:labelSymbol)
         NSLayoutConstraint.height(
             view:labelTitle,
             constant:kTitleHeight)
         NSLayoutConstraint.leftToRight(
             view:labelTitle,
-            toView:self)
+            toView:imageView)
         NSLayoutConstraint.rightToRight(
             view:labelTitle,
             toView:self)
