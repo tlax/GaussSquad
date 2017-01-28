@@ -22,7 +22,7 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let blur:VBlur = VBlur.extraLight()
         
         let button:UIButton = UIButton()
-        button.backgroundColor = UIColor.mainColor
+        button.backgroundColor = UIColor.squadBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
         button.setTitle(
@@ -56,7 +56,7 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         pageControl.clipsToBounds = true
         pageControl.numberOfPages = self.controller.model.items.count
         pageControl.currentPage = 0
-        pageControl.currentPageIndicatorTintColor = UIColor.mainColor
+        pageControl.currentPageIndicatorTintColor = UIColor.squadBlue
         pageControl.pageIndicatorTintColor = UIColor(white:0, alpha:0.1)
         self.pageControl = pageControl
         

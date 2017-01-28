@@ -28,7 +28,7 @@ class VHomeCell:UICollectionViewCell
         let labelSymbol:UILabel = UILabel()
         labelSymbol.isUserInteractionEnabled = false
         labelSymbol.translatesAutoresizingMaskIntoConstraints = false
-        labelSymbol.font = UIFont.bold(size:24)
+        labelSymbol.font = UIFont.regular(size:30)
         labelSymbol.textColor = UIColor.black
         labelSymbol.backgroundColor = UIColor.clear
         self.labelSymbol = labelSymbol
@@ -36,7 +36,7 @@ class VHomeCell:UICollectionViewCell
         let labelTitle:UILabel = UILabel()
         labelTitle.isUserInteractionEnabled = false
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
-        labelTitle.font = UIFont.regular(size:16)
+        labelTitle.font = UIFont.medium(size:16)
         labelTitle.textColor = UIColor.black
         labelTitle.backgroundColor = UIColor.clear
         self.labelTitle = labelTitle
