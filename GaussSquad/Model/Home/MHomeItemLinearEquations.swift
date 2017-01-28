@@ -12,4 +12,11 @@ class MHomeItemLinearEquations:MHomeItem
             title:title,
             image:#imageLiteral(resourceName: "assetGenericLinearEquations"))
     }
+    
+    override func selected() -> CController?
+    {
+        let controller:CLinearEquations = CLinearEquations()
+        
+        return controller
+    }
 }
