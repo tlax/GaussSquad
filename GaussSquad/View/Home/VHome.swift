@@ -4,7 +4,7 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
 {
     private weak var controller:CHome!
     private weak var collectionView:VCollection!
-    private let kCollectionTop:CGFloat = 71
+    private let kCollectionTop:CGFloat = 70
     private let kCollectionBottom:CGFloat = 10
     private let kCollectionInterline:CGFloat = 1
     private let kCellHeight:CGFloat = 100
@@ -13,7 +13,7 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     override init(controller:CController)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor(white:0.96, alpha:1)
+        backgroundColor = UIColor(white:0.98, alpha:1)
         self.controller = controller as? CHome
         
         let collectionView:VCollection = VCollection()
@@ -39,6 +39,13 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func layoutSubviews()
+    {
+        collectionView.flow.invalidateLayout()
+        
+        super.layoutSubviews()
     }
     
     //MARK: private

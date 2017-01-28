@@ -8,9 +8,9 @@ class VHomeCell:UICollectionViewCell
     private let kImageSize:CGFloat = 90
     private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
-    private let kLabelsTop:CGFloat = 27
-    private let kSymbolHeight:CGFloat = 25
-    private let kTitleHeight:CGFloat = 20
+    private let kLabelsTop:CGFloat = 26
+    private let kSymbolHeight:CGFloat = 23
+    private let kTitleHeight:CGFloat = 19
     
     override init(frame:CGRect)
     {
