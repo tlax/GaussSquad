@@ -13,6 +13,9 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     override init(controller:CController)
     {
         super.init(controller:controller)
+        
+        print(UIFont.fontNames(forFamilyName:"Lato"))
+        
         backgroundColor = UIColor(white:0.96, alpha:1)
         self.controller = controller as? CHome
         
