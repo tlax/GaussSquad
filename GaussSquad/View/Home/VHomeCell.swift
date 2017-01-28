@@ -8,8 +8,8 @@ class VHomeCell:UICollectionViewCell
     private let kImageSize:CGFloat = 90
     private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
-    private let kLabelsTop:CGFloat = 20
-    private let kSymbolHeight:CGFloat = 35
+    private let kLabelsTop:CGFloat = 27
+    private let kSymbolHeight:CGFloat = 25
     private let kTitleHeight:CGFloat = 20
     
     override init(frame:CGRect)
@@ -28,8 +28,8 @@ class VHomeCell:UICollectionViewCell
         let labelSymbol:UILabel = UILabel()
         labelSymbol.isUserInteractionEnabled = false
         labelSymbol.translatesAutoresizingMaskIntoConstraints = false
-        labelSymbol.font = UIFont.regular(size:30)
-        labelSymbol.textColor = UIColor.black
+        labelSymbol.font = UIFont.bold(size:20)
+        labelSymbol.textColor = UIColor.squadBlue
         labelSymbol.backgroundColor = UIColor.clear
         self.labelSymbol = labelSymbol
         
@@ -56,10 +56,9 @@ class VHomeCell:UICollectionViewCell
             view:imageView,
             constant:kImageSize)
         
-        NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToBottom(
             view:labelSymbol,
-            toView:self,
-            constant:kLabelsTop)
+            toView:labelTitle)
         NSLayoutConstraint.height(
             view:labelSymbol,
             constant:kSymbolHeight)
@@ -70,9 +69,10 @@ class VHomeCell:UICollectionViewCell
             view:labelSymbol,
             toView:self)
         
-        NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToTop(
             view:labelTitle,
-            toView:labelSymbol)
+            toView:self,
+            constant:kLabelsTop)
         NSLayoutConstraint.height(
             view:labelTitle,
             constant:kTitleHeight)

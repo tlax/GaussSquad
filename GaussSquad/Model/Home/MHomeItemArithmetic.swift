@@ -10,6 +10,6 @@ class MHomeItemArithmetic:MHomeItem
         super.init(
             symbol:symbol,
             title:title,
-            image:#imageLiteral(resourceName: "assetGenericLinearEquations"))
+            image:#imageLiteral(resourceName: "assetGenericArithmetic"))
     }
 }
