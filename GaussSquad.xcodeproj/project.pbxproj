@@ -20,6 +20,7 @@
 		DAF37ACD1E3D4576005052D8 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACA1E3D4576005052D8 /* Lato-Light.ttf */; };
 		DAF37ACE1E3D4576005052D8 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACB1E3D4576005052D8 /* Lato-Regular.ttf */; };
 		DAF37ACF1E3D4576005052D8 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACC1E3D4576005052D8 /* Lato-Semibold.ttf */; };
+		DAF37AD21E3D4FEF005052D8 /* CLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */; };
 		DAFF4A961E397B9600A2DD4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */; };
 		DAFF4A971E397B9600A2DD4B /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */; };
 		DAFF4A981E397B9600A2DD4B /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4E1E397B9500A2DD4B /* CController.swift */; };
@@ -64,6 +65,7 @@
 		DAF37ACA1E3D4576005052D8 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		DAF37ACB1E3D4576005052D8 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		DAF37ACC1E3D4576005052D8 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquations.swift; sourceTree = "<group>"; };
 		DAFF4A341E3979B600A2DD4B /* GaussSquad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GaussSquad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,14 @@
 			path = Lato;
 			sourceTree = "<group>";
 		};
+		DAF37AD01E3D4FE4005052D8 /* LinearEquations */ = {
+			isa = PBXGroup;
+			children = (
+				DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */,
+			);
+			path = LinearEquations;
+			sourceTree = "<group>";
+		};
 		DAFF4A2B1E3979B600A2DD4B = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +192,7 @@
 		DAFF4A4B1E397B9500A2DD4B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DAF37AD01E3D4FE4005052D8 /* LinearEquations */,
 				DAFF4AD41E397DF700A2DD4B /* Home */,
 				DAFF4A4C1E397B9500A2DD4B /* Main */,
 				DAFF4AD11E397D9A00A2DD4B /* Help */,
@@ -412,6 +423,7 @@
 				DAFF4AA01E397B9600A2DD4B /* ExtensionNotification.swift in Sources */,
 				DAFF4A9B1E397B9600A2DD4B /* ExtensionFileManager.swift in Sources */,
 				DAFF4AC31E397B9600A2DD4B /* VParent.swift in Sources */,
+				DAF37AD21E3D4FEF005052D8 /* CLinearEquations.swift in Sources */,
 				DA033CEA1E3A935700F7645C /* VHome.swift in Sources */,
 				DAFF4AC71E397B9600A2DD4B /* VCollection.swift in Sources */,
 				DAFF4ABE1E397B9600A2DD4B /* MHelpItem.swift in Sources */,
