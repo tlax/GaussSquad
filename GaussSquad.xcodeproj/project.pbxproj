@@ -21,6 +21,7 @@
 		DAF37ACE1E3D4576005052D8 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACB1E3D4576005052D8 /* Lato-Regular.ttf */; };
 		DAF37ACF1E3D4576005052D8 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACC1E3D4576005052D8 /* Lato-Semibold.ttf */; };
 		DAF37AD21E3D4FEF005052D8 /* CLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */; };
+		DAF37AD91E3D51D7005052D8 /* VLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AD81E3D51D7005052D8 /* VLinearEquations.swift */; };
 		DAFF4A961E397B9600A2DD4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */; };
 		DAFF4A971E397B9600A2DD4B /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */; };
 		DAFF4A981E397B9600A2DD4B /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4E1E397B9500A2DD4B /* CController.swift */; };
@@ -66,6 +67,7 @@
 		DAF37ACB1E3D4576005052D8 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		DAF37ACC1E3D4576005052D8 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquations.swift; sourceTree = "<group>"; };
+		DAF37AD81E3D51D7005052D8 /* VLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquations.swift; sourceTree = "<group>"; };
 		DAFF4A341E3979B600A2DD4B /* GaussSquad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GaussSquad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,29 @@
 				DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */,
 			);
 			path = LinearEquations;
+			sourceTree = "<group>";
+		};
+		DAF37AD31E3D5098005052D8 /* LinearEquations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LinearEquations;
+			sourceTree = "<group>";
+		};
+		DAF37AD41E3D509F005052D8 /* LinearEquations */ = {
+			isa = PBXGroup;
+			children = (
+				DAF37AD71E3D51C8005052D8 /* Landing */,
+			);
+			path = LinearEquations;
+			sourceTree = "<group>";
+		};
+		DAF37AD71E3D51C8005052D8 /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				DAF37AD81E3D51D7005052D8 /* VLinearEquations.swift */,
+			);
+			path = Landing;
 			sourceTree = "<group>";
 		};
 		DAFF4A2B1E3979B600A2DD4B = {
@@ -236,6 +261,7 @@
 		DAFF4A7E1E397B9600A2DD4B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DAF37AD31E3D5098005052D8 /* LinearEquations */,
 				DAA4BD6E1E3A4A1E00B0360D /* Home */,
 				DAFF4A7F1E397B9600A2DD4B /* Help */,
 				DAFF4A831E397B9600A2DD4B /* Session */,
@@ -279,6 +305,7 @@
 		DAFF4A881E397B9600A2DD4B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DAF37AD41E3D509F005052D8 /* LinearEquations */,
 				DA033CE81E3A934800F7645C /* Home */,
 				DAFF4A891E397B9600A2DD4B /* Help */,
 				DAFF4A8C1E397B9600A2DD4B /* Main */,
@@ -430,6 +457,7 @@
 				DAFF4AC21E397B9600A2DD4B /* VHelpCell.swift in Sources */,
 				DAFF4A9A1E397B9600A2DD4B /* DManager.swift in Sources */,
 				DAFF4AA41E397B9600A2DD4B /* ExtensionUIColor.swift in Sources */,
+				DAF37AD91E3D51D7005052D8 /* VLinearEquations.swift in Sources */,
 				DAA4BD761E3A700C00B0360D /* MHomeItemArithmetic.swift in Sources */,
 				DAFF4ABD1E397B9600A2DD4B /* MHelp.swift in Sources */,
 				DAFF4ABF1E397B9600A2DD4B /* MSession.swift in Sources */,
