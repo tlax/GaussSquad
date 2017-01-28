@@ -23,4 +23,22 @@ class CHome:CController
         self.viewHome = viewHome
         view = viewHome
     }
+    
+    //MARK: public
+    
+    func selected(item:MHomeItem)
+    {
+        guard
+        
+            let controller:CController = item.selected()
+        
+        else
+        {
+            return
+        }
+        
+        parentController.push(
+            controller:controller,
+            horizontal:CParent.TransitionHorizontal.fromRight)
+    }
 }

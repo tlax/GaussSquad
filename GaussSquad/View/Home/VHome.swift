@@ -94,6 +94,7 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:MHomeItem = modelAtIndex(index:indexPath)
+        controller.selected(item:item)
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)
