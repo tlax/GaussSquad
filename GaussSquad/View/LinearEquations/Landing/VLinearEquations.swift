@@ -7,7 +7,7 @@ class VLinearEquations:VView
     private weak var viewBar:VLinearEquationsBar!
     private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 160
+    private let kBarHeight:CGFloat = 250
     
     override init(controller:CController)
     {

@@ -3,14 +3,18 @@ import UIKit
 class VLinearEquationsBar:UIView
 {
     private weak var controller:CLinearEquations!
+    private weak var layoutImageGaussLeft:NSLayoutConstraint!
+    private let gaussWidth:CGFloat
     private let kContentTop:CGFloat = 20
     private let kBackWidth:CGFloat = 60
     private let kBackHeight:CGFloat = 44
-    private let kImageGaussSize:CGFloat = 130
-    private let kLabelGaussRight:CGFloat = -10
+    private let kImageGaussSize:CGFloat = 100
+    private let kLabelGaussWidth:CGFloat = 140
     
     init(controller:CLinearEquations)
     {
+        gaussWidth = kImageGaussSize + kLabelGaussWidth
+        
         super.init(frame:CGRect.zero)
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
@@ -20,12 +24,12 @@ class VLinearEquationsBar:UIView
         let stringGaussName:NSAttributedString = NSAttributedString(
             string:NSLocalizedString("VLinearEquationsBar_labelGaussName", comment:""),
             attributes:[
-                NSFontAttributeName:UIFont.medium(size:15),
+                NSFontAttributeName:UIFont.bold(size:14),
                 NSForegroundColorAttributeName:UIColor.squadBlue])
         let stringGaussDate:NSAttributedString = NSAttributedString(
             string:NSLocalizedString("VLinearEquationsBar_labelGaussDate", comment:""),
             attributes:[
-                NSFontAttributeName:UIFont.regular(size:15),
+                NSFontAttributeName:UIFont.regular(size:11),
                 NSForegroundColorAttributeName:UIColor.black])
         let stringGauss:NSMutableAttributedString = NSMutableAttributedString()
         stringGauss.append(stringGaussName)
@@ -52,7 +56,7 @@ class VLinearEquationsBar:UIView
         labelTitle.isUserInteractionEnabled = false
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
-        labelTitle.font = UIFont.medium(size:16)
+        labelTitle.font = UIFont.medium(size:17)
         labelTitle.textColor = UIColor.black
         labelTitle.text = NSLocalizedString("VLinearEquationsBar_labelTitle", comment:"")
         
@@ -106,7 +110,7 @@ class VLinearEquationsBar:UIView
         NSLayoutConstraint.size(
             view:imageGauss,
             constant:kImageGaussSize)
-        NSLayoutConstraint.leftToLeft(
+        layoutImageGaussLeft = NSLayoutConstraint.leftToLeft(
             view:imageGauss,
             toView:self)
         
@@ -116,15 +120,24 @@ class VLinearEquationsBar:UIView
         NSLayoutConstraint.leftToRight(
             view:labelGauss,
             toView:imageGauss)
-        NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.width(
             view:labelGauss,
-            toView:self,
-            constant:kLabelGaussRight)
+            constant:kLabelGaussWidth)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let gaussRemain:CGFloat = width - gaussWidth
+        let gaussMargin:CGFloat = gaussRemain / 2.0
+        layoutImageGaussLeft.constant = gaussMargin
+        
+        super.layoutSubviews()
     }
     
     //MARK: actions
