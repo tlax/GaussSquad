@@ -8,6 +8,14 @@ class VLinearEquations:VView
     {
         super.init(controller:controller)
         self.controller = controller as? CLinearEquations
+        
+        let spinner:VSpinner = VSpinner()
+        
+        addSubview(spinner)
+        
+        NSLayoutConstraint.equals(
+            view:spinner,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
