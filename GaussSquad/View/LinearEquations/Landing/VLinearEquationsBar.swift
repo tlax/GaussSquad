@@ -8,6 +8,7 @@ class VLinearEquationsBar:UIView
     private let kContentTop:CGFloat = 20
     private let kBackWidth:CGFloat = 60
     private let kBackHeight:CGFloat = 44
+    private let kImageGaussMargin:CGFloat = 20
     private let kImageGaussSize:CGFloat = 100
     private let kLabelGaussWidth:CGFloat = 140
     
@@ -106,7 +107,8 @@ class VLinearEquationsBar:UIView
         
         NSLayoutConstraint.topToBottom(
             view:imageGauss,
-            toView:buttonBack)
+            toView:buttonBack,
+            constant:kImageGaussMargin)
         NSLayoutConstraint.size(
             view:imageGauss,
             constant:kImageGaussSize)
