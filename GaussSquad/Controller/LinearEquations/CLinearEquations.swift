@@ -8,6 +8,8 @@ class CLinearEquations:CController
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
+        
+        viewLinearEquations.modelLoading()
         model = MLinearEquations(controller:self)
     }
     
@@ -19,6 +21,11 @@ class CLinearEquations:CController
     }
     
     //MARK: public
+    
+    func back()
+    {
+        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+    }
     
     func modelLoaded()
     {

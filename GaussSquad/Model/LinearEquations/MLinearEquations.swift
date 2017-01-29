@@ -19,7 +19,7 @@ class MLinearEquations
     
     private func loadFromDb()
     {
-        
+        finishLoading()
     }
     
     private func finishLoading()
