@@ -1,9 +1,6 @@
-"MFightFighterTuring_name"="Turing";
-"MFightFighterGauss_name"="Gauss";
 "MHomeItemArithmetic_symbol"="a * b = c";
 "MHomeItemArithmetic_title"="Arithmetic";
 "MHomeItemLinearEquations_symbol"="ax + b = 0";
 "MHomeItemLinearEquations_title"="Linear equations";
 
-"VFightInfoCountDown_ready"="Ready";
-"VFightInfoCountDown_fight"="Fight";
+"VLinearEquationsBar_labelTitle"="Linear equation";
