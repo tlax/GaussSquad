@@ -19,6 +19,7 @@ class VLinearEquations:VView
         
         let viewBar:VLinearEquationsBar = VLinearEquationsBar(
             controller:self.controller)
+        viewBar.isHidden = true
         self.viewBar = viewBar
         
         let collectionView:VCollection = VCollection()
