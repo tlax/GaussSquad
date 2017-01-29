@@ -22,4 +22,11 @@ class VLinearEquations:VView
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        
+    }
 }

@@ -23,6 +23,9 @@
 		DAF37AD21E3D4FEF005052D8 /* CLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */; };
 		DAF37AD91E3D51D7005052D8 /* VLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AD81E3D51D7005052D8 /* VLinearEquations.swift */; };
 		DAF37ADB1E3D6588005052D8 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ADA1E3D6588005052D8 /* spinner.xcassets */; };
+		DAF37ADF1E3D6BC1005052D8 /* VLinearEquationsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37ADE1E3D6BC1005052D8 /* VLinearEquationsHeader.swift */; };
+		DAF37AE11E3D6BCE005052D8 /* VLinearEquationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AE01E3D6BCE005052D8 /* VLinearEquationsCell.swift */; };
+		DAF37AE31E3D6C4B005052D8 /* MLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AE21E3D6C4B005052D8 /* MLinearEquations.swift */; };
 		DAFF4A961E397B9600A2DD4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */; };
 		DAFF4A971E397B9600A2DD4B /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */; };
 		DAFF4A981E397B9600A2DD4B /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4E1E397B9500A2DD4B /* CController.swift */; };
@@ -70,6 +73,9 @@
 		DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquations.swift; sourceTree = "<group>"; };
 		DAF37AD81E3D51D7005052D8 /* VLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquations.swift; sourceTree = "<group>"; };
 		DAF37ADA1E3D6588005052D8 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
+		DAF37ADE1E3D6BC1005052D8 /* VLinearEquationsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsHeader.swift; sourceTree = "<group>"; };
+		DAF37AE01E3D6BCE005052D8 /* VLinearEquationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsCell.swift; sourceTree = "<group>"; };
+		DAF37AE21E3D6C4B005052D8 /* MLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquations.swift; sourceTree = "<group>"; };
 		DAFF4A341E3979B600A2DD4B /* GaussSquad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GaussSquad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +160,7 @@
 		DAF37AD31E3D5098005052D8 /* LinearEquations */ = {
 			isa = PBXGroup;
 			children = (
+				DAF37AE21E3D6C4B005052D8 /* MLinearEquations.swift */,
 			);
 			path = LinearEquations;
 			sourceTree = "<group>";
@@ -170,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				DAF37AD81E3D51D7005052D8 /* VLinearEquations.swift */,
+				DAF37ADE1E3D6BC1005052D8 /* VLinearEquationsHeader.swift */,
+				DAF37AE01E3D6BCE005052D8 /* VLinearEquationsCell.swift */,
 			);
 			path = Landing;
 			sourceTree = "<group>";
@@ -466,10 +475,13 @@
 				DAFF4ABD1E397B9600A2DD4B /* MHelp.swift in Sources */,
 				DAFF4ABF1E397B9600A2DD4B /* MSession.swift in Sources */,
 				DAFF4AA51E397B9600A2DD4B /* ExtensionUIFont.swift in Sources */,
+				DAF37AE31E3D6C4B005052D8 /* MLinearEquations.swift in Sources */,
 				DAFF4AA11E397B9600A2DD4B /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DAA4BD721E3A4C4100B0360D /* MHomeItem.swift in Sources */,
+				DAF37AE11E3D6BCE005052D8 /* VLinearEquationsCell.swift in Sources */,
 				DAFF4AA21E397B9600A2DD4B /* ExtensionNSManagedObject.swift in Sources */,
 				DAFF4AC41E397B9600A2DD4B /* VAlert.swift in Sources */,
+				DAF37ADF1E3D6BC1005052D8 /* VLinearEquationsHeader.swift in Sources */,
 				DAFF4AC81E397B9600A2DD4B /* VSpinner.swift in Sources */,
 				DAFF4AD31E397D9A00A2DD4B /* CHelp.swift in Sources */,
 				DAFF4AD61E397E0100A2DD4B /* CHome.swift in Sources */,
