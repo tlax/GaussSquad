@@ -3,6 +3,7 @@ import UIKit
 class VLinearEquationsBar:UIView
 {
     private weak var controller:CLinearEquations!
+    private weak var labelTitle:UILabel!
     private let kContentTop:CGFloat = 20
     private let kBackWidth:CGFloat = 60
     private let kBackHeight:CGFloat = 44
