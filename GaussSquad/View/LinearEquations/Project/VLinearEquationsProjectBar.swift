@@ -2,6 +2,7 @@ import UIKit
 
 class VLinearEquationsProjectBar:UIView
 {
+    let model
     private weak var controller:CLinearEquationsProject!
     
     init(controller:CLinearEquationsProject)
