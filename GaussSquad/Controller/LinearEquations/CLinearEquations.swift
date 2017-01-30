@@ -40,7 +40,7 @@ class CLinearEquations:CController
     func selectedProject(project:DProject)
     {
         let controller:CLinearEquationsProject = CLinearEquationsProject(
-            model:project)
+            project:project)
         parentController.push(
             controller:controller,
             horizontal:CParent.TransitionHorizontal.fromRight)
