@@ -103,6 +103,18 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     
     //MARK: collectionView delegate
     
+    func scrollViewDidScroll(_ scrollView:UIScrollView)
+    {
+        var offsetY:CGFloat = scrollView.contentOffset.y
+        
+        if offsetY > 0
+        {
+            offsetY = 0
+        }
+        
+        layoutBarTop.constant = offsetY
+    }
+    
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
     {
         let collectionTop:CGFloat = layoutBarHeight.constant
@@ -157,6 +169,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:DProject = modelAtIndex(index:indexPath)
+        controller.selectedProject(project:item)
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)

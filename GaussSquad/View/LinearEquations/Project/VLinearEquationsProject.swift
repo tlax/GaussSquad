@@ -4,6 +4,8 @@ class VLinearEquationsProject:VView
 {
     private weak var controller:CLinearEquationsProject!
     private weak var viewBar:VLinearEquationsProjectBar!
+    private weak var collectionView:VCollection!
+    private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 70
     
@@ -14,8 +16,18 @@ class VLinearEquationsProject:VView
         
         let viewBar:VLinearEquationsProjectBar = VLinearEquationsProjectBar(
             controller:self.controller)
+        viewBar.isHidden = true
+        self.viewBar = viewBar
         
+        let spinner:VSpinner = VSpinner()
+        self.spinner = spinner
+        
+        let collectionView:VCollection = VCollection()
+        self.collectionView = collectionView
+        
+        addSubview(collectionView)
         addSubview(viewBar)
+        addSubview(spinner)
         
         layoutBarTop = NSLayoutConstraint.topToTop(
             view:viewBar,
@@ -26,10 +38,32 @@ class VLinearEquationsProject:VView
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:spinner,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:collectionView,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        
+        super.layoutSubviews()
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        spinner.stopAnimating()
+        viewBar.isHidden = false
     }
 }
