@@ -23,7 +23,8 @@
 		DAD5189C1E3FB19B0004C8D8 /* VLinearEquationsProjectBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5189B1E3FB19B0004C8D8 /* VLinearEquationsProjectBar.swift */; };
 		DAD5189E1E3FB51B0004C8D8 /* VLinearEquationsProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5189D1E3FB51B0004C8D8 /* VLinearEquationsProjectCell.swift */; };
 		DAD518A01E3FB7220004C8D8 /* MLinearEquationsProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5189F1E3FB7220004C8D8 /* MLinearEquationsProject.swift */; };
-		DAD518A21E3FB7380004C8D8 /* MLinearEquationsProjectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518A11E3FB7380004C8D8 /* MLinearEquationsProjectItem.swift */; };
+		DAD518A41E3FB87C0004C8D8 /* MLinearEquationsProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518A31E3FB87C0004C8D8 /* MLinearEquationsProjectRow.swift */; };
+		DAD518A61E3FB88A0004C8D8 /* MLinearEquationsProjectRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518A51E3FB88A0004C8D8 /* MLinearEquationsProjectRowItem.swift */; };
 		DAF37ACD1E3D4576005052D8 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACA1E3D4576005052D8 /* Lato-Light.ttf */; };
 		DAF37ACE1E3D4576005052D8 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACB1E3D4576005052D8 /* Lato-Regular.ttf */; };
 		DAF37ACF1E3D4576005052D8 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACC1E3D4576005052D8 /* Lato-Semibold.ttf */; };
@@ -80,7 +81,8 @@
 		DAD5189B1E3FB19B0004C8D8 /* VLinearEquationsProjectBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectBar.swift; sourceTree = "<group>"; };
 		DAD5189D1E3FB51B0004C8D8 /* VLinearEquationsProjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectCell.swift; sourceTree = "<group>"; };
 		DAD5189F1E3FB7220004C8D8 /* MLinearEquationsProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProject.swift; sourceTree = "<group>"; };
-		DAD518A11E3FB7380004C8D8 /* MLinearEquationsProjectItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectItem.swift; sourceTree = "<group>"; };
+		DAD518A31E3FB87C0004C8D8 /* MLinearEquationsProjectRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectRow.swift; sourceTree = "<group>"; };
+		DAD518A51E3FB88A0004C8D8 /* MLinearEquationsProjectRowItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectRowItem.swift; sourceTree = "<group>"; };
 		DAF37ACA1E3D4576005052D8 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		DAF37ACB1E3D4576005052D8 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		DAF37ACC1E3D4576005052D8 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
@@ -187,7 +189,8 @@
 			children = (
 				DAF37AE21E3D6C4B005052D8 /* MLinearEquations.swift */,
 				DAD5189F1E3FB7220004C8D8 /* MLinearEquationsProject.swift */,
-				DAD518A11E3FB7380004C8D8 /* MLinearEquationsProjectItem.swift */,
+				DAD518A31E3FB87C0004C8D8 /* MLinearEquationsProjectRow.swift */,
+				DAD518A51E3FB88A0004C8D8 /* MLinearEquationsProjectRowItem.swift */,
 			);
 			path = LinearEquations;
 			sourceTree = "<group>";
@@ -494,8 +497,10 @@
 				DAFF4AC31E397B9600A2DD4B /* VParent.swift in Sources */,
 				DAF37AD21E3D4FEF005052D8 /* CLinearEquations.swift in Sources */,
 				DA033CEA1E3A935700F7645C /* VHome.swift in Sources */,
+				DAD518A41E3FB87C0004C8D8 /* MLinearEquationsProjectRow.swift in Sources */,
 				DAFF4AC71E397B9600A2DD4B /* VCollection.swift in Sources */,
 				DAD5189E1E3FB51B0004C8D8 /* VLinearEquationsProjectCell.swift in Sources */,
+				DAD518A61E3FB88A0004C8D8 /* MLinearEquationsProjectRowItem.swift in Sources */,
 				DAFF4ABE1E397B9600A2DD4B /* MHelpItem.swift in Sources */,
 				DAFF4AC21E397B9600A2DD4B /* VHelpCell.swift in Sources */,
 				DAFF4A9A1E397B9600A2DD4B /* DManager.swift in Sources */,
@@ -513,7 +518,6 @@
 				DAFF4AA11E397B9600A2DD4B /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DAA4BD721E3A4C4100B0360D /* MHomeItem.swift in Sources */,
 				DAF37AE11E3D6BCE005052D8 /* VLinearEquationsCell.swift in Sources */,
-				DAD518A21E3FB7380004C8D8 /* MLinearEquationsProjectItem.swift in Sources */,
 				DAFF4AA21E397B9600A2DD4B /* ExtensionNSManagedObject.swift in Sources */,
 				DAFF4AC41E397B9600A2DD4B /* VAlert.swift in Sources */,
 				DAFF4AC81E397B9600A2DD4B /* VSpinner.swift in Sources */,

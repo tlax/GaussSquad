@@ -2,17 +2,12 @@ import UIKit
 
 class CLinearEquationsProject:CController
 {
-    var model:DProject?
+    let model:MLinearEquationsProject
     private weak var viewProject:VLinearEquationsProject!
     
-    override init()
+    init(project:DProject?)
     {
-        super.init()
-    }
-    
-    init(model:DProject)
-    {
-        self.model = model
+        model = MLinearEquationsProject(project:project)
         super.init()
     }
     
@@ -25,6 +20,7 @@ class CLinearEquationsProject:CController
     {
         super.viewDidLoad()
         
+        model.load(controller:self)
     }
     
     override func loadView()
@@ -49,5 +45,10 @@ class CLinearEquationsProject:CController
     func delete()
     {
         
+    }
+    
+    func modelLoaded()
+    {
+        viewProject.refresh()
     }
 }
