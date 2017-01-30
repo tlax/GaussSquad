@@ -22,9 +22,10 @@
 		DAD5189A1E3FB0830004C8D8 /* VLinearEquationsProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518991E3FB0830004C8D8 /* VLinearEquationsProject.swift */; };
 		DAD5189C1E3FB19B0004C8D8 /* VLinearEquationsProjectBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5189B1E3FB19B0004C8D8 /* VLinearEquationsProjectBar.swift */; };
 		DAD5189E1E3FB51B0004C8D8 /* VLinearEquationsProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5189D1E3FB51B0004C8D8 /* VLinearEquationsProjectCell.swift */; };
-		DAD518A01E3FB7220004C8D8 /* MLinearEquationsProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5189F1E3FB7220004C8D8 /* MLinearEquationsProject.swift */; };
-		DAD518A41E3FB87C0004C8D8 /* MLinearEquationsProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518A31E3FB87C0004C8D8 /* MLinearEquationsProjectRow.swift */; };
-		DAD518A61E3FB88A0004C8D8 /* MLinearEquationsProjectRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518A51E3FB88A0004C8D8 /* MLinearEquationsProjectRowItem.swift */; };
+		DAD518AD1E3FBCF90004C8D8 /* MLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518A81E3FBCF90004C8D8 /* MLinearEquations.swift */; };
+		DAD518AE1E3FBCF90004C8D8 /* MLinearEquationsProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518AA1E3FBCF90004C8D8 /* MLinearEquationsProject.swift */; };
+		DAD518AF1E3FBCF90004C8D8 /* MLinearEquationsProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518AB1E3FBCF90004C8D8 /* MLinearEquationsProjectRow.swift */; };
+		DAD518B01E3FBCF90004C8D8 /* MLinearEquationsProjectRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518AC1E3FBCF90004C8D8 /* MLinearEquationsProjectRowItem.swift */; };
 		DAF37ACD1E3D4576005052D8 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACA1E3D4576005052D8 /* Lato-Light.ttf */; };
 		DAF37ACE1E3D4576005052D8 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACB1E3D4576005052D8 /* Lato-Regular.ttf */; };
 		DAF37ACF1E3D4576005052D8 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACC1E3D4576005052D8 /* Lato-Semibold.ttf */; };
@@ -32,7 +33,6 @@
 		DAF37AD91E3D51D7005052D8 /* VLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AD81E3D51D7005052D8 /* VLinearEquations.swift */; };
 		DAF37ADB1E3D6588005052D8 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ADA1E3D6588005052D8 /* spinner.xcassets */; };
 		DAF37AE11E3D6BCE005052D8 /* VLinearEquationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AE01E3D6BCE005052D8 /* VLinearEquationsCell.swift */; };
-		DAF37AE31E3D6C4B005052D8 /* MLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AE21E3D6C4B005052D8 /* MLinearEquations.swift */; };
 		DAF37AE51E3D6EA1005052D8 /* VLinearEquationsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AE41E3D6EA1005052D8 /* VLinearEquationsBar.swift */; };
 		DAFF4A961E397B9600A2DD4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */; };
 		DAFF4A971E397B9600A2DD4B /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */; };
@@ -80,9 +80,10 @@
 		DAD518991E3FB0830004C8D8 /* VLinearEquationsProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProject.swift; sourceTree = "<group>"; };
 		DAD5189B1E3FB19B0004C8D8 /* VLinearEquationsProjectBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectBar.swift; sourceTree = "<group>"; };
 		DAD5189D1E3FB51B0004C8D8 /* VLinearEquationsProjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectCell.swift; sourceTree = "<group>"; };
-		DAD5189F1E3FB7220004C8D8 /* MLinearEquationsProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProject.swift; sourceTree = "<group>"; };
-		DAD518A31E3FB87C0004C8D8 /* MLinearEquationsProjectRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectRow.swift; sourceTree = "<group>"; };
-		DAD518A51E3FB88A0004C8D8 /* MLinearEquationsProjectRowItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectRowItem.swift; sourceTree = "<group>"; };
+		DAD518A81E3FBCF90004C8D8 /* MLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquations.swift; sourceTree = "<group>"; };
+		DAD518AA1E3FBCF90004C8D8 /* MLinearEquationsProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProject.swift; sourceTree = "<group>"; };
+		DAD518AB1E3FBCF90004C8D8 /* MLinearEquationsProjectRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectRow.swift; sourceTree = "<group>"; };
+		DAD518AC1E3FBCF90004C8D8 /* MLinearEquationsProjectRowItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectRowItem.swift; sourceTree = "<group>"; };
 		DAF37ACA1E3D4576005052D8 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		DAF37ACB1E3D4576005052D8 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		DAF37ACC1E3D4576005052D8 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		DAF37AD81E3D51D7005052D8 /* VLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquations.swift; sourceTree = "<group>"; };
 		DAF37ADA1E3D6588005052D8 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
 		DAF37AE01E3D6BCE005052D8 /* VLinearEquationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsCell.swift; sourceTree = "<group>"; };
-		DAF37AE21E3D6C4B005052D8 /* MLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquations.swift; sourceTree = "<group>"; };
 		DAF37AE41E3D6EA1005052D8 /* VLinearEquationsBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsBar.swift; sourceTree = "<group>"; };
 		DAFF4A341E3979B600A2DD4B /* GaussSquad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GaussSquad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -165,6 +165,24 @@
 			path = Project;
 			sourceTree = "<group>";
 		};
+		DAD518A71E3FBCF90004C8D8 /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				DAD518A81E3FBCF90004C8D8 /* MLinearEquations.swift */,
+			);
+			path = Landing;
+			sourceTree = "<group>";
+		};
+		DAD518A91E3FBCF90004C8D8 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				DAD518AA1E3FBCF90004C8D8 /* MLinearEquationsProject.swift */,
+				DAD518AB1E3FBCF90004C8D8 /* MLinearEquationsProjectRow.swift */,
+				DAD518AC1E3FBCF90004C8D8 /* MLinearEquationsProjectRowItem.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
 		DAF37AC91E3D4576005052D8 /* Lato */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,10 +205,8 @@
 		DAF37AD31E3D5098005052D8 /* LinearEquations */ = {
 			isa = PBXGroup;
 			children = (
-				DAF37AE21E3D6C4B005052D8 /* MLinearEquations.swift */,
-				DAD5189F1E3FB7220004C8D8 /* MLinearEquationsProject.swift */,
-				DAD518A31E3FB87C0004C8D8 /* MLinearEquationsProjectRow.swift */,
-				DAD518A51E3FB88A0004C8D8 /* MLinearEquationsProjectRowItem.swift */,
+				DAD518A71E3FBCF90004C8D8 /* Landing */,
+				DAD518A91E3FBCF90004C8D8 /* Projects */,
 			);
 			path = LinearEquations;
 			sourceTree = "<group>";
@@ -497,10 +513,10 @@
 				DAFF4AC31E397B9600A2DD4B /* VParent.swift in Sources */,
 				DAF37AD21E3D4FEF005052D8 /* CLinearEquations.swift in Sources */,
 				DA033CEA1E3A935700F7645C /* VHome.swift in Sources */,
-				DAD518A41E3FB87C0004C8D8 /* MLinearEquationsProjectRow.swift in Sources */,
+				DAD518AF1E3FBCF90004C8D8 /* MLinearEquationsProjectRow.swift in Sources */,
 				DAFF4AC71E397B9600A2DD4B /* VCollection.swift in Sources */,
 				DAD5189E1E3FB51B0004C8D8 /* VLinearEquationsProjectCell.swift in Sources */,
-				DAD518A61E3FB88A0004C8D8 /* MLinearEquationsProjectRowItem.swift in Sources */,
+				DAD518B01E3FBCF90004C8D8 /* MLinearEquationsProjectRowItem.swift in Sources */,
 				DAFF4ABE1E397B9600A2DD4B /* MHelpItem.swift in Sources */,
 				DAFF4AC21E397B9600A2DD4B /* VHelpCell.swift in Sources */,
 				DAFF4A9A1E397B9600A2DD4B /* DManager.swift in Sources */,
@@ -511,9 +527,9 @@
 				DAFF4ABD1E397B9600A2DD4B /* MHelp.swift in Sources */,
 				DAD518951E3F978D0004C8D8 /* DGaussSquad.xcdatamodeld in Sources */,
 				DAFF4ABF1E397B9600A2DD4B /* MSession.swift in Sources */,
+				DAD518AD1E3FBCF90004C8D8 /* MLinearEquations.swift in Sources */,
+				DAD518AE1E3FBCF90004C8D8 /* MLinearEquationsProject.swift in Sources */,
 				DAFF4AA51E397B9600A2DD4B /* ExtensionUIFont.swift in Sources */,
-				DAD518A01E3FB7220004C8D8 /* MLinearEquationsProject.swift in Sources */,
-				DAF37AE31E3D6C4B005052D8 /* MLinearEquations.swift in Sources */,
 				DAD5189A1E3FB0830004C8D8 /* VLinearEquationsProject.swift in Sources */,
 				DAFF4AA11E397B9600A2DD4B /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DAA4BD721E3A4C4100B0360D /* MHomeItem.swift in Sources */,
