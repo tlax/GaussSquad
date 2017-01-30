@@ -72,7 +72,11 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     func refresh()
     {
         collectionView.scrollRectToVisible(
-            CGRect(x:0, y:0, width:1, height:1),
+            CGRect(
+                x:0,
+                y:0,
+                width:1,
+                height:1),
             animated:false)
         collectionView.reloadData()
         spinner.stopAnimating()
@@ -90,6 +94,20 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
+        guard
         
+            let count:Int = controller.model?.projects.count
+        
+        else
+        {
+            return 0
+        }
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
+        let cell:VLinearEquationsce
     }
 }

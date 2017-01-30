@@ -2,11 +2,13 @@ import Foundation
 
 class MLinearEquations
 {
+    private(set) var projects:[DProject]
     private weak var controller:CLinearEquations?
     
     init(controller:CLinearEquations)
     {
         self.controller = controller
+        projects = []
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
