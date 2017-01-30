@@ -20,6 +20,17 @@ class CLinearEquations:CController
         view = viewLinearEquations
     }
     
+    //MARK: private
+    
+    private func openProject(project:DProject?)
+    {
+        let controller:CLinearEquationsProject = CLinearEquationsProject(
+            project:project)
+        parentController.push(
+            controller:controller,
+            horizontal:CParent.TransitionHorizontal.fromRight)
+    }
+    
     //MARK: public
     
     func back()
@@ -29,7 +40,7 @@ class CLinearEquations:CController
     
     func add()
     {
-        selectedProject(project:nil)
+        openProject(project:nil)
     }
     
     func modelLoaded()
@@ -37,12 +48,9 @@ class CLinearEquations:CController
         viewLinearEquations.refresh()
     }
     
-    func selectedProject(project:DProject?)
+    func selectedProject(model:MLinearEquationsItem)
     {
-        let controller:CLinearEquationsProject = CLinearEquationsProject(
-            project:project)
-        parentController.push(
-            controller:controller,
-            horizontal:CParent.TransitionHorizontal.fromRight)
+        let project:DProject? = model.project
+        openProject(project:project)
     }
 }

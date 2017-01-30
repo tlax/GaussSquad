@@ -2,7 +2,7 @@ import UIKit
 
 class VLinearEquationsCell:UICollectionViewCell
 {
-    private weak var model:DProject?
+    private weak var model:MLinearEquationsItem?
     private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
  
@@ -50,7 +50,7 @@ class VLinearEquationsCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:DProject)
+    func config(model:MLinearEquationsItem)
     {
         self.model = model
         hover()

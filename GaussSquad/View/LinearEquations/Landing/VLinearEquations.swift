@@ -185,9 +185,9 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     
     //MARK: private
     
-    private func modelAtIndex(index:IndexPath) -> DProject
+    private func modelAtIndex(index:IndexPath) -> MLinearEquationsItem
     {
-        let item:DProject = controller.model!.projects[index.item]
+        let item:MLinearEquationsItem = controller.model!.items[index.item]
         
         return item
     }
@@ -235,7 +235,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     {
         guard
         
-            let count:Int = controller.model?.projects.count
+            let count:Int = controller.model?.items.count
         
         else
         {
@@ -247,7 +247,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:DProject = modelAtIndex(index:indexPath)
+        let item:MLinearEquationsItem = modelAtIndex(index:indexPath)
         let cell:VLinearEquationsCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VLinearEquationsCell.reusableIdentifier,
@@ -259,8 +259,8 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        let item:DProject = modelAtIndex(index:indexPath)
-        controller.selectedProject(project:item)
+        let item:MLinearEquationsItem = modelAtIndex(index:indexPath)
+        controller.selectedProject(model:item)
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)

@@ -3,7 +3,7 @@ import Foundation
 class MLinearEquationsItem
 {
     let name:String
-    private weak var project:DProject!
+    private(set) weak var project:DProject!
     
     init(project:DProject)
     {
