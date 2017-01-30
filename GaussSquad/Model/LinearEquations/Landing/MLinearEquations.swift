@@ -21,7 +21,42 @@ class MLinearEquations
     
     private func loadFromDb()
     {
-        finishLoading()
+        DManager.sharedInstance?.fetchManagedObjects(
+            entityName:DProject.entityName)
+        { [weak self] (fetched) in
+            
+            if let fetched:[DProject] = fetched as? [DProject]
+            {
+                var items:[MLinearEquationsItem] = []
+                
+                for project:DProject in fetched
+                {
+                    let item:MLinearEquationsItem = MLinearEquationsItem(
+                        project:project)
+                    items.append(item)
+                }
+                
+                self?.items = items
+                self?.sortItems()
+            }
+            else
+            {
+                self?.items = []
+            }
+            
+            self?.finishLoading()
+        }
+    }
+    
+    private func sortItems()
+    {
+        items.sort
+        { (itemA:MLinearEquationsItem, itemB:MLinearEquationsItem) -> Bool in
+            
+            let before:Bool = itemA.project.created > itemB.project.created
+            
+            return before
+        }
     }
     
     private func finishLoading()
