@@ -1,9 +1,10 @@
 import UIKit
 
-class VLinearEquationsProjectBar:UIView
+class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    let model
+    private var model:MLinearEquationsProjectBar?
     private weak var controller:CLinearEquationsProject!
+    private weak var collectionView:VCollection!
     
     init(controller:CLinearEquationsProject)
     {
@@ -17,5 +18,34 @@ class VLinearEquationsProjectBar:UIView
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: public
+    
+    func refresh(project:DProject)
+    {
+        model = MLinearEquationsProjectBar(project:project)
+        collectionView.reloadData()
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        guard
+        
+            let count:Int = model?.items.count
+        
+        else
+        {
+            return 0
+        }
+        
+        return count
     }
 }
