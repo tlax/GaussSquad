@@ -4,6 +4,7 @@ class VLinearEquationsBar:UIView
 {
     private weak var controller:CLinearEquations!
     private weak var layoutImageGaussLeft:NSLayoutConstraint!
+    private weak var layoutLabelDescrHeight:NSLayoutConstraint!
     private let gaussWidth:CGFloat
     private let kContentTop:CGFloat = 20
     private let kBackWidth:CGFloat = 60
@@ -74,6 +75,14 @@ class VLinearEquationsBar:UIView
         labelGauss.backgroundColor = UIColor.clear
         labelGauss.numberOfLines = 0
         labelGauss.attributedText = stringGauss
+        
+        let labelDescr:UILabel = UILabel()
+        labelDescr.isUserInteractionEnabled = false
+        labelDescr.translatesAutoresizingMaskIntoConstraints = false
+        labelDescr.backgroundColor = UIColor.clear
+        labelDescr.numberOfLines = 0
+        labelDescr.font = UIFont.regular(size:15)
+        labelDescr.textColor = UIColor.black
         
         addSubview(labelTitle)
         addSubview(labelGauss)
