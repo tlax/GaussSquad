@@ -2,6 +2,7 @@ import UIKit
 
 class VLinearEquationsBar:UIView
 {
+    weak var border:VBorder!
     private weak var controller:CLinearEquations!
     private weak var labelDescr:UILabel!
     private weak var layoutImageGaussLeft:NSLayoutConstraint!
@@ -20,6 +21,8 @@ class VLinearEquationsBar:UIView
     private let kMaxLabelDescrHeight:CGFloat = 500
     private let kButtonAddTop:CGFloat = 30
     private let kButtonAddSize:CGFloat = 50
+    private let kBorderHeight:CGFloat = 1
+    private let kBorderTop:CGFloat = 10
     
     init(controller:CLinearEquations)
     {
@@ -117,12 +120,16 @@ class VLinearEquationsBar:UIView
         labelDescr.attributedText = stringDescr
         self.labelDescr = labelDescr
         
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
+        self.border = border
+        
         addSubview(labelTitle)
         addSubview(labelGauss)
         addSubview(labelDescr)
         addSubview(imageGauss)
         addSubview(buttonBack)
         addSubview(buttonAdd)
+        addSubview(border)
         
         NSLayoutConstraint.topToTop(
             view:buttonBack,
@@ -190,6 +197,17 @@ class VLinearEquationsBar:UIView
             constant:kButtonAddSize)
         layoutButtonAddLeft = NSLayoutConstraint.leftToLeft(
             view:buttonAdd,
+            toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:border,
+            toView:buttonAdd,
+            constant:kBorderTop)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
             toView:self)
     }
     

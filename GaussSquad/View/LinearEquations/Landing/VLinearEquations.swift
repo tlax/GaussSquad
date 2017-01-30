@@ -7,7 +7,7 @@ class VLinearEquations:VView
     private weak var viewBar:VLinearEquationsBar!
     private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 400
+    private weak var layoutBarHeight:NSLayoutConstraint!
     
     override init(controller:CController)
     {
@@ -39,9 +39,8 @@ class VLinearEquations:VView
         layoutBarTop =  NSLayoutConstraint.topToTop(
             view:viewBar,
             toView:self)
-        NSLayoutConstraint.height(
-            view:viewBar,
-            constant:kBarHeight)
+        layoutBarHeight = NSLayoutConstraint.height(
+            view:viewBar)
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)
@@ -50,6 +49,15 @@ class VLinearEquations:VView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func layoutSubviews()
+    {
+        viewBar.layoutIfNeeded()
+        let barMaxHeight:CGFloat = viewBar.border.frame.maxY
+        layoutBarHeight.constant = barMaxHeight
+        
+        super.layoutSubviews()
     }
     
     //MARK: public
