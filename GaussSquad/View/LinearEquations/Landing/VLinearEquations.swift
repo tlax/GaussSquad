@@ -30,6 +30,9 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         let collectionView:VCollection = VCollection()
         collectionView.flow.minimumLineSpacing = kInterline
         collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(cell:VLinearEquationsCell.self)
         self.collectionView = collectionView
         
         addSubview(spinner)

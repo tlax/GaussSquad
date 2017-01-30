@@ -29,6 +29,15 @@ class VLinearEquationsBarCellButton:VLinearEquationsBarCell
     
     override func config(model:MLinearEquationsProjectBarItem)
     {
+        guard
         
+            let model:MLinearEquationsProjectBarItemButton = model as? MLinearEquationsProjectBarItemButton
+        
+        else
+        {
+            return
+        }
+        
+        imageView.image = model.image
     }
 }

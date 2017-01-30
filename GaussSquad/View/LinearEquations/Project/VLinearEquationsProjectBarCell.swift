@@ -18,6 +18,5 @@ class VLinearEquationsBarCell:UICollectionViewCell
     
     func config(model:MLinearEquationsProjectBarItem)
     {
-        
     }
 }
