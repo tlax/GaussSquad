@@ -36,4 +36,13 @@ class CLinearEquations:CController
     {
         viewLinearEquations.refresh()
     }
+    
+    func selectedProject(project:DProject)
+    {
+        let controller:CLinearEquationsProject = CLinearEquationsProject(
+            model:project)
+        parentController.push(
+            controller:controller,
+            horizontal:CParent.TransitionHorizontal.fromRight)
+    }
 }
