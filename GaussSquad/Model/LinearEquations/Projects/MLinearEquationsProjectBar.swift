@@ -6,6 +6,9 @@ class MLinearEquationsProjectBar
     
     init(project:DProject)
     {
-        items = []
+        let itemBack:MLinearEquationsProjectBarItemButtonBack = MLinearEquationsProjectBarItemButtonBack()
+        
+        items = [
+            itemBack]
     }
 }

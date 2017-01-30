@@ -71,6 +71,17 @@ class VLinearEquationsBarCellReport:VLinearEquationsBarCell
     
     override func config(model:MLinearEquationsProjectBarItem)
     {
+        guard
         
+            let model:MLinearEquationsProjectBarItemReport = model as? MLinearEquationsProjectBarItemReport
+        
+        else
+        {
+            return
+        }
+        
+        imageView.image = model.image
+        labelTitle.text = model.title
+        labelCount.text = model.count
     }
 }
