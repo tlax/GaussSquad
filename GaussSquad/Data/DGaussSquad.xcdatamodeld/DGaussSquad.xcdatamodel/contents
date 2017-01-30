@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="DEquation" representedClassName="DEquation" syncable="YES" codeGenerationType="class">
+        <attribute name="created" attributeType="Date" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="polynomials" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DPolynomial" inverseName="equation" inverseEntity="DPolynomial" syncable="YES"/>
+        <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="DProject" inverseName="equations" inverseEntity="DProject" syncable="YES"/>
+    </entity>
+    <entity name="DIndeterminate" representedClassName="DIndeterminate" syncable="YES" codeGenerationType="class">
+        <attribute name="symbol" attributeType="String" syncable="YES"/>
+        <relationship name="polynomials" toMany="YES" deletionRule="Nullify" destinationEntity="DPolynomial" inverseName="indeterminate" inverseEntity="DPolynomial" syncable="YES"/>
+        <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="DProject" inverseName="indeterminates" inverseEntity="DProject" syncable="YES"/>
+    </entity>
+    <entity name="DPolynomial" representedClassName="DPolynomial" syncable="YES" codeGenerationType="class">
+        <attribute name="coefficientDividend" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="coefficientDivisor" attributeType="Double" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isPositive" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="showAsDivision" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="equation" maxCount="1" deletionRule="Nullify" destinationEntity="DEquation" inverseName="polynomials" inverseEntity="DEquation" syncable="YES"/>
+        <relationship name="indeterminate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DIndeterminate" inverseName="polynomials" inverseEntity="DIndeterminate" syncable="YES"/>
+    </entity>
+    <entity name="DProject" representedClassName="DProject" syncable="YES" codeGenerationType="class">
+        <attribute name="created" attributeType="Date" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="equations" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DEquation" inverseName="project" inverseEntity="DEquation" syncable="YES"/>
+        <relationship name="indeterminates" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DIndeterminate" inverseName="project" inverseEntity="DIndeterminate" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DProject" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="DPolynomial" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="DIndeterminate" positionX="-36" positionY="9" width="128" height="90"/>
+        <element name="DEquation" positionX="-18" positionY="63" width="128" height="90"/>
+    </elements>
 </model>
