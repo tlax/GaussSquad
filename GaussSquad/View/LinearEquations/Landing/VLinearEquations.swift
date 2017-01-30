@@ -90,7 +90,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         
         NSLayoutConstraint.topToTop(
             view:buttonBack,
-            toView:self,
+            toView:viewBar,
             constant:kBackTop)
         NSLayoutConstraint.height(
             view:buttonBack,
