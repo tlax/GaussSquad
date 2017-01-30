@@ -50,7 +50,8 @@ class MLinearEquationsProject
         { [weak self] (created) in
             
             self?.project = created as? DProject
-            self?.createIndeterminate
+            self?.createIndeterminate(
+                symbol:NSLocalizedString("MLinearEquationsProject_defaultIndeterminate", comment:""))
             { [weak self] in
                 
                 self?.createEquation
@@ -63,7 +64,9 @@ class MLinearEquationsProject
         }
     }
     
-    private func createIndeterminate(completion:(() -> ())?)
+    private func createIndeterminate(
+        symbol:String,
+        completion:(() -> ())?)
     {
         DManager.sharedInstance?.createManagedObject(
             entityName:DIndeterminate.entityName)
@@ -80,6 +83,7 @@ class MLinearEquationsProject
                 return
             }
             
+            indeterminate.symbol = symbol
             let mutableSet:NSMutableOrderedSet = NSMutableOrderedSet(
                 orderedSet:indeterminateSet)
             mutableSet.add(indeterminate)
