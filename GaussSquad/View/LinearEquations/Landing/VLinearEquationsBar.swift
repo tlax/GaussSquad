@@ -46,6 +46,11 @@ class VLinearEquationsBar:UIView
         stringGauss.append(stringGaussName)
         stringGauss.append(stringGaussDate)
         
+        let stringDescr:NSAttributedString = NSAttributedString(
+            string:NSLocalizedString("VLinearEquationsBar_labelDescr", comment:""),
+            attributes:[
+                NSFontAttributeName:UIFont.regular(size:15)])
+        
         let buttonBack:UIButton = UIButton()
         buttonBack.translatesAutoresizingMaskIntoConstraints = false
         buttonBack.setImage(
@@ -90,8 +95,8 @@ class VLinearEquationsBar:UIView
         labelDescr.translatesAutoresizingMaskIntoConstraints = false
         labelDescr.backgroundColor = UIColor.clear
         labelDescr.numberOfLines = 0
-        labelDescr.font = UIFont.regular(size:15)
         labelDescr.textColor = UIColor.black
+        labelDescr.attributedText = stringDescr
         self.labelDescr = labelDescr
         
         addSubview(labelTitle)
