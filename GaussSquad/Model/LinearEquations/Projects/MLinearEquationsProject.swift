@@ -45,11 +45,15 @@ class MLinearEquationsProject
     
     private func createProject()
     {
+        let timestamp:TimeInterval = Date().timeIntervalSince1970
+        
         DManager.sharedInstance?.createManagedObject(
             entityName:DProject.entityName)
         { [weak self] (created) in
             
             self?.project = created as? DProject
+            self?.project?.created = timestamp
+            
             self?.createIndeterminate(
                 symbol:NSLocalizedString("MLinearEquationsProject_defaultIndeterminate", comment:""))
             { [weak self] in
@@ -75,7 +79,6 @@ class MLinearEquationsProject
             guard
             
                 let project:DProject = self?.project,
-                let indeterminateSet:NSOrderedSet = project.indeterminates,
                 let indeterminate:DIndeterminate = created as? DIndeterminate
             
             else
@@ -84,10 +87,7 @@ class MLinearEquationsProject
             }
             
             indeterminate.symbol = symbol
-            let mutableSet:NSMutableOrderedSet = NSMutableOrderedSet(
-                orderedSet:indeterminateSet)
-            mutableSet.add(indeterminate)
-            project.indeterminates = mutableSet
+            indeterminate.project = project
             
             completion?()
         }
@@ -95,6 +95,8 @@ class MLinearEquationsProject
     
     private func createEquation(completion:(() -> ())?)
     {
+        let timestamp:TimeInterval = Date().timeIntervalSince1970
+        
         DManager.sharedInstance?.createManagedObject(
             entityName:DEquation.entityName)
         { [weak self] (created) in
@@ -102,7 +104,6 @@ class MLinearEquationsProject
             guard
             
                 let project:DProject = self?.project,
-                let equationSet:NSOrderedSet = project.equations,
                 let indeterminatesSet:NSOrderedSet = project.indeterminates,
                 let indeterminatesArray:[DIndeterminate] = indeterminatesSet.array as? [DIndeterminate],
                 let equation:DEquation = created as? DEquation
@@ -112,10 +113,8 @@ class MLinearEquationsProject
                 return
             }
             
-            let mutableSet:NSMutableOrderedSet = NSMutableOrderedSet(
-                orderedSet:equationSet)
-            mutableSet.add(equation)
-            project.equations = mutableSet
+            equation.created = timestamp
+            equation.project = project
             
             self?.createPolynomials(
                 equation:equation,
@@ -135,7 +134,6 @@ class MLinearEquationsProject
             
             guard
             
-                let polynomialSet:NSOrderedSet = equation.polynomials,
                 let polynomial:DPolynomial = created as? DPolynomial
             
             else
@@ -146,9 +144,7 @@ class MLinearEquationsProject
             var indeterminates:[DIndeterminate] = indeterminates
             let indeterminate:DIndeterminate = indeterminates.removeFirst()
             polynomial.indeterminate = indeterminate
-            let mutableSet:NSMutableOrderedSet = NSMutableOrderedSet(
-                orderedSet:polynomialSet)
-            mutableSet.add(polynomial)
+            polynomial.equation = equation
             
             if indeterminates.count > 0
             {
@@ -177,7 +173,7 @@ class MLinearEquationsProject
             return
         }
         
-        rows = []
+        var rows:[MLinearEquationsProjectRow] = []
         
         for equation:DEquation in equationArray
         {
@@ -185,6 +181,8 @@ class MLinearEquationsProject
                 equation:equation)
             rows.append(row)
         }
+        
+        self.rows = rows
         
         loadFinished()
     }
