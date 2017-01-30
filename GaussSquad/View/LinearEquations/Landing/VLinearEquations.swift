@@ -1,6 +1,6 @@
 import UIKit
 
-class VLinearEquations:VView
+class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CLinearEquations!
     private weak var collectionView:VCollection!
@@ -79,5 +79,17 @@ class VLinearEquations:VView
         collectionView.isHidden = false
         viewBar.isHidden = false
         viewBar.isUserInteractionEnabled = true
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        
     }
 }
