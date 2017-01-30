@@ -39,7 +39,8 @@ class CLinearEquationsProject:CController
     
     func save()
     {
-        
+        DManager.sharedInstance?.save()
+        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
     
     func delete()

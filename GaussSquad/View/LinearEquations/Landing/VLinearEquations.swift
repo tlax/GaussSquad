@@ -108,7 +108,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
-        var offsetY:CGFloat = scrollView.contentOffset.y
+        var offsetY:CGFloat = -scrollView.contentOffset.y
         
         if offsetY > 0
         {

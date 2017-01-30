@@ -6,4 +6,9 @@ class MLinearEquationsProjectBarItemButtonBack:MLinearEquationsProjectBarItemBut
     {
         super.init(image:#imageLiteral(resourceName: "assetGenericBack"))
     }
+    
+    override func selected(controller:CLinearEquationsProject)
+    {
+        controller.save()
+    }
 }

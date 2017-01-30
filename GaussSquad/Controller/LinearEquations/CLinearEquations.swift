@@ -29,7 +29,7 @@ class CLinearEquations:CController
     
     func add()
     {
-        
+        selectedProject(project:nil)
     }
     
     func modelLoaded()
@@ -37,7 +37,7 @@ class CLinearEquations:CController
         viewLinearEquations.refresh()
     }
     
-    func selectedProject(project:DProject)
+    func selectedProject(project:DProject?)
     {
         let controller:CLinearEquationsProject = CLinearEquationsProject(
             project:project)
