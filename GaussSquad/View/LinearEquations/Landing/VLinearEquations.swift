@@ -5,13 +5,20 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var controller:CLinearEquations!
     private weak var collectionView:VCollection!
     private weak var viewBar:VLinearEquationsBar!
+    private weak var buttonBack:UIButton!
+    private weak var buttonAdd:UIButton!
     private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
     private weak var layoutBarHeight:NSLayoutConstraint!
+    private weak var layoutButtonAddLeft:NSLayoutConstraint!
+    private let kDeselectTime:TimeInterval = 0.2
     private let kCellHeight:CGFloat = 70
     private let kCollectionBottom:CGFloat = 20
     private let kInterline:CGFloat = 1
-    private let kDeselectTime:TimeInterval = 0.2
+    private let kBackTop:CGFloat = 20
+    private let kBackWidth:CGFloat = 60
+    private let kBackHeight:CGFloat = 44
+    private let kButtonAddSize:CGFloat = 50
     
     override init(controller:CController)
     {
@@ -27,6 +34,39 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         viewBar.isHidden = true
         self.viewBar = viewBar
         
+        let buttonAdd:UIButton = UIButton()
+        buttonAdd.translatesAutoresizingMaskIntoConstraints = false
+        buttonAdd.setImage(
+            #imageLiteral(resourceName: "assetGenericAdd"),
+            for:UIControlState.normal)
+        buttonAdd.setImage(
+            #imageLiteral(resourceName: "assetGenericAddSelected"),
+            for:UIControlState.highlighted)
+        buttonAdd.imageView!.contentMode = UIViewContentMode.center
+        buttonAdd.imageView!.clipsToBounds = true
+        buttonAdd.addTarget(
+            self,
+            action:#selector(actionAdd(sender:)),
+            for:UIControlEvents.touchUpInside)
+        self.buttonAdd = buttonAdd
+        
+        let buttonBack:UIButton = UIButton()
+        buttonBack.translatesAutoresizingMaskIntoConstraints = false
+        buttonBack.setImage(
+            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonBack.setImage(
+            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonBack.imageView!.contentMode = UIViewContentMode.center
+        buttonBack.imageView!.clipsToBounds = true
+        buttonBack.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        buttonBack.addTarget(
+            self,
+            action:#selector(actionBack(sender:)),
+            for:UIControlEvents.touchUpInside)
+        self.buttonBack = buttonBack
+        
         let collectionView:VCollection = VCollection()
         collectionView.flow.minimumLineSpacing = kInterline
         collectionView.alwaysBounceVertical = true
@@ -38,6 +78,8 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         addSubview(spinner)
         addSubview(collectionView)
         addSubview(viewBar)
+        addSubview(buttonBack)
+        addSubview(buttonAdd)
         
         NSLayoutConstraint.equals(
             view:spinner,
@@ -46,6 +88,20 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
             view:collectionView,
             toView:self)
         
+        NSLayoutConstraint.topToTop(
+            view:buttonBack,
+            toView:self,
+            constant:kBackTop)
+        NSLayoutConstraint.height(
+            view:buttonBack,
+            constant:kBackHeight)
+        NSLayoutConstraint.leftToLeft(
+            view:buttonBack,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:buttonBack,
+            constant:kBackWidth)
+        
         layoutBarTop =  NSLayoutConstraint.topToTop(
             view:viewBar,
             toView:self)
@@ -53,6 +109,16 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
             view:viewBar)
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
+            toView:self)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonAdd,
+            toView:viewBar)
+        NSLayoutConstraint.size(
+            view:buttonAdd,
+            constant:kButtonAddSize)
+        layoutButtonAddLeft = NSLayoutConstraint.leftToLeft(
+            view:buttonAdd,
             toView:self)
     }
     
@@ -64,10 +130,28 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     override func layoutSubviews()
     {
         viewBar.layoutIfNeeded()
+        let width:CGFloat = bounds.maxX
         let barMaxHeight:CGFloat = viewBar.border.frame.maxY
+        let buttonAddRemain:CGFloat = width - kButtonAddSize
+        let buttonAddMargin:CGFloat = buttonAddRemain / 2.0
+        
         layoutBarHeight.constant = barMaxHeight
+        layoutButtonAddLeft.constant = buttonAddMargin
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionBack(sender button:UIButton)
+    {
+        controller.back()
+    }
+    
+    func actionAdd(sender button:UIButton)
+    {
+        button.isUserInteractionEnabled = false
+        controller.add()
     }
     
     //MARK: public
@@ -77,6 +161,8 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         spinner.startAnimating()
         collectionView.isHidden = true
         viewBar.isHidden = true
+        buttonAdd.isHidden = true
+        buttonBack.isHidden = true
     }
     
     func refresh()
@@ -92,7 +178,9 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         spinner.stopAnimating()
         collectionView.isHidden = false
         viewBar.isHidden = false
-        viewBar.isUserInteractionEnabled = true
+        buttonAdd.isHidden = false
+        buttonAdd.isUserInteractionEnabled = true
+        buttonBack.isHidden = false
     }
     
     //MARK: private
