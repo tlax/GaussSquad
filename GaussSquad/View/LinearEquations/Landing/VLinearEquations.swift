@@ -85,6 +85,15 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         viewBar.isUserInteractionEnabled = true
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> DProject
+    {
+        let item:DProject = controller.model!.projects[index.item]
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
     
     func numberOfSections(in collectionView: UICollectionView) -> Int
@@ -106,8 +115,16 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         return count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let cell:VLinearEquationsce
+        let item:DProject = modelAtIndex(
+            index:indexPath)
+        let cell:VLinearEquationsCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VLinearEquationsCell.reusableIdentifier,
+            for:indexPath) as! VLinearEquationsCell
+        cell.config(model:item)
+        
+        return cell
     }
 }
