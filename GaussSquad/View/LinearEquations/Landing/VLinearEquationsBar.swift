@@ -3,19 +3,28 @@ import UIKit
 class VLinearEquationsBar:UIView
 {
     private weak var controller:CLinearEquations!
+    private weak var labelDescr:UILabel!
     private weak var layoutImageGaussLeft:NSLayoutConstraint!
     private weak var layoutLabelDescrHeight:NSLayoutConstraint!
+    private let drawingOptions:NSStringDrawingOptions
     private let gaussWidth:CGFloat
+    private let labelDescrMargin2:CGFloat
     private let kContentTop:CGFloat = 20
     private let kBackWidth:CGFloat = 60
     private let kBackHeight:CGFloat = 44
     private let kImageGaussMargin:CGFloat = 20
     private let kImageGaussSize:CGFloat = 100
     private let kLabelGaussWidth:CGFloat = 140
+    private let kLabelDescrMargin:CGFloat = 10
+    private let kMaxLabelDescrHeight:CGFloat = 500
     
     init(controller:CLinearEquations)
     {
+        drawingOptions = NSStringDrawingOptions([
+            NSStringDrawingOptions.usesFontLeading,
+            NSStringDrawingOptions.usesLineFragmentOrigin])
         gaussWidth = kImageGaussSize + kLabelGaussWidth
+        labelDescrMargin2 = kLabelDescrMargin + kLabelDescrMargin
         
         super.init(frame:CGRect.zero)
         translatesAutoresizingMaskIntoConstraints = false
@@ -83,9 +92,11 @@ class VLinearEquationsBar:UIView
         labelDescr.numberOfLines = 0
         labelDescr.font = UIFont.regular(size:15)
         labelDescr.textColor = UIColor.black
+        self.labelDescr = labelDescr
         
         addSubview(labelTitle)
         addSubview(labelGauss)
+        addSubview(labelDescr)
         addSubview(imageGauss)
         addSubview(buttonBack)
         
@@ -134,6 +145,17 @@ class VLinearEquationsBar:UIView
         NSLayoutConstraint.width(
             view:labelGauss,
             constant:kLabelGaussWidth)
+        
+        NSLayoutConstraint.topToBottom(
+            view:labelDescr,
+            toView:imageGauss,
+            constant:-kImageGaussMargin)
+        layoutLabelDescrHeight = NSLayoutConstraint.height(
+            view:labelDescr)
+        NSLayoutConstraint.equalsHorizontal(
+            view:labelDescr,
+            toView:self,
+            margin:kLabelDescrMargin)
     }
     
     required init?(coder:NSCoder)
@@ -143,10 +165,30 @@ class VLinearEquationsBar:UIView
     
     override func layoutSubviews()
     {
+        guard
+            
+            let descrString:NSAttributedString = labelDescr.attributedText
+        
+        else
+        {
+            return
+        }
+        
         let width:CGFloat = bounds.maxX
         let gaussRemain:CGFloat = width - gaussWidth
         let gaussMargin:CGFloat = gaussRemain / 2.0
+        let labelDescrRemain:CGFloat = width - labelDescrMargin2
+        let labelDescrMaxSize:CGSize = CGSize(
+            width:labelDescrRemain,
+            height:kMaxLabelDescrHeight)
+        let descrSize:CGRect = descrString.boundingRect(
+            with:labelDescrMaxSize,
+            options:drawingOptions,
+            context:nil)
+        let descrHeight:CGFloat = ceil(descrSize.size.height)
+        
         layoutImageGaussLeft.constant = gaussMargin
+        layoutLabelDescrHeight.constant = descrHeight
         
         super.layoutSubviews()
     }
