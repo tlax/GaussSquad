@@ -8,10 +8,15 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
     private weak var layoutBarHeight:NSLayoutConstraint!
+    private let kCellHeight:CGFloat = 70
+    private let kCollectionBottom:CGFloat = 20
+    private let kInterline:CGFloat = 1
+    private let kDeselectTime:TimeInterval = 0.2
     
     override init(controller:CController)
     {
         super.init(controller:controller)
+        backgroundColor = UIColor(white:0.98, alpha:1)
         self.controller = controller as? CLinearEquations
         
         let spinner:VSpinner = VSpinner()
@@ -23,6 +28,8 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         self.viewBar = viewBar
         
         let collectionView:VCollection = VCollection()
+        collectionView.flow.minimumLineSpacing = kInterline
+        collectionView.alwaysBounceVertical = true
         self.collectionView = collectionView
         
         addSubview(spinner)
@@ -96,7 +103,27 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     
     //MARK: collectionView delegate
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
+    {
+        let collectionTop:CGFloat = layoutBarHeight.constant
+        let insets:UIEdgeInsets = UIEdgeInsets(
+            top:collectionTop,
+            left:0,
+            bottom:kCollectionBottom,
+            right:0)
+        
+        return insets
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = bounds.width
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
     }
@@ -117,8 +144,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:DProject = modelAtIndex(
-            index:indexPath)
+        let item:DProject = modelAtIndex(index:indexPath)
         let cell:VLinearEquationsCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VLinearEquationsCell.reusableIdentifier,
@@ -126,5 +152,20 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:DProject = modelAtIndex(index:indexPath)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }
