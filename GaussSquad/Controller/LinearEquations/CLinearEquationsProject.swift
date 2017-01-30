@@ -3,6 +3,7 @@ import UIKit
 class CLinearEquationsProject:CController
 {
     var model:DProject?
+    private weak var viewProject:VLinearEquationsProject!
     
     override init()
     {
@@ -27,6 +28,25 @@ class CLinearEquationsProject:CController
     }
     
     override func loadView()
+    {
+        let viewProject:VLinearEquationsProject = VLinearEquationsProject(controller:self)
+        self.viewProject = viewProject
+        view = viewProject
+    }
+    
+    //MARK: public
+    
+    func next()
+    {
+        
+    }
+    
+    func save()
+    {
+        
+    }
+    
+    func delete()
     {
         
     }
