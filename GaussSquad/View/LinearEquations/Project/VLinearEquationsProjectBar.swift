@@ -17,7 +17,7 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     //MARK: public
