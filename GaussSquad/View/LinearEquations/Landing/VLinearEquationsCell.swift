@@ -3,14 +3,14 @@ import UIKit
 class VLinearEquationsCell:UICollectionViewCell
 {
     private weak var model:DProject?
-    private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.3
+    private let kAlphaSelected:CGFloat = 0.3
+    private let kAlphaNotSelected:CGFloat = 1
  
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.blue
     }
     
     required init?(coder:NSCoder)

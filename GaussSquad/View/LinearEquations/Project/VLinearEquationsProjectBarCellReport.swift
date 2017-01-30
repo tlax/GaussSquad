@@ -71,6 +71,8 @@ class VLinearEquationsBarCellReport:VLinearEquationsBarCell
     
     override func config(model:MLinearEquationsProjectBarItem)
     {
+        super.config(model:model)
+        
         guard
         
             let model:MLinearEquationsProjectBarItemReport = model as? MLinearEquationsProjectBarItemReport

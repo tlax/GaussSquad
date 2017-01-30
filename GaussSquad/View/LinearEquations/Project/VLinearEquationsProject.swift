@@ -7,7 +7,7 @@ class VLinearEquationsProject:VView
     private weak var collectionView:VCollection!
     private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 80
+    private let kBarHeight:CGFloat = 90
     
     override init(controller:CController)
     {
@@ -63,7 +63,17 @@ class VLinearEquationsProject:VView
     
     func refresh()
     {
+        guard
+            
+            let project:DProject = controller.model.project
+        
+        else
+        {
+            return
+        }
+        
         spinner.stopAnimating()
         viewBar.isHidden = false
+        viewBar.refresh(project:project)
     }
 }

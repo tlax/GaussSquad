@@ -29,6 +29,8 @@ class VLinearEquationsBarCellButton:VLinearEquationsBarCell
     
     override func config(model:MLinearEquationsProjectBarItem)
     {
+        super.config(model:model)
+        
         guard
         
             let model:MLinearEquationsProjectBarItemButton = model as? MLinearEquationsProjectBarItemButton

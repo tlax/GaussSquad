@@ -2,6 +2,9 @@ import UIKit
 
 class VLinearEquationsBarCell:UICollectionViewCell
 {
+    private let kAlphaSelected:CGFloat = 0.3
+    private let kAlphaNotSelected:CGFloat = 1
+    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
@@ -14,9 +17,40 @@ class VLinearEquationsBarCell:UICollectionViewCell
         return nil
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            alpha = kAlphaSelected
+        }
+        else
+        {
+            alpha = kAlphaNotSelected
+        }
+    }
+    
     //MARK: public
     
     func config(model:MLinearEquationsProjectBarItem)
     {
+        hover()
     }
 }

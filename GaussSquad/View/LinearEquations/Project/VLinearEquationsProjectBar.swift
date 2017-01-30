@@ -5,8 +5,10 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
     private var model:MLinearEquationsProjectBar?
     private weak var controller:CLinearEquationsProject!
     private weak var collectionView:VCollection!
+    private let kDeselectTime:TimeInterval = 0.2
     private let kContentTop:CGFloat = 20
-    private let kCellWidth:CGFloat = 70
+    private let kCellWidth:CGFloat = 75
+    private let kBorderHeight:CGFloat = 1
     
     init(controller:CLinearEquationsProject)
     {
@@ -26,17 +28,30 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
         collectionView.registerCell(cell:VLinearEquationsBarCellReport.self)
         self.collectionView = collectionView
         
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
+        
+        addSubview(border)
         addSubview(collectionView)
         
         NSLayoutConstraint.topToTop(
-            view:self,
-            toView:collectionView,
+            view:collectionView,
+            toView:self,
             constant:kContentTop)
         NSLayoutConstraint.bottomToBottom(
             view:collectionView,
             toView:self)
         NSLayoutConstraint.equalsHorizontal(
             view:collectionView,
+            toView:self)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
             toView:self)
     }
     
@@ -71,7 +86,7 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
     
     //MARK: collectionView delegate
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         let height:CGFloat = collectionView.bounds.size.height
         let cellSize:CGSize = CGSize(width:kCellWidth, height:height)
@@ -84,7 +99,7 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
         guard
         
@@ -107,5 +122,21 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MLinearEquationsProjectBarItem = modelAtIndex(index:indexPath)
+        item.selected(controller:controller)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

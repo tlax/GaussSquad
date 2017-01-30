@@ -3,8 +3,8 @@ import Foundation
 class MLinearEquationsProject
 {
     var rows:[MLinearEquationsProjectRow]
+    var project:DProject?
     private weak var controller:CLinearEquationsProject?
-    private var project:DProject?
     
     init(project:DProject?)
     {
