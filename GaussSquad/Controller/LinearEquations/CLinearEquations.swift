@@ -27,6 +27,11 @@ class CLinearEquations:CController
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
     
+    func add()
+    {
+        
+    }
+    
     func modelLoaded()
     {
         viewLinearEquations.refresh()

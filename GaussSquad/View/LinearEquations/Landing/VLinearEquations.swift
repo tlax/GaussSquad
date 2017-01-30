@@ -7,7 +7,7 @@ class VLinearEquations:VView
     private weak var viewBar:VLinearEquationsBar!
     private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 250
+    private let kBarHeight:CGFloat = 400
     
     override init(controller:CController)
     {
@@ -70,5 +70,6 @@ class VLinearEquations:VView
         spinner.stopAnimating()
         collectionView.isHidden = false
         viewBar.isHidden = false
+        viewBar.isUserInteractionEnabled = true
     }
 }

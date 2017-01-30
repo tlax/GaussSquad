@@ -6,6 +6,7 @@ class VLinearEquationsBar:UIView
     private weak var labelDescr:UILabel!
     private weak var layoutImageGaussLeft:NSLayoutConstraint!
     private weak var layoutLabelDescrHeight:NSLayoutConstraint!
+    private weak var layoutButtonAddLeft:NSLayoutConstraint!
     private let drawingOptions:NSStringDrawingOptions
     private let gaussWidth:CGFloat
     private let labelDescrMargin2:CGFloat
@@ -17,6 +18,8 @@ class VLinearEquationsBar:UIView
     private let kLabelGaussWidth:CGFloat = 140
     private let kLabelDescrMargin:CGFloat = 10
     private let kMaxLabelDescrHeight:CGFloat = 500
+    private let kButtonAddTop:CGFloat = 30
+    private let kButtonAddSize:CGFloat = 50
     
     init(controller:CLinearEquations)
     {
@@ -67,6 +70,21 @@ class VLinearEquationsBar:UIView
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonAdd:UIButton = UIButton()
+        buttonAdd.translatesAutoresizingMaskIntoConstraints = false
+        buttonAdd.setImage(
+            #imageLiteral(resourceName: "assetGenericAdd"),
+            for:UIControlState.normal)
+        buttonAdd.setImage(
+            #imageLiteral(resourceName: "assetGenericAddSelected"),
+            for:UIControlState.highlighted)
+        buttonAdd.imageView!.contentMode = UIViewContentMode.center
+        buttonAdd.imageView!.clipsToBounds = true
+        buttonAdd.addTarget(
+            self,
+            action:#selector(actionAdd(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         let labelTitle:UILabel = UILabel()
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.isUserInteractionEnabled = false
@@ -104,6 +122,7 @@ class VLinearEquationsBar:UIView
         addSubview(labelDescr)
         addSubview(imageGauss)
         addSubview(buttonBack)
+        addSubview(buttonAdd)
         
         NSLayoutConstraint.topToTop(
             view:buttonBack,
@@ -154,13 +173,24 @@ class VLinearEquationsBar:UIView
         NSLayoutConstraint.topToBottom(
             view:labelDescr,
             toView:imageGauss,
-            constant:-kImageGaussMargin)
+            constant:kImageGaussMargin)
         layoutLabelDescrHeight = NSLayoutConstraint.height(
             view:labelDescr)
         NSLayoutConstraint.equalsHorizontal(
             view:labelDescr,
             toView:self,
             margin:kLabelDescrMargin)
+        
+        NSLayoutConstraint.topToBottom(
+            view:buttonAdd,
+            toView:labelDescr,
+            constant:kButtonAddTop)
+        NSLayoutConstraint.size(
+            view:buttonAdd,
+            constant:kButtonAddSize)
+        layoutButtonAddLeft = NSLayoutConstraint.leftToLeft(
+            view:buttonAdd,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -191,9 +221,12 @@ class VLinearEquationsBar:UIView
             options:drawingOptions,
             context:nil)
         let descrHeight:CGFloat = ceil(descrSize.size.height)
+        let buttonAddRemain:CGFloat = width - kButtonAddSize
+        let buttonAddMargin:CGFloat = buttonAddRemain / 2.0
         
         layoutImageGaussLeft.constant = gaussMargin
         layoutLabelDescrHeight.constant = descrHeight
+        layoutButtonAddLeft.constant = buttonAddMargin
         
         super.layoutSubviews()
     }
@@ -203,5 +236,11 @@ class VLinearEquationsBar:UIView
     func actionBack(sender button:UIButton)
     {
         controller.back()
+    }
+    
+    func actionAdd(sender button:UIButton)
+    {
+        isUserInteractionEnabled = false
+        controller.add()
     }
 }
