@@ -6,6 +6,7 @@
 "MLinearEquationsItem_jump"="\n";
 "MLinearEquationsItem_positive"=" + ";
 "MLinearEquationsItem_negative"=" - ";
+"MLinearEquationsItem_division"="/";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";
