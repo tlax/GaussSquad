@@ -296,9 +296,9 @@
 		DAD518A91E3FBCF90004C8D8 /* Projects */ = {
 			isa = PBXGroup;
 			children = (
+				DA133A351E410F710028D90F /* Main */,
 				DA133A271E410F710028D90F /* Bar */,
 				DA133A301E410F710028D90F /* Items */,
-				DA133A351E410F710028D90F /* Main */,
 			);
 			path = Projects;
 			sourceTree = "<group>";

@@ -1,6 +1,6 @@
 import UIKit
 
-class VLinearEquationsProject:VView
+class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CLinearEquationsProject!
     private weak var viewBar:VLinearEquationsProjectBar!
@@ -8,6 +8,8 @@ class VLinearEquationsProject:VView
     private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 100
+    private let kCollectionBottom:CGFloat = 20
+    private let kCellHeight:CGFloat = 60
     
     override init(controller:CController)
     {
@@ -23,6 +25,21 @@ class VLinearEquationsProject:VView
         self.spinner = spinner
         
         let collectionView:VCollection = VCollection()
+        collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+        collectionView.alwaysBounceVertical = true
+        collectionView.alwaysBounceHorizontal = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(
+            cell:VLinearEquationsProjectCellIndeterminate.self)
+        collectionView.registerCell(
+            cell:VLinearEquationsProjectCellCoefficientDivision.self)
+        collectionView.registerCell(
+            cell:VLinearEquationsProjectCellCoefficientWhole.self)
+        collectionView.registerCell(
+            cell:VLinearEquationsProjectCellEquals.self)
+        collectionView.registerCell(
+            cell:VLinearEquationsProjectCellOperator.self)
         self.collectionView = collectionView
         
         addSubview(collectionView)
@@ -55,8 +72,18 @@ class VLinearEquationsProject:VView
     
     override func layoutSubviews()
     {
+        collectionView.flow.invalidateLayout()
         
         super.layoutSubviews()
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MLinearEquationsProjectRowItem
+    {
+        let item:MLinearEquationsProjectRowItem = controller.model.rows[index.section].items[index.item]
+        
+        return item
     }
     
     //MARK: public
@@ -73,7 +100,64 @@ class VLinearEquationsProject:VView
         }
         
         spinner.stopAnimating()
+        collectionView.reloadData()
         viewBar.isHidden = false
         viewBar.refresh(project:project)
+    }
+    
+    //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
+    {
+        let insets:UIEdgeInsets
+        
+        if section == 0
+        {
+            insets = UIEdgeInsets(
+                top:kBarHeight,
+                left:0,
+                bottom:kCollectionBottom,
+                right:0)
+        }
+        else
+        {
+            insets = UIEdgeInsets.zero
+        }
+        
+        return insets
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let index:Int = indexPath.item
+        let cellWidth:CGFloat = controller.model.cols[index]
+        let size:CGSize = CGSize(width:cellWidth, height:kCellHeight)
+        
+        return size
+    }
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        let count:Int = controller.model.rows.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.cols.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MLinearEquationsProjectRowItem = modelAtIndex(index:indexPath)
+        let cell:VLinearEquationsProjectCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            item.reusableIdentifier,
+            for:indexPath) as! VLinearEquationsProjectCell
+        
+        return cell
     }
 }
