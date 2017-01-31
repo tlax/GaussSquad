@@ -36,22 +36,31 @@ class MLinearEquationsItem
                 {
                     for polynomial:DPolynomial in polynomials
                     {
-                        let rawStringOperator:String
+                        let rawStringOperator:String?
                         
                         if polynomial.isPositive
                         {
-                            rawStringOperator = NSLocalizedString("MLinearEquationsItem_positive", comment:"")
+                            if mutableEquation.string.isEmpty
+                            {
+                                rawStringOperator = nil
+                            }
+                            else
+                            {
+                                rawStringOperator = NSLocalizedString("MLinearEquationsItem_positive", comment:"")
+                            }
                         }
                         else
                         {
                             rawStringOperator = NSLocalizedString("MLinearEquationsItem_negative", comment:"")
                         }
                         
-                        let stringOperator:NSAttributedString = NSAttributedString(
-                            string:rawStringOperator,
-                            attributes:attrOperator)
-                        mutableEquation.append(stringOperator)
-                        
+                        if let rawStringOperator:String = rawStringOperator
+                        {
+                            let stringOperator:NSAttributedString = NSAttributedString(
+                                string:rawStringOperator,
+                                attributes:attrOperator)
+                            mutableEquation.append(stringOperator)
+                        }
                         
                         guard
                         
