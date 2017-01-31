@@ -1,8 +1,11 @@
-"MHomeItemArithmetic_symbol"="a * b = c";
+"MHomeItemArithmetic_symbol"="a × b = c";
 "MHomeItemArithmetic_title"="Arithmetic";
 "MHomeItemLinearEquations_symbol"="ax + b = 0";
 "MHomeItemLinearEquations_title"="Linear equations";
 "MLinearEquationsProject_defaultIndeterminate"="x";
+"MLinearEquationsItem_jump"="\n";
+"MLinearEquationsItem_positive"=" + ";
+"MLinearEquationsItem_negative"=" - ";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";

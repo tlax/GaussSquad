@@ -21,7 +21,6 @@ class VLinearEquationsCell:UICollectionViewCell
         labelDescr.isUserInteractionEnabled = false
         labelDescr.translatesAutoresizingMaskIntoConstraints = false
         labelDescr.backgroundColor = UIColor.clear
-        labelDescr.font = UIFont.medium(size:15)
         labelDescr.textColor = UIColor.black
         labelDescr.numberOfLines = 0
         self.labelDescr = labelDescr
