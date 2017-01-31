@@ -9,7 +9,7 @@ class MLinearEquationsProjectRowItemIndeterminateSymbol:MLinearEquationsProjectR
     private let kStringMargin:CGFloat = 30
     
     init(
-        polynomial:DPolynomial?,
+        polynomial:DPolynomial,
         symbol:String,
         column:Int)
     {

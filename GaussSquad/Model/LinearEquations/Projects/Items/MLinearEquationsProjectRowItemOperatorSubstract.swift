@@ -3,7 +3,7 @@ import UIKit
 class MLinearEquationsProjectRowItemOperatorSubstract:MLinearEquationsProjectRowItemOperator
 {
     init(
-        polynomial:DPolynomial?,
+        polynomial:DPolynomial,
         column:Int)
     {
         super.init(

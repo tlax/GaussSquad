@@ -6,7 +6,7 @@ class MLinearEquationsProjectRowItemCoefficientDivision:MLinearEquationsProjectR
     let attributedStringDivisor:NSAttributedString
     
     init(
-        polynomial:DPolynomial?,
+        polynomial:DPolynomial,
         column:Int)
     {
         let numberFormatter:NumberFormatter = NumberFormatter()

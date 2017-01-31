@@ -11,6 +11,7 @@ class VLinearEquationsProjectCellIndex:VLinearEquationsProjectCell
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.center
         imageView.isUserInteractionEnabled = false
+        imageView.image = #imageLiteral(resourceName: "assetGenericColIndex")
         
         addSubview(imageView)
         
@@ -30,13 +31,13 @@ class VLinearEquationsProjectCellIndex:VLinearEquationsProjectCell
         
         guard
             
-            let model:MLinearEquationsProjectRowItemOperator = model as? MLinearEquationsProjectRowItemOperator
+            let model:MLinearEquationsProjectRowItemIndex = model as? MLinearEquationsProjectRowItemIndex
             
         else
         {
             return
         }
         
-        imageView.image = model.image
+        
     }
 }

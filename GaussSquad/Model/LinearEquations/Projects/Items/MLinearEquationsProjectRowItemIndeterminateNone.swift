@@ -5,7 +5,7 @@ class MLinearEquationsProjectRowItemIndeterminateNone:MLinearEquationsProjectRow
     private let kCellWidth:CGFloat = 50
     
     init(
-        polynomial:DPolynomial?,
+        polynomial:DPolynomial,
         column:Int)
     {
         let reusableIdentifier:String = VLinearEquationsProjectCellIndeterminateSymbol.reusableIdentifier
