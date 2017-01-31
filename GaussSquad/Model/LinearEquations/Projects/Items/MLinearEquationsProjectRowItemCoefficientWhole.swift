@@ -5,7 +5,7 @@ class MLinearEquationsProjectRowItemCoefficientWhole:MLinearEquationsProjectRowI
     var attributedString:NSAttributedString
     
     init(
-        polynomial:DPolynomial,
+        polynomial:DPolynomial?,
         column:Int)
     {
         let numberFormatter:NumberFormatter = NumberFormatter()

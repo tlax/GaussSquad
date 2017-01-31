@@ -8,7 +8,7 @@ class MLinearEquationsProjectRowItem
     private(set) weak var polynomial:DPolynomial?
     
     init(
-        polynomial:DPolynomial,
+        polynomial:DPolynomial?,
         cellWidth:CGFloat,
         reusableIdentifier:String,
         column:Int)

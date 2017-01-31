@@ -5,7 +5,9 @@ class MLinearEquationsProjectRow
     let items:[MLinearEquationsProjectRowItem]
     private weak var equation:DEquation!
     
-    init(equation:DEquation)
+    init(
+        equation:DEquation,
+        rowIndex:Int)
     {
         self.equation = equation
         
@@ -21,33 +23,38 @@ class MLinearEquationsProjectRow
         }
         
         var items:[MLinearEquationsProjectRowItem] = []
+        let itemIndex:MLinearEquationsProjectRowItemIndex = MLinearEquationsProjectRowItemIndex(
+            polynomial:nil,
+            index:rowIndex)
+        items.append(itemIndex)
         
         for polynomial:DPolynomial in polynomials
         {
             let itemOperator:MLinearEquationsProjectRowItemOperator
             let itemCoefficient:MLinearEquationsProjectRowItemCoefficient
             let itemIndeterminate:MLinearEquationsProjectRowItemIndeterminate
+            let currentItems:Int = items.count
             
             if polynomial.isPositive
             {
-                if items.isEmpty
+                if currentItems == 1
                 {
                     itemOperator = MLinearEquationsProjectRowItemOperatorPositive(
                         polynomial:polynomial,
-                        column:items.count)
+                        column:currentItems)
                 }
                 else
                 {
                     itemOperator = MLinearEquationsProjectRowItemOperatorAdd(
                         polynomial:polynomial,
-                        column:items.count)
+                        column:currentItems)
                 }
             }
             else
             {
                 itemOperator = MLinearEquationsProjectRowItemOperatorSubstract(
                     polynomial:polynomial,
-                    column:items.count)
+                    column:currentItems)
             }
             
             items.append(itemOperator)

@@ -177,11 +177,13 @@ class MLinearEquationsProject
         
         var cols:[CGFloat] = []
         var rows:[MLinearEquationsProjectRow] = []
+        var rowIndex:Int = 0
         
         for equation:DEquation in equationArray
         {
             let row:MLinearEquationsProjectRow = MLinearEquationsProjectRow(
-                equation:equation)
+                equation:equation,
+                rowIndex:rowIndex)
             
             for rowItem:MLinearEquationsProjectRowItem in row.items
             {
@@ -200,6 +202,7 @@ class MLinearEquationsProject
             }
             
             rows.append(row)
+            rowIndex += 1
         }
         
         self.rows = rows
