@@ -48,6 +48,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
             self,
             action:#selector(actionAdd(sender:)),
             for:UIControlEvents.touchUpInside)
+        buttonAdd.isHidden = true
         self.buttonAdd = buttonAdd
         
         let buttonBack:UIButton = UIButton()
@@ -65,6 +66,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
             self,
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
+        buttonBack.isHidden = true
         self.buttonBack = buttonBack
         
         let collectionView:VCollection = VCollection()
