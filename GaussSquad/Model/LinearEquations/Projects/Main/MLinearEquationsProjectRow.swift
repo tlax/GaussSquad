@@ -21,33 +21,53 @@ class MLinearEquationsProjectRow
         }
         
         var items:[MLinearEquationsProjectRowItem] = []
-        var column:Int = 0
         
         for polynomial:DPolynomial in polynomials
         {
             let itemOperator:MLinearEquationsProjectRowItemOperator
+            let itemCoefficient:MLinearEquationsProjectRowItemCoefficient
+            let itemIndeterminate:MLinearEquationsProjectRowItemIndeterminate
             
             if polynomial.isPositive
             {
                 if items.isEmpty
                 {
                     itemOperator = MLinearEquationsProjectRowItemOperatorPositive(
-                        column:column)
+                        column:items.count)
                 }
                 else
                 {
                     itemOperator = MLinearEquationsProjectRowItemOperatorAdd(
-                        column:column)
+                        column:items.count)
                 }
             }
             else
             {
                 itemOperator = MLinearEquationsProjectRowItemOperatorSubstract(
-                    column:column)
+                    column:items.count)
             }
             
             items.append(itemOperator)
-            column += 1
+            
+            let coefficientDividend:Double = polynomial.coefficientDividend
+            let coefficientDivisor:Double = polynomial.coefficientDivisor
+            
+            if polynomial.showAsDivision
+            {
+                itemCoefficient = MLinearEquationsProjectRowItemCoefficientDivision(
+                    coefficientDividend:coefficientDividend,
+                    coefficientDivisor:coefficientDivisor,
+                    column:items.count)
+            }
+            else
+            {
+                itemCoefficient = MLinearEquationsProjectRowItemCoefficientWhole(
+                    coefficientDividend:coefficientDividend,
+                    coefficientDivisor:coefficientDivisor,
+                    column:items.count)
+            }
+            
+            items.append(itemCoefficient)
         }
         
         self.items = items
