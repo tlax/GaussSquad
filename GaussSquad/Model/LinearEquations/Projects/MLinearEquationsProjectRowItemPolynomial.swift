@@ -1,9 +1,6 @@
-//
-//  MLinearEquationsProjectRowItemPolynomial.swift
-//  GaussSquad
-//
-//  Created by zero on 1/30/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MLinearEquationsProjectRowItemPolynomial:MLinearEquationsProjectRowItem
+{
+    
+}

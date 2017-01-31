@@ -139,6 +139,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         
         layoutBarHeight.constant = barMaxHeight
         layoutButtonAddLeft.constant = buttonAddMargin
+        collectionView.flow.invalidateLayout()
         
         super.layoutSubviews()
     }

@@ -1,14 +1,16 @@
-import Foundation
+import UIKit
 
 class MLinearEquationsProject
 {
     var rows:[MLinearEquationsProjectRow]
+    var cols:[CGFloat]
     var project:DProject?
     private weak var controller:CLinearEquationsProject?
     
     init(project:DProject?)
     {
         rows = []
+        cols = []
         self.project = project
     }
     
@@ -173,16 +175,35 @@ class MLinearEquationsProject
             return
         }
         
+        var cols:[CGFloat] = []
         var rows:[MLinearEquationsProjectRow] = []
         
         for equation:DEquation in equationArray
         {
             let row:MLinearEquationsProjectRow = MLinearEquationsProjectRow(
                 equation:equation)
+            
+            for rowItem:MLinearEquationsProjectRowItem in row.items
+            {
+                let itemIndex:Int = rowItem.column
+                let itemWidth:CGFloat = rowItem.cellWidth
+                
+                if itemIndex >= cols.count
+                {
+                    cols.append(0)
+                }
+                
+                if itemWidth > cols[itemIndex]
+                {
+                    cols[itemIndex] = itemWidth
+                }
+            }
+            
             rows.append(row)
         }
         
         self.rows = rows
+        self.cols = cols
         
         loadFinished()
     }

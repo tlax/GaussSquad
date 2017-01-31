@@ -2,17 +2,17 @@ import UIKit
 
 class MLinearEquationsProjectRowItem
 {
-    var cellWidth:CGFloat
-    var cellHeight:CGFloat
+    let cellWidth:CGFloat
     let reusableIdentifier:String
+    let column:Int
     
     init(
         cellWidth:CGFloat,
-        cellHeight:CGFloat,
-        reusableIdentifier:String)
+        reusableIdentifier:String,
+        column:Int)
     {
         self.cellWidth = cellWidth
-        self.cellHeight = cellHeight
         self.reusableIdentifier = reusableIdentifier
+        self.column = column
     }
 }

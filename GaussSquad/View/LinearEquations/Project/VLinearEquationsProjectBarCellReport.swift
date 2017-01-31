@@ -4,7 +4,7 @@ class VLinearEquationsBarCellReport:VLinearEquationsBarCell
 {
     private weak var imageView:UIImageView!
     private weak var labelCount:UILabel!
-    private let kCountHeight:CGFloat = 38
+    private let kCountHeight:CGFloat = 34
     
     override init(frame:CGRect)
     {

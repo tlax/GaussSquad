@@ -17,7 +17,7 @@ class VLinearEquationsBar:UIView
     private let kLabelDescrMargin:CGFloat = 10
     private let kMaxLabelDescrHeight:CGFloat = 500
     private let kBorderHeight:CGFloat = 1
-    private let kBorderTop:CGFloat = 90
+    private let kBorderTop:CGFloat = 60
     private let kTitleHeight:CGFloat = 44
     
     init(controller:CLinearEquations)
@@ -52,7 +52,7 @@ class VLinearEquationsBar:UIView
         let stringDescr:NSAttributedString = NSAttributedString(
             string:NSLocalizedString("VLinearEquationsBar_labelDescr", comment:""),
             attributes:[
-                NSFontAttributeName:UIFont.regular(size:15)])
+                NSFontAttributeName:UIFont.regular(size:13)])
         
         let labelTitle:UILabel = UILabel()
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
