@@ -7,7 +7,7 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
     private weak var collectionView:VCollection!
     private let kDeselectTime:TimeInterval = 0.2
     private let kContentTop:CGFloat = 20
-    private let kCellWidth:CGFloat = 75
+    private let kCellWidth:CGFloat = 60
     private let kBorderHeight:CGFloat = 1
     private let kBackWidth:CGFloat = 60
     

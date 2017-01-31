@@ -8,9 +8,13 @@ class MLinearEquationsProjectBar
     {
         let itemBack:MLinearEquationsProjectBarItemButtonBack = MLinearEquationsProjectBarItemButtonBack()
         let itemOptions:MLinearEquationsProjectBarItemButtonOptions = MLinearEquationsProjectBarItemButtonOptions()
+        let itemRows:MLinearEquationsProjectBarItemReportRows = MLinearEquationsProjectBarItemReportRows()
+        let itemIndeterminates:MLinearEquationsProjectBarItemReportIndeterminates = MLinearEquationsProjectBarItemReportIndeterminates()
         
         items = [
             itemBack,
-            itemOptions]
+            itemOptions,
+            itemRows,
+            itemIndeterminates]
     }
 }

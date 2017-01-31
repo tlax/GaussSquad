@@ -14,14 +14,14 @@ extension UIColor
         }
     }
     
-    open class var squadRed:UIColor //#DC2818
+    open class var squadRed:UIColor //#FF3722
     {
         get
         {
             return UIColor(
-                red:0.862745098039216,
-                green:0.156862745098039,
-                blue:0.094117647058824,
+                red:1,
+                green:0.215686274509804,
+                blue:0.133333333333333,
                 alpha:1)
         }
     }
