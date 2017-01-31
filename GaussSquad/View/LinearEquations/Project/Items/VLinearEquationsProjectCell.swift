@@ -9,7 +9,7 @@ class VLinearEquationsProjectCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.blue
+        backgroundColor = UIColor.clear
     }
     
     required init?(coder:NSCoder)

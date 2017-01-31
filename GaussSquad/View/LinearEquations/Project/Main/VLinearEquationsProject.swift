@@ -26,7 +26,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
         self.spinner = spinner
         
         let collectionView:VCollection = VCollection()
-        collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+        collectionView.flow.scrollDirection = UICollectionViewScrollDirection.vertical
         collectionView.alwaysBounceVertical = true
         collectionView.alwaysBounceHorizontal = true
         collectionView.delegate = self

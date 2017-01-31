@@ -3,10 +3,10 @@ import UIKit
 class MLinearEquationsProjectRowItemIndeterminateSymbol:MLinearEquationsProjectRowItemIndeterminate
 {
     let attributedString:NSAttributedString
-    private let kFontSize:CGFloat = 20
+    private let kFontSize:CGFloat = 25
     private let kMaxHeight:CGFloat = 30
     private let kMaxWidth:CGFloat = 5000
-    private let kStringMargin:CGFloat = 20
+    private let kStringMargin:CGFloat = 30
     
     init(symbol:String, column:Int)
     {
