@@ -7,8 +7,10 @@ class MLinearEquationsProjectBar
     init(project:DProject)
     {
         let itemBack:MLinearEquationsProjectBarItemButtonBack = MLinearEquationsProjectBarItemButtonBack()
+        let itemOptions:MLinearEquationsProjectBarItemButtonOptions = MLinearEquationsProjectBarItemButtonOptions()
         
         items = [
-            itemBack]
+            itemBack,
+            itemOptions]
     }
 }
