@@ -68,6 +68,11 @@ class MLinearEquationsProjectRow
             }
             
             items.append(itemCoefficient)
+            
+            let indeterminated:DIndeterminate? = polynomial.indeterminate
+            
+            itemIndeterminate = MLinearEquationsProjectRowItemIndeterminate(
+                symbol:polynomial.inde, column: <#T##Int#>)
         }
         
         self.items = items
