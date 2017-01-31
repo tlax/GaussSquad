@@ -8,7 +8,10 @@ class MLinearEquationsProjectRowItemIndeterminateSymbol:MLinearEquationsProjectR
     private let kMaxWidth:CGFloat = 5000
     private let kStringMargin:CGFloat = 30
     
-    init(symbol:String, column:Int)
+    init(
+        polynomial:DPolynomial,
+        symbol:String,
+        column:Int)
     {
         let reusableIdentifier:String = VLinearEquationsProjectCellIndeterminateSymbol.reusableIdentifier
         let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
@@ -31,6 +34,7 @@ class MLinearEquationsProjectRowItemIndeterminateSymbol:MLinearEquationsProjectR
         let cellWidth:CGFloat = stringWidth + kStringMargin
         
         super.init(
+            polynomial:polynomial,
             cellWidth:cellWidth,
             reusableIdentifier:reusableIdentifier,
             column:column)

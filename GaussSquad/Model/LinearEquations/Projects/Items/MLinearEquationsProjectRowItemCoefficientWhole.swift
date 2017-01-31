@@ -8,7 +8,9 @@ class MLinearEquationsProjectRowItemCoefficientWhole:MLinearEquationsProjectRowI
     private let kMaxWidth:CGFloat = 5000
     private let kStringMargin:CGFloat = 20
     
-    init(coefficientDividend:Double, coefficientDivisor:Double, column:Int)
+    init(
+        polynomial:DPolynomial,
+        column:Int)
     {
         let coefficient:Double = coefficientDividend / coefficientDivisor
         let reusableIdentifier:String = VLinearEquationsProjectCellCoefficientWhole.reusableIdentifier
@@ -33,6 +35,7 @@ class MLinearEquationsProjectRowItemCoefficientWhole:MLinearEquationsProjectRowI
         let cellWidth:CGFloat = stringWidth + kStringMargin
         
         super.init(
+            polynomial:polynomial,
             cellWidth:cellWidth,
             reusableIdentifier:reusableIdentifier,
             column:column)

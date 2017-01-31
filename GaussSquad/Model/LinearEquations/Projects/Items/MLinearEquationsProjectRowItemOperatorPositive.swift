@@ -2,9 +2,12 @@ import UIKit
 
 class MLinearEquationsProjectRowItemOperatorPositive:MLinearEquationsProjectRowItemOperator
 {
-    init(column:Int)
+    init(
+        polynomial:DPolynomial,
+        column:Int)
     {
         super.init(
+            polynomial:polynomial,
             image:nil,
             column:column)
     }

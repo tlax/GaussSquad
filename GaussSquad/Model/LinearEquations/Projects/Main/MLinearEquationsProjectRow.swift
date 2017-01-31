@@ -33,37 +33,35 @@ class MLinearEquationsProjectRow
                 if items.isEmpty
                 {
                     itemOperator = MLinearEquationsProjectRowItemOperatorPositive(
+                        polynomial:polynomial,
                         column:items.count)
                 }
                 else
                 {
                     itemOperator = MLinearEquationsProjectRowItemOperatorAdd(
+                        polynomial:polynomial,
                         column:items.count)
                 }
             }
             else
             {
                 itemOperator = MLinearEquationsProjectRowItemOperatorSubstract(
+                    polynomial:polynomial,
                     column:items.count)
             }
             
             items.append(itemOperator)
             
-            let coefficientDividend:Double = polynomial.coefficientDividend
-            let coefficientDivisor:Double = polynomial.coefficientDivisor
-            
             if polynomial.showAsDivision
             {
                 itemCoefficient = MLinearEquationsProjectRowItemCoefficientDivision(
-                    coefficientDividend:coefficientDividend,
-                    coefficientDivisor:coefficientDivisor,
+                    polynomial:polynomial,
                     column:items.count)
             }
             else
             {
                 itemCoefficient = MLinearEquationsProjectRowItemCoefficientWhole(
-                    coefficientDividend:coefficientDividend,
-                    coefficientDivisor:coefficientDivisor,
+                    polynomial:polynomial,
                     column:items.count)
             }
             
@@ -76,18 +74,21 @@ class MLinearEquationsProjectRow
                 if let symbol:String = indeterminate.symbol
                 {
                     itemIndeterminate = MLinearEquationsProjectRowItemIndeterminateSymbol(
+                        polynomial:polynomial,
                         symbol:symbol,
                         column:items.count)
                 }
                 else
                 {
                     itemIndeterminate = MLinearEquationsProjectRowItemIndeterminateNone(
+                        polynomial:polynomial,
                         column:items.count)
                 }
             }
             else
             {
                 itemIndeterminate = MLinearEquationsProjectRowItemIndeterminateNone(
+                    polynomial:polynomial,
                     column:items.count)
             }
             

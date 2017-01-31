@@ -6,6 +6,7 @@ class MLinearEquationsProjectRowItemOperator:MLinearEquationsProjectRowItem
     private let kCellWidth:CGFloat = 50
     
     init(
+        polynomial:DPolynomial,
         image:UIImage?,
         column:Int)
     {
@@ -13,6 +14,7 @@ class MLinearEquationsProjectRowItemOperator:MLinearEquationsProjectRowItem
         let reusableIdentifier:String = VLinearEquationsProjectCellOperator.reusableIdentifier
         
         super.init(
+            polynomial:polynomial,
             cellWidth:kCellWidth,
             reusableIdentifier:reusableIdentifier,
             column:column)
