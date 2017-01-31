@@ -41,9 +41,6 @@
 		DAD518C41E3FD70C0004C8D8 /* MLinearEquationsProjectBarItemReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518C31E3FD70C0004C8D8 /* MLinearEquationsProjectBarItemReport.swift */; };
 		DAD518C61E3FD8AA0004C8D8 /* MLinearEquationsProjectBarItemButtonBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518C51E3FD8AA0004C8D8 /* MLinearEquationsProjectBarItemButtonBack.swift */; };
 		DAD518CA1E4006420004C8D8 /* MLinearEquationsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518C91E4006420004C8D8 /* MLinearEquationsItem.swift */; };
-		DAF37ACD1E3D4576005052D8 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACA1E3D4576005052D8 /* Lato-Light.ttf */; };
-		DAF37ACE1E3D4576005052D8 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACB1E3D4576005052D8 /* Lato-Regular.ttf */; };
-		DAF37ACF1E3D4576005052D8 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ACC1E3D4576005052D8 /* Lato-Semibold.ttf */; };
 		DAF37AD21E3D4FEF005052D8 /* CLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */; };
 		DAF37AD91E3D51D7005052D8 /* VLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AD81E3D51D7005052D8 /* VLinearEquations.swift */; };
 		DAF37ADB1E3D6588005052D8 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ADA1E3D6588005052D8 /* spinner.xcassets */; };
@@ -114,9 +111,6 @@
 		DAD518C31E3FD70C0004C8D8 /* MLinearEquationsProjectBarItemReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectBarItemReport.swift; sourceTree = "<group>"; };
 		DAD518C51E3FD8AA0004C8D8 /* MLinearEquationsProjectBarItemButtonBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectBarItemButtonBack.swift; sourceTree = "<group>"; };
 		DAD518C91E4006420004C8D8 /* MLinearEquationsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsItem.swift; sourceTree = "<group>"; };
-		DAF37ACA1E3D4576005052D8 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
-		DAF37ACB1E3D4576005052D8 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
-		DAF37ACC1E3D4576005052D8 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquations.swift; sourceTree = "<group>"; };
 		DAF37AD81E3D51D7005052D8 /* VLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquations.swift; sourceTree = "<group>"; };
 		DAF37ADA1E3D6588005052D8 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
@@ -228,16 +222,6 @@
 			path = Projects;
 			sourceTree = "<group>";
 		};
-		DAF37AC91E3D4576005052D8 /* Lato */ = {
-			isa = PBXGroup;
-			children = (
-				DAF37ACA1E3D4576005052D8 /* Lato-Light.ttf */,
-				DAF37ACB1E3D4576005052D8 /* Lato-Regular.ttf */,
-				DAF37ACC1E3D4576005052D8 /* Lato-Semibold.ttf */,
-			);
-			path = Lato;
-			sourceTree = "<group>";
-		};
 		DAF37AD01E3D4FE4005052D8 /* LinearEquations */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,7 +293,6 @@
 		DAFF4A491E397B9500A2DD4B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				DAF37AC91E3D4576005052D8 /* Lato */,
 				DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */,
 				DAA4BD771E3A703900B0360D /* brand.xcassets */,
 				DA033CED1E3AA2DC00F7645C /* generic.xcassets */,
@@ -534,9 +517,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAF37ACF1E3D4576005052D8 /* Lato-Semibold.ttf in Resources */,
-				DAF37ACD1E3D4576005052D8 /* Lato-Light.ttf in Resources */,
-				DAF37ACE1E3D4576005052D8 /* Lato-Regular.ttf in Resources */,
 				DAF37ADB1E3D6588005052D8 /* spinner.xcassets in Resources */,
 				DAFF4AC01E397B9600A2DD4B /* Localizable.strings in Resources */,
 				DA033CEE1E3AA2DC00F7645C /* generic.xcassets in Resources */,
