@@ -11,9 +11,9 @@ class MLinearEquationsItem
         self.project = project
         
         let attrCoefficients:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.regular(size:16)]
+            NSFontAttributeName:UIFont.regular(size:20)]
         let attrIndeterminate:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.medium(size:15)]
+            NSFontAttributeName:UIFont.medium(size:18)]
         let attrOperator:[String:AnyObject] = [
             NSFontAttributeName:UIFont.bold(size:12)]
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
@@ -60,6 +60,17 @@ class MLinearEquationsItem
                         else
                         {
                             continue
+                        }
+                        
+                        let mutableCoefficient:NSMutableAttributedString
+                        
+                        if polynomial.showAsDivision
+                        {
+                            
+                        }
+                        else
+                        {
+                            
                         }
                         
                         let stringIndeterminate:NSAttributedString = NSAttributedString(

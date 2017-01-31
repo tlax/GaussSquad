@@ -6,6 +6,9 @@ class VLinearEquationsCell:UICollectionViewCell
     private weak var labelDescr:UILabel!
     private weak var labelAge:UILabel!
     private weak var layoutDescrHeight:NSLayoutConstraint!
+    private let drawingOptions:NSStringDrawingOptions
+    private let labelMargin2:CGFloat
+    private let kLabelMaxHeight:CGFloat = 5000
     private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
     private let kLabelMargin:CGFloat = 10
@@ -13,6 +16,11 @@ class VLinearEquationsCell:UICollectionViewCell
  
     override init(frame:CGRect)
     {
+        labelMargin2 = kLabelMargin + kLabelMargin
+        drawingOptions = NSStringDrawingOptions([
+            NSStringDrawingOptions.usesLineFragmentOrigin,
+            NSStringDrawingOptions.usesFontLeading])
+        
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.white
@@ -64,6 +72,32 @@ class VLinearEquationsCell:UICollectionViewCell
         return nil
     }
     
+    override func layoutIfNeeded()
+    {
+        guard
+            
+            let attributedString:NSAttributedString = labelDescr.attributedText
+        
+        else
+        {
+            return
+        }
+        
+        let width:CGFloat = bounds.maxX
+        let remainWidth:CGFloat = width - labelMargin2
+        let maxSize:CGSize = CGSize(
+            width:remainWidth,
+            height:kLabelMaxHeight)
+        let stringRect:CGRect = attributedString.boundingRect(
+            with:maxSize,
+            options:drawingOptions,
+            context:nil)
+        let stringHeight:CGFloat = ceil(stringRect.size.height)
+        layoutDescrHeight.constant = stringHeight
+        
+        super.layoutIfNeeded()
+    }
+    
     override var isSelected:Bool
     {
         didSet
@@ -102,5 +136,6 @@ class VLinearEquationsCell:UICollectionViewCell
         labelDescr.attributedText = model.descr
         labelAge.text = model.age
         hover()
+        layoutIfNeeded()
     }
 }
