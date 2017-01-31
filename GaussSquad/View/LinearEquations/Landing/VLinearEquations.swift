@@ -167,13 +167,6 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func refresh()
     {
-        collectionView.scrollRectToVisible(
-            CGRect(
-                x:0,
-                y:0,
-                width:1,
-                height:1),
-            animated:false)
         collectionView.reloadData()
         spinner.stopAnimating()
         collectionView.isHidden = false
