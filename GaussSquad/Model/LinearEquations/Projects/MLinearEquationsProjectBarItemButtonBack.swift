@@ -4,7 +4,7 @@ class MLinearEquationsProjectBarItemButtonBack:MLinearEquationsProjectBarItemBut
 {
     init()
     {
-        super.init(image:#imageLiteral(resourceName: "assetGenericBack"))
+        super.init(image:#imageLiteral(resourceName: "assetGenericBackRound"))
     }
     
     override func selected(controller:CLinearEquationsProject)
