@@ -32,6 +32,8 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerCell(
+            cell:VLinearEquationsProjectCellIndex.self)
+        collectionView.registerCell(
             cell:VLinearEquationsProjectCellIndeterminateSymbol.self)
         collectionView.registerCell(
             cell:VLinearEquationsProjectCellIndeterminateNone.self)

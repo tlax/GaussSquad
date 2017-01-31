@@ -16,6 +16,7 @@
 		DA12D46D1E413813008327B5 /* MLinearEquationsProjectRowItemIndeterminateNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D46C1E413813008327B5 /* MLinearEquationsProjectRowItemIndeterminateNone.swift */; };
 		DA12D46F1E413886008327B5 /* VLinearEquationsProjectCellIndeterminateSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D46E1E413886008327B5 /* VLinearEquationsProjectCellIndeterminateSymbol.swift */; };
 		DA12D4711E413890008327B5 /* VLinearEquationsProjectCellIndeterminateNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D4701E413890008327B5 /* VLinearEquationsProjectCellIndeterminateNone.swift */; };
+		DA12D4731E414A71008327B5 /* VLinearEquationsProjectCellIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D4721E414A71008327B5 /* VLinearEquationsProjectCellIndex.swift */; };
 		DA133A381E410F710028D90F /* MLinearEquationsProjectBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA133A281E410F710028D90F /* MLinearEquationsProjectBar.swift */; };
 		DA133A391E410F710028D90F /* MLinearEquationsProjectBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA133A291E410F710028D90F /* MLinearEquationsProjectBarItem.swift */; };
 		DA133A3A1E410F710028D90F /* MLinearEquationsProjectBarItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA133A2A1E410F710028D90F /* MLinearEquationsProjectBarItemButton.swift */; };
@@ -100,6 +101,7 @@
 		DA12D46C1E413813008327B5 /* MLinearEquationsProjectRowItemIndeterminateNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectRowItemIndeterminateNone.swift; sourceTree = "<group>"; };
 		DA12D46E1E413886008327B5 /* VLinearEquationsProjectCellIndeterminateSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectCellIndeterminateSymbol.swift; sourceTree = "<group>"; };
 		DA12D4701E413890008327B5 /* VLinearEquationsProjectCellIndeterminateNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectCellIndeterminateNone.swift; sourceTree = "<group>"; };
+		DA12D4721E414A71008327B5 /* VLinearEquationsProjectCellIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectCellIndex.swift; sourceTree = "<group>"; };
 		DA133A281E410F710028D90F /* MLinearEquationsProjectBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectBar.swift; sourceTree = "<group>"; };
 		DA133A291E410F710028D90F /* MLinearEquationsProjectBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectBarItem.swift; sourceTree = "<group>"; };
 		DA133A2A1E410F710028D90F /* MLinearEquationsProjectBarItemButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectBarItemButton.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				DA133A5C1E4119E00028D90F /* VLinearEquationsProjectCell.swift */,
+				DA12D4721E414A71008327B5 /* VLinearEquationsProjectCellIndex.swift */,
 				DA133A671E411A5A0028D90F /* VLinearEquationsProjectCellCoefficientDivision.swift */,
 				DA133A691E411A6A0028D90F /* VLinearEquationsProjectCellCoefficientWhole.swift */,
 				DA133A6B1E411B070028D90F /* VLinearEquationsProjectCellEquals.swift */,
@@ -648,6 +651,7 @@
 				DAFF4ABF1E397B9600A2DD4B /* MSession.swift in Sources */,
 				DA133A3C1E410F710028D90F /* MLinearEquationsProjectBarItemButtonOptions.swift in Sources */,
 				DAD518AD1E3FBCF90004C8D8 /* MLinearEquations.swift in Sources */,
+				DA12D4731E414A71008327B5 /* VLinearEquationsProjectCellIndex.swift in Sources */,
 				DA133A451E410F710028D90F /* MLinearEquationsProjectRow.swift in Sources */,
 				DA12D46B1E413808008327B5 /* MLinearEquationsProjectRowItemIndeterminateSymbol.swift in Sources */,
 				DAFF4AA51E397B9600A2DD4B /* ExtensionUIFont.swift in Sources */,
