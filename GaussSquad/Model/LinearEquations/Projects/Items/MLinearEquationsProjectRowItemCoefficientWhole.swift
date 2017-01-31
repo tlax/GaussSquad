@@ -2,37 +2,52 @@ import UIKit
 
 class MLinearEquationsProjectRowItemCoefficientWhole:MLinearEquationsProjectRowItemCoefficient
 {
-    let attributedString:NSAttributedString
-    private let kFontSize:CGFloat = 20
-    private let kMaxHeight:CGFloat = 30
-    private let kMaxWidth:CGFloat = 5000
-    private let kStringMargin:CGFloat = 20
+    var attributedString:NSAttributedString
     
     init(
         polynomial:DPolynomial,
         column:Int)
     {
+        let numberFormatter:NumberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = MLinearEquationsProjectRowItemCoefficient.kNumberFormatterStyle
+        numberFormatter.minimumIntegerDigits = MLinearEquationsProjectRowItemCoefficient.kMinIntegers
+        numberFormatter.maximumIntegerDigits = MLinearEquationsProjectRowItemCoefficient.kMaxIntegers
+        numberFormatter.minimumFractionDigits = MLinearEquationsProjectRowItemCoefficient.kMinDecimals
+        numberFormatter.maximumFractionDigits = MLinearEquationsProjectRowItemCoefficient.kMaxDecimals
+        
+        let coefficientDividend:Double = polynomial.coefficientDividend
+        let coefficientDivisor:Double = polynomial.coefficientDivisor
         let coefficient:Double = coefficientDividend / coefficientDivisor
+        let coefficientNumber:NSNumber = coefficient as NSNumber
         let reusableIdentifier:String = VLinearEquationsProjectCellCoefficientWhole.reusableIdentifier
         let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
             NSStringDrawingOptions.usesFontLeading,
             NSStringDrawingOptions.usesLineFragmentOrigin])
         let attributes:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.regular(size:kFontSize)]
-        let rawString:String = "\(coefficient)"
-        attributedString = NSAttributedString(
-            string:rawString,
-            attributes:attributes)
+            NSFontAttributeName:UIFont.regular(
+                size:MLinearEquationsProjectRowItemCoefficient.kFontSize)]
+        let rawString:String? = numberFormatter.string(from:coefficientNumber)
+        
+        if let rawString:String = rawString
+        {
+            attributedString = NSAttributedString(
+                string:rawString,
+                attributes:attributes)
+        }
+        else
+        {
+            attributedString = NSAttributedString()
+        }
         
         let maxSize:CGSize = CGSize(
-            width:kMaxWidth,
-            height:kMaxHeight)
+            width:MLinearEquationsProjectRowItemCoefficient.kMaxWidth,
+            height:MLinearEquationsProjectRowItemCoefficient.kMaxHeight)
         let stringRect:CGRect = attributedString.boundingRect(
             with:maxSize,
             options:drawingOptions,
             context:nil)
         let stringWidth:CGFloat = ceil(stringRect.size.width)
-        let cellWidth:CGFloat = stringWidth + kStringMargin
+        let cellWidth:CGFloat = stringWidth + MLinearEquationsProjectRowItemCoefficient.kStringMargin
         
         super.init(
             polynomial:polynomial,

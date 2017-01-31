@@ -4,33 +4,54 @@ class MLinearEquationsProjectRowItemCoefficientDivision:MLinearEquationsProjectR
 {
     let attributedStringDividend:NSAttributedString
     let attributedStringDivisor:NSAttributedString
-    private let kFontSize:CGFloat = 20
-    private let kMaxHeight:CGFloat = 30
-    private let kMaxWidth:CGFloat = 5000
-    private let kStringMargin:CGFloat = 20
     
     init(
         polynomial:DPolynomial,
         column:Int)
     {
+        let numberFormatter:NumberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = MLinearEquationsProjectRowItemCoefficient.kNumberFormatterStyle
+        numberFormatter.minimumIntegerDigits = MLinearEquationsProjectRowItemCoefficient.kMinIntegers
+        numberFormatter.maximumIntegerDigits = MLinearEquationsProjectRowItemCoefficient.kMaxIntegers
+        numberFormatter.minimumFractionDigits = MLinearEquationsProjectRowItemCoefficient.kMinDecimals
+        numberFormatter.maximumFractionDigits = MLinearEquationsProjectRowItemCoefficient.kMaxDecimals
+        
+        let coefficientDividend:NSNumber = polynomial.coefficientDividend as NSNumber
+        let coefficientDivisor:NSNumber = polynomial.coefficientDivisor as NSNumber
         let reusableIdentifier:String = VLinearEquationsProjectCellCoefficientDivision.reusableIdentifier
         let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
             NSStringDrawingOptions.usesFontLeading,
             NSStringDrawingOptions.usesLineFragmentOrigin])
         let attributes:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.regular(size:kFontSize)]
+            NSFontAttributeName:UIFont.regular(
+                size:MLinearEquationsProjectRowItemCoefficient.kFontSize)]
         let maxSize:CGSize = CGSize(
-            width:kMaxWidth,
-            height:kMaxHeight)
-        let rawStringDividend:String = "\(coefficientDividend)"
-        let rawStringDivisor:String = "\(coefficientDivisor)"
+            width:MLinearEquationsProjectRowItemCoefficient.kMaxWidth,
+            height:MLinearEquationsProjectRowItemCoefficient.kMaxHeight)
+        let rawStringDividend:String? = numberFormatter.string(from:coefficientDividend)
+        let rawStringDivisor:String? = numberFormatter.string(from:coefficientDivisor)
         
-        attributedStringDividend = NSAttributedString(
-            string:rawStringDividend,
-            attributes:attributes)
-        attributedStringDivisor = NSAttributedString(
-            string:rawStringDivisor,
-            attributes:attributes)
+        if let rawStringDividend:String = rawStringDividend
+        {
+            attributedStringDividend = NSAttributedString(
+                string:rawStringDividend,
+                attributes:attributes)
+        }
+        else
+        {
+            attributedStringDividend = NSAttributedString()
+        }
+        
+        if let rawStringDivisor:String = rawStringDivisor
+        {
+            attributedStringDivisor = NSAttributedString(
+                string:rawStringDivisor,
+                attributes:attributes)
+        }
+        else
+        {
+            attributedStringDivisor = NSAttributedString()
+        }
         
         let stringRectDividend:CGRect = attributedStringDividend.boundingRect(
             with:maxSize,
@@ -44,7 +65,7 @@ class MLinearEquationsProjectRowItemCoefficientDivision:MLinearEquationsProjectR
         let stringWidthDividend:CGFloat = ceil(stringRectDividend.size.width)
         let stringWidthDivisor:CGFloat = ceil(stringRectDivisor.size.width)
         let stringWidth:CGFloat = max(stringWidthDividend, stringWidthDivisor)
-        let cellWidth:CGFloat = stringWidth + kStringMargin
+        let cellWidth:CGFloat = stringWidth + MLinearEquationsProjectRowItemCoefficient.kStringMargin
         
         super.init(
             polynomial:polynomial,
