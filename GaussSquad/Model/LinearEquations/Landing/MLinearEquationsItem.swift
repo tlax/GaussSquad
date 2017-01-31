@@ -2,12 +2,19 @@ import Foundation
 
 class MLinearEquationsItem
 {
-    let name:String
+    let descr:NSAttributedString
+    let age:String
     private(set) weak var project:DProject!
     
     init(project:DProject)
     {
         self.project = project
-        name = "hello word"
+        
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        
+        
+        
+        descr = mutableString
+        age = "2 hours"
     }
 }
