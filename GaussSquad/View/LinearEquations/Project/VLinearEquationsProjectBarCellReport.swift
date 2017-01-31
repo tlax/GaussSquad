@@ -4,7 +4,7 @@ class VLinearEquationsBarCellReport:VLinearEquationsBarCell
 {
     private weak var imageView:UIImageView!
     private weak var labelCount:UILabel!
-    private let kCountHeight:CGFloat = 50
+    private let kCountHeight:CGFloat = 54
     
     override init(frame:CGRect)
     {
@@ -20,7 +20,7 @@ class VLinearEquationsBarCellReport:VLinearEquationsBarCell
         let labelCount:UILabel = UILabel()
         labelCount.isUserInteractionEnabled = false
         labelCount.translatesAutoresizingMaskIntoConstraints = false
-        labelCount.font = UIFont.bold(size:13)
+        labelCount.font = UIFont.bold(size:11)
         labelCount.backgroundColor = UIColor.clear
         labelCount.textAlignment = NSTextAlignment.center
         self.labelCount = labelCount
