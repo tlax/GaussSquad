@@ -10,6 +10,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     private let kBarHeight:CGFloat = 100
     private let kCollectionBottom:CGFloat = 20
     private let kCellHeight:CGFloat = 60
+    private let kDeselectTime:TimeInterval = 0.2
     
     override init(controller:CController)
     {
@@ -159,7 +160,24 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
             withReuseIdentifier:
             item.reusableIdentifier,
             for:indexPath) as! VLinearEquationsProjectCell
+        cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MLinearEquationsProjectRowItem = modelAtIndex(index:indexPath)
+        item.selected(controller:controller)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

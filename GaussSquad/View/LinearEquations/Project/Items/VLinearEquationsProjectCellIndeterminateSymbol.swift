@@ -16,6 +16,8 @@ class VLinearEquationsProjectCellIndeterminateSymbol:VLinearEquationsProjectCell
         label.textColor = UIColor.black
         self.label = label
         
+        addSubview(label)
+        
         NSLayoutConstraint.equals(
             view:label,
             toView:self)

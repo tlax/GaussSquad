@@ -15,4 +15,11 @@ class MLinearEquationsProjectRowItem
         self.reusableIdentifier = reusableIdentifier
         self.column = column
     }
+    
+    //MARK: public
+    
+    func selected(controller:CLinearEquationsProject)
+    {
+        
+    }
 }

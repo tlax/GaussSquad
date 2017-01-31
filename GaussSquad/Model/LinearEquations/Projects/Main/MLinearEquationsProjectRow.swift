@@ -90,6 +90,8 @@ class MLinearEquationsProjectRow
                 itemIndeterminate = MLinearEquationsProjectRowItemIndeterminateNone(
                     column:items.count)
             }
+            
+            items.append(itemIndeterminate)
         }
         
         self.items = items
