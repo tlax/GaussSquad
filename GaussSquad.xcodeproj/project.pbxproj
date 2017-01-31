@@ -12,6 +12,7 @@
 		DA033CEE1E3AA2DC00F7645C /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA033CED1E3AA2DC00F7645C /* generic.xcassets */; };
 		DA033CF01E3AA30700F7645C /* VParentBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA033CEF1E3AA30700F7645C /* VParentBarButton.swift */; };
 		DA033CF21E3AB68400F7645C /* VHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA033CF11E3AB68400F7645C /* VHomeCell.swift */; };
+		DA2DA1BC1E40EB24003022B0 /* MLinearEquationsProjectBarItemButtonOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2DA1BB1E40EB24003022B0 /* MLinearEquationsProjectBarItemButtonOptions.swift */; };
 		DAA4BD701E3A4BDE00B0360D /* MHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4BD6F1E3A4BDE00B0360D /* MHome.swift */; };
 		DAA4BD721E3A4C4100B0360D /* MHomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4BD711E3A4C4100B0360D /* MHomeItem.swift */; };
 		DAA4BD741E3A5DBD00B0360D /* MHomeItemLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4BD731E3A5DBD00B0360D /* MHomeItemLinearEquations.swift */; };
@@ -82,6 +83,7 @@
 		DA033CED1E3AA2DC00F7645C /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA033CEF1E3AA30700F7645C /* VParentBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParentBarButton.swift; sourceTree = "<group>"; };
 		DA033CF11E3AB68400F7645C /* VHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCell.swift; sourceTree = "<group>"; };
+		DA2DA1BB1E40EB24003022B0 /* MLinearEquationsProjectBarItemButtonOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectBarItemButtonOptions.swift; sourceTree = "<group>"; };
 		DAA4BD6F1E3A4BDE00B0360D /* MHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHome.swift; sourceTree = "<group>"; };
 		DAA4BD711E3A4C4100B0360D /* MHomeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItem.swift; sourceTree = "<group>"; };
 		DAA4BD731E3A5DBD00B0360D /* MHomeItemLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemLinearEquations.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				DAD518C11E3FD7000004C8D8 /* MLinearEquationsProjectBarItemButton.swift */,
 				DAD518C31E3FD70C0004C8D8 /* MLinearEquationsProjectBarItemReport.swift */,
 				DAD518C51E3FD8AA0004C8D8 /* MLinearEquationsProjectBarItemButtonBack.swift */,
+				DA2DA1BB1E40EB24003022B0 /* MLinearEquationsProjectBarItemButtonOptions.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				DAD518CA1E4006420004C8D8 /* MLinearEquationsItem.swift in Sources */,
 				DAFF4A981E397B9600A2DD4B /* CController.swift in Sources */,
 				DAD518BC1E3FC3700004C8D8 /* VLinearEquationsProjectBarCell.swift in Sources */,
+				DA2DA1BC1E40EB24003022B0 /* MLinearEquationsProjectBarItemButtonOptions.swift in Sources */,
 				DAA4BD701E3A4BDE00B0360D /* MHome.swift in Sources */,
 				DAF37AE51E3D6EA1005052D8 /* VLinearEquationsBar.swift in Sources */,
 				DAFF4AC61E397B9600A2DD4B /* VBorder.swift in Sources */,
