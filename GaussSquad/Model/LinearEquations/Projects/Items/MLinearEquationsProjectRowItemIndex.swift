@@ -11,7 +11,7 @@ class MLinearEquationsProjectRowItemIndex:MLinearEquationsProjectRowItem
         index:Int)
     {
         self.index = index
-        let reusableIdentifier:String = VLinearEquationsProjectCellEquals.reusableIdentifier
+        let reusableIdentifier:String = VLinearEquationsProjectCellIndex.reusableIdentifier
         
         super.init(
             polynomial:polynomial,
