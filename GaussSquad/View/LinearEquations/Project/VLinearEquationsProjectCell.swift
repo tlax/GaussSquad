@@ -6,7 +6,7 @@ class VLinearEquationsProjectCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.blue
     }
     
     required init?(coder:NSCoder)

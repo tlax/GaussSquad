@@ -9,7 +9,7 @@ class VHomeCell:UICollectionViewCell
     private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
     private let kLabelsTop:CGFloat = 26
-    private let kSymbolHeight:CGFloat = 23
+    private let kSymbolHeight:CGFloat = 18
     private let kTitleHeight:CGFloat = 19
     
     override init(frame:CGRect)
@@ -28,7 +28,7 @@ class VHomeCell:UICollectionViewCell
         let labelSymbol:UILabel = UILabel()
         labelSymbol.isUserInteractionEnabled = false
         labelSymbol.translatesAutoresizingMaskIntoConstraints = false
-        labelSymbol.font = UIFont.bold(size:20)
+        labelSymbol.font = UIFont.bold(size:16)
         labelSymbol.textColor = UIColor.squadBlue
         labelSymbol.backgroundColor = UIColor.clear
         self.labelSymbol = labelSymbol
