@@ -10,7 +10,7 @@ class MLinearEquationsItem
     {
         self.project = project
         
-        let attrCoefficients:[String:AnyObject] = [
+        let attrCoefficient:[String:AnyObject] = [
             NSFontAttributeName:UIFont.regular(size:20)]
         let attrIndeterminate:[String:AnyObject] = [
             NSFontAttributeName:UIFont.medium(size:18)]
@@ -62,16 +62,40 @@ class MLinearEquationsItem
                             continue
                         }
                         
-                        let mutableCoefficient:NSMutableAttributedString
+                        let mutableCoefficient:NSMutableAttributedString = NSMutableAttributedString()
+                        let dividend:Double = polynomial.coefficientDividend
+                        let divisor:Double = polynomial.coefficientDivisor
                         
                         if polynomial.showAsDivision
                         {
+                            let rawStringDividend:String = "\(dividend)"
+                            let rawStringDivisor:String = "\(divisor)"
+                            let stringDivision:NSAttributedString = NSAttributedString(
+                                string:NSLocalizedString("MLinearEquationsItem_division", comment:""),
+                                attributes:attrOperator)
+                            let stringDividend:NSAttributedString = NSAttributedString(
+                                string:rawStringDividend,
+                                attributes:attrCoefficient)
+                            let stringDivisor:NSAttributedString = NSAttributedString(
+                                string:rawStringDivisor,
+                                attributes:attrCoefficient)
                             
+                            mutableCoefficient.append(stringDividend)
+                            mutableCoefficient.append(stringDivision)
+                            mutableCoefficient.append(stringDivisor)
                         }
                         else
                         {
+                            let dividedCoefficient:Double = dividend / divisor
+                            let rawStringCoefficient:String = "\(dividedCoefficient)"
+                            let stringCoefficient:NSAttributedString = NSAttributedString(
+                                string:rawStringCoefficient,
+                                attributes:attrCoefficient)
                             
+                            mutableCoefficient.append(stringCoefficient)
                         }
+                        
+                        mutableEquation.append(mutableCoefficient)
                         
                         let stringIndeterminate:NSAttributedString = NSAttributedString(
                             string:indeterminateSymbol,
