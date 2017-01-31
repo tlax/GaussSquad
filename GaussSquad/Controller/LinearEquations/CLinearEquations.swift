@@ -9,7 +9,6 @@ class CLinearEquations:CController
     {
         super.viewDidAppear(animated)
         
-        viewLinearEquations.modelLoading()
         model = MLinearEquations(controller:self)
     }
     

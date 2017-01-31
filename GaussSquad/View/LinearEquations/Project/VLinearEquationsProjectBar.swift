@@ -9,6 +9,7 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
     private let kContentTop:CGFloat = 20
     private let kCellWidth:CGFloat = 75
     private let kBorderHeight:CGFloat = 1
+    private let kBackWidth:CGFloat = 60
     
     init(controller:CLinearEquationsProject)
     {
@@ -28,10 +29,41 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
         collectionView.registerCell(cell:VLinearEquationsBarCellReport.self)
         self.collectionView = collectionView
         
+        let buttonBack:UIButton = UIButton()
+        buttonBack.translatesAutoresizingMaskIntoConstraints = false
+        buttonBack.setImage(
+            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonBack.setImage(
+            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonBack.imageView!.contentMode = UIViewContentMode.center
+        buttonBack.imageView!.clipsToBounds = true
+        buttonBack.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        buttonBack.addTarget(
+            self,
+            action:#selector(actionBack(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         addSubview(border)
+        addSubview(buttonBack)
         addSubview(collectionView)
+        
+        NSLayoutConstraint.topToTop(
+            view:buttonBack,
+            toView:self,
+            constant:kContentTop)
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonBack,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:buttonBack,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:buttonBack,
+            constant:kBackWidth)
         
         NSLayoutConstraint.topToTop(
             view:collectionView,
@@ -40,7 +72,10 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
         NSLayoutConstraint.bottomToBottom(
             view:collectionView,
             toView:self)
-        NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.leftToRight(
+            view:collectionView,
+            toView:buttonBack)
+        NSLayoutConstraint.rightToRight(
             view:collectionView,
             toView:self)
         
@@ -65,6 +100,13 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
         collectionView.flow.invalidateLayout()
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionBack(sender button:UIButton)
+    {
+        controller.save()
     }
     
     //MARK: private

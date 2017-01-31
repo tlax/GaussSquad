@@ -156,15 +156,6 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     
     //MARK: public
     
-    func modelLoading()
-    {
-        spinner.startAnimating()
-        collectionView.isHidden = true
-        viewBar.isHidden = true
-        buttonAdd.isHidden = true
-        buttonBack.isHidden = true
-    }
-    
     func refresh()
     {
         collectionView.reloadData()
