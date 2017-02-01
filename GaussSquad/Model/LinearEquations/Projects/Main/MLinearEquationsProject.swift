@@ -237,4 +237,28 @@ class MLinearEquationsProject
         
         loadFinished()
     }
+    
+    //MARK: public
+    
+    func createPolynomial(equation:DEquation)
+    {
+        DManager.sharedInstance?.createManagedObject(
+            entityName:DPolynomial.entityName)
+        { [weak self] (created) in
+            
+            guard
+                
+                let polynomial:DPolynomial = created as? DPolynomial
+                
+            else
+            {
+                return
+            }
+            
+            polynomial.equationPolynomials = equation
+            
+            DManager.sharedInstance?.save()
+            self?.loadFinished()
+        }
+    }
 }

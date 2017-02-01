@@ -2,7 +2,7 @@ import UIKit
 
 class MLinearEquationsProjectRowItemNewPolynomial:MLinearEquationsProjectRowItem
 {
-    weak var equation:DEquation?
+    private weak var equation:DEquation?
     private let kCellWidth:CGFloat = 60
     
     init(equation:DEquation)
@@ -14,5 +14,19 @@ class MLinearEquationsProjectRowItemNewPolynomial:MLinearEquationsProjectRowItem
             polynomial:nil,
             cellWidth:kCellWidth,
             reusableIdentifier:reusableIdentifier)
+    }
+    
+    override func selected(controller:CLinearEquationsProject)
+    {
+        guard
+            
+            let equation:DEquation = self.equation
+        
+        else
+        {
+            return
+        }
+        
+        controller.model.createPolynomial(equation:equation)
     }
 }
