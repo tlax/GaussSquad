@@ -2,7 +2,7 @@ import UIKit
 
 class MLinearEquationsProjectRowItemNewPolynomial:MLinearEquationsProjectRowItem
 {
-    private let kCellWidth:CGFloat = 60
+    private let kCellWidth:CGFloat = 50
     
     init()
     {

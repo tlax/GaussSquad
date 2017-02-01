@@ -3,7 +3,7 @@ import UIKit
 class MLinearEquationsProjectRowItemOperator:MLinearEquationsProjectRowItem
 {
     let image:UIImage?
-    private let kCellWidth:CGFloat = 50
+    private let kCellWidth:CGFloat = 60
     
     init(
         polynomial:DPolynomial,
