@@ -74,6 +74,10 @@ class MLinearEquationsProjectRow
             items.append(itemPolynomial)
         }
         
+        let itemNew:MLinearEquationsProjectRowItemNewPolynomial = MLinearEquationsProjectRowItemNewPolynomial(
+            column:items.count)
+        items.append(itemNew)
+        
         self.items = items
     }
 }
