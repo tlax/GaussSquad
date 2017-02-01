@@ -36,6 +36,6 @@ class CLinearEquationsPolynomial:CController
     func save()
     {
         DManager.sharedInstance?.save()
-        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+        parentController.dismissAnimateOver(completion:nil)
     }
 }

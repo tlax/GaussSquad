@@ -4,8 +4,9 @@ class VLinearEquationsPolynomial:VView
 {
     private weak var controller:CLinearEquationsPolynomial!
     private weak var viewControl:VLinearEquationsPolynomialControl!
+    private weak var viewText:VLinearEquationsPolynomialText!
     private weak var layoutControlBottom:NSLayoutConstraint!
-    private let kControlHeight:CGFloat = 100
+    private let kControlHeight:CGFloat = 62
     
     override init(controller:CController)
     {
@@ -15,15 +16,24 @@ class VLinearEquationsPolynomial:VView
         
         let blur:VBlur = VBlur.light()
         
+        let viewText:VLinearEquationsPolynomialText = VLinearEquationsPolynomialText(
+            controller:self.controller)
+        self.viewText = viewText
+        
         let viewControl:VLinearEquationsPolynomialControl = VLinearEquationsPolynomialControl(
             controller:self.controller)
         self.viewControl = viewControl
         
         addSubview(blur)
+        addSubview(viewText)
         addSubview(viewControl)
         
         NSLayoutConstraint.equals(
             view:blur,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:viewText,
             toView:self)
         
         NSLayoutConstraint.height(
@@ -45,7 +55,7 @@ class VLinearEquationsPolynomial:VView
     //MARK: public
     
     func startEdition()
-    {
-        
+    {   
+        viewControl.becomeFirstResponder()
     }
 }

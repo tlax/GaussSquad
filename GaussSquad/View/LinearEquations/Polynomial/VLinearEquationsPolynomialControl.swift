@@ -3,8 +3,9 @@ import UIKit
 class VLinearEquationsPolynomialControl:UIView
 {
     private weak var controller:CLinearEquationsPolynomial!
-    private let kButtonDoneWidth:CGFloat = 100
-    private let kButtonDoneMargin:CGFloat = 10
+    private let kButtonDoneWidth:CGFloat = 80
+    private let kButtonDoneMargin:CGFloat = 15
+    private let kButtonDoneCornerRadius:CGFloat = 6
     
     init(controller:CLinearEquationsPolynomial)
     {
@@ -28,6 +29,7 @@ class VLinearEquationsPolynomialControl:UIView
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
         buttonDone.titleLabel!.font = UIFont.bold(size:14)
+        buttonDone.layer.cornerRadius = kButtonDoneCornerRadius
         buttonDone.addTarget(
             self,
             action:#selector(actionDone(sender:)),
