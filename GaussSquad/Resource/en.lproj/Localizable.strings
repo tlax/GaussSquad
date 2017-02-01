@@ -12,3 +12,4 @@
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";
 "VLinearEquationsBar_labelGaussDate"="\n30/4/1777 – 23/2/1855";
 "VLinearEquationsBar_labelDescr"="A linear equation is an algebraic equation in which each term is either a constant or the product of a constant and a single variable.\n\nGauss was a German mathematician referred to as the Princeps mathematicorum, he created the algorithm Gaussian Elimination for solving systems of linear equations.";
+"VLinearEquationsPolynomialControl_buttonDone"="Done";

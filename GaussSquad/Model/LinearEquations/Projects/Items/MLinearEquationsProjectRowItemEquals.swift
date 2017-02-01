@@ -9,7 +9,6 @@ class MLinearEquationsProjectRowItemEquals:MLinearEquationsProjectRowItem
         let reusableIdentifier:String = VLinearEquationsProjectCellEquals.reusableIdentifier
         
         super.init(
-            polynomial:nil,
             cellWidth:kCellWidth,
             reusableIdentifier:reusableIdentifier)
     }

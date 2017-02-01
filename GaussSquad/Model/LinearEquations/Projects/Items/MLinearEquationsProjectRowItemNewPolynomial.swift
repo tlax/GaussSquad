@@ -11,7 +11,6 @@ class MLinearEquationsProjectRowItemNewPolynomial:MLinearEquationsProjectRowItem
         let reusableIdentifier:String = VLinearEquationsProjectCellNewPolynomial.reusableIdentifier
         
         super.init(
-            polynomial:nil,
             cellWidth:kCellWidth,
             reusableIdentifier:reusableIdentifier)
     }

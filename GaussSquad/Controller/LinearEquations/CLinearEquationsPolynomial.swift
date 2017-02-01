@@ -3,6 +3,7 @@ import UIKit
 class CLinearEquationsPolynomial:CController
 {
     weak var polynomial:DPolynomial?
+    private weak var viewPolynomial:VLinearEquationsPolynomial!
     
     init(polynomial:DPolynomial)
     {
@@ -13,5 +14,28 @@ class CLinearEquationsPolynomial:CController
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func loadView()
+    {
+        let viewPolynomial:VLinearEquationsPolynomial = VLinearEquationsPolynomial(
+            controller:self)
+        self.viewPolynomial = viewPolynomial
+        view = viewPolynomial
+    }
+    
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+
+        viewPolynomial.startEdition()
+    }
+    
+    //MARK: public
+    
+    func save()
+    {
+        DManager.sharedInstance?.save()
+        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
 }
