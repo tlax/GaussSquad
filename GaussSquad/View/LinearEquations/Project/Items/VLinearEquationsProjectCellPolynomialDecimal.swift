@@ -4,6 +4,8 @@ class VLinearEquationsProjectCellPolynomialDecimal:VLinearEquationsProjectCell
 {
     private weak var label:UILabel!
     private weak var imageView:UIImageView!
+    private let kMarginRight:CGFloat = -10
+    private let kImageWidth:CGFloat = 35
     
     override init(frame:CGRect)
     {
@@ -13,7 +15,7 @@ class VLinearEquationsProjectCellPolynomialDecimal:VLinearEquationsProjectCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.textAlignment = NSTextAlignment.center
+        label.textAlignment = NSTextAlignment.right
         label.textColor = UIColor.black
         self.label = label
         
@@ -27,12 +29,26 @@ class VLinearEquationsProjectCellPolynomialDecimal:VLinearEquationsProjectCell
         addSubview(label)
         addSubview(imageView)
         
-        NSLayoutConstraint.equals(
+        NSLayoutConstraint.equalsVertical(
             view:label,
             toView:self)
-        NSLayoutConstraint.equals(
+        NSLayoutConstraint.leftToRight(
+            view:label,
+            toView:imageView)
+        NSLayoutConstraint.rightToRight(
+            view:label,
+            toView:self,
+            constant:kMarginRight)
+        
+        NSLayoutConstraint.equalsVertical(
             view:imageView,
             toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:imageView,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:imageView,
+            constant:kImageWidth)
     }
     
     required init?(coder:NSCoder)
@@ -54,5 +70,14 @@ class VLinearEquationsProjectCellPolynomialDecimal:VLinearEquationsProjectCell
         }
         
         label.attributedText = model.attributedString
+        
+        if model.positive
+        {
+            imageView.image = #imageLiteral(resourceName: "assetGenericColAdd")
+        }
+        else
+        {
+            imageView.image = #imageLiteral(resourceName: "assetGenericColSubstract")
+        }
     }
 }
