@@ -6,10 +6,12 @@ class MLinearEquationsProjectRowItemNewPolynomial:MLinearEquationsProjectRowItem
     
     init(column:Int)
     {
+        let reusableIdentifier:String = VLinearEquationsProjectCellNewPolynomial.reusableIdentifier
+        
         super.init(
             polynomial:nil,
             cellWidth:kCellWidth,
-            reusableIdentifier: <#T##String#>,
-            column: <#T##Int#>)
+            reusableIdentifier:reusableIdentifier,
+            column:column)
     }
 }
