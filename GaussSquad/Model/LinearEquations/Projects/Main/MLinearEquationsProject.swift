@@ -258,7 +258,7 @@ class MLinearEquationsProject
             polynomial.equationPolynomials = equation
             
             DManager.sharedInstance?.save()
-            self?.loadFinished()
+            self?.refreshRows()
         }
     }
 }
