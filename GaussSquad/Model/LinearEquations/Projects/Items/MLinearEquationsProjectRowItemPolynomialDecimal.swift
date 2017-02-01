@@ -3,6 +3,7 @@ import UIKit
 class MLinearEquationsProjectRowItemPolynomialDecimal:MLinearEquationsProjectRowItemPolynomial
 {
     let attributedString:NSAttributedString
+    let positive:Bool
     private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
     private let kFontSize:CGFloat = 25
     private let kMaxHeight:CGFloat = 30
@@ -15,6 +16,8 @@ class MLinearEquationsProjectRowItemPolynomialDecimal:MLinearEquationsProjectRow
     
     init(polynomial:DPolynomial)
     {
+        positive = polynomial.isPositive
+        
         let numberFormatter:NumberFormatter = NumberFormatter()
         numberFormatter.numberStyle = kNumberFormatterStyle
         numberFormatter.minimumIntegerDigits = kMinIntegers

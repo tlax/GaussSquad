@@ -3,6 +3,7 @@ import UIKit
 class VLinearEquationsProjectCellPolynomialDecimal:VLinearEquationsProjectCell
 {
     private weak var label:UILabel!
+    private weak var imageView:UIImageView!
     
     override init(frame:CGRect)
     {
@@ -16,10 +17,21 @@ class VLinearEquationsProjectCellPolynomialDecimal:VLinearEquationsProjectCell
         label.textColor = UIColor.black
         self.label = label
         
+        let imageView:UIImageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.center
+        imageView.isUserInteractionEnabled = false
+        self.imageView = imageView
+        
         addSubview(label)
+        addSubview(imageView)
         
         NSLayoutConstraint.equals(
             view:label,
+            toView:self)
+        NSLayoutConstraint.equals(
+            view:imageView,
             toView:self)
     }
     

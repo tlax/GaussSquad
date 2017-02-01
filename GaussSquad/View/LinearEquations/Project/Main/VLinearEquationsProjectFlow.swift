@@ -6,11 +6,15 @@ class VLinearEquationsProjectFlow:UICollectionViewFlowLayout
     private var layoutAttributes:[UICollectionViewLayoutAttributes]
     private var contentWidth:CGFloat
     private var contentHeight:CGFloat
+    private let barHeight:CGFloat
     private let kCellHeight:CGFloat = 80
     
-    init(model:MLinearEquationsProject)
+    init(
+        model:MLinearEquationsProject,
+        barHeight:CGFloat)
     {
         self.model = model
+        self.barHeight = barHeight
         contentWidth = 0
         contentHeight = 0
         layoutAttributes = []
@@ -31,7 +35,7 @@ class VLinearEquationsProjectFlow:UICollectionViewFlowLayout
         
         var section:Int = 0
         var maxPositionX:CGFloat = 0
-        var positionY:CGFloat = 0
+        var positionY:CGFloat = barHeight
         
         for row:MLinearEquationsProjectRow in model.rows
         {
@@ -64,6 +68,7 @@ class VLinearEquationsProjectFlow:UICollectionViewFlowLayout
                 }
                 
                 attributes.frame = frame
+                layoutAttributes.append(attributes)
             }
             
             if positionX > maxPositionX

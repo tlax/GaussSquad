@@ -26,7 +26,8 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
         self.spinner = spinner
         
         let flow:VLinearEquationsProjectFlow = VLinearEquationsProjectFlow(
-            model:self.controller.model)
+            model:self.controller.model,
+            barHeight:kBarHeight)
         let collectionView:VCollection = VCollection(flow:flow)
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.vertical
         collectionView.alwaysBounceVertical = true
@@ -41,8 +42,6 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
             cell:VLinearEquationsProjectCellPolynomialDivision.self)
         collectionView.registerCell(
             cell:VLinearEquationsProjectCellEquals.self)
-        collectionView.registerCell(
-            cell:VLinearEquationsProjectCellOperator.self)
         collectionView.registerCell(
             cell:VLinearEquationsProjectCellNewPolynomial.self)
         self.collectionView = collectionView

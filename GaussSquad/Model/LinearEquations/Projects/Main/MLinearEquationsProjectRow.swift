@@ -5,24 +5,9 @@ class MLinearEquationsProjectRow
     let items:[MLinearEquationsProjectRowItem]
     private weak var equation:DEquation!
     
-    private class func polynomialItems(polynomial:DPolynomial) -> [MLinearEquationsProjectRowItem]
+    private class func polynomialItem(polynomial:DPolynomial) -> MLinearEquationsProjectRowItemPolynomial
     {
-        var items:[MLinearEquationsProjectRowItem] = []
-        let itemOperator:MLinearEquationsProjectRowItemOperator
         let itemPolynomial:MLinearEquationsProjectRowItemPolynomial
-        
-        if polynomial.isPositive
-        {
-            itemOperator = MLinearEquationsProjectRowItemOperatorAdd(
-                polynomial:polynomial)
-        }
-        else
-        {
-            itemOperator = MLinearEquationsProjectRowItemOperatorSubstract(
-                polynomial:polynomial)
-        }
-        
-        items.append(itemOperator)
         
         if polynomial.showAsDivision
         {
@@ -35,9 +20,7 @@ class MLinearEquationsProjectRow
                 polynomial:polynomial)
         }
         
-        items.append(itemPolynomial)
-        
-        return items
+        return itemPolynomial
     }
     
     init(
@@ -65,17 +48,17 @@ class MLinearEquationsProjectRow
         
         for polynomial:DPolynomial in polynomials
         {
-            let polynomialItems:[MLinearEquationsProjectRowItem] = MLinearEquationsProjectRow.polynomialItems(
+            let itemPolynomial:MLinearEquationsProjectRowItemPolynomial = MLinearEquationsProjectRow.polynomialItem(
                 polynomial:polynomial)
-            items.append(contentsOf:polynomialItems)
+            items.append(itemPolynomial)
         }
         
         let itemEquals:MLinearEquationsProjectRowItemEquals = MLinearEquationsProjectRowItemEquals()
         items.append(itemEquals)
         
-        let polynomialItems:[MLinearEquationsProjectRowItem] = MLinearEquationsProjectRow.polynomialItems(
+        let itemResult:MLinearEquationsProjectRowItemPolynomial = MLinearEquationsProjectRow.polynomialItem(
             polynomial:result)
-        items.append(contentsOf:polynomialItems)
+        items.append(itemResult)
         
         let itemNew:MLinearEquationsProjectRowItemNewPolynomial = MLinearEquationsProjectRowItemNewPolynomial(
             equation:equation)
