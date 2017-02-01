@@ -52,4 +52,12 @@ class CLinearEquationsProject:CController
     {
         viewProject.refresh()
     }
+    
+    func editPolynomial(polynomial:DPolynomial)
+    {
+        let controllerPolynomial:CLinearEquationsPolynomial = CLinearEquationsPolynomial(
+            polynomial:polynomial)
+        parentController.animateOver(
+            controller:controllerPolynomial)
+    }
 }

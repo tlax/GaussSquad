@@ -4,8 +4,9 @@ class VLinearEquationsProjectCellPolynomialDecimal:VLinearEquationsProjectCell
 {
     private weak var label:UILabel!
     private weak var imageView:UIImageView!
-    private let kMarginRight:CGFloat = -10
-    private let kImageWidth:CGFloat = 35
+    private let kLabelLeft:CGFloat = 5
+    private let kLabelRight:CGFloat = -5
+    private let kImageWidth:CGFloat = 30
     
     override init(frame:CGRect)
     {
@@ -34,11 +35,12 @@ class VLinearEquationsProjectCellPolynomialDecimal:VLinearEquationsProjectCell
             toView:self)
         NSLayoutConstraint.leftToRight(
             view:label,
-            toView:imageView)
+            toView:imageView,
+            constant:kLabelLeft)
         NSLayoutConstraint.rightToRight(
             view:label,
             toView:self,
-            constant:kMarginRight)
+            constant:kLabelRight)
         
         NSLayoutConstraint.equalsVertical(
             view:imageView,

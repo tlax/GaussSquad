@@ -8,7 +8,7 @@ class MLinearEquationsProjectRowItemPolynomialDecimal:MLinearEquationsProjectRow
     private let kFontSize:CGFloat = 25
     private let kMaxHeight:CGFloat = 30
     private let kMaxWidth:CGFloat = 5000
-    private let kMargin:CGFloat = 45
+    private let kMargin:CGFloat = 40
     private let kMinIntegers:Int = 1
     private let kMaxIntegers:Int = 10
     private let kMinDecimals:Int = 0
