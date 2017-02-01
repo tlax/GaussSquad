@@ -146,7 +146,7 @@ class MLinearEquationsProject
             var indeterminates:[DIndeterminate] = indeterminates
             let indeterminate:DIndeterminate = indeterminates.removeFirst()
             polynomial.indeterminate = indeterminate
-            polynomial.equation = equation
+            polynomial.equationPolynomials = equation
             
             if indeterminates.count > 0
             {
@@ -157,8 +157,33 @@ class MLinearEquationsProject
             }
             else
             {
-                completion?()
+                self?.createResult(
+                    equation:equation,
+                    completion:completion)
             }
+        }
+    }
+    
+    private func createResult(
+        equation:DEquation,
+        completion:(() -> ())?)
+    {
+        DManager.sharedInstance?.createManagedObject(
+            entityName:DPolynomial.entityName)
+        { (created) in
+            
+            guard
+            
+                let result:DPolynomial = created as? DPolynomial
+            
+            else
+            {
+                return
+            }
+            
+            result.equationResult = equation
+            
+            completion?()
         }
     }
     
