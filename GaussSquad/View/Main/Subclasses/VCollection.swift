@@ -4,7 +4,7 @@ class VCollection:UICollectionView
 {
     weak var flow:UICollectionViewFlowLayout!
     
-    init()
+    convenience init()
     {
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
@@ -13,14 +13,19 @@ class VCollection:UICollectionView
         flow.minimumInteritemSpacing = 0
         flow.sectionInset = UIEdgeInsets.zero
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        self.flow = flow
         
+        self.init(flow:flow)
+    }
+    
+    init(flow:UICollectionViewFlowLayout)
+    {
         super.init(frame:CGRect.zero, collectionViewLayout:flow)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
+        self.flow = flow
     }
     
     required init?(coder:NSCoder)

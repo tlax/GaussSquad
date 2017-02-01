@@ -25,26 +25,6 @@ class MLinearEquationsProject
         }
     }
     
-    //MARK: public
-    
-    func load(controller:CLinearEquationsProject)
-    {
-        self.controller = controller
-        
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            if self?.project == nil
-            {
-                self?.createProject()
-            }
-            else
-            {
-                self?.refreshRows()
-            }
-        }
-    }
-    
     private func createProject()
     {
         let timestamp:TimeInterval = Date().timeIntervalSince1970
@@ -239,6 +219,24 @@ class MLinearEquationsProject
     }
     
     //MARK: public
+    
+    func load(controller:CLinearEquationsProject)
+    {
+        self.controller = controller
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            if self?.project == nil
+            {
+                self?.createProject()
+            }
+            else
+            {
+                self?.refreshRows()
+            }
+        }
+    }
     
     func createPolynomial(equation:DEquation)
     {
