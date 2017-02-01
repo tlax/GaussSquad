@@ -36,14 +36,12 @@ class MLinearEquationsProjectRow
             if polynomial.isPositive
             {
                 itemOperator = MLinearEquationsProjectRowItemOperatorAdd(
-                    polynomial:polynomial,
-                    column:items.count)
+                    polynomial:polynomial)
             }
             else
             {
                 itemOperator = MLinearEquationsProjectRowItemOperatorSubstract(
-                    polynomial:polynomial,
-                    column:items.count)
+                    polynomial:polynomial)
             }
             
             items.append(itemOperator)
@@ -51,21 +49,18 @@ class MLinearEquationsProjectRow
             if polynomial.showAsDivision
             {
                 itemPolynomial = MLinearEquationsProjectRowItemPolynomialDivision(
-                    polynomial:polynomial,
-                    column:items.count)
+                    polynomial:polynomial)
             }
             else
             {
                 itemPolynomial = MLinearEquationsProjectRowItemPolynomialDecimal(
-                    polynomial:polynomial,
-                    column:items.count)
+                    polynomial:polynomial)
             }
             
             items.append(itemPolynomial)
         }
         
-        let itemNew:MLinearEquationsProjectRowItemNewPolynomial = MLinearEquationsProjectRowItemNewPolynomial(
-            column:items.count)
+        let itemNew:MLinearEquationsProjectRowItemNewPolynomial = MLinearEquationsProjectRowItemNewPolynomial()
         items.append(itemNew)
         
         self.items = items
