@@ -28,7 +28,7 @@ class MLinearEquationsProjectRowItemPolynomialDecimal:MLinearEquationsProjectRow
         let coefficientDivisor:Double = polynomial.coefficientDivisor
         let coefficient:Double = coefficientDividend / coefficientDivisor
         let coefficientNumber:NSNumber = coefficient as NSNumber
-        let reusableIdentifier:String = VLinearEquationsProjectCellCoefficientWhole.reusableIdentifier
+        let reusableIdentifier:String = VLinearEquationsProjectCellPolynomialDecimal.reusableIdentifier
         let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
             NSStringDrawingOptions.usesFontLeading,
             NSStringDrawingOptions.usesLineFragmentOrigin])
@@ -57,14 +57,14 @@ class MLinearEquationsProjectRowItemPolynomialDecimal:MLinearEquationsProjectRow
         attributedString = mutableString
         
         let maxSize:CGSize = CGSize(
-            width:MLinearEquationsProjectRowItemCoefficient.kMaxWidth,
-            height:MLinearEquationsProjectRowItemCoefficient.kMaxHeight)
+            width:kMaxWidth,
+            height:kMaxHeight)
         let stringRect:CGRect = attributedString.boundingRect(
             with:maxSize,
             options:drawingOptions,
             context:nil)
         let stringWidth:CGFloat = ceil(stringRect.size.width)
-        let cellWidth:CGFloat = stringWidth + MLinearEquationsProjectRowItemCoefficient.kStringMargin
+        let cellWidth:CGFloat = stringWidth + kMargin
         
         super.init(
             polynomial:polynomial,

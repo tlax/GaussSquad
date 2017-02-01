@@ -29,7 +29,7 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
         
         let coefficientDividend:NSNumber = polynomial.coefficientDividend as NSNumber
         let coefficientDivisor:NSNumber = polynomial.coefficientDivisor as NSNumber
-        let reusableIdentifier:String = VLinearEquationsProjectCellCoefficientWhole.reusableIdentifier
+        let reusableIdentifier:String = VLinearEquationsProjectCellPolynomialDivision.reusableIdentifier
         let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
             NSStringDrawingOptions.usesFontLeading,
             NSStringDrawingOptions.usesLineFragmentOrigin])
@@ -71,8 +71,8 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
         }
         
         let maxSize:CGSize = CGSize(
-            width:MLinearEquationsProjectRowItemCoefficient.kMaxWidth,
-            height:MLinearEquationsProjectRowItemCoefficient.kMaxHeight)
+            width:kMaxWidth,
+            height:kMaxHeight)
         
         let rectDividend:CGRect = attributedDividend.boundingRect(
             with:maxSize,

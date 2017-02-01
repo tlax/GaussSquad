@@ -34,13 +34,9 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
         collectionView.registerCell(
             cell:VLinearEquationsProjectCellIndex.self)
         collectionView.registerCell(
-            cell:VLinearEquationsProjectCellIndeterminateSymbol.self)
+            cell:VLinearEquationsProjectCellPolynomialDecimal.self)
         collectionView.registerCell(
-            cell:VLinearEquationsProjectCellIndeterminateNone.self)
-        collectionView.registerCell(
-            cell:VLinearEquationsProjectCellCoefficientDivision.self)
-        collectionView.registerCell(
-            cell:VLinearEquationsProjectCellCoefficientWhole.self)
+            cell:VLinearEquationsProjectCellPolynomialDivision.self)
         collectionView.registerCell(
             cell:VLinearEquationsProjectCellEquals.self)
         collectionView.registerCell(
