@@ -3,10 +3,10 @@ import UIKit
 class MLinearEquationsProjectRowItemIndeterminateSymbol:MLinearEquationsProjectRowItemIndeterminate
 {
     let attributedString:NSAttributedString
-    private let kFontSize:CGFloat = 35
-    private let kMaxHeight:CGFloat = 40
+    private let kFontSize:CGFloat = 40
+    private let kMaxHeight:CGFloat = 50
     private let kMaxWidth:CGFloat = 5000
-    private let kStringMargin:CGFloat = 30
+    private let kStringMargin:CGFloat = 4
     
     init(
         polynomial:DPolynomial,

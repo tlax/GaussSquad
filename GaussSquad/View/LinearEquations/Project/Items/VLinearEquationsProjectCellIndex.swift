@@ -3,6 +3,7 @@ import UIKit
 class VLinearEquationsProjectCellIndex:VLinearEquationsProjectCell
 {
     private weak var label:UILabel!
+    private let kIndexDelta:Int = 1
     
     override init(frame:CGRect)
     {
@@ -54,7 +55,7 @@ class VLinearEquationsProjectCellIndex:VLinearEquationsProjectCell
             return
         }
         
-        let index:Int = model.index + 1
+        let index:Int = model.index + kIndexDelta
         let indexString:String = "\(index)"
         label.text = indexString
     }

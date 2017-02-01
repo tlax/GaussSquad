@@ -2,7 +2,7 @@ import UIKit
 
 class VLinearEquationsProjectCell:UICollectionViewCell
 {
-    private let kAlphaSelected:CGFloat = 0.2
+    private let kAlphaSelected:CGFloat = 0.1
     private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)

@@ -4,16 +4,16 @@ extension UIFont
 {
     class func regular(size:CGFloat) -> UIFont
     {
-        return UIFont(name:"AppleSDGothicNeo-Light", size:size)!
+        return UIFont(name:"Avenir-Light", size:size)!
     }
     
     class func medium(size:CGFloat) -> UIFont
     {
-        return UIFont(name:"AppleSDGothicNeo-Medium", size:size)!
+        return UIFont(name:"AvenirNext-Regular", size:size)!
     }
     
     class func bold(size:CGFloat) -> UIFont
     {
-        return UIFont(name:"AppleSDGothicNeo-Bold", size:size)!
+        return UIFont(name:"AvenirNext-Medium", size:size)!
     }
 }
