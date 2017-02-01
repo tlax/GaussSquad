@@ -3,7 +3,7 @@ import UIKit
 class MLinearEquationsProjectRowItemNewPolynomial:MLinearEquationsProjectRowItem
 {
     weak var equation:DEquation?
-    private let kCellWidth:CGFloat = 50
+    private let kCellWidth:CGFloat = 60
     
     init(equation:DEquation)
     {

@@ -3,7 +3,7 @@ import UIKit
 class MLinearEquationsProjectRowItemIndex:MLinearEquationsProjectRowItem
 {
     let index:Int
-    private let kCellWidth:CGFloat = 50
+    private let kCellWidth:CGFloat = 40
     
     init(index:Int)
     {
