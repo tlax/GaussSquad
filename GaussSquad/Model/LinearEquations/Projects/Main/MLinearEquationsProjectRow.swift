@@ -30,76 +30,48 @@ class MLinearEquationsProjectRow
         
         for polynomial:DPolynomial in polynomials
         {
+            let initialItems:Int = items.count
             let itemOperator:MLinearEquationsProjectRowItemOperator
-            let itemCoefficient:MLinearEquationsProjectRowItemCoefficient
-            let itemIndeterminate:MLinearEquationsProjectRowItemIndeterminate
-            let currentItems:Int = items.count
+            let itemPolynomial:MLinearEquationsProjectRowItemPolynomial
             
             if polynomial.isPositive
             {
-                if currentItems == 1
+                if initialItems == 1
                 {
                     itemOperator = MLinearEquationsProjectRowItemOperatorPositive(
                         polynomial:polynomial,
-                        column:currentItems)
+                        column:initialItems)
                 }
                 else
                 {
                     itemOperator = MLinearEquationsProjectRowItemOperatorAdd(
                         polynomial:polynomial,
-                        column:currentItems)
+                        column:initialItems)
                 }
             }
             else
             {
                 itemOperator = MLinearEquationsProjectRowItemOperatorSubstract(
                     polynomial:polynomial,
-                    column:currentItems)
+                    column:initialItems)
             }
             
             items.append(itemOperator)
             
             if polynomial.showAsDivision
             {
-                itemCoefficient = MLinearEquationsProjectRowItemCoefficientDivision(
+                itemPolynomial = MLinearEquationsProjectRowItemPolynomialDivision(
                     polynomial:polynomial,
                     column:items.count)
             }
             else
             {
-                itemCoefficient = MLinearEquationsProjectRowItemCoefficientWhole(
+                itemPolynomial = MLinearEquationsProjectRowItemPolynomialDecimal(
                     polynomial:polynomial,
                     column:items.count)
             }
             
-            items.append(itemCoefficient)
-            
-            let indeterminate:DIndeterminate? = polynomial.indeterminate
-            
-            if let indeterminate:DIndeterminate = indeterminate
-            {
-                if let symbol:String = indeterminate.symbol
-                {
-                    itemIndeterminate = MLinearEquationsProjectRowItemIndeterminateSymbol(
-                        polynomial:polynomial,
-                        symbol:symbol,
-                        column:items.count)
-                }
-                else
-                {
-                    itemIndeterminate = MLinearEquationsProjectRowItemIndeterminateNone(
-                        polynomial:polynomial,
-                        column:items.count)
-                }
-            }
-            else
-            {
-                itemIndeterminate = MLinearEquationsProjectRowItemIndeterminateNone(
-                    polynomial:polynomial,
-                    column:items.count)
-            }
-            
-            items.append(itemIndeterminate)
+            items.append(itemPolynomial)
         }
         
         self.items = items
