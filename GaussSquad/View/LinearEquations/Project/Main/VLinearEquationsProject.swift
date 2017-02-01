@@ -25,7 +25,8 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
         
-        let flow:VLinearEquationsProjectFlow = VLinearEquationsProjectFlow()
+        let flow:VLinearEquationsProjectFlow = VLinearEquationsProjectFlow(
+            model:self.controller.model)
         let collectionView:VCollection = VCollection(flow:flow)
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.vertical
         collectionView.alwaysBounceVertical = true

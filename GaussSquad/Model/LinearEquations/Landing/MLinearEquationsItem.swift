@@ -4,7 +4,7 @@ class MLinearEquationsItem
 {
     let descr:NSAttributedString
     let age:String
-    private(set) weak var project:DProject!
+    private(set) var project:DProject!
     
     init(project:DProject)
     {
