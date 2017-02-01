@@ -4,14 +4,13 @@ class MLinearEquationsProjectRowItemNewPolynomial:MLinearEquationsProjectRowItem
 {
     private let kCellWidth:CGFloat = 60
     
-    init(column:Int)
+    init()
     {
         let reusableIdentifier:String = VLinearEquationsProjectCellNewPolynomial.reusableIdentifier
         
         super.init(
             polynomial:nil,
             cellWidth:kCellWidth,
-            reusableIdentifier:reusableIdentifier,
-            column:column)
+            reusableIdentifier:reusableIdentifier)
     }
 }

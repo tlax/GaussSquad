@@ -16,9 +16,7 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
     private let kMinDecimals:Int = 0
     private let kMaxDecimals:Int = 10
     
-    init(
-        polynomial:DPolynomial,
-        column:Int)
+    init(polynomial:DPolynomial)
     {
         let numberFormatter:NumberFormatter = NumberFormatter()
         numberFormatter.numberStyle = kNumberFormatterStyle
@@ -97,7 +95,6 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
         super.init(
             polynomial:polynomial,
             cellWidth:totalWidth,
-            reusableIdentifier:reusableIdentifier,
-            column:column)
+            reusableIdentifier:reusableIdentifier)
     }
 }

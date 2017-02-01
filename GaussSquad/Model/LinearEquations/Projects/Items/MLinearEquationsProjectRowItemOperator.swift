@@ -7,8 +7,7 @@ class MLinearEquationsProjectRowItemOperator:MLinearEquationsProjectRowItem
     
     init(
         polynomial:DPolynomial,
-        image:UIImage?,
-        column:Int)
+        image:UIImage?)
     {
         self.image = image
         let reusableIdentifier:String = VLinearEquationsProjectCellOperator.reusableIdentifier
@@ -16,7 +15,6 @@ class MLinearEquationsProjectRowItemOperator:MLinearEquationsProjectRowItem
         super.init(
             polynomial:polynomial,
             cellWidth:kCellWidth,
-            reusableIdentifier:reusableIdentifier,
-            column:column)
+            reusableIdentifier:reusableIdentifier)
     }
 }

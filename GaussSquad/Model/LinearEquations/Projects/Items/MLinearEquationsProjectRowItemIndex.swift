@@ -4,7 +4,6 @@ class MLinearEquationsProjectRowItemIndex:MLinearEquationsProjectRowItem
 {
     let index:Int
     private let kCellWidth:CGFloat = 50
-    private let kColumn:Int = 0
     
     init(
         polynomial:DPolynomial?,
@@ -16,7 +15,6 @@ class MLinearEquationsProjectRowItemIndex:MLinearEquationsProjectRowItem
         super.init(
             polynomial:polynomial,
             cellWidth:kCellWidth,
-            reusableIdentifier:reusableIdentifier,
-            column:kColumn)
+            reusableIdentifier:reusableIdentifier)
     }
 }

@@ -185,9 +185,11 @@ class MLinearEquationsProject
                 equation:equation,
                 rowIndex:rowIndex)
             
-            for rowItem:MLinearEquationsProjectRowItem in row.items
+            let countItems:Int = row.items.count
+            
+            for itemIndex:Int in 0 ..< countItems
             {
-                let itemIndex:Int = rowItem.column
+                let rowItem:MLinearEquationsProjectRowItem = row.items[itemIndex]
                 let itemWidth:CGFloat = rowItem.cellWidth
                 
                 if itemIndex >= cols.count

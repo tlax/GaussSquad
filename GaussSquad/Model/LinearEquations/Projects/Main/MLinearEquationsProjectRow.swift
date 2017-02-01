@@ -30,30 +30,20 @@ class MLinearEquationsProjectRow
         
         for polynomial:DPolynomial in polynomials
         {
-            let initialItems:Int = items.count
             let itemOperator:MLinearEquationsProjectRowItemOperator
             let itemPolynomial:MLinearEquationsProjectRowItemPolynomial
             
             if polynomial.isPositive
             {
-                if initialItems == 1
-                {
-                    itemOperator = MLinearEquationsProjectRowItemOperatorPositive(
-                        polynomial:polynomial,
-                        column:initialItems)
-                }
-                else
-                {
-                    itemOperator = MLinearEquationsProjectRowItemOperatorAdd(
-                        polynomial:polynomial,
-                        column:initialItems)
-                }
+                itemOperator = MLinearEquationsProjectRowItemOperatorAdd(
+                    polynomial:polynomial,
+                    column:items.count)
             }
             else
             {
                 itemOperator = MLinearEquationsProjectRowItemOperatorSubstract(
                     polynomial:polynomial,
-                    column:initialItems)
+                    column:items.count)
             }
             
             items.append(itemOperator)

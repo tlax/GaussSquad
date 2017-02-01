@@ -2,13 +2,10 @@ import UIKit
 
 class MLinearEquationsProjectRowItemOperatorAdd:MLinearEquationsProjectRowItemOperator
 {
-    init(
-        polynomial:DPolynomial,
-        column:Int)
+    init(polynomial:DPolynomial)
     {
         super.init(
             polynomial:polynomial,
-            image:#imageLiteral(resourceName: "assetGenericAdd"),
-            column:column)
+            image:#imageLiteral(resourceName: "assetGenericColAdd"))
     }
 }
