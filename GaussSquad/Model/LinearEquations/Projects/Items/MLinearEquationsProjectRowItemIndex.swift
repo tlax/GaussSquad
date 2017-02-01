@@ -5,15 +5,13 @@ class MLinearEquationsProjectRowItemIndex:MLinearEquationsProjectRowItem
     let index:Int
     private let kCellWidth:CGFloat = 50
     
-    init(
-        polynomial:DPolynomial?,
-        index:Int)
+    init(index:Int)
     {
         self.index = index
         let reusableIdentifier:String = VLinearEquationsProjectCellIndex.reusableIdentifier
         
         super.init(
-            polynomial:polynomial,
+            polynomial:nil,
             cellWidth:kCellWidth,
             reusableIdentifier:reusableIdentifier)
     }

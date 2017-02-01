@@ -60,7 +60,6 @@ class MLinearEquationsProjectRow
         
         var items:[MLinearEquationsProjectRowItem] = []
         let itemIndex:MLinearEquationsProjectRowItemIndex = MLinearEquationsProjectRowItemIndex(
-            polynomial:nil,
             index:rowIndex)
         items.append(itemIndex)
         
@@ -71,14 +70,15 @@ class MLinearEquationsProjectRow
             items.append(contentsOf:polynomialItems)
         }
         
-        let itemEquals:MLinearEquationsProjectRowItemEquals = MLinearEquationsProjectRowItemEquals(
-            polynomial: <#T##DPolynomial#>)
+        let itemEquals:MLinearEquationsProjectRowItemEquals = MLinearEquationsProjectRowItemEquals()
+        items.append(itemEquals)
         
         let polynomialItems:[MLinearEquationsProjectRowItem] = MLinearEquationsProjectRow.polynomialItems(
             polynomial:result)
         items.append(contentsOf:polynomialItems)
         
-        let itemNew:MLinearEquationsProjectRowItemNewPolynomial = MLinearEquationsProjectRowItemNewPolynomial()
+        let itemNew:MLinearEquationsProjectRowItemNewPolynomial = MLinearEquationsProjectRowItemNewPolynomial(
+            equation:equation)
         items.append(itemNew)
         
         self.items = items
