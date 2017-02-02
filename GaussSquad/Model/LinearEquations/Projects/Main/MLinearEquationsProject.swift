@@ -187,6 +187,9 @@ class MLinearEquationsProject
             rows.append(row)
         }
         
+        let lastRow:MLinearEquationsProjectRow = MLinearEquationsProjectRow.lastRow()
+        rows.append(lastRow)
+        
         self.rows = rows
         
         loadFinished()
