@@ -8,6 +8,7 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
     private let kDeselectTime:TimeInterval = 0.2
     private let kContentTop:CGFloat = 20
     private let kCellWidth:CGFloat = 60
+    private let kCollectionHeight:CGFloat = 60
     private let kBorderHeight:CGFloat = 1
     
     init(controller:CLinearEquationsProject)
@@ -40,9 +41,9 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
             view:collectionView,
             toView:self,
             constant:kContentTop)
-        NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.height(
             view:collectionView,
-            toView:self)
+            constant:kCollectionHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:collectionView,
             toView:self)
