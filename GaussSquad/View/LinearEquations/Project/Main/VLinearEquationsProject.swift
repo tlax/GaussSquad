@@ -8,8 +8,6 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 100
-    private let kCollectionBottom:CGFloat = 20
-    private let kCellHeight:CGFloat = 80
     private let kDeselectTime:TimeInterval = 0.2
     
     override init(controller:CController)
@@ -29,7 +27,6 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
             model:self.controller.model,
             barHeight:kBarHeight)
         let collectionView:VCollection = VCollection(flow:flow)
-        collectionView.flow.scrollDirection = UICollectionViewScrollDirection.vertical
         collectionView.alwaysBounceVertical = true
         collectionView.alwaysBounceHorizontal = true
         collectionView.delegate = self
@@ -76,7 +73,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     
     override func layoutSubviews()
     {
-        collectionView.flow.invalidateLayout()
+        collectionView.collectionViewLayout.invalidateLayout()
         
         super.layoutSubviews()
     }
@@ -110,35 +107,6 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     }
     
     //MARK: collectionView delegate
-    
-    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
-    {
-        let insets:UIEdgeInsets
-        
-        if section == 0
-        {
-            insets = UIEdgeInsets(
-                top:kBarHeight,
-                left:0,
-                bottom:kCollectionBottom,
-                right:0)
-        }
-        else
-        {
-            insets = UIEdgeInsets.zero
-        }
-        
-        return insets
-    }
-    
-    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
-    {
-        let index:Int = indexPath.item
-        let cellWidth:CGFloat = controller.model.cols[index]
-        let size:CGSize = CGSize(width:cellWidth, height:kCellHeight)
-        
-        return size
-    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {

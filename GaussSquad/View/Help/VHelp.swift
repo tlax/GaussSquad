@@ -42,13 +42,17 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             for:UIControlEvents.touchUpInside)
         
         let collectionView:VCollection = VCollection()
-        collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         collectionView.alwaysBounceHorizontal = true
         collectionView.isPagingEnabled = true
         collectionView.registerCell(cell:VHelpCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
         self.collectionView = collectionView
+        
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+        }
         
         let pageControl:UIPageControl = UIPageControl()
         pageControl.isUserInteractionEnabled = false

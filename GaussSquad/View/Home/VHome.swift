@@ -17,17 +17,21 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         self.controller = controller as? CHome
         
         let collectionView:VCollection = VCollection()
-        collectionView.flow.minimumLineSpacing = kCollectionInterline
-        collectionView.flow.sectionInset = UIEdgeInsets(
-            top:kCollectionTop,
-            left:0,
-            bottom:kCollectionBottom,
-            right:0)
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerCell(cell:VHomeCell.self)
         self.collectionView = collectionView
+        
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            flow.minimumLineSpacing = kCollectionInterline
+            flow.sectionInset = UIEdgeInsets(
+                top:kCollectionTop,
+                left:0,
+                bottom:kCollectionBottom,
+                right:0)
+        }
         
         addSubview(collectionView)
         
@@ -43,7 +47,7 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     override func layoutSubviews()
     {
-        collectionView.flow.invalidateLayout()
+        collectionView.collectionViewLayout.invalidateLayout()
         
         super.layoutSubviews()
     }

@@ -57,16 +57,8 @@ class VLinearEquationsProjectFlow:UICollectionViewLayout
                 item += 1
                 positionX += colWidth
                 
-                guard
-                    
-                    let attributes:UICollectionViewLayoutAttributes = layoutAttributesForItem(
-                        at:indexPath)
-                
-                else
-                {
-                    continue
-                }
-                
+                let attributes:UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes(
+                    forCellWith:indexPath)
                 attributes.frame = frame
                 layoutAttributes.append(attributes)
             }

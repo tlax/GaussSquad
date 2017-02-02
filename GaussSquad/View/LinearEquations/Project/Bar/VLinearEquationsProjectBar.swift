@@ -19,7 +19,6 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
         self.controller = controller
         
         let collectionView:VCollection = VCollection()
-        collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         collectionView.isScrollEnabled = false
         collectionView.bounces = false
         collectionView.delegate = self
@@ -27,6 +26,11 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
         collectionView.registerCell(cell:VLinearEquationsBarCellButton.self)
         collectionView.registerCell(cell:VLinearEquationsBarCellReport.self)
         self.collectionView = collectionView
+        
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+        }
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
@@ -62,7 +66,7 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
     
     override func layoutSubviews()
     {
-        collectionView.flow.invalidateLayout()
+        collectionView.collectionViewLayout.invalidateLayout()
         
         super.layoutSubviews()
     }

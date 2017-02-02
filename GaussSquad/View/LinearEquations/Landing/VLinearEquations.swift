@@ -70,12 +70,16 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         self.buttonBack = buttonBack
         
         let collectionView:VCollection = VCollection()
-        collectionView.flow.minimumLineSpacing = kInterline
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerCell(cell:VLinearEquationsCell.self)
         self.collectionView = collectionView
+        
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            flow.minimumLineSpacing = kInterline
+        }
         
         addSubview(spinner)
         addSubview(collectionView)
@@ -139,7 +143,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         
         layoutBarHeight.constant = barMaxHeight
         layoutButtonAddLeft.constant = buttonAddMargin
-        collectionView.flow.invalidateLayout()
+        collectionView.collectionViewLayout.invalidateLayout()
         
         super.layoutSubviews()
     }
