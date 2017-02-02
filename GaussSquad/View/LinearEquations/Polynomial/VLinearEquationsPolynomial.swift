@@ -100,6 +100,6 @@ class VLinearEquationsPolynomial:VView
     
     func startEdition()
     {   
-        viewText.becomeFirstResponder()
+        viewText.readPolynomial()
     }
 }

@@ -54,8 +54,6 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
             right:kInsetsHorizontal)
         delegate = self
         self.controller = controller
-        
-        readPolynomial()
     }
     
     required init?(coder:NSCoder)
@@ -64,39 +62,6 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
     }
     
     //MARK: private
-    
-    private func readPolynomial()
-    {
-        guard
-        
-            let polynomial:DPolynomial = controller.polynomial
-        
-        else
-        {
-            return
-        }
-        
-        let dividend:Double = polynomial.coefficientDividend
-        let divisor:Double = polynomial.coefficientDivisor
-        let coefficient:Double = dividend / divisor
-        let coefficentNumber:NSNumber = NSNumber(value:coefficient)
-        
-        guard
-        
-            let coefficientString:String = numberFormatter.string(
-                from:coefficentNumber)
-        
-        else
-        {
-            return
-        }
-        
-        let curatedCoefficient:String = coefficientString.replacingOccurrences(
-            of:kComma,
-            with:kEmpty)
-        
-        text = curatedCoefficient
-    }
     
     private func textToPolynomial()
     {
@@ -113,6 +78,42 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
         let numberDouble:Double = number as Double
         controller.polynomial?.coefficientDividend = numberDouble
         controller.polynomial?.coefficientDivisor = 1
+    }
+    
+    //MARK: public
+    
+    func readPolynomial()
+    {
+        guard
+            
+            let polynomial:DPolynomial = controller.polynomial
+            
+        else
+        {
+            return
+        }
+        
+        let dividend:Double = polynomial.coefficientDividend
+        let divisor:Double = polynomial.coefficientDivisor
+        let coefficient:Double = dividend / divisor
+        let coefficentNumber:NSNumber = NSNumber(value:coefficient)
+        
+        guard
+            
+            let coefficientString:String = numberFormatter.string(
+                from:coefficentNumber)
+            
+        else
+        {
+            return
+        }
+        
+        let curatedCoefficient:String = coefficientString.replacingOccurrences(
+            of:kComma,
+            with:kEmpty)
+        
+        text = curatedCoefficient
+        becomeFirstResponder()
     }
     
     //MARK: textView delegate
