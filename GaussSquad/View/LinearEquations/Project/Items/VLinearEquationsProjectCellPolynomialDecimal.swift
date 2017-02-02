@@ -6,7 +6,7 @@ class VLinearEquationsProjectCellPolynomialDecimal:VLinearEquationsProjectCell
     private weak var imageView:UIImageView!
     private let kLabelLeft:CGFloat = 5
     private let kLabelRight:CGFloat = -5
-    private let kImageWidth:CGFloat = 30
+    private let kImageWidth:CGFloat = 20
     
     override init(frame:CGRect)
     {

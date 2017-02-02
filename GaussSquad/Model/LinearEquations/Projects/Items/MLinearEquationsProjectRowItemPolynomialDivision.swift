@@ -7,10 +7,10 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
     let attributedSymbol:NSAttributedString
     let widthDivision:CGFloat
     private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
-    private let kFontSize:CGFloat = 30
+    private let kFontSize:CGFloat = 35
     private let kMaxHeight:CGFloat = 30
     private let kMaxWidth:CGFloat = 5000
-    private let kMargin:CGFloat = 25
+    private let kMargin:CGFloat = 20
     private let kMinIntegers:Int = 1
     private let kMaxIntegers:Int = 32
     private let kMinDecimals:Int = 0

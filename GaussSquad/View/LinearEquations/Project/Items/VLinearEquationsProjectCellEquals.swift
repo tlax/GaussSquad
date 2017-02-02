@@ -2,6 +2,8 @@ import UIKit
 
 class VLinearEquationsProjectCellEquals:VLinearEquationsProjectCell
 {
+    private let kMarginLeft:CGFloat = 5
+    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
@@ -16,7 +18,14 @@ class VLinearEquationsProjectCellEquals:VLinearEquationsProjectCell
         
         addSubview(imageView)
         
-        NSLayoutConstraint.equals(
+        NSLayoutConstraint.equalsVertical(
+            view:imageView,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:imageView,
+            toView:self,
+            constant:kMarginLeft)
+        NSLayoutConstraint.rightToRight(
             view:imageView,
             toView:self)
     }
