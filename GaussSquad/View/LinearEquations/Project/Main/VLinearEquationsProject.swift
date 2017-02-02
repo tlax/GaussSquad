@@ -41,6 +41,8 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
             cell:VLinearEquationsProjectCellEquals.self)
         collectionView.registerCell(
             cell:VLinearEquationsProjectCellNewPolynomial.self)
+        collectionView.registerCell(
+            cell:VLinearEquationsProjectCellNewRow.self)
         self.collectionView = collectionView
         
         addSubview(collectionView)
