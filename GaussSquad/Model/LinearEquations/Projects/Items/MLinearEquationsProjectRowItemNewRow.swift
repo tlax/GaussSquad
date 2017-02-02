@@ -2,12 +2,10 @@ import UIKit
 
 class MLinearEquationsProjectRowItemNewRow:MLinearEquationsProjectRowItem
 {
-    private weak var equation:DEquation?
     private let kCellWidth:CGFloat = 40
     
-    init(equation:DEquation)
+    init()
     {
-        self.equation = equation
         let reusableIdentifier:String = VLinearEquationsProjectCellNewRow.reusableIdentifier
         
         super.init(

@@ -6,7 +6,11 @@ class MLinearEquationsProjectRow
     
     class func lastRow() -> MLinearEquationsProjectRow
     {
+        let itemNewRow:MLinearEquationsProjectRowItemNewRow = MLinearEquationsProjectRowItemNewRow()
+        let row:MLinearEquationsProjectRow = MLinearEquationsProjectRow(
+            item:itemNewRow)
         
+        return row
     }
     
     private class func polynomialItem(polynomial:DPolynomial) -> MLinearEquationsProjectRowItemPolynomial
@@ -64,5 +68,12 @@ class MLinearEquationsProjectRow
         items.append(itemNew)
         
         self.items = items
+    }
+    
+    private init(item:MLinearEquationsProjectRowItem)
+    {
+        items = [
+            item
+        ]
     }
 }
