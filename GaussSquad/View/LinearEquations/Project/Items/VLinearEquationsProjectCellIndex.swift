@@ -21,7 +21,7 @@ class VLinearEquationsProjectCellIndex:VLinearEquationsProjectCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:10)
+        label.font = UIFont.medium(size:10)
         label.textColor = UIColor.black
         label.textAlignment = NSTextAlignment.center
         self.label = label

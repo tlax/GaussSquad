@@ -7,8 +7,16 @@ class MLinearEquationsProjectBar
     init(project:DProject)
     {
         let itemBack:MLinearEquationsProjectBarItemBack = MLinearEquationsProjectBarItemBack()
+        let itemHelp:MLinearEquationsProjectBarItemHelp = MLinearEquationsProjectBarItemHelp()
+        let itemTrash:MLinearEquationsProjectBarItemTrash = MLinearEquationsProjectBarItemTrash()
+        let itemCompress:MLinearEquationsProjectBarItemCompress = MLinearEquationsProjectBarItemCompress()
+        let itemNext:MLinearEquationsProjectBarItemNext = MLinearEquationsProjectBarItemNext()
         
         items = [
-            itemBack]
+            itemBack,
+            itemHelp,
+            itemTrash,
+            itemCompress,
+            itemNext]
     }
 }
