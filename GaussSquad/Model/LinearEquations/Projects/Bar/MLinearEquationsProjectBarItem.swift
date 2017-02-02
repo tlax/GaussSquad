@@ -1,18 +1,17 @@
-import Foundation
+import UIKit
 
 class MLinearEquationsProjectBarItem
 {
-    let reusableIdentifier:String
+    let image:UIImage
     
-    init(reusableIdentifier:String)
+    init(image:UIImage)
     {
-        self.reusableIdentifier = reusableIdentifier
+        self.image = image
     }
     
     //MARK: public
     
     func selected(controller:CLinearEquationsProject)
     {
-        
     }
 }

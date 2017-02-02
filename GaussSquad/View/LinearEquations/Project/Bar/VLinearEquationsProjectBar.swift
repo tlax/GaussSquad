@@ -23,8 +23,7 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
         collectionView.bounces = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.registerCell(cell:VLinearEquationsBarCellButton.self)
-        collectionView.registerCell(cell:VLinearEquationsBarCellReport.self)
+        collectionView.registerCell(cell:VLinearEquationsBarCell.self)
         self.collectionView = collectionView
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
@@ -121,7 +120,8 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
     {
         let item:MLinearEquationsProjectBarItem = modelAtIndex(index:indexPath)
         let cell:VLinearEquationsBarCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier:item.reusableIdentifier,
+            withReuseIdentifier:
+            VLinearEquationsBarCell.reusableIdentifier,
             for:indexPath) as! VLinearEquationsBarCell
         cell.config(model:item)
         

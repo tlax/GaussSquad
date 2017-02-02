@@ -1,6 +1,6 @@
-import Foundation
+import UIKit
 
-class MLinearEquationsProjectBarItemButtonBack:MLinearEquationsProjectBarItemButton
+class MLinearEquationsProjectBarItemBack:MLinearEquationsProjectBarItem
 {
     init()
     {

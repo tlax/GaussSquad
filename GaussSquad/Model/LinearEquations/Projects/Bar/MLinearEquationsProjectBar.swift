@@ -6,15 +6,9 @@ class MLinearEquationsProjectBar
     
     init(project:DProject)
     {
-        let itemBack:MLinearEquationsProjectBarItemButtonBack = MLinearEquationsProjectBarItemButtonBack()
-        let itemOptions:MLinearEquationsProjectBarItemButtonOptions = MLinearEquationsProjectBarItemButtonOptions()
-        let itemRows:MLinearEquationsProjectBarItemReportRows = MLinearEquationsProjectBarItemReportRows()
-        let itemIndeterminates:MLinearEquationsProjectBarItemReportIndeterminates = MLinearEquationsProjectBarItemReportIndeterminates()
+        let itemBack:MLinearEquationsProjectBarItemBack = MLinearEquationsProjectBarItemBack()
         
         items = [
-            itemBack,
-            itemOptions,
-            itemRows,
-            itemIndeterminates]
+            itemBack]
     }
 }
