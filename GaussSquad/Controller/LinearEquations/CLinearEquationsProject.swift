@@ -16,9 +16,9 @@ class CLinearEquationsProject:CController
         return nil
     }
     
-    override func viewDidLoad()
+    override func viewDidAppear(_ animated:Bool)
     {
-        super.viewDidLoad()
+        super.viewDidAppear(animated)
         
         model.load(controller:self)
     }

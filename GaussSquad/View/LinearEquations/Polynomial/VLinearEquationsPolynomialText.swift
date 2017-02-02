@@ -102,8 +102,6 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
             return
         }
         
-        print("number \(number)")
-        
         let numberDouble:Double = number as Double
         controller.polynomial?.coefficientDividend = numberDouble
         controller.polynomial?.coefficientDivisor = 1
