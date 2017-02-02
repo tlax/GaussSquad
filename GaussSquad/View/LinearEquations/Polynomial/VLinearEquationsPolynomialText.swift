@@ -16,9 +16,9 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
     private let kNumbersMax:UInt32 = 57
     private let kDecimalPoint:UInt32 = 46
     private let kMinIntegers:Int = 1
-    private let kMaxIntegers:Int = 32
+    private let kMaxIntegers:Int = 10
     private let kMinDecimals:Int = 0
-    private let kMaxDecimals:Int = 32
+    private let kMaxDecimals:Int = 10
     
     init(controller:CLinearEquationsPolynomial)
     {
@@ -79,7 +79,7 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
         let dividend:Double = polynomial.coefficientDividend
         let divisor:Double = polynomial.coefficientDivisor
         let coefficient:Double = dividend / divisor
-        let coefficentNumber:NSNumber = coefficient as NSNumber
+        let coefficentNumber:NSNumber = NSNumber(value:coefficient)
         
         guard
         
@@ -111,6 +111,9 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
         }
         
         let numberDouble:Double = number as Double
+        
+        print("number \(number) as double \(numberDouble)")
+        
         controller.polynomial?.coefficientDividend = numberDouble
         controller.polynomial?.coefficientDivisor = 1
     }
@@ -156,15 +159,11 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
             }
         }
         
-        print("should change")
-        
         return true
     }
     
     func textViewDidChange(_ textView:UITextView)
     {
         textToPolynomial()
-        
-        print("did change")
     }
 }
