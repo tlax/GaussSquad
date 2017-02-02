@@ -110,6 +110,19 @@ class VLinearEquationsProjectFlow:UICollectionViewLayout
         return attributes
     }
     
+    override func layoutAttributesForItem(at indexPath:IndexPath) -> UICollectionViewLayoutAttributes?
+    {
+        for layoutAttribute:UICollectionViewLayoutAttributes in layoutAttributes
+        {
+            if layoutAttribute.indexPath == indexPath
+            {
+                return layoutAttribute
+            }
+        }
+        
+        return nil
+    }
+    
     override func shouldInvalidateLayout(forBoundsChange newBounds:CGRect) -> Bool
     {
         return false

@@ -110,6 +110,18 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     
     //MARK: collectionView delegate
     
+    func scrollViewDidScroll(_ scrollView:UIScrollView)
+    {
+        var offsetY:CGFloat = -scrollView.contentOffset.y
+        
+        if offsetY > 0
+        {
+            offsetY = 0
+        }
+        
+        layoutBarTop.constant = offsetY
+    }
+    
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         let count:Int = controller.model.rows.count
