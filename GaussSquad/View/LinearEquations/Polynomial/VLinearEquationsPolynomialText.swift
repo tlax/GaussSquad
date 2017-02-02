@@ -8,7 +8,7 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
     private let kDot:String = "."
     private let kComma:String = ","
     private let kEmpty:String = ""
-    private let kMaxHeight:CGFloat = 50
+    private let kFontSize:CGFloat = 60
     private let kInsetsHorizontal:CGFloat = 5
     private let kInsetsTop:CGFloat = 25
     private let kMaxFontSize:CGFloat = 32
@@ -46,7 +46,7 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
         autocapitalizationType = UITextAutocapitalizationType.none
         keyboardType = UIKeyboardType.numbersAndPunctuation
         contentInset = UIEdgeInsets.zero
-        font = UIFont.medium(size:kMaxHeight)
+        font = UIFont.numeric(size:kFontSize)
         textContainerInset = UIEdgeInsets(
             top:kInsetsTop,
             left:kInsetsHorizontal,

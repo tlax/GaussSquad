@@ -2,6 +2,11 @@ import UIKit
 
 extension UIFont
 {
+    class func numeric(size:CGFloat) -> UIFont
+    {
+        return UIFont(name:"HelveticaNeue-Thin", size:size)!
+    }
+    
     class func regular(size:CGFloat) -> UIFont
     {
         return UIFont(name:"Avenir-Light", size:size)!
