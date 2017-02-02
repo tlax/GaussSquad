@@ -3,13 +3,30 @@ import UIKit
 class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
 {
     private weak var controller:CLinearEquationsPolynomial!
-    private let kMaxHeight:CGFloat = 40
+    private let numberFormatter:NumberFormatter
+    private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
+    private let kMaxHeight:CGFloat = 45
     private let kInsetsHorizontal:CGFloat = 5
+    private let kInsetsTop:CGFloat = 25
     private let kMaxFontSize:CGFloat = 32
+    private let kNumbersMin:UInt32 = 48
+    private let kNumbersMax:UInt32 = 57
+    private let kDecimalPoint:UInt32 = 46
+    private let kMinIntegers:Int = 1
+    private let kMaxIntegers:Int = 10
+    private let kMinDecimals:Int = 0
+    private let kMaxDecimals:Int = 10
     
-    convenience init(controller:CLinearEquationsPolynomial)
+    init(controller:CLinearEquationsPolynomial)
     {
-        self.init()
+        numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = kNumberFormatterStyle
+        numberFormatter.minimumIntegerDigits = kMinIntegers
+        numberFormatter.maximumIntegerDigits = kMaxIntegers
+        numberFormatter.minimumFractionDigits = kMinDecimals
+        numberFormatter.maximumFractionDigits = kMaxDecimals
+
+        super.init(frame:CGRect.zero, textContainer:nil)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear
@@ -24,17 +41,72 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
         autocorrectionType = UITextAutocorrectionType.no
         spellCheckingType = UITextSpellCheckingType.no
         autocapitalizationType = UITextAutocapitalizationType.none
-        keyboardType = UIKeyboardType.alphabet
+        keyboardType = UIKeyboardType.numbersAndPunctuation
         contentInset = UIEdgeInsets.zero
-        text = "asd"
         font = UIFont.medium(size:kMaxHeight)
         textContainerInset = UIEdgeInsets(
-            top:0,
+            top:kInsetsTop,
             left:kInsetsHorizontal,
             bottom:0,
             right:kInsetsHorizontal)
         delegate = self
         self.controller = controller
+        
+        readPolynomial()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        return nil
+    }
+    
+    //MARK: private
+    
+    private func readPolynomial()
+    {
+        guard
+        
+            let polynomial:DPolynomial = controller.polynomial
+        
+        else
+        {
+            return
+        }
+        
+        let dividend:Double = polynomial.coefficientDividend
+        let divisor:Double = polynomial.coefficientDivisor
+        let coefficient:Double = dividend / divisor
+        let coefficentNumber:NSNumber = coefficient as NSNumber
+        
+        guard
+        
+            let coefficientString:String = numberFormatter.string(
+                from:coefficentNumber)
+        
+        else
+        {
+            return
+        }
+        
+        text = coefficientString
+    }
+    
+    private func textToPolynomial(text:String)
+    {
+        guard
+        
+            let number:NSNumber = numberFormatter.number(from:text)
+        
+        else
+        {
+            return
+        }
+        
+        print("number \(number)")
+        
+        let numberDouble:Double = number as Double
+        controller.polynomial?.coefficientDividend = numberDouble
+        controller.polynomial?.coefficientDivisor = 1
     }
     
     //MARK: textView delegate
@@ -42,9 +114,47 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
     func textView(_ textView:UITextView, shouldChangeTextIn range:NSRange, replacementText text:String) -> Bool
     {
         let currentText:NSString = textView.text as NSString
+        let newTextCount:Int = text.characters.count
+        
+        for newTextIndex:Int in 0 ..< newTextCount
+        {
+            let character:Character = text[
+                text.index(
+                    text.startIndex,
+                    offsetBy:newTextIndex)]
+            let characterString:String = "\(character)"
+            
+            guard
+            
+                let unicodeScalar:UnicodeScalar = UnicodeScalar(characterString)
+            
+            else
+            {
+                return false
+            }
+            
+            let unicodeInt:UInt32 = unicodeScalar.value
+            
+            if unicodeInt == kDecimalPoint
+            {
+                if currentText.contains(".")
+                {
+                    return false
+                }
+            }
+            else
+            {
+                if unicodeInt < kNumbersMin || unicodeInt > kNumbersMax
+                {
+                    return false
+                }
+            }
+        }
+        
         let editedText:String = currentText.replacingCharacters(
             in:range,
             with:text)
+        textToPolynomial(text:editedText)
         
         return true
     }

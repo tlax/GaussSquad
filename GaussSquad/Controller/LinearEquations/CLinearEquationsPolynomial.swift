@@ -35,6 +35,8 @@ class CLinearEquationsPolynomial:CController
     
     func save()
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         DManager.sharedInstance?.save()
         parentController.dismissAnimateOver(completion:nil)
     }

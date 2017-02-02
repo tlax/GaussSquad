@@ -6,7 +6,8 @@ class VLinearEquationsPolynomial:VView
     private weak var viewControl:VLinearEquationsPolynomialControl!
     private weak var viewText:VLinearEquationsPolynomialText!
     private weak var layoutControlBottom:NSLayoutConstraint!
-    private let kControlHeight:CGFloat = 62
+    private let kControlHeight:CGFloat = 58
+    private let kAnimationDuration:TimeInterval = 2
     
     override init(controller:CController)
     {
@@ -45,6 +46,12 @@ class VLinearEquationsPolynomial:VView
         NSLayoutConstraint.equalsHorizontal(
             view:viewControl,
             toView:self)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedKeyboardChanged(sender:)),
+            name:NSNotification.Name.UIKeyboardWillChangeFrame,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
@@ -52,10 +59,47 @@ class VLinearEquationsPolynomial:VView
         return nil
     }
     
+    //MARK: notifications
+    
+    func notifiedKeyboardChanged(sender notification:Notification)
+    {
+        guard
+            
+            let userInfo:[AnyHashable:Any] = notification.userInfo,
+            let keyboardFrameValue:NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue
+            
+        else
+        {
+            return
+        }
+        
+        let keyRect:CGRect = keyboardFrameValue.cgRectValue
+        let yOrigin = keyRect.origin.y
+        let height:CGFloat = bounds.maxY
+        let keyboardHeight:CGFloat
+        
+        if yOrigin < height
+        {
+            keyboardHeight = height - yOrigin
+        }
+        else
+        {
+            keyboardHeight = 0
+        }
+        
+        layoutControlBottom.constant = -keyboardHeight
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
+    }
+    
     //MARK: public
     
     func startEdition()
     {   
-        viewControl.becomeFirstResponder()
+        viewText.becomeFirstResponder()
     }
 }
