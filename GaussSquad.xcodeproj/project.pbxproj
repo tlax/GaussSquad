@@ -61,6 +61,7 @@
 		DAF37ADB1E3D6588005052D8 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ADA1E3D6588005052D8 /* spinner.xcassets */; };
 		DAF37AE11E3D6BCE005052D8 /* VLinearEquationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AE01E3D6BCE005052D8 /* VLinearEquationsCell.swift */; };
 		DAF37AE51E3D6EA1005052D8 /* VLinearEquationsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AE41E3D6EA1005052D8 /* VLinearEquationsBar.swift */; };
+		DAFDD4FA1E43873C00880556 /* VLinearEquationsProjectCellNewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD4F91E43873C00880556 /* VLinearEquationsProjectCellNewRow.swift */; };
 		DAFF4A961E397B9600A2DD4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */; };
 		DAFF4A971E397B9600A2DD4B /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */; };
 		DAFF4A981E397B9600A2DD4B /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4E1E397B9500A2DD4B /* CController.swift */; };
@@ -146,6 +147,7 @@
 		DAF37ADA1E3D6588005052D8 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
 		DAF37AE01E3D6BCE005052D8 /* VLinearEquationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsCell.swift; sourceTree = "<group>"; };
 		DAF37AE41E3D6EA1005052D8 /* VLinearEquationsBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsBar.swift; sourceTree = "<group>"; };
+		DAFDD4F91E43873C00880556 /* VLinearEquationsProjectCellNewRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectCellNewRow.swift; sourceTree = "<group>"; };
 		DAFF4A341E3979B600A2DD4B /* GaussSquad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GaussSquad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				DAB84C301E4168100052F778 /* VLinearEquationsProjectCellPolynomialDecimal.swift */,
 				DAB84C321E41681A0052F778 /* VLinearEquationsProjectCellPolynomialDivision.swift */,
 				DAC2164C1E42304E009EDBF7 /* VLinearEquationsProjectCellNewPolynomial.swift */,
+				DAFDD4F91E43873C00880556 /* VLinearEquationsProjectCellNewRow.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				DAFF4A9A1E397B9600A2DD4B /* DManager.swift in Sources */,
 				DAB84C311E4168100052F778 /* VLinearEquationsProjectCellPolynomialDecimal.swift in Sources */,
 				DA133A3E1E410F710028D90F /* MLinearEquationsProjectBarItemReportIndeterminates.swift in Sources */,
+				DAFDD4FA1E43873C00880556 /* VLinearEquationsProjectCellNewRow.swift in Sources */,
 				DAD518971E3FAF1D0004C8D8 /* CLinearEquationsProject.swift in Sources */,
 				DAFF4AA41E397B9600A2DD4B /* ExtensionUIColor.swift in Sources */,
 				DAF37AD91E3D51D7005052D8 /* VLinearEquations.swift in Sources */,
