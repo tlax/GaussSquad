@@ -58,9 +58,13 @@ class VLinearEquationsProjectCellPolynomialDecimal:VLinearEquationsProjectCell
         return nil
     }
     
-    override func config(model:MLinearEquationsProjectRowItem)
+    override func config(
+        model:MLinearEquationsProjectRowItem,
+        indexPath:IndexPath)
     {
-        super.config(model:model)
+        super.config(
+            model:model,
+            indexPath:indexPath)
         
         guard
             

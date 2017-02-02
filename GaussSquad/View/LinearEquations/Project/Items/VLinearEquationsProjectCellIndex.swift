@@ -42,20 +42,15 @@ class VLinearEquationsProjectCellIndex:VLinearEquationsProjectCell
         return nil
     }
     
-    override func config(model:MLinearEquationsProjectRowItem)
+    override func config(
+        model:MLinearEquationsProjectRowItem,
+        indexPath:IndexPath)
     {
-        super.config(model:model)
+        super.config(
+            model:model,
+            indexPath:indexPath)
         
-        guard
-            
-            let model:MLinearEquationsProjectRowItemIndex = model as? MLinearEquationsProjectRowItemIndex
-            
-        else
-        {
-            return
-        }
-        
-        let index:Int = model.index + kIndexDelta
+        let index:Int = indexPath.section + kIndexDelta
         let indexString:String = "\(index)"
         label.text = indexString
     }

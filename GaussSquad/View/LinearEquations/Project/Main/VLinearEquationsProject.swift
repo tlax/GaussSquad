@@ -117,7 +117,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = controller.model.cols.count
+        let count:Int = controller.model.rows[section].items.count
         
         return count
     }
@@ -129,7 +129,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
             withReuseIdentifier:
             item.reusableIdentifier,
             for:indexPath) as! VLinearEquationsProjectCell
-        cell.config(model:item)
+        cell.config(model:item, indexPath:indexPath)
         
         return cell
     }

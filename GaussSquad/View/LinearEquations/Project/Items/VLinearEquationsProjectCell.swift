@@ -49,7 +49,9 @@ class VLinearEquationsProjectCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MLinearEquationsProjectRowItem)
+    func config(
+        model:MLinearEquationsProjectRowItem,
+        indexPath:IndexPath)
     {
         hover()
     }
