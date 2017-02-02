@@ -162,6 +162,38 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
     
     func textViewDidChange(_ textView:UITextView)
     {
+        if text.characters.count == 2
+        {
+            let firstCharacter:Character = text[text.startIndex]
+            let secondCharacter:Character = text[
+                text.index(
+                    text.startIndex,
+                    offsetBy:1)]
+            let firstString:String = "\(firstCharacter)"
+            let secondString:String = "\(secondCharacter)"
+            
+            guard
+                
+                let firstScalar:UnicodeScalar = UnicodeScalar(firstString),
+                let secondScalar:UnicodeScalar = UnicodeScalar(secondString)
+                
+            else
+            {
+                return
+            }
+            
+            let firstUnicode:UInt32 = firstScalar.value
+            let secondUnicode:UInt32 = secondScalar.value
+            
+            if firstUnicode == kNumbersMin
+            {
+                if secondUnicode != kDecimalPoint
+                {
+                    text = secondString
+                }
+            }
+        }
+        
         textToPolynomial()
     }
 }

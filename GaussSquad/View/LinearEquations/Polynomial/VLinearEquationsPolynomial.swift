@@ -102,4 +102,9 @@ class VLinearEquationsPolynomial:VView
     {   
         viewText.readPolynomial()
     }
+    
+    func endEdition()
+    {
+        viewText.isHidden = true
+    }
 }
