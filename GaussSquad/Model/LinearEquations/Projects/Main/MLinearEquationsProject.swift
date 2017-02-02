@@ -3,14 +3,12 @@ import UIKit
 class MLinearEquationsProject
 {
     var rows:[MLinearEquationsProjectRow]
-    var cols:[CGFloat]
     var project:DProject?
     private weak var controller:CLinearEquationsProject?
     
     init(project:DProject?)
     {
         rows = []
-        cols = []
         self.project = project
     }
     
@@ -180,7 +178,6 @@ class MLinearEquationsProject
             return
         }
         
-        var cols:[CGFloat] = []
         var rows:[MLinearEquationsProjectRow] = []
         var rowIndex:Int = 0
         
@@ -190,30 +187,11 @@ class MLinearEquationsProject
                 equation:equation,
                 rowIndex:rowIndex)
             
-            let countItems:Int = row.items.count
-            
-            for itemIndex:Int in 0 ..< countItems
-            {
-                let rowItem:MLinearEquationsProjectRowItem = row.items[itemIndex]
-                let itemWidth:CGFloat = rowItem.cellWidth
-                
-                if itemIndex >= cols.count
-                {
-                    cols.append(0)
-                }
-                
-                if itemWidth > cols[itemIndex]
-                {
-                    cols[itemIndex] = itemWidth
-                }
-            }
-            
             rows.append(row)
             rowIndex += 1
         }
         
         self.rows = rows
-        self.cols = cols
         
         loadFinished()
     }

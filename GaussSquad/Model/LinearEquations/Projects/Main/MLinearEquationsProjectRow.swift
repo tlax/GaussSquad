@@ -3,7 +3,11 @@ import Foundation
 class MLinearEquationsProjectRow
 {
     let items:[MLinearEquationsProjectRowItem]
-    private weak var equation:DEquation!
+    
+    class func lastRow() -> MLinearEquationsProjectRow
+    {
+        
+    }
     
     private class func polynomialItem(polynomial:DPolynomial) -> MLinearEquationsProjectRowItemPolynomial
     {
@@ -27,8 +31,6 @@ class MLinearEquationsProjectRow
         equation:DEquation,
         rowIndex:Int)
     {
-        self.equation = equation
-        
         guard
             
             let polynomials:[DPolynomial] = equation.polynomials?.array as? [DPolynomial],
