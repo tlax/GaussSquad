@@ -6,7 +6,7 @@ class VLinearEquationsPolynomial:VView
     private weak var viewControl:VLinearEquationsPolynomialControl!
     private weak var viewText:VLinearEquationsPolynomialText!
     private weak var layoutControlBottom:NSLayoutConstraint!
-    private let kControlHeight:CGFloat = 58
+    private let kControlHeight:CGFloat = 50
     private let kAnimationDuration:TimeInterval = 2
     
     override init(controller:CController)

@@ -1,6 +1,6 @@
 import UIKit
 
-class VLinearEquationsProjectFlow:UICollectionViewFlowLayout
+class VLinearEquationsProjectFlow:UICollectionViewLayout
 {
     private weak var model:MLinearEquationsProject!
     private var layoutAttributes:[UICollectionViewLayoutAttributes]

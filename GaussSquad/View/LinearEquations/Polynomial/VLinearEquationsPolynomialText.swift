@@ -5,6 +5,9 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
     private weak var controller:CLinearEquationsPolynomial!
     private let numberFormatter:NumberFormatter
     private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
+    private let kDot:String = "."
+    private let kComma:String = ","
+    private let kEmpty:String = ""
     private let kMaxHeight:CGFloat = 45
     private let kInsetsHorizontal:CGFloat = 5
     private let kInsetsTop:CGFloat = 25
@@ -13,9 +16,9 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
     private let kNumbersMax:UInt32 = 57
     private let kDecimalPoint:UInt32 = 46
     private let kMinIntegers:Int = 1
-    private let kMaxIntegers:Int = 10
+    private let kMaxIntegers:Int = 32
     private let kMinDecimals:Int = 0
-    private let kMaxDecimals:Int = 10
+    private let kMaxDecimals:Int = 32
     
     init(controller:CLinearEquationsPolynomial)
     {
@@ -88,14 +91,19 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
             return
         }
         
-        text = coefficientString
+        let curatedCoefficient:String = coefficientString.replacingOccurrences(
+            of:kComma,
+            with:kEmpty)
+        
+        text = curatedCoefficient
     }
     
-    private func textToPolynomial(text:String)
+    private func textToPolynomial()
     {
         guard
         
-            let number:NSNumber = numberFormatter.number(from:text)
+            let number:NSNumber = numberFormatter.number(
+                from:text)
         
         else
         {
@@ -111,7 +119,6 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
     
     func textView(_ textView:UITextView, shouldChangeTextIn range:NSRange, replacementText text:String) -> Bool
     {
-        let currentText:NSString = textView.text as NSString
         let newTextCount:Int = text.characters.count
         
         for newTextIndex:Int in 0 ..< newTextCount
@@ -135,7 +142,7 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
             
             if unicodeInt == kDecimalPoint
             {
-                if currentText.contains(".")
+                if self.text.contains(kDot)
                 {
                     return false
                 }
@@ -149,11 +156,15 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
             }
         }
         
-        let editedText:String = currentText.replacingCharacters(
-            in:range,
-            with:text)
-        textToPolynomial(text:editedText)
+        print("should change")
         
         return true
+    }
+    
+    func textViewDidChange(_ textView:UITextView)
+    {
+        textToPolynomial()
+        
+        print("did change")
     }
 }

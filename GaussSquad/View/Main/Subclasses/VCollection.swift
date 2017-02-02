@@ -2,8 +2,6 @@ import UIKit
 
 class VCollection:UICollectionView
 {
-    weak var flow:UICollectionViewFlowLayout!
-    
     convenience init()
     {
         let flow:VCollectionFlow = VCollectionFlow()
@@ -11,7 +9,7 @@ class VCollection:UICollectionView
         self.init(flow:flow)
     }
     
-    init(flow:UICollectionViewFlowLayout)
+    init(flow:UICollectionViewLayout)
     {
         super.init(frame:CGRect.zero, collectionViewLayout:flow)
         clipsToBounds = true
@@ -19,7 +17,6 @@ class VCollection:UICollectionView
         translatesAutoresizingMaskIntoConstraints = false
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
-        self.flow = flow
     }
     
     required init?(coder:NSCoder)

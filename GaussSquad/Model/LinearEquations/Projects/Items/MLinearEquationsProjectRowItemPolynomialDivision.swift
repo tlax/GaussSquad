@@ -12,9 +12,9 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
     private let kMaxWidth:CGFloat = 5000
     private let kMargin:CGFloat = 25
     private let kMinIntegers:Int = 1
-    private let kMaxIntegers:Int = 10
+    private let kMaxIntegers:Int = 32
     private let kMinDecimals:Int = 0
-    private let kMaxDecimals:Int = 10
+    private let kMaxDecimals:Int = 32
     
     init(polynomial:DPolynomial)
     {
