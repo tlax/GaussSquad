@@ -12,4 +12,9 @@ class MLinearEquationsProjectRowItemNewRow:MLinearEquationsProjectRowItem
             cellWidth:kCellWidth,
             reusableIdentifier:reusableIdentifier)
     }
+    
+    override func selected(controller:CLinearEquationsProject)
+    {
+        controller.model.createRow()
+    }
 }

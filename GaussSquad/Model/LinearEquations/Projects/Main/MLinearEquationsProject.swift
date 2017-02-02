@@ -38,12 +38,7 @@ class MLinearEquationsProject
                 symbol:NSLocalizedString("MLinearEquationsProject_defaultIndeterminate", comment:""))
             { [weak self] in
                 
-                self?.createEquation
-                { [weak self] in
-                    
-                    DManager.sharedInstance?.save()
-                    self?.refreshRows()
-                }
+                self?.createRow()
             }
         }
     }
@@ -231,6 +226,16 @@ class MLinearEquationsProject
             }
             
             polynomial.equationPolynomials = equation
+            
+            DManager.sharedInstance?.save()
+            self?.refreshRows()
+        }
+    }
+    
+    func createRow()
+    {
+        createEquation
+        { [weak self] in
             
             DManager.sharedInstance?.save()
             self?.refreshRows()

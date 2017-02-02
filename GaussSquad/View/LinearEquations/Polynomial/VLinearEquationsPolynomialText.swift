@@ -8,7 +8,7 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
     private let kDot:String = "."
     private let kComma:String = ","
     private let kEmpty:String = ""
-    private let kFontSize:CGFloat = 60
+    private let kFontSize:CGFloat = 70
     private let kInsetsHorizontal:CGFloat = 5
     private let kInsetsTop:CGFloat = 25
     private let kMaxFontSize:CGFloat = 32
