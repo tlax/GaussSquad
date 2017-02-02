@@ -25,8 +25,8 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
         numberFormatter.minimumFractionDigits = kMinDecimals
         numberFormatter.maximumFractionDigits = kMaxDecimals
         
-        let coefficientDividend:NSNumber = polynomial.coefficientDividend as NSNumber
-        let coefficientDivisor:NSNumber = polynomial.coefficientDivisor as NSNumber
+        let coefficientDividend:NSNumber = NSNumber(value:polynomial.coefficientDividend)
+        let coefficientDivisor:NSNumber = NSNumber(value:polynomial.coefficientDivisor)
         let reusableIdentifier:String = VLinearEquationsProjectCellPolynomialDivision.reusableIdentifier
         let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
             NSStringDrawingOptions.usesFontLeading,

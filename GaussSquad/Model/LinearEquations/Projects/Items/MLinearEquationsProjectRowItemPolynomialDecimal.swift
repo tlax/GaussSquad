@@ -28,7 +28,7 @@ class MLinearEquationsProjectRowItemPolynomialDecimal:MLinearEquationsProjectRow
         let coefficientDividend:Double = polynomial.coefficientDividend
         let coefficientDivisor:Double = polynomial.coefficientDivisor
         let coefficient:Double = coefficientDividend / coefficientDivisor
-        let coefficientNumber:NSNumber = coefficient as NSNumber
+        let coefficientNumber:NSNumber = NSNumber(value:coefficient)
         let reusableIdentifier:String = VLinearEquationsProjectCellPolynomialDecimal.reusableIdentifier
         let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
             NSStringDrawingOptions.usesFontLeading,
