@@ -51,6 +51,7 @@
 		DAC216581E429D9C009EDBF7 /* VLinearEquationsPolynomial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC216571E429D9C009EDBF7 /* VLinearEquationsPolynomial.swift */; };
 		DAC2165A1E42A136009EDBF7 /* VLinearEquationsPolynomialControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC216591E42A136009EDBF7 /* VLinearEquationsPolynomialControl.swift */; };
 		DAC2165C1E42A9BC009EDBF7 /* VLinearEquationsPolynomialText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2165B1E42A9BC009EDBF7 /* VLinearEquationsPolynomialText.swift */; };
+		DAC2165E1E42DF43009EDBF7 /* MLinearEquationsProjectRowItemNewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2165D1E42DF43009EDBF7 /* MLinearEquationsProjectRowItemNewRow.swift */; };
 		DAD518951E3F978D0004C8D8 /* DGaussSquad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAD518931E3F978D0004C8D8 /* DGaussSquad.xcdatamodeld */; };
 		DAD518971E3FAF1D0004C8D8 /* CLinearEquationsProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518961E3FAF1D0004C8D8 /* CLinearEquationsProject.swift */; };
 		DAD518AD1E3FBCF90004C8D8 /* MLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518A81E3FBCF90004C8D8 /* MLinearEquations.swift */; };
@@ -135,6 +136,7 @@
 		DAC216571E429D9C009EDBF7 /* VLinearEquationsPolynomial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomial.swift; sourceTree = "<group>"; };
 		DAC216591E42A136009EDBF7 /* VLinearEquationsPolynomialControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialControl.swift; sourceTree = "<group>"; };
 		DAC2165B1E42A9BC009EDBF7 /* VLinearEquationsPolynomialText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialText.swift; sourceTree = "<group>"; };
+		DAC2165D1E42DF43009EDBF7 /* MLinearEquationsProjectRowItemNewRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectRowItemNewRow.swift; sourceTree = "<group>"; };
 		DAD518941E3F978D0004C8D8 /* DGaussSquad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DGaussSquad.xcdatamodel; sourceTree = "<group>"; };
 		DAD518961E3FAF1D0004C8D8 /* CLinearEquationsProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquationsProject.swift; sourceTree = "<group>"; };
 		DAD518A81E3FBCF90004C8D8 /* MLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquations.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				DA12D4781E415990008327B5 /* MLinearEquationsProjectRowItemPolynomialDecimal.swift */,
 				DA12D47A1E41599A008327B5 /* MLinearEquationsProjectRowItemPolynomialDivision.swift */,
 				DAB84C341E416AB10052F778 /* MLinearEquationsProjectRowItemNewPolynomial.swift */,
+				DAC2165D1E42DF43009EDBF7 /* MLinearEquationsProjectRowItemNewRow.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				DAFF4AA21E397B9600A2DD4B /* ExtensionNSManagedObject.swift in Sources */,
 				DAFF4AC41E397B9600A2DD4B /* VAlert.swift in Sources */,
 				DAFF4AC81E397B9600A2DD4B /* VSpinner.swift in Sources */,
+				DAC2165E1E42DF43009EDBF7 /* MLinearEquationsProjectRowItemNewRow.swift in Sources */,
 				DA133A5F1E4119E00028D90F /* VLinearEquationsProjectBar.swift in Sources */,
 				DA133A391E410F710028D90F /* MLinearEquationsProjectBarItem.swift in Sources */,
 				DAFF4AD31E397D9A00A2DD4B /* CHelp.swift in Sources */,

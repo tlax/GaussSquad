@@ -5,7 +5,7 @@ class MLinearEquationsProjectRowItemPolynomialDecimal:MLinearEquationsProjectRow
     let attributedString:NSAttributedString
     let positive:Bool
     private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
-    private let kFontSize:CGFloat = 25
+    private let kFontSize:CGFloat = 30
     private let kMaxHeight:CGFloat = 30
     private let kMaxWidth:CGFloat = 5000
     private let kMargin:CGFloat = 40
