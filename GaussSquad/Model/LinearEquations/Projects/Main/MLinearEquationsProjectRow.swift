@@ -27,9 +27,7 @@ class MLinearEquationsProjectRow
         return itemPolynomial
     }
     
-    init(
-        equation:DEquation,
-        rowIndex:Int)
+    init(equation:DEquation)
     {
         guard
             
@@ -44,8 +42,7 @@ class MLinearEquationsProjectRow
         }
         
         var items:[MLinearEquationsProjectRowItem] = []
-        let itemIndex:MLinearEquationsProjectRowItemIndex = MLinearEquationsProjectRowItemIndex(
-            index:rowIndex)
+        let itemIndex:MLinearEquationsProjectRowItemIndex = MLinearEquationsProjectRowItemIndex()
         items.append(itemIndex)
         
         for polynomial:DPolynomial in polynomials

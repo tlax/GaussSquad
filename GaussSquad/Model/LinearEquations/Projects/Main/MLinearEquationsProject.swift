@@ -179,16 +179,12 @@ class MLinearEquationsProject
         }
         
         var rows:[MLinearEquationsProjectRow] = []
-        var rowIndex:Int = 0
         
         for equation:DEquation in equationArray
         {
             let row:MLinearEquationsProjectRow = MLinearEquationsProjectRow(
-                equation:equation,
-                rowIndex:rowIndex)
-            
+                equation:equation)
             rows.append(row)
-            rowIndex += 1
         }
         
         self.rows = rows

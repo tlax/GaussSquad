@@ -8,7 +8,7 @@ class MLinearEquationsProjectRowItemNewRow:MLinearEquationsProjectRowItem
     init(equation:DEquation)
     {
         self.equation = equation
-        let reusableIdentifier:String = VLinearEquationsProjectCellNewPolynomial.reusableIdentifier
+        let reusableIdentifier:String = VLinearEquationsProjectCellNewRow.reusableIdentifier
         
         super.init(
             cellWidth:kCellWidth,
