@@ -5,6 +5,7 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
     private var model:MLinearEquationsProjectBar?
     private weak var controller:CLinearEquationsProject!
     private weak var collectionView:VCollection!
+    private weak var viewIndeterminates:VLinearEquationsProjectBarIndeterminates!
     private let kDeselectTime:TimeInterval = 0.2
     private let kContentTop:CGFloat = 20
     private let kCellWidth:CGFloat = 60
@@ -34,8 +35,13 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
+        let viewIndeterminates:VLinearEquationsProjectBarIndeterminates = VLinearEquationsProjectBarIndeterminates(
+            controller:controller)
+        self.viewIndeterminates = viewIndeterminates
+        
         addSubview(border)
         addSubview(collectionView)
+        addSubview(viewIndeterminates)
         
         NSLayoutConstraint.topToTop(
             view:collectionView,
@@ -56,6 +62,16 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
             constant:kBorderHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:border,
+            toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:viewIndeterminates,
+            toView:collectionView)
+        NSLayoutConstraint.bottomToBottom(
+            view:viewIndeterminates,
+            toView:self)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewIndeterminates,
             toView:self)
     }
     
