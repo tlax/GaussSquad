@@ -13,11 +13,18 @@ class VLinearEquationsIndeterminate:VView
         backgroundColor = UIColor.clear
         self.controller = controller as? CLinearEquationsIndeterminate
         
+        let blur:VBlur = VBlur.light()
+        
         let viewControl:VLinearEquationsIndeterminateControl = VLinearEquationsIndeterminateControl(
             controller:self.controller)
         self.viewControl = viewControl
         
+        addSubview(blur)
         addSubview(viewControl)
+        
+        NSLayoutConstraint.equals(
+            view:blur,
+            toView:self)
         
         NSLayoutConstraint.height(
             view:viewControl,

@@ -3,6 +3,7 @@ import UIKit
 class VLinearEquationsIndeterminateControl:UIView
 {
     private weak var controller:CLinearEquationsIndeterminate!
+    private let kButtonsWidth:CGFloat = 120
     
     init(controller:CLinearEquationsIndeterminate)
     {
@@ -49,6 +50,26 @@ class VLinearEquationsIndeterminateControl:UIView
         
         addSubview(buttonCancel)
         addSubview(buttonSave)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonCancel,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:buttonCancel,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:buttonCancel,
+            constant:kButtonsWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonSave,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:buttonSave,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:buttonSave,
+            constant:kButtonsWidth)
     }
     
     required init?(coder:NSCoder)
