@@ -4,6 +4,7 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
 {
     private weak var controller:CLinearEquationsProject!
     private weak var collectionView:VCollection!
+    private weak var button:UIButton!
     private let kButtonLeft:CGFloat = -18
     private let kButtonSize:CGFloat = 40
     private let kTitleMargin:CGFloat = 10
@@ -44,6 +45,7 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
             self,
             action:#selector(actionButton(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.button = button
         
         let collectionView:VCollection = VCollection()
         collectionView.alwaysBounceHorizontal = true
@@ -107,7 +109,8 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     
     func actionButton(sender button:UIButton)
     {
-        
+        button.isUserInteractionEnabled = false
+        controller.addIndeterminate()
     }
     
     //MARK: private
@@ -124,6 +127,8 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     
     func refresh()
     {
+        collectionView.isUserInteractionEnabled = true
+        button.isUserInteractionEnabled = true
         collectionView.reloadData()
     }
     
@@ -164,6 +169,8 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        collectionView.isUserInteractionEnabled = false
+        
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)
         { [weak collectionView] in
@@ -172,6 +179,7 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
                 at:nil,
                 animated:true,
                 scrollPosition:UICollectionViewScrollPosition())
+            collectionView?.isUserInteractionEnabled = true
         }
     }
 }

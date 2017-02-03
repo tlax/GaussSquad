@@ -60,4 +60,12 @@ class CLinearEquationsProject:CController
         parentController.animateOver(
             controller:controllerPolynomial)
     }
+    
+    func addIndeterminate()
+    {
+        let controllerIndeterminate:CLinearEquationsIndeterminate = CLinearEquationsIndeterminate(
+            model:model)
+        parentController.animateOver(
+            controller:controllerIndeterminate)
+    }
 }
