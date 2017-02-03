@@ -6,6 +6,10 @@ class VLinearEquationsIndeterminate:VView
     private weak var viewControl:VLinearEquationsIndeterminateControl!
     private weak var layoutControlBottom:NSLayoutConstraint!
     private let kControlHeight:CGFloat = 50
+    private let kTextMargin:CGFloat = 10
+    private let kTitleTop:CGFloat = 20
+    private let kTitleHeight:CGFloat = 30
+    private let kTextHeight:CGFloat = 100
     
     override init(controller:CController)
     {
@@ -19,7 +23,16 @@ class VLinearEquationsIndeterminate:VView
             controller:self.controller)
         self.viewControl = viewControl
         
+        let labelTitle:UILabel = UILabel()
+        labelTitle.translatesAutoresizingMaskIntoConstraints = false
+        labelTitle.isUserInteractionEnabled = false
+        labelTitle.backgroundColor = UIColor.clear
+        labelTitle.font = UIFont.regular(size:16)
+        labelTitle.textColor = UIColor.black
+        labelTitle.text = NSLocalizedString("VLinearEquationsIndeterminate_labelTitle", comment:"")
+        
         addSubview(blur)
+        addSubview(labelTitle)
         addSubview(viewControl)
         
         NSLayoutConstraint.equals(
@@ -35,6 +48,18 @@ class VLinearEquationsIndeterminate:VView
         NSLayoutConstraint.equalsHorizontal(
             view:viewControl,
             toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:labelTitle,
+            toView:self,
+            constant:kTitleTop)
+        NSLayoutConstraint.height(
+            view:labelTitle,
+            constant:kTitleHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:labelTitle,
+            toView:self,
+            margin:kTextMargin)
     }
     
     required init?(coder:NSCoder)
