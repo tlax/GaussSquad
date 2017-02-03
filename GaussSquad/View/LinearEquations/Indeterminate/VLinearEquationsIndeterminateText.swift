@@ -1,6 +1,6 @@
 import UIKit
 
-class VlineaEquationsIndeterminateText:UITextField, UITextFieldDelegate
+class VlinearEquationsIndeterminateText:UITextField, UITextFieldDelegate
 {
     private weak var controller:CLinearEquationsIndeterminate!
     private let kFontSize:CGFloat = 70

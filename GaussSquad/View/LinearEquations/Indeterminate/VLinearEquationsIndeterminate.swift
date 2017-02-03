@@ -4,12 +4,13 @@ class VLinearEquationsIndeterminate:VView
 {
     private weak var controller:CLinearEquationsIndeterminate!
     private weak var viewControl:VLinearEquationsIndeterminateControl!
+    private weak var viewText:VlinearEquationsIndeterminateText!
     private weak var layoutControlBottom:NSLayoutConstraint!
     private let kControlHeight:CGFloat = 50
     private let kTextMargin:CGFloat = 10
     private let kTitleTop:CGFloat = 30
     private let kTitleHeight:CGFloat = 25
-    private let kTextHeight:CGFloat = 90
+    private let kTextHeight:CGFloat = 100
     
     override init(controller:CController)
     {
@@ -31,8 +32,13 @@ class VLinearEquationsIndeterminate:VView
         labelTitle.textColor = UIColor.black
         labelTitle.text = NSLocalizedString("VLinearEquationsIndeterminate_labelTitle", comment:"")
         
+        let viewText:VlinearEquationsIndeterminateText = VlinearEquationsIndeterminateText(
+            controller:self.controller)
+        self.viewText = viewText
+        
         addSubview(blur)
         addSubview(labelTitle)
+        addSubview(viewText)
         addSubview(viewControl)
         
         NSLayoutConstraint.equals(
@@ -60,10 +66,33 @@ class VLinearEquationsIndeterminate:VView
             view:labelTitle,
             toView:self,
             margin:kTextMargin)
+        
+        NSLayoutConstraint.topToBottom(
+            view:viewText,
+            toView:labelTitle)
+        NSLayoutConstraint.height(
+            view:viewText,
+            constant:kTextHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewText,
+            toView:self,
+            margin:kTextMargin)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: public
+    
+    func startEdition()
+    {
+        viewText.becomeFirstResponder()
+    }
+    
+    func endEdition()
+    {
+        viewText.isHidden = true
     }
 }
