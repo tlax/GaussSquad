@@ -30,6 +30,13 @@ class CLinearEquationsProject:CController
         view = viewProject
     }
     
+    //MARK: private
+    
+    private func confirmRemoveIndeterminate(indeterminate:DIndeterminate)
+    {
+        model.removeIndeterminate(indeterminate:indeterminate)
+    }
+    
     //MARK: public
     
     func next()
@@ -71,6 +78,43 @@ class CLinearEquationsProject:CController
     
     func removeIndeterminate(indeterminate:DIndeterminate)
     {
+        guard
+            
+            let symbol:String = indeterminate.symbol
         
+        else
+        {
+            return
+        }
+        
+        let alertTitle:String = String(
+            format:NSLocalizedString("CLinearEquationsProject_alertTitle", comment:""),
+            symbol)
+        
+        let alert:UIAlertController = UIAlertController(
+            title:alertTitle,
+            message:nil,
+            preferredStyle:UIAlertControllerStyle.actionSheet)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CLinearEquationsProject_alertCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CLinearEquationsProject_alertDelete", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { [weak self] (action:UIAlertAction) in
+            
+            self?.confirmRemoveIndeterminate(
+                indeterminate:indeterminate)
+        }
+        
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
     }
 }

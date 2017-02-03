@@ -251,4 +251,14 @@ class MLinearEquationsProject
             self?.refreshRows()
         }
     }
+    
+    func removeIndeterminate(indeterminate:DIndeterminate)
+    {
+        DManager.sharedInstance?.delete(object:indeterminate)
+        { [weak self] in
+            
+            DManager.sharedInstance?.save()
+            self?.refreshRows()
+        }
+    }
 }
