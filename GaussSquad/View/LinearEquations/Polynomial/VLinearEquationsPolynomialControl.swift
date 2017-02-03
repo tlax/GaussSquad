@@ -3,9 +3,11 @@ import UIKit
 class VLinearEquationsPolynomialControl:UIView
 {
     private weak var controller:CLinearEquationsPolynomial!
+    private weak var viewSign:VLinearEquationsPolynomialControlSign!
     private let kButtonDoneWidth:CGFloat = 80
-    private let kButtonDoneMargin:CGFloat = 10
+    private let kContentMargin:CGFloat = 10
     private let kButtonDoneCornerRadius:CGFloat = 6
+    private let kSignsWidth:CGFloat = 100
     
     init(controller:CLinearEquationsPolynomial)
     {
@@ -14,6 +16,10 @@ class VLinearEquationsPolynomialControl:UIView
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let viewSign:VLinearEquationsPolynomialControlSign = VLinearEquationsPolynomialControlSign(
+            controller:controller)
+        self.viewSign = viewSign
         
         let buttonDone:UIButton = UIButton()
         buttonDone.translatesAutoresizingMaskIntoConstraints = false
@@ -36,18 +42,31 @@ class VLinearEquationsPolynomialControl:UIView
             for:UIControlEvents.touchUpInside)
         
         addSubview(buttonDone)
+        addSubview(viewSign)
         
         NSLayoutConstraint.equalsVertical(
             view:buttonDone,
             toView:self,
-            margin:kButtonDoneMargin)
+            margin:kContentMargin)
         NSLayoutConstraint.width(
             view:buttonDone,
             constant:kButtonDoneWidth)
         NSLayoutConstraint.rightToRight(
             view:buttonDone,
             toView:self,
-            constant:-kButtonDoneMargin)
+            constant:-kContentMargin)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:viewSign,
+            toView:self,
+            margin:kContentMargin)
+        NSLayoutConstraint.leftToLeft(
+            view:viewSign,
+            toView:self,
+            constant:kContentMargin)
+        NSLayoutConstraint.width(
+            view:viewSign,
+            constant:kSignsWidth)
     }
     
     required init?(coder:NSCoder)
@@ -59,7 +78,6 @@ class VLinearEquationsPolynomialControl:UIView
     
     func actionDone(sender button:UIButton)
     {
-        
         controller.save()
     }
 }
