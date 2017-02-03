@@ -4,6 +4,7 @@ class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
 {
     private weak var label:UILabel!
     private weak var imageView:UIImageView!
+    private let kLabelBottom:CGFloat = -3
     
     override init(frame:CGRect)
     {
@@ -16,8 +17,7 @@ class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.center
-        imageView.image = #imageLiteral(resourceName: "assetGenericIndeterminate").withRenderingMode(
-            UIImageRenderingMode.alwaysTemplate)
+        imageView.image = #imageLiteral(resourceName: "assetGenericIndeterminate")
         self.imageView = imageView
         
         let label:UILabel = UILabel()
@@ -25,7 +25,7 @@ class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = NSTextAlignment.center
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:13)
+        label.font = UIFont.bold(size:16)
         self.label = label
         
         addSubview(imageView)
@@ -34,7 +34,15 @@ class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
         NSLayoutConstraint.equals(
             view:imageView,
             toView:self)
-        NSLayoutConstraint.equals(
+        
+        NSLayoutConstraint.topToTop(
+            view:label,
+            toView:self)
+        NSLayoutConstraint.bottomToBottom(
+            view:label,
+            toView:self,
+            constant:kLabelBottom)
+        NSLayoutConstraint.equalsHorizontal(
             view:label,
             toView:self)
     }
@@ -64,19 +72,14 @@ class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
     
     private func hover()
     {
-        let color:UIColor
-        
         if isSelected || isHighlighted
         {
-            color = UIColor.squadRed
+            label.textColor = UIColor.white
         }
         else
         {
-            color = UIColor.squadGreen
+            label.textColor = UIColor.black
         }
-        
-        imageView.tintColor = color
-        label.textColor = color
     }
     
     //MARK: public

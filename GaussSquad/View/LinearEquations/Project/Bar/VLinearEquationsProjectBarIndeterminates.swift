@@ -8,7 +8,7 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     private let kButtonSize:CGFloat = 40
     private let kTitleMargin:CGFloat = 10
     private let kTitleWidth:CGFloat = 100
-    private let kCellSize:CGFloat = 70
+    private let kCellSize:CGFloat = 55
     
     init(controller:CLinearEquationsProject)
     {
@@ -55,11 +55,6 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
         {
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
             flow.itemSize = CGSize(width:kCellSize, height:kCellSize)
-            flow.sectionInset = UIEdgeInsets(
-                top:0,
-                left:kTitleMargin,
-                bottom:0,
-                right:kTitleMargin)
         }
         
         addSubview(labelTitle)
@@ -118,8 +113,8 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     
     private func modelAtIndex(index:IndexPath) -> DIndeterminate
     {
-        let indeterminate:DIndeterminate = controller.model.project!.indeterminates![
-            index.item]
+        let indeterminate:DIndeterminate = controller.model.project!.indeterminates!.array[
+            index.item] as! DIndeterminate
         
         return indeterminate
     }
