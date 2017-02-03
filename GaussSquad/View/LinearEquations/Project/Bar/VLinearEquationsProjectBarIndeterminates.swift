@@ -4,11 +4,11 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
 {
     private weak var controller:CLinearEquationsProject!
     private weak var collectionView:VCollection!
-    private let kCollectionHeight:CGFloat = 40
-    private let kButtonHeight:CGFloat = 40
+    private let kButtonLeft:CGFloat = -18
+    private let kButtonSize:CGFloat = 40
     private let kTitleMargin:CGFloat = 10
-    private let kTitleWidth:CGFloat = 70
-    private let kCellWidth:CGFloat = 40
+    private let kTitleWidth:CGFloat = 100
+    private let kCellSize:CGFloat = 50
     
     init(controller:CLinearEquationsProject)
     {
@@ -54,7 +54,7 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
-            flow.itemSize = CGSize(width:kCellWidth, height:kCollectionHeight)
+            flow.itemSize = CGSize(width:kCellSize, height:kCellSize)
             flow.sectionInset = UIEdgeInsets(
                 top:0,
                 left:kTitleMargin,
@@ -68,7 +68,7 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
         
         NSLayoutConstraint.height(
             view:collectionView,
-            constant:kCollectionHeight)
+            constant:kCellSize)
         NSLayoutConstraint.bottomToBottom(
             view:collectionView,
             toView:self)
@@ -81,7 +81,7 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
             toView:collectionView)
         NSLayoutConstraint.height(
             view:labelTitle,
-            constant:kButtonHeight)
+            constant:kButtonSize)
         NSLayoutConstraint.leftToLeft(
             view:labelTitle,
             toView:self,
@@ -93,12 +93,13 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
         NSLayoutConstraint.equalsVertical(
             view:button,
             toView:labelTitle)
-        NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToRight(
             view:button,
-            toView:labelTitle)
+            toView:labelTitle,
+            constant:kButtonLeft)
         NSLayoutConstraint.width(
             view:button,
-            constant:kButtonHeight)
+            constant:kButtonSize)
     }
     
     required init?(coder:NSCoder)
@@ -111,6 +112,13 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     func actionButton(sender button:UIButton)
     {
         
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        collectionView.reloadData()
     }
     
     //MARK: collectionView delegate
@@ -144,5 +152,10 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
             for:indexPath) as! VLinearEquationsProjectBarIndeterminatesCell
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        
     }
 }
