@@ -7,9 +7,9 @@ class VLinearEquationsIndeterminate:VView
     private weak var layoutControlBottom:NSLayoutConstraint!
     private let kControlHeight:CGFloat = 50
     private let kTextMargin:CGFloat = 10
-    private let kTitleTop:CGFloat = 20
-    private let kTitleHeight:CGFloat = 30
-    private let kTextHeight:CGFloat = 100
+    private let kTitleTop:CGFloat = 30
+    private let kTitleHeight:CGFloat = 25
+    private let kTextHeight:CGFloat = 90
     
     override init(controller:CController)
     {
@@ -27,7 +27,7 @@ class VLinearEquationsIndeterminate:VView
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.isUserInteractionEnabled = false
         labelTitle.backgroundColor = UIColor.clear
-        labelTitle.font = UIFont.regular(size:16)
+        labelTitle.font = UIFont.regular(size:20)
         labelTitle.textColor = UIColor.black
         labelTitle.text = NSLocalizedString("VLinearEquationsIndeterminate_labelTitle", comment:"")
         
