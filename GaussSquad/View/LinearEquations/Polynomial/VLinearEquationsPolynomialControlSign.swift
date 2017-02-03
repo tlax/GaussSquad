@@ -5,8 +5,8 @@ class VLinearEquationsPolynomialControlSign:UIView
     private weak var controller:CLinearEquationsPolynomial!
     private weak var buttonPositive:UIButton!
     private weak var buttonNegative:UIButton!
-    private let kCornerRadius:CGFloat = 8
-    private let kButtonWidth:CGFloat = 50
+    private let kCornerRadius:CGFloat = 6
+    private let kButtonWidth:CGFloat = 60
     
     init(controller:CLinearEquationsPolynomial)
     {
@@ -28,6 +28,10 @@ class VLinearEquationsPolynomialControlSign:UIView
             for:UIControlState.highlighted)
         buttonPositive.imageView!.clipsToBounds = true
         buttonPositive.imageView!.contentMode = UIViewContentMode.center
+        buttonPositive.addTarget(
+            self,
+            action:#selector(actionPositive(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonPositive = buttonPositive
         
         let buttonNegative:UIButton = UIButton()
@@ -41,6 +45,10 @@ class VLinearEquationsPolynomialControlSign:UIView
             for:UIControlState.highlighted)
         buttonNegative.imageView!.clipsToBounds = true
         buttonNegative.imageView!.contentMode = UIViewContentMode.center
+        buttonNegative.addTarget(
+            self,
+            action:#selector(actionNegative(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonNegative = buttonNegative
         
         addSubview(buttonPositive)
@@ -107,20 +115,26 @@ class VLinearEquationsPolynomialControlSign:UIView
     private func makePositive()
     {
         buttonNegative.backgroundColor = UIColor(white:0.95, alpha:1)
-        buttonNegative.imageView!.tintColor = UIColor(white:0.8, alpha:1)
+        buttonNegative.imageView!.tintColor = UIColor(white:0.7, alpha:1)
         buttonNegative.isUserInteractionEnabled = true
         buttonPositive.backgroundColor = UIColor.squadBlue
         buttonPositive.imageView!.tintColor = UIColor.white
         buttonPositive.isUserInteractionEnabled = false
+        
+        controller.polynomial?.isPositive = true
+        DManager.sharedInstance?.save()
     }
     
     private func makeNegative()
     {
         buttonPositive.backgroundColor = UIColor(white:0.95, alpha:1)
-        buttonPositive.imageView!.tintColor = UIColor(white:0.8, alpha:1)
+        buttonPositive.imageView!.tintColor = UIColor(white:0.7, alpha:1)
         buttonPositive.isUserInteractionEnabled = true
         buttonNegative.backgroundColor = UIColor.squadBlue
         buttonNegative.imageView!.tintColor = UIColor.white
         buttonNegative.isUserInteractionEnabled = false
+        
+        controller.polynomial?.isPositive = false
+        DManager.sharedInstance?.save()
     }
 }

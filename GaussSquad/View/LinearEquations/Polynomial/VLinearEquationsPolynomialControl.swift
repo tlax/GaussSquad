@@ -7,7 +7,7 @@ class VLinearEquationsPolynomialControl:UIView
     private let kButtonDoneWidth:CGFloat = 80
     private let kContentMargin:CGFloat = 10
     private let kButtonDoneCornerRadius:CGFloat = 6
-    private let kSignsWidth:CGFloat = 100
+    private let kSignsWidth:CGFloat = 120
     
     init(controller:CLinearEquationsPolynomial)
     {
