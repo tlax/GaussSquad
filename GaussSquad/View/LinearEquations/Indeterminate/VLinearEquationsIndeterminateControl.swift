@@ -5,7 +5,7 @@ class VLinearEquationsIndeterminateControl:UIView
     private weak var controller:CLinearEquationsIndeterminate!
     private let kButtonsWidth:CGFloat = 100
     private let kButtonMargin:CGFloat = 10
-    private let kCornerRadius:CGFloat = 18
+    private let kCornerRadius:CGFloat = 15
     
     init(controller:CLinearEquationsIndeterminate)
     {
@@ -28,7 +28,7 @@ class VLinearEquationsIndeterminateControl:UIView
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
         buttonCancel.titleLabel!.font = UIFont.bold(
-            size:15)
+            size:13)
         buttonCancel.layer.cornerRadius = kCornerRadius
         buttonCancel.addTarget(
             self,
@@ -48,7 +48,7 @@ class VLinearEquationsIndeterminateControl:UIView
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
         buttonSave.titleLabel!.font = UIFont.bold(
-            size:15)
+            size:13)
         buttonSave.layer.cornerRadius = kCornerRadius
         buttonSave.addTarget(
             self,
