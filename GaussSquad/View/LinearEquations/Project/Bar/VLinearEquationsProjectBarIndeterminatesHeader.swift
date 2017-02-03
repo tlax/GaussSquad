@@ -1,6 +1,6 @@
 import UIKit
 
-class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
+class VLinearEquationsProjectBarIndeterminatesHeader:UICollectionReusableView
 {
     override init(frame:CGRect)
     {

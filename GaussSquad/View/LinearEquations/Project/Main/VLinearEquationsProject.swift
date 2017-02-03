@@ -7,7 +7,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     private weak var collectionView:VCollection!
     private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 200
+    private let kBarHeight:CGFloat = 180
     private let kDeselectTime:TimeInterval = 0.2
     
     override init(controller:CController)
