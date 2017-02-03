@@ -22,6 +22,6 @@
 "CLinearEquationsIndeterminate_errorNoNumber"="Indeterminates can't start with a number";
 "CLinearEquationsIndeterminate_errorCharacters"="Indeterminates can't have spaces or special characters";
 "CLinearEquationsIndeterminate_errorExistingIndeterminate"="Indeterminate already exists, use different name";
-"CLinearEquationsProject_alertTitle"="Delete %@?";
-"CLinearEquationsProject_alertCancel"="Don't";
-"CLinearEquationsProject_alertDelete"="Delete";
+"CLinearEquationsProject_alertIndeterminateTitle"="Delete %@?";
+"CLinearEquationsProject_alertIndeterminateCancel"="Don't";
+"CLinearEquationsProject_alertIndeterminateDelete"="Delete";

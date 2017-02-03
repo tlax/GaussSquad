@@ -37,13 +37,14 @@ class CLinearEquationsPolynomial:CController
     {
         UIApplication.shared.keyWindow!.endEditing(true)
         
-        viewPolynomial.endEdition()
         DManager.sharedInstance?.save()
+        
+        viewPolynomial.endEdition()
         parentController.dismissAnimateOver(completion:nil)
     }
     
     func trash()
     {
-        
+        UIApplication.shared.keyWindow!.endEditing(true)
     }
 }

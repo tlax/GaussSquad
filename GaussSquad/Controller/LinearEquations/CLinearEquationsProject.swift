@@ -88,7 +88,7 @@ class CLinearEquationsProject:CController
         }
         
         let alertTitle:String = String(
-            format:NSLocalizedString("CLinearEquationsProject_alertTitle", comment:""),
+            format:NSLocalizedString("CLinearEquationsProject_alertIndeterminateTitle", comment:""),
             symbol)
         
         let alert:UIAlertController = UIAlertController(
@@ -98,13 +98,13 @@ class CLinearEquationsProject:CController
         
         let actionCancel:UIAlertAction = UIAlertAction(
             title:
-            NSLocalizedString("CLinearEquationsProject_alertCancel", comment:""),
+            NSLocalizedString("CLinearEquationsProject_alertIndeterminateCancel", comment:""),
             style:
             UIAlertActionStyle.cancel)
         
         let actionDelete:UIAlertAction = UIAlertAction(
             title:
-            NSLocalizedString("CLinearEquationsProject_alertDelete", comment:""),
+            NSLocalizedString("CLinearEquationsProject_alertIndeterminateDelete", comment:""),
             style:
             UIAlertActionStyle.destructive)
         { [weak self] (action:UIAlertAction) in
