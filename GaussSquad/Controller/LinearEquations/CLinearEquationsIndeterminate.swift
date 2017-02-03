@@ -4,6 +4,12 @@ class CLinearEquationsIndeterminate:CController
 {
     private weak var viewIndeterminate:VLinearEquationsIndeterminate!
     private weak var model:MLinearEquationsProject!
+    private let kNumbersMin:UInt32 = 48
+    private let kNumbersMax:UInt32 = 57
+    private let kLowerCaseMin:UInt32 = 65
+    private let kLowerCaseMax:UInt32 = 90
+    private let kUpperCaseMin:UInt32 = 97
+    private let kUpperCaseMax:UInt32 = 122
     
     init(model:MLinearEquationsProject)
     {
@@ -30,6 +36,62 @@ class CLinearEquationsIndeterminate:CController
         viewIndeterminate.startEdition()
     }
     
+    //MARK: private
+    
+    private func validation(name:String) -> String?
+    {
+        let countCharacters:Int = name.characters.count
+        
+        for indexCharacter:Int in 0 ..< countCharacters
+        {
+            let character:Character = name[
+                name.index(
+                    name.startIndex,
+                    offsetBy:indexCharacter)]
+            let charString:String = "\(character)"
+            
+            guard
+            
+                let scalar:UnicodeScalar = UnicodeScalar(charString)
+            
+            else
+            {
+                continue
+            }
+            
+            let unicode:UInt32 = scalar.value
+            
+            if unicode < kLowerCaseMin || unicode > kLowerCaseMax
+            {
+                if unicode < kUpperCaseMin || unicode > kUpperCaseMax
+                {
+                    if indexCharacter == 0
+                    {
+                        if unicode >= kNumbersMin && unicode <= kNumbersMax
+                        {
+                            let error:String = NSLocalizedString(
+                                "CLinearEquationsIndeterminate_errorNoNumber",
+                                comment:"")
+                            
+                            return error
+                        }
+                    }
+                    
+                    if unicode < kNumbersMin || unicode > kNumbersMax
+                    {
+                        let error:String = NSLocalizedString(
+                            "CLinearEquationsIndeterminate_errorCharacters",
+                            comment:"")
+                        
+                        return error
+                    }
+                }
+            }
+        }
+        
+        return nil
+    }
+    
     //MARK: public
     
     func cancel()
@@ -42,5 +104,25 @@ class CLinearEquationsIndeterminate:CController
     func save()
     {
         UIApplication.shared.keyWindow!.endEditing(true)
+        
+        guard
+        
+            let indeterminateName:String = viewIndeterminate.viewText.text
+        
+        else
+        {
+            return
+        }
+        
+        let error:String? = validation(name:indeterminateName)
+        
+        if let error:String = error
+        {
+            viewIndeterminate.toastMessage(message:error)
+        }
+        else
+        {
+            
+        }
     }
 }

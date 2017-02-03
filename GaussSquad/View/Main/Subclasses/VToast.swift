@@ -6,9 +6,10 @@ class VToast:UIView
     private weak var layoutLabelHeight:NSLayoutConstraint!
     private weak var timer:Timer?
     private let drawingOptions:NSStringDrawingOptions
+    private let textMargin2:CGFloat
     private let kToastDuration:TimeInterval = 4
     private let kAnimationDuration:TimeInterval = 0.3
-    private let kFontSize:CGFloat = 16
+    private let kFontSize:CGFloat = 14
     private let kTextMargin:CGFloat = 20
     private let kBackgroundMargin:CGFloat = -10
     private let kCornerRadius:CGFloat = 15
@@ -19,19 +20,20 @@ class VToast:UIView
         color:UIColor,
         textColor:UIColor = UIColor.white)
     {
+        textMargin2 = kTextMargin + kTextMargin
         drawingOptions = NSStringDrawingOptions([
             NSStringDrawingOptions.usesFontLeading,
             NSStringDrawingOptions.usesLineFragmentOrigin])
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = color
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
         alpha = 0
         
         let attributes:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.regular(size:kFontSize)]
+            NSFontAttributeName:UIFont.medium(size:kFontSize)]
         let string:NSAttributedString = NSAttributedString(
             string:message,
             attributes:attributes)
@@ -87,7 +89,7 @@ class VToast:UIView
     
     override func layoutSubviews()
     {
-        let labelWidth:CGFloat = label.bounds.maxX
+        let labelWidth:CGFloat = bounds.maxX - textMargin2
         let maxSize:CGSize = CGSize(width:labelWidth, height:kMaxHeight)
         
         if let labelSize:CGRect = label.attributedText?.boundingRect(
@@ -95,7 +97,8 @@ class VToast:UIView
             options:drawingOptions,
             context:nil)
         {
-            let labelHeight:CGFloat = ceil(labelSize.size.height)
+            let labelHeight:CGFloat = ceil(
+                labelSize.size.height)
             layoutLabelHeight.constant = labelHeight
         }
         

@@ -2,9 +2,9 @@ import UIKit
 
 class VLinearEquationsIndeterminate:VView
 {
+    weak var viewText:VlinearEquationsIndeterminateText!
     private weak var controller:CLinearEquationsIndeterminate!
     private weak var viewControl:VLinearEquationsIndeterminateControl!
-    private weak var viewText:VlinearEquationsIndeterminateText!
     private weak var layoutControlBottom:NSLayoutConstraint!
     private let kControlHeight:CGFloat = 50
     private let kTextMargin:CGFloat = 10
@@ -149,7 +149,7 @@ class VLinearEquationsIndeterminate:VView
         
         addSubview(viewToast)
         
-        NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToBottom(
             view:viewToast,
             toView:viewText)
         NSLayoutConstraint.height(
