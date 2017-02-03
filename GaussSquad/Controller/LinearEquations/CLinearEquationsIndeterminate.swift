@@ -24,15 +24,23 @@ class CLinearEquationsIndeterminate:CController
         view = viewIndeterminate
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        viewIndeterminate.startEdition()
+    }
+    
     //MARK: public
     
     func cancel()
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        viewIndeterminate.endEdition()
         parentController.dismissAnimateOver(completion:nil)
     }
     
     func save()
     {
-        
+        UIApplication.shared.keyWindow!.endEditing(true)
     }
 }

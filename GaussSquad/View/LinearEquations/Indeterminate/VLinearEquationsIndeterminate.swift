@@ -11,6 +11,7 @@ class VLinearEquationsIndeterminate:VView
     private let kTitleTop:CGFloat = 30
     private let kTitleHeight:CGFloat = 25
     private let kTextHeight:CGFloat = 100
+    private let kAnimationDuration:TimeInterval = 2
     
     override init(controller:CController)
     {
@@ -77,6 +78,49 @@ class VLinearEquationsIndeterminate:VView
             view:viewText,
             toView:self,
             margin:kTextMargin)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedKeyboardChanged(sender:)),
+            name:NSNotification.Name.UIKeyboardWillChangeFrame,
+            object:nil)
+    }
+    
+    //MARK: notifications
+    
+    func notifiedKeyboardChanged(sender notification:Notification)
+    {
+        guard
+            
+            let userInfo:[AnyHashable:Any] = notification.userInfo,
+            let keyboardFrameValue:NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue
+            
+        else
+        {
+            return
+        }
+        
+        let keyRect:CGRect = keyboardFrameValue.cgRectValue
+        let yOrigin = keyRect.origin.y
+        let height:CGFloat = bounds.maxY
+        let keyboardHeight:CGFloat
+        
+        if yOrigin < height
+        {
+            keyboardHeight = height - yOrigin
+        }
+        else
+        {
+            keyboardHeight = 0
+        }
+        
+        layoutControlBottom.constant = -keyboardHeight
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
     }
     
     required init?(coder:NSCoder)
