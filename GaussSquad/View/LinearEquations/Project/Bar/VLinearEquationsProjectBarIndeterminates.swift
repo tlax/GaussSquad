@@ -4,11 +4,11 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
 {
     private weak var controller:CLinearEquationsProject!
     private weak var collectionView:VCollection!
-    private let kCollectionHeight:CGFloat = 50
-    private let kTitleHeight:CGFloat = 20
+    private let kCollectionHeight:CGFloat = 40
+    private let kButtonHeight:CGFloat = 40
     private let kTitleMargin:CGFloat = 10
+    private let kTitleWidth:CGFloat = 70
     private let kCellWidth:CGFloat = 40
-    private let kHeaderWidth:CGFloat = 70
     
     init(controller:CLinearEquationsProject)
     {
@@ -26,22 +26,44 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
         labelTitle.textColor = UIColor.black
         labelTitle.text = NSLocalizedString("VLinearEquationsProjectBarIndeterminates_title", comment:"")
         
+        let button:UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(
+            #imageLiteral(resourceName: "assetGenericAddIndeterminate").withRenderingMode(
+                UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        button.setImage(
+            #imageLiteral(resourceName: "assetGenericAddIndeterminate").withRenderingMode(
+                UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        button.imageView!.tintColor = UIColor(white:0, alpha:0.1)
+        button.imageView!.clipsToBounds = true
+        button.imageView!.contentMode = UIViewContentMode.center
+        button.addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         let collectionView:VCollection = VCollection()
         collectionView.alwaysBounceHorizontal = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.registerHeader(header:VLinearEquationsProjectBarIndeterminatesHeader.self)
         collectionView.registerCell(cell:VLinearEquationsProjectBarIndeterminatesCell.self)
         self.collectionView = collectionView
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
-            flow.headerReferenceSize = CGSize(width:kHeaderWidth, height:0)
             flow.itemSize = CGSize(width:kCellWidth, height:kCollectionHeight)
+            flow.sectionInset = UIEdgeInsets(
+                top:0,
+                left:kTitleMargin,
+                bottom:0,
+                right:kTitleMargin)
         }
         
         addSubview(labelTitle)
+        addSubview(button)
         addSubview(collectionView)
         
         NSLayoutConstraint.height(
@@ -50,22 +72,45 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
         NSLayoutConstraint.bottomToBottom(
             view:collectionView,
             toView:self)
+        NSLayoutConstraint.equalsHorizontal(
+            view:collectionView,
+            toView:self)
      
         NSLayoutConstraint.bottomToTop(
             view:labelTitle,
             toView:collectionView)
         NSLayoutConstraint.height(
             view:labelTitle,
-            constant:kTitleHeight)
-        NSLayoutConstraint.equalsHorizontal(
+            constant:kButtonHeight)
+        NSLayoutConstraint.leftToLeft(
             view:labelTitle,
             toView:self,
-            margin:kTitleMargin)
+            constant:kTitleMargin)
+        NSLayoutConstraint.width(
+            view:labelTitle,
+            constant:kTitleWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:button,
+            toView:labelTitle)
+        NSLayoutConstraint.leftToLeft(
+            view:button,
+            toView:labelTitle)
+        NSLayoutConstraint.width(
+            view:button,
+            constant:kButtonHeight)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        
     }
     
     //MARK: collectionView delegate
