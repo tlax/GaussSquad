@@ -5,7 +5,6 @@ class VLinearEquationsPolynomialControlSign:UIView
     private weak var controller:CLinearEquationsPolynomial!
     private weak var buttonPositive:UIButton!
     private weak var buttonNegative:UIButton!
-    private let kCornerRadius:CGFloat = 6
     private let kButtonWidth:CGFloat = 60
     
     init(controller:CLinearEquationsPolynomial)
@@ -14,7 +13,6 @@ class VLinearEquationsPolynomialControlSign:UIView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
-        layer.cornerRadius = kCornerRadius
         self.controller = controller
         
         let buttonPositive:UIButton = UIButton()

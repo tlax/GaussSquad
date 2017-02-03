@@ -5,8 +5,9 @@ class VLinearEquationsPolynomialControl:UIView
     private weak var controller:CLinearEquationsPolynomial!
     private weak var viewSign:VLinearEquationsPolynomialControlSign!
     private let kButtonDoneWidth:CGFloat = 80
+    private let kButtonTrashWidth:CGFloat = 45
     private let kContentMargin:CGFloat = 10
-    private let kButtonDoneCornerRadius:CGFloat = 6
+    private let kCornerRadius:CGFloat = 6
     private let kSignsWidth:CGFloat = 120
     
     init(controller:CLinearEquationsPolynomial)
@@ -19,6 +20,7 @@ class VLinearEquationsPolynomialControl:UIView
         
         let viewSign:VLinearEquationsPolynomialControlSign = VLinearEquationsPolynomialControlSign(
             controller:controller)
+        viewSign.layer.cornerRadius = kCornerRadius
         self.viewSign = viewSign
         
         let buttonDone:UIButton = UIButton()
@@ -35,12 +37,32 @@ class VLinearEquationsPolynomialControl:UIView
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
         buttonDone.titleLabel!.font = UIFont.bold(size:14)
-        buttonDone.layer.cornerRadius = kButtonDoneCornerRadius
+        buttonDone.layer.cornerRadius = kCornerRadius
         buttonDone.addTarget(
             self,
             action:#selector(actionDone(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonTrash:UIButton = UIButton()
+        buttonTrash.translatesAutoresizingMaskIntoConstraints = false
+        buttonTrash.clipsToBounds = true
+        buttonTrash.backgroundColor = UIColor.squadRed
+        buttonTrash.layer.cornerRadius = kCornerRadius
+        buttonTrash.setImage(
+            #imageLiteral(resourceName: "assetGenericTrashWhite").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonTrash.setImage(
+            #imageLiteral(resourceName: "assetGenericTrashWhite").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonTrash.imageView!.clipsToBounds = true
+        buttonTrash.imageView!.contentMode = UIViewContentMode.center
+        buttonTrash.imageView!.tintColor = UIColor(white:1, alpha:0.2)
+        buttonTrash.addTarget(
+            self,
+            action:#selector(actionTrash(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
+        addSubview(buttonTrash)
         addSubview(buttonDone)
         addSubview(viewSign)
         
@@ -67,6 +89,18 @@ class VLinearEquationsPolynomialControl:UIView
         NSLayoutConstraint.width(
             view:viewSign,
             constant:kSignsWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonTrash,
+            toView:self,
+            margin:kContentMargin)
+        NSLayoutConstraint.width(
+            view:buttonTrash,
+            constant:kButtonTrashWidth)
+        NSLayoutConstraint.rightToLeft(
+            view:buttonTrash,
+            toView:buttonDone,
+            constant:-kContentMargin)
     }
     
     required init?(coder:NSCoder)
@@ -79,5 +113,10 @@ class VLinearEquationsPolynomialControl:UIView
     func actionDone(sender button:UIButton)
     {
         controller.save()
+    }
+    
+    func actionTrash(sender button:UIButton)
+    {
+        controller.trash()
     }
 }

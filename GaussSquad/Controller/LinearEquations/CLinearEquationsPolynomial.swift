@@ -41,4 +41,9 @@ class CLinearEquationsPolynomial:CController
         DManager.sharedInstance?.save()
         parentController.dismissAnimateOver(completion:nil)
     }
+    
+    func trash()
+    {
+        
+    }
 }
