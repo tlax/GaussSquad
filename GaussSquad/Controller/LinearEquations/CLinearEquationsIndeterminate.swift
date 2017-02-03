@@ -42,6 +42,15 @@ class CLinearEquationsIndeterminate:CController
     {
         let countCharacters:Int = name.characters.count
         
+        if countCharacters == 0
+        {
+            let error:String = NSLocalizedString(
+                "CLinearEquationsIndeterminate_errorInvalid",
+                comment:"")
+            
+            return error
+        }
+        
         for indexCharacter:Int in 0 ..< countCharacters
         {
             let character:Character = name[

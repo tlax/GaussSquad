@@ -18,5 +18,6 @@
 "VLinearEquationsIndeterminateControl_buttonCancel"="Cancel";
 "VLinearEquationsIndeterminate_labelTitle"="New indeterminate";
 
+"CLinearEquationsIndeterminate_errorInvalid"="Name can't be empty";
 "CLinearEquationsIndeterminate_errorNoNumber"="Indeterminates can't start with a number";
 "CLinearEquationsIndeterminate_errorCharacters"="Indeterminates can't have spaces or special characters";

@@ -9,10 +9,10 @@ class VToast:UIView
     private let textMargin2:CGFloat
     private let kToastDuration:TimeInterval = 4
     private let kAnimationDuration:TimeInterval = 0.3
-    private let kFontSize:CGFloat = 14
+    private let kFontSize:CGFloat = 16
     private let kTextMargin:CGFloat = 20
     private let kBackgroundMargin:CGFloat = -10
-    private let kCornerRadius:CGFloat = 15
+    private let kCornerRadius:CGFloat = 20
     private let kMaxHeight:CGFloat = 1000
     
     init(

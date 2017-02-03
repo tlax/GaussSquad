@@ -4,6 +4,7 @@ class VlinearEquationsIndeterminateText:UITextField, UITextFieldDelegate
 {
     private weak var controller:CLinearEquationsIndeterminate!
     private let kFontSize:CGFloat = 70
+    private let kBorderHeight:CGFloat = 1
     
     init(controller:CLinearEquationsIndeterminate)
     {
@@ -24,6 +25,20 @@ class VlinearEquationsIndeterminateText:UITextField, UITextFieldDelegate
         font = UIFont.numeric(size:kFontSize)
         delegate = self
         self.controller = controller
+        
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
+        
+        addSubview(border)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
