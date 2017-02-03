@@ -11,6 +11,7 @@ class VLinearEquationsIndeterminate:VView
     private let kTitleTop:CGFloat = 30
     private let kTitleHeight:CGFloat = 25
     private let kTextHeight:CGFloat = 100
+    private let kToastHeight:CGFloat = 150
     private let kAnimationDuration:TimeInterval = 2
     
     override init(controller:CController)
@@ -138,5 +139,24 @@ class VLinearEquationsIndeterminate:VView
     func endEdition()
     {
         viewText.isHidden = true
+    }
+    
+    func toastMessage(message:String)
+    {
+        let viewToast:VToast = VToast(
+            message:message,
+            color:UIColor.squadRed)
+        
+        addSubview(viewToast)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewToast,
+            toView:viewText)
+        NSLayoutConstraint.height(
+            view:viewToast,
+            constant:kToastHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewToast,
+            toView:self)
     }
 }

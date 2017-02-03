@@ -4,7 +4,10 @@ class VToast:UIView
 {
     private weak var label:UILabel!
     private weak var layoutLabelHeight:NSLayoutConstraint!
+    private weak var timer:Timer?
     private let drawingOptions:NSStringDrawingOptions
+    private let kToastDuration:TimeInterval = 4
+    private let kAnimationDuration:TimeInterval = 0.3
     private let kFontSize:CGFloat = 16
     private let kTextMargin:CGFloat = 20
     private let kBackgroundMargin:CGFloat = -10
@@ -25,6 +28,7 @@ class VToast:UIView
         backgroundColor = color
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
+        alpha = 0
         
         let attributes:[String:AnyObject] = [
             NSFontAttributeName:UIFont.regular(size:kFontSize)]
@@ -67,11 +71,18 @@ class VToast:UIView
             view:background,
             toView:label,
             margin:kBackgroundMargin)
+        
+        animateShow()
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    deinit
+    {
+        timer?.invalidate()
     }
     
     override func layoutSubviews()
@@ -89,5 +100,44 @@ class VToast:UIView
         }
         
         super.layoutSubviews()
+    }
+    
+    func timeOut(sender timer:Timer)
+    {
+        timer.invalidate()
+        animateHide()
+    }
+    
+    //MARK: private
+    
+    private func animateHide()
+    {
+        UIView.animate(
+            withDuration:kAnimationDuration,
+        animations:
+        { [weak self] in
+            
+            self?.alpha = 0
+        })
+        { [weak self] (done:Bool) in
+        
+            self?.removeFromSuperview()
+        }
+    }
+    
+    private func animateShow()
+    {
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.alpha = 1
+        }
+        
+        timer = Timer.scheduledTimer(
+            timeInterval:kToastDuration,
+            target:self,
+            selector:#selector(timeOut(sender:)),
+            userInfo:nil,
+            repeats:false)
     }
 }
