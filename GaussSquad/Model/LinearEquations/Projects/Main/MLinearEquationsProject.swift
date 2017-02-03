@@ -241,4 +241,14 @@ class MLinearEquationsProject
             self?.refreshRows()
         }
     }
+    
+    func addIndeterminate(name:String)
+    {
+        createIndeterminate(symbol:name)
+        { [weak self] in
+            
+            DManager.sharedInstance?.save()
+            self?.refreshRows()
+        }
+    }
 }

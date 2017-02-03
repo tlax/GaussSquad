@@ -101,6 +101,37 @@ class CLinearEquationsIndeterminate:CController
         return nil
     }
     
+    func alreadyUsingIndeterminate(name:String) -> Bool
+    {
+        guard
+        
+            let indeterminates:[DIndeterminate] = model.project?.indeterminates?.array as? [DIndeterminate]
+        
+        else
+        {
+            return false
+        }
+        
+        for indeterminate:DIndeterminate in indeterminates
+        {
+            guard
+            
+                let symbol:String = indeterminate.symbol
+            
+            else
+            {
+                continue
+            }
+            
+            if symbol == name
+            {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
     //MARK: public
     
     func cancel()
@@ -131,7 +162,17 @@ class CLinearEquationsIndeterminate:CController
         }
         else
         {
-            
+            if alreadyUsingIndeterminate(name:indeterminateName)
+            {
+                let error:String = NSLocalizedString(
+                    "CLinearEquationsIndeterminate_errorExistingIndeterminate",
+                    comment:"")
+                viewIndeterminate.toastMessage(message:error)
+            }
+            else
+            {
+                
+            }
         }
     }
 }
