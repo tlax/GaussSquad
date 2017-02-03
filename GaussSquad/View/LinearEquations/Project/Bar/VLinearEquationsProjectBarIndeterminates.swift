@@ -9,7 +9,9 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     private let kButtonSize:CGFloat = 40
     private let kTitleMargin:CGFloat = 10
     private let kTitleWidth:CGFloat = 100
-    private let kCellSize:CGFloat = 55
+    private let kCellHeight:CGFloat = 55
+    private let kCellWidth:CGFloat =  65
+    private let kInteritem:CGFloat = 1
     private let kDeselectTime:TimeInterval = 0.2
     
     init(controller:CLinearEquationsProject)
@@ -56,8 +58,15 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
+            flow.minimumLineSpacing = kInteritem
+            flow.minimumInteritemSpacing = kInteritem
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
-            flow.itemSize = CGSize(width:kCellSize, height:kCellSize)
+            flow.sectionInset = UIEdgeInsets(
+                top:0,
+                left:kInteritem,
+                bottom:0,
+                right:kInteritem)
+            flow.itemSize = CGSize(width:kCellWidth, height:kCellHeight)
         }
         
         addSubview(labelTitle)
@@ -66,7 +75,7 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
         
         NSLayoutConstraint.height(
             view:collectionView,
-            constant:kCellSize)
+            constant:kCellHeight)
         NSLayoutConstraint.bottomToBottom(
             view:collectionView,
             toView:self)

@@ -3,22 +3,14 @@ import UIKit
 class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
 {
     private weak var label:UILabel!
-    private weak var imageView:UIImageView!
     private let kLabelBottom:CGFloat = -3
+    private let kLabelHorizontalMargin:CGFloat = 2
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
-        
-        let imageView:UIImageView = UIImageView()
-        imageView.isUserInteractionEnabled = false
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.center
-        imageView.image = #imageLiteral(resourceName: "assetGenericIndeterminate")
-        self.imageView = imageView
+        backgroundColor = UIColor.squadGreen
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
@@ -28,12 +20,7 @@ class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
         label.font = UIFont.bold(size:16)
         self.label = label
         
-        addSubview(imageView)
         addSubview(label)
-        
-        NSLayoutConstraint.equals(
-            view:imageView,
-            toView:self)
         
         NSLayoutConstraint.topToTop(
             view:label,
@@ -44,7 +31,8 @@ class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
             constant:kLabelBottom)
         NSLayoutConstraint.equalsHorizontal(
             view:label,
-            toView:self)
+            toView:self,
+            margin:kLabelHorizontalMargin)
     }
     
     required init?(coder:NSCoder)
