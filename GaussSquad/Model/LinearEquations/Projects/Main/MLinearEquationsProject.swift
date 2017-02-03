@@ -116,13 +116,13 @@ class MLinearEquationsProject
                 return
             }
             
-            var indeterminates:[DIndeterminate] = indeterminates
-            let indeterminate:DIndeterminate = indeterminates.removeFirst()
-            polynomial.indeterminate = indeterminate
-            polynomial.equationPolynomials = equation
-            
             if indeterminates.count > 0
             {
+                var indeterminates:[DIndeterminate] = indeterminates
+                let indeterminate:DIndeterminate = indeterminates.removeFirst()
+                polynomial.indeterminate = indeterminate
+                polynomial.equationPolynomials = equation
+                
                 self?.createPolynomials(
                     equation:equation,
                     indeterminates:indeterminates,
