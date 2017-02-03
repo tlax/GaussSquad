@@ -2,10 +2,10 @@ import UIKit
 
 class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    private var model:MLinearEquationsProjectBar?
+    weak var viewIndeterminates:VLinearEquationsProjectBarIndeterminates!
     private weak var controller:CLinearEquationsProject!
     private weak var collectionView:VCollection!
-    private weak var viewIndeterminates:VLinearEquationsProjectBarIndeterminates!
+    private let model:MLinearEquationsProjectBar
     private let kDeselectTime:TimeInterval = 0.2
     private let kContentTop:CGFloat = 20
     private let kCellWidth:CGFloat = 60
@@ -14,6 +14,8 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
     
     init(controller:CLinearEquationsProject)
     {
+        model = MLinearEquationsProjectBar()
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.white
@@ -91,17 +93,9 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
     
     private func modelAtIndex(index:IndexPath) -> MLinearEquationsProjectBarItem
     {
-        let item:MLinearEquationsProjectBarItem = model!.items[index.item]
+        let item:MLinearEquationsProjectBarItem = model.items[index.item]
         
         return item
-    }
-    
-    //MARK: public
-    
-    func refresh(project:DProject)
-    {
-        model = MLinearEquationsProjectBar(project:project)
-        collectionView.reloadData()
     }
     
     //MARK: collectionView delegate
@@ -121,14 +115,7 @@ class VLinearEquationsProjectBar:UIView, UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        guard
-        
-            let count:Int = model?.items.count
-        
-        else
-        {
-            return 0
-        }
+        let count:Int = model.items.count
         
         return count
     }

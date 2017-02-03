@@ -93,19 +93,10 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     
     func refresh()
     {
-        guard
-            
-            let project:DProject = controller.model.project
-        
-        else
-        {
-            return
-        }
-        
         spinner.stopAnimating()
         collectionView.reloadData()
         viewBar.isHidden = false
-        viewBar.refresh(project:project)
+        viewBar.viewIndeterminates.refresh()
     }
     
     //MARK: collectionView delegate

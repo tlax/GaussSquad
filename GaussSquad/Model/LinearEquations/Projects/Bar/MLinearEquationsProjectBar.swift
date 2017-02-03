@@ -4,7 +4,7 @@ class MLinearEquationsProjectBar
 {
     let items:[MLinearEquationsProjectBarItem]
     
-    init(project:DProject)
+    init()
     {
         let itemBack:MLinearEquationsProjectBarItemBack = MLinearEquationsProjectBarItemBack()
         let itemHelp:MLinearEquationsProjectBarItemHelp = MLinearEquationsProjectBarItemHelp()
