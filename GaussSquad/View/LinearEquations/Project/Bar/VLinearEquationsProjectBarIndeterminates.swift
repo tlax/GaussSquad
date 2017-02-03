@@ -6,11 +6,11 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     private weak var collectionView:VCollection!
     private weak var button:UIButton!
     private let kButtonLeft:CGFloat = -18
-    private let kButtonSize:CGFloat = 40
+    private let kButtonSize:CGFloat = 50
     private let kTitleMargin:CGFloat = 10
     private let kTitleWidth:CGFloat = 100
-    private let kCellHeight:CGFloat = 55
-    private let kCellWidth:CGFloat =  65
+    private let kCellHeight:CGFloat = 50
+    private let kCellWidth:CGFloat =  70
     private let kInteritem:CGFloat = 1
     private let kDeselectTime:TimeInterval = 0.2
     

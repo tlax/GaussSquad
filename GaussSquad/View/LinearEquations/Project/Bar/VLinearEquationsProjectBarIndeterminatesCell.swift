@@ -10,7 +10,7 @@ class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.squadGreen
+        backgroundColor = UIColor.clear
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
@@ -62,11 +62,11 @@ class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            label.textColor = UIColor.white
+            label.textColor = UIColor.black
         }
         else
         {
-            label.textColor = UIColor.black
+            label.textColor = UIColor(white:0, alpha:0.4)
         }
     }
     
