@@ -136,9 +136,9 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     
     func refresh()
     {
+        collectionView.reloadData()
         collectionView.isUserInteractionEnabled = true
         button.isUserInteractionEnabled = true
-        collectionView.reloadData()
     }
     
     //MARK: collectionView delegate

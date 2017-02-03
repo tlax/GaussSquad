@@ -162,6 +162,8 @@ class MLinearEquationsProject
     
     private func refreshRows()
     {
+        print("refresh rows")
+        
         guard
         
             let project:DProject = self.project,
@@ -184,10 +186,20 @@ class MLinearEquationsProject
         
         let lastRow:MLinearEquationsProjectRow = MLinearEquationsProjectRow.lastRow()
         rows.append(lastRow)
-        
         self.rows = rows
         
         loadFinished()
+    }
+    
+    private func saveAndRefresh()
+    {
+        DManager.sharedInstance?.save()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.refreshRows()
+        }
     }
     
     //MARK: public
@@ -227,8 +239,7 @@ class MLinearEquationsProject
             
             polynomial.equationPolynomials = equation
             
-            DManager.sharedInstance?.save()
-            self?.refreshRows()
+            self?.saveAndRefresh()
         }
     }
     
@@ -237,18 +248,18 @@ class MLinearEquationsProject
         createEquation
         { [weak self] in
             
-            DManager.sharedInstance?.save()
-            self?.refreshRows()
+            self?.saveAndRefresh()
         }
     }
     
-    func addIndeterminate(name:String)
+    func addIndeterminate(
+        name:String,
+        completion:(() -> ())?)
     {
         createIndeterminate(symbol:name)
-        { [weak self] in
-            
+        {   
             DManager.sharedInstance?.save()
-            self?.refreshRows()
+            completion?()
         }
     }
     
@@ -257,8 +268,7 @@ class MLinearEquationsProject
         DManager.sharedInstance?.delete(object:indeterminate)
         { [weak self] in
             
-            DManager.sharedInstance?.save()
-            self?.refreshRows()
+            self?.saveAndRefresh()
         }
     }
 }

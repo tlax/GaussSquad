@@ -172,8 +172,13 @@ class CLinearEquationsIndeterminate:CController
             else
             {
                 model.addIndeterminate(name:indeterminateName)
-                viewIndeterminate.endEdition()
-                parentController.dismissAnimateOver(completion:nil)
+                {
+                    DispatchQueue.main.async
+                    { [weak self] in
+                        
+                        self?.cancel()
+                    }
+                }
             }
         }
     }
