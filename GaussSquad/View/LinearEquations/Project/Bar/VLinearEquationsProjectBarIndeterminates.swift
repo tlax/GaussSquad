@@ -9,6 +9,7 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     private let kTitleMargin:CGFloat = 10
     private let kTitleWidth:CGFloat = 100
     private let kCellSize:CGFloat = 55
+    private let kDeselectTime:TimeInterval = 0.2
     
     init(controller:CLinearEquationsProject)
     {
@@ -163,6 +164,14 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }
