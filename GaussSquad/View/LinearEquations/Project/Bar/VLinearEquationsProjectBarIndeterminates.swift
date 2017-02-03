@@ -8,7 +8,7 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     private let kButtonSize:CGFloat = 40
     private let kTitleMargin:CGFloat = 10
     private let kTitleWidth:CGFloat = 100
-    private let kCellSize:CGFloat = 50
+    private let kCellSize:CGFloat = 70
     
     init(controller:CLinearEquationsProject)
     {
@@ -114,6 +114,16 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
         
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> DIndeterminate
+    {
+        let indeterminate:DIndeterminate = controller.model.project!.indeterminates![
+            index.item]
+        
+        return indeterminate
+    }
+    
     //MARK: public
     
     func refresh()
@@ -146,10 +156,12 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let indeterminate:DIndeterminate = modelAtIndex(index:indexPath)
         let cell:VLinearEquationsProjectBarIndeterminatesCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VLinearEquationsProjectBarIndeterminatesCell.reusableIdentifier,
             for:indexPath) as! VLinearEquationsProjectBarIndeterminatesCell
+        cell.config(indeterminate:indeterminate)
         
         return cell
     }
