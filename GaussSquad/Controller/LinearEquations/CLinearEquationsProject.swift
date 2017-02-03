@@ -68,4 +68,9 @@ class CLinearEquationsProject:CController
         parentController.animateOver(
             controller:controllerIndeterminate)
     }
+    
+    func removeIndeterminate(indeterminate:DIndeterminate)
+    {
+        
+    }
 }

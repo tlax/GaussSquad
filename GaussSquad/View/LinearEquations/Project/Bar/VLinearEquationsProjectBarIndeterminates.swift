@@ -179,6 +179,8 @@ class VLinearEquationsProjectBarIndeterminates:UIView, UICollectionViewDelegate,
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         collectionView.isUserInteractionEnabled = false
+        let indeterminate:DIndeterminate = modelAtIndex(index:indexPath)
+        controller.removeIndeterminate(indeterminate:indeterminate)
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)
