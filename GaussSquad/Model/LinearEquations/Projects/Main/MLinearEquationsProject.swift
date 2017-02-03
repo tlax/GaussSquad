@@ -162,8 +162,6 @@ class MLinearEquationsProject
     
     private func refreshRows()
     {
-        print("refresh rows")
-        
         guard
         
             let project:DProject = self.project,
