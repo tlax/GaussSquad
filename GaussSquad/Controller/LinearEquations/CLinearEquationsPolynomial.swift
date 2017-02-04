@@ -134,4 +134,9 @@ class CLinearEquationsPolynomial:CController
         alert.addAction(actionCancel)
         present(alert, animated:true, completion:nil)
     }
+    
+    func changeIndeterminate()
+    {
+        
+    }
 }

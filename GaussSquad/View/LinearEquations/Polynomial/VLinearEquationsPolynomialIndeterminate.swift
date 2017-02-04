@@ -119,6 +119,14 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
         }
     }
     
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        isUserInteractionEnabled = false
+        controller.changeIndeterminate()
+    }
+    
     //MARK: private
     
     private func hover()
@@ -137,6 +145,7 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
     
     func refresh()
     {
+        isUserInteractionEnabled = true
         labelIndeterminate.text = controller.polynomial?.indeterminate?.symbol
     }
 }
