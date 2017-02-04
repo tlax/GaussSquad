@@ -34,8 +34,10 @@ class MLinearEquationsProject
             self?.project = created as? DProject
             self?.project?.created = timestamp
             
+            let defaultSymbol:String = NSLocalizedString("MLinearEquationsProject_defaultIndeterminate", comment:"")
+            
             self?.createIndeterminate(
-                symbol:NSLocalizedString("MLinearEquationsProject_defaultIndeterminate", comment:""))
+                symbol:defaultSymbol)
             { [weak self] in
                 
                 self?.createRow()

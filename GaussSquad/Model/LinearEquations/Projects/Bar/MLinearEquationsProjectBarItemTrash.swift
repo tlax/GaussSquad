@@ -9,6 +9,6 @@ class MLinearEquationsProjectBarItemTrash:MLinearEquationsProjectBarItem
     
     override func selected(controller:CLinearEquationsProject)
     {
-        controller.save()
+        controller.delete()
     }
 }

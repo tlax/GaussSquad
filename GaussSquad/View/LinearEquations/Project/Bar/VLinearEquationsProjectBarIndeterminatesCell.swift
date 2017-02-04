@@ -17,7 +17,7 @@ class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = NSTextAlignment.center
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:16)
+        label.font = UIFont.bold(size:17)
         self.label = label
         
         addSubview(label)
@@ -66,7 +66,7 @@ class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
         }
         else
         {
-            label.textColor = UIColor(white:0, alpha:0.4)
+            label.textColor = UIColor(white:0, alpha:0.5)
         }
     }
     

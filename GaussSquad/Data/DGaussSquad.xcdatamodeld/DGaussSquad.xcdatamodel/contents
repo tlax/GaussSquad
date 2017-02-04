@@ -23,8 +23,8 @@
     </entity>
     <entity name="DProject" representedClassName="DProject" syncable="YES" codeGenerationType="class">
         <attribute name="created" attributeType="Date" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="equations" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DEquation" inverseName="project" inverseEntity="DEquation" syncable="YES"/>
-        <relationship name="indeterminates" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DIndeterminate" inverseName="project" inverseEntity="DIndeterminate" syncable="YES"/>
+        <relationship name="equations" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DEquation" inverseName="project" inverseEntity="DEquation" syncable="YES"/>
+        <relationship name="indeterminates" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DIndeterminate" inverseName="project" inverseEntity="DIndeterminate" syncable="YES"/>
     </entity>
     <elements>
         <element name="DEquation" positionX="-18" positionY="63" width="128" height="105"/>
