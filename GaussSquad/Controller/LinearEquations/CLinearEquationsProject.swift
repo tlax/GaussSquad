@@ -37,6 +37,38 @@ class CLinearEquationsProject:CController
         model.removeIndeterminate(indeterminate:indeterminate)
     }
     
+    private func confirmDelete()
+    {
+        guard
+            
+            let project:DProject = model.project
+        
+        else
+        {
+            return
+        }
+        
+        DManager.sharedInstance?.delete(object:project)
+        {
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.deleteDone()
+            }
+        }
+    }
+    
+    private func deleteDone()
+    {
+        DManager.sharedInstance?.save()
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+        }
+    }
+    
     //MARK: public
     
     func next()
@@ -52,7 +84,30 @@ class CLinearEquationsProject:CController
     
     func delete()
     {
+        let alert:UIAlertController = UIAlertController(
+            title:NSLocalizedString("CLinearEquationsProject_alertProjectTitle", comment:""),
+            message:nil,
+            preferredStyle:UIAlertControllerStyle.actionSheet)
         
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CLinearEquationsProject_alertProjectCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CLinearEquationsProject_alertProjectDelete", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { [weak self] (action:UIAlertAction) in
+            
+            self?.confirmDelete()
+        }
+        
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
     }
     
     func modelLoaded()

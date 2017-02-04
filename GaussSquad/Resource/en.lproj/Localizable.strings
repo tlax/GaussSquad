@@ -25,6 +25,9 @@
 "CLinearEquationsProject_alertIndeterminateTitle"="Delete %@?";
 "CLinearEquationsProject_alertIndeterminateCancel"="Don't";
 "CLinearEquationsProject_alertIndeterminateDelete"="Delete";
+"CLinearEquationsProject_alertProjectTitle"="Delete project?";
+"CLinearEquationsProject_alertProjectCancel"="Don't";
+"CLinearEquationsProject_alertProjectDelete"="Delete";
 "CLinearEquationsPolynomial_alertTitle"="Delete polynomial?";
 "CLinearEquationsPolynomial_alertCancel"="Don't";
 "CLinearEquationsPolynomial_alertDelete"="Delete";
