@@ -50,37 +50,17 @@ class CLinearEquationsPolynomial:CController
      
         viewPolynomial.endEdition()
         
-        if let equationResult:DEquation = polynomial.equationResult
+        if let otherPolynomials:Int = polynomial.equationResult?.polynomials?.count
         {
-            if let polynomials:[DPolynomial] = equationResult.polynomials?.array as? [DPolynomial]
+            if otherPolynomials > 0
             {
-                if polynomials.count == 0
-                {
-                    trashEquationInstead(equation:equationResult)
-                }
-                else
-                {
-                    cleanPolynomialInstead(polynomial:polynomial)
-                }
-            }
-            else
-            {
-                trashEquationInstead(equation:equationResult)
-            }
-        }
-        else
-        {
-            DManager.sharedInstance?.delete(object:polynomial)
-            { [weak self] in
+                cleanPolynomialInstead(polynomial:polynomial)
                 
-                self?.trashDone()
+                return
             }
         }
-    }
-    
-    private func trashEquationInstead(equation:DEquation)
-    {
-        DManager.sharedInstance?.delete(object:equation)
+        
+        DManager.sharedInstance?.delete(object:polynomial)
         { [weak self] in
             
             self?.trashDone()
