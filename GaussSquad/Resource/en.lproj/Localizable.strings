@@ -17,6 +17,7 @@
 "VLinearEquationsIndeterminateControl_buttonSave"="Save";
 "VLinearEquationsIndeterminateControl_buttonCancel"="Cancel";
 "VLinearEquationsIndeterminate_labelTitle"="New indeterminate";
+"VLinearEquationsPolynomialIndeterminate_labelTitle"="Indeterminate";
 
 "CLinearEquationsIndeterminate_errorInvalid"="Name can't be empty";
 "CLinearEquationsIndeterminate_errorNoNumber"="Indeterminates can't start with a number";
