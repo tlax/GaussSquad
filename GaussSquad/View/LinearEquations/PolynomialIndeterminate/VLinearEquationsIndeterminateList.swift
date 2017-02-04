@@ -118,4 +118,20 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
             self?.layoutIfNeeded()
         }
     }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        var count:Int = 0
+        
+        
+        
+        return count
+    }
 }

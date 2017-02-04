@@ -2,8 +2,8 @@ import UIKit
 
 class CLinearEquationsPolynomialIndeterminate:CController
 {
+    weak var polynomial:DPolynomial?
     private weak var viewList:VLinearEquationsIndeterminateList!
-    private weak var polynomial:DPolynomial?
     
     init(polynomial:DPolynomial)
     {
