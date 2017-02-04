@@ -31,6 +31,41 @@ class CLinearEquationsPolynomial:CController
         viewPolynomial.startEdition()
     }
     
+    //MARK: private
+    
+    private func confirmTrash()
+    {
+        guard
+        
+            let polynomial:DPolynomial = self.polynomial
+        
+        else
+        {
+            return
+        }
+     
+        viewPolynomial.endEdition()
+        DManager.sharedInstance?.delete(object:polynomial)
+        {
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.trashDone()
+            }
+        }
+    }
+    
+    private func trashDone()
+    {
+        DManager.sharedInstance?.save()
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.parentController.dismissAnimateOver(completion:nil)
+        }
+    }
+    
     //MARK: public
     
     func save()
@@ -46,5 +81,30 @@ class CLinearEquationsPolynomial:CController
     func trash()
     {
         UIApplication.shared.keyWindow!.endEditing(true)
+        
+        let alert:UIAlertController = UIAlertController(
+            title:NSLocalizedString("CLinearEquationsPolynomial_alertTitle", comment:""),
+            message:nil,
+            preferredStyle:UIAlertControllerStyle.actionSheet)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CLinearEquationsPolynomial_alertCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CLinearEquationsPolynomial_alertDelete", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { [weak self] (action:UIAlertAction) in
+            
+            self?.confirmTrash()
+        }
+        
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
     }
 }
