@@ -1,10 +1,13 @@
 import UIKit
 
-class VLinearEquationsIndeterminateList:VView
+class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CLinearEquationsPolynomialIndeterminate!
     private weak var collectionView:VCollection!
     private weak var layoutBaseBottom:NSLayoutConstraint!
+    private let kHeaderHeight:CGFloat = 60
+    private let kCellHeight:CGFloat = 40
+    private let kInterLine:CGFloat = 1
     private let kBorderHeight:CGFloat = 1
     private let kBaseHeight:CGFloat = 290
     private let kAnimationDuration:TimeInterval = 0.3
@@ -33,7 +36,17 @@ class VLinearEquationsIndeterminateList:VView
             for:UIControlEvents.touchUpInside)
         
         let collectionView:VCollection = VCollection()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(cell:VLinearEquationsIndeterminateListCell.self)
+        collectionView.registerHeader(header:VLinearEquationsIndeterminateListHeader.self)
         self.collectionView = collectionView
+        
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
+            flow.minimumInteritemSpacing = kInterLine
+        }
         
         addSubview(blur)
         addSubview(dismissButton)
