@@ -5,7 +5,7 @@ class VLinearEquationsIndeterminateList:VView
     private weak var controller:CLinearEquationsPolynomialIndeterminate!
     private weak var layoutBaseBottom:NSLayoutConstraint!
     private let kBorderHeight:CGFloat = 1
-    private let kBaseHeight:CGFloat = 200
+    private let kBaseHeight:CGFloat = 290
     private let kAnimationDuration:TimeInterval = 0.3
     
     override init(controller:CController)
@@ -44,9 +44,9 @@ class VLinearEquationsIndeterminateList:VView
             view:dismissButton,
             toView:self)
         
-        NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.height(
             view:baseView,
-            toView:self)
+            constant:kBaseHeight)
         layoutBaseBottom = NSLayoutConstraint.bottomToBottom(
             view:baseView,
             toView:self,
@@ -83,6 +83,17 @@ class VLinearEquationsIndeterminateList:VView
     func animateShow()
     {
         layoutBaseBottom.constant = 0
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
+    }
+    
+    func animateHide()
+    {
+        layoutBaseBottom.constant = kBaseHeight
         
         UIView.animate(withDuration:kAnimationDuration)
         { [weak self] in

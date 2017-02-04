@@ -35,6 +35,7 @@ class CLinearEquationsPolynomialIndeterminate:CController
     
     func close()
     {
+        viewList.animateHide()
         parentController.dismissAnimateOver(completion:nil)
     }
 }
