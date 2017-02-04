@@ -7,8 +7,8 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
     private let kTitleLeft:CGFloat = 10
     private let kTitleWidth:CGFloat = 140
     private let kBorderHeight:CGFloat = 1
-    private let kIndeterminateLeft:CGFloat = -50
-    private let kIndeterminateBottom:CGFloat = -2
+    private let kIndeterminateLeft:CGFloat = -40
+    private let kIndeterminateBottom:CGFloat = -3
     
     init(controller:CLinearEquationsPolynomial)
     {
@@ -20,7 +20,7 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
         
         let blur:VBlur = VBlur.light()
         
-        let borderColor:UIColor = UIColor(white:0, alpha:0.2)
+        let borderColor:UIColor = UIColor(white:0, alpha:0.1)
         let borderTop:VBorder = VBorder(color:borderColor)
         let borderBottom:VBorder = VBorder(color:borderColor)
         
@@ -28,8 +28,8 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
         labelTitle.isUserInteractionEnabled = false
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
-        labelTitle.font = UIFont.regular(size:12)
-        labelTitle.textColor = UIColor(white:0, alpha:0.6)
+        labelTitle.font = UIFont.medium(size:12)
+        labelTitle.textColor = UIColor(white:0, alpha:0.8)
         labelTitle.text = NSLocalizedString("VLinearEquationsPolynomialIndeterminate_labelTitle", comment:"")
         
         let labelIndeterminate:UILabel = UILabel()
@@ -101,6 +101,36 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            backgroundColor = UIColor(white:0, alpha:0.2)
+        }
+        else
+        {
+            backgroundColor = UIColor.clear
+        }
     }
     
     //MARK: public

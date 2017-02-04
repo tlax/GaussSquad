@@ -8,7 +8,7 @@ class VLinearEquationsPolynomial:VView
     private weak var viewIndeterminate:VLinearEquationsPolynomialIndeterminate!
     private weak var layoutControlBottom:NSLayoutConstraint!
     private let kControlHeight:CGFloat = 50
-    private let kIndeterminateHeight:CGFloat = 44
+    private let kIndeterminateHeight:CGFloat = 42
     private let kAnimationDuration:TimeInterval = 2
     
     override init(controller:CController)

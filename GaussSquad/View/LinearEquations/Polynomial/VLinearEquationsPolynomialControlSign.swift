@@ -112,8 +112,8 @@ class VLinearEquationsPolynomialControlSign:UIView
     
     private func makePositive()
     {
-        buttonNegative.backgroundColor = UIColor(white:0.95, alpha:1)
-        buttonNegative.imageView!.tintColor = UIColor(white:0.7, alpha:1)
+        buttonNegative.backgroundColor = UIColor(white:0.9, alpha:1)
+        buttonNegative.imageView!.tintColor = UIColor(white:0.6, alpha:1)
         buttonNegative.isUserInteractionEnabled = true
         buttonPositive.backgroundColor = UIColor.squadBlue
         buttonPositive.imageView!.tintColor = UIColor.white
@@ -125,8 +125,8 @@ class VLinearEquationsPolynomialControlSign:UIView
     
     private func makeNegative()
     {
-        buttonPositive.backgroundColor = UIColor(white:0.95, alpha:1)
-        buttonPositive.imageView!.tintColor = UIColor(white:0.7, alpha:1)
+        buttonPositive.backgroundColor = UIColor(white:0.9, alpha:1)
+        buttonPositive.imageView!.tintColor = UIColor(white:0.6, alpha:1)
         buttonPositive.isUserInteractionEnabled = true
         buttonNegative.backgroundColor = UIColor.squadBlue
         buttonNegative.imageView!.tintColor = UIColor.white
