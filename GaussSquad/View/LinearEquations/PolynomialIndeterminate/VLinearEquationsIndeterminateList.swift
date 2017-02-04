@@ -3,6 +3,7 @@ import UIKit
 class VLinearEquationsIndeterminateList:VView
 {
     private weak var controller:CLinearEquationsPolynomialIndeterminate!
+    private weak var collectionView:VCollection!
     private weak var layoutBaseBottom:NSLayoutConstraint!
     private let kBorderHeight:CGFloat = 1
     private let kBaseHeight:CGFloat = 290
@@ -30,6 +31,9 @@ class VLinearEquationsIndeterminateList:VView
             self,
             action:#selector(actionDimiss(sender:)),
             for:UIControlEvents.touchUpInside)
+        
+        let collectionView:VCollection = VCollection()
+        self.collectionView = collectionView
         
         addSubview(blur)
         addSubview(dismissButton)
