@@ -3,7 +3,7 @@ import UIKit
 class CLinearEquationsPolynomialIndeterminate:CController
 {
     private weak var viewIndeterminate:VLinearEquationsIndeterminate!
-    private weak var polynomial:DPolynomial!
+    private weak var polynomial:DPolynomial?
     
     init(polynomial:DPolynomial)
     {

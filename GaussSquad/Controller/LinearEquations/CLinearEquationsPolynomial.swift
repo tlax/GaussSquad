@@ -137,7 +137,19 @@ class CLinearEquationsPolynomial:CController
     
     func changeIndeterminate()
     {
-        let controllerList:CLinearEquationsIndeterminateList = CLinearEquationsIndeterminateList(
-            project: <#T##DProject#>)
+        guard
+        
+            let polynomial:DPolynomial = self.polynomial
+        
+        else
+        {
+            return
+        }
+        
+        let controllerIndeterminate:CLinearEquationsPolynomialIndeterminate = CLinearEquationsPolynomialIndeterminate(
+            polynomial:polynomial)
+        parentController.push(
+            controller:controllerIndeterminate,
+            horizontal:CParent.TransitionHorizontal.fromRight)
     }
 }
