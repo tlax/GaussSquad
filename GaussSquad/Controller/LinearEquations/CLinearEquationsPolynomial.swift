@@ -45,9 +45,28 @@ class CLinearEquationsPolynomial:CController
         }
      
         viewPolynomial.endEdition()
-        DManager.sharedInstance?.delete(object:polynomial)
+        
+        if let equationResult:DEquation = polynomial.equationResult
         {
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            if let polynomials:[DPolynomial] = equationResult.polynomials?.array as? [DPolynomial]
+            {
+                if polynomials.count == 0
+                {
+                    trashEquationInstead(equation:equationResult)
+                }
+                else
+                {
+                    cleanPolynomialInstead(polynomial:polynomial)
+                }
+            }
+            else
+            {
+                trashEquationInstead(equation:equationResult)
+            }
+        }
+        else
+        {
+            DManager.sharedInstance?.delete(object:polynomial)
             { [weak self] in
                 
                 self?.trashDone()
@@ -55,14 +74,32 @@ class CLinearEquationsPolynomial:CController
         }
     }
     
-    private func trashDone()
+    private func trashEquationInstead(equation:DEquation)
     {
-        DManager.sharedInstance?.save()
-        
-        DispatchQueue.main.async
+        DManager.sharedInstance?.delete(object:equation)
         { [weak self] in
             
-            self?.parentController.dismissAnimateOver(completion:nil)
+            self?.trashDone()
+        }
+    }
+    
+    private func cleanPolynomialInstead(polynomial:DPolynomial)
+    {
+        
+    }
+    
+    private func trashDone()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            DManager.sharedInstance?.save()
+            
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.parentController.dismissAnimateOver(completion:nil)
+            }
         }
     }
     
