@@ -7,15 +7,18 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
     private let kTitleLeft:CGFloat = 10
     private let kTitleWidth:CGFloat = 140
     private let kBorderHeight:CGFloat = 1
-    private let kIndeterminateLeft:CGFloat = -20
-    private let kIndeterminateBottom:CGFloat = 3
+    private let kIndeterminateLeft:CGFloat = -50
+    private let kIndeterminateBottom:CGFloat = -2
     
     init(controller:CLinearEquationsPolynomial)
     {
         super.init(frame:CGRect.zero)
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
+        self.controller = controller
+        
+        let blur:VBlur = VBlur.light()
         
         let borderColor:UIColor = UIColor(white:0, alpha:0.2)
         let borderTop:VBorder = VBorder(color:borderColor)
@@ -33,14 +36,19 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
         labelIndeterminate.isUserInteractionEnabled = false
         labelIndeterminate.translatesAutoresizingMaskIntoConstraints = false
         labelIndeterminate.backgroundColor = UIColor.clear
-        labelIndeterminate.font = UIFont.bold(size:20)
+        labelIndeterminate.font = UIFont.numeric(size:28)
         labelIndeterminate.textColor = UIColor.black
         self.labelIndeterminate = labelIndeterminate
         
+        addSubview(blur)
         addSubview(borderTop)
         addSubview(borderBottom)
         addSubview(labelTitle)
         addSubview(labelIndeterminate)
+        
+        NSLayoutConstraint.equals(
+            view:blur,
+            toView:self)
         
         NSLayoutConstraint.equalsVertical(
             view:labelTitle,

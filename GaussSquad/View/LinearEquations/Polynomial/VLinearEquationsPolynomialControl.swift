@@ -14,9 +14,11 @@ class VLinearEquationsPolynomialControl:UIView
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let blur:VBlur = VBlur.light()
         
         let viewSign:VLinearEquationsPolynomialControlSign = VLinearEquationsPolynomialControlSign(
             controller:controller)
@@ -62,9 +64,14 @@ class VLinearEquationsPolynomialControl:UIView
             action:#selector(actionTrash(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        addSubview(blur)
         addSubview(buttonTrash)
         addSubview(buttonDone)
         addSubview(viewSign)
+        
+        NSLayoutConstraint.equals(
+            view:blur,
+            toView:self)
         
         NSLayoutConstraint.equalsVertical(
             view:buttonDone,
