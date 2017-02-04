@@ -137,6 +137,7 @@ class CLinearEquationsPolynomial:CController
     
     func changeIndeterminate()
     {
-        
+        let controllerList:CLinearEquationsIndeterminateList = CLinearEquationsIndeterminateList(
+            project: <#T##DProject#>)
     }
 }

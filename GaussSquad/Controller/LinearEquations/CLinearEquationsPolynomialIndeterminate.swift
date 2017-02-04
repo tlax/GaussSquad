@@ -1,13 +1,13 @@
 import UIKit
 
-class CLinearEquationsIndeterminateList:CController
+class CLinearEquationsPolynomialIndeterminate:CController
 {
     private weak var viewIndeterminate:VLinearEquationsIndeterminate!
-    private weak var project:DProject!
+    private weak var polynomial:DPolynomial!
     
-    init(project:DProject)
+    init(polynomial:DPolynomial)
     {
-        self.project = project
+        self.polynomial = polynomial
         super.init()
     }
     
