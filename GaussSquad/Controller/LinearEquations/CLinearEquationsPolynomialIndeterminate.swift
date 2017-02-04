@@ -2,7 +2,7 @@ import UIKit
 
 class CLinearEquationsPolynomialIndeterminate:CController
 {
-    private weak var viewIndeterminate:VLinearEquationsIndeterminate!
+    private weak var viewList:VLinearEquationsIndeterminateList!
     private weak var polynomial:DPolynomial?
     
     init(polynomial:DPolynomial)
@@ -18,9 +18,9 @@ class CLinearEquationsPolynomialIndeterminate:CController
     
     override func loadView()
     {
-        let viewIndeterminate:VLinearEquationsIndeterminate = VLinearEquationsIndeterminate(
+        let viewList:VLinearEquationsIndeterminateList = VLinearEquationsIndeterminateList(
             controller:self)
-        self.viewIndeterminate = viewIndeterminate
-        view = viewIndeterminate
+        self.viewList = viewList
+        view = viewList
     }
 }

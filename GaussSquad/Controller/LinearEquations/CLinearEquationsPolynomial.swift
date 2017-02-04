@@ -148,8 +148,6 @@ class CLinearEquationsPolynomial:CController
         
         let controllerIndeterminate:CLinearEquationsPolynomialIndeterminate = CLinearEquationsPolynomialIndeterminate(
             polynomial:polynomial)
-        parentController.push(
-            controller:controllerIndeterminate,
-            horizontal:CParent.TransitionHorizontal.fromRight)
+        parentController.animateOver(controller:controllerIndeterminate)
     }
 }
