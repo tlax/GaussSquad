@@ -4,6 +4,10 @@ class CLinearEquationsPolynomial:CController
 {
     weak var polynomial:DPolynomial?
     private weak var viewPolynomial:VLinearEquationsPolynomial!
+    private let kCleanDividend:Double = 0
+    private let kCleanDivisor:Double = 1
+    private let kIsPositive:Bool = true
+    private let kShowAsDivision:Bool = false
     
     init(polynomial:DPolynomial)
     {
@@ -85,7 +89,13 @@ class CLinearEquationsPolynomial:CController
     
     private func cleanPolynomialInstead(polynomial:DPolynomial)
     {
+        polynomial.indeterminate = nil
+        polynomial.coefficientDividend = kCleanDividend
+        polynomial.coefficientDivisor = kCleanDivisor
+        polynomial.isPositive = kIsPositive
+        polynomial.showAsDivision = kShowAsDivision
         
+        trashDone()
     }
     
     private func trashDone()
