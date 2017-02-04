@@ -23,4 +23,18 @@ class CLinearEquationsPolynomialIndeterminate:CController
         self.viewList = viewList
         view = viewList
     }
+    
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        viewList.animateShow()
+    }
+    
+    //MARK: public
+    
+    func close()
+    {
+        parentController.dismissAnimateOver(completion:nil)
+    }
 }

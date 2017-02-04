@@ -137,6 +137,8 @@ class CLinearEquationsPolynomial:CController
     
     func changeIndeterminate()
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         guard
         
             let polynomial:DPolynomial = self.polynomial

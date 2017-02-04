@@ -16,6 +16,10 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         backgroundColor = UIColor.clear
+        addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.controller = controller
         
         let blur:VBlur = VBlur.light()
