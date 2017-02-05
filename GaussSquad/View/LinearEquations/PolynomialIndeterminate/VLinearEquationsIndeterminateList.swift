@@ -95,6 +95,15 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
         controller.close()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MLinearEquationsIndeterminatesItem
+    {
+        let item:MLinearEquationsIndeterminatesItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: public
     
     func animateShow()
@@ -169,10 +178,12 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MLinearEquationsIndeterminatesItem = modelAtIndex(index:indexPath)
         let cell:VLinearEquationsIndeterminateListCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VLinearEquationsIndeterminateListCell.reusableIdentifier,
             for:indexPath) as! VLinearEquationsIndeterminateListCell
+        cell.config(model:item)
         
         return cell
     }
