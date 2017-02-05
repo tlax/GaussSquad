@@ -128,9 +128,7 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        var count:Int = 0
-        
-        
+        var count:Int = controller.model.items.count
         
         return count
     }
