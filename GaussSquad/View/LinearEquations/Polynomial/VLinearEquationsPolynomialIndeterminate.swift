@@ -8,7 +8,7 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
     private let kBorderHeight:CGFloat = 1
     private let kTitleRight:CGFloat = -5
     private let kTitleWidth:CGFloat = 150
-    private let kIndeterminateWidth:CGFloat = 140
+    private let kIndeterminateWidth:CGFloat = 90
     private let kIndeterminateMarginVertical:CGFloat = 10
     private let kCornerRadius:CGFloat = 6
     
@@ -24,33 +24,27 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
             for:UIControlEvents.touchUpInside)
         self.controller = controller
         
-        let blur:VBlur = VBlur.light()
-        
         let labelTitle:UILabel = UILabel()
         labelTitle.isUserInteractionEnabled = false
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
-        labelTitle.font = UIFont.medium(size:12)
-        labelTitle.textColor = UIColor(white:0, alpha:0.8)
+        labelTitle.font = UIFont.medium(size:14)
+        labelTitle.textColor = UIColor.black
+        labelTitle.textAlignment = NSTextAlignment.right
         labelTitle.text = NSLocalizedString("VLinearEquationsPolynomialIndeterminate_labelTitle", comment:"")
         
         let labelIndeterminate:UILabel = UILabel()
         labelIndeterminate.isUserInteractionEnabled = false
         labelIndeterminate.translatesAutoresizingMaskIntoConstraints = false
-        labelIndeterminate.backgroundColor = UIColor.squadBlue
-        labelIndeterminate.font = UIFont.numeric(size:20)
+        labelIndeterminate.font = UIFont.numeric(size:22)
         labelIndeterminate.textColor = UIColor.white
         labelIndeterminate.clipsToBounds = true
         labelIndeterminate.layer.cornerRadius = kCornerRadius
+        labelIndeterminate.textAlignment = NSTextAlignment.center
         self.labelIndeterminate = labelIndeterminate
         
-        addSubview(blur)
         addSubview(labelTitle)
         addSubview(labelIndeterminate)
-        
-        NSLayoutConstraint.equals(
-            view:blur,
-            toView:self)
         
         NSLayoutConstraint.equalsVertical(
             view:labelTitle,
@@ -120,11 +114,11 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
     {
         if isSelected || isHighlighted
         {
-            backgroundColor = UIColor(white:0, alpha:0.2)
+            labelIndeterminate.backgroundColor = UIColor.squadRed
         }
         else
         {
-            backgroundColor = UIColor.clear
+            labelIndeterminate.backgroundColor = UIColor.squadBlue
         }
     }
     
@@ -134,5 +128,6 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
     {
         isUserInteractionEnabled = true
         labelIndeterminate.text = controller.polynomial?.indeterminate?.symbol
+        hover()
     }
 }
