@@ -2,11 +2,13 @@ import Foundation
 
 class MLinearEquationsIndeterminates
 {
+    weak var polynomial:DPolynomial?
     let items:[MLinearEquationsIndeterminatesItem]
     let selected:Int?
     
     init(polynomial:DPolynomial)
     {
+        self.polynomial = polynomial
         var items:[MLinearEquationsIndeterminatesItem] = []
         var selected:Int?
         let current:DIndeterminate? = polynomial.indeterminate

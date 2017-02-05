@@ -38,4 +38,12 @@ class CLinearEquationsPolynomialIndeterminate:CController
         viewList.animateHide()
         parentController.dismissAnimateOver(completion:nil)
     }
+    
+    func selectIndeterminate(indeterminate:DIndeterminate?)
+    {
+        model.polynomial?.indeterminate = indeterminate
+        DManager.sharedInstance?.save()
+        
+        close()
+    }
 }

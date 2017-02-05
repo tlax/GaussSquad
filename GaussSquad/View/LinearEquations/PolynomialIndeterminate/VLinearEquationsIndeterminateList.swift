@@ -187,4 +187,11 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
         
         return cell
     }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MLinearEquationsIndeterminatesItem = modelAtIndex(index:indexPath)
+        controller.selectIndeterminate(
+            indeterminate:item.indeterminate)
+    }
 }
