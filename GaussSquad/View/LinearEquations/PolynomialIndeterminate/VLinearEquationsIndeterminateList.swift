@@ -48,6 +48,7 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
             flow.minimumInteritemSpacing = kInterLine
         }
         
+        baseView.addSubview(collectionView)
         addSubview(blur)
         addSubview(dismissButton)
         addSubview(borderTop)
@@ -81,6 +82,10 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
         NSLayoutConstraint.equalsHorizontal(
             view:borderTop,
             toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:collectionView,
+            toView:baseView)
     }
     
     required init?(coder:NSCoder)
@@ -172,6 +177,7 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
             withReuseIdentifier:
             VLinearEquationsIndeterminateListHeader.reusableIdentifier,
             for:indexPath) as! VLinearEquationsIndeterminateListHeader
+        header.config(controller:controller)
         
         return header
     }
