@@ -5,9 +5,8 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
     private weak var controller:CLinearEquationsPolynomialIndeterminate!
     private weak var collectionView:VCollection!
     private weak var layoutBaseBottom:NSLayoutConstraint!
-    private let kHeaderHeight:CGFloat = 60
-    private let kCellHeight:CGFloat = 40
-    private let kInterLine:CGFloat = 1
+    private let kHeaderHeight:CGFloat = 52
+    private let kCellHeight:CGFloat = 50
     private let kBorderHeight:CGFloat = 1
     private let kBaseHeight:CGFloat = 290
     private let kAnimationDuration:TimeInterval = 0.3
@@ -22,7 +21,7 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
         let borderTop:VBorder = VBorder(color:UIColor.black)
         
         let baseView:UIView = UIView()
-        baseView.backgroundColor = UIColor(white:0.96, alpha:1)
+        baseView.backgroundColor = UIColor.clear
         baseView.translatesAutoresizingMaskIntoConstraints = false
         baseView.clipsToBounds = true
         
@@ -36,6 +35,7 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
             for:UIControlEvents.touchUpInside)
         
         let collectionView:VCollection = VCollection()
+        collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerCell(cell:VLinearEquationsIndeterminateListCell.self)
@@ -45,7 +45,6 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
-            flow.minimumInteritemSpacing = kInterLine
         }
         
         baseView.addSubview(collectionView)
