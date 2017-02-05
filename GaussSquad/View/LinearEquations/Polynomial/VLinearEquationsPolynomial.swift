@@ -9,6 +9,7 @@ class VLinearEquationsPolynomial:VView
     private weak var layoutControlBottom:NSLayoutConstraint!
     private let kControlHeight:CGFloat = 50
     private let kIndeterminateHeight:CGFloat = 50
+    private let kIndeterminateWidth:CGFloat = 210
     private let kAnimationDuration:TimeInterval = 2
     
     override init(controller:CController)
@@ -60,7 +61,10 @@ class VLinearEquationsPolynomial:VView
         NSLayoutConstraint.height(
             view:viewIndeterminate,
             constant:kIndeterminateHeight)
-        NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.width(
+            view:viewIndeterminate,
+            constant:kIndeterminateWidth)
+        NSLayoutConstraint.rightToRight(
             view:viewIndeterminate,
             toView:self)
         
