@@ -38,6 +38,7 @@ class VLinearEquationsIndeterminateListHeader:UICollectionReusableView
         buttonNone.setTitle(
             NSLocalizedString("VLinearEquationsIndeterminateListHeader_buttonNone", comment:""),
             for:UIControlState.normal)
+        buttonNone.titleLabel!.font = UIFont.bold(size:14)
         buttonNone.layer.cornerRadius = kCornerRadius
         buttonNone.addTarget(
             self,
@@ -91,7 +92,7 @@ class VLinearEquationsIndeterminateListHeader:UICollectionReusableView
     
     func actionNone(sender button:UIButton)
     {
-        
+        controller?.selectIndeterminate(indeterminate:nil)
     }
     
     //MARK: public
