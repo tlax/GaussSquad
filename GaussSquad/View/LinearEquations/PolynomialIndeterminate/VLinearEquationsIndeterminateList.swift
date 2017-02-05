@@ -22,7 +22,7 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
         let borderTop:VBorder = VBorder(color:UIColor.black)
         
         let baseView:UIView = UIView()
-        baseView.backgroundColor = UIColor.white
+        baseView.backgroundColor = UIColor(white:0.96, alpha:1)
         baseView.translatesAutoresizingMaskIntoConstraints = false
         baseView.clipsToBounds = true
         
