@@ -106,6 +106,21 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
             
             self?.layoutIfNeeded()
         }
+        
+        guard
+            
+            let selected:Int = controller.model.selected
+        
+        else
+        {
+            return
+        }
+        
+        let indexPath:IndexPath = IndexPath(item:selected, section:0)
+        collectionView.selectItem(
+            at:indexPath,
+            animated:false,
+            scrollPosition:UICollectionViewScrollPosition.centeredVertically)
     }
     
     func animateHide()
@@ -121,6 +136,14 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
     
     //MARK: collectionView delegate
     
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int
     {
         return 1
@@ -128,8 +151,29 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        var count:Int = controller.model.items.count
+        let count:Int = controller.model.items.count
         
         return count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
+    {
+        let header:VLinearEquationsIndeterminateListHeader = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:
+            VLinearEquationsIndeterminateListHeader.reusableIdentifier,
+            for:indexPath) as! VLinearEquationsIndeterminateListHeader
+        
+        return header
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let cell:VLinearEquationsIndeterminateListCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VLinearEquationsIndeterminateListCell.reusableIdentifier,
+            for:indexPath) as! VLinearEquationsIndeterminateListCell
+        
+        return cell
     }
 }
