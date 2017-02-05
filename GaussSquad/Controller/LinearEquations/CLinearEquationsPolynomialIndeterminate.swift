@@ -2,12 +2,12 @@ import UIKit
 
 class CLinearEquationsPolynomialIndeterminate:CController
 {
-    weak var polynomial:DPolynomial?
+    let model:MLinearEquationsIndeterminates
     private weak var viewList:VLinearEquationsIndeterminateList!
     
     init(polynomial:DPolynomial)
     {
-        self.polynomial = polynomial
+        model = MLinearEquationsIndeterminates(polynomial:polynomial)
         super.init()
     }
     
