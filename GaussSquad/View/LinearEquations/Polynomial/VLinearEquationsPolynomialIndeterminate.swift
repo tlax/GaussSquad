@@ -4,11 +4,13 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
 {
     private weak var controller:CLinearEquationsPolynomial!
     private weak var labelIndeterminate:UILabel!
-    private let kTitleLeft:CGFloat = 10
-    private let kTitleWidth:CGFloat = 140
+    private weak var layoutIndeterminateLeft:NSLayoutConstraint!
     private let kBorderHeight:CGFloat = 1
-    private let kIndeterminateLeft:CGFloat = -40
-    private let kIndeterminateBottom:CGFloat = -3
+    private let kTitleRight:CGFloat = -5
+    private let kTitleWidth:CGFloat = 150
+    private let kIndeterminateWidth:CGFloat = 140
+    private let kIndeterminateMarginVertical:CGFloat = 10
+    private let kCornerRadius:CGFloat = 6
     
     init(controller:CLinearEquationsPolynomial)
     {
@@ -24,10 +26,6 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
         
         let blur:VBlur = VBlur.light()
         
-        let borderColor:UIColor = UIColor(white:0, alpha:0.1)
-        let borderTop:VBorder = VBorder(color:borderColor)
-        let borderBottom:VBorder = VBorder(color:borderColor)
-        
         let labelTitle:UILabel = UILabel()
         labelTitle.isUserInteractionEnabled = false
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -39,14 +37,14 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
         let labelIndeterminate:UILabel = UILabel()
         labelIndeterminate.isUserInteractionEnabled = false
         labelIndeterminate.translatesAutoresizingMaskIntoConstraints = false
-        labelIndeterminate.backgroundColor = UIColor.clear
-        labelIndeterminate.font = UIFont.numeric(size:28)
-        labelIndeterminate.textColor = UIColor.black
+        labelIndeterminate.backgroundColor = UIColor.squadBlue
+        labelIndeterminate.font = UIFont.numeric(size:20)
+        labelIndeterminate.textColor = UIColor.white
+        labelIndeterminate.clipsToBounds = true
+        labelIndeterminate.layer.cornerRadius = kCornerRadius
         self.labelIndeterminate = labelIndeterminate
         
         addSubview(blur)
-        addSubview(borderTop)
-        addSubview(borderBottom)
         addSubview(labelTitle)
         addSubview(labelIndeterminate)
         
@@ -57,54 +55,39 @@ class VLinearEquationsPolynomialIndeterminate:UIButton
         NSLayoutConstraint.equalsVertical(
             view:labelTitle,
             toView:self)
-        NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.rightToLeft(
             view:labelTitle,
-            toView:self,
-            constant:kTitleLeft)
+            toView:labelIndeterminate,
+            constant:kTitleRight)
         NSLayoutConstraint.width(
             view:labelTitle,
             constant:kTitleWidth)
         
-        NSLayoutConstraint.topToTop(
-            view:borderTop,
-            toView:self)
-        NSLayoutConstraint.height(
-            view:borderTop,
-            constant:kBorderHeight)
-        NSLayoutConstraint.equalsHorizontal(
-            view:borderTop,
-            toView:self)
-        
-        NSLayoutConstraint.bottomToBottom(
-            view:borderBottom,
-            toView:self)
-        NSLayoutConstraint.height(
-            view:borderBottom,
-            constant:kBorderHeight)
-        NSLayoutConstraint.equalsHorizontal(
-            view:borderBottom,
-            toView:self)
-        
-        NSLayoutConstraint.topToTop(
-            view:labelIndeterminate,
-            toView:self)
-        NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.equalsVertical(
             view:labelIndeterminate,
             toView:self,
-            constant:kIndeterminateBottom)
-        NSLayoutConstraint.leftToRight(
+            margin:kIndeterminateMarginVertical)
+        NSLayoutConstraint.width(
             view:labelIndeterminate,
-            toView:labelTitle,
-            constant:kIndeterminateLeft)
-        NSLayoutConstraint.rightToRight(
+            constant:kIndeterminateWidth)
+        layoutIndeterminateLeft = NSLayoutConstraint.leftToLeft(
             view:labelIndeterminate,
-            toView:self,
-            constant:-kTitleLeft)
+            toView:self)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let remain:CGFloat = width - kIndeterminateWidth
+        let margin:CGFloat = remain / 2.0
+        layoutIndeterminateLeft.constant = margin
+        
+        super.layoutSubviews()
     }
     
     override var isSelected:Bool

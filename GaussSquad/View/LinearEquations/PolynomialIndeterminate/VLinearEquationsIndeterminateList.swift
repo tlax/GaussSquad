@@ -5,8 +5,8 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
     private weak var controller:CLinearEquationsPolynomialIndeterminate!
     private weak var collectionView:VCollection!
     private weak var layoutBaseBottom:NSLayoutConstraint!
-    private let kHeaderHeight:CGFloat = 52
-    private let kCellHeight:CGFloat = 50
+    private let kHeaderHeight:CGFloat = 48
+    private let kCellHeight:CGFloat = 54
     private let kBorderHeight:CGFloat = 1
     private let kBaseHeight:CGFloat = 290
     private let kAnimationDuration:TimeInterval = 0.3
@@ -21,7 +21,7 @@ class VLinearEquationsIndeterminateList:VView, UICollectionViewDelegate, UIColle
         let borderTop:VBorder = VBorder(color:UIColor.black)
         
         let baseView:UIView = UIView()
-        baseView.backgroundColor = UIColor.clear
+        baseView.backgroundColor = UIColor.white
         baseView.translatesAutoresizingMaskIntoConstraints = false
         baseView.clipsToBounds = true
         

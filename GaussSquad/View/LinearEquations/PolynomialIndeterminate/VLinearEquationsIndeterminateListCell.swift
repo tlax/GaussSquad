@@ -14,7 +14,7 @@ class VLinearEquationsIndeterminateListCell:UICollectionViewCell
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = NSTextAlignment.center
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.numeric(size:20)
+        label.font = UIFont.numeric(size:24)
         self.label = label
         
         addSubview(label)
@@ -52,10 +52,12 @@ class VLinearEquationsIndeterminateListCell:UICollectionViewCell
         if isSelected || isHighlighted
         {
             backgroundColor = UIColor.squadBlue
+            label.textColor = UIColor.white
         }
         else
         {
             backgroundColor = UIColor.clear
+            label.textColor = UIColor.black
         }
     }
     
@@ -64,7 +66,6 @@ class VLinearEquationsIndeterminateListCell:UICollectionViewCell
     func config(model:MLinearEquationsIndeterminatesItem)
     {
         hover()
-        
         label.text = model.symbol
     }
 }
