@@ -356,14 +356,14 @@ class MLinearEquationsProject
             {
                 let polynomial:DPolynomial = polynomials[0]
                 
-                if polynomial.indeterminate === result.indeterminate
+                if polynomial.indeterminate == result.indeterminate
                 {
                     merge(
                         polynomialA:polynomial,
                         polynomialB:result)
                     
                     result.coefficientDividend = kDefaultDividend
-                    result.coefficientDividend = kDefaultDivisor
+                    result.coefficientDivisor = kDefaultDivisor
                     result.isPositive = kDefaultPositive
                     result.showAsDivision = kDefaultDivision
                     result.indeterminate = nil
@@ -375,6 +375,7 @@ class MLinearEquationsProject
             }
         }
         
+        DManager.sharedInstance?.save()
         refreshRows()
     }
 }
