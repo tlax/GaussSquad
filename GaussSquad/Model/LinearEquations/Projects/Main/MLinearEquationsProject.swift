@@ -325,7 +325,7 @@ class MLinearEquationsProject
         guard
             
             let project:DProject = self.project,
-            let equations:[DEquation] = project.equations?.array as? [DEquation]
+            var equations:[DEquation] = project.equations?.array as? [DEquation]
         
         else
         {
@@ -374,15 +374,12 @@ class MLinearEquationsProject
             }
             else
             {
-                DManager.sharedInstance?.syncDelete(object:equation)
+                DManager.sharedInstance?.delete(object:equation)
+                
+                //needs to remove equation from array
             }
         }
         
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            DManager.sharedInstance?.save()
-            self?.refreshRows()
-        }
+        saveAndRefresh()
     }
 }
