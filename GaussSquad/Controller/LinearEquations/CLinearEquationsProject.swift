@@ -79,6 +79,12 @@ class CLinearEquationsProject:CController
     func compress()
     {
         viewProject.startLoading()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.model.compress()
+        }
     }
     
     func save()

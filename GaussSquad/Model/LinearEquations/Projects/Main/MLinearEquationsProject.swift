@@ -274,6 +274,46 @@ class MLinearEquationsProject
     
     func compress()
     {
+        guard
+            
+            let project:DProject = self.project,
+            let equations:[DEquation] = project.equations?.array as? [DEquation]
         
+        else
+        {
+            loadFinished()
+            
+            return
+        }
+        
+        for equation:DEquation in equations
+        {
+            guard
+            
+                var polynomials:[DPolynomial] = equation.polynomials?.array as? [DPolynomial],
+                let result:DPolynomial = equation.result
+            
+            else
+            {
+                continue
+            }
+            
+            let countPolynomials:Int = polynomials.count
+            
+            if countPolynomials > 1
+            {
+                
+            }
+            else if countPolynomials == 1
+            {
+                
+            }
+            else
+            {
+                DManager.sharedInstance?.delete(object:equation)
+            }
+        }
+        
+        loadFinished()
     }
 }
