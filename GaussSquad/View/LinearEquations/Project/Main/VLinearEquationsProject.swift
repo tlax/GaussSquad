@@ -94,9 +94,17 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     func refresh()
     {
         spinner.stopAnimating()
+        collectionView.isHidden = false
         collectionView.reloadData()
         viewBar.isHidden = false
         viewBar.viewIndeterminates.refresh()
+    }
+    
+    func startLoading()
+    {
+        spinner.startAnimating()
+        collectionView.isHidden = true
+        viewBar.isHidden = true
     }
     
     //MARK: collectionView delegate
