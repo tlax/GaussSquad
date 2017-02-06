@@ -5,6 +5,10 @@ class MLinearEquationsProject
     var rows:[MLinearEquationsProjectRow]
     var project:DProject?
     private weak var controller:CLinearEquationsProject?
+    private let kDefaultDividend:Double = 0
+    private let kDefaultDivisor:Double = 1
+    private let kDefaultPositive:Bool = true
+    private let kDefaultDivision:Bool = false
     
     init(project:DProject?)
     {
@@ -354,7 +358,15 @@ class MLinearEquationsProject
                 
                 if polynomial.indeterminate === result.indeterminate
                 {
+                    merge(
+                        polynomialA:polynomial,
+                        polynomialB:result)
                     
+                    result.coefficientDividend = kDefaultDividend
+                    result.coefficientDividend = kDefaultDivisor
+                    result.isPositive = kDefaultPositive
+                    result.showAsDivision = kDefaultDivision
+                    result.indeterminate = nil
                 }
             }
             else
@@ -363,6 +375,6 @@ class MLinearEquationsProject
             }
         }
         
-        loadFinished()
+        refreshRows()
     }
 }
