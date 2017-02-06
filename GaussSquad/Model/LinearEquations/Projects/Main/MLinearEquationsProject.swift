@@ -350,7 +350,10 @@ class MLinearEquationsProject
             
             if countPolynomials > 1
             {
-                
+                for indexPolynomial:Int in 0 ..< countPolynomials
+                {
+                    
+                }
             }
             else if countPolynomials == 1
             {
