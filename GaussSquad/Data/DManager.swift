@@ -148,4 +148,9 @@ class DManager
             completion?()
         }
     }
+    
+    func syncDelete(object:NSManagedObject)
+    {
+        managedObjectContext.delete(object)
+    }
 }

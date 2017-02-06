@@ -374,11 +374,15 @@ class MLinearEquationsProject
             }
             else
             {
-                DManager.sharedInstance?.delete(object:equation)
+                DManager.sharedInstance?.syncDelete(object:equation)
             }
         }
         
-        DManager.sharedInstance?.save()
-        refreshRows()
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            DManager.sharedInstance?.save()
+            self?.refreshRows()
+        }
     }
 }
