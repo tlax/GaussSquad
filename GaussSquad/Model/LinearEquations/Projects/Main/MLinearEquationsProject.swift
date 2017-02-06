@@ -271,4 +271,9 @@ class MLinearEquationsProject
             self?.saveAndRefresh()
         }
     }
+    
+    func compress()
+    {
+        
+    }
 }

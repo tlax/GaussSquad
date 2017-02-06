@@ -76,6 +76,11 @@ class CLinearEquationsProject:CController
         
     }
     
+    func compress()
+    {
+        viewProject.startLoading()
+    }
+    
     func save()
     {
         DManager.sharedInstance?.save()
