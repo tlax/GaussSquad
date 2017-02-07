@@ -2,7 +2,7 @@ import UIKit
 
 class MLinearEquationsProjectRowItemEquals:MLinearEquationsProjectRowItem
 {
-    private let kCellWidth:CGFloat = 45
+    private let kCellWidth:CGFloat = 30
     
     init()
     {
