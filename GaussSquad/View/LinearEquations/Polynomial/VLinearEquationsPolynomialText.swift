@@ -26,6 +26,7 @@ class VLinearEquationsPolynomialText:UITextView
         autocapitalizationType = UITextAutocapitalizationType.none
         keyboardType = UIKeyboardType.numbersAndPunctuation
         contentInset = UIEdgeInsets.zero
+        textAlignment = NSTextAlignment.right
         font = UIFont.numeric(size:kFontSize)
         textContainerInset = UIEdgeInsets(
             top:kInsetsTop,

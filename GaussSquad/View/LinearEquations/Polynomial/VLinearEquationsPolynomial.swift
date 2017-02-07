@@ -227,7 +227,13 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
             }
             
             let dividendDouble:Double = numberDividend as Double
-            let divisorDouble:Double = numberDivisor as Double
+            var divisorDouble:Double = numberDivisor as Double
+            
+            if divisorDouble <= 0
+            {
+                divisorDouble = 1
+            }
+            
             polynomial.coefficientDividend = dividendDouble
             polynomial.coefficientDivisor = divisorDouble
             

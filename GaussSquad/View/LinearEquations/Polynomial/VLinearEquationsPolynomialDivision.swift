@@ -48,6 +48,7 @@ class VLinearEquationsPolynomialDivision:UIView
         fieldDividend.contentInset = contentSize
         fieldDividend.font = font
         fieldDividend.textContainerInset = containerInset
+        fieldDividend.textAlignment = NSTextAlignment.center
         self.fieldDividend = fieldDividend
         
         let fieldDivisor:UITextView = UITextView()
@@ -69,6 +70,7 @@ class VLinearEquationsPolynomialDivision:UIView
         fieldDivisor.contentInset = contentSize
         fieldDivisor.font = font
         fieldDivisor.textContainerInset = containerInset
+        fieldDivisor.textAlignment = NSTextAlignment.center
         self.fieldDivisor = fieldDivisor
         
         let border:VBorder = VBorder(color:color)
