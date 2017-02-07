@@ -4,10 +4,11 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
 {
     private weak var controller:CLinearEquationsPolynomial!
     private weak var viewControl:VLinearEquationsPolynomialControl!
-    private weak var viewText:VLinearEquationsPolynomialText!
     private weak var viewIndeterminate:VLinearEquationsPolynomialIndeterminate!
     private weak var viewShowAs:VLinearEquationsPolynomialShowAs!
     private weak var layoutControlBottom:NSLayoutConstraint!
+    private weak var viewText:VLinearEquationsPolynomialText?
+    private weak var viewDivision:VLinearEquationsPolynomialDivision?
     private let numberFormatter:NumberFormatter
     private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
     private let kDot:String = "."
@@ -44,10 +45,6 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         
         let blur:VBlur = VBlur.light()
         
-        let viewText:VLinearEquationsPolynomialText = VLinearEquationsPolynomialText(
-            controller:self.controller)
-        self.viewText = viewText
-        
         let viewControl:VLinearEquationsPolynomialControl = VLinearEquationsPolynomialControl(
             controller:self.controller)
         self.viewControl = viewControl
@@ -61,17 +58,12 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         self.viewShowAs = viewShowAs
         
         addSubview(blur)
-        addSubview(viewText)
         addSubview(viewIndeterminate)
         addSubview(viewControl)
         addSubview(viewShowAs)
         
         NSLayoutConstraint.equals(
             view:blur,
-            toView:self)
-        
-        NSLayoutConstraint.equals(
-            view:viewText,
             toView:self)
         
         NSLayoutConstraint.height(
@@ -117,6 +109,24 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
             selector:#selector(notifiedKeyboardChanged(sender:)),
             name:NSNotification.Name.UIKeyboardWillChangeFrame,
             object:nil)
+        
+        guard
+        
+            let polynomial:DPolynomial = self.controller.polynomial
+        
+        else
+        {
+            return
+        }
+        
+        if polynomial.showAsDivision
+        {
+            asDivision()
+        }
+        else
+        {
+            asDecimal()
+        }
     }
     
     required init?(coder:NSCoder)
@@ -163,21 +173,97 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
     
     //MARK: private
     
+    private func asDecimal()
+    {
+        self.viewText?.removeFromSuperview()
+        self.viewDivision?.removeFromSuperview()
+        
+        let viewText:VLinearEquationsPolynomialText = VLinearEquationsPolynomialText(
+            controller:self.controller)
+        self.viewText = viewText
+        
+        addSubview(viewText)
+        
+        NSLayoutConstraint.equals(
+            view:viewText,
+            toView:self)
+    }
+    
+    private func asDivision()
+    {
+        self.viewText?.removeFromSuperview()
+        self.viewDivision?.removeFromSuperview()
+        
+        let viewDivision:VLinearEquationsPolynomialDivision = VLinearEquationsPolynomialDivision(
+            controller:self.controller)
+        self.viewDivision = viewDivision
+        
+        addSubview(viewDivision)
+        
+        NSLayoutConstraint.equals(
+            view:viewDivision,
+            toView:self)
+    }
+    
+    private func curatedNumber(number:String) -> String
+    {
+        let curatedString:String = number.replacingOccurrences(
+            of:kComma,
+            with:kEmpty)
+        
+        return curatedString
+    }
+    
     private func textToPolynomial()
     {
         guard
             
-            let number:NSNumber = numberFormatter.number(
-                from:text)
+            let polynomial:DPolynomial = controller.polynomial
             
         else
         {
             return
         }
         
-        let numberDouble:Double = number as Double
-        controller.polynomial?.coefficientDividend = numberDouble
-        controller.polynomial?.coefficientDivisor = 1
+        if polynomial.showAsDivision
+        {
+            guard
+            
+                let textDividend:String = viewDivision?.fieldDividend.text,
+                let textDivisor:String = viewDivision?.fieldDivisor.text,
+                let numberDividend:NSNumber = numberFormatter.number(
+                    from:textDividend),
+                let numberDivisor:NSNumber = numberFormatter.number(
+                    from:textDivisor)
+            
+            else
+            {
+                return
+            }
+            
+            let dividendDouble:Double = numberDividend as Double
+            let divisorDouble:Double = numberDivisor as Double
+            polynomial.coefficientDividend = dividendDouble
+            polynomial.coefficientDivisor = divisorDouble
+            
+        }
+        else
+        {
+            guard
+                
+                let text:String = viewText?.text,
+                let number:NSNumber = numberFormatter.number(
+                    from:text)
+                
+            else
+            {
+                return
+            }
+            
+            let numberDouble:Double = number as Double
+            polynomial.coefficientDividend = numberDouble
+            polynomial.coefficientDivisor = 1
+        }
     }
     
     private func readPolynomial()
@@ -186,45 +272,73 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
             
             let polynomial:DPolynomial = controller.polynomial
             
-            else
+        else
         {
             return
         }
         
         let dividend:Double = polynomial.coefficientDividend
         let divisor:Double = polynomial.coefficientDivisor
-        let coefficient:Double = dividend / divisor
-        let coefficentNumber:NSNumber = NSNumber(value:coefficient)
         
-        guard
+        if polynomial.showAsDivision
+        {
+            let dividendNumber:NSNumber = NSNumber(value:dividend)
+            let divisorNumber:NSNumber = NSNumber(value:divisor)
             
-            let coefficientString:String = numberFormatter.string(
-                from:coefficentNumber)
+            guard
+            
+                let viewDivision:VLinearEquationsPolynomialDivision = self.viewDivision,
+                let dividendString:String = numberFormatter.string(
+                    from:dividendNumber),
+                let divisorString:String = numberFormatter.string(
+                    from:divisorNumber)
             
             else
-        {
-            return
+            {
+                return
+            }
+            
+            let curatedDividend:String = curatedNumber(number:dividendString)
+            let curatedDivisor:String = curatedNumber(number:divisorString)
+            
+            viewDivision.fieldDividend.text = curatedDividend
+            viewDivision.fieldDivisor.text = curatedDivisor
+            viewDivision.fieldDividend.becomeFirstResponder()
         }
-        
-        let curatedCoefficient:String = coefficientString.replacingOccurrences(
-            of:kComma,
-            with:kEmpty)
-        
-        text = curatedCoefficient
-        becomeFirstResponder()
+        else
+        {
+            let coefficient:Double = dividend / divisor
+            let coefficentNumber:NSNumber = NSNumber(value:coefficient)
+            
+            guard
+                
+                let viewText:VLinearEquationsPolynomialText = self.viewText,
+                let coefficientString:String = numberFormatter.string(
+                    from:coefficentNumber)
+                
+            else
+            {
+                return
+            }
+            
+            let curatedCoefficient:String = curatedNumber(number:coefficientString)
+            viewText.text = curatedCoefficient
+            viewText.becomeFirstResponder()
+        }
     }
     
     //MARK: public
     
     func startEdition()
     {   
-        viewText.readPolynomial()
+        readPolynomial()
         viewIndeterminate.refresh()
     }
     
     func endEdition()
     {
-        viewText.isHidden = true
+        viewText?.isHidden = true
+        viewDivision?.isHidden = true
     }
     
     //MARK: textView delegate
@@ -254,7 +368,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
             
             if unicodeInt == kDecimalPoint
             {
-                if self.text.contains(kDot)
+                if textView.text.contains(kDot)
                 {
                     return false
                 }
@@ -273,6 +387,8 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
     
     func textViewDidChange(_ textView:UITextView)
     {
+        let text:String = textView.text
+        
         if text.characters.count == 2
         {
             let firstCharacter:Character = text[text.startIndex]
@@ -288,7 +404,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
                 let firstScalar:UnicodeScalar = UnicodeScalar(firstString),
                 let secondScalar:UnicodeScalar = UnicodeScalar(secondString)
                 
-                else
+            else
             {
                 return
             }
@@ -300,7 +416,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
             {
                 if secondUnicode != kDecimalPoint
                 {
-                    text = secondString
+                    textView.text = secondString
                 }
             }
         }
