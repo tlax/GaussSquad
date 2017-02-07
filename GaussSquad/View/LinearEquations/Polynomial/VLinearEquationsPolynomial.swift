@@ -1,6 +1,6 @@
 import UIKit
 
-class VLinearEquationsPolynomial:VView
+class VLinearEquationsPolynomial:VView, UITextViewDelegate
 {
     private weak var controller:CLinearEquationsPolynomial!
     private weak var viewControl:VLinearEquationsPolynomialControl!
@@ -8,6 +8,11 @@ class VLinearEquationsPolynomial:VView
     private weak var viewIndeterminate:VLinearEquationsPolynomialIndeterminate!
     private weak var viewShowAs:VLinearEquationsPolynomialShowAs!
     private weak var layoutControlBottom:NSLayoutConstraint!
+    private let numberFormatter:NumberFormatter
+    private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
+    private let kDot:String = "."
+    private let kComma:String = ","
+    private let kEmpty:String = ""
     private let kControlHeight:CGFloat = 50
     private let kIndeterminateHeight:CGFloat = 50
     private let kIndeterminateWidth:CGFloat = 210
@@ -16,9 +21,23 @@ class VLinearEquationsPolynomial:VView
     private let kShowAsLeft:CGFloat = 10
     private let kShowAsBottom:CGFloat = -9
     private let kAnimationDuration:TimeInterval = 2
+    private let kNumbersMin:UInt32 = 48
+    private let kNumbersMax:UInt32 = 57
+    private let kDecimalPoint:UInt32 = 46
+    private let kMinIntegers:Int = 1
+    private let kMaxIntegers:Int = 10
+    private let kMinDecimals:Int = 0
+    private let kMaxDecimals:Int = 10
     
     override init(controller:CController)
     {
+        numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = kNumberFormatterStyle
+        numberFormatter.minimumIntegerDigits = kMinIntegers
+        numberFormatter.maximumIntegerDigits = kMaxIntegers
+        numberFormatter.minimumFractionDigits = kMinDecimals
+        numberFormatter.maximumFractionDigits = kMaxDecimals
+        
         super.init(controller:controller)
         backgroundColor = UIColor.clear
         self.controller = controller as? CLinearEquationsPolynomial
@@ -142,6 +161,59 @@ class VLinearEquationsPolynomial:VView
         }
     }
     
+    //MARK: private
+    
+    private func textToPolynomial()
+    {
+        guard
+            
+            let number:NSNumber = numberFormatter.number(
+                from:text)
+            
+        else
+        {
+            return
+        }
+        
+        let numberDouble:Double = number as Double
+        controller.polynomial?.coefficientDividend = numberDouble
+        controller.polynomial?.coefficientDivisor = 1
+    }
+    
+    private func readPolynomial()
+    {
+        guard
+            
+            let polynomial:DPolynomial = controller.polynomial
+            
+            else
+        {
+            return
+        }
+        
+        let dividend:Double = polynomial.coefficientDividend
+        let divisor:Double = polynomial.coefficientDivisor
+        let coefficient:Double = dividend / divisor
+        let coefficentNumber:NSNumber = NSNumber(value:coefficient)
+        
+        guard
+            
+            let coefficientString:String = numberFormatter.string(
+                from:coefficentNumber)
+            
+            else
+        {
+            return
+        }
+        
+        let curatedCoefficient:String = coefficientString.replacingOccurrences(
+            of:kComma,
+            with:kEmpty)
+        
+        text = curatedCoefficient
+        becomeFirstResponder()
+    }
+    
     //MARK: public
     
     func startEdition()
@@ -153,5 +225,86 @@ class VLinearEquationsPolynomial:VView
     func endEdition()
     {
         viewText.isHidden = true
+    }
+    
+    //MARK: textView delegate
+    
+    func textView(_ textView:UITextView, shouldChangeTextIn range:NSRange, replacementText text:String) -> Bool
+    {
+        let newTextCount:Int = text.characters.count
+        
+        for newTextIndex:Int in 0 ..< newTextCount
+        {
+            let character:Character = text[
+                text.index(
+                    text.startIndex,
+                    offsetBy:newTextIndex)]
+            let characterString:String = "\(character)"
+            
+            guard
+                
+                let unicodeScalar:UnicodeScalar = UnicodeScalar(characterString)
+                
+            else
+            {
+                return false
+            }
+            
+            let unicodeInt:UInt32 = unicodeScalar.value
+            
+            if unicodeInt == kDecimalPoint
+            {
+                if self.text.contains(kDot)
+                {
+                    return false
+                }
+            }
+            else
+            {
+                if unicodeInt < kNumbersMin || unicodeInt > kNumbersMax
+                {
+                    return false
+                }
+            }
+        }
+        
+        return true
+    }
+    
+    func textViewDidChange(_ textView:UITextView)
+    {
+        if text.characters.count == 2
+        {
+            let firstCharacter:Character = text[text.startIndex]
+            let secondCharacter:Character = text[
+                text.index(
+                    text.startIndex,
+                    offsetBy:1)]
+            let firstString:String = "\(firstCharacter)"
+            let secondString:String = "\(secondCharacter)"
+            
+            guard
+                
+                let firstScalar:UnicodeScalar = UnicodeScalar(firstString),
+                let secondScalar:UnicodeScalar = UnicodeScalar(secondString)
+                
+                else
+            {
+                return
+            }
+            
+            let firstUnicode:UInt32 = firstScalar.value
+            let secondUnicode:UInt32 = secondScalar.value
+            
+            if firstUnicode == kNumbersMin
+            {
+                if secondUnicode != kDecimalPoint
+                {
+                    text = secondString
+                }
+            }
+        }
+        
+        textToPolynomial()
     }
 }
