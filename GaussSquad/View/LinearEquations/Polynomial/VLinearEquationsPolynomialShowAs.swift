@@ -103,11 +103,17 @@ class VLinearEquationsPolynomialShowAs:UIView
     func actionDivision(sender button:UIButton)
     {
         makeDivision()
+        controller.polynomial?.showAsDivision = true
+        DManager.sharedInstance?.save()
+        controller.viewPolynomial.checkMode()
     }
     
     func actionDecimal(sender button:UIButton)
     {
         makeDecimal()
+        controller.polynomial?.showAsDivision = false
+        DManager.sharedInstance?.save()
+        controller.viewPolynomial.checkMode()
     }
     
     //MARK: private
@@ -120,9 +126,6 @@ class VLinearEquationsPolynomialShowAs:UIView
         buttonDivision.backgroundColor = UIColor.squadBlue
         buttonDivision.imageView!.tintColor = UIColor.white
         buttonDivision.isUserInteractionEnabled = false
-        
-        controller.polynomial?.showAsDivision = true
-        DManager.sharedInstance?.save()
     }
     
     private func makeDecimal()
@@ -133,8 +136,5 @@ class VLinearEquationsPolynomialShowAs:UIView
         buttonDecimal.backgroundColor = UIColor.squadBlue
         buttonDecimal.imageView!.tintColor = UIColor.white
         buttonDecimal.isUserInteractionEnabled = false
-        
-        controller.polynomial?.showAsDivision = false
-        DManager.sharedInstance?.save()
     }
 }

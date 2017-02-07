@@ -110,23 +110,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
             name:NSNotification.Name.UIKeyboardWillChangeFrame,
             object:nil)
         
-        guard
-        
-            let polynomial:DPolynomial = self.controller.polynomial
-        
-        else
-        {
-            return
-        }
-        
-        if polynomial.showAsDivision
-        {
-            asDivision()
-        }
-        else
-        {
-            asDecimal()
-        }
+        checkMode()
     }
     
     required init?(coder:NSCoder)
@@ -180,6 +164,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         
         let viewText:VLinearEquationsPolynomialText = VLinearEquationsPolynomialText(
             controller:self.controller)
+        viewText.delegate = self
         self.viewText = viewText
         
         addSubview(viewText)
@@ -196,6 +181,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         
         let viewDivision:VLinearEquationsPolynomialDivision = VLinearEquationsPolynomialDivision(
             controller:self.controller)
+        
         self.viewDivision = viewDivision
         
         addSubview(viewDivision)
@@ -339,6 +325,27 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
     {
         viewText?.isHidden = true
         viewDivision?.isHidden = true
+    }
+    
+    func checkMode()
+    {
+        guard
+            
+            let polynomial:DPolynomial = self.controller.polynomial
+            
+        else
+        {
+            return
+        }
+        
+        if polynomial.showAsDivision
+        {
+            asDivision()
+        }
+        else
+        {
+            asDecimal()
+        }
     }
     
     //MARK: textView delegate

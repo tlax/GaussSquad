@@ -3,7 +3,7 @@ import UIKit
 class CLinearEquationsPolynomial:CController
 {
     weak var polynomial:DPolynomial?
-    private weak var viewPolynomial:VLinearEquationsPolynomial!
+    weak var viewPolynomial:VLinearEquationsPolynomial!
     
     init(polynomial:DPolynomial)
     {
