@@ -1,6 +1,6 @@
 import UIKit
 
-class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
+class VLinearEquationsPolynomialText:UITextView
 {
     private weak var controller:CLinearEquationsPolynomial!
     private let kFontSize:CGFloat = 70
@@ -33,7 +33,6 @@ class VLinearEquationsPolynomialText:UITextView, UITextViewDelegate
             left:kInsetsHorizontal,
             bottom:0,
             right:kInsetsHorizontal)
-        delegate = self
         self.controller = controller
     }
     
