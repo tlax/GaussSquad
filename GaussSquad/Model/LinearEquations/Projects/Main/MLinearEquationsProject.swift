@@ -246,6 +246,53 @@ class MLinearEquationsProject
         }
     }
     
+    private func compareResult(
+        equation:DEquation,
+        polynomial:DPolynomial,
+        result:DPolynomial)
+    {
+        if polynomial.indeterminate == result.indeterminate
+        {
+            merge(
+                polynomialA:polynomial,
+                polynomialB:result)
+            
+            DManager.sharedInstance?.createManagedObject(
+                entityName:DPolynomial.entityName)
+            { [weak equation, weak result] (created) in
+                
+                guard
+                    
+                    let polynomial:DPolynomial = created as? DPolynomial,
+                    let result:DPolynomial = result
+                    
+                else
+                {
+                    return
+                }
+                
+                equation?.result = polynomial
+                DManager.sharedInstance?.delete(object:result)
+            }
+        }
+    }
+    
+    private func comparePolynomials(
+        equation:DEquation,
+        polynomial:DPolynomial,
+        compare:DPolynomial)
+    {
+        if polynomial.indeterminate == compare.indeterminate
+        {
+            merge(
+                polynomialA:polynomial,
+                polynomialB:compare)
+            
+            equation.removeFromPolynomials(compare)
+            DManager.sharedInstance?.delete(object:compare)
+        }
+    }
+    
     //MARK: public
     
     func load(controller:CLinearEquationsProject)
@@ -348,37 +395,32 @@ class MLinearEquationsProject
             {
                 for indexPolynomial:Int in 0 ..< countPolynomials
                 {
+                    let polynomial:DPolynomial = polynomials[indexPolynomial]
                     
+                    for indexComparison:Int in indexPolynomial + 1 ..< countPolynomials
+                    {
+                        let comparePolynomial:DPolynomial = polynomials[indexComparison]
+                        
+                        comparePolynomials(
+                            equation:equation,
+                            polynomial:polynomial,
+                            compare:comparePolynomial)
+                    }
+                    
+                    compareResult(
+                        equation:equation,
+                        polynomial:polynomial,
+                        result:result)
                 }
             }
             else if countPolynomials == 1
             {
                 let polynomial:DPolynomial = polynomials[0]
                 
-                if polynomial.indeterminate == result.indeterminate
-                {
-                    merge(
-                        polynomialA:polynomial,
-                        polynomialB:result)
-                    
-                    DManager.sharedInstance?.createManagedObject(
-                        entityName:DPolynomial.entityName)
-                    { [weak equation, weak result] (created) in
-                        
-                        guard
-                        
-                            let polynomial:DPolynomial = created as? DPolynomial,
-                            let result:DPolynomial = result
-                        
-                        else
-                        {
-                            return
-                        }
-                        
-                        equation?.result = polynomial
-                        DManager.sharedInstance?.delete(object:result)
-                    }
-                }
+                compareResult(
+                    equation:equation,
+                    polynomial:polynomial,
+                    result:result)
             }
             else
             {
