@@ -193,12 +193,13 @@ class MLinearEquationsProject
     
     private func saveAndRefresh()
     {
-        DManager.sharedInstance?.save()
-        
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.refreshRows()
+        DManager.sharedInstance?.save
+        {
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.refreshRows()
+            }
         }
     }
     
