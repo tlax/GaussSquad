@@ -383,7 +383,7 @@ class MLinearEquationsProject
             guard
             
                 let polynomials:[DPolynomial] = equation.polynomials?.array as? [DPolynomial],
-                let result:DPolynomial = equation.result
+                var result:DPolynomial? = equation.result
             
             else
             {
