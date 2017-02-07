@@ -5,10 +5,6 @@ class MLinearEquationsProject
     var rows:[MLinearEquationsProjectRow]
     var project:DProject?
     private weak var controller:CLinearEquationsProject?
-    private let kDefaultDividend:Double = 0
-    private let kDefaultDivisor:Double = 1
-    private let kDefaultPositive:Bool = true
-    private let kDefaultDivision:Bool = false
     
     init(project:DProject?)
     {
@@ -367,11 +363,12 @@ class MLinearEquationsProject
                     
                     DManager.sharedInstance?.createManagedObject(
                         entityName:DPolynomial.entityName)
-                    { [weak equation] (created) in
+                    { [weak equation, weak result] (created) in
                         
                         guard
                         
-                            let polynomial:DPolynomial = created as? DPolynomial
+                            let polynomial:DPolynomial = created as? DPolynomial,
+                            let result:DPolynomial = result
                         
                         else
                         {
@@ -379,6 +376,7 @@ class MLinearEquationsProject
                         }
                         
                         equation?.result = polynomial
+                        DManager.sharedInstance?.delete(object:result)
                     }
                 }
             }
