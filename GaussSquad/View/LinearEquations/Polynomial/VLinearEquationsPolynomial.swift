@@ -11,9 +11,10 @@ class VLinearEquationsPolynomial:VView
     private let kControlHeight:CGFloat = 50
     private let kIndeterminateHeight:CGFloat = 50
     private let kIndeterminateWidth:CGFloat = 210
-    private let kShowAsWidth:CGFloat = 90
-    private let kShowAsHeight:CGFloat = 50
+    private let kShowAsWidth:CGFloat = 100
+    private let kShowAsHeight:CGFloat = 32
     private let kShowAsLeft:CGFloat = 10
+    private let kShowAsBottom:CGFloat = -9
     private let kAnimationDuration:TimeInterval = 2
     
     override init(controller:CController)
@@ -79,7 +80,8 @@ class VLinearEquationsPolynomial:VView
         
         NSLayoutConstraint.bottomToTop(
             view:viewShowAs,
-            toView:viewControl)
+            toView:viewControl,
+            constant:kShowAsBottom)
         NSLayoutConstraint.height(
             view:viewShowAs,
             constant:kShowAsHeight)

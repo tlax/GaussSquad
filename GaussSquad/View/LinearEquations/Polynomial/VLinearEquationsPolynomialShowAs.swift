@@ -5,7 +5,8 @@ class VLinearEquationsPolynomialShowAs:UIView
     private weak var controller:CLinearEquationsPolynomial!
     private weak var buttonDivision:UIButton!
     private weak var buttonDecimal:UIButton!
-    private let kButtonWidth:CGFloat = 60
+    private let kButtonWidth:CGFloat = 50
+    private let kCornerRadius:CGFloat = 6
     
     init(controller:CLinearEquationsPolynomial)
     {
@@ -13,6 +14,7 @@ class VLinearEquationsPolynomialShowAs:UIView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        layer.cornerRadius = kCornerRadius
         self.controller = controller
         
         let buttonDivision:UIButton = UIButton()
@@ -36,10 +38,10 @@ class VLinearEquationsPolynomialShowAs:UIView
         buttonDecimal.translatesAutoresizingMaskIntoConstraints = false
         buttonDecimal.clipsToBounds = true
         buttonDecimal.setImage(
-            #imageLiteral(resourceName: "assetGenericColDivision").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            #imageLiteral(resourceName: "assetGenericColDecimal").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.normal)
         buttonDecimal.setImage(
-            #imageLiteral(resourceName: "assetGenericColDivision").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            #imageLiteral(resourceName: "assetGenericColDecimal").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
         buttonDecimal.imageView!.clipsToBounds = true
         buttonDecimal.imageView!.contentMode = UIViewContentMode.center
