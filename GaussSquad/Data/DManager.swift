@@ -56,7 +56,7 @@ class DManager
     
     //MARK: public
     
-    func save()
+    func save(completion:(() -> ())? = nil)
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
@@ -72,10 +72,12 @@ class DManager
                     {
                         #if DEBUG
                             
-                            print("coredata: \(error.localizedDescription)")
+                            print("CoreData: \(error.localizedDescription)")
                             
                         #endif
                     }
+                    
+                    completion?()
                 }
             }
         }
