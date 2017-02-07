@@ -76,7 +76,7 @@ class VLinearEquationsPolynomialSign:UIView
             
             let polynomial:DPolynomial = controller.polynomial
             
-            else
+        else
         {
             return
         }

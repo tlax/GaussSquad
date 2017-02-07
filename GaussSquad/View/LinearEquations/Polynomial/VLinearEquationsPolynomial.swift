@@ -6,10 +6,14 @@ class VLinearEquationsPolynomial:VView
     private weak var viewControl:VLinearEquationsPolynomialControl!
     private weak var viewText:VLinearEquationsPolynomialText!
     private weak var viewIndeterminate:VLinearEquationsPolynomialIndeterminate!
+    private weak var viewShowAs:VLinearEquationsPolynomialShowAs!
     private weak var layoutControlBottom:NSLayoutConstraint!
     private let kControlHeight:CGFloat = 50
     private let kIndeterminateHeight:CGFloat = 50
     private let kIndeterminateWidth:CGFloat = 210
+    private let kShowAsWidth:CGFloat = 90
+    private let kShowAsHeight:CGFloat = 50
+    private let kShowAsLeft:CGFloat = 10
     private let kAnimationDuration:TimeInterval = 2
     
     override init(controller:CController)
@@ -32,10 +36,15 @@ class VLinearEquationsPolynomial:VView
             controller:self.controller)
         self.viewIndeterminate = viewIndeterminate
         
+        let viewShowAs:VLinearEquationsPolynomialShowAs = VLinearEquationsPolynomialShowAs(
+            controller:self.controller)
+        self.viewShowAs = viewShowAs
+        
         addSubview(blur)
         addSubview(viewText)
         addSubview(viewIndeterminate)
         addSubview(viewControl)
+        addSubview(viewShowAs)
         
         NSLayoutConstraint.equals(
             view:blur,
@@ -67,6 +76,20 @@ class VLinearEquationsPolynomial:VView
         NSLayoutConstraint.rightToRight(
             view:viewIndeterminate,
             toView:self)
+        
+        NSLayoutConstraint.bottomToTop(
+            view:viewShowAs,
+            toView:viewControl)
+        NSLayoutConstraint.height(
+            view:viewShowAs,
+            constant:kShowAsHeight)
+        NSLayoutConstraint.leftToLeft(
+            view:viewShowAs,
+            toView:self,
+            constant:kShowAsLeft)
+        NSLayoutConstraint.width(
+            view:viewShowAs,
+            constant:kShowAsWidth)
         
         NotificationCenter.default.addObserver(
             self,
