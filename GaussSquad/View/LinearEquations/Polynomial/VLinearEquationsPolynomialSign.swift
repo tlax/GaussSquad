@@ -1,6 +1,6 @@
 import UIKit
 
-class VLinearEquationsPolynomialControlSign:UIView
+class VLinearEquationsPolynomialSign:UIView
 {
     private weak var controller:CLinearEquationsPolynomial!
     private weak var buttonPositive:UIButton!
@@ -73,10 +73,10 @@ class VLinearEquationsPolynomialControlSign:UIView
             constant:kButtonWidth)
         
         guard
-        
+            
             let polynomial:DPolynomial = controller.polynomial
-        
-        else
+            
+            else
         {
             return
         }

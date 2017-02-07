@@ -3,6 +3,9 @@ import UIKit
 class VLinearEquationsPolynomialShowAs:UIView
 {
     private weak var controller:CLinearEquationsPolynomial!
+    private weak var buttonDivision:UIButton!
+    private weak var buttonDecimal:UIButton!
+    private let kButtonWidth:CGFloat = 60
     
     init(controller:CLinearEquationsPolynomial)
     {
@@ -17,4 +20,6 @@ class VLinearEquationsPolynomialShowAs:UIView
     {
         return nil
     }
+    
+    
 }

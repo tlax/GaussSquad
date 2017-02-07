@@ -3,7 +3,7 @@ import UIKit
 class VLinearEquationsPolynomialControl:UIView
 {
     private weak var controller:CLinearEquationsPolynomial!
-    private weak var viewSign:VLinearEquationsPolynomialControlSign!
+    private weak var viewSign:VLinearEquationsPolynomialSign!
     private let kButtonDoneWidth:CGFloat = 80
     private let kButtonTrashWidth:CGFloat = 45
     private let kContentMargin:CGFloat = 10
@@ -20,7 +20,7 @@ class VLinearEquationsPolynomialControl:UIView
         
         let blur:VBlur = VBlur.light()
         
-        let viewSign:VLinearEquationsPolynomialControlSign = VLinearEquationsPolynomialControlSign(
+        let viewSign:VLinearEquationsPolynomialSign = VLinearEquationsPolynomialSign(
             controller:controller)
         viewSign.layer.cornerRadius = kCornerRadius
         self.viewSign = viewSign
