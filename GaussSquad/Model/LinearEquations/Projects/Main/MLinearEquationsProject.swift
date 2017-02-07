@@ -203,7 +203,10 @@ class MLinearEquationsProject
         }
     }
     
-    private func merge(polynomialA:DPolynomial, polynomialB:DPolynomial)
+    private func merge(
+        polynomialA:DPolynomial,
+        polynomialB:DPolynomial,
+        inverse:Bool)
     {
         let aSign:Double
         let bSign:Double
@@ -233,7 +236,17 @@ class MLinearEquationsProject
         
         if aDivisor == bDivisor
         {
-            let newDividend:Double = aDividend - bDividend
+            let newDividend:Double
+            
+            if inverse
+            {
+                newDividend = aDividend - bDividend
+            }
+            else
+            {
+                newDividend = aDividend + bDividend
+            }
+            
             polynomialA.coefficientDividend = abs(newDividend)
             
             if newDividend < 0
@@ -256,7 +269,8 @@ class MLinearEquationsProject
         {
             merge(
                 polynomialA:polynomial,
-                polynomialB:result)
+                polynomialB:result,
+                inverse:true)
             
             DManager.sharedInstance?.createManagedObject(
                 entityName:DPolynomial.entityName)
@@ -287,7 +301,8 @@ class MLinearEquationsProject
         {
             merge(
                 polynomialA:polynomial,
-                polynomialB:compare)
+                polynomialB:compare,
+                inverse:false)
             
             equation.removeFromPolynomials(compare)
             DManager.sharedInstance?.delete(object:compare)
@@ -383,7 +398,7 @@ class MLinearEquationsProject
             guard
             
                 let polynomials:[DPolynomial] = equation.polynomials?.array as? [DPolynomial],
-                var result:DPolynomial? = equation.result
+                let result:DPolynomial = equation.result
             
             else
             {
