@@ -325,7 +325,7 @@ class MLinearEquationsProject
         guard
             
             let project:DProject = self.project,
-            var equations:[DEquation] = project.equations?.array as? [DEquation]
+            let equations:[DEquation] = project.equations?.array as? [DEquation]
         
         else
         {
@@ -338,7 +338,7 @@ class MLinearEquationsProject
         {
             guard
             
-                var polynomials:[DPolynomial] = equation.polynomials?.array as? [DPolynomial],
+                let polynomials:[DPolynomial] = equation.polynomials?.array as? [DPolynomial],
                 let result:DPolynomial = equation.result
             
             else
@@ -365,18 +365,27 @@ class MLinearEquationsProject
                         polynomialA:polynomial,
                         polynomialB:result)
                     
-                    result.coefficientDividend = kDefaultDividend
-                    result.coefficientDivisor = kDefaultDivisor
-                    result.isPositive = kDefaultPositive
-                    result.showAsDivision = kDefaultDivision
-                    result.indeterminate = nil
+                    DManager.sharedInstance?.createManagedObject(
+                        entityName:DPolynomial.entityName)
+                    { [weak equation] (created) in
+                        
+                        guard
+                        
+                            let polynomial:DPolynomial = created as? DPolynomial
+                        
+                        else
+                        {
+                            return
+                        }
+                        
+                        equation?.result = polynomial
+                    }
                 }
             }
             else
             {
+                project.removeFromEquations(equation)
                 DManager.sharedInstance?.delete(object:equation)
-                
-                //needs to remove equation from array
             }
         }
         
