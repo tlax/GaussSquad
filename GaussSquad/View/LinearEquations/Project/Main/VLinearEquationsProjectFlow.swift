@@ -7,7 +7,7 @@ class VLinearEquationsProjectFlow:UICollectionViewLayout
     private var contentWidth:CGFloat
     private var contentHeight:CGFloat
     private let barHeight:CGFloat
-    private let kCellHeight:CGFloat = 45
+    private let kCellHeight:CGFloat = 50
     
     init(
         model:MLinearEquationsProject,

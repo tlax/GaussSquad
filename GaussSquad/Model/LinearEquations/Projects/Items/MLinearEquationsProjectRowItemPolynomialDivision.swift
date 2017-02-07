@@ -4,13 +4,12 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
 {
     let attributedDividend:NSAttributedString
     let attributedDivisor:NSAttributedString
-    let attributedSymbol:NSAttributedString
-    let widthDivision:CGFloat
+    let positive:Bool
     private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
-    private let kFontSize:CGFloat = 35
-    private let kMaxHeight:CGFloat = 30
+    private let kFontSize:CGFloat = 19
+    private let kMaxHeight:CGFloat = 25
     private let kMaxWidth:CGFloat = 5000
-    private let kMargin:CGFloat = 20
+    private let kMargin:CGFloat = 30
     private let kMinIntegers:Int = 1
     private let kMaxIntegers:Int = 32
     private let kMinDecimals:Int = 0
@@ -18,6 +17,8 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
     
     init(polynomial:DPolynomial)
     {
+        positive = polynomial.isPositive
+        
         let numberFormatter:NumberFormatter = NumberFormatter()
         numberFormatter.numberStyle = kNumberFormatterStyle
         numberFormatter.minimumIntegerDigits = kMinIntegers
@@ -35,16 +36,25 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
             NSFontAttributeName:UIFont.regular(
                 size:kFontSize)]
         
+        let mutableDividend:NSMutableAttributedString = NSMutableAttributedString()
+        
         if let rawDividend:String = numberFormatter.string(from:coefficientDividend)
         {
-            attributedDividend = NSAttributedString(
+            let attributedDividend:NSAttributedString = NSAttributedString(
                 string:rawDividend,
                 attributes:attributes)
+            mutableDividend.append(attributedDividend)
         }
-        else
+        
+        if let rawSymbol:String = polynomial.indeterminate?.symbol
         {
-            attributedDividend = NSAttributedString()
+            let stringSymbol:NSAttributedString = NSAttributedString(
+                string:rawSymbol,
+                attributes:attributes)
+            mutableDividend.append(stringSymbol)
         }
+        
+        attributedDividend = mutableDividend
         
         if let rawDivisor:String = numberFormatter.string(from:coefficientDivisor)
         {
@@ -55,17 +65,6 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
         else
         {
             attributedDivisor = NSAttributedString()
-        }
-        
-        if let rawSymbol:String = polynomial.indeterminate?.symbol
-        {
-            attributedSymbol = NSAttributedString(
-                string:rawSymbol,
-                attributes:attributes)
-        }
-        else
-        {
-            attributedSymbol = NSAttributedString()
         }
         
         let maxSize:CGSize = CGSize(
@@ -80,17 +79,12 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
             with:maxSize,
             options:drawingOptions,
             context:nil)
-        let rectSymbol:CGRect = attributedDividend.boundingRect(
-            with:maxSize,
-            options:drawingOptions,
-            context:nil)
         
         let widthDividend:CGFloat = ceil(rectDividend.size.width)
         let widthDivisor:CGFloat = ceil(rectDivisor.size.width)
-        let widthSymbol:CGFloat = ceil(rectSymbol.size.width)
         
-        widthDivision = max(widthDividend, widthDivisor)
-        let totalWidth:CGFloat = widthSymbol + widthDivision + kMargin
+        let widthDivision:CGFloat = max(widthDividend, widthDivisor)
+        let totalWidth:CGFloat = widthDivision + kMargin
         
         super.init(
             polynomial:polynomial,

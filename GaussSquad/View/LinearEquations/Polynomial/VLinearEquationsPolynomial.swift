@@ -165,7 +165,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         viewText.delegate = self
         self.viewText = viewText
         
-        insertSubview(viewText, aboveSubview:viewIndeterminate)
+        insertSubview(viewText, belowSubview:viewIndeterminate)
         
         NSLayoutConstraint.equals(
             view:viewText,
@@ -183,7 +183,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         viewDivision.fieldDivisor.delegate = self
         self.viewDivision = viewDivision
         
-        insertSubview(viewDivision, aboveSubview:viewIndeterminate)
+        insertSubview(viewDivision, belowSubview:viewIndeterminate)
         
         NSLayoutConstraint.equals(
             view:viewDivision,
