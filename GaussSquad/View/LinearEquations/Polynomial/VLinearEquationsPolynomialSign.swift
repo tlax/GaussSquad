@@ -101,11 +101,17 @@ class VLinearEquationsPolynomialSign:UIView
     func actionPositive(sender button:UIButton)
     {
         makePositive()
+        
+        controller.polynomial?.isPositive = true
+        DManager.sharedInstance?.save()
     }
     
     func actionNegative(sender button:UIButton)
     {
         makeNegative()
+        
+        controller.polynomial?.isPositive = false
+        DManager.sharedInstance?.save()
     }
     
     //MARK: private
@@ -118,9 +124,6 @@ class VLinearEquationsPolynomialSign:UIView
         buttonPositive.backgroundColor = UIColor.squadBlue
         buttonPositive.imageView!.tintColor = UIColor.white
         buttonPositive.isUserInteractionEnabled = false
-        
-        controller.polynomial?.isPositive = true
-        DManager.sharedInstance?.save()
     }
     
     private func makeNegative()
@@ -131,8 +134,5 @@ class VLinearEquationsPolynomialSign:UIView
         buttonNegative.backgroundColor = UIColor.squadBlue
         buttonNegative.imageView!.tintColor = UIColor.white
         buttonNegative.isUserInteractionEnabled = false
-        
-        controller.polynomial?.isPositive = false
-        DManager.sharedInstance?.save()
     }
 }

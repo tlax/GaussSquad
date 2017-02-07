@@ -5,12 +5,12 @@ class VLinearEquationsPolynomialDivision:UIView
     weak var fieldDividend:UITextView!
     weak var fieldDivisor:UITextView!
     private weak var controller:CLinearEquationsPolynomial!
-    private let kBorderHeight:CGFloat = 6
+    private let kBorderHeight:CGFloat = 2
     private let kBorderMargin:CGFloat = 10
-    private let kFontSize:CGFloat = 40
+    private let kFontSize:CGFloat = 45
     private let kInsetsHorizontal:CGFloat = 5
-    private let kFieldsTop:CGFloat = 25
-    private let kFieldsHeight:CGFloat = 50
+    private let kFieldsTop:CGFloat = 30
+    private let kFieldsHeight:CGFloat = 55
     
     init(controller:CLinearEquationsPolynomial)
     {
@@ -72,6 +72,7 @@ class VLinearEquationsPolynomialDivision:UIView
         self.fieldDivisor = fieldDivisor
         
         let border:VBorder = VBorder(color:color)
+        border.layer.cornerRadius = kBorderHeight / 2.0
         
         addSubview(border)
         addSubview(fieldDividend)
@@ -90,7 +91,8 @@ class VLinearEquationsPolynomialDivision:UIView
         
         NSLayoutConstraint.topToBottom(
             view:border,
-            toView:fieldDividend)
+            toView:fieldDividend,
+            constant:kBorderMargin)
         NSLayoutConstraint.height(
             view:border,
             constant:kBorderHeight)
@@ -101,7 +103,8 @@ class VLinearEquationsPolynomialDivision:UIView
         
         NSLayoutConstraint.topToBottom(
             view:fieldDivisor,
-            toView:border)
+            toView:border,
+            constant:kBorderMargin)
         NSLayoutConstraint.height(
             view:fieldDivisor,
             constant:kFieldsHeight)

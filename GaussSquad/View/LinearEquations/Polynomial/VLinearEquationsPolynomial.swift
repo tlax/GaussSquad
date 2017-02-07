@@ -21,7 +21,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
     private let kShowAsHeight:CGFloat = 32
     private let kShowAsLeft:CGFloat = 10
     private let kShowAsBottom:CGFloat = -9
-    private let kAnimationDuration:TimeInterval = 2
+    private let kAnimationDuration:TimeInterval = 0.35
     private let kNumbersMin:UInt32 = 48
     private let kNumbersMax:UInt32 = 57
     private let kDecimalPoint:UInt32 = 46
@@ -59,8 +59,8 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         
         addSubview(blur)
         addSubview(viewIndeterminate)
-        addSubview(viewControl)
         addSubview(viewShowAs)
+        addSubview(viewControl)
         
         NSLayoutConstraint.equals(
             view:blur,
@@ -109,8 +109,6 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
             selector:#selector(notifiedKeyboardChanged(sender:)),
             name:NSNotification.Name.UIKeyboardWillChangeFrame,
             object:nil)
-        
-        checkMode()
     }
     
     required init?(coder:NSCoder)
@@ -167,7 +165,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         viewText.delegate = self
         self.viewText = viewText
         
-        addSubview(viewText)
+        insertSubview(viewText, aboveSubview:viewIndeterminate)
         
         NSLayoutConstraint.equals(
             view:viewText,
@@ -181,10 +179,11 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         
         let viewDivision:VLinearEquationsPolynomialDivision = VLinearEquationsPolynomialDivision(
             controller:self.controller)
-        
+        viewDivision.fieldDividend.delegate = self
+        viewDivision.fieldDivisor.delegate = self
         self.viewDivision = viewDivision
         
-        addSubview(viewDivision)
+        insertSubview(viewDivision, aboveSubview:viewIndeterminate)
         
         NSLayoutConstraint.equals(
             view:viewDivision,
@@ -316,9 +315,9 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
     //MARK: public
     
     func startEdition()
-    {   
-        readPolynomial()
+    {
         viewIndeterminate.refresh()
+        checkMode()
     }
     
     func endEdition()
@@ -346,6 +345,8 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         {
             asDecimal()
         }
+        
+        readPolynomial()
     }
     
     //MARK: textView delegate
