@@ -4,10 +4,6 @@ class CLinearEquationsPolynomial:CController
 {
     weak var polynomial:DPolynomial?
     private weak var viewPolynomial:VLinearEquationsPolynomial!
-    private let kCleanDividend:Double = 0
-    private let kCleanDivisor:Double = 1
-    private let kIsPositive:Bool = true
-    private let kShowAsDivision:Bool = false
     
     init(polynomial:DPolynomial)
     {
@@ -54,7 +50,16 @@ class CLinearEquationsPolynomial:CController
         {
             if otherPolynomials > 0
             {
-                cleanPolynomialInstead(polynomial:polynomial)
+                guard
+                    
+                    let equation:DEquation = polynomial.equationResult
+                
+                else
+                {
+                    return
+                }
+                
+                restartResultInstead(equation:equation)
                 
                 return
             }
@@ -67,15 +72,32 @@ class CLinearEquationsPolynomial:CController
         }
     }
     
-    private func cleanPolynomialInstead(polynomial:DPolynomial)
+    private func restartResultInstead(equation:DEquation)
     {
-        polynomial.indeterminate = nil
-        polynomial.coefficientDividend = kCleanDividend
-        polynomial.coefficientDivisor = kCleanDivisor
-        polynomial.isPositive = kIsPositive
-        polynomial.showAsDivision = kShowAsDivision
-        
-        trashDone()
+        DManager.sharedInstance?.createManagedObject(
+            entityName:DPolynomial.entityName)
+        { [weak self, weak equation] (created) in
+            
+            guard
+            
+                let newResult:DPolynomial = created as? DPolynomial,
+                let oldResult:DPolynomial = equation?.result
+            
+            else
+            {
+                self?.trashDone()
+                
+                return
+            }
+            
+            DManager.sharedInstance?.delete(
+                object:oldResult)
+            { [weak self, weak equation] in
+                
+                equation?.result = newResult
+                self?.trashDone()
+            }
+        }
     }
     
     private func trashDone()
