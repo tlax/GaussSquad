@@ -500,9 +500,9 @@
 			isa = PBXGroup;
 			children = (
 				DAFF4A511E397B9500A2DD4B /* DManager.swift */,
-				DA89F1A21E4A957F0062DE48 /* DPolynomialExtension.swift */,
 				DA89F1A41E4A9FC00062DE48 /* DProjectExtension.swift */,
 				DADDF86A1E4AA31100447C55 /* DEquationExtension.swift */,
+				DA89F1A21E4A957F0062DE48 /* DPolynomialExtension.swift */,
 				DAD518931E3F978D0004C8D8 /* DGaussSquad.xcdatamodeld */,
 			);
 			path = Data;
