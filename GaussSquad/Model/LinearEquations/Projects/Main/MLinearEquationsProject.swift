@@ -231,6 +231,70 @@ class MLinearEquationsProject
         }
     }
     
+    private func addEverything()
+    {
+        guard
+            
+            let project:DProject = self.project,
+            let equations:[DEquation] = project.equations?.array as? [DEquation]
+            
+        else
+        {
+            return
+        }
+        
+        for equation:DEquation in equations
+        {
+            guard
+                
+                let polynomials:[DPolynomial] = equation.polynomials?.array as? [DPolynomial],
+                let result:DPolynomial = equation.result
+                
+            else
+            {
+                continue
+            }
+            
+            let countPolynomials:Int = polynomials.count
+            
+            if countPolynomials > 1
+            {
+                for indexPolynomial:Int in 0 ..< countPolynomials
+                {
+                    let polynomial:DPolynomial = polynomials[indexPolynomial]
+                    
+                    for indexComparison:Int in indexPolynomial + 1 ..< countPolynomials
+                    {
+                        let comparePolynomial:DPolynomial = polynomials[indexComparison]
+                        
+                        comparePolynomials(
+                            equation:equation,
+                            polynomial:polynomial,
+                            compare:comparePolynomial)
+                    }
+                    
+                    compareResult(
+                        equation:equation,
+                        polynomial:polynomial,
+                        result:result)
+                }
+            }
+            else if countPolynomials == 1
+            {
+                let polynomial:DPolynomial = polynomials[0]
+                
+                compareResult(
+                    equation:equation,
+                    polynomial:polynomial,
+                    result:result)
+            }
+            else
+            {
+                project.deleteEquation(equation:equation)
+            }
+        }
+    }
+    
     //MARK: public
     
     func load(controller:CLinearEquationsProject)
@@ -300,68 +364,7 @@ class MLinearEquationsProject
     
     func compress()
     {
-        guard
-            
-            let project:DProject = self.project,
-            let equations:[DEquation] = project.equations?.array as? [DEquation]
-        
-        else
-        {
-            loadFinished()
-            
-            return
-        }
-        
-        for equation:DEquation in equations
-        {
-            guard
-            
-                let polynomials:[DPolynomial] = equation.polynomials?.array as? [DPolynomial],
-                let result:DPolynomial = equation.result
-            
-            else
-            {
-                continue
-            }
-            
-            let countPolynomials:Int = polynomials.count
-            
-            if countPolynomials > 1
-            {
-                for indexPolynomial:Int in 0 ..< countPolynomials
-                {
-                    let polynomial:DPolynomial = polynomials[indexPolynomial]
-                    
-                    for indexComparison:Int in indexPolynomial + 1 ..< countPolynomials
-                    {
-                        let comparePolynomial:DPolynomial = polynomials[indexComparison]
-                        
-                        comparePolynomials(
-                            equation:equation,
-                            polynomial:polynomial,
-                            compare:comparePolynomial)
-                    }
-                    
-                    compareResult(
-                        equation:equation,
-                        polynomial:polynomial,
-                        result:result)
-                }
-            }
-            else if countPolynomials == 1
-            {
-                let polynomial:DPolynomial = polynomials[0]
-                
-                compareResult(
-                    equation:equation,
-                    polynomial:polynomial,
-                    result:result)
-            }
-            else
-            {
-                project.deleteEquation(equation:equation)
-            }
-        }
+        addEverything()
         
         saveAndRefresh()
     }
