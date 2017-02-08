@@ -231,6 +231,36 @@ class MLinearEquationsProject
         }
     }
     
+    private func indeterminatesToLeft()
+    {
+        guard
+        
+            let project:DProject = self.project,
+            let equations:[DEquation] = project.equations?.array as? [DEquation]
+        
+        else
+        {
+            return
+        }
+        
+        for equation:DEquation in equations
+        {
+            guard
+            
+                let result:DPolynomial = equation.result
+            
+            else
+            {
+                continue
+            }
+            
+            if result.indeterminate != nil
+            {
+                
+            }
+        }
+    }
+    
     private func addEverything()
     {
         guard
@@ -408,6 +438,7 @@ class MLinearEquationsProject
     
     func compress()
     {
+        indeterminatesToLeft()
         addEverything()
         removeZeros()
         
