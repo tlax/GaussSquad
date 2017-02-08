@@ -210,10 +210,16 @@ class MLinearEquationsProject
     {
         if polynomial.indeterminate == result.indeterminate
         {
-            merge(
-                polynomialA:polynomial,
-                polynomialB:result,
-                inverse:true)
+            guard
+                
+                let inversedResult:DPolynomial = result.inversed()
+            
+            else
+            {
+                return
+            }
+            
+            polynomial.add(polynomial:inversedResult)
             
             DManager.sharedInstance?.createManagedObject(
                 entityName:DPolynomial.entityName)
@@ -242,11 +248,7 @@ class MLinearEquationsProject
     {
         if polynomial.indeterminate == compare.indeterminate
         {
-            merge(
-                polynomialA:polynomial,
-                polynomialB:compare,
-                inverse:false)
-            
+            polynomial.add(polynomial:compare)
             equation.removeFromPolynomials(compare)
             DManager.sharedInstance?.delete(object:compare)
         }
