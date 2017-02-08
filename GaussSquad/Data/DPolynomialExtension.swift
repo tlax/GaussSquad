@@ -1,4 +1,5 @@
 import Foundation
+import CoreData
 
 extension DPolynomial
 {
@@ -25,10 +26,22 @@ extension DPolynomial
     
     func inversed() -> DPolynomial?
     {
-        let copied:DPolynomial? = self.copy() as? DPolynomial
-        copied?.isPositive = !isPositive
+        let managedObject:NSManagedObject = NSManagedObject(
+            entity:entity,
+            insertInto:nil)
+    
+        guard
+            
+            let polynomial:DPolynomial = managedObject as? DPolynomial
         
-        return copied
+        else
+        {
+            return nil
+        }
+        
+        polynomial.isPositive = !isPositive
+        
+        return polynomial
     }
     
     func signedDividend() -> Double
