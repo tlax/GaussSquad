@@ -150,32 +150,9 @@ extension DPolynomial
         }
         else if let equationPolynomials:DEquation = self.equationPolynomials
         {
-            guard
-            
-                let countPolynomials:Int = equationPolynomials.polynomials?.count
-            
-            else
-            {
-                return
-            }
-            
-            if countPolynomials > 1
-            {
-                equationPolynomials.deletePolynomial(polynomial:self)
-            }
-            else
-            {
-                guard
-                
-                    let project:DProject = equationPolynomials.project
-                
-                else
-                {
-                    return
-                }
-                
-                project.deleteEquation(equation:equationPolynomials)
-            }
+            equationPolynomials.deletePolynomial(polynomial:self)
         }
+        
+        DManager.sharedInstance?.save()
     }
 }

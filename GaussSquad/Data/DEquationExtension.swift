@@ -23,6 +23,7 @@ extension DEquation
             
             self?.result = newResult
             DManager.sharedInstance?.delete(object:oldResult)
+            DManager.sharedInstance?.save()
         }
     }
     
