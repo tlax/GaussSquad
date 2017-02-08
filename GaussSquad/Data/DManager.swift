@@ -80,6 +80,10 @@ class DManager
                     completion?()
                 }
             }
+            else
+            {
+                completion?()
+            }
         }
     }
     

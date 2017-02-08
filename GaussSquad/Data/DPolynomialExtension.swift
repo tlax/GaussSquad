@@ -39,6 +39,8 @@ extension DPolynomial
             return nil
         }
         
+        polynomial.coefficientDividend = coefficientDividend
+        polynomial.coefficientDivisor = coefficientDivisor
         polynomial.isPositive = !isPositive
         
         return polynomial
@@ -66,6 +68,8 @@ extension DPolynomial
     {
         let dividend:Double = signedDividend()
         let polynomialDividend:Double = polynomial.signedDividend()
+        
+        print("\(dividend) + \(polynomialDividend)")
         
         if coefficientDivisor == polynomial.coefficientDivisor
         {
