@@ -25,4 +25,10 @@ extension DEquation
             DManager.sharedInstance?.delete(object:oldResult)
         }
     }
+    
+    func deletePolynomial(polynomial:DPolynomial)
+    {
+        removeFromPolynomials(polynomial)
+        DManager.sharedInstance?.delete(object:polynomial)
+    }
 }

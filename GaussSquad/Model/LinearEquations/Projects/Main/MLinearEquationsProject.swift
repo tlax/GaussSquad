@@ -215,8 +215,7 @@ class MLinearEquationsProject
             }
             
             polynomial.add(polynomial:inversedResult)
-            
-            here
+            equation.restartResult()
         }
     }
     
@@ -228,8 +227,7 @@ class MLinearEquationsProject
         if polynomial.indeterminate == compare.indeterminate
         {
             polynomial.add(polynomial:compare)
-            equation.removeFromPolynomials(compare)
-            DManager.sharedInstance?.delete(object:compare)
+            here
         }
     }
     
