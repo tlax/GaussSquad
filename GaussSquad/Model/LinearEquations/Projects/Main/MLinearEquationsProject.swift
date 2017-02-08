@@ -256,7 +256,44 @@ class MLinearEquationsProject
             
             if result.indeterminate != nil
             {
+                equation.moveToLeft(polynomial:result)
+            }
+        }
+    }
+    
+    private func constantsToRight()
+    {
+        guard
+            
+            let project:DProject = self.project,
+            let equations:[DEquation] = project.equations?.array as? [DEquation]
+            
+        else
+        {
+            return
+        }
+        
+        for equation:DEquation in equations
+        {
+            guard
                 
+                let polynomials:[DPolynomial] = equation.polynomials?.array as? [DPolynomial],
+                let result:DPolynomial = equation.result
+                
+            else
+            {
+                continue
+            }
+            
+            if result.indeterminate == nil
+            {
+                for polynomial:DPolynomial in polynomials
+                {
+                    if polynomial.indeterminate == nil
+                    {
+                        equation.moveToRight(polynomial:polynomial)
+                    }
+                }
             }
         }
     }
@@ -441,6 +478,7 @@ class MLinearEquationsProject
         indeterminatesToLeft()
         addEverything()
         removeZeros()
+        constantsToRight()
         
         saveAndRefresh()
     }
