@@ -45,6 +45,7 @@ class CLinearEquationsPolynomial:CController
         }
         
         polynomial.deleteFromEquation()
+        trashDone()
     }
     
     private func trashDone()
