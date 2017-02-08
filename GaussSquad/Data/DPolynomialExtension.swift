@@ -86,4 +86,96 @@ extension DPolynomial
             }
         }
     }
+    
+    func makePositive()
+    {
+        isPositive = true
+        DManager.sharedInstance?.save()
+    }
+    
+    func makeNegative()
+    {
+        isPositive = false
+        DManager.sharedInstance?.save()
+    }
+    
+    func makeDivision()
+    {
+        showAsDivision = true
+        DManager.sharedInstance?.save()
+    }
+    
+    func makeDecimal()
+    {
+        showAsDivision = false
+        DManager.sharedInstance?.save()
+    }
+    
+    func selectIndeterminate(indeterminate:DIndeterminate?)
+    {
+        self.indeterminate = indeterminate
+        DManager.sharedInstance?.save()
+    }
+    
+    func deleteFromEquation()
+    {
+        if let equationResult:DEquation = self.equationResult
+        {
+            guard
+                
+                let countPolynomials:Int = equationResult.polynomials?.count
+                
+            else
+            {
+                return
+            }
+            
+            if countPolynomials > 0
+            {
+                equationResult.restartResult()
+            }
+            else
+            {
+                guard
+                    
+                    let project:DProject = equationResult.project
+                    
+                else
+                {
+                    return
+                }
+                
+                project.deleteEquation(equation:equationResult)
+            }
+        }
+        else if let equationPolynomials:DEquation = self.equationPolynomials
+        {
+            guard
+            
+                let countPolynomials:Int = equationPolynomials.polynomials?.count
+            
+            else
+            {
+                return
+            }
+            
+            if countPolynomials > 1
+            {
+                equationPolynomials.deletePolynomial(polynomial:self)
+            }
+            else
+            {
+                guard
+                
+                    let project:DProject = equationPolynomials.project
+                
+                else
+                {
+                    return
+                }
+                
+                project.deleteEquation(equation:equationPolynomials)
+            }
+        }
+    }
 }

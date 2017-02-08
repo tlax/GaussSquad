@@ -31,4 +31,9 @@ extension DEquation
         removeFromPolynomials(polynomial)
         DManager.sharedInstance?.delete(object:polynomial)
     }
+    
+    func moveConstantsAndVariables()
+    {
+        
+    }
 }

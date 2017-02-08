@@ -101,17 +101,13 @@ class VLinearEquationsPolynomialSign:UIView
     func actionPositive(sender button:UIButton)
     {
         makePositive()
-        
-        controller.polynomial?.isPositive = true
-        DManager.sharedInstance?.save()
+        controller.polynomial?.makePositive()
     }
     
     func actionNegative(sender button:UIButton)
     {
         makeNegative()
-        
-        controller.polynomial?.isPositive = false
-        DManager.sharedInstance?.save()
+        controller.polynomial?.makeNegative()
     }
     
     //MARK: private

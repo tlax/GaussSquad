@@ -43,75 +43,17 @@ class CLinearEquationsPolynomial:CController
         {
             return
         }
-     
-        viewPolynomial.endEdition()
         
-        if let otherPolynomials:Int = polynomial.equationResult?.polynomials?.count
-        {
-            if otherPolynomials > 0
-            {
-                guard
-                    
-                    let equation:DEquation = polynomial.equationResult
-                
-                else
-                {
-                    return
-                }
-                
-                restartResultInstead(equation:equation)
-                
-                return
-            }
-        }
-        
-        DManager.sharedInstance?.delete(object:polynomial)
-        { [weak self] in
-            
-            self?.trashDone()
-        }
-    }
-    
-    private func restartResultInstead(equation:DEquation)
-    {
-        DManager.sharedInstance?.createManagedObject(
-            entityName:DPolynomial.entityName)
-        { [weak self, weak equation] (created) in
-            
-            guard
-            
-                let newResult:DPolynomial = created as? DPolynomial,
-                let oldResult:DPolynomial = equation?.result
-            
-            else
-            {
-                self?.trashDone()
-                
-                return
-            }
-            
-            DManager.sharedInstance?.delete(
-                object:oldResult)
-            { [weak self, weak equation] in
-                
-                equation?.result = newResult
-                self?.trashDone()
-            }
-        }
+        polynomial.deleteFromEquation()
+        trashDone()
     }
     
     private func trashDone()
     {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        DispatchQueue.main.async
         { [weak self] in
             
-            DManager.sharedInstance?.save()
-            
-            DispatchQueue.main.async
-            { [weak self] in
-                
-                self?.parentController.dismissAnimateOver(completion:nil)
-            }
+            self?.parentController.dismissAnimateOver(completion:nil)
         }
     }
     
@@ -122,7 +64,6 @@ class CLinearEquationsPolynomial:CController
         UIApplication.shared.keyWindow!.endEditing(true)
         
         DManager.sharedInstance?.save()
-        
         viewPolynomial.endEdition()
         parentController.dismissAnimateOver(completion:nil)
     }
@@ -149,7 +90,13 @@ class CLinearEquationsPolynomial:CController
             UIAlertActionStyle.destructive)
         { [weak self] (action:UIAlertAction) in
             
-            self?.confirmTrash()
+            self?.viewPolynomial.endEdition()
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.confirmTrash()
+            }
         }
         
         alert.addAction(actionDelete)
