@@ -216,23 +216,7 @@ class MLinearEquationsProject
             
             polynomial.add(polynomial:inversedResult)
             
-            DManager.sharedInstance?.createManagedObject(
-                entityName:DPolynomial.entityName)
-            { [weak equation, weak result] (created) in
-                
-                guard
-                    
-                    let polynomial:DPolynomial = created as? DPolynomial,
-                    let result:DPolynomial = result
-                    
-                else
-                {
-                    return
-                }
-                
-                equation?.result = polynomial
-                DManager.sharedInstance?.delete(object:result)
-            }
+            here
         }
     }
     
