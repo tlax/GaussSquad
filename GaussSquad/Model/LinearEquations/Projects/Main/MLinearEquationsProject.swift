@@ -227,7 +227,7 @@ class MLinearEquationsProject
         if polynomial.indeterminate == compare.indeterminate
         {
             polynomial.add(polynomial:compare)
-            here
+            equation.deletePolynomial(polynomial:compare)
         }
     }
     
@@ -294,11 +294,8 @@ class MLinearEquationsProject
     
     func removeIndeterminate(indeterminate:DIndeterminate)
     {
-        DManager.sharedInstance?.delete(object:indeterminate)
-        { [weak self] in
-            
-            self?.saveAndRefresh()
-        }
+        project?.deleteIndeterminate(indeterminate:indeterminate)
+        saveAndRefresh()
     }
     
     func compress()

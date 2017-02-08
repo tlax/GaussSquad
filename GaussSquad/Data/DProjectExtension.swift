@@ -10,4 +10,10 @@ extension DProject
         removeFromEquations(equation)
         DManager.sharedInstance?.delete(object:equation)
     }
+    
+    func deleteIndeterminate(indeterminate:DIndeterminate)
+    {
+        removeFromIndeterminates(indeterminate)
+        DManager.sharedInstance?.delete(object:indeterminate)
+    }
 }
