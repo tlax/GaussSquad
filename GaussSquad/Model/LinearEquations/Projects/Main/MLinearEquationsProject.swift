@@ -311,20 +311,10 @@ class MLinearEquationsProject
         {
             guard
                 
-                let polynomials:[DPolynomial] = equation.polynomials?.array as? [DPolynomial],
-                let result:DPolynomial = equation.result
+                let polynomials:[DPolynomial] = equation.polynomials?.array as? [DPolynomial]
                 
             else
             {
-                continue
-            }
-            
-            let coefficientResult:Double = result.coefficient()
-            
-            if coefficientResult == 0
-            {
-                project.deleteEquation(equation:equation)
-                
                 continue
             }
             
