@@ -295,6 +295,60 @@ class MLinearEquationsProject
         }
     }
     
+    private func removeZeros()
+    {
+        guard
+            
+            let project:DProject = self.project,
+            let equations:[DEquation] = project.equations?.array as? [DEquation]
+            
+        else
+        {
+            return
+        }
+        
+        for equation:DEquation in equations
+        {
+            guard
+                
+                let polynomials:[DPolynomial] = equation.polynomials?.array as? [DPolynomial],
+                let result:DPolynomial = equation.result
+                
+            else
+            {
+                continue
+            }
+            
+            let coefficientResult:Double = result.coefficient()
+            
+            if coefficientResult == 0
+            {
+                project.deleteEquation(equation:equation)
+                
+                continue
+            }
+            
+            var hasCoefficient:Bool = false
+            
+            for polynomial:DPolynomial in polynomials
+            {
+                let coefficient:Double = polynomial.coefficient()
+                
+                if coefficient != 0
+                {
+                    hasCoefficient = true
+                    
+                    break
+                }
+            }
+            
+            if !hasCoefficient
+            {
+                project.deleteEquation(equation:equation)
+            }
+        }
+    }
+    
     //MARK: public
     
     func load(controller:CLinearEquationsProject)
@@ -365,6 +419,7 @@ class MLinearEquationsProject
     func compress()
     {
         addEverything()
+        removeZeros()
         
         saveAndRefresh()
     }
