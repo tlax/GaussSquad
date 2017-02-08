@@ -203,63 +203,6 @@ class MLinearEquationsProject
         }
     }
     
-    private func merge(
-        polynomialA:DPolynomial,
-        polynomialB:DPolynomial,
-        inverse:Bool)
-    {
-        let aSign:Double
-        let bSign:Double
-        
-        if polynomialA.isPositive
-        {
-            aSign = 1
-        }
-        else
-        {
-            aSign = -1
-        }
-        
-        if polynomialB.isPositive
-        {
-            bSign = 1
-        }
-        else
-        {
-            bSign = -1
-        }
-        
-        let aDividend:Double = polynomialA.coefficientDividend * aSign
-        let aDivisor:Double = polynomialA.coefficientDivisor
-        let bDividend:Double = polynomialB.coefficientDividend * bSign
-        let bDivisor:Double = polynomialB.coefficientDivisor
-        
-        if aDivisor == bDivisor
-        {
-            let newDividend:Double
-            
-            if inverse
-            {
-                newDividend = aDividend - bDividend
-            }
-            else
-            {
-                newDividend = aDividend + bDividend
-            }
-            
-            polynomialA.coefficientDividend = abs(newDividend)
-            
-            if newDividend < 0
-            {
-                polynomialA.isPositive = false
-            }
-            else
-            {
-                polynomialA.isPositive = true
-            }
-        }
-    }
-    
     private func compareResult(
         equation:DEquation,
         polynomial:DPolynomial,
