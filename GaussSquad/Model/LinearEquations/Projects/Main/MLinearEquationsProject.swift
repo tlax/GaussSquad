@@ -25,14 +25,12 @@ class MLinearEquationsProject
     
     private func createProject()
     {
-        let timestamp:TimeInterval = Date().timeIntervalSince1970
-        
         DManager.sharedInstance?.createManagedObject(
             entityName:DProject.entityName)
         { [weak self] (created) in
             
             self?.project = created as? DProject
-            self?.project?.created = timestamp
+            self?.project?.created = Date().timeIntervalSince1970
             
             let defaultSymbol:String = NSLocalizedString("MLinearEquationsProject_defaultIndeterminate", comment:"")
             
@@ -72,8 +70,6 @@ class MLinearEquationsProject
     
     private func createEquation(completion:(() -> ())?)
     {
-        let timestamp:TimeInterval = Date().timeIntervalSince1970
-        
         DManager.sharedInstance?.createManagedObject(
             entityName:DEquation.entityName)
         { [weak self] (created) in
@@ -81,8 +77,7 @@ class MLinearEquationsProject
             guard
             
                 let project:DProject = self?.project,
-                let indeterminatesSet:NSOrderedSet = project.indeterminates,
-                let indeterminatesArray:[DIndeterminate] = indeterminatesSet.array as? [DIndeterminate],
+                let indeterminatesArray:[DIndeterminate] = project.indeterminates?.array as? [DIndeterminate],
                 let equation:DEquation = created as? DEquation
             
             else
@@ -90,7 +85,7 @@ class MLinearEquationsProject
                 return
             }
             
-            equation.created = timestamp
+            equation.created = Date().timeIntervalSince1970
             equation.project = project
             
             self?.createPolynomials(
@@ -385,8 +380,7 @@ class MLinearEquationsProject
             }
             else
             {
-                project.removeFromEquations(equation)
-                DManager.sharedInstance?.delete(object:equation)
+                project.deleteEquation(equation:equation)
             }
         }
         
