@@ -21,7 +21,7 @@ class MLinearEquations
     
     private func loadFromDb()
     {
-        DManager.sharedInstance?.fetchManagedObjects(
+        DManager.sharedInstance?.fetchData(
             entityName:DProject.entityName)
         { [weak self] (fetched) in
             
