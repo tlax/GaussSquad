@@ -36,4 +36,20 @@ class MLinearEquationsSolutionIndeterminate
         
         return isEqual
     }
+    
+    func equalsRawIndeterminate(rawIndetermianted:DIndeterminate) -> Bool
+    {
+        guard
+        
+            let indeterminate:DIndeterminate = self.indeterminate
+        
+        else
+        {
+            return false
+        }
+        
+        let isEqual:Bool = indeterminate == rawIndetermianted
+        
+        return isEqual
+    }
 }
