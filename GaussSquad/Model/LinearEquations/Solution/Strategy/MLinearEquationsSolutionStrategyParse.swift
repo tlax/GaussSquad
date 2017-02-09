@@ -98,6 +98,8 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
         indeterminates:MLinearEquationsSolutionIndeterminates) -> MLinearEquationsSolutionEquationItem?
     {
         let polynomial:MLinearEquationsSolutionEquationItem?
+        let coefficientDividend:Double = rawPolynomial.signedDividend()
+        let coefficientDivisor:Double = rawPolynomial.coefficientDivisor
         
         if let rawIndeterminate:DIndeterminate = rawPolynomial.indeterminate
         {
@@ -113,22 +115,32 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
             
             if rawPolynomial.showAsDivision
             {
-                polynomial = MLinearEquationsSolutionEquationItemPolynomialDivision(indeterminate: <#T##DIndeterminate#>, coefficientDividend: <#T##Double#>, coefficientDivisor: <#T##Double#>)
+                polynomial = MLinearEquationsSolutionEquationItemPolynomialDivision(
+                    indeterminate:indeterminate,
+                    coefficientDividend:coefficientDividend,
+                    coefficientDivisor:coefficientDivisor)
             }
             else
             {
-                
+                polynomial = MLinearEquationsSolutionEquationItemPolynomialDecimal(
+                    indeterminate:indeterminate,
+                    coefficientDividend:coefficientDividend,
+                    coefficientDivisor:coefficientDivisor)
             }
         }
         else
         {
             if rawPolynomial.showAsDivision
             {
-                
+                polynomial = MLinearEquationsSolutionEquationItemConstantDivision(
+                    coefficientDividend:coefficientDividend,
+                    coefficientDivisor:coefficientDivisor)
             }
             else
             {
-                
+                polynomial = MLinearEquationsSolutionEquationItemConstantDecimal(
+                    coefficientDividend:coefficientDividend,
+                    coefficientDivisor:coefficientDivisor)
             }
         }
         
