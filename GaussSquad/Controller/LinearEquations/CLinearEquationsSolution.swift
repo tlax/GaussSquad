@@ -49,7 +49,11 @@ class CLinearEquationsSolution:CController
     
     func solutionComplete()
     {
-        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewSolution.refresh()
+        }
     }
     
     func back()
