@@ -14,8 +14,8 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
     {
         positive = polynomial.isPositive
         
-        let coefficientDividend:NSNumber = NSNumber(value:polynomial.coefficientDividend)
-        let coefficientDivisor:NSNumber = NSNumber(value:polynomial.coefficientDivisor)
+        let coefficientDividend:Double = polynomial.coefficientDividend
+        let coefficientDivisor:Double = polynomial.coefficientDivisor
         let reusableIdentifier:String = VLinearEquationsProjectCellPolynomialDivision.reusableIdentifier
         let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
             NSStringDrawingOptions.usesFontLeading,
@@ -25,15 +25,12 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
                 size:kFontSize)]
         
         let mutableDividend:NSMutableAttributedString = NSMutableAttributedString()
-        
-        if let rawDividend:String = MSession.sharedInstance.numberFormatter.string(
-            from:coefficientDividend)
-        {
-            let attributedDividend:NSAttributedString = NSAttributedString(
-                string:rawDividend,
-                attributes:attributes)
-            mutableDividend.append(attributedDividend)
-        }
+        let rawDividend:String = MSession.sharedInstance.stringFrom(
+            number:coefficientDividend)
+        let stringDividend:NSAttributedString = NSAttributedString(
+            string:rawDividend,
+            attributes:attributes)
+        mutableDividend.append(stringDividend)
         
         if let rawSymbol:String = polynomial.indeterminate?.symbol
         {
@@ -45,17 +42,11 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
         
         attributedDividend = mutableDividend
         
-        if let rawDivisor:String = MSession.sharedInstance.numberFormatter.string(
-            from:coefficientDivisor)
-        {
-            attributedDivisor = NSAttributedString(
-                string:rawDivisor,
-                attributes:attributes)
-        }
-        else
-        {
-            attributedDivisor = NSAttributedString()
-        }
+        let rawDivisor:String = MSession.sharedInstance.stringFrom(
+            number:coefficientDivisor)
+        attributedDivisor = NSAttributedString(
+            string:rawDivisor,
+            attributes:attributes)
         
         let maxSize:CGSize = CGSize(
             width:kMaxWidth,

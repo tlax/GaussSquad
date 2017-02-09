@@ -14,7 +14,6 @@ class MLinearEquationsProjectRowItemPolynomialDecimal:MLinearEquationsProjectRow
         positive = polynomial.isPositive
         
         let coefficient:Double = abs(polynomial.coefficient())
-        let coefficientNumber:NSNumber = NSNumber(value:coefficient)
         let reusableIdentifier:String = VLinearEquationsProjectCellPolynomialDecimal.reusableIdentifier
         let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
             NSStringDrawingOptions.usesFontLeading,
@@ -25,13 +24,12 @@ class MLinearEquationsProjectRowItemPolynomialDecimal:MLinearEquationsProjectRow
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         
-        if let rawCoefficient:String = MSession.sharedInstance.numberFormatter.string(from:coefficientNumber)
-        {
-            let stringCoefficient:NSAttributedString = NSAttributedString(
-                string:rawCoefficient,
-                attributes:attributes)
-            mutableString.append(stringCoefficient)
-        }
+        let rawCoefficient:String = MSession.sharedInstance.stringFrom(
+            number:coefficient)
+        let stringCoefficient:NSAttributedString = NSAttributedString(
+            string:rawCoefficient,
+            attributes:attributes)
+        mutableString.append(stringCoefficient)
         
         if let rawSymbol:String = polynomial.indeterminate?.symbol
         {

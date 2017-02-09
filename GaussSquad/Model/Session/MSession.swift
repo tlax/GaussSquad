@@ -4,8 +4,9 @@ class MSession
 {
     static let sharedInstance:MSession = MSession()
     //private(set) var settings:DSettings?
-    let numberFormatter:NumberFormatter
+    private let numberFormatter:NumberFormatter
     private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
+    private let kEmpty:String = ""
     private let kMinIntegers:Int = 1
     private let kMaxIntegers:Int = 10
     private let kMinDecimals:Int = 0
@@ -100,5 +101,38 @@ class MSession
         
         settings.ttl += kTtlDelta
         DManager.sharedInstance.save()*/
+    }
+    
+    func stringFrom(number:Double) -> String
+    {
+        let nsNumber:NSNumber = NSNumber(value:number)
+        
+        guard
+        
+            let string:String = numberFormatter.string(from:nsNumber)
+        
+        else
+        {
+            return kEmpty
+        }
+        
+        return string
+    }
+    
+    func numberFrom(string:String) -> Double
+    {
+        guard
+        
+            let number:NSNumber = numberFormatter.number(
+                from:string)
+        
+        else
+        {
+            return 0
+        }
+        
+        let scalar:Double = number.doubleValue
+        
+        return scalar
     }
 }

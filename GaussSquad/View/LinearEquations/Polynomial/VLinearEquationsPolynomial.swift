@@ -203,44 +203,42 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
             guard
             
                 let textDividend:String = viewDivision?.fieldDividend.text,
-                let textDivisor:String = viewDivision?.fieldDivisor.text,
-                let numberDividend:NSNumber = MSession.sharedInstance.numberFormatter.number(
-                    from:textDividend),
-                let numberDivisor:NSNumber = MSession.sharedInstance.numberFormatter.number(
-                    from:textDivisor)
+                let textDivisor:String = viewDivision?.fieldDivisor.text
             
             else
             {
                 return
             }
             
-            let dividendDouble:Double = numberDividend as Double
-            var divisorDouble:Double = numberDivisor as Double
+            let dividend:Double = MSession.sharedInstance.numberFrom(
+                string:textDividend)
+            var divisor:Double = MSession.sharedInstance.numberFrom(
+                string:textDivisor)
             
-            if divisorDouble <= 0
+            if divisor <= 0
             {
-                divisorDouble = 1
+                divisor = 1
             }
             
-            polynomial.coefficientDividend = dividendDouble
-            polynomial.coefficientDivisor = divisorDouble
+            polynomial.coefficientDividend = dividend
+            polynomial.coefficientDivisor = divisor
             
         }
         else
         {
             guard
                 
-                let text:String = viewText?.text,
-                let number:NSNumber = MSession.sharedInstance.numberFormatter.number(
-                    from:text)
+                let text:String = viewText?.text
                 
             else
             {
                 return
             }
             
-            let numberDouble:Double = number as Double
-            polynomial.coefficientDividend = numberDouble
+            let coefficient:Double = MSession.sharedInstance.numberFrom(
+                string:text)
+            
+            polynomial.coefficientDividend = coefficient
             polynomial.coefficientDivisor = 1
         }
     }
@@ -261,21 +259,19 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         
         if polynomial.showAsDivision
         {
-            let dividendNumber:NSNumber = NSNumber(value:dividend)
-            let divisorNumber:NSNumber = NSNumber(value:divisor)
-            
             guard
             
-                let viewDivision:VLinearEquationsPolynomialDivision = self.viewDivision,
-                let dividendString:String = MSession.sharedInstance.numberFormatter.string(
-                    from:dividendNumber),
-                let divisorString:String = MSession.sharedInstance.numberFormatter.string(
-                    from:divisorNumber)
+                let viewDivision:VLinearEquationsPolynomialDivision = self.viewDivision
             
             else
             {
                 return
             }
+            
+            let dividendString:String = MSession.sharedInstance.stringFrom(
+                number:dividend)
+            let divisorString:String = MSession.sharedInstance.stringFrom(
+                number:divisor)
             
             let curatedDividend:String = curatedNumber(number:dividendString)
             let curatedDivisor:String = curatedNumber(number:divisorString)
@@ -287,19 +283,18 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         else
         {
             let coefficient:Double = dividend / divisor
-            let coefficentNumber:NSNumber = NSNumber(value:coefficient)
             
             guard
                 
-                let viewText:VLinearEquationsPolynomialText = self.viewText,
-                let coefficientString:String = MSession.sharedInstance.numberFormatter.string(
-                    from:coefficentNumber)
+                let viewText:VLinearEquationsPolynomialText = self.viewText
                 
             else
             {
                 return
             }
             
+            let coefficientString:String = MSession.sharedInstance.stringFrom(
+                number:coefficient)
             let curatedCoefficient:String = curatedNumber(number:coefficientString)
             viewText.text = curatedCoefficient
             viewText.becomeFirstResponder()
