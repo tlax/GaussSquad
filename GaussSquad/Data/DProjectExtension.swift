@@ -8,12 +8,12 @@ extension DProject
     func deleteEquation(equation:DEquation)
     {
         removeFromEquations(equation)
-        DManager.sharedInstance?.delete(object:equation)
+        DManager.sharedInstance?.deleteAndWait(data:equation)
     }
     
     func deleteIndeterminate(indeterminate:DIndeterminate)
     {
         removeFromIndeterminates(indeterminate)
-        DManager.sharedInstance?.delete(object:indeterminate)
+        DManager.sharedInstance?.deleteAndWait(data:indeterminate)
     }
 }
