@@ -48,13 +48,10 @@ class CLinearEquationsProject:CController
             return
         }
         
-        DManager.sharedInstance?.delete(object:project)
-        {
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self] in
-                
-                self?.deleteDone()
-            }
+        DManager.sharedInstance?.delete(data:project)
+        { [weak self] in
+            
+            self?.deleteDone()
         }
     }
     
