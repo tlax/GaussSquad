@@ -26,4 +26,10 @@ class MLinearEquationsSolutionStrategy
     {
         delegate?.solutionStrategyCompleted(step:step)
     }
+    
+    func foundIndeterminates(indeterminates:[MLinearEquationsSolutionIndeterminate])
+    {
+        delegate?.solutionStrategyIndeterminates(
+            indeterminates:indeterminates)
+    }
 }

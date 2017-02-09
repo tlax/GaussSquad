@@ -42,4 +42,9 @@ class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate
             controller?.solutionComplete()
         }
     }
+    
+    func solutionStrategyIndeterminates(indeterminates:[MLinearEquationsSolutionIndeterminate])
+    {
+        self.indeterminates.append(contentsOf:indeterminates)
+    }
 }

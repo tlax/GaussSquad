@@ -16,4 +16,24 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
     }
     
     //MARK: private
+    
+    private func findIndeterminates()
+    {
+        var indeterminates:[MLinearEquationsSolutionIndeterminate] = []
+        
+        
+        foundIndeterminates(
+            indeterminates:indeterminates)
+        
+        findEquations(indeterminates:indeterminates)
+    }
+    
+    private func findEquations(indeterminates:[MLinearEquationsSolutionIndeterminate])
+    {
+        var equations:[MLinearEquationsSolutionEquation] = []
+        
+        let step:MLinearEquationsSolutionStepStart = MLinearEquationsSolutionStepStart(
+            equations:equations)
+        completed(step:step)
+    }
 }
