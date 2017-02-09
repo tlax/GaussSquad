@@ -1,11 +1,18 @@
-import Foundation
+import UIKit
 
 class MLinearEquationsSolutionStep
 {
     let equations:[MLinearEquationsSolutionEquation]
+    let reusableIdentifier:String
+    let headerHeight:CGFloat
     
-    init()
+    init(
+        equations:[MLinearEquationsSolutionEquation],
+        reusableIdentifier:String,
+        headerHeight:CGFloat)
     {
-        equations = []
+        self.equations = equations
+        self.reusableIdentifier = reusableIdentifier
+        self.headerHeight = headerHeight
     }
 }

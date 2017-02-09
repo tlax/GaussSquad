@@ -1,7 +1,6 @@
 import Foundation
 
-protocol MLinearEquationsSolutionStrategyDelegate
+protocol MLinearEquationsSolutionStrategyDelegate:class
 {
-    func solutionStrategyDone(equations:[MLinearEquationsSolutionEquation])
-    func solutionStrategyError(error:String)
+    func solutionStrategyCompleted(step:MLinearEquationsSolutionStep)
 }

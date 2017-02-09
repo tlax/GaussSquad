@@ -22,13 +22,8 @@ class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate
     
     //MARK: solutionsStrategy delegate
     
-    func solutionStrategyDone(equations: [MLinearEquationsSolutionEquation])
+    func solutionStrategyCompleted(step:MLinearEquationsSolutionStep)
     {
-        
-    }
-    
-    func solutionStrategyError(error: String)
-    {
-        
+        steps.append(step)
     }
 }
