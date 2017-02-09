@@ -71,7 +71,17 @@ class CLinearEquationsProject:CController
     
     func next()
     {
-        let controllerSolution:CLinearEquationsSolution = CLinearEquationsSolution()
+        guard
+            
+            let project:DProject = model.project
+        
+        else
+        {
+            return
+        }
+        
+        let controllerSolution:CLinearEquationsSolution = CLinearEquationsSolution(
+            project:project)
         parentController.push(
             controller:controllerSolution,
             horizontal:CParent.TransitionHorizontal.fromRight)
