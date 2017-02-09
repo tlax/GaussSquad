@@ -4,11 +4,13 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
 {
     private weak var model:MLinearEquationsSolution!
     private var headerLayoutAttributes:[UICollectionViewLayoutAttributes]
+    private var footerLayoutAttributes:[UICollectionViewLayoutAttributes]
     private var cellLayoutAttributes:[UICollectionViewLayoutAttributes]
     private var contentWidth:CGFloat
     private var contentHeight:CGFloat
     private let barHeight:CGFloat
     private let kCellHeight:CGFloat = 30
+    private let kFooterHeight:CGFloat = 20
     
     init(
         model:MLinearEquationsSolution,
@@ -19,6 +21,7 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
         contentWidth = 0
         contentHeight = 0
         headerLayoutAttributes = []
+        footerLayoutAttributes = []
         cellLayoutAttributes = []
         
         super.init()
@@ -34,6 +37,7 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
         super.prepare()
         
         headerLayoutAttributes = []
+        footerLayoutAttributes = []
         cellLayoutAttributes = []
         
         var section:Int = 0
@@ -43,13 +47,13 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
         for step:MLinearEquationsSolutionStep in model.steps
         {
             let headerHeight:CGFloat = step.headerHeight
-            let headerIndexPath:IndexPath = IndexPath(
+            let sectionIndexPath:IndexPath = IndexPath(
                 item:0,
                 section:section)
 
             let headerAttribute:UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes(
                 forSupplementaryViewOfKind:UICollectionElementKindSectionHeader,
-                with:headerIndexPath)
+                with:sectionIndexPath)
             headerAttribute.frame = CGRect(
                 x:0,
                 y:positionY,
@@ -63,8 +67,12 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
             {
                 var index:Int = 0
                 var positionX:CGFloat = 0
+                var equationItems:[MLinearEquationsSolutionEquationItem] = []
+                equationItems.append(contentsOf:equation.items)
+                equationItems.append(equation.equals)
+                equationItems.append(equation.result)
                 
-                for item:MLinearEquationsSolutionEquationItem in equation.items
+                for item:MLinearEquationsSolutionEquationItem in equationItems
                 {
                     let indexPath:IndexPath = IndexPath(
                         item:index,
@@ -93,6 +101,17 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
                 positionY += kCellHeight
             }
             
+            let footerAttribute:UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes(
+                forSupplementaryViewOfKind:UICollectionElementKindSectionFooter,
+                with:sectionIndexPath)
+            footerAttribute.frame = CGRect(
+                x:0,
+                y:positionY,
+                width:0,
+                height:kFooterHeight)
+            footerLayoutAttributes.append(footerAttribute)
+            
+            positionY += headerHeight
             section += 1
         }
         
@@ -118,6 +137,7 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
         var allAttributes:[UICollectionViewLayoutAttributes] = []
         allAttributes.append(contentsOf:cellLayoutAttributes)
         allAttributes.append(contentsOf:headerLayoutAttributes)
+        allAttributes.append(contentsOf:footerLayoutAttributes)
         
         for layoutAttribute:UICollectionViewLayoutAttributes in allAttributes
         {
@@ -139,7 +159,18 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
     
     override func layoutAttributesForSupplementaryView(ofKind elementKind:String, at indexPath:IndexPath) -> UICollectionViewLayoutAttributes?
     {
-        for layoutAttribute:UICollectionViewLayoutAttributes in headerLayoutAttributes
+        let listAttributes:[UICollectionViewLayoutAttributes]
+        
+        if elementKind == UICollectionElementKindSectionHeader
+        {
+            listAttributes = headerLayoutAttributes
+        }
+        else
+        {
+            listAttributes = footerLayoutAttributes
+        }
+        
+        for layoutAttribute:UICollectionViewLayoutAttributes in listAttributes
         {
             if layoutAttribute.indexPath.section == indexPath.section
             {
