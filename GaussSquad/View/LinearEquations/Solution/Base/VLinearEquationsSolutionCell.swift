@@ -6,7 +6,7 @@ class VLinearEquationsSolutionCell:UICollectionViewCell
     {
         super.init(frame:frame)
         isUserInteractionEnabled = false
-        backgroundColor = UIColor.red
+        backgroundColor = UIColor.clear
     }
     
     required init?(coder:NSCoder)

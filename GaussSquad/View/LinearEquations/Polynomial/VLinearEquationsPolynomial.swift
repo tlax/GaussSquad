@@ -9,8 +9,6 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
     private weak var layoutControlBottom:NSLayoutConstraint!
     private weak var viewText:VLinearEquationsPolynomialText?
     private weak var viewDivision:VLinearEquationsPolynomialDivision?
-    private let numberFormatter:NumberFormatter
-    private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
     private let kDot:String = "."
     private let kComma:String = ","
     private let kEmpty:String = ""
@@ -26,20 +24,9 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
     private let kNumbersMin:UInt32 = 48
     private let kNumbersMax:UInt32 = 57
     private let kDecimalPoint:UInt32 = 46
-    private let kMinIntegers:Int = 1
-    private let kMaxIntegers:Int = 10
-    private let kMinDecimals:Int = 0
-    private let kMaxDecimals:Int = 10
     
     override init(controller:CController)
     {
-        numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = kNumberFormatterStyle
-        numberFormatter.minimumIntegerDigits = kMinIntegers
-        numberFormatter.maximumIntegerDigits = kMaxIntegers
-        numberFormatter.minimumFractionDigits = kMinDecimals
-        numberFormatter.maximumFractionDigits = kMaxDecimals
-        
         super.init(controller:controller)
         backgroundColor = UIColor.clear
         self.controller = controller as? CLinearEquationsPolynomial

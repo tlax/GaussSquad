@@ -4,10 +4,22 @@ class MSession
 {
     static let sharedInstance:MSession = MSession()
     //private(set) var settings:DSettings?
+    let numberFormatter:NumberFormatter
+    private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
+    private let kMinIntegers:Int = 1
+    private let kMaxIntegers:Int = 10
+    private let kMinDecimals:Int = 0
+    private let kMaxDecimals:Int = 5
     private let kTtlDelta:Int16 = 1
     
     private init()
     {
+        numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = kNumberFormatterStyle
+        numberFormatter.minimumIntegerDigits = kMinIntegers
+        numberFormatter.maximumIntegerDigits = kMaxIntegers
+        numberFormatter.minimumFractionDigits = kMinDecimals
+        numberFormatter.maximumFractionDigits = kMaxDecimals
     }
     
     //MARK: private
