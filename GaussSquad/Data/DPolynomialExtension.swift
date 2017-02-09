@@ -94,8 +94,6 @@ extension DPolynomial
             coefficientDividend = abs(totalDividend)
             coefficientDivisor = newDivisor
             
-            print("\(coefficientDividend) \(coefficientDivisor)")
-            
             if totalDividend < 0
             {
                 isPositive = false
