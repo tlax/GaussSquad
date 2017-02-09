@@ -102,6 +102,8 @@ extension DPolynomial
             {
                 isPositive = true
             }
+            
+            showAsDivision = true
         }
     }
     
