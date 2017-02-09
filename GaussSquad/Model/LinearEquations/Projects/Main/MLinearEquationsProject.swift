@@ -5,6 +5,7 @@ class MLinearEquationsProject
     var rows:[MLinearEquationsProjectRow]
     var project:DProject?
     private weak var controller:CLinearEquationsProject?
+    private let kDelayCompression:TimeInterval = 2
     
     init(project:DProject?)
     {
@@ -476,10 +477,15 @@ class MLinearEquationsProject
     func compress()
     {
         indeterminatesToLeft()
-        addEverything()
-        removeZeros()
-        constantsToRight()
+//        addEverything()
+//        removeZeros()
+//        constantsToRight()
         
-        saveAndRefresh()
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).asyncAfter(
+            deadline:DispatchTime.now() + kDelayCompression)
+        { [weak self] in
+            
+            self?.saveAndRefresh()
+        }
     }
 }
