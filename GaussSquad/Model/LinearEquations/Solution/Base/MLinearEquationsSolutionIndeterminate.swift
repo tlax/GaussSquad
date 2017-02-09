@@ -20,7 +20,7 @@ class MLinearEquationsSolutionIndeterminate
     
     //MARK: public
     
-    func equals(other:MLinearEquationsSolutionIndeterminate) -> Bool
+    func equalsIndeterminate(other:MLinearEquationsSolutionIndeterminate) -> Bool
     {
         guard
         

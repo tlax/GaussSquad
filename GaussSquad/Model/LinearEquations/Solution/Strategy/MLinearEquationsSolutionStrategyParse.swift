@@ -23,7 +23,7 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
     {
         var indeterminates:[MLinearEquationsSolutionIndeterminate] = []
         
-        if let rawIndeterminates:[DIndeterminate] = self.project?.indeterminates?.array as? [DIndeterminate]
+        if let rawIndeterminates:[DIndeterminate] = project?.indeterminates?.array as? [DIndeterminate]
         {
             for rawIndeterminate:DIndeterminate in rawIndeterminates
             {
@@ -42,6 +42,15 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
     private func findEquations(indeterminates:[MLinearEquationsSolutionIndeterminate])
     {
         var equations:[MLinearEquationsSolutionEquation] = []
+        
+        if let rawEquations:[DEquation] = project?.equations?.array as? [DEquation]
+        {
+            for rawEquation:DEquation in rawEquations
+            {
+                var items:[MLinearEquationsSolutionEquationItem] = []
+                var result:MLinearEquationsSolutionEquationItem
+            }
+        }
         
         let step:MLinearEquationsSolutionStepStart = MLinearEquationsSolutionStepStart(
             equations:equations)

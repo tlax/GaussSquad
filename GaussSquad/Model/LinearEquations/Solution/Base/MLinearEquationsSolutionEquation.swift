@@ -3,9 +3,13 @@ import Foundation
 class MLinearEquationsSolutionEquation
 {
     let items:[MLinearEquationsSolutionEquationItem]
+    let result:MLinearEquationsSolutionEquationItem
     
-    init()
+    init(
+        items:[MLinearEquationsSolutionEquationItem],
+        result:MLinearEquationsSolutionEquationItem)
     {
-        items = []
+        self.items = items
+        self.result = result
     }
 }
