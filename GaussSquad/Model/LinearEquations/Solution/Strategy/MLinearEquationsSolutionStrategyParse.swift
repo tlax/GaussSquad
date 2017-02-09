@@ -23,6 +23,15 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
     {
         var indeterminates:[MLinearEquationsSolutionIndeterminate] = []
         
+        if let rawIndeterminates:[DIndeterminate] = self.project?.indeterminates?.array as? [DIndeterminate]
+        {
+            for rawIndeterminate:DIndeterminate in rawIndeterminates
+            {
+                let indeterminate:MLinearEquationsSolutionIndeterminate = MLinearEquationsSolutionIndeterminate(
+                    indeterminate:rawIndeterminate)
+                indeterminates.append(indeterminate)
+            }
+        }
         
         foundIndeterminates(
             indeterminates:indeterminates)
