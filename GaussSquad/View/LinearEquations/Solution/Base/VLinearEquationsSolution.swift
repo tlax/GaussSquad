@@ -46,9 +46,11 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
     
     //MARK: private
     
-    private func modelAtIndex(index:IndexPath)
+    private func modelAtIndex(index:IndexPath) -> MLinearEquationsSolutionEquationItem
     {
-        let item:MLinearEquationsSolutionEquationItem = controller.model.steps[index.section].countItems.
+        let item:MLinearEquationsSolutionEquationItem = controller.model.steps[index.section].plainItems[index.item]
+        
+        return item
     }
     
     //MARK: public
@@ -71,13 +73,19 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = controller.model.steps[section].countItems
+        let count:Int = controller.model.steps[section].plainItems.count
         
         return count
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MLinearEquationsSolutionEquationItem = modelAtIndex(index:indexPath)
+        let cell:VLinearEquationsSolutionCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            item.reusableIdentifier,
+            for:indexPath) as! VLinearEquationsSolutionCell
         
+        return cell
     }
 }
