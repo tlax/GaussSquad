@@ -27,9 +27,30 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
         let collectionView:VCollection = VCollection(flow:flow)
         collectionView.alwaysBounceVertical = true
         collectionView.alwaysBounceHorizontal = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerHeader(
+            header:VLinearEquationsSolutionHeaderStart.self)
+        collectionView.registerHeader(
+            header:VLinearEquationsSolutionHeaderProcess.self)
+        collectionView.registerHeader(
+            header:VLinearEquationsSolutionHeaderDone.self)
+        collectionView.registerHeader(
+            header:VLinearEquationsSolutionHeaderError.self)
+        collectionView.registerCell(
+            cell:VLinearEquationsSolutionCellPolynomialDecimal.self)
+        collectionView.registerCell(
+            cell:VLinearEquationsSolutionCellPolynomialDivision.self)
+        collectionView.registerCell(
+            cell:VLinearEquationsSolutionCellConstantDecimal.self)
+        collectionView.registerCell(
+            cell:VLinearEquationsSolutionCellConstantDivision.self)
+        collectionView.registerCell(
+            cell:VLinearEquationsSolutionCellEquals.self)
         self.collectionView = collectionView
         
         addSubview(spinner)
+        addSubview(collectionView)
         addSubview(viewBar)
         
         layoutBarTop = NSLayoutConstraint.topToTop(
@@ -42,6 +63,9 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
             view:viewBar,
             toView:self)
         
+        NSLayoutConstraint.equals(
+            view:collectionView,
+            toView:self)
         NSLayoutConstraint.equals(
             view:spinner,
             toView:self)
