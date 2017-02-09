@@ -26,7 +26,7 @@ class MLinearEquationsProject
     
     private func createProject()
     {
-        DManager.sharedInstance?.createManagedObject(
+        DManager.sharedInstance?.createData(
             entityName:DProject.entityName)
         { [weak self] (created) in
             
@@ -48,7 +48,7 @@ class MLinearEquationsProject
         symbol:String,
         completion:(() -> ())?)
     {
-        DManager.sharedInstance?.createManagedObject(
+        DManager.sharedInstance?.createData(
             entityName:DIndeterminate.entityName)
         { [weak self] (created) in
             
@@ -71,7 +71,7 @@ class MLinearEquationsProject
     
     private func createEquation(completion:(() -> ())?)
     {
-        DManager.sharedInstance?.createManagedObject(
+        DManager.sharedInstance?.createData(
             entityName:DEquation.entityName)
         { [weak self] (created) in
             
@@ -101,7 +101,7 @@ class MLinearEquationsProject
         indeterminates:[DIndeterminate],
         completion:(() -> ())?)
     {
-        DManager.sharedInstance?.createManagedObject(
+        DManager.sharedInstance?.createData(
             entityName:DPolynomial.entityName)
         { [weak self] (created) in
             
@@ -139,7 +139,7 @@ class MLinearEquationsProject
         equation:DEquation,
         completion:(() -> ())?)
     {
-        DManager.sharedInstance?.createManagedObject(
+        DManager.sharedInstance?.createData(
             entityName:DPolynomial.entityName)
         { (created) in
             
@@ -429,7 +429,7 @@ class MLinearEquationsProject
     
     func createPolynomial(equation:DEquation)
     {
-        DManager.sharedInstance?.createManagedObject(
+        DManager.sharedInstance?.createData(
             entityName:DPolynomial.entityName)
         { [weak self] (created) in
             

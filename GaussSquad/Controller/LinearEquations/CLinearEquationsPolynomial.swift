@@ -63,9 +63,16 @@ class CLinearEquationsPolynomial:CController
     {
         UIApplication.shared.keyWindow!.endEditing(true)
         
-        DManager.sharedInstance?.save()
+        DManager.sharedInstance?.save
+        {
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.parentController.dismissAnimateOver(completion:nil)
+            }
+        }
+        
         viewPolynomial.endEdition()
-        parentController.dismissAnimateOver(completion:nil)
     }
     
     func trash()
