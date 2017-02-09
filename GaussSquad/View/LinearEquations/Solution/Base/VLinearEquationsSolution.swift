@@ -37,6 +37,8 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
             header:VLinearEquationsSolutionHeaderDone.self)
         collectionView.registerHeader(
             header:VLinearEquationsSolutionHeaderError.self)
+        collectionView.registerFooter(
+            footer:VLinearEquationsSolutionFooter.self)
         collectionView.registerCell(
             cell:VLinearEquationsSolutionCellPolynomialDecimal.self)
         collectionView.registerCell(
@@ -122,13 +124,28 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
     {
         let step:MLinearEquationsSolutionStep = stepAtIndex(index:indexPath)
-        let header:VLinearEquationsSolutionHeader = collectionView.dequeueReusableSupplementaryView(
-            ofKind:kind,
-            withReuseIdentifier:
-            step.reusableIdentifier,
-            for:indexPath) as! VLinearEquationsSolutionHeader
+        let reusable:UICollectionReusableView
         
-        return header
+        if kind == UICollectionElementKindSectionHeader
+        {
+            let header:VLinearEquationsSolutionHeader = collectionView.dequeueReusableSupplementaryView(
+                ofKind:kind,
+                withReuseIdentifier:
+                step.reusableIdentifier,
+                for:indexPath) as! VLinearEquationsSolutionHeader
+            
+            reusable = header
+        }
+        else
+        {
+            reusable = collectionView.dequeueReusableSupplementaryView(
+                ofKind:kind,
+                withReuseIdentifier:
+                VLinearEquationsSolutionFooter.reusableIdentifier,
+                for:indexPath)
+        }
+        
+        return reusable
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
