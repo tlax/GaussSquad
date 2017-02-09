@@ -3,5 +3,5 @@ import Foundation
 protocol MLinearEquationsSolutionStrategyDelegate:class
 {
     func solutionStrategyCompleted(step:MLinearEquationsSolutionStep)
-    func solutionStrategyIndeterminates(indeterminates:[MLinearEquationsSolutionIndeterminate])
+    func solutionStrategyIndeterminates(indeterminates:MLinearEquationsSolutionIndeterminates)
 }

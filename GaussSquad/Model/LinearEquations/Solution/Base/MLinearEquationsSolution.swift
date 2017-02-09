@@ -5,13 +5,12 @@ class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate
     private weak var project:DProject?
     private weak var controller:CLinearEquationsSolution?
     private(set) var steps:[MLinearEquationsSolutionStep]
-    private(set) var indeterminates:[MLinearEquationsSolutionIndeterminate]
+    private(set) var indeterminates:MLinearEquationsSolutionIndeterminates?
     
     init(project:DProject)
     {
         self.project = project
         steps = []
-        indeterminates = []
     }
     
     //MARK: public
@@ -43,8 +42,8 @@ class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate
         }
     }
     
-    func solutionStrategyIndeterminates(indeterminates:[MLinearEquationsSolutionIndeterminate])
+    func solutionStrategyIndeterminates(indeterminates:MLinearEquationsSolutionIndeterminates)
     {
-        self.indeterminates.append(contentsOf:indeterminates)
+        self.indeterminates = indeterminates
     }
 }

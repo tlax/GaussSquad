@@ -21,17 +21,20 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
     
     private func findIndeterminates()
     {
-        var indeterminates:[MLinearEquationsSolutionIndeterminate] = []
+        var indeterminatesItems:[MLinearEquationsSolutionIndeterminatesItem] = []
         
         if let rawIndeterminates:[DIndeterminate] = project?.indeterminates?.array as? [DIndeterminate]
         {
             for rawIndeterminate:DIndeterminate in rawIndeterminates
             {
-                let indeterminate:MLinearEquationsSolutionIndeterminate = MLinearEquationsSolutionIndeterminate(
+                let indeterminate:MLinearEquationsSolutionIndeterminatesItem = MLinearEquationsSolutionIndeterminatesItem(
                     indeterminate:rawIndeterminate)
-                indeterminates.append(indeterminate)
+                indeterminatesItems.append(indeterminate)
             }
         }
+        
+        let indeterminates:MLinearEquationsSolutionIndeterminates = MLinearEquationsSolutionIndeterminates(
+            items:indeterminatesItems)
         
         foundIndeterminates(
             indeterminates:indeterminates)
@@ -39,7 +42,7 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
         findEquations(indeterminates:indeterminates)
     }
     
-    private func findEquations(indeterminates:[MLinearEquationsSolutionIndeterminate])
+    private func findEquations(indeterminates:MLinearEquationsSolutionIndeterminates)
     {
         var equations:[MLinearEquationsSolutionEquation] = []
         
@@ -92,7 +95,7 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
     
     private func findPolynomial(
         rawPolynomial:DPolynomial,
-        indeterminates:[MLinearEquationsSolutionIndeterminate]) -> MLinearEquationsSolutionEquationItem?
+        indeterminates:MLinearEquationsSolutionIndeterminates) -> MLinearEquationsSolutionEquationItem?
     {
         let polynomial:MLinearEquationsSolutionEquationItem?
         
