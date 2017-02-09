@@ -4,8 +4,9 @@ class VLinearEquationsSolution:VView
 {
     private weak var controller:CLinearEquationsSolution!
     private weak var viewBar:VLinearEquationsSolutionBar!
+    private weak var spinner:VSpinner?
     private weak var layoutBarTop:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 80
+    private let kBarHeight:CGFloat = 90
     
     override init(controller:CController)
     {
@@ -16,6 +17,10 @@ class VLinearEquationsSolution:VView
             controller:self.controller)
         self.viewBar = viewBar
         
+        let spinner:VSpinner = VSpinner()
+        self.spinner = spinner
+        
+        addSubview(spinner)
         addSubview(viewBar)
         
         layoutBarTop = NSLayoutConstraint.topToTop(
@@ -26,6 +31,10 @@ class VLinearEquationsSolution:VView
             constant:kBarHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:spinner,
             toView:self)
     }
     
@@ -38,6 +47,8 @@ class VLinearEquationsSolution:VView
     
     func refresh()
     {
-        
+        spinner?.stopAnimating()
+        spinner?.removeFromSuperview()
+        viewBar.refresh()
     }
 }

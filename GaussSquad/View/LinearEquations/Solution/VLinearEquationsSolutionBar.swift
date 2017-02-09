@@ -73,4 +73,11 @@ class VLinearEquationsSolutionBar:UIView
     {
         controller.back()
     }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        
+    }
 }
