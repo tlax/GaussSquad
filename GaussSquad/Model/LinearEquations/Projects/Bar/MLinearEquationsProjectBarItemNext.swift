@@ -9,6 +9,6 @@ class MLinearEquationsProjectBarItemNext:MLinearEquationsProjectBarItem
     
     override func selected(controller:CLinearEquationsProject)
     {
-        controller.save()
+        controller.next()
     }
 }

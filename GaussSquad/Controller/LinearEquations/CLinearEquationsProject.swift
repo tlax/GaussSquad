@@ -71,7 +71,10 @@ class CLinearEquationsProject:CController
     
     func next()
     {
-        
+        let controllerSolution:CLinearEquationsSolution = CLinearEquationsSolution()
+        parentController.push(
+            controller:controllerSolution,
+            horizontal:CParent.TransitionHorizontal.fromRight)
     }
     
     func compress()
