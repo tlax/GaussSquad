@@ -7,24 +7,20 @@ extension DEquation
     
     func restartResult()
     {
-        DManager.sharedInstance?.createManagedObject(
-            entityName:DPolynomial.entityName)
-        { [weak self] (created) in
+        guard
             
-            guard
-                
-                let newResult:DPolynomial = created as? DPolynomial,
-                let oldResult:DPolynomial = self?.result
-                
-            else
-            {
-                return
-            }
-            
-            self?.result = newResult
-            DManager.sharedInstance?.delete(object:oldResult)
-            DManager.sharedInstance?.save()
+            let result:DPolynomial = DManager.sharedInstance?.createDataAndWait(
+                entityName:DPolynomial.entityName) as? DPolynomial,
+            let oldResult:DPolynomial = self?.result
+        
+        else
+        {
+            return
         }
+        
+        self.result = result
+        DManager.sharedInstance?.deleteAndWait(data:oldResult)
+        DManager.sharedInstance?.save()
     }
     
     func deletePolynomial(polynomial:DPolynomial)
