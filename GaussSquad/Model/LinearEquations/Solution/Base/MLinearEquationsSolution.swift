@@ -3,6 +3,7 @@ import Foundation
 class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate
 {
     private weak var project:DProject?
+    private weak var lastProcessedStep:MLinearEquationsSolutionStep?
     private(set) var steps:[MLinearEquationsSolutionStep]
     private(set) var indeterminates:[MLinearEquationsSolutionIndeterminate]
     
