@@ -73,13 +73,6 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
         return nil
     }
     
-    override func layoutSubviews()
-    {
-        collectionView.collectionViewLayout.invalidateLayout()
-        
-        super.layoutSubviews()
-    }
-    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MLinearEquationsProjectRowItem

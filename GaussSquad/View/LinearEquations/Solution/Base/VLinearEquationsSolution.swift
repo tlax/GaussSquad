@@ -3,7 +3,7 @@ import UIKit
 class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionViewDataSource
 {
     private weak var controller:CLinearEquationsSolution!
-    private weak var collectonView:VCollection!
+    private weak var collectionView:VCollection!
     private weak var viewBar:VLinearEquationsSolutionBar!
     private weak var spinner:VSpinner?
     private weak var layoutBarTop:NSLayoutConstraint!
@@ -20,6 +20,14 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
         
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
+        
+        let flow:VLinearEquationsSolutionFlow = VLinearEquationsSolutionFlow(
+            model:self.controller.model,
+            barHeight:kBarHeight)
+        let collectionView:VCollection = VCollection(flow:flow)
+        collectionView.alwaysBounceVertical = true
+        collectionView.alwaysBounceHorizontal = true
+        self.collectionView = collectionView
         
         addSubview(spinner)
         addSubview(viewBar)
@@ -67,6 +75,7 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
     {
         spinner?.stopAnimating()
         spinner?.removeFromSuperview()
+        collectionView.reloadData()
         viewBar.refresh()
     }
     
