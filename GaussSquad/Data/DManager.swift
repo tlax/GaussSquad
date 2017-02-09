@@ -110,6 +110,25 @@ class DManager
         }
     }
     
+    func createManagedObjectAndWait(entityName:String) -> NSManagedObject?
+    {
+        var managedObject:NSManagedObject?
+        
+        managedObjectContext.performAndWait
+        {
+            if let entityDescription:NSEntityDescription = NSEntityDescription.entity(
+                forEntityName:entityName,
+                in:self.managedObjectContext)
+            {
+                managedObject = NSManagedObject(
+                    entity:entityDescription,
+                    insertInto:self.managedObjectContext)
+            }
+        }
+        
+        return managedObject
+    }
+    
     func fetchManagedObjects(
         entityName:String,
         limit:Int = 0,
@@ -152,6 +171,14 @@ class DManager
         {
             self.managedObjectContext.delete(object)
             completion?()
+        }
+    }
+    
+    func deleteAndWait(object:NSManagedObject)
+    {
+        managedObjectContext.performAndWait
+        {
+            self.managedObjectContext.delete(object)
         }
     }
 }
