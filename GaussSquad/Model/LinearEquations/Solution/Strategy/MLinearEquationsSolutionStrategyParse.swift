@@ -13,6 +13,8 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
     override func process(delegate:MLinearEquationsSolutionStrategyDelegate)
     {
         super.process(delegate:delegate)
+        
+        findIndeterminates()
     }
     
     //MARK: private
