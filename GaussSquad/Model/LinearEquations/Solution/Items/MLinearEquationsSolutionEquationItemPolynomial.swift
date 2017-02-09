@@ -3,6 +3,8 @@ import UIKit
 class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEquationItem
 {
     weak var indeterminate:DIndeterminate!
+    let coefficientDividend:Double
+    let coefficientDivisor:Double
     
     init(
         indeterminate:DIndeterminate,
@@ -12,10 +14,10 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         cellWidth:CGFloat)
     {
         self.indeterminate = indeterminate
+        self.coefficientDividend = coefficientDividend
+        self.coefficientDivisor = coefficientDivisor
         
         super.init(
-            coefficientDividend:coefficientDividend,
-            coefficientDivisor:coefficientDivisor,
             reusableIdentifier:reusableIdentifier,
             cellWidth:cellWidth)
     }

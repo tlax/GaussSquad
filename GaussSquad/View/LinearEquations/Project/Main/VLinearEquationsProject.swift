@@ -1,6 +1,6 @@
 import UIKit
 
-class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewDataSource
 {
     private weak var controller:CLinearEquationsProject!
     private weak var viewBar:VLinearEquationsProjectBar!

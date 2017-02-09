@@ -1,8 +1,9 @@
 import UIKit
 
-class VLinearEquationsSolution:VView
+class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionViewDataSource
 {
     private weak var controller:CLinearEquationsSolution!
+    private weak var collectonView:VCollection!
     private weak var viewBar:VLinearEquationsSolutionBar!
     private weak var spinner:VSpinner?
     private weak var layoutBarTop:NSLayoutConstraint!
