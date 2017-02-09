@@ -70,8 +70,6 @@ extension DPolynomial
         let polynomialDividend:Double = polynomial.signedDividend()
         let polynomialDivisor:Double = polynomial.coefficientDivisor
         
-        print("\(dividend) + \(polynomialDividend)")
-        
         if coefficientDivisor == polynomialDivisor
         {
             let newDividend:Double = dividend + polynomialDividend

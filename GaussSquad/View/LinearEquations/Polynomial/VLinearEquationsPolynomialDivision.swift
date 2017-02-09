@@ -39,7 +39,7 @@ class VLinearEquationsPolynomialDivision:UIView
         fieldDividend.isScrollEnabled = false
         fieldDividend.showsVerticalScrollIndicator = false
         fieldDividend.showsHorizontalScrollIndicator = false
-        fieldDividend.returnKeyType = UIReturnKeyType.default
+        fieldDividend.returnKeyType = UIReturnKeyType.next
         fieldDividend.keyboardAppearance = UIKeyboardAppearance.light
         fieldDividend.autocorrectionType = UITextAutocorrectionType.no
         fieldDividend.spellCheckingType = UITextSpellCheckingType.no
@@ -61,7 +61,7 @@ class VLinearEquationsPolynomialDivision:UIView
         fieldDivisor.isScrollEnabled = false
         fieldDivisor.showsVerticalScrollIndicator = false
         fieldDivisor.showsHorizontalScrollIndicator = false
-        fieldDivisor.returnKeyType = UIReturnKeyType.default
+        fieldDivisor.returnKeyType = UIReturnKeyType.next
         fieldDivisor.keyboardAppearance = UIKeyboardAppearance.light
         fieldDivisor.autocorrectionType = UITextAutocorrectionType.no
         fieldDivisor.spellCheckingType = UITextSpellCheckingType.no

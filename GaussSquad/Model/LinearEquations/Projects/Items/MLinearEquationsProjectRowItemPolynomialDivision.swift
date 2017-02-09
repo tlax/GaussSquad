@@ -75,7 +75,7 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
             with:maxSize,
             options:drawingOptions,
             context:nil)
-        let rectDivisor:CGRect = attributedDividend.boundingRect(
+        let rectDivisor:CGRect = attributedDivisor.boundingRect(
             with:maxSize,
             options:drawingOptions,
             context:nil)

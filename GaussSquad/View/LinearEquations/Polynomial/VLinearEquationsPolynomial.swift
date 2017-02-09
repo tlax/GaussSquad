@@ -14,6 +14,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
     private let kDot:String = "."
     private let kComma:String = ","
     private let kEmpty:String = ""
+    private let kNewline:String = "\n"
     private let kControlHeight:CGFloat = 50
     private let kIndeterminateHeight:CGFloat = 50
     private let kIndeterminateWidth:CGFloat = 210
@@ -359,6 +360,22 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
     
     func textView(_ textView:UITextView, shouldChangeTextIn range:NSRange, replacementText text:String) -> Bool
     {
+        if text == kNewline
+        {
+            if textView === viewDivision?.fieldDivisor
+            {
+                viewDivision?.fieldDividend.becomeFirstResponder()
+            }
+            else if textView === viewDivision?.fieldDividend
+            {
+                viewDivision?.fieldDivisor.becomeFirstResponder()
+            }
+            else
+            {
+                textView.resignFirstResponder()
+            }
+        }
+        
         let newTextCount:Int = text.characters.count
         
         for newTextIndex:Int in 0 ..< newTextCount

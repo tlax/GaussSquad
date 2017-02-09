@@ -476,10 +476,10 @@ class MLinearEquationsProject
     
     func compress()
     {
-        indeterminatesToLeft()
+//        indeterminatesToLeft()
         addEverything()
-        removeZeros()
-        constantsToRight()
+//        removeZeros()
+//        constantsToRight()
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).asyncAfter(
             deadline:DispatchTime.now() + kDelayCompression)
