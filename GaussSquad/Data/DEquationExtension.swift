@@ -20,7 +20,6 @@ extension DEquation
         
         self.result = result
         DManager.sharedInstance?.deleteAndWait(data:oldResult)
-        DManager.sharedInstance?.save()
     }
     
     func deletePolynomial(polynomial:DPolynomial)

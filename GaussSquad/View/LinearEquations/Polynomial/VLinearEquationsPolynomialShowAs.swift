@@ -103,14 +103,16 @@ class VLinearEquationsPolynomialShowAs:UIView
     func actionDivision(sender button:UIButton)
     {
         makeDivision()
-        controller.polynomial?.makeDivision()
+        controller.polynomial?.showAsDivision = true
+        DManager.sharedInstance?.save()
         controller.viewPolynomial.checkMode()
     }
     
     func actionDecimal(sender button:UIButton)
     {
         makeDecimal()
-        controller.polynomial?.makeDecimal()
+        controller.polynomial?.showAsDivision = false
+        DManager.sharedInstance?.save()
         controller.viewPolynomial.checkMode()
     }
     

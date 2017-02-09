@@ -41,8 +41,8 @@ class CLinearEquationsPolynomialIndeterminate:CController
     
     func selectIndeterminate(indeterminate:DIndeterminate?)
     {
-        model.polynomial?.selectIndeterminate(indeterminate:indeterminate)
-        
+        model.polynomial?.indeterminate = indeterminate
+        DManager.sharedInstance?.save()
         close()
     }
 }

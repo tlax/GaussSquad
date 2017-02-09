@@ -109,36 +109,6 @@ extension DPolynomial
         }
     }
     
-    func makePositive()
-    {
-        isPositive = true
-        DManager.sharedInstance?.save()
-    }
-    
-    func makeNegative()
-    {
-        isPositive = false
-        DManager.sharedInstance?.save()
-    }
-    
-    func makeDivision()
-    {
-        showAsDivision = true
-        DManager.sharedInstance?.save()
-    }
-    
-    func makeDecimal()
-    {
-        showAsDivision = false
-        DManager.sharedInstance?.save()
-    }
-    
-    func selectIndeterminate(indeterminate:DIndeterminate?)
-    {
-        self.indeterminate = indeterminate
-        DManager.sharedInstance?.save()
-    }
-    
     func deleteFromEquation()
     {
         if let equationResult:DEquation = self.equationResult
@@ -174,7 +144,5 @@ extension DPolynomial
         {
             equationPolynomials.deletePolynomial(polynomial:self)
         }
-        
-        DManager.sharedInstance?.save()
     }
 }
