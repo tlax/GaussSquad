@@ -28,7 +28,12 @@ class CLinearEquationsSolution:CController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        model.solve()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.model.solve()
+        }
     }
     
     //MARK: public
