@@ -47,13 +47,53 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
         {
             for rawEquation:DEquation in rawEquations
             {
+                guard
+                    
+                    let rawPolynomials:[DPolynomial] = rawEquation.polynomials?.array as? [DPolynomial],
+                    let rawResult:DPolynomial = rawEquation.result,
+                    let result:MLinearEquationsSolutionEquationItem = findPolynomial(
+                        rawPolynomial:rawResult,
+                        indeterminates:indeterminates)
+                
+                else
+                {
+                    continue
+                }
+                
                 var items:[MLinearEquationsSolutionEquationItem] = []
-                var result:MLinearEquationsSolutionEquationItem
+                
+                for rawPolynomial:DPolynomial in rawPolynomials
+                {
+                    guard
+                    
+                        let polynomial:MLinearEquationsSolutionEquationItem = findPolynomial(
+                            rawPolynomial:rawPolynomial,
+                            indeterminates:indeterminates)
+                    
+                    else
+                    {
+                        continue
+                    }
+                    
+                    items.append(polynomial)
+                }
+                
+                let equation:MLinearEquationsSolutionEquation = MLinearEquationsSolutionEquation(
+                    items:items,
+                    result:result)
+                equations.append(equation)
             }
         }
         
         let step:MLinearEquationsSolutionStepStart = MLinearEquationsSolutionStepStart(
             equations:equations)
         completed(step:step)
+    }
+    
+    private func findPolynomial(
+        rawPolynomial:DPolynomial,
+        indeterminates:[MLinearEquationsSolutionIndeterminate]) -> MLinearEquationsSolutionEquationItem?
+    {
+        return nil
     }
 }
