@@ -2,14 +2,18 @@ import Foundation
 
 class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
 {
-    init(project:DProject, delegate:MLinearEquationsSolutionStrategyDelegate)
+    private weak var project:DProject?
+    
+    init(project:DProject?)
     {
-        super.init(delegate:delegate)
-        
-        
+        super.init(step:nil)
+        self.project = project
+    }
+    
+    override func process(delegate:MLinearEquationsSolutionStrategyDelegate)
+    {
+        super.process(delegate:delegate)
     }
     
     //MARK: private
-    
-    private func 
 }

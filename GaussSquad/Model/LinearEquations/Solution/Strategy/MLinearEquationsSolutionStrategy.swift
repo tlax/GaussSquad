@@ -3,18 +3,24 @@ import Foundation
 class MLinearEquationsSolutionStrategy
 {
     private weak var delegate:MLinearEquationsSolutionStrategyDelegate?
+    private weak var step:MLinearEquationsSolutionStep?
     
-    class func strategyFor(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategy.Type?
+    class func strategyFor(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategy?
     {
         return nil
     }
     
-    init(delegate:MLinearEquationsSolutionStrategyDelegate)
+    init(step:MLinearEquationsSolutionStep?)
     {
-        self.delegate = delegate
+        self.step = step
     }
     
     //MARK: public
+    
+    func process(delegate:MLinearEquationsSolutionStrategyDelegate)
+    {
+        self.delegate = delegate
+    }
     
     func completed(step:MLinearEquationsSolutionStep)
     {

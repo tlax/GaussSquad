@@ -32,11 +32,25 @@ class CLinearEquationsSolution:CController
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.model.solve()
+            guard
+            
+                let strongSelf:CLinearEquationsSolution = self
+                
+            else
+            {
+                return
+            }
+            
+            strongSelf.model.solve(controller:strongSelf)
         }
     }
     
     //MARK: public
+    
+    func solutionComplete()
+    {
+        
+    }
     
     func back()
     {
