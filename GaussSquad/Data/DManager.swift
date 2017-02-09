@@ -87,7 +87,7 @@ class DManager
         }
     }
     
-    func createManagedObject(
+    func createData(
         entityName:String,
         completion:@escaping((NSManagedObject?) -> ()))
     {
@@ -110,7 +110,7 @@ class DManager
         }
     }
     
-    func createManagedObjectAndWait(entityName:String) -> NSManagedObject?
+    func createDataAndWait(entityName:String) -> NSManagedObject?
     {
         var managedObject:NSManagedObject?
         
@@ -129,7 +129,7 @@ class DManager
         return managedObject
     }
     
-    func fetchManagedObjects(
+    func fetchData(
         entityName:String,
         limit:Int = 0,
         predicate:NSPredicate? = nil,
@@ -165,20 +165,20 @@ class DManager
         }
     }
     
-    func delete(object:NSManagedObject, completion:(() -> ())? = nil)
+    func delete(data:NSManagedObject, completion:(() -> ())? = nil)
     {
         managedObjectContext.perform
         {
-            self.managedObjectContext.delete(object)
+            self.managedObjectContext.delete(data)
             completion?()
         }
     }
     
-    func deleteAndWait(object:NSManagedObject)
+    func deleteAndWait(data:NSManagedObject)
     {
         managedObjectContext.performAndWait
         {
-            self.managedObjectContext.delete(object)
+            self.managedObjectContext.delete(data)
         }
     }
 }
