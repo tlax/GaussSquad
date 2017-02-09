@@ -68,15 +68,35 @@ extension DPolynomial
     {
         let dividend:Double = signedDividend()
         let polynomialDividend:Double = polynomial.signedDividend()
+        let polynomialDivisor:Double = polynomial.coefficientDivisor
         
         print("\(dividend) + \(polynomialDividend)")
         
-        if coefficientDivisor == polynomial.coefficientDivisor
+        if coefficientDivisor == polynomialDivisor
         {
             let newDividend:Double = dividend + polynomialDividend
             coefficientDividend = abs(newDividend)
             
             if newDividend < 0
+            {
+                isPositive = false
+            }
+            else
+            {
+                isPositive = true
+            }
+        }
+        else
+        {
+            let newDivisor:Double = coefficientDivisor * polynomialDivisor
+            let newDividend:Double = dividend * polynomialDivisor
+            let newPolynomialDividend:Double = polynomialDividend * coefficientDivisor
+            
+            let totalDividend:Double = newDividend + newPolynomialDividend
+            coefficientDividend = abs(totalDividend)
+            coefficientDivisor = newDivisor
+            
+            if totalDividend < 0
             {
                 isPositive = false
             }
