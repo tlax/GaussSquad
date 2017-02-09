@@ -204,9 +204,9 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
             
                 let textDividend:String = viewDivision?.fieldDividend.text,
                 let textDivisor:String = viewDivision?.fieldDivisor.text,
-                let numberDividend:NSNumber = numberFormatter.number(
+                let numberDividend:NSNumber = MSession.sharedInstance.numberFormatter.number(
                     from:textDividend),
-                let numberDivisor:NSNumber = numberFormatter.number(
+                let numberDivisor:NSNumber = MSession.sharedInstance.numberFormatter.number(
                     from:textDivisor)
             
             else
@@ -231,7 +231,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
             guard
                 
                 let text:String = viewText?.text,
-                let number:NSNumber = numberFormatter.number(
+                let number:NSNumber = MSession.sharedInstance.numberFormatter.number(
                     from:text)
                 
             else
@@ -267,9 +267,9 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
             guard
             
                 let viewDivision:VLinearEquationsPolynomialDivision = self.viewDivision,
-                let dividendString:String = numberFormatter.string(
+                let dividendString:String = MSession.sharedInstance.numberFormatter.string(
                     from:dividendNumber),
-                let divisorString:String = numberFormatter.string(
+                let divisorString:String = MSession.sharedInstance.numberFormatter.string(
                     from:divisorNumber)
             
             else
@@ -292,7 +292,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
             guard
                 
                 let viewText:VLinearEquationsPolynomialText = self.viewText,
-                let coefficientString:String = numberFormatter.string(
+                let coefficientString:String = MSession.sharedInstance.numberFormatter.string(
                     from:coefficentNumber)
                 
             else

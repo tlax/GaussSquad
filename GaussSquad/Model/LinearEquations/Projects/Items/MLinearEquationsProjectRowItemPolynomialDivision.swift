@@ -5,26 +5,14 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
     let attributedDividend:NSAttributedString
     let attributedDivisor:NSAttributedString
     let positive:Bool
-    private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
     private let kFontSize:CGFloat = 19
     private let kMaxHeight:CGFloat = 25
     private let kMaxWidth:CGFloat = 5000
     private let kMargin:CGFloat = 30
-    private let kMinIntegers:Int = 1
-    private let kMaxIntegers:Int = 32
-    private let kMinDecimals:Int = 0
-    private let kMaxDecimals:Int = 32
     
     init(polynomial:DPolynomial)
     {
         positive = polynomial.isPositive
-        
-        let numberFormatter:NumberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = kNumberFormatterStyle
-        numberFormatter.minimumIntegerDigits = kMinIntegers
-        numberFormatter.maximumIntegerDigits = kMaxIntegers
-        numberFormatter.minimumFractionDigits = kMinDecimals
-        numberFormatter.maximumFractionDigits = kMaxDecimals
         
         let coefficientDividend:NSNumber = NSNumber(value:polynomial.coefficientDividend)
         let coefficientDivisor:NSNumber = NSNumber(value:polynomial.coefficientDivisor)
@@ -38,7 +26,8 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
         
         let mutableDividend:NSMutableAttributedString = NSMutableAttributedString()
         
-        if let rawDividend:String = numberFormatter.string(from:coefficientDividend)
+        if let rawDividend:String = MSession.sharedInstance.numberFormatter.string(
+            from:coefficientDividend)
         {
             let attributedDividend:NSAttributedString = NSAttributedString(
                 string:rawDividend,
@@ -56,7 +45,8 @@ class MLinearEquationsProjectRowItemPolynomialDivision:MLinearEquationsProjectRo
         
         attributedDividend = mutableDividend
         
-        if let rawDivisor:String = numberFormatter.string(from:coefficientDivisor)
+        if let rawDivisor:String = MSession.sharedInstance.numberFormatter.string(
+            from:coefficientDivisor)
         {
             attributedDivisor = NSAttributedString(
                 string:rawDivisor,

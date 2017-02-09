@@ -4,26 +4,14 @@ class MLinearEquationsProjectRowItemPolynomialDecimal:MLinearEquationsProjectRow
 {
     let attributedString:NSAttributedString
     let positive:Bool
-    private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
     private let kFontSize:CGFloat = 32
     private let kMaxHeight:CGFloat = 30
     private let kMaxWidth:CGFloat = 5000
     private let kMargin:CGFloat = 30
-    private let kMinIntegers:Int = 1
-    private let kMaxIntegers:Int = 32
-    private let kMinDecimals:Int = 0
-    private let kMaxDecimals:Int = 32
     
     init(polynomial:DPolynomial)
     {
         positive = polynomial.isPositive
-        
-        let numberFormatter:NumberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = kNumberFormatterStyle
-        numberFormatter.minimumIntegerDigits = kMinIntegers
-        numberFormatter.maximumIntegerDigits = kMaxIntegers
-        numberFormatter.minimumFractionDigits = kMinDecimals
-        numberFormatter.maximumFractionDigits = kMaxDecimals
         
         let coefficient:Double = abs(polynomial.coefficient())
         let coefficientNumber:NSNumber = NSNumber(value:coefficient)
@@ -37,7 +25,7 @@ class MLinearEquationsProjectRowItemPolynomialDecimal:MLinearEquationsProjectRow
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         
-        if let rawCoefficient:String = numberFormatter.string(from:coefficientNumber)
+        if let rawCoefficient:String = MSession.sharedInstance.numberFormatter.string(from:coefficientNumber)
         {
             let stringCoefficient:NSAttributedString = NSAttributedString(
                 string:rawCoefficient,
