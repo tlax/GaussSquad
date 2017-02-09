@@ -395,9 +395,9 @@
 			isa = PBXGroup;
 			children = (
 				DA62D35A1E4CD51D000D0387 /* MLinearEquationsSolutionEquationItemConstant.swift */,
-				DA62D35C1E4CD53F000D0387 /* MLinearEquationsSolutionEquationItemPolynomial.swift */,
 				DA62D35E1E4CD583000D0387 /* MLinearEquationsSolutionEquationItemConstantDecimal.swift */,
 				DA62D3601E4CD58D000D0387 /* MLinearEquationsSolutionEquationItemConstantDivision.swift */,
+				DA62D35C1E4CD53F000D0387 /* MLinearEquationsSolutionEquationItemPolynomial.swift */,
 				DA62D3621E4CD599000D0387 /* MLinearEquationsSolutionEquationItemPolynomialDecimal.swift */,
 				DA62D3641E4CD5A5000D0387 /* MLinearEquationsSolutionEquationItemPolynomialDivision.swift */,
 			);
