@@ -44,6 +44,13 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
         return nil
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath)
+    {
+        let item:MLinearEquationsSolutionEquationItem = controller.model.steps[index.section].countItems.
+    }
+    
     //MARK: public
     
     func refresh()
@@ -51,5 +58,26 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
         spinner?.stopAnimating()
         spinner?.removeFromSuperview()
         viewBar.refresh()
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        let count:Int = controller.model.steps.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.steps[section].countItems
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        
     }
 }
