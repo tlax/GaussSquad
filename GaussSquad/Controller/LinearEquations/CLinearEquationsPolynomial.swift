@@ -50,10 +50,13 @@ class CLinearEquationsPolynomial:CController
     
     private func trashDone()
     {
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.parentController.dismissAnimateOver(completion:nil)
+        DManager.sharedInstance?.save
+        {
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.parentController.dismissAnimateOver(completion:nil)
+            }
         }
     }
     
