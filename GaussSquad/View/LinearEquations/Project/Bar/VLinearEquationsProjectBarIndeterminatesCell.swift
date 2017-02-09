@@ -62,11 +62,11 @@ class VLinearEquationsProjectBarIndeterminatesCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            label.textColor = UIColor.black
+            label.textColor = UIColor(white:0, alpha:0.3)
         }
         else
         {
-            label.textColor = UIColor(white:0, alpha:0.5)
+            label.textColor = UIColor.black
         }
     }
     
