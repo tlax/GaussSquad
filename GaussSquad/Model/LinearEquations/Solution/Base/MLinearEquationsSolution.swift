@@ -1,6 +1,6 @@
 import Foundation
 
-class MLinearEquationsSolution
+class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate
 {
     private weak var project:DProject?
     private(set) var steps:[MLinearEquationsSolutionStep]
@@ -16,6 +16,18 @@ class MLinearEquationsSolution
     //MARK: public
     
     func solve()
+    {
+        
+    }
+    
+    //MARK: solutionsStrategy delegate
+    
+    func solutionStrategyDone(equations: [MLinearEquationsSolutionEquation])
+    {
+        
+    }
+    
+    func solutionStrategyError(error: String)
     {
         
     }
