@@ -6,7 +6,7 @@ class MLinearEquationsSolutionStepStart:MLinearEquationsSolutionStep
     
     init(equations:[MLinearEquationsSolutionEquation])
     {
-        let reusableIdentifier:String = VLinearEquationsSolutionHeader.reusableIdentifier
+        let reusableIdentifier:String = VLinearEquationsSolutionHeaderStart.reusableIdentifier
         
         super.init(
             equations:equations,
