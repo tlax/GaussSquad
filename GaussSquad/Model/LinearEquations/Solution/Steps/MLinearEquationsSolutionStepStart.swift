@@ -6,11 +6,11 @@ class MLinearEquationsSolutionStepStart:MLinearEquationsSolutionStep
     
     init(equations:[MLinearEquationsSolutionEquation])
     {
-        let reusableIdentifier:String = VHelpCell.
+        let reusableIdentifier:String = VLinearEquationsSolutionHeader.reusableIdentifier
         
         super.init(
             equations:equations,
-            reusableIdentifier: <#T##String#>,
-            headerHeight: <#T##CGFloat#>)
+            reusableIdentifier:reusableIdentifier,
+            headerHeight:kHeaderHeight)
     }
 }
