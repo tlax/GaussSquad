@@ -21,11 +21,27 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
         let maxSize:CGSize = CGSize(
             width:kMaxStringWidth,
             height:kMaxStringHeight)
-        stringCoefficient = NSAttributedString(
-            string:"",
+        let coefficient:Double = coefficientDividend / coefficientDivisor
+        let rawString:String = MSession.sharedInstance.stringFrom(
+            number:coefficient)
+        
+        let attributedCoefficient:NSAttributedString = NSAttributedString(
+            string:rawString,
+            attributes:attributes)
+        let attributedIndeterminate:NSAttributedString = NSAttributedString(
+            string:indeterminate.symbol,
             attributes:attributes)
         
-        let cellWidth:CGFloat = 100
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        mutableString.append(attributedCoefficient)
+        mutableString.append(attributedIndeterminate)
+        stringCoefficient = mutableString
+        
+        let stringRect:CGRect = stringCoefficient.boundingRect(
+            with:maxSize,
+            options:drawingOptions,
+            context:nil)
+        let cellWidth:CGFloat = ceil(stringRect.size.width)
         
         super.init(
             indeterminate:indeterminate,
