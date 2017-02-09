@@ -99,11 +99,21 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
     {
         let polynomial:MLinearEquationsSolutionEquationItem?
         
-        if let indeterminate:DIndeterminate = rawPolynomial.indeterminate
+        if let rawIndeterminate:DIndeterminate = rawPolynomial.indeterminate
         {
+            guard
+            
+                let indeterminate:MLinearEquationsSolutionIndeterminatesItem = indeterminates.indeterminateFor(
+                    rawIndeterminate:rawIndeterminate)
+            
+            else
+            {
+                return nil
+            }
+            
             if rawPolynomial.showAsDivision
             {
-                
+                polynomial = MLinearEquationsSolutionEquationItemPolynomialDivision(indeterminate: <#T##DIndeterminate#>, coefficientDividend: <#T##Double#>, coefficientDivisor: <#T##Double#>)
             }
             else
             {

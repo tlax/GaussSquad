@@ -2,12 +2,12 @@ import UIKit
 
 class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEquationItem
 {
-    weak var indeterminate:DIndeterminate!
+    weak var indeterminate:MLinearEquationsSolutionIndeterminatesItem!
     let coefficientDividend:Double
     let coefficientDivisor:Double
     
     init(
-        indeterminate:DIndeterminate,
+        indeterminate:MLinearEquationsSolutionIndeterminatesItem,
         coefficientDividend:Double,
         coefficientDivisor:Double,
         reusableIdentifier:String,

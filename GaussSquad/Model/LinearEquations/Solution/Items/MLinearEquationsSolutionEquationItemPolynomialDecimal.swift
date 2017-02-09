@@ -3,7 +3,7 @@ import UIKit
 class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolutionEquationItemPolynomial
 {
     init(
-        indeterminate:DIndeterminate,
+        indeterminate:MLinearEquationsSolutionIndeterminatesItem,
         coefficientDividend:Double,
         coefficientDivisor:Double)
     {
