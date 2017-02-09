@@ -94,6 +94,31 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
         rawPolynomial:DPolynomial,
         indeterminates:[MLinearEquationsSolutionIndeterminate]) -> MLinearEquationsSolutionEquationItem?
     {
-        return nil
+        let polynomial:MLinearEquationsSolutionEquationItem?
+        
+        if let indeterminate:DIndeterminate = rawPolynomial.indeterminate
+        {
+            if rawPolynomial.showAsDivision
+            {
+                
+            }
+            else
+            {
+                
+            }
+        }
+        else
+        {
+            if rawPolynomial.showAsDivision
+            {
+                
+            }
+            else
+            {
+                
+            }
+        }
+        
+        return polynomial
     }
 }

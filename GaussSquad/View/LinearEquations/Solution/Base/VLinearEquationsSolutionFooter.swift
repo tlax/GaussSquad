@@ -6,7 +6,7 @@ class VLinearEquationsSolutionFooter:UICollectionReusableView
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor(white:0, alpha:0.1)
+        backgroundColor = UIColor(white:0, alpha:0.05)
         isUserInteractionEnabled = false
     }
     
