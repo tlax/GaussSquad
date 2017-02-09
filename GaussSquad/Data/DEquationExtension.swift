@@ -11,7 +11,7 @@ extension DEquation
             
             let result:DPolynomial = DManager.sharedInstance?.createDataAndWait(
                 entityName:DPolynomial.entityName) as? DPolynomial,
-            let oldResult:DPolynomial = self?.result
+            let oldResult:DPolynomial = self.result
         
         else
         {
@@ -26,7 +26,7 @@ extension DEquation
     func deletePolynomial(polynomial:DPolynomial)
     {
         removeFromPolynomials(polynomial)
-        DManager.sharedInstance?.delete(object:polynomial)
+        DManager.sharedInstance?.deleteAndWait(data:polynomial)
     }
     
     func moveToLeft(polynomial:DPolynomial)
@@ -42,28 +42,24 @@ extension DEquation
         
         if equation == self
         {
-            DManager.sharedInstance?.createManagedObject(
-                entityName:DPolynomial.entityName)
-            { (created:NSManagedObject?) in
+            guard
                 
-                guard
-                    
-                    let newPolynomial:DPolynomial = created as? DPolynomial
-                    
-                else
-                {
-                    return
-                }
-                
-                newPolynomial.equationPolynomials = equation
-                newPolynomial.coefficientDividend = polynomial.coefficientDividend
-                newPolynomial.coefficientDivisor = polynomial.coefficientDivisor
-                newPolynomial.isPositive = !polynomial.isPositive
-                newPolynomial.showAsDivision = polynomial.showAsDivision
-                newPolynomial.indeterminate = polynomial.indeterminate
-                
-                equation.restartResult()
+                let newPolynomial:DPolynomial = DManager.sharedInstance?.createDataAndWait(
+                    entityName:DPolynomial.entityName) as? DPolynomial
+            
+            else
+            {
+                return
             }
+            
+            newPolynomial.equationPolynomials = equation
+            newPolynomial.coefficientDividend = polynomial.coefficientDividend
+            newPolynomial.coefficientDivisor = polynomial.coefficientDivisor
+            newPolynomial.isPositive = !polynomial.isPositive
+            newPolynomial.showAsDivision = polynomial.showAsDivision
+            newPolynomial.indeterminate = polynomial.indeterminate
+            
+            equation.restartResult()
         }
     }
     
