@@ -75,7 +75,7 @@ extension DEquation
     {
         guard
             
-            let equation:DEquation = polynomial.equationResult,
+            let equation:DEquation = polynomial.equationPolynomials,
             let result:DPolynomial = self.result,
             let inversed:DPolynomial = polynomial.inversed()
             
