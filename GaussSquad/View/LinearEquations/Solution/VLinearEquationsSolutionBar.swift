@@ -3,6 +3,7 @@ import UIKit
 class VLinearEquationsSolutionBar:UIView
 {
     private weak var controller:CLinearEquationsSolution!
+    private let kBorderHeight:CGFloat = 1
     private let kBackTop:CGFloat = 20
     private let kBackWidth:CGFloat = 60
     private let kBackHeight:CGFloat = 44
@@ -14,6 +15,8 @@ class VLinearEquationsSolutionBar:UIView
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         let buttonBack:UIButton = UIButton()
         buttonBack.translatesAutoresizingMaskIntoConstraints = false
@@ -30,9 +33,19 @@ class VLinearEquationsSolutionBar:UIView
             self,
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
-        buttonBack.isHidden = true
         
+        addSubview(border)
         addSubview(buttonBack)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
         
         NSLayoutConstraint.topToTop(
             view:buttonBack,
