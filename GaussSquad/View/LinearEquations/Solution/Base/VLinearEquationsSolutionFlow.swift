@@ -3,7 +3,8 @@ import UIKit
 class VLinearEquationsSolutionFlow:UICollectionViewLayout
 {
     private weak var model:MLinearEquationsSolution!
-    private var layoutAttributes:[UICollectionViewLayoutAttributes]
+    private var headerLayoutAttributes:[UICollectionViewLayoutAttributes]
+    private var cellLayoutAttributes:[UICollectionViewLayoutAttributes]
     private var contentWidth:CGFloat
     private var contentHeight:CGFloat
     private let barHeight:CGFloat
@@ -17,7 +18,8 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
         self.barHeight = barHeight
         contentWidth = 0
         contentHeight = 0
-        layoutAttributes = []
+        headerLayoutAttributes = []
+        cellLayoutAttributes = []
         
         super.init()
     }
@@ -31,7 +33,8 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
     {
         super.prepare()
         
-        layoutAttributes = []
+        headerLayoutAttributes = []
+        cellLayoutAttributes = []
         
         var section:Int = 0
         var maxPositionX:CGFloat = 0
@@ -39,37 +42,58 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
         
         for step:MLinearEquationsSolutionStep in model.steps
         {
-            var item:Int = 0
-            var positionX:CGFloat = 0
+            let headerHeight:CGFloat = step.headerHeight
+            let headerIndexPath:IndexPath = IndexPath(
+                item:0,
+                section:section)
+
+            let headerAttribute:UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes(
+                forSupplementaryViewOfKind:UICollectionElementKindSectionHeader,
+                with:headerIndexPath)
+            headerAttribute.frame = CGRect(
+                x:0,
+                y:positionY,
+                width:0,
+                height:headerHeight)
+            headerLayoutAttributes.append(headerAttribute)
             
-            for col:MLinearEquationsProjectRowItem in step.items
-            {
-                let indexPath:IndexPath = IndexPath(
-                    item:item,
-                    section:section)
-                let colWidth:CGFloat = col.cellWidth
-                let frame:CGRect = CGRect(
-                    x:positionX,
-                    y:positionY,
-                    width:colWidth,
-                    height:kCellHeight)
-                
-                item += 1
-                positionX += colWidth
-                
-                let attributes:UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes(
-                    forCellWith:indexPath)
-                attributes.frame = frame
-                layoutAttributes.append(attributes)
-            }
+            positionY += headerHeight
             
-            if positionX > maxPositionX
+            for equation:MLinearEquationsSolutionEquation in step.equations
             {
-                maxPositionX = positionX
+                var index:Int = 0
+                var positionX:CGFloat = 0
+                
+                for item:MLinearEquationsSolutionEquationItem in equation.items
+                {
+                    let indexPath:IndexPath = IndexPath(
+                        item:index,
+                        section:section)
+                    let cellWidth:CGFloat = item.cellWidth
+                    let frame:CGRect = CGRect(
+                        x:positionX,
+                        y:positionY,
+                        width:cellWidth,
+                        height:kCellHeight)
+                    
+                    index += 1
+                    positionX += cellWidth
+                    
+                    let attributes:UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes(
+                        forCellWith:indexPath)
+                    attributes.frame = frame
+                    cellLayoutAttributes.append(attributes)
+                }
+                
+                if positionX > maxPositionX
+                {
+                    maxPositionX = positionX
+                }
+                
+                positionY += kCellHeight
             }
             
             section += 1
-            positionY += kCellHeight
         }
         
         contentWidth = maxPositionX
@@ -77,7 +101,7 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
     }
     
     override var collectionViewContentSize:CGSize
-        {
+    {
         get
         {
             let size:CGSize = CGSize(
@@ -91,8 +115,11 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
     override func layoutAttributesForElements(in rect:CGRect) -> [UICollectionViewLayoutAttributes]?
     {
         var attributes:[UICollectionViewLayoutAttributes]?
+        var allAttributes:[UICollectionViewLayoutAttributes] = []
+        allAttributes.append(contentsOf:cellLayoutAttributes)
+        allAttributes.append(contentsOf:headerLayoutAttributes)
         
-        for layoutAttribute:UICollectionViewLayoutAttributes in layoutAttributes
+        for layoutAttribute:UICollectionViewLayoutAttributes in allAttributes
         {
             let frame:CGRect = layoutAttribute.frame
             
@@ -110,9 +137,22 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
         return attributes
     }
     
+    override func layoutAttributesForSupplementaryView(ofKind elementKind:String, at indexPath:IndexPath) -> UICollectionViewLayoutAttributes?
+    {
+        for layoutAttribute:UICollectionViewLayoutAttributes in headerLayoutAttributes
+        {
+            if layoutAttribute.indexPath.section == indexPath.section
+            {
+                return layoutAttribute
+            }
+        }
+        
+        return nil
+    }
+    
     override func layoutAttributesForItem(at indexPath:IndexPath) -> UICollectionViewLayoutAttributes?
     {
-        for layoutAttribute:UICollectionViewLayoutAttributes in layoutAttributes
+        for layoutAttribute:UICollectionViewLayoutAttributes in cellLayoutAttributes
         {
             if layoutAttribute.indexPath == indexPath
             {
