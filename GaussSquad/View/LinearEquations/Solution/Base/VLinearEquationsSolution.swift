@@ -158,4 +158,14 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
         
         return cell
     }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
+    }
 }

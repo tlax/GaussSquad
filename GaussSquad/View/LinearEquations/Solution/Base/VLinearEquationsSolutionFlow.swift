@@ -143,8 +143,6 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
             let newFrame:CGRect = CGRect(origin:origin, size:newSize)
             
             attributesReusable.frame = newFrame
-            
-            print("new width \(contentWidth)")
         }
     }
     
