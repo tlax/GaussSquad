@@ -36,12 +36,25 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
     {
         super.prepare()
         
+        guard
+            
+            let collectionView:UICollectionView = self.collectionView
+        
+        else
+        {
+            print("shit")
+            
+            return
+        }
+        
         headerLayoutAttributes = []
         footerLayoutAttributes = []
         cellLayoutAttributes = []
         
+        let collectionWidth:CGFloat = collectionView.bounds.maxX
+        let collectionHeight:CGFloat = collectionView.bounds.maxY
+        var maxPositionX:CGFloat = max(collectionWidth, collectionHeight)
         var section:Int = 0
-        var maxPositionX:CGFloat = 0
         var positionY:CGFloat = barHeight
         
         for step:MLinearEquationsSolutionStep in model.steps
@@ -117,6 +130,22 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
         
         contentWidth = maxPositionX
         contentHeight = positionY
+        
+        var listReusables:[UICollectionViewLayoutAttributes] = []
+        listReusables.append(contentsOf:headerLayoutAttributes)
+        listReusables.append(contentsOf:footerLayoutAttributes)
+        
+        for attributesReusable:UICollectionViewLayoutAttributes in listReusables
+        {
+            let origin:CGPoint = attributesReusable.frame.origin
+            let height:CGFloat = attributesReusable.frame.size.height
+            let newSize:CGSize = CGSize(width:contentWidth, height:height)
+            let newFrame:CGRect = CGRect(origin:origin, size:newSize)
+            
+            attributesReusable.frame = newFrame
+            
+            print("new width \(contentWidth)")
+        }
     }
     
     override var collectionViewContentSize:CGSize
