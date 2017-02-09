@@ -57,12 +57,13 @@ class CLinearEquationsProject:CController
     
     private func deleteDone()
     {
-        DManager.sharedInstance?.save()
-        
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+        DManager.sharedInstance?.save
+        {
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+            }
         }
     }
     
