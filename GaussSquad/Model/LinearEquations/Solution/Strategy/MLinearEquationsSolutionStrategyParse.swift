@@ -59,7 +59,7 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
                     
                     let rawPolynomials:[DPolynomial] = rawEquation.polynomials?.array as? [DPolynomial],
                     let rawResult:DPolynomial = rawEquation.result,
-                    let result:MLinearEquationsSolutionEquationItem = MLinearEquationsSolutionEquationItem.polynomial(
+                    let result:MLinearEquationsSolutionEquationItem = findPolynomial(
                         rawPolynomial:rawResult,
                         indeterminates:indeterminates,
                         index:index)
@@ -75,7 +75,7 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
                 {
                     guard
                     
-                        let polynomial:MLinearEquationsSolutionEquationItem = MLinearEquationsSolutionEquationItem.polynomial(
+                        let polynomial:MLinearEquationsSolutionEquationItem = findPolynomial(
                             rawPolynomial:rawPolynomial,
                             indeterminates:indeterminates,
                             index:index)
@@ -100,5 +100,46 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
         let step:MLinearEquationsSolutionStepStart = MLinearEquationsSolutionStepStart(
             equations:equations)
         completed(step:step)
+    }
+    
+    private func findPolynomial(
+        rawPolynomial:DPolynomial,
+        indeterminates:MLinearEquationsSolutionIndeterminates,
+        index:Int) -> MLinearEquationsSolutionEquationItem?
+    {
+        let polynomial:MLinearEquationsSolutionEquationItem?
+        let coefficientDividend:Double = rawPolynomial.signedDividend()
+        let coefficientDivisor:Double = rawPolynomial.coefficientDivisor
+        let showAsDivision:Bool = rawPolynomial.showAsDivision
+
+        if let rawIndeterminate:DIndeterminate = rawPolynomial.indeterminate
+        {
+            guard
+                
+                let indeterminate:MLinearEquationsSolutionIndeterminatesItem = indeterminates.indeterminateFor(
+                    rawIndeterminate:rawIndeterminate)
+                
+            else
+            {
+                return nil
+            }
+            
+            polynomial = MLinearEquationsSolutionEquationItem.polynomial(
+                coefficientDividend:coefficientDividend,
+                coefficientDivisor:coefficientDivisor,
+                indeterminate:indeterminate,
+                index:index,
+                showAsDivision:showAsDivision)
+        }
+        else
+        {
+            polynomial = MLinearEquationsSolutionEquationItem.coefficient(
+                coefficientDividend:coefficientDividend,
+                coefficientDivisor:coefficientDivisor,
+                index:index,
+                showAsDivision:showAsDivision)
+        }
+        
+        return polynomial
     }
 }
