@@ -125,62 +125,8 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
                                     return
                                 }
                                 
-                                let itemDividend:Double = -itemPolynomial.coefficientDividend
-                                let itemDivisor:Double = itemPolynomial.coefficientDivisor
-                                let resultDividend:Double = resultPolynomial.coefficientDividend
-                                let resultDivisor:Double = resultPolynomial.coefficientDivisor
-                                let reducedDividend:Double
-                                let reducedDivisor:Double
-                                let showAsDivision:Bool
-                                let itemShowAsDivision:Bool
-                                let resultShowAsDivision:Bool
-                                
-                                if let _:MLinearEquationsSolutionEquationItemPolynomialDivision = itemPolynomial as? MLinearEquationsSolutionEquationItemPolynomialDivision
-                                {
-                                    itemShowAsDivision = true
-                                }
-                                else
-                                {
-                                    itemShowAsDivision = false
-                                }
-                                
-                                if let _:MLinearEquationsSolutionEquationItemPolynomialDivision = result as? MLinearEquationsSolutionEquationItemPolynomialDivision
-                                {
-                                    resultShowAsDivision = true
-                                }
-                                else
-                                {
-                                    resultShowAsDivision = false
-                                }
-                                
-                                if itemShowAsDivision || resultShowAsDivision
-                                {
-                                    showAsDivision = true
-                                }
-                                else
-                                {
-                                    showAsDivision = false
-                                }
-                                
-                                if itemDivisor == resultDivisor
-                                {
-                                    reducedDividend = itemDividend + resultDividend
-                                    reducedDivisor = itemDivisor
-                                }
-                                else
-                                {
-                                    let scaledItemDividend:Double = itemDividend * resultDivisor
-                                    let scaledResultDividend:Double = resultDividend * itemDivisor
-                                    reducedDividend = scaledItemDividend + scaledResultDividend
-                                    reducedDivisor = itemDivisor * resultDivisor
-                                }
-                                
-                                result = MLinearEquationsSolutionEquationItem.polynomial(
-                                    coefficientDividend:reducedDividend,
-                                    coefficientDivisor:reducedDivisor,
-                                    indeterminate:resultPolynomial.indeterminate,
-                                    index:0,
-                                    showAsDivision:showAsDivision)
+                                result = resultPolynomial.subtract(
+                                    otherPolynomial:itemPolynomial)
                             }
                             else if let itemConstant:MLinearEquationsSolutionEquationItemConstant = currentItem as? MLinearEquationsSolutionEquationItemConstant
                             {
