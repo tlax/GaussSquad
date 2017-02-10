@@ -3,6 +3,8 @@ import UIKit
 class VLinearEquationsSolutionCellPolynomialDecimal:VLinearEquationsSolutionCell
 {
     private weak var label:UILabel!
+    private weak var imageView:UIImageView!
+    private let kImageWidth:CGFloat = 30
     
     override init(frame:CGRect)
     {
@@ -16,7 +18,11 @@ class VLinearEquationsSolutionCellPolynomialDecimal:VLinearEquationsSolutionCell
         label.textColor = UIColor.black
         self.label = label
         
+        let imageView:UIImageView = UIImageView()
+        self.imageView = imageView
+        
         addSubview(label)
+        addSubview(imageView)
         
         NSLayoutConstraint.equals(
             view:label,
