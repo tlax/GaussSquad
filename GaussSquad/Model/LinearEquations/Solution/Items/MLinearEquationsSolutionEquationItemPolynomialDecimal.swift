@@ -13,6 +13,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
         indeterminate:MLinearEquationsSolutionIndeterminatesItem,
         coefficientDividend:Double,
         coefficientDivisor:Double,
+        index:Int,
         showSign:Bool)
     {
         let attributes:[String:AnyObject] = [
@@ -65,6 +66,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
             indeterminate:indeterminate,
             coefficientDividend:coefficientDividend,
             coefficientDivisor:coefficientDivisor,
+            index:index,
             showSign:showSign,
             showAsDivision:kShowAsDivision,
             reusableIdentifier:reusableIdentifier,

@@ -13,6 +13,7 @@ class MLinearEquationsSolutionEquationItemConstantDivision:MLinearEquationsSolut
     init(
         coefficientDividend:Double,
         coefficientDivisor:Double,
+        index:Int,
         showSign:Bool)
     {
         let absoluteDividend:Double = abs(coefficientDividend)
@@ -63,6 +64,7 @@ class MLinearEquationsSolutionEquationItemConstantDivision:MLinearEquationsSolut
         super.init(
             coefficientDividend:coefficientDividend,
             coefficientDivisor:coefficientDivisor,
+            index:index,
             showSign:showSign,
             showAsDivision:kShowAsDivision,
             reusableIdentifier:reusableIdentifier,

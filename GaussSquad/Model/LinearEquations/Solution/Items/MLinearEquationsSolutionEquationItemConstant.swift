@@ -4,12 +4,14 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
 {
     let coefficientDividend:Double
     let coefficientDivisor:Double
+    let index:Int
     let showSign:Bool
     let showAsDivision:Bool
     
     init(
         coefficientDividend:Double,
         coefficientDivisor:Double,
+        index:Int,
         showSign:Bool,
         showAsDivision:Bool,
         reusableIdentifier:String,
@@ -17,6 +19,7 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
     {
         self.coefficientDividend = coefficientDividend
         self.coefficientDivisor = coefficientDivisor
+        self.index = index
         self.showSign = showSign
         self.showAsDivision = showAsDivision
         
