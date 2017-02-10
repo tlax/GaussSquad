@@ -22,8 +22,9 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
             width:kMaxStringWidth,
             height:kMaxStringHeight)
         let coefficient:Double = coefficientDividend / coefficientDivisor
+        let absoluteCoefficient:Double = abs(coefficient)
         let rawString:String = MSession.sharedInstance.stringFrom(
-            number:coefficient)
+            number:absoluteCoefficient)
         
         let attributedCoefficient:NSAttributedString = NSAttributedString(
             string:rawString,
