@@ -19,12 +19,32 @@ class VLinearEquationsSolutionCellPolynomialDecimal:VLinearEquationsSolutionCell
         self.label = label
         
         let imageView:UIImageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.center
+        imageView.isUserInteractionEnabled = false
         self.imageView = imageView
         
         addSubview(label)
         addSubview(imageView)
         
-        NSLayoutConstraint.equals(
+        NSLayoutConstraint.equalsVertical(
+            view:imageView,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:imageView,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:imageView,
+            constant:kImageWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:label,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:label,
+            toView:imageView)
+        NSLayoutConstraint.rightToRight(
             view:label,
             toView:self)
     }
@@ -48,5 +68,6 @@ class VLinearEquationsSolutionCellPolynomialDecimal:VLinearEquationsSolutionCell
         }
         
         label.attributedText = model.string
+        
     }
 }
