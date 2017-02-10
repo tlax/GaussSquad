@@ -20,9 +20,7 @@ class MLinearEquationsSolutionStep
         
         for equation:MLinearEquationsSolutionEquation in equations
         {
-            plainItems.append(contentsOf:equation.items)
-            plainItems.append(equation.equals)
-            plainItems.append(equation.result)
+            plainItems.append(contentsOf:equation.plainItems)
         }
         
         self.plainItems = plainItems

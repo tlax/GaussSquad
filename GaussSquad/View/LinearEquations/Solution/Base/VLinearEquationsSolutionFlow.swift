@@ -78,12 +78,8 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
             for equation:MLinearEquationsSolutionEquation in step.equations
             {
                 var positionX:CGFloat = 0
-                var equationItems:[MLinearEquationsSolutionEquationItem] = []
-                equationItems.append(contentsOf:equation.items)
-                equationItems.append(equation.equals)
-                equationItems.append(equation.result)
                 
-                for item:MLinearEquationsSolutionEquationItem in equationItems
+                for item:MLinearEquationsSolutionEquationItem in equation.plainItems
                 {
                     let indexPath:IndexPath = IndexPath(
                         item:index,
