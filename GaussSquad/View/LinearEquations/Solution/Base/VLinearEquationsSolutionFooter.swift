@@ -6,7 +6,7 @@ class VLinearEquationsSolutionFooter:UICollectionReusableView
     private var index:IndexPath?
     private let kMarginTop:CGFloat = 10
     private let kMarginBottom:CGFloat = -40
-    private let kMarginLeft:CGFloat = 10
+    private let kMarginLeft:CGFloat = 5
     private let kButtonMargin:CGFloat = 20
     private let kButtonWidth:CGFloat = 40
     

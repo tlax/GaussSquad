@@ -159,7 +159,7 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
         }
         else
         {
-            if rawPolynomial.showAsDivision
+            if rawPolynomial.showAsDivision && coefficientDivisor != 1
             {
                 polynomial = MLinearEquationsSolutionEquationItemConstantDivision(
                     coefficientDividend:coefficientDividend,
