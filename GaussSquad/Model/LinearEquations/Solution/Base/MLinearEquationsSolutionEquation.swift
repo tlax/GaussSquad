@@ -10,11 +10,12 @@ class MLinearEquationsSolutionEquation
     
     init(
         items:[MLinearEquationsSolutionEquationItem],
-        result:MLinearEquationsSolutionEquationItem)
+        result:MLinearEquationsSolutionEquationItem,
+        equationIndex:Int)
     {
         self.items = items
         self.result = result
-        index = MLinearEquationsSolutionEquationItemIndex()
+        index = MLinearEquationsSolutionEquationItemIndex(index:equationIndex)
         equals = MLinearEquationsSolutionEquationItemEquals()
         
         var plainItems:[MLinearEquationsSolutionEquationItem] = []

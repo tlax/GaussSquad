@@ -2,10 +2,12 @@ import UIKit
 
 class MLinearEquationsSolutionEquationItemIndex:MLinearEquationsSolutionEquationItem
 {
-    private let kCellWidth:CGFloat = 45
+    let index:Int
+    private let kCellWidth:CGFloat = 30
     
-    init()
+    init(index:Int)
     {
+        self.index = index
         let reusableIdentifier:String =  VLinearEquationsSolutionCellIndex.reusableIdentifier
         
         super.init(

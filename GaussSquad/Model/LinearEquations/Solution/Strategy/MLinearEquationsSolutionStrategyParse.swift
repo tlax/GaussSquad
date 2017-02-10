@@ -48,8 +48,11 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
         
         if let rawEquations:[DEquation] = project?.equations?.array as? [DEquation]
         {
+            var equationIndex:Int = 0
+            
             for rawEquation:DEquation in rawEquations
             {
+                equationIndex += 1
                 var index:Int = 0
                 
                 guard
@@ -88,7 +91,8 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
                 
                 let equation:MLinearEquationsSolutionEquation = MLinearEquationsSolutionEquation(
                     items:items,
-                    result:result)
+                    result:result,
+                    equationIndex:equationIndex)
                 equations.append(equation)
             }
         }

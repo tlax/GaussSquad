@@ -3,7 +3,8 @@ import UIKit
 class VLinearEquationsSolutionCellIndex:VLinearEquationsSolutionCell
 {
     private weak var label:UILabel!
-    private let kMarginRight:CGFloat = -5
+    private let kMarginTop:CGFloat = 3
+    private let kMarginRight:CGFloat = -10
     
     override init(frame:CGRect)
     {
@@ -13,14 +14,18 @@ class VLinearEquationsSolutionCellIndex:VLinearEquationsSolutionCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.textColor = UIColor.squadRed
+        label.textColor = UIColor.squadBlue
         label.textAlignment = NSTextAlignment.right
-        label.font = UIFont.medium(size:12)
+        label.font = UIFont.bold(size:13)
         self.label = label
         
         addSubview(label)
         
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.topToTop(
+            view:label,
+            toView:self,
+            constant:kMarginTop)
+        NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:self)
         NSLayoutConstraint.rightToRight(
@@ -35,5 +40,19 @@ class VLinearEquationsSolutionCellIndex:VLinearEquationsSolutionCell
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func config(model:MLinearEquationsSolutionEquationItem, index:IndexPath)
+    {
+        guard
+            
+            let model:MLinearEquationsSolutionEquationItemIndex = model as? MLinearEquationsSolutionEquationItemIndex
+        
+        else
+        {
+            return
+        }
+        
+        label.text = "\(model.index)"
     }
 }
