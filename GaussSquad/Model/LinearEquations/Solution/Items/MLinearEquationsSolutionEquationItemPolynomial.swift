@@ -90,7 +90,8 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
     {
         let addedItem:MLinearEquationsSolutionEquationItemPolynomial = sum(
             otherPolynomial:otherPolynomial,
-            changeSign:false)
+            changeSign:false,
+            newIndex:newIndex)
         
         return addedItem
     }
@@ -101,7 +102,8 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
     {
         let subtractedItem:MLinearEquationsSolutionEquationItemPolynomial = sum(
             otherPolynomial:otherPolynomial,
-            changeSign:true)
+            changeSign:true,
+            newIndex:newIndex)
         
         return subtractedItem
     }

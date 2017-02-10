@@ -126,7 +126,8 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
                                 }
                                 
                                 result = resultPolynomial.subtract(
-                                    otherPolynomial:itemPolynomial)
+                                    otherPolynomial:itemPolynomial,
+                                    newIndex:0)
                             }
                             else if let itemConstant:MLinearEquationsSolutionEquationItemConstant = currentItem as? MLinearEquationsSolutionEquationItemConstant
                             {
@@ -140,7 +141,8 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
                                 }
                                 
                                 result = resultConstant.subtract(
-                                    otherConstant:itemConstant)
+                                    otherConstant:itemConstant,
+                                    newIndex:0)
                             }
                         }
                         else
@@ -161,7 +163,6 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
                             {
                                 if indexOtherItem == indexPolynomialB
                                 {
-                                    itemA
                                     
                                     break
                                 }
@@ -188,7 +189,8 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
                                 }
                                 
                                 result = resultPolynomial.subtract(
-                                    otherPolynomial:itemPolynomial)
+                                    otherPolynomial:itemPolynomial,
+                                    newIndex:0)
                             }
                             else if let itemConstant:MLinearEquationsSolutionEquationItemConstant = currentItem as? MLinearEquationsSolutionEquationItemConstant
                             {
@@ -196,13 +198,14 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
                                     
                                     let resultConstant:MLinearEquationsSolutionEquationItemConstant = result as? MLinearEquationsSolutionEquationItemConstant
                                     
-                                    else
+                                else
                                 {
                                     return
                                 }
                                 
                                 result = resultConstant.subtract(
-                                    otherConstant:itemConstant)
+                                    otherConstant:itemConstant,
+                                    newIndex:0)
                             }
                         }
                         else
