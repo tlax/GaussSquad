@@ -4,14 +4,12 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
 {
     let coefficientDividend:Double
     let coefficientDivisor:Double
-    let index:Int
     let showSign:Bool
     let showAsDivision:Bool
     
     init(
         coefficientDividend:Double,
         coefficientDivisor:Double,
-        index:Int,
         showSign:Bool,
         showAsDivision:Bool,
         reusableIdentifier:String,
@@ -19,7 +17,6 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
     {
         self.coefficientDividend = coefficientDividend
         self.coefficientDivisor = coefficientDivisor
-        self.index = index
         self.showSign = showSign
         self.showAsDivision = showAsDivision
         
@@ -30,7 +27,10 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
     
     //MARK: private
     
-    private func sum(otherConstant:MLinearEquationsSolutionEquationItemConstant, changeSign:Bool) -> MLinearEquationsSolutionEquationItemConstant
+    private func sum(
+        otherConstant:MLinearEquationsSolutionEquationItemConstant,
+        changeSign:Bool,
+        newIndex:Int) -> MLinearEquationsSolutionEquationItemConstant
     {
         let otherConstantDivisor:Double = otherConstant.coefficientDivisor
         let otherConstantDividend:Double
@@ -72,7 +72,7 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         let sumItem:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.coefficient(
             coefficientDividend:sumDividend,
             coefficientDivisor:sumDivisor,
-            index:index,
+            index:newIndex,
             showAsDivision:showAsDivision)
         
         return sumItem
@@ -80,20 +80,26 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
     
     //MARK: public
     
-    func add(otherConstant:MLinearEquationsSolutionEquationItemConstant) -> MLinearEquationsSolutionEquationItemConstant
+    func add(
+        otherConstant:MLinearEquationsSolutionEquationItemConstant,
+        newIndex:Int) -> MLinearEquationsSolutionEquationItemConstant
     {
         let addedItem:MLinearEquationsSolutionEquationItemConstant = sum(
             otherConstant:otherConstant,
-            changeSign:false)
+            changeSign:false,
+            newIndex:newIndex)
         
         return addedItem
     }
     
-    func subtract(otherConstant:MLinearEquationsSolutionEquationItemConstant) -> MLinearEquationsSolutionEquationItemConstant
+    func subtract(
+        otherConstant:MLinearEquationsSolutionEquationItemConstant,
+        newIndex:Int) -> MLinearEquationsSolutionEquationItemConstant
     {
         let subtractedItem:MLinearEquationsSolutionEquationItemConstant = sum(
             otherConstant:otherConstant,
-            changeSign:true)
+            changeSign:true,
+            newIndex:newIndex)
         
         return subtractedItem
     }

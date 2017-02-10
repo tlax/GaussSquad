@@ -14,7 +14,6 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
         indeterminate:MLinearEquationsSolutionIndeterminatesItem,
         coefficientDividend:Double,
         coefficientDivisor:Double,
-        index:Int,
         showSign:Bool)
     {
         let absoluteDividend:Double = abs(coefficientDividend)
@@ -80,7 +79,6 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
             indeterminate:indeterminate,
             coefficientDividend:coefficientDividend,
             coefficientDivisor:coefficientDivisor,
-            index:index,
             showSign:showSign,
             showAsDivision:kShowAsDivision,
             reusableIdentifier:reusableIdentifier,

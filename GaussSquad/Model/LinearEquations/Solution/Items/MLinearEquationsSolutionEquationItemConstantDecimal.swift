@@ -12,7 +12,6 @@ class MLinearEquationsSolutionEquationItemConstantDecimal:MLinearEquationsSoluti
     init(
         coefficientDividend:Double,
         coefficientDivisor:Double,
-        index:Int,
         showSign:Bool)
     {
         let attributes:[String:AnyObject] = [
@@ -52,7 +51,6 @@ class MLinearEquationsSolutionEquationItemConstantDecimal:MLinearEquationsSoluti
         super.init(
             coefficientDividend:coefficientDividend,
             coefficientDivisor:coefficientDivisor,
-            index:index,
             showSign:showSign,
             showAsDivision:kShowAsDivision,
             reusableIdentifier:reusableIdentifier,

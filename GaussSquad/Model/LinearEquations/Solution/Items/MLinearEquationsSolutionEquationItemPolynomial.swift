@@ -5,7 +5,6 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
     weak var indeterminate:MLinearEquationsSolutionIndeterminatesItem!
     let coefficientDividend:Double
     let coefficientDivisor:Double
-    let index:Int
     let showSign:Bool
     let showAsDivision:Bool
     
@@ -13,7 +12,6 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         indeterminate:MLinearEquationsSolutionIndeterminatesItem,
         coefficientDividend:Double,
         coefficientDivisor:Double,
-        index:Int,
         showSign:Bool,
         showAsDivision:Bool,
         reusableIdentifier:String,
@@ -22,7 +20,6 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         self.indeterminate = indeterminate
         self.coefficientDividend = coefficientDividend
         self.coefficientDivisor = coefficientDivisor
-        self.index = index
         self.showSign = showSign
         self.showAsDivision = showAsDivision
         
@@ -33,7 +30,10 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
     
     //MARK: private
     
-    private func sum(otherPolynomial:MLinearEquationsSolutionEquationItemPolynomial, changeSign:Bool) -> MLinearEquationsSolutionEquationItemPolynomial
+    private func sum(
+        otherPolynomial:MLinearEquationsSolutionEquationItemPolynomial,
+        changeSign:Bool,
+        newIndex:Int) -> MLinearEquationsSolutionEquationItemPolynomial
     {
         let otherPolynomialDivisor:Double = otherPolynomial.coefficientDivisor
         let otherPolynomialDividend:Double
@@ -76,7 +76,7 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
             coefficientDividend:sumDividend,
             coefficientDivisor:sumDivisor,
             indeterminate:indeterminate,
-            index:index,
+            index:newIndex,
             showAsDivision:showAsDivision)
         
         return sumItem
@@ -84,7 +84,9 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
     
     //MARK: public
     
-    func add(otherPolynomial:MLinearEquationsSolutionEquationItemPolynomial) -> MLinearEquationsSolutionEquationItemPolynomial
+    func add(
+        otherPolynomial:MLinearEquationsSolutionEquationItemPolynomial,
+        newIndex:Int) -> MLinearEquationsSolutionEquationItemPolynomial
     {
         let addedItem:MLinearEquationsSolutionEquationItemPolynomial = sum(
             otherPolynomial:otherPolynomial,
@@ -93,7 +95,9 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         return addedItem
     }
     
-    func subtract(otherPolynomial:MLinearEquationsSolutionEquationItemPolynomial) -> MLinearEquationsSolutionEquationItemPolynomial
+    func subtract(
+        otherPolynomial:MLinearEquationsSolutionEquationItemPolynomial,
+        newIndex:Int) -> MLinearEquationsSolutionEquationItemPolynomial
     {
         let subtractedItem:MLinearEquationsSolutionEquationItemPolynomial = sum(
             otherPolynomial:otherPolynomial,

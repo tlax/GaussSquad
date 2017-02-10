@@ -34,7 +34,6 @@ class MLinearEquationsSolutionEquationItem
                 indeterminate:indeterminate,
                 coefficientDividend:coefficientDividend,
                 coefficientDivisor:coefficientDivisor,
-                index:index,
                 showSign:showSign)
         }
         else
@@ -43,7 +42,6 @@ class MLinearEquationsSolutionEquationItem
                 indeterminate:indeterminate,
                 coefficientDividend:coefficientDividend,
                 coefficientDivisor:coefficientDivisor,
-                index:index,
                 showSign:showSign)
         }
         
@@ -80,7 +78,6 @@ class MLinearEquationsSolutionEquationItem
             item = MLinearEquationsSolutionEquationItemConstantDivision(
                 coefficientDividend:coefficientDividend,
                 coefficientDivisor:coefficientDivisor,
-                index:index,
                 showSign:showSign)
         }
         else
@@ -88,7 +85,6 @@ class MLinearEquationsSolutionEquationItem
             item = MLinearEquationsSolutionEquationItemConstantDecimal(
                 coefficientDividend:coefficientDividend,
                 coefficientDivisor:coefficientDivisor,
-                index:index,
                 showSign:showSign)
         }
         
