@@ -4,7 +4,7 @@ class VLinearEquationsSolutionCellPolynomialDecimal:VLinearEquationsSolutionCell
 {
     private weak var label:UILabel!
     private weak var imageView:UIImageView!
-    private let kImageWidth:CGFloat = 30
+    private let kImageWidth:CGFloat = 20
     
     override init(frame:CGRect)
     {
@@ -63,20 +63,20 @@ class VLinearEquationsSolutionCellPolynomialDecimal:VLinearEquationsSolutionCell
         
         label.attributedText = model.string
         
-        if model.coefficientDividend >= 0
+        if model.showSign
         {
-            if index.item > 1
+            if model.coefficientDividend >= 0
             {
                 imageView.image = #imageLiteral(resourceName: "assetGenericColAddSmall")
             }
             else
             {
-                imageView.image = nil
+                imageView.image = #imageLiteral(resourceName: "assetGenericColSubstractSmall")
             }
         }
         else
         {
-            imageView.image = #imageLiteral(resourceName: "assetGenericColSubstractSmall")
+            imageView.image = nil
         }
     }
 }

@@ -44,8 +44,17 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
             options:drawingOptions,
             context:nil)
         let textWidth:CGFloat = ceil(stringRect.size.width)
-        let cellWidth:CGFloat = textWidth + kAddedWidth
         let reusableIdentifier:String = VLinearEquationsSolutionCellPolynomialDecimal.reusableIdentifier
+        let cellWidth:CGFloat
+        
+        if showSign
+        {
+            cellWidth = textWidth + kAddedWidth
+        }
+        else
+        {
+            cellWidth = textWidth
+        }
         
         super.init(
             indeterminate:indeterminate,

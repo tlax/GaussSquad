@@ -106,6 +106,23 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
         let polynomial:MLinearEquationsSolutionEquationItem?
         let coefficientDividend:Double = rawPolynomial.signedDividend()
         let coefficientDivisor:Double = rawPolynomial.coefficientDivisor
+        let showSign:Bool
+        
+        if coefficientDividend >= 0
+        {
+            if index > 0
+            {
+                showSign = true
+            }
+            else
+            {
+                showSign = false
+            }
+        }
+        else
+        {
+            showSign = true
+        }
         
         if let rawIndeterminate:DIndeterminate = rawPolynomial.indeterminate
         {
@@ -124,14 +141,16 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
                 polynomial = MLinearEquationsSolutionEquationItemPolynomialDivision(
                     indeterminate:indeterminate,
                     coefficientDividend:coefficientDividend,
-                    coefficientDivisor:coefficientDivisor)
+                    coefficientDivisor:coefficientDivisor,
+                    showSign:showSign)
             }
             else
             {
                 polynomial = MLinearEquationsSolutionEquationItemPolynomialDecimal(
                     indeterminate:indeterminate,
                     coefficientDividend:coefficientDividend,
-                    coefficientDivisor:coefficientDivisor)
+                    coefficientDivisor:coefficientDivisor,
+                    showSign:showSign)
             }
         }
         else
@@ -140,13 +159,15 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
             {
                 polynomial = MLinearEquationsSolutionEquationItemConstantDivision(
                     coefficientDividend:coefficientDividend,
-                    coefficientDivisor:coefficientDivisor)
+                    coefficientDivisor:coefficientDivisor,
+                    showSign:showSign)
             }
             else
             {
                 polynomial = MLinearEquationsSolutionEquationItemConstantDecimal(
                     coefficientDividend:coefficientDividend,
-                    coefficientDivisor:coefficientDivisor)
+                    coefficientDivisor:coefficientDivisor,
+                    showSign:showSign)
             }
         }
         

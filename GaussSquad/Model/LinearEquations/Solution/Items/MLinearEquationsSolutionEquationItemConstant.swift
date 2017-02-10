@@ -15,6 +15,7 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
     {
         self.coefficientDividend = coefficientDividend
         self.coefficientDivisor = coefficientDivisor
+        self.showSign = showSign
         
         super.init(
             reusableIdentifier:reusableIdentifier,
