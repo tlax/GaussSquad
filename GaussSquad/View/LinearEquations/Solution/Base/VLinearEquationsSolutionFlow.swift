@@ -42,8 +42,6 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
         
         else
         {
-            print("shit")
-            
             return
         }
         

@@ -155,7 +155,7 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
             withReuseIdentifier:
             item.reusableIdentifier,
             for:indexPath) as! VLinearEquationsSolutionCell
-        cell.config(model:item)
+        cell.config(model:item, index:indexPath)
         
         return cell
     }

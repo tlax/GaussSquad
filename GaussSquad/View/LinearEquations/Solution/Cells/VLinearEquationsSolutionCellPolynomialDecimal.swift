@@ -28,7 +28,9 @@ class VLinearEquationsSolutionCellPolynomialDecimal:VLinearEquationsSolutionCell
         return nil
     }
     
-    override func config(model:MLinearEquationsSolutionEquationItem)
+    override func config(
+        model:MLinearEquationsSolutionEquationItem,
+        index:IndexPath)
     {
         guard
         

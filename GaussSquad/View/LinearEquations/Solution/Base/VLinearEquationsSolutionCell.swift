@@ -16,7 +16,9 @@ class VLinearEquationsSolutionCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MLinearEquationsSolutionEquationItem)
+    func config(
+        model:MLinearEquationsSolutionEquationItem,
+        index:IndexPath)
     {
     }
 }
