@@ -163,6 +163,38 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
                             {
                                 if indexOtherItem == indexPolynomialB
                                 {
+                                    let otherItem:MLinearEquationsSolutionEquationItem = currentEquation.items[indexOtherItem]
+                                    
+                                    if let itemPolynomial:MLinearEquationsSolutionEquationItemPolynomial = item as? MLinearEquationsSolutionEquationItemPolynomial
+                                    {
+                                        guard
+                                        
+                                            let otherItemPolynomial:MLinearEquationsSolutionEquationItemPolynomial = otherItem as? MLinearEquationsSolutionEquationItemPolynomial
+                                        
+                                        else
+                                        {
+                                            return
+                                        }
+                                        
+                                        item = itemPolynomial.add(
+                                            otherPolynomial:otherItemPolynomial,
+                                            newIndex:indexItem)
+                                    }
+                                    else if let itemConstant:MLinearEquationsSolutionEquationItemConstant = item as? MLinearEquationsSolutionEquationItemConstant
+                                    {
+                                        guard
+                                        
+                                            let otherItemConstant:MLinearEquationsSolutionEquationItemConstant = otherItem as? MLinearEquationsSolutionEquationItemConstant
+                                        
+                                        else
+                                        {
+                                            return
+                                        }
+                                        
+                                        item = itemConstant.add(
+                                            otherConstant:otherItemConstant,
+                                            newIndex:indexItem)
+                                    }
                                     
                                     break
                                 }
@@ -171,46 +203,6 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
                         else
                         {
                             items.append(item)
-                        }
-                        
-                        let currentItem:MLinearEquationsSolutionEquationItem = currentEquation.items[indexItem]
-                        
-                        if indexItem == indexPolynomialA
-                        {
-                            if let itemPolynomial:MLinearEquationsSolutionEquationItemPolynomial = currentItem as? MLinearEquationsSolutionEquationItemPolynomial
-                            {
-                                guard
-                                    
-                                    let resultPolynomial:MLinearEquationsSolutionEquationItemPolynomial = result as? MLinearEquationsSolutionEquationItemPolynomial
-                                    
-                                    else
-                                {
-                                    return
-                                }
-                                
-                                result = resultPolynomial.subtract(
-                                    otherPolynomial:itemPolynomial,
-                                    newIndex:0)
-                            }
-                            else if let itemConstant:MLinearEquationsSolutionEquationItemConstant = currentItem as? MLinearEquationsSolutionEquationItemConstant
-                            {
-                                guard
-                                    
-                                    let resultConstant:MLinearEquationsSolutionEquationItemConstant = result as? MLinearEquationsSolutionEquationItemConstant
-                                    
-                                else
-                                {
-                                    return
-                                }
-                                
-                                result = resultConstant.subtract(
-                                    otherConstant:itemConstant,
-                                    newIndex:0)
-                            }
-                        }
-                        else
-                        {
-                            items.append(currentItem)
                         }
                     }
                 }
