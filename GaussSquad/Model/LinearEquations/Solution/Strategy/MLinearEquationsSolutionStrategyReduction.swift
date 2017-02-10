@@ -103,29 +103,108 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
             if indexEquation == self.indexEquation
             {
                 var items:[MLinearEquationsSolutionEquationItem] = []
-                let result:MLinearEquationsSolutionEquationItem
+                var result:MLinearEquationsSolutionEquationItem = currentEquation.result
                 let countItems:Int = currentEquation.items.count
                 
                 if indexPolynomialB == countItems
                 {
                     for indexItem:Int in 0 ..< countItems
                     {
-                        let item:MLinearEquationsSolutionEquationItem
+                        let currentItem:MLinearEquationsSolutionEquationItem = currentEquation.items[indexItem]
                         
                         if indexItem == indexPolynomialA
                         {
-                            
+                            if let itemPolynomial:MLinearEquationsSolutionEquationItemPolynomial = currentItem as? MLinearEquationsSolutionEquationItemPolynomial
+                            {
+                                guard
+                                    
+                                    let resultPolynomial:MLinearEquationsSolutionEquationItemPolynomial = result as? MLinearEquationsSolutionEquationItemPolynomial
+                                
+                                else
+                                {
+                                    return
+                                }
+                                
+                                let itemDividend:Double = -itemPolynomial.coefficientDividend
+                                let itemDivisor:Double = itemPolynomial.coefficientDivisor
+                                let resultDividend:Double = resultPolynomial.coefficientDividend
+                                let resultDivisor:Double = resultPolynomial.coefficientDivisor
+                                let reducedDividend:Double
+                                let reducedDivisor:Double
+                                let showAsDivision:Bool
+                                let itemShowAsDivision:Bool
+                                let resultShowAsDivision:Bool
+                                
+                                if let _:MLinearEquationsSolutionEquationItemPolynomialDivision = itemPolynomial as? MLinearEquationsSolutionEquationItemPolynomialDivision
+                                {
+                                    itemShowAsDivision = true
+                                }
+                                else
+                                {
+                                    itemShowAsDivision = false
+                                }
+                                
+                                if let _:MLinearEquationsSolutionEquationItemPolynomialDivision = result as? MLinearEquationsSolutionEquationItemPolynomialDivision
+                                {
+                                    resultShowAsDivision = true
+                                }
+                                else
+                                {
+                                    resultShowAsDivision = false
+                                }
+                                
+                                if itemShowAsDivision || resultShowAsDivision
+                                {
+                                    showAsDivision = true
+                                }
+                                else
+                                {
+                                    showAsDivision = false
+                                }
+                                
+                                if itemDivisor == resultDivisor
+                                {
+                                    reducedDividend = itemDividend + resultDividend
+                                    reducedDivisor = itemDivisor
+                                }
+                                else
+                                {
+                                    let scaledItemDividend:Double = itemDividend * resultDivisor
+                                    let scaledResultDividend:Double = resultDividend * itemDivisor
+                                    reducedDividend = scaledItemDividend + scaledResultDividend
+                                    reducedDivisor = itemDivisor * resultDivisor
+                                }
+                                
+                                result = MLinearEquationsSolutionEquationItem.polynomial(
+                                    coefficientDividend:reducedDividend,
+                                    coefficientDivisor:reducedDivisor,
+                                    indeterminate:resultPolynomial.indeterminate,
+                                    index:0,
+                                    showAsDivision:showAsDivision)
+                            }
+                            else if let itemConstant:MLinearEquationsSolutionEquationItemConstant = currentItem as? MLinearEquationsSolutionEquationItemConstant
+                            {
+                                guard
+                                    
+                                    let resultConstant:MLinearEquationsSolutionEquationItemConstant = result as? MLinearEquationsSolutionEquationItemConstant
+                                    
+                                else
+                                {
+                                    return
+                                }
+                                
+                                
+                            }
                         }
                         else
                         {
-                            item = currentEquation.items[indexItem]
-                            items.append(item)
+                            items.append(currentItem)
                         }
                     }
                 }
                 else
                 {
-                    result = currentEquation.result
+                    
                 }
                 
                 equation = MLinearEquationsSolutionEquation(

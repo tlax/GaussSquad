@@ -7,6 +7,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
     private let kMaxStringWidth:CGFloat = 5000
     private let kMaxStringHeight:CGFloat = 30
     private let kAddedWidth:CGFloat = 30
+    private let kShowAsDivision:Bool = false
     
     init(
         indeterminate:MLinearEquationsSolutionIndeterminatesItem,
@@ -65,6 +66,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
             coefficientDividend:coefficientDividend,
             coefficientDivisor:coefficientDivisor,
             showSign:showSign,
+            showAsDivision:kShowAsDivision,
             reusableIdentifier:reusableIdentifier,
             cellWidth:cellWidth)
     }

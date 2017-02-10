@@ -8,6 +8,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
     private let kMaxStringWidth:CGFloat = 5000
     private let kMaxStringHeight:CGFloat = 20
     private let kAddedWidth:CGFloat = 30
+    private let kShowAsDivision:Bool = true
     
     init(
         indeterminate:MLinearEquationsSolutionIndeterminatesItem,
@@ -79,6 +80,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
             coefficientDividend:coefficientDividend,
             coefficientDivisor:coefficientDivisor,
             showSign:showSign,
+            showAsDivision:kShowAsDivision,
             reusableIdentifier:reusableIdentifier,
             cellWidth:cellWidth)
     }
