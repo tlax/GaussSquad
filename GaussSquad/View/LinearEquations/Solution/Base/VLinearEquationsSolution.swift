@@ -49,6 +49,8 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
             cell:VLinearEquationsSolutionCellConstantDivision.self)
         collectionView.registerCell(
             cell:VLinearEquationsSolutionCellEquals.self)
+        collectionView.registerCell(
+            cell:VLinearEquationsSolutionCellIndex.self)
         self.collectionView = collectionView
         
         addSubview(spinner)
