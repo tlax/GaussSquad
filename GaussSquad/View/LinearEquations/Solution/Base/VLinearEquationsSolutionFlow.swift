@@ -10,7 +10,7 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
     private var contentHeight:CGFloat
     private let barHeight:CGFloat
     private let kCellHeight:CGFloat = 30
-    private let kFooterHeight:CGFloat = 20
+    private let kFooterHeight:CGFloat = 80
     
     init(
         model:MLinearEquationsSolution,
