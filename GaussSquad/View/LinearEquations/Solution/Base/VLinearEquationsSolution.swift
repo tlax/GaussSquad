@@ -140,11 +140,16 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
         }
         else
         {
-            reusable = collectionView.dequeueReusableSupplementaryView(
+            let footer:VLinearEquationsSolutionFooter = collectionView.dequeueReusableSupplementaryView(
                 ofKind:kind,
                 withReuseIdentifier:
                 VLinearEquationsSolutionFooter.reusableIdentifier,
-                for:indexPath)
+                for:indexPath) as! VLinearEquationsSolutionFooter
+            footer.config(
+                controller:controller,
+                index:indexPath)
+            
+            reusable = footer
         }
         
         return reusable

@@ -2,10 +2,13 @@ import UIKit
 
 class VLinearEquationsSolutionFooter:UICollectionReusableView
 {
+    private weak var controller:CLinearEquationsSolution?
+    private var index:IndexPath?
     private let kMarginTop:CGFloat = 5
     private let kMarginBottom:CGFloat = -30
     private let kMarginLeft:CGFloat = 10
-    private let kButtonWidth:CGFloat = 50
+    private let kButtonMargin:CGFloat = 20
+    private let kButtonWidth:CGFloat = 40
     
     override init(frame:CGRect)
     {
@@ -22,6 +25,7 @@ class VLinearEquationsSolutionFooter:UICollectionReusableView
             for:UIControlState.highlighted)
         buttonShare.imageView!.clipsToBounds = true
         buttonShare.imageView!.contentMode = UIViewContentMode.center
+        buttonShare.imageView!.tintColor = UIColor(white:0, alpha:0.1)
         buttonShare.addTarget(
             self,
             action:#selector(actionShare(sender:)),
@@ -55,6 +59,23 @@ class VLinearEquationsSolutionFooter:UICollectionReusableView
     
     func actionShare(sender button:UIButton)
     {
-        print("share")
+        guard
+        
+            let step:Int = index?.section
+        
+        else
+        {
+            return
+        }
+        
+        controller?.share(step:step)
+    }
+    
+    //MARK: public
+    
+    func config(controller:CLinearEquationsSolution, index:IndexPath)
+    {
+        self.controller = controller
+        self.index = index
     }
 }

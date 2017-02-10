@@ -34,3 +34,7 @@
 "CLinearEquationsPolynomial_alertTitle"="Delete polynomial?";
 "CLinearEquationsPolynomial_alertCancel"="Don't";
 "CLinearEquationsPolynomial_alertDelete"="Delete";
+"CLinearEquationsSolution_shareStepTitle"="Share";
+"CLinearEquationsSolution_shareStepCancel"="Not now";
+"CLinearEquationsSolution_shareStepImage"="As image";
+"CLinearEquationsSolution_shareStepText"="As text";
