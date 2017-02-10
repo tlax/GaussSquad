@@ -3,7 +3,7 @@ import UIKit
 class VLinearEquationsSolutionHeaderStart:VLinearEquationsSolutionHeader
 {
     private let kLabelLeft:CGFloat = 10
-    private let kLabelWidth:CGFloat = 250
+    private let kLabelWidth:CGFloat = 280
     
     override init(frame:CGRect)
     {
@@ -14,8 +14,8 @@ class VLinearEquationsSolutionHeaderStart:VLinearEquationsSolutionHeader
         label.numberOfLines = 0
         label.isUserInteractionEnabled = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:16)
-        label.textColor = UIColor.black
+        label.font = UIFont.regular(size:17)
+        label.textColor = UIColor(white:0, alpha:0.5)
         label.text = NSLocalizedString("VLinearEquationsSolutionHeaderStart_label", comment:"")
         
         addSubview(label)
