@@ -4,10 +4,12 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
 {
     let coefficientDividend:Double
     let coefficientDivisor:Double
+    let showSign:Bool
     
     init(
         coefficientDividend:Double,
         coefficientDivisor:Double,
+        showSign:Bool,
         reusableIdentifier:String,
         cellWidth:CGFloat)
     {

@@ -4,7 +4,8 @@ class MLinearEquationsSolutionEquationItemConstantDivision:MLinearEquationsSolut
 {
     init(
         coefficientDividend:Double,
-        coefficientDivisor:Double)
+        coefficientDivisor:Double,
+        showSign:Bool)
     {
         let reusableIdentifier:String = VLinearEquationsSolutionCellConstantDivision.reusableIdentifier
         let cellWidth:CGFloat = 100
@@ -12,6 +13,7 @@ class MLinearEquationsSolutionEquationItemConstantDivision:MLinearEquationsSolut
         super.init(
             coefficientDividend:coefficientDividend,
             coefficientDivisor:coefficientDivisor,
+            showSign:showSign,
             reusableIdentifier:reusableIdentifier,
             cellWidth:cellWidth)
     }

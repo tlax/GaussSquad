@@ -38,13 +38,7 @@ class VLinearEquationsSolutionCellPolynomialDecimal:VLinearEquationsSolutionCell
             view:imageView,
             constant:kImageWidth)
         
-        NSLayoutConstraint.equalsVertical(
-            view:label,
-            toView:self)
-        NSLayoutConstraint.leftToRight(
-            view:label,
-            toView:imageView)
-        NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equals(
             view:label,
             toView:self)
     }
@@ -69,5 +63,20 @@ class VLinearEquationsSolutionCellPolynomialDecimal:VLinearEquationsSolutionCell
         
         label.attributedText = model.string
         
+        if model.coefficientDividend >= 0
+        {
+            if index.item > 1
+            {
+                imageView.image = #imageLiteral(resourceName: "assetGenericColAddSmall")
+            }
+            else
+            {
+                imageView.image = nil
+            }
+        }
+        else
+        {
+            imageView.image = #imageLiteral(resourceName: "assetGenericColSubstractSmall")
+        }
     }
 }

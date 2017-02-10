@@ -11,7 +11,8 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
     init(
         indeterminate:MLinearEquationsSolutionIndeterminatesItem,
         coefficientDividend:Double,
-        coefficientDivisor:Double)
+        coefficientDivisor:Double,
+        showSign:Bool)
     {
         let attributes:[String:AnyObject] = [
             NSFontAttributeName:UIFont.numeric(size:kFontSize)]
@@ -50,6 +51,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
             indeterminate:indeterminate,
             coefficientDividend:coefficientDividend,
             coefficientDivisor:coefficientDivisor,
+            showSign:showSign,
             reusableIdentifier:reusableIdentifier,
             cellWidth:cellWidth)
     }

@@ -50,13 +50,16 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
         {
             for rawEquation:DEquation in rawEquations
             {
+                var index:Int = 0
+                
                 guard
                     
                     let rawPolynomials:[DPolynomial] = rawEquation.polynomials?.array as? [DPolynomial],
                     let rawResult:DPolynomial = rawEquation.result,
                     let result:MLinearEquationsSolutionEquationItem = findPolynomial(
                         rawPolynomial:rawResult,
-                        indeterminates:indeterminates)
+                        indeterminates:indeterminates,
+                        index:index)
                 
                 else
                 {
@@ -71,13 +74,15 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
                     
                         let polynomial:MLinearEquationsSolutionEquationItem = findPolynomial(
                             rawPolynomial:rawPolynomial,
-                            indeterminates:indeterminates)
+                            indeterminates:indeterminates,
+                            index:index)
                     
                     else
                     {
                         continue
                     }
                     
+                    index += 1
                     items.append(polynomial)
                 }
                 
@@ -95,7 +100,8 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
     
     private func findPolynomial(
         rawPolynomial:DPolynomial,
-        indeterminates:MLinearEquationsSolutionIndeterminates) -> MLinearEquationsSolutionEquationItem?
+        indeterminates:MLinearEquationsSolutionIndeterminates,
+        index:Int) -> MLinearEquationsSolutionEquationItem?
     {
         let polynomial:MLinearEquationsSolutionEquationItem?
         let coefficientDividend:Double = rawPolynomial.signedDividend()
