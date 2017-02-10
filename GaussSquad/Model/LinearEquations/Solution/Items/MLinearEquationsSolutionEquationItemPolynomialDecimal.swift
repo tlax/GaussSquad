@@ -2,17 +2,17 @@ import UIKit
 
 class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolutionEquationItemPolynomial
 {
-    let stringCoefficient:NSAttributedString
+    let string:NSAttributedString
     private let kFontSize:CGFloat = 20
     private let kMaxStringWidth:CGFloat = 5000
     private let kMaxStringHeight:CGFloat = 30
+    private let kAddedWidth:CGFloat = 20
     
     init(
         indeterminate:MLinearEquationsSolutionIndeterminatesItem,
         coefficientDividend:Double,
         coefficientDivisor:Double)
     {
-        let reusableIdentifier:String = VLinearEquationsSolutionCellPolynomialDecimal.reusableIdentifier
         let attributes:[String:AnyObject] = [
             NSFontAttributeName:UIFont.numeric(size:kFontSize)]
         let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
@@ -35,13 +35,15 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         mutableString.append(attributedCoefficient)
         mutableString.append(attributedIndeterminate)
-        stringCoefficient = mutableString
+        string = mutableString
         
-        let stringRect:CGRect = stringCoefficient.boundingRect(
+        let stringRect:CGRect = string.boundingRect(
             with:maxSize,
             options:drawingOptions,
             context:nil)
-        let cellWidth:CGFloat = ceil(stringRect.size.width)
+        let textWidth:CGFloat = ceil(stringRect.size.width)
+        let cellWidth:CGFloat = textWidth + kAddedWidth
+        let reusableIdentifier:String = VLinearEquationsSolutionCellPolynomialDecimal.reusableIdentifier
         
         super.init(
             indeterminate:indeterminate,

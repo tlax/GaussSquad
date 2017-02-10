@@ -13,4 +13,10 @@ class VLinearEquationsSolutionCell:UICollectionViewCell
     {
         return nil
     }
+    
+    //MARK: public
+    
+    func config(model:MLinearEquationsSolutionEquationItem)
+    {
+    }
 }

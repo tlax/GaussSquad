@@ -53,7 +53,7 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
         
         let collectionWidth:CGFloat = collectionView.bounds.maxX
         let collectionHeight:CGFloat = collectionView.bounds.maxY
-        var maxPositionX:CGFloat = max(collectionWidth, collectionHeight)
+        var maxPositionX:CGFloat = min(collectionWidth, collectionHeight)
         var section:Int = 0
         var positionY:CGFloat = barHeight
         
@@ -75,10 +75,10 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
             headerLayoutAttributes.append(headerAttribute)
             
             positionY += headerHeight
+            var index:Int = 0
             
             for equation:MLinearEquationsSolutionEquation in step.equations
             {
-                var index:Int = 0
                 var positionX:CGFloat = 0
                 var equationItems:[MLinearEquationsSolutionEquationItem] = []
                 equationItems.append(contentsOf:equation.items)

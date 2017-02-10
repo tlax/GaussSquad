@@ -8,6 +8,8 @@ class MLinearEquationsSolutionIndeterminatesItem
     
     init(indeterminate:DIndeterminate)
     {
+        self.indeterminate = indeterminate
+        
         if let symbol:String = indeterminate.symbol
         {
             self.symbol = symbol
@@ -37,7 +39,7 @@ class MLinearEquationsSolutionIndeterminatesItem
         return isEqual
     }
     
-    func equalsRawIndeterminate(rawIndetermianted:DIndeterminate) -> Bool
+    func equalsRawIndeterminate(rawIndeterminate:DIndeterminate) -> Bool
     {
         guard
             
@@ -48,7 +50,7 @@ class MLinearEquationsSolutionIndeterminatesItem
             return false
         }
         
-        let isEqual:Bool = indeterminate == rawIndetermianted
+        let isEqual:Bool = indeterminate == rawIndeterminate
         
         return isEqual
     }

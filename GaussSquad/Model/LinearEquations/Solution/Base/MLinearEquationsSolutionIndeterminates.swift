@@ -16,7 +16,7 @@ class MLinearEquationsSolutionIndeterminates
         for item:MLinearEquationsSolutionIndeterminatesItem in items
         {
             if item.equalsRawIndeterminate(
-                rawIndetermianted:rawIndeterminate)
+                rawIndeterminate:rawIndeterminate)
             {
                 return item
             }
