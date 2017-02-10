@@ -2,11 +2,17 @@ import Foundation
 
 class MLinearEquationsSolutionStrategy
 {
+    weak var step:MLinearEquationsSolutionStep!
     private weak var delegate:MLinearEquationsSolutionStrategyDelegate?
-    private weak var step:MLinearEquationsSolutionStep?
     
     class func strategyFor(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategy?
     {
+        if let reduction:MLinearEquationsSolutionStrategyReduction = MLinearEquationsSolutionStrategyReduction.reducible(
+            step:step)
+        {
+            return reduction
+        }
+        
         return nil
     }
     

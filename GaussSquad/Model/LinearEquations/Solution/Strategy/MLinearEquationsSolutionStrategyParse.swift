@@ -52,7 +52,6 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
             
             for rawEquation:DEquation in rawEquations
             {
-                equationIndex += 1
                 var index:Int = 0
                 
                 guard
@@ -94,6 +93,7 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
                     result:result,
                     equationIndex:equationIndex)
                 equations.append(equation)
+                equationIndex += 1
             }
         }
         

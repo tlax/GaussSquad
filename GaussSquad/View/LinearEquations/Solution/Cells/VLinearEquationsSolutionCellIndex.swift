@@ -53,6 +53,6 @@ class VLinearEquationsSolutionCellIndex:VLinearEquationsSolutionCell
             return
         }
         
-        label.text = "\(model.index)"
+        label.text = "\(model.index + 1)"
     }
 }

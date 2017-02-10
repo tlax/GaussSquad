@@ -2,10 +2,14 @@ import UIKit
 
 class MLinearEquationsSolutionStepProcess:MLinearEquationsSolutionStep
 {
-    private let kHeaderHeight:CGFloat = 150
+    let descr:String
+    private let kHeaderHeight:CGFloat = 80
     
-    init(equations:[MLinearEquationsSolutionEquation])
+    init(
+        equations:[MLinearEquationsSolutionEquation],
+        descr:String)
     {
+        self.descr = descr
         let reusableIdentifier:String = VLinearEquationsSolutionHeaderProcess.reusableIdentifier
         
         super.init(
