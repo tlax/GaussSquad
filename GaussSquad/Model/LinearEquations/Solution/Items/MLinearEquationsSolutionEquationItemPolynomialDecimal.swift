@@ -23,19 +23,23 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
             width:kMaxStringWidth,
             height:kMaxStringHeight)
         let coefficient:Double = coefficientDividend / coefficientDivisor
-        let absoluteCoefficient:Double = abs(coefficient)
-        let rawString:String = MSession.sharedInstance.stringFrom(
-            number:absoluteCoefficient)
-        
-        let attributedCoefficient:NSAttributedString = NSAttributedString(
-            string:rawString,
-            attributes:attributes)
         let attributedIndeterminate:NSAttributedString = NSAttributedString(
             string:indeterminate.symbol,
             attributes:attributes)
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
-        mutableString.append(attributedCoefficient)
+        
+        if coefficient != 1
+        {
+            let absoluteCoefficient:Double = abs(coefficient)
+            let rawString:String = MSession.sharedInstance.stringFrom(
+                number:absoluteCoefficient)
+            let attributedCoefficient:NSAttributedString = NSAttributedString(
+                string:rawString,
+                attributes:attributes)
+            mutableString.append(attributedCoefficient)
+        }
+        
         mutableString.append(attributedIndeterminate)
         string = mutableString
         

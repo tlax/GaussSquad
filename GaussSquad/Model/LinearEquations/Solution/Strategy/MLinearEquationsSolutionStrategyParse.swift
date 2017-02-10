@@ -140,7 +140,7 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
                 return nil
             }
             
-            if rawPolynomial.showAsDivision
+            if rawPolynomial.showAsDivision && coefficientDivisor != 1
             {
                 polynomial = MLinearEquationsSolutionEquationItemPolynomialDivision(
                     indeterminate:indeterminate,

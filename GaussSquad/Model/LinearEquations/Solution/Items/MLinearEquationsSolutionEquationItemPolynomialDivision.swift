@@ -4,7 +4,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
 {
     let stringDividend:NSAttributedString
     let stringDivisor:NSAttributedString
-    private let kFontSize:CGFloat = 15
+    private let kFontSize:CGFloat = 13
     private let kMaxStringWidth:CGFloat = 5000
     private let kMaxStringHeight:CGFloat = 20
     private let kAddedWidth:CGFloat = 20
@@ -23,21 +23,25 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
         let maxSize:CGSize = CGSize(
             width:kMaxStringWidth,
             height:kMaxStringHeight)
-        let absoluteDividend:Double = abs(coefficientDividend)
-        let rawStringDividend:String = MSession.sharedInstance.stringFrom(
-            number:absoluteDividend)
         let rawStringDivisor:String = MSession.sharedInstance.stringFrom(
             number:coefficientDivisor)
-        
-        let attributedDividend:NSAttributedString = NSAttributedString(
-            string:rawStringDividend,
-            attributes:attributes)
         let attributedIndeterminate:NSAttributedString = NSAttributedString(
             string:indeterminate.symbol,
             attributes:attributes)
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
-        mutableString.append(attributedDividend)
+        
+        if coefficientDividend != 1
+        {
+            let absoluteDividend:Double = abs(coefficientDividend)
+            let rawStringDividend:String = MSession.sharedInstance.stringFrom(
+                number:absoluteDividend)
+            let attributedDividend:NSAttributedString = NSAttributedString(
+                string:rawStringDividend,
+                attributes:attributes)
+            mutableString.append(attributedDividend)
+        }
+        
         mutableString.append(attributedIndeterminate)
         stringDividend = mutableString
         

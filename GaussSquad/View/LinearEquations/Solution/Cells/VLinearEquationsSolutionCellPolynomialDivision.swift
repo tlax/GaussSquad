@@ -90,7 +90,7 @@ class VLinearEquationsSolutionCellPolynomialDivision:VLinearEquationsSolutionCel
             view:labelDivisor,
             toView:imageView)
         NSLayoutConstraint.rightToRight(
-            view:labelDividend,
+            view:labelDivisor,
             toView:self)
     }
     
