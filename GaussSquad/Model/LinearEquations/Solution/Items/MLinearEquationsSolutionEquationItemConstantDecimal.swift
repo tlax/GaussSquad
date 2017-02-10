@@ -6,7 +6,7 @@ class MLinearEquationsSolutionEquationItemConstantDecimal:MLinearEquationsSoluti
     private let kFontSize:CGFloat = 20
     private let kMaxStringWidth:CGFloat = 5000
     private let kMaxStringHeight:CGFloat = 30
-    private let kAddedWidth:CGFloat = 20
+    private let kAddedWidth:CGFloat = 30
     
     init(
         coefficientDividend:Double,

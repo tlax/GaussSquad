@@ -6,7 +6,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
     private let kFontSize:CGFloat = 20
     private let kMaxStringWidth:CGFloat = 5000
     private let kMaxStringHeight:CGFloat = 30
-    private let kAddedWidth:CGFloat = 20
+    private let kAddedWidth:CGFloat = 30
     
     init(
         indeterminate:MLinearEquationsSolutionIndeterminatesItem,
@@ -23,15 +23,15 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
             width:kMaxStringWidth,
             height:kMaxStringHeight)
         let coefficient:Double = coefficientDividend / coefficientDivisor
+        let absoluteCoefficient:Double = abs(coefficient)
         let attributedIndeterminate:NSAttributedString = NSAttributedString(
             string:indeterminate.symbol,
             attributes:attributes)
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         
-        if coefficient != 1
+        if absoluteCoefficient != 1
         {
-            let absoluteCoefficient:Double = abs(coefficient)
             let rawString:String = MSession.sharedInstance.stringFrom(
                 number:absoluteCoefficient)
             let attributedCoefficient:NSAttributedString = NSAttributedString(

@@ -7,9 +7,9 @@ class VLinearEquationsSolutionCellPolynomialDivision:VLinearEquationsSolutionCel
     private weak var imageView:UIImageView!
     private weak var layoutImageWidth:NSLayoutConstraint!
     private weak var layoutBorderTop:NSLayoutConstraint!
-    private let kImageWidth:CGFloat = 20
+    private let kImageWidth:CGFloat = 30
     private let kBorderHeight:CGFloat = 1
-    private let kLabelHeight:CGFloat = 16
+    private let kLabelHeight:CGFloat = 27
     
     override init(frame:CGRect)
     {
@@ -67,7 +67,7 @@ class VLinearEquationsSolutionCellPolynomialDivision:VLinearEquationsSolutionCel
         layoutImageWidth = NSLayoutConstraint.width(
             view:imageView)
         
-        NSLayoutConstraint.bottomToTop(
+        NSLayoutConstraint.bottomToBottom(
             view:labelDividend,
             toView:border)
         NSLayoutConstraint.height(
@@ -80,7 +80,7 @@ class VLinearEquationsSolutionCellPolynomialDivision:VLinearEquationsSolutionCel
             view:labelDividend,
             toView:self)
         
-        NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToTop(
             view:labelDivisor,
             toView:border)
         NSLayoutConstraint.height(

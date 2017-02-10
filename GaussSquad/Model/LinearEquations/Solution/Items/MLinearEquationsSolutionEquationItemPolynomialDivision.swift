@@ -4,10 +4,10 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
 {
     let stringDividend:NSAttributedString
     let stringDivisor:NSAttributedString
-    private let kFontSize:CGFloat = 13
+    private let kFontSize:CGFloat = 20
     private let kMaxStringWidth:CGFloat = 5000
     private let kMaxStringHeight:CGFloat = 20
-    private let kAddedWidth:CGFloat = 20
+    private let kAddedWidth:CGFloat = 30
     
     init(
         indeterminate:MLinearEquationsSolutionIndeterminatesItem,
@@ -15,6 +15,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
         coefficientDivisor:Double,
         showSign:Bool)
     {
+        let absoluteDividend:Double = abs(coefficientDividend)
         let attributes:[String:AnyObject] = [
             NSFontAttributeName:UIFont.numeric(size:kFontSize)]
         let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
@@ -31,9 +32,8 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         
-        if coefficientDividend != 1
+        if absoluteDividend != 1
         {
-            let absoluteDividend:Double = abs(coefficientDividend)
             let rawStringDividend:String = MSession.sharedInstance.stringFrom(
                 number:absoluteDividend)
             let attributedDividend:NSAttributedString = NSAttributedString(
