@@ -59,7 +59,7 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
                     
                     let rawPolynomials:[DPolynomial] = rawEquation.polynomials?.array as? [DPolynomial],
                     let rawResult:DPolynomial = rawEquation.result,
-                    let result:MLinearEquationsSolutionEquationItem = findPolynomial(
+                    let result:MLinearEquationsSolutionEquationItem = MLinearEquationsSolutionEquationItem.polynomial(
                         rawPolynomial:rawResult,
                         indeterminates:indeterminates,
                         index:index)
@@ -75,7 +75,7 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
                 {
                     guard
                     
-                        let polynomial:MLinearEquationsSolutionEquationItem = findPolynomial(
+                        let polynomial:MLinearEquationsSolutionEquationItem = MLinearEquationsSolutionEquationItem.polynomial(
                             rawPolynomial:rawPolynomial,
                             indeterminates:indeterminates,
                             index:index)
@@ -100,81 +100,5 @@ class MLinearEquationsSolutionStrategyParse:MLinearEquationsSolutionStrategy
         let step:MLinearEquationsSolutionStepStart = MLinearEquationsSolutionStepStart(
             equations:equations)
         completed(step:step)
-    }
-    
-    private func findPolynomial(
-        rawPolynomial:DPolynomial,
-        indeterminates:MLinearEquationsSolutionIndeterminates,
-        index:Int) -> MLinearEquationsSolutionEquationItem?
-    {
-        let polynomial:MLinearEquationsSolutionEquationItem?
-        let coefficientDividend:Double = rawPolynomial.signedDividend()
-        let coefficientDivisor:Double = rawPolynomial.coefficientDivisor
-        let showSign:Bool
-        
-        if coefficientDividend >= 0
-        {
-            if index > 0
-            {
-                showSign = true
-            }
-            else
-            {
-                showSign = false
-            }
-        }
-        else
-        {
-            showSign = true
-        }
-        
-        if let rawIndeterminate:DIndeterminate = rawPolynomial.indeterminate
-        {
-            guard
-            
-                let indeterminate:MLinearEquationsSolutionIndeterminatesItem = indeterminates.indeterminateFor(
-                    rawIndeterminate:rawIndeterminate)
-            
-            else
-            {
-                return nil
-            }
-            
-            if rawPolynomial.showAsDivision && coefficientDivisor != 1
-            {
-                polynomial = MLinearEquationsSolutionEquationItemPolynomialDivision(
-                    indeterminate:indeterminate,
-                    coefficientDividend:coefficientDividend,
-                    coefficientDivisor:coefficientDivisor,
-                    showSign:showSign)
-            }
-            else
-            {
-                polynomial = MLinearEquationsSolutionEquationItemPolynomialDecimal(
-                    indeterminate:indeterminate,
-                    coefficientDividend:coefficientDividend,
-                    coefficientDivisor:coefficientDivisor,
-                    showSign:showSign)
-            }
-        }
-        else
-        {
-            if rawPolynomial.showAsDivision && coefficientDivisor != 1
-            {
-                polynomial = MLinearEquationsSolutionEquationItemConstantDivision(
-                    coefficientDividend:coefficientDividend,
-                    coefficientDivisor:coefficientDivisor,
-                    showSign:showSign)
-            }
-            else
-            {
-                polynomial = MLinearEquationsSolutionEquationItemConstantDecimal(
-                    coefficientDividend:coefficientDividend,
-                    coefficientDivisor:coefficientDivisor,
-                    showSign:showSign)
-            }
-        }
-        
-        return polynomial
     }
 }
