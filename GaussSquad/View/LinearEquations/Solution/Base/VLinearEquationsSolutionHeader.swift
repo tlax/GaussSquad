@@ -14,4 +14,10 @@ class VLinearEquationsSolutionHeader:UICollectionReusableView
     {
         return nil
     }
+    
+    //MARK: public
+    
+    func config(step:MLinearEquationsSolutionStep, indexPath:IndexPath)
+    {
+    }
 }

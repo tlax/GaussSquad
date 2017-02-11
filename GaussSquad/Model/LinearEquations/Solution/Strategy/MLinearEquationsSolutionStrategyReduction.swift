@@ -91,7 +91,7 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
         var equations:[MLinearEquationsSolutionEquation] = []
         let descr:String = String(
             format:NSLocalizedString("MLinearEquationsSolutionStrategyReduction_descr", comment:""),
-            indexEquation + 1)
+            "\((indexEquation + 1))")
         
         let countEquations:Int = self.step.equations.count
         
