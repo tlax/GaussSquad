@@ -14,9 +14,23 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
             {
                 let rawItem:MLinearEquationsSolutionEquationItem = equation.items[indexPolynomial]
                 
-                if let constant:MLinearEquationsSolutionEquationItemConstant = rawItem as? MLinearEquationsSolutionEquationItemConstant
+                if let _:MLinearEquationsSolutionEquationItemConstant = rawItem as? MLinearEquationsSolutionEquationItemConstant
                 {
-                    
+                    for indexComparison:Int in indexPolynomial + 1 ..< countPolynomials
+                    {
+                        let rawComparing:MLinearEquationsSolutionEquationItem = equation.items[indexComparison]
+                        
+                        if let _:MLinearEquationsSolutionEquationItemConstant = rawComparing as? MLinearEquationsSolutionEquationItemConstant
+                        {
+                            let strategy:MLinearEquationsSolutionStrategyReduction = MLinearEquationsSolutionStrategyReduction(
+                                step:step,
+                                indexEquation:indexEquation,
+                                indexPolynomialA:indexPolynomial,
+                                indexPolynomialB:indexComparison)
+                            
+                            return strategy
+                        }
+                    }
                 }
                 else if let polynomial:MLinearEquationsSolutionEquationItemPolynomial = rawItem as? MLinearEquationsSolutionEquationItemPolynomial
                 {
