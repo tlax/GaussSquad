@@ -75,9 +75,9 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
         return nil
     }
     
-    private let indexEquation:Int
-    private let indexPolynomialA:Int
-    private let indexPolynomialB:Int
+    let indexEquation:Int
+    let indexPolynomialA:Int
+    let indexPolynomialB:Int
     
     private init(
         step:MLinearEquationsSolutionStep,
@@ -100,144 +100,7 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
     
     //MARK: private
     
-    private func reduction()
+    public func reduction()
     {
-        var equations:[MLinearEquationsSolutionEquation] = []
-        let descr:String = String(
-            format:NSLocalizedString("MLinearEquationsSolutionStrategyReduction_descr", comment:""),
-            "\((indexEquation + 1))")
-        
-        let countEquations:Int = self.step.equations.count
-        
-        for indexEquation:Int in 0 ..< countEquations
-        {
-            let equation:MLinearEquationsSolutionEquation
-            let currentEquation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation]
-            
-            if indexEquation == self.indexEquation
-            {
-                var items:[MLinearEquationsSolutionEquationItem] = []
-                var result:MLinearEquationsSolutionEquationItem = currentEquation.result
-                let countItems:Int = currentEquation.items.count
-                
-                if indexPolynomialB == countItems
-                {
-                    for indexItem:Int in 0 ..< countItems
-                    {
-                        let currentItem:MLinearEquationsSolutionEquationItem = currentEquation.items[indexItem]
-                        
-                        if indexItem == indexPolynomialA
-                        {
-                            if let itemPolynomial:MLinearEquationsSolutionEquationItemPolynomial = currentItem as? MLinearEquationsSolutionEquationItemPolynomial
-                            {
-                                guard
-                                    
-                                    let resultPolynomial:MLinearEquationsSolutionEquationItemPolynomial = result as? MLinearEquationsSolutionEquationItemPolynomial
-                                
-                                else
-                                {
-                                    return
-                                }
-                                
-                                result = resultPolynomial.subtract(
-                                    otherPolynomial:itemPolynomial,
-                                    newIndex:0)
-                            }
-                            else if let itemConstant:MLinearEquationsSolutionEquationItemConstant = currentItem as? MLinearEquationsSolutionEquationItemConstant
-                            {
-                                guard
-                                    
-                                    let resultConstant:MLinearEquationsSolutionEquationItemConstant = result as? MLinearEquationsSolutionEquationItemConstant
-                                    
-                                else
-                                {
-                                    return
-                                }
-                                
-                                result = resultConstant.subtract(
-                                    otherConstant:itemConstant,
-                                    newIndex:0)
-                            }
-                        }
-                        else
-                        {
-                            items.append(currentItem)
-                        }
-                    }
-                }
-                else
-                {
-                    for indexItem:Int in 0 ..< countItems
-                    {
-                        var item:MLinearEquationsSolutionEquationItem = currentEquation.items[indexItem]
-                        
-                        if indexItem == indexPolynomialA
-                        {
-                            for indexOtherItem:Int in indexItem + 1 ..< countItems
-                            {
-                                if indexOtherItem == indexPolynomialB
-                                {
-                                    let otherItem:MLinearEquationsSolutionEquationItem = currentEquation.items[indexOtherItem]
-                                    
-                                    if let itemPolynomial:MLinearEquationsSolutionEquationItemPolynomial = item as? MLinearEquationsSolutionEquationItemPolynomial
-                                    {
-                                        guard
-                                        
-                                            let otherItemPolynomial:MLinearEquationsSolutionEquationItemPolynomial = otherItem as? MLinearEquationsSolutionEquationItemPolynomial
-                                        
-                                        else
-                                        {
-                                            return
-                                        }
-                                        
-                                        item = itemPolynomial.add(
-                                            otherPolynomial:otherItemPolynomial,
-                                            newIndex:indexItem)
-                                    }
-                                    else if let itemConstant:MLinearEquationsSolutionEquationItemConstant = item as? MLinearEquationsSolutionEquationItemConstant
-                                    {
-                                        guard
-                                        
-                                            let otherItemConstant:MLinearEquationsSolutionEquationItemConstant = otherItem as? MLinearEquationsSolutionEquationItemConstant
-                                        
-                                        else
-                                        {
-                                            return
-                                        }
-                                        
-                                        item = itemConstant.add(
-                                            otherConstant:otherItemConstant,
-                                            newIndex:indexItem)
-                                    }
-                                    
-                                    break
-                                }
-                            }
-                        }
-                        
-                        if indexItem != indexPolynomialB
-                        {
-                            items.append(item)
-                        }
-                    }
-                }
-                
-                equation = MLinearEquationsSolutionEquation(
-                    items:items,
-                    result:result,
-                    equationIndex:indexEquation)
-            }
-            else
-            {
-                equation = currentEquation
-            }
-            
-            equations.append(equation)
-        }
-        
-        let step:MLinearEquationsSolutionStepProcess = MLinearEquationsSolutionStepProcess(
-            equations:equations,
-            descr:descr)
-        completed(step:step)
     }
 }
