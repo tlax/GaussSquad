@@ -3,7 +3,7 @@ import UIKit
 class MLinearEquationsSolutionEquationItemIndex:MLinearEquationsSolutionEquationItem
 {
     let index:Int
-    private let kCellWidth:CGFloat = 35
+    private let kCellWidth:CGFloat = 45
     
     init(index:Int)
     {

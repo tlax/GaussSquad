@@ -118,7 +118,7 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
                 height:kFooterHeight)
             footerLayoutAttributes.append(footerAttribute)
             
-            positionY += headerHeight
+            positionY += kFooterHeight
             section += 1
         }
         
