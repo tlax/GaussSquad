@@ -26,7 +26,7 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
             barHeight:kBarHeight)
         let collectionView:VCollection = VCollection(flow:flow)
         collectionView.alwaysBounceVertical = true
-        collectionView.alwaysBounceHorizontal = true
+        collectionView.alwaysBounceHorizontal = false
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerHeader(
@@ -108,6 +108,18 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
     }
     
     //MARK: collectionView delegate
+    
+    func scrollViewDidScroll(_ scrollView:UIScrollView)
+    {
+        var offsetY:CGFloat = -scrollView.contentOffset.y
+        
+        if offsetY > 0
+        {
+            offsetY = 0
+        }
+        
+        layoutBarTop.constant = offsetY
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {

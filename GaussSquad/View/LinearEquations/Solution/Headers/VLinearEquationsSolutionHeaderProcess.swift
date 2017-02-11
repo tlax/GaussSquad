@@ -4,7 +4,7 @@ class VLinearEquationsSolutionHeaderProcess:VLinearEquationsSolutionHeader
 {
     private weak var labelDescr:UILabel!
     private weak var labelNumber:UILabel!
-    private let kDescrWidth:CGFloat = 240
+    private let kDescrWidth:CGFloat = 270
     private let kNumberLeft:CGFloat = 10
     private let kNumberWidth:CGFloat = 35
     
@@ -17,8 +17,8 @@ class VLinearEquationsSolutionHeaderProcess:VLinearEquationsSolutionHeader
         labelDescr.numberOfLines = 0
         labelDescr.isUserInteractionEnabled = false
         labelDescr.backgroundColor = UIColor.clear
-        labelDescr.font = UIFont.regular(size:16)
-        labelDescr.textColor = UIColor(white:0, alpha:0.5)
+        labelDescr.font = UIFont.regular(size:14)
+        labelDescr.textColor = UIColor(white:0, alpha:0.8)
         self.labelDescr = labelDescr
         
         let labelNumber:UILabel = UILabel()
@@ -26,7 +26,7 @@ class VLinearEquationsSolutionHeaderProcess:VLinearEquationsSolutionHeader
         labelNumber.numberOfLines = 0
         labelNumber.isUserInteractionEnabled = false
         labelNumber.backgroundColor = UIColor.clear
-        labelNumber.font = UIFont.bold(size:16)
+        labelNumber.font = UIFont.bold(size:14)
         labelNumber.textColor = UIColor.squadRed
         self.labelNumber = labelNumber
         

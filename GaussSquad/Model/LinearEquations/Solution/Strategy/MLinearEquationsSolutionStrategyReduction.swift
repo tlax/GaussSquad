@@ -22,7 +22,7 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
                         
                         if let _:MLinearEquationsSolutionEquationItemConstant = rawComparing as? MLinearEquationsSolutionEquationItemConstant
                         {
-                            let strategy:MLinearEquationsSolutionStrategyReduction = MLinearEquationsSolutionStrategyReduction(
+                            let strategy:MLinearEquationsSolutionStrategyReduction = MLinearEquationsSolutionStrategyReductionConstants(
                                 step:step,
                                 indexEquation:indexEquation,
                                 indexPolynomialA:indexPolynomial,
@@ -30,6 +30,17 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
                             
                             return strategy
                         }
+                    }
+                    
+                    if let _:MLinearEquationsSolutionEquationItemConstant = equation.result as? MLinearEquationsSolutionEquationItemConstant
+                    {
+                        let strategy:MLinearEquationsSolutionStrategyReduction = MLinearEquationsSolutionStrategyReductionConstants(
+                            step:step,
+                            indexEquation:indexEquation,
+                            indexPolynomialA:indexPolynomial,
+                            indexPolynomialB:countPolynomials)
+                        
+                        return strategy
                     }
                 }
                 else if let polynomial:MLinearEquationsSolutionEquationItemPolynomial = rawItem as? MLinearEquationsSolutionEquationItemPolynomial
@@ -42,7 +53,7 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
                         {
                             if polynomial.indeterminate === polynomialCompare.indeterminate
                             {
-                                let strategy:MLinearEquationsSolutionStrategyReduction = MLinearEquationsSolutionStrategyReduction(
+                                let strategy:MLinearEquationsSolutionStrategyReduction = MLinearEquationsSolutionStrategyReductionIndeterminates(
                                     step:step,
                                     indexEquation:indexEquation,
                                     indexPolynomialA:indexPolynomial,
@@ -57,7 +68,7 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
                     {
                         if polynomial.indeterminate === resultCompare.indeterminate
                         {
-                            let strategy:MLinearEquationsSolutionStrategyReduction = MLinearEquationsSolutionStrategyReduction(
+                            let strategy:MLinearEquationsSolutionStrategyReduction = MLinearEquationsSolutionStrategyReductionIndeterminates(
                                 step:step,
                                 indexEquation:indexEquation,
                                 indexPolynomialA:indexPolynomial,
@@ -79,7 +90,7 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
     let indexPolynomialA:Int
     let indexPolynomialB:Int
     
-    private init(
+    init(
         step:MLinearEquationsSolutionStep,
         indexEquation:Int,
         indexPolynomialA:Int,

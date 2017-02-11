@@ -11,6 +11,7 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
     private let barHeight:CGFloat
     private let kCellHeight:CGFloat = 54
     private let kFooterHeight:CGFloat = 85
+    private let kMarginRight:CGFloat = 20
     
     init(
         model:MLinearEquationsSolution,
@@ -100,9 +101,11 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
                     cellLayoutAttributes.append(attributes)
                 }
                 
-                if positionX > maxPositionX
+                let positionMargin:CGFloat = positionX + kMarginRight
+                
+                if positionMargin > maxPositionX
                 {
-                    maxPositionX = positionX
+                    maxPositionX = positionMargin
                 }
                 
                 positionY += kCellHeight
