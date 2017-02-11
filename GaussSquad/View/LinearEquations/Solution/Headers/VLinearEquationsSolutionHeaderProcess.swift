@@ -2,35 +2,57 @@ import UIKit
 
 class VLinearEquationsSolutionHeaderProcess:VLinearEquationsSolutionHeader
 {
-    private weak var label:UILabel!
-    private let kLabelLeft:CGFloat = 10
-    private let kLabelWidth:CGFloat = 280
+    private weak var labelDescr:UILabel!
+    private weak var labelNumber:UILabel!
+    private let kDescrLeft:CGFloat = 5
+    private let kDescrWidth:CGFloat = 280
+    private let kNumberWidth:CGFloat = 30
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         
-        let label:UILabel = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.isUserInteractionEnabled = false
-        label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:17)
-        label.textColor = UIColor(white:0, alpha:0.5)
-        self.label = label
+        let labelDescr:UILabel = UILabel()
+        labelDescr.translatesAutoresizingMaskIntoConstraints = false
+        labelDescr.numberOfLines = 0
+        labelDescr.isUserInteractionEnabled = false
+        labelDescr.backgroundColor = UIColor.clear
+        labelDescr.font = UIFont.regular(size:16)
+        labelDescr.textColor = UIColor(white:0, alpha:0.5)
+        self.labelDescr = labelDescr
         
-        addSubview(label)
+        let labelNumber:UILabel = UILabel()
+        labelNumber.translatesAutoresizingMaskIntoConstraints = false
+        labelNumber.numberOfLines = 0
+        labelNumber.isUserInteractionEnabled = false
+        labelNumber.backgroundColor = UIColor.clear
+        labelNumber.font = UIFont.regular(size:16)
+        labelNumber.textColor = UIColor.squadBlue
+        labelNumber.textAlignment = NSTextAlignment.right
+        self.labelNumber = labelNumber
+        
+        addSubview(labelDescr)
         
         NSLayoutConstraint.equalsVertical(
-            view:label,
+            view:labelDescr,
             toView:self)
         NSLayoutConstraint.leftToLeft(
-            view:label,
-            toView:self,
-            constant:kLabelLeft)
+            view:labelDescr,
+            toView:labelNumber,
+            constant:kDescrLeft)
         NSLayoutConstraint.width(
-            view:label,
-            constant:kLabelWidth)
+            view:labelDescr,
+            constant:kDescrWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:labelNumber,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:labelNumber,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:labelNumber,
+            constant:kNumberWidth)
     }
     
     required init?(coder:NSCoder)
@@ -49,6 +71,7 @@ class VLinearEquationsSolutionHeaderProcess:VLinearEquationsSolutionHeader
             return
         }
         
-        label.text = stepProcess.descr
+        labelDescr.text = stepProcess.descr
+        labelNumber.text = "\(indexPath.item)"
     }
 }

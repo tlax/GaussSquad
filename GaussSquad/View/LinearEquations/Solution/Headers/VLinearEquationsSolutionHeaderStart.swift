@@ -14,7 +14,7 @@ class VLinearEquationsSolutionHeaderStart:VLinearEquationsSolutionHeader
         label.numberOfLines = 0
         label.isUserInteractionEnabled = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.medium(size:17)
+        label.font = UIFont.bold(size:18)
         label.textColor = UIColor.squadBlue
         label.text = NSLocalizedString("VLinearEquationsSolutionHeaderStart_label", comment:"")
         

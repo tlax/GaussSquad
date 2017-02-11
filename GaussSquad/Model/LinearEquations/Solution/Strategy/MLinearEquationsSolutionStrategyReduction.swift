@@ -200,7 +200,8 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
                                 }
                             }
                         }
-                        else
+                        
+                        if indexItem != indexPolynomialB
                         {
                             items.append(item)
                         }
