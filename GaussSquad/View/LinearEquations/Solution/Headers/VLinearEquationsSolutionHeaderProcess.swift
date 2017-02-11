@@ -5,7 +5,8 @@ class VLinearEquationsSolutionHeaderProcess:VLinearEquationsSolutionHeader
     private weak var labelDescr:UILabel!
     private weak var labelNumber:UILabel!
     private let kDescrLeft:CGFloat = 5
-    private let kDescrWidth:CGFloat = 280
+    private let kDescrWidth:CGFloat = 240
+    private let kNumberLeft:CGFloat = 10
     private let kNumberWidth:CGFloat = 30
     
     override init(frame:CGRect)
@@ -26,17 +27,17 @@ class VLinearEquationsSolutionHeaderProcess:VLinearEquationsSolutionHeader
         labelNumber.numberOfLines = 0
         labelNumber.isUserInteractionEnabled = false
         labelNumber.backgroundColor = UIColor.clear
-        labelNumber.font = UIFont.regular(size:16)
+        labelNumber.font = UIFont.bold(size:16)
         labelNumber.textColor = UIColor.squadBlue
-        labelNumber.textAlignment = NSTextAlignment.right
         self.labelNumber = labelNumber
         
         addSubview(labelDescr)
+        addSubview(labelNumber)
         
         NSLayoutConstraint.equalsVertical(
             view:labelDescr,
             toView:self)
-        NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToRight(
             view:labelDescr,
             toView:labelNumber,
             constant:kDescrLeft)
@@ -49,7 +50,8 @@ class VLinearEquationsSolutionHeaderProcess:VLinearEquationsSolutionHeader
             toView:self)
         NSLayoutConstraint.leftToLeft(
             view:labelNumber,
-            toView:self)
+            toView:self,
+            constant:kNumberLeft)
         NSLayoutConstraint.width(
             view:labelNumber,
             constant:kNumberWidth)
@@ -72,6 +74,6 @@ class VLinearEquationsSolutionHeaderProcess:VLinearEquationsSolutionHeader
         }
         
         labelDescr.text = stepProcess.descr
-        labelNumber.text = "\(indexPath.item)"
+        labelNumber.text = "\(indexPath.section)"
     }
 }

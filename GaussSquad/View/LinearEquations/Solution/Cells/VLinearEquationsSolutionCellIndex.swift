@@ -4,7 +4,7 @@ class VLinearEquationsSolutionCellIndex:VLinearEquationsSolutionCell
 {
     private weak var label:UILabel!
     private let kMarginTop:CGFloat = 3
-    private let kMarginRight:CGFloat = -10
+    private let kMarginLeft:CGFloat = 10
     
     override init(frame:CGRect)
     {
@@ -15,7 +15,6 @@ class VLinearEquationsSolutionCellIndex:VLinearEquationsSolutionCell
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
         label.textColor = UIColor.squadBlue
-        label.textAlignment = NSTextAlignment.right
         label.font = UIFont.bold(size:13)
         self.label = label
         
@@ -30,11 +29,11 @@ class VLinearEquationsSolutionCellIndex:VLinearEquationsSolutionCell
             toView:self)
         NSLayoutConstraint.rightToRight(
             view:label,
-            toView:self,
-            constant:kMarginRight)
+            toView:self)
         NSLayoutConstraint.leftToLeft(
             view:label,
-            toView:self)
+            toView:self,
+            constant:kMarginLeft)
     }
     
     required init?(coder:NSCoder)
