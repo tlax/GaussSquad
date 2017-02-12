@@ -22,6 +22,11 @@ class MLinearEquationsSolutionStrategy
         {
             return removeZeros
         }
+        else if let fractionReduction:MLinearEquationsSolutionStrategyFractionReduction = MLinearEquationsSolutionStrategyFractionReduction.reducible(
+            step:step)
+        {
+            return fractionReduction
+        }
         
         return nil
     }

@@ -2,7 +2,7 @@ import Foundation
 
 class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolutionStrategy
 {
-    class func hasZeros(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyFractionReduction?
+    class func reducible(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyFractionReduction?
     {
         var indexEquation:Int = 0
         
