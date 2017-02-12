@@ -2,7 +2,7 @@ import Foundation
 
 class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolutionStrategy
 {
-    class func hasZeros(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyRemoveZeros?
+    class func hasZeros(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyFractionReduction?
     {
         var indexEquation:Int = 0
         
@@ -12,29 +12,46 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
             
             for item:MLinearEquationsSolutionEquationItem in equation.items
             {
+                let itemDividend:Double?
+                let itemDivisor:Double?
+                
                 if let polynomial:MLinearEquationsSolutionEquationItemPolynomial = item as? MLinearEquationsSolutionEquationItemPolynomial
                 {
-                    if polynomial.coefficientDividend == 0
-                    {
-                        let strategy:MLinearEquationsSolutionStrategyRemoveZeros = MLinearEquationsSolutionStrategyRemoveZeros(
-                            step:step,
-                            indexEquation:indexEquation,
-                            indexPolynomial:indexItem)
-                        
-                        return strategy
-                    }
+                    itemDividend = polynomial.coefficientDividend
+                    itemDivisor = polynomial.coefficientDivisor
                 }
                 else if let coefficient:MLinearEquationsSolutionEquationItemConstant = item as? MLinearEquationsSolutionEquationItemConstant
                 {
-                    if coefficient.coefficientDividend == 0
-                    {
-                        let strategy:MLinearEquationsSolutionStrategyRemoveZeros = MLinearEquationsSolutionStrategyRemoveZeros(
-                            step:step,
-                            indexEquation:indexEquation,
-                            indexPolynomial:indexItem)
-                        
-                        return strategy
-                    }
+                    itemDividend = coefficient.coefficientDividend
+                    itemDivisor = coefficient.coefficientDivisor
+                }
+                else
+                {
+                    itemDividend = nil
+                    itemDivisor = nil
+                }
+                
+                guard
+                    
+                    let dividend:Double = itemDividend,
+                    let divisor:Double = itemDivisor
+                
+                else
+                {
+                    return nil
+                }
+                
+                if let greatestCommonDivisor:Int = findGreatesCommonDivisor(
+                    dividend:dividend,
+                    divisor:divisor)
+                {
+                    let strategy:MLinearEquationsSolutionStrategyFractionReduction = MLinearEquationsSolutionStrategyFractionReduction(
+                        step:step,
+                        indexEquation:indexEquation,
+                        indexPolynomial:indexItem,
+                        greatestCommonDivisor:greatestCommonDivisor)
+                    
+                    return strategy
                 }
                 
                 indexItem += 1
@@ -46,16 +63,26 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
         return nil
     }
     
+    private class func findGreatesCommonDivisor(
+        dividend:Double,
+        divisor:Double) -> Int?
+    {
+        return nil
+    }
+    
     let indexEquation:Int
     let indexPolynomial:Int
+    let greatestCommonDivisor:Int
     
     private init(
         step:MLinearEquationsSolutionStep,
         indexEquation:Int,
-        indexPolynomial:Int)
+        indexPolynomial:Int,
+        greatestCommonDivisor:Int)
     {
         self.indexEquation = indexEquation
         self.indexPolynomial = indexPolynomial
+        self.greatestCommonDivisor = greatestCommonDivisor
         super.init(step:step)
     }
     
