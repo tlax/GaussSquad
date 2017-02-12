@@ -41,7 +41,7 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
                     return nil
                 }
                 
-                if let greatestCommonDivisor:Int = findGreatesCommonDivisor(
+                if let greatestCommonDivisor:Int = findGreatestCommonDivisor(
                     dividend:dividend,
                     divisor:divisor)
                 {
@@ -63,11 +63,40 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
         return nil
     }
     
-    private class func findGreatesCommonDivisor(
+    private class func findGreatestCommonDivisor(
         dividend:Double,
         divisor:Double) -> Int?
     {
+        if divisor != 1 && dividend != 0
+        {
+            let maxNumber:Double = max(dividend, divisor)
+            let minNumber:Double = min(dividend, divisor)
+            
+            let divisor:Double = recursiveDivisor(
+                numberA:maxNumber,
+                numberB:minNumber)
+            
+            print("divisor \(divisor)")
+        }
+        
         return nil
+    }
+    
+    private class func recursiveDivisor(
+        numberA:Double,
+        numberB:Double) -> Double
+    {
+        if numberB > 0
+        {
+            let module:Double = numberA.truncatingRemainder(dividingBy:numberB)
+            let divisor:Double = recursiveDivisor(
+                numberA:numberB,
+                numberB:module)
+            
+            return divisor
+        }
+        
+        return numberA
     }
     
     let indexEquation:Int
