@@ -147,24 +147,70 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
             {
                 var items:[MLinearEquationsSolutionEquationItem] = []
                 let result:MLinearEquationsSolutionEquationItem
+                let currentResult:MLinearEquationsSolutionEquationItem = currentEquation.result
                 let countItems:Int = currentEquation.items.count
                 
                 if indexPolynomial == countItems
                 {
                     items = currentEquation.items
+                    
+                    if let polynomialResult:MLinearEquationsSolutionEquationItemPolynomial = currentResult as? MLinearEquationsSolutionEquationItemPolynomial
+                    {
+                        result = polynomialResult.multiplyCoefficient(
+                            coefficient:greatestCommonDivisor,
+                            index:0)
+                    }
+                    else if let constantResult:MLinearEquationsSolutionEquationItemConstant = currentResult as? MLinearEquationsSolutionEquationItemConstant
+                    {
+                        result = constantResult.multiplyCoefficient(
+                            coefficient:greatestCommonDivisor,
+                            index:0)
+                    }
+                    else
+                    {
+                        result = currentResult
+                    }
                 }
                 else
                 {
                     for indexItem:Int in 0 ..< countItems
                     {
-                        if indexItem != indexPolynomial
+                        let currentItem:MLinearEquationsSolutionEquationItem = currentEquation.items[indexItem]
+                        
+                        if indexItem == indexPolynomial
                         {
-                            let currentItem:MLinearEquationsSolutionEquationItem = currentEquation.items[indexItem]
+                            let multipliedItem:MLinearEquationsSolutionEquationItem?
+                            
+                            if let itemPolynomial:MLinearEquationsSolutionEquationItemPolynomial = currentItem as? MLinearEquationsSolutionEquationItemPolynomial
+                            {
+                                multipliedItem = itemPolynomial.multiplyCoefficient(
+                                    coefficient:greatestCommonDivisor,
+                                    index:indexItem)
+                            }
+                            else if let itemConstant:MLinearEquationsSolutionEquationItemConstant = currentItem as? MLinearEquationsSolutionEquationItemConstant
+                            {
+                                multipliedItem = itemConstant.multiplyCoefficient(
+                                    coefficient:greatestCommonDivisor,
+                                    index:indexItem)
+                            }
+                            else
+                            {
+                                multipliedItem = nil
+                            }
+                            
+                            if let multipliedItem:MLinearEquationsSolutionEquationItem = multipliedItem
+                            {
+                                items.append(multipliedItem)
+                            }
+                        }
+                        else
+                        {
+                            
                             items.append(currentItem)
                         }
                     }
                     
-                    result = currentEquation.result
+                    result = currentResult
                 }
                 
                 equation = MLinearEquationsSolutionEquation(
