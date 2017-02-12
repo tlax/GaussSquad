@@ -60,7 +60,8 @@ class MLinearEquationsSolutionStrategyIndeterminatesLeft:MLinearEquationsSolutio
             {
                 var items:[MLinearEquationsSolutionEquationItem] = currentEquation.items
                 let result:MLinearEquationsSolutionEquationItem = currentEquation.result
-                let newResult:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.
+                let newResult:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.emptyCoefficient(
+                    index:0)
                 items.append(result)
                 
                 equation = MLinearEquationsSolutionEquation(

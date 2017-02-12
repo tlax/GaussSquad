@@ -107,4 +107,16 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         
         return subtractedItem
     }
+    
+    func inversed(newIndex:Int) -> MLinearEquationsSolutionEquationItemPolynomial
+    {
+        let inversedPolynomial:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.polynomial(
+            coefficientDividend:-coefficientDividend,
+            coefficientDivisor:coefficientDivisor,
+            indeterminate:indeterminate,
+            index:newIndex,
+            showAsDivision:showAsDivision)
+        
+        return inversedPolynomial
+    }
 }
