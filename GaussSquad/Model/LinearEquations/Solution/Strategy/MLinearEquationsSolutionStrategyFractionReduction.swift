@@ -78,7 +78,10 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
                 numberA:maxNumber,
                 numberB:minNumber)
             
-            print("divisor \(divisor)")
+            if abs(divisor) != 1
+            {
+                return divisor
+            }
         }
         
         return nil
@@ -121,34 +124,37 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
     {
         super.process(delegate:delegate)
         
-        removeZero()
+        reduceFraction()
     }
     
     //MARK: private
     
-    private func removeZero()
+    private func reduceFraction()
     {
         var equations:[MLinearEquationsSolutionEquation] = []
         let descr:String = String(
-            format:NSLocalizedString("MLinearEquationsSolutionStrategyRemoveZeros_descr", comment:""),
+            format:NSLocalizedString("MLinearEquationsSolutionStrategyFractionReduction_descr", comment:""),
             "\((indexEquation + 1))")
         
         let countEquations:Int = self.step.equations.count
         
         for indexEquation:Int in 0 ..< countEquations
         {
-            let equation:MLinearEquationsSolutionEquation?
+            let equation:MLinearEquationsSolutionEquation
             let currentEquation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation]
             
             if indexEquation == self.indexEquation
             {
+                var items:[MLinearEquationsSolutionEquationItem] = []
+                let result:MLinearEquationsSolutionEquationItem
                 let countItems:Int = currentEquation.items.count
                 
-                if countItems > 1
+                if indexPolynomial == countItems
                 {
-                    var items:[MLinearEquationsSolutionEquationItem] = []
-                    let result:MLinearEquationsSolutionEquationItem = currentEquation.result
-                    
+                    items = currentEquation.items
+                }
+                else
+                {
                     for indexItem:Int in 0 ..< countItems
                     {
                         if indexItem != indexPolynomial
@@ -158,25 +164,20 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
                         }
                     }
                     
-                    equation = MLinearEquationsSolutionEquation(
-                        items:items,
-                        result:result,
-                        equationIndex:indexEquation)
+                    result = currentEquation.result
                 }
-                else
-                {
-                    equation = nil
-                }
+                
+                equation = MLinearEquationsSolutionEquation(
+                    items:items,
+                    result:result,
+                    equationIndex:indexEquation)
             }
             else
             {
                 equation = currentEquation
             }
             
-            if let equation:MLinearEquationsSolutionEquation = equation
-            {
-                equations.append(equation)
-            }
+            equations.append(equation)
         }
         
         let step:MLinearEquationsSolutionStepProcess = MLinearEquationsSolutionStepProcess(

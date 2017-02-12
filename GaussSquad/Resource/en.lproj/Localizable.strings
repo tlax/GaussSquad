@@ -11,6 +11,7 @@
 "MLinearEquationsSolutionStrategyReductionIndeterminates_descr"="Reducing indeterminate in equation %@";
 "MLinearEquationsSolutionStrategyIndeterminatesLeft_descr"="Moving indeterminate to left in equation %@";
 "MLinearEquationsSolutionStrategyRemoveZeros_descr"="Removing zero in equation %@";
+"MLinearEquationsSolutionStrategyFractionReduction_descr"="Fraction reduction in equation %@";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";
