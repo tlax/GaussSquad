@@ -84,23 +84,27 @@ class MLinearEquationsSolutionStrategyRemoveZeros:MLinearEquationsSolutionStrate
             
             if indexEquation == self.indexEquation
             {
-                var items:[MLinearEquationsSolutionEquationItem] = []
-                let result:MLinearEquationsSolutionEquationItem = currentEquation.result
                 let countItems:Int = currentEquation.items.count
                 
-                for indexItem:Int in 0 ..< countItems
+                if countItems > 1
                 {
-                    if indexItem != indexPolynomial
+                    var items:[MLinearEquationsSolutionEquationItem] = []
+                    let result:MLinearEquationsSolutionEquationItem = currentEquation.result
+                    
+                    for indexItem:Int in 0 ..< countItems
                     {
-                        let currentItem:MLinearEquationsSolutionEquationItem = currentEquation.items[indexItem]
-                        items.append(currentItem)
+                        if indexItem != indexPolynomial
+                        {
+                            let currentItem:MLinearEquationsSolutionEquationItem = currentEquation.items[indexItem]
+                            items.append(currentItem)
+                        }
                     }
+                    
+                    equation = MLinearEquationsSolutionEquation(
+                        items:items,
+                        result:result,
+                        equationIndex:indexEquation)
                 }
-                
-                equation = MLinearEquationsSolutionEquation(
-                    items:items,
-                    result:result,
-                    equationIndex:indexEquation)
             }
             else
             {
