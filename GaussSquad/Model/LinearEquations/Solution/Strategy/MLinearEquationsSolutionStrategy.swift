@@ -12,6 +12,11 @@ class MLinearEquationsSolutionStrategy
         {
             return reduction
         }
+        else if let removeZeros:MLinearEquationsSolutionStrategyRemoveZeros = MLinearEquationsSolutionStrategyRemoveZeros.hasZeros(
+            step:step)
+        {
+            return removeZeros
+        }
         
         return nil
     }
