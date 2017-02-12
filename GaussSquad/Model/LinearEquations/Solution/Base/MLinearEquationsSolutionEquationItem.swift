@@ -91,6 +91,17 @@ class MLinearEquationsSolutionEquationItem
         return item
     }
     
+    class func emptyCoefficient(index:Int) -> MLinearEquationsSolutionEquationItemConstant
+    {
+        let coefficient:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.coefficient(
+            coefficientDividend:0,
+            coefficientDivisor:1,
+            index:index,
+            showAsDivision:false)
+        
+        return coefficient
+    }
+    
     let reusableIdentifier:String
     let cellWidth:CGFloat
     
