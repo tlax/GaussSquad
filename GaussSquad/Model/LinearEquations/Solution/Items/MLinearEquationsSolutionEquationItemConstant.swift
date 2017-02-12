@@ -103,4 +103,15 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         
         return subtractedItem
     }
+    
+    func inversed(newIndex:Int) -> MLinearEquationsSolutionEquationItemConstant
+    {
+        let inversedConstant:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.coefficient(
+            coefficientDividend:-coefficientDividend,
+            coefficientDivisor:coefficientDivisor,
+            index:newIndex,
+            showAsDivision:showAsDivision)
+        
+        return inversedConstant
+    }
 }
