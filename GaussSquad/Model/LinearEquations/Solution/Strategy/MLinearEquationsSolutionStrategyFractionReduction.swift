@@ -43,7 +43,7 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
                     return nil
                 }
                 
-                if let greatestCommonDivisor:Int = findGreatestCommonDivisor(
+                if let greatestCommonDivisor:Double = findGreatestCommonDivisor(
                     dividend:dividend,
                     divisor:divisor)
                 {
@@ -67,7 +67,7 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
     
     private class func findGreatestCommonDivisor(
         dividend:Double,
-        divisor:Double) -> Int?
+        divisor:Double) -> Double?
     {
         if divisor != 1 && dividend != 0
         {
@@ -88,7 +88,7 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
         numberA:Double,
         numberB:Double) -> Double
     {
-        if numberB > 0
+        if numberB != 0
         {
             let module:Double = numberA.truncatingRemainder(dividingBy:numberB)
             let divisor:Double = recursiveDivisor(
@@ -103,13 +103,13 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
     
     let indexEquation:Int
     let indexPolynomial:Int
-    let greatestCommonDivisor:Int
+    let greatestCommonDivisor:Double
     
     private init(
         step:MLinearEquationsSolutionStep,
         indexEquation:Int,
         indexPolynomial:Int,
-        greatestCommonDivisor:Int)
+        greatestCommonDivisor:Double)
     {
         self.indexEquation = indexEquation
         self.indexPolynomial = indexPolynomial
