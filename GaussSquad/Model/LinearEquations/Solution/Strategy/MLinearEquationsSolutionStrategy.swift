@@ -12,6 +12,11 @@ class MLinearEquationsSolutionStrategy
         {
             return reduction
         }
+        else if let indeterminatesLeft:MLinearEquationsSolutionStrategyIndeterminatesLeft = MLinearEquationsSolutionStrategyIndeterminatesLeft.indeterminatesRight(
+            step:step)
+        {
+            return indeterminatesLeft
+        }
         else if let removeZeros:MLinearEquationsSolutionStrategyRemoveZeros = MLinearEquationsSolutionStrategyRemoveZeros.hasZeros(
             step:step)
         {
