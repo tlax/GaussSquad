@@ -9,8 +9,10 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
         for equation:MLinearEquationsSolutionEquation in step.equations
         {
             var indexItem:Int = 0
+            var items:[MLinearEquationsSolutionEquationItem] = equation.items
+            items.append(equation.result)
             
-            for item:MLinearEquationsSolutionEquationItem in equation.items
+            for item:MLinearEquationsSolutionEquationItem in items
             {
                 let itemDividend:Double?
                 let itemDivisor:Double?
