@@ -35,7 +35,6 @@
 		DA133A6C1E411B070028D90F /* VLinearEquationsProjectCellEquals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA133A6B1E411B070028D90F /* VLinearEquationsProjectCellEquals.swift */; };
 		DA23C3471E4FFF58007C4C4D /* MLinearEquationsSolutionStrategyRemoveZeros.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C3461E4FFF58007C4C4D /* MLinearEquationsSolutionStrategyRemoveZeros.swift */; };
 		DA23C3491E500955007C4C4D /* MLinearEquationsSolutionStrategyIndeterminatesLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C3481E500955007C4C4D /* MLinearEquationsSolutionStrategyIndeterminatesLeft.swift */; };
-		DA23C34B1E500965007C4C4D /* MLinearEquationsSolutionStrategyConstantsRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C34A1E500965007C4C4D /* MLinearEquationsSolutionStrategyConstantsRight.swift */; };
 		DA316CE51E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CE41E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift */; };
 		DA316CE91E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CE81E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift */; };
 		DA316CED1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CEC1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift */; };
@@ -182,7 +181,6 @@
 		DA133A6B1E411B070028D90F /* VLinearEquationsProjectCellEquals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectCellEquals.swift; sourceTree = "<group>"; };
 		DA23C3461E4FFF58007C4C4D /* MLinearEquationsSolutionStrategyRemoveZeros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionStrategyRemoveZeros.swift; sourceTree = "<group>"; };
 		DA23C3481E500955007C4C4D /* MLinearEquationsSolutionStrategyIndeterminatesLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionStrategyIndeterminatesLeft.swift; sourceTree = "<group>"; };
-		DA23C34A1E500965007C4C4D /* MLinearEquationsSolutionStrategyConstantsRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionStrategyConstantsRight.swift; sourceTree = "<group>"; };
 		DA316CE41E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialIndeterminate.swift; sourceTree = "<group>"; };
 		DA316CE81E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquationsPolynomialIndeterminate.swift; sourceTree = "<group>"; };
 		DA316CEC1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsIndeterminateList.swift; sourceTree = "<group>"; };
@@ -435,7 +433,6 @@
 				DA0D4DE21E4E99A300699018 /* MLinearEquationsSolutionStrategyReductionConstants.swift */,
 				DA0D4DE41E4E99AD00699018 /* MLinearEquationsSolutionStrategyReductionIndeterminates.swift */,
 				DA23C3481E500955007C4C4D /* MLinearEquationsSolutionStrategyIndeterminatesLeft.swift */,
-				DA23C34A1E500965007C4C4D /* MLinearEquationsSolutionStrategyConstantsRight.swift */,
 				DA23C3461E4FFF58007C4C4D /* MLinearEquationsSolutionStrategyRemoveZeros.swift */,
 			);
 			path = Strategy;
@@ -950,7 +947,6 @@
 				DA62D35B1E4CD51D000D0387 /* MLinearEquationsSolutionEquationItemConstant.swift in Sources */,
 				DAF37AD91E3D51D7005052D8 /* VLinearEquations.swift in Sources */,
 				DA12D47B1E41599A008327B5 /* MLinearEquationsProjectRowItemPolynomialDivision.swift in Sources */,
-				DA23C34B1E500965007C4C4D /* MLinearEquationsSolutionStrategyConstantsRight.swift in Sources */,
 				DAA4BD761E3A700C00B0360D /* MHomeItemArithmetic.swift in Sources */,
 				DA133A411E410F710028D90F /* MLinearEquationsProjectRowItemEquals.swift in Sources */,
 				DAFF4ABD1E397B9600A2DD4B /* MHelp.swift in Sources */,
