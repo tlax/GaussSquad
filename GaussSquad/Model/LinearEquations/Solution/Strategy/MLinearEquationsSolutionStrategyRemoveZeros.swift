@@ -79,7 +79,7 @@ class MLinearEquationsSolutionStrategyRemoveZeros:MLinearEquationsSolutionStrate
         
         for indexEquation:Int in 0 ..< countEquations
         {
-            let equation:MLinearEquationsSolutionEquation
+            let equation:MLinearEquationsSolutionEquation?
             let currentEquation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation]
             
             if indexEquation == self.indexEquation
@@ -105,13 +105,20 @@ class MLinearEquationsSolutionStrategyRemoveZeros:MLinearEquationsSolutionStrate
                         result:result,
                         equationIndex:indexEquation)
                 }
+                else
+                {
+                    equation = nil
+                }
             }
             else
             {
                 equation = currentEquation
             }
             
-            equations.append(equation)
+            if let equation:MLinearEquationsSolutionEquation = equation
+            {
+                equations.append(equation)
+            }
         }
         
         let step:MLinearEquationsSolutionStepProcess = MLinearEquationsSolutionStepProcess(
