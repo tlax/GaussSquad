@@ -109,7 +109,7 @@ class MLinearEquationsSolutionStrategyReduction:MLinearEquationsSolutionStrategy
         reduction()
     }
     
-    //MARK: private
+    //MARK: public
     
     public func reduction()
     {

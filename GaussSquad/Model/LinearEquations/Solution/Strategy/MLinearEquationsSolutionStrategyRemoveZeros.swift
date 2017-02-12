@@ -22,18 +22,15 @@ class MLinearEquationsSolutionStrategyRemoveZeros:MLinearEquationsSolutionStrate
     }
     
     let indexEquation:Int
-    let indexPolynomialA:Int
-    let indexPolynomialB:Int
+    let indexPolynomial:Int
     
     init(
         step:MLinearEquationsSolutionStep,
         indexEquation:Int,
-        indexPolynomialA:Int,
-        indexPolynomialB:Int)
+        indexPolynomial:Int)
     {
         self.indexEquation = indexEquation
-        self.indexPolynomialA = indexPolynomialA
-        self.indexPolynomialB = indexPolynomialB
+        self.indexPolynomial = indexPolynomial
         super.init(step:step)
     }
     
@@ -41,12 +38,12 @@ class MLinearEquationsSolutionStrategyRemoveZeros:MLinearEquationsSolutionStrate
     {
         super.process(delegate:delegate)
         
-        reduction()
+        removeZero()
     }
     
     //MARK: private
     
-    public func reduction()
+    private func removeZero()
     {
     }
 }
