@@ -8,7 +8,7 @@
 "MLinearEquationsItem_negative"=" - ";
 "MLinearEquationsItem_division"="/";
 "MLinearEquationsSolutionStrategyReductionConstants_descr"="Reducing constants in equation %@";
-"MLinearEquationsSolutionStrategyReductionIndeterminates_descr"="Reducing indeterminates in equation %@";
+"MLinearEquationsSolutionStrategyReductionIndeterminates_descr"="Reducing indeterminate in equation %@";
 "MLinearEquationsSolutionStrategyRemoveZeros_descr"="Removed zero in equation %@";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
@@ -16,7 +16,7 @@
 "VLinearEquationsBar_labelGaussDate"="\n30/4/1777 – 23/2/1855";
 "VLinearEquationsBar_labelDescr"="A linear equation is an algebraic equation in which each term is either a constant or the product of a constant and a single variable.\n\nGauss was a German mathematician referred to as the Princeps mathematicorum, he created the algorithm Gaussian Elimination for solving systems of linear equations.";
 "VLinearEquationsPolynomialControl_buttonDone"="Done";
-"VLinearEquationsProjectBarIndeterminates_title"="Indeterminates";
+"VLinearEquationsProjectBarIndeterminates_title"="Indeterminate";
 "VLinearEquationsIndeterminateControl_buttonSave"="Save";
 "VLinearEquationsIndeterminateControl_buttonCancel"="Cancel";
 "VLinearEquationsIndeterminate_labelTitle"="New indeterminate";
@@ -26,8 +26,8 @@
 "VLinearEquationsSolutionHeaderStart_label"="Initial linear system";
 
 "CLinearEquationsIndeterminate_errorInvalid"="Name can't be empty";
-"CLinearEquationsIndeterminate_errorNoNumber"="Indeterminates can't start with a number";
-"CLinearEquationsIndeterminate_errorCharacters"="Indeterminates can't have spaces or special characters";
+"CLinearEquationsIndeterminate_errorNoNumber"="Indeterminate can't start with a number";
+"CLinearEquationsIndeterminate_errorCharacters"="Indeterminate can't have spaces or special characters";
 "CLinearEquationsIndeterminate_errorExistingIndeterminate"="Indeterminate already exists, use different name";
 "CLinearEquationsProject_alertIndeterminateTitle"="Delete %@?";
 "CLinearEquationsProject_alertIndeterminateCancel"="Don't";
