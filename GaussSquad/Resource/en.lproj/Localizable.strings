@@ -9,6 +9,7 @@
 "MLinearEquationsItem_division"="/";
 "MLinearEquationsSolutionStrategyReductionConstants_descr"="Reducing constants in equation %@";
 "MLinearEquationsSolutionStrategyReductionIndeterminates_descr"="Reducing indeterminates in equation %@";
+"MLinearEquationsSolutionStrategyRemoveZeros_descr"="Removed zero in equation %@";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";
