@@ -58,15 +58,25 @@ class MLinearEquationsSolutionStrategyIndeterminatesLeft:MLinearEquationsSolutio
             
             if indexEquation == self.indexEquation
             {
+                guard
+                    
+                    let oldResult:MLinearEquationsSolutionEquationItemPolynomial = currentEquation.result as? MLinearEquationsSolutionEquationItemPolynomial
+                else
+                {
+                    return
+                }
+                
                 var items:[MLinearEquationsSolutionEquationItem] = currentEquation.items
-                let result:MLinearEquationsSolutionEquationItem = currentEquation.result
+                let currentItems:Int = items.count
+                let inversedResult:MLinearEquationsSolutionEquationItemPolynomial = oldResult.inversed(
+                    newIndex:currentItems)
                 let newResult:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.emptyCoefficient(
                     index:0)
-                items.append(result)
+                items.append(inversedResult)
                 
                 equation = MLinearEquationsSolutionEquation(
                     items:items,
-                    result:result,
+                    result:newResult,
                     equationIndex:indexEquation)
             }
             else
