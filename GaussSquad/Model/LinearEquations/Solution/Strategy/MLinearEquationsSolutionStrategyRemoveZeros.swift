@@ -8,12 +8,10 @@ class MLinearEquationsSolutionStrategyRemoveZeros:MLinearEquationsSolutionStrate
         
         for equation:MLinearEquationsSolutionEquation in step.equations
         {
-            let countPolynomials:Int = equation.items.count
+            var indexItem:Int = 0
             
-            for indexPolynomial:Int in 0 ..< countPolynomials
+            for item:MLinearEquationsSolutionEquationItem in equation.items
             {
-                let item:MLinearEquationsSolutionEquationItem = equation.items[indexPolynomial]
-                
                 if let polynomial:MLinearEquationsSolutionEquationItemPolynomial = item as? MLinearEquationsSolutionEquationItemPolynomial
                 {
                     if polynomial.coefficientDividend == 0
@@ -21,7 +19,7 @@ class MLinearEquationsSolutionStrategyRemoveZeros:MLinearEquationsSolutionStrate
                         let strategy:MLinearEquationsSolutionStrategyRemoveZeros = MLinearEquationsSolutionStrategyRemoveZeros(
                             step:step,
                             indexEquation:indexEquation,
-                            indexPolynomial:indexPolynomial)
+                            indexPolynomial:indexItem)
                         
                         return strategy
                     }
@@ -33,11 +31,13 @@ class MLinearEquationsSolutionStrategyRemoveZeros:MLinearEquationsSolutionStrate
                         let strategy:MLinearEquationsSolutionStrategyRemoveZeros = MLinearEquationsSolutionStrategyRemoveZeros(
                             step:step,
                             indexEquation:indexEquation,
-                            indexPolynomial:indexPolynomial)
+                            indexPolynomial:indexItem)
                         
                         return strategy
                     }
                 }
+                
+                indexItem += 1
             }
             
             indexEquation += 1
