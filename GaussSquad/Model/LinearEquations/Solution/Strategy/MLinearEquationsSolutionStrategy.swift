@@ -19,10 +19,10 @@ class MLinearEquationsSolutionStrategy
         {
             return indeterminatesLeft
         }
-        else if let makeZero:MLinearEquationsSolutionStrategyMakeZero = MLinearEquationsSolutionStrategyMakeZero.onlyZeros(
+        else if let removeZero:MLinearEquationsSolutionStrategyRemoveZero = MLinearEquationsSolutionStrategyRemoveZero.onlyZeros(
             step:step)
         {
-            return makeZero
+            return removeZero
         }
         else if let fractionReduction:MLinearEquationsSolutionStrategyFractionReduction = MLinearEquationsSolutionStrategyFractionReduction.reducible(
             step:step)
