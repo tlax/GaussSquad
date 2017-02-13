@@ -15,7 +15,7 @@
 "MLinearEquationsSolutionStrategyZeroFill_descr"="Added %@ to equation %@";
 "MLinearEquationsSolutionStrategyOrderIndeterminates_descr"="Ordering polynomials in equation %@";
 "MLinearEquationsSolutionStrategyPivotOrdering_descr"="Swaping equations %@ and %@";
-"MLinearEquationsSolutionStrategyRowAddition_descr"="%@(equation %@) + (equation %@)";
+"MLinearEquationsSolutionStrategyRowAddition_descr"="Equation %@ = Equation %@ + (Equation %@ × %@)";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";

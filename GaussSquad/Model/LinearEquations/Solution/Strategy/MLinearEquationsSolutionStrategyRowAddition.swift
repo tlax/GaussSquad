@@ -97,11 +97,13 @@ class MLinearEquationsSolutionStrategyRowAddition:MLinearEquationsSolutionStrate
     private func addRows()
     {
         var equations:[MLinearEquationsSolutionEquation] = []
+        let scalarString:String = MSession.sharedInstance.stringFrom(number:scalar)
         let descr:String = String(
             format:NSLocalizedString("MLinearEquationsSolutionStrategyRowAddition_descr", comment:""),
-            "\(scalar)",
             "\(indexRow)",
-            "\((indexRow + 1))")
+            "\(indexRow)",
+            "\((indexRow - 1))",
+            scalarString)
         
         var indexEquation:Int = 0
         
