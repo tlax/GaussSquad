@@ -86,11 +86,6 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
             }
             
             return divisor
-            
-            if abs(divisor) != 1
-            {
-                return divisor
-            }
         }
         
         return nil
