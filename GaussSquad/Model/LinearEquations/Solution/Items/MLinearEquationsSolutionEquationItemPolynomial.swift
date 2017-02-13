@@ -170,13 +170,13 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
     
     func reIndexed(newIndex:Int) -> MLinearEquationsSolutionEquationItemPolynomial
     {
-        let inversedPolynomial:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.polynomial(
+        let indexedPolynomial:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.polynomial(
             coefficientDividend:coefficientDividend,
             coefficientDivisor:coefficientDivisor,
             indeterminate:indeterminate,
             index:newIndex,
             showAsDivision:showAsDivision)
         
-        return inversedPolynomial
+        return indexedPolynomial
     }
 }

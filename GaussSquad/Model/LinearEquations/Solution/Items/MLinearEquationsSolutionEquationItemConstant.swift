@@ -160,4 +160,15 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         
         return divided
     }
+    
+    func reIndexed(newIndex:Int) -> MLinearEquationsSolutionEquationItemConstant
+    {
+        let indexedConstant:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.coefficient(
+            coefficientDividend:coefficientDividend,
+            coefficientDivisor:coefficientDivisor,
+            index:newIndex,
+            showAsDivision:showAsDivision)
+        
+        return indexedConstant
+    }
 }
