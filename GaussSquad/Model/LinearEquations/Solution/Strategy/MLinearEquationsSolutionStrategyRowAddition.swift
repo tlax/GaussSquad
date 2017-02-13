@@ -100,9 +100,9 @@ class MLinearEquationsSolutionStrategyRowAddition:MLinearEquationsSolutionStrate
         let scalarString:String = MSession.sharedInstance.stringFrom(number:scalar)
         let descr:String = String(
             format:NSLocalizedString("MLinearEquationsSolutionStrategyRowAddition_descr", comment:""),
-            "\(indexRow)",
-            "\(indexRow)",
-            "\((indexRow - 1))",
+            "\(indexRow + 1)",
+            "\(indexRow + 1)",
+            "\((indexRow))",
             scalarString)
         
         var indexEquation:Int = 0
