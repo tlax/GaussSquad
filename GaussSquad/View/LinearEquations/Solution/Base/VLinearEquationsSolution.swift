@@ -107,6 +107,25 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
         viewBar.refresh()
     }
     
+    func bottom()
+    {
+        let section:Int = controller.model.steps.count - 1
+        
+        if section >= 0
+        {
+            let item:Int = controller.model.steps[section].plainItems.count - 1
+            
+            if item >= 0
+            {
+                let indexPath:IndexPath = IndexPath(item:item, section:section)
+                collectionView.scrollToItem(
+                    at:indexPath,
+                    at:UICollectionViewScrollPosition.top,
+                    animated:true)
+            }
+        }
+    }
+    
     //MARK: collectionView delegate
     
     func scrollViewDidScroll(_ scrollView:UIScrollView)

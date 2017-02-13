@@ -63,7 +63,7 @@ class CLinearEquationsSolution:CController
     
     func bottom()
     {
-        
+        viewSolution.bottom()
     }
     
     func plot()
