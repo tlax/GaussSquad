@@ -149,7 +149,7 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         let newDividend:Double = coefficientDividend * coefficientDividend
         let newDivisor:Double
         
-        if coefficientDivisor == 1
+        if coefficientDivisor == 1 && coefficient != 0
         {
             newDivisor = coefficientDivisor
         }

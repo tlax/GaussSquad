@@ -137,4 +137,27 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         
         return multiplied
     }
+    
+    func divideCoefficient(coefficient:Double, index:Int) -> MLinearEquationsSolutionEquationItemConstant
+    {
+        let newDividend:Double = coefficientDividend * coefficientDividend
+        let newDivisor:Double
+        
+        if coefficientDivisor == 1 && coefficient != 0
+        {
+            newDivisor = coefficientDivisor
+        }
+        else
+        {
+            newDivisor = coefficientDivisor / coefficient
+        }
+        
+        let divided:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.coefficient(
+            coefficientDividend:newDividend,
+            coefficientDivisor:newDivisor,
+            index:index,
+            showAsDivision:showAsDivision)
+        
+        return divided
+    }
 }
