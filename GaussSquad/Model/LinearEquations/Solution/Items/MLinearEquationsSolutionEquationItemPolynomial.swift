@@ -143,4 +143,28 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         
         return multiplied
     }
+    
+    func divideCoefficient(coefficient:Double, index:Int) -> MLinearEquationsSolutionEquationItemPolynomial
+    {
+        let newDividend:Double = coefficientDividend * coefficientDividend
+        let newDivisor:Double
+        
+        if coefficientDivisor == 1
+        {
+            newDivisor = coefficientDivisor
+        }
+        else
+        {
+            newDivisor = coefficientDivisor / coefficient
+        }
+        
+        let divided:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.polynomial(
+            coefficientDividend:newDividend,
+            coefficientDivisor:newDivisor,
+            indeterminate:indeterminate,
+            index:index,
+            showAsDivision:showAsDivision)
+        
+        return divided
+    }
 }

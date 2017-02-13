@@ -91,6 +91,8 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
         numberA:Double,
         numberB:Double) -> Double
     {
+        print("\(numberA) \(numberB)")
+        
         if numberB != 0
         {
             let module:Double = numberA.truncatingRemainder(dividingBy:numberB)
