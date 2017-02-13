@@ -45,7 +45,7 @@ class MLinearEquationsSolutionEquation
         
         for item:MLinearEquationsSolutionEquationItemPolynomial in items
         {
-            if item.coefficientDividend != 0
+            if abs(item.coefficient) > MSession.sharedInstance.kMinNumber
             {
                 break
             }
@@ -79,7 +79,7 @@ class MLinearEquationsSolutionEquation
         
         for item:MLinearEquationsSolutionEquationItemPolynomial in items
         {
-            if item.coefficientDividend != 0
+            if abs(item.coefficient) > MSession.sharedInstance.kMinNumber
             {
                 return true
             }

@@ -10,47 +10,55 @@ class MLinearEquationsSolutionStrategyOnlyPivots:MLinearEquationsSolutionStrateg
         {
             if indexEquation > 0
             {
-                if equation.nonZero()
+                let prevIndex:Int = indexEquation - 1
+                let equationAbove:MLinearEquationsSolutionEquation = step.equations[prevIndex]
+                let pivotIndex:Int = equation.pivotIndex()
+                
+                guard
+                
+                    let itemAbove:MLinearEquationsSolutionEquationItemPolynomial = equationAbove.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
+                
+                else
                 {
-                    let nextIndex:Int = indexEquation + 1
-                    let equationBelow:MLinearEquationsSolutionEquation = step.equations[nextIndex]
+                    continue
+                }
+                
+                if abs(itemAbove.coefficient) > MSession.sharedInstance.kMinNumber
+                {
+                    guard
                     
-                    if equationBelow.nonZero()
+                        let pivotItem:MLinearEquationsSolutionEquationItemPolynomial = equation.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
+                    
+                    else
                     {
-                        let pivotIndex:Int = equation.pivotIndex()
-                        let pivotIndexBelow:Int = equationBelow.pivotIndex()
+                        continue
+                    }
+                    
+                    if pivotItem.indeterminate === itemAbove.indeterminate
+                    {
+                        let topCoefficient:Double = itemAbove.coefficient
+                        let bottomCoefficient:Double = pivotItem.coefficient
+                        var scalar:Double = abs(topCoefficient / bottomCoefficient)
                         
-                        if pivotIndex == pivotIndexBelow
+                        if topCoefficient > 0
                         {
-                            guard
-                                
-                                let topPolynomial:MLinearEquationsSolutionEquationItemPolynomial = equation.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial,
-                                let bottomPolynomial:MLinearEquationsSolutionEquationItemPolynomial = equationBelow.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
-                                
-                                else
+                            if bottomCoefficient > 0
                             {
-                                return nil
-                            }
-                            
-                            let topCoefficient:Double = topPolynomial.coefficient
-                            let bottomCoefficient:Double = bottomPolynomial.coefficient
-                            var scalar:Double = abs(bottomCoefficient / topCoefficient)
-                            
-                            if topCoefficient > 0
-                            {
-                                if bottomCoefficient > 0
-                                {
-                                    scalar = -scalar
-                                }
-                            }
-                            else
-                            {
-                                if bottomCoefficient < 0
-                                {
-                                    scalar = -scalar
-                                }
+                                scalar = -scalar
                             }
                         }
+                        else
+                        {
+                            if bottomCoefficient < 0
+                            {
+                                scalar = -scalar
+                            }
+                        }
+                        
+                        let strategy:MLinearEquationsSolutionStrategyOnlyPivots = MLinearEquationsSolutionStrategyOnlyPivots(
+                            step:step,
+                            indexRow:prevIndex,
+                            scalar:scalar)
                     }
                 }
             }
