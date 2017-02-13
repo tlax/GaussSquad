@@ -55,20 +55,18 @@ class MLinearEquationsSolutionStrategyRemoveCoefficients:MLinearEquationsSolutio
     {
         super.process(delegate:delegate)
         
-        addRows()
+        removeCoefficient()
     }
     
     //MARK: private
     
-    private func addRows()
+    private func removeCoefficient()
     {
         var equations:[MLinearEquationsSolutionEquation] = []
         let scalarString:String = MSession.sharedInstance.stringFrom(number:scalar)
         let descr:String = String(
-            format:NSLocalizedString("MLinearEquationsSolutionStrategyRowAddition_descr", comment:""),
+            format:NSLocalizedString("MLinearEquationsSolutionStrategyRemoveCoefficients_descr", comment:""),
             "\(indexRow + 1)",
-            "\(indexRow + 1)",
-            "\((indexRow))",
             scalarString)
         
         var indexEquation:Int = 0
@@ -79,12 +77,8 @@ class MLinearEquationsSolutionStrategyRemoveCoefficients:MLinearEquationsSolutio
             
             if indexEquation == indexRow
             {
-                let previousEquation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation - 1]
-                let scaledPrevious:MLinearEquationsSolutionEquation = previousEquation.multiplyScalar(
+                newEquation = equation.multiplyScalar(
                     scalar:scalar)
-                
-                newEquation = equation.addEquation(
-                    equation:scaledPrevious)
             }
             else
             {
