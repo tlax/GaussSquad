@@ -117,8 +117,18 @@ class MLinearEquationsSolutionStrategyOrderIndeterminates:MLinearEquationsSoluti
                 
                 for ordering:Int in orderMap
                 {
-                    let item:MLinearEquationsSolutionEquationItem = equation.items[ordering]
-                    items.append(item)
+                    guard
+                        
+                        let unorderdItem:MLinearEquationsSolutionEquationItemPolynomial = equation.items[ordering] as? MLinearEquationsSolutionEquationItemPolynomial
+                    
+                    else
+                    {
+                        continue
+                    }
+                    
+                    let orderedItem:MLinearEquationsSolutionEquationItemPolynomial = unorderdItem.reIndexed(
+                        newIndex:ordering)
+                    items.append(orderedItem)
                 }
                 
                 newEquation = MLinearEquationsSolutionEquation(
