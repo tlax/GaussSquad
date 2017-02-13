@@ -105,6 +105,7 @@ class VLinearEquationsSolutionCellPolynomialDivision:VLinearEquationsSolutionCel
         let remain:CGFloat = height - kBorderHeight
         let marginTop:CGFloat = remain / 2.0
         layoutBorderTop.constant = marginTop
+        layoutImageWidth.constant = 0
         
         super.layoutSubviews()
     }
