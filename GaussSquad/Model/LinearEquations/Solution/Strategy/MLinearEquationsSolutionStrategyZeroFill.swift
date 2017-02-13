@@ -76,12 +76,12 @@ class MLinearEquationsSolutionStrategyZeroFill:MLinearEquationsSolutionStrategy
     {
         super.process(delegate:delegate)
         
-        removeZero()
+        addZero()
     }
     
     //MARK: private
     
-    private func removeZero()
+    private func addZero()
     {
         var equations:[MLinearEquationsSolutionEquation] = []
         let descr:String = String(
@@ -98,10 +98,14 @@ class MLinearEquationsSolutionStrategyZeroFill:MLinearEquationsSolutionStrategy
             if indexEquation == self.indexEquation
             {
                 var items:[MLinearEquationsSolutionEquationItem] = equation.items
-                let newPolynomial:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.polynomial(coefficientDividend: <#T##Double#>, coefficientDivisor: <#T##Double#>, indeterminate: <#T##MLinearEquationsSolutionIndeterminatesItem#>, index: <#T##Int#>, showAsDivision: <#T##Bool#>)
+                let countItems:Int = items.count
+                let newPolynomial:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.emptyPolynomial(
+                    indeterminate:indeterminate,
+                    index:countItems)
+                items.append(newPolynomial)
                 
                 newEquation = MLinearEquationsSolutionEquation(
-                    items:,
+                    items:items,
                     result:equation.result,
                     equationIndex:indexEquation)
             }
