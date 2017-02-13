@@ -31,8 +31,8 @@ class VLinearEquationsSolutionBarCell:UICollectionViewCell
     
     //MARK: public
     
-    func config()
+    func config(model:MLinearEquationsSolutionBarItem)
     {
-        
+        imageView.image = model.image
     }
 }

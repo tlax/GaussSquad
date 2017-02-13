@@ -10,6 +10,7 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
     private let kBackWidth:CGFloat = 60
     private let kBackHeight:CGFloat = 44
     private let kCellSize:CGFloat = 60
+    private let kDeselectTime:TimeInterval = 0.25
     
     init(controller:CLinearEquationsSolution)
     {
@@ -44,6 +45,7 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
         collectionView.bounces = false
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.registerCell(cell:VLinearEquationsSolutionBarCell.self)
         self.collectionView = collectionView
         
         if let flow:UICollectionViewFlowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
@@ -108,10 +110,61 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
         controller.back()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MLinearEquationsSolutionBarItem
+    {
+        let item:MLinearEquationsSolutionBarItem = model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: public
     
     func refresh()
     {
         
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = model.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MLinearEquationsSolutionBarItem = modelAtIndex(index:indexPath)
+        let cell:VLinearEquationsSolutionBarCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VLinearEquationsSolutionBarCell.reusableIdentifier,
+            for:indexPath) as! VLinearEquationsSolutionBarCell
+        cell.config(model:item)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MLinearEquationsSolutionBarItem = modelAtIndex(index:indexPath)
+        item.selected(controller:controller)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }
