@@ -117,26 +117,34 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         return inversedConstant
     }
     
-    func multiplyCoefficient(coefficient:Double, index:Int) -> MLinearEquationsSolutionEquationItemConstant
+    func multiply(
+        dividend:Double,
+        divisor:Double,
+        index:Int) -> MLinearEquationsSolutionEquationItemConstant
     {
-        let newDividend:Double = coefficientDividend * coefficient
+        let newDividend:Double = coefficientDividend * dividend
+        let newDivisor:Double = coefficientDivisor * divisor
         
         let multiplied:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.coefficient(
             coefficientDividend:newDividend,
-            coefficientDivisor:coefficientDivisor,
+            coefficientDivisor:newDivisor,
             index:index,
             showAsDivision:showAsDivision)
         
         return multiplied
     }
     
-    func divideCoefficient(coefficient:Double, index:Int) -> MLinearEquationsSolutionEquationItemConstant
+    func divide(
+        dividend:Double,
+        divisor:Double,
+        index:Int) -> MLinearEquationsSolutionEquationItemConstant
     {
-        let newDividend:Double = coefficientDividend / coefficient
+        let newDividend:Double = coefficientDividend / dividend
+        let newDivisor:Double = coefficientDivisor / divisor
         
         let divided:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.coefficient(
             coefficientDividend:newDividend,
-            coefficientDivisor:coefficientDivisor,
+            coefficientDivisor:newDivisor,
             index:index,
             showAsDivision:showAsDivision)
         
