@@ -126,8 +126,9 @@ class MLinearEquationsSolutionStrategyOrderIndeterminates:MLinearEquationsSoluti
                         continue
                     }
                     
+                    let newIndex:Int = items.count
                     let orderedItem:MLinearEquationsSolutionEquationItemPolynomial = unorderdItem.reIndexed(
-                        newIndex:ordering)
+                        newIndex:newIndex)
                     items.append(orderedItem)
                 }
                 
