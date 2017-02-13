@@ -74,9 +74,18 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
             let maxNumber:Double = max(dividend, divisor)
             let minNumber:Double = min(dividend, divisor)
             
-            let divisor:Double = recursiveDivisor(
-                numberA:maxNumber,
-                numberB:minNumber)
+            guard
+            
+                let divisor:Double = recursiveDivisor(
+                    numberA:maxNumber,
+                    numberB:minNumber)
+            
+            else
+            {
+                return nil
+            }
+            
+            return divisor
             
             if abs(divisor) != 1
             {
@@ -89,18 +98,26 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
     
     private class func recursiveDivisor(
         numberA:Double,
-        numberB:Double) -> Double
+        numberB:Double) -> Double?
     {
-        print("\(numberA) \(numberB)")
-        
         if numberB != 0
         {
+            if abs(numberB) < 1
+            {
+                return nil
+            }
+            
             let module:Double = numberA.truncatingRemainder(dividingBy:numberB)
-            let divisor:Double = recursiveDivisor(
+            let divisor:Double? = recursiveDivisor(
                 numberA:numberB,
                 numberB:module)
             
             return divisor
+        }
+        
+        if abs(numberA) == 1
+        {
+            return nil
         }
         
         return numberA

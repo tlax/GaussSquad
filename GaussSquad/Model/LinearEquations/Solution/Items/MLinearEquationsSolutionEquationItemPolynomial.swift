@@ -122,7 +122,7 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
     
     func multiplyCoefficient(coefficient:Double, index:Int) -> MLinearEquationsSolutionEquationItemPolynomial
     {
-        let newDividend:Double = coefficientDividend * coefficientDividend
+        let newDividend:Double = coefficientDividend * coefficient
         let newDivisor:Double
         
         if coefficientDivisor == 1
@@ -146,7 +146,7 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
     
     func divideCoefficient(coefficient:Double, index:Int) -> MLinearEquationsSolutionEquationItemPolynomial
     {
-        let newDividend:Double = coefficientDividend / coefficientDividend
+        let newDividend:Double = coefficientDividend / coefficient
         let newDivisor:Double
         
         if coefficientDivisor == 1 && coefficient != 0
