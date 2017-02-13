@@ -2,7 +2,7 @@ import Foundation
 
 class MLinearEquationsSolutionStrategyPivotOrdering:MLinearEquationsSolutionStrategy
 {
-    class func indeterminateUnordered(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyPivotOrdering?
+    class func rowUnordered(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyPivotOrdering?
     {
         var indexEquationA:Int = 0
         let countEquations:Int = step.equations.count

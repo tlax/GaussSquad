@@ -41,6 +41,11 @@ class MLinearEquationsSolutionStrategy
         {
             return orderIndeterminates
         }
+        else if let pivotOrdering:MLinearEquationsSolutionStrategyPivotOrdering = MLinearEquationsSolutionStrategyPivotOrdering.rowUnordered(
+            step:step)
+        {
+            return pivotOrdering
+        }
         
         return nil
     }
