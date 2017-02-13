@@ -37,11 +37,11 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         changeSign:Bool,
         newIndex:Int) -> MLinearEquationsSolutionEquationItemPolynomial
     {
+        let sumItem:MLinearEquationsSolutionEquationItemPolynomial
         let otherPolynomialDivisor:Double = otherPolynomial.coefficientDivisor
         let otherPolynomialDividend:Double
         let sumDividend:Double
         let sumDivisor:Double
-        let showAsDivision:Bool
         
         if changeSign
         {
@@ -50,15 +50,6 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         else
         {
             otherPolynomialDividend = otherPolynomial.coefficientDividend
-        }
-        
-        if self.showAsDivision || otherPolynomial.showAsDivision
-        {
-            showAsDivision = true
-        }
-        else
-        {
-            showAsDivision = false
         }
         
         if coefficientDivisor == otherPolynomialDivisor
@@ -74,12 +65,34 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
             sumDivisor = coefficientDivisor * otherPolynomialDivisor
         }
         
-        let sumItem:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.polynomial(
-            coefficientDividend:sumDividend,
-            coefficientDivisor:sumDivisor,
-            indeterminate:indeterminate,
-            index:newIndex,
-            showAsDivision:showAsDivision)
+        let newCoefficient:Double = abs(sumDividend / sumDivisor)
+        
+        if newCoefficient > MSession.sharedInstance.kMinNumber
+        {
+            let showAsDivision:Bool
+            
+            if self.showAsDivision || otherPolynomial.showAsDivision
+            {
+                showAsDivision = true
+            }
+            else
+            {
+                showAsDivision = false
+            }
+            
+            sumItem = MLinearEquationsSolutionEquationItem.polynomial(
+                coefficientDividend:sumDividend,
+                coefficientDivisor:sumDivisor,
+                indeterminate:indeterminate,
+                index:newIndex,
+                showAsDivision:showAsDivision)
+        }
+        else
+        {
+            sumItem = MLinearEquationsSolutionEquationItem.emptyPolynomial(
+                indeterminate:indeterminate,
+                index:newIndex)
+        }
         
         return sumItem
     }
@@ -127,15 +140,26 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         divisor:Double,
         index:Int) -> MLinearEquationsSolutionEquationItemPolynomial
     {
+        let multiplied:MLinearEquationsSolutionEquationItemPolynomial
         let newDividend:Double = coefficientDividend * dividend
         let newDivisor:Double = coefficientDivisor * divisor
+        let newCoefficient:Double = abs(newDividend / newDivisor)
         
-        let multiplied:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.polynomial(
-            coefficientDividend:newDividend,
-            coefficientDivisor:newDivisor,
-            indeterminate:indeterminate,
-            index:index,
-            showAsDivision:showAsDivision)
+        if newCoefficient > MSession.sharedInstance.kMinNumber
+        {
+            multiplied = MLinearEquationsSolutionEquationItem.polynomial(
+                coefficientDividend:newDividend,
+                coefficientDivisor:newDivisor,
+                indeterminate:indeterminate,
+                index:index,
+                showAsDivision:showAsDivision)
+        }
+        else
+        {
+            multiplied = MLinearEquationsSolutionEquationItem.emptyPolynomial(
+                indeterminate:indeterminate,
+                index:index)
+        }
         
         return multiplied
     }
@@ -145,15 +169,26 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         divisor:Double,
         index:Int) -> MLinearEquationsSolutionEquationItemPolynomial
     {
+        let divided:MLinearEquationsSolutionEquationItemPolynomial
         let newDividend:Double = coefficientDividend / dividend
         let newDivisor:Double = coefficientDivisor / divisor
+        let newCoefficient:Double = abs(newDividend / newDivisor)
         
-        let divided:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.polynomial(
-            coefficientDividend:newDividend,
-            coefficientDivisor:newDivisor,
-            indeterminate:indeterminate,
-            index:index,
-            showAsDivision:showAsDivision)
+        if newCoefficient > MSession.sharedInstance.kMinNumber
+        {
+            divided = MLinearEquationsSolutionEquationItem.polynomial(
+                coefficientDividend:newDividend,
+                coefficientDivisor:newDivisor,
+                indeterminate:indeterminate,
+                index:index,
+                showAsDivision:showAsDivision)
+        }
+        else
+        {
+            divided = MLinearEquationsSolutionEquationItem.emptyPolynomial(
+                indeterminate:indeterminate,
+                index:index)
+        }
         
         return divided
     }
