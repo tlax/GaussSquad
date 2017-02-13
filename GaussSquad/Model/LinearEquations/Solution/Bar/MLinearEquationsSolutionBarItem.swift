@@ -1,9 +1,17 @@
-//
-//  MLinearEquationsSolutionBarItem.swift
-//  GaussSquad
-//
-//  Created by zero on 2/13/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MLinearEquationsSolutionBarItem
+{
+    let image:UIImage
+    
+    init(image:UIImage)
+    {
+        self.image = image
+    }
+    
+    //MARK: public
+    
+    func select(controller:CLinearEquationsSolution)
+    {
+    }
+}
