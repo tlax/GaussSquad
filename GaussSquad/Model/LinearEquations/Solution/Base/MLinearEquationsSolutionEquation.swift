@@ -99,16 +99,18 @@ class MLinearEquationsSolutionEquation
             
             if let itemPolynomial:MLinearEquationsSolutionEquationItemPolynomial = item as? MLinearEquationsSolutionEquationItemPolynomial
             {
-                let newPolynomial:MLinearEquationsSolutionEquationItemPolynomial = itemPolynomial.multiplyCoefficient(
-                    coefficient:scalar,
+                let newPolynomial:MLinearEquationsSolutionEquationItemPolynomial = itemPolynomial.multiply(
+                    dividend:scalar,
+                    divisor:1,
                     index:itemIndex)
                 
                 items.append(newPolynomial)
             }
             else if let itemConstant:MLinearEquationsSolutionEquationItemConstant = item as? MLinearEquationsSolutionEquationItemConstant
             {
-                let newConstant:MLinearEquationsSolutionEquationItemConstant = itemConstant.multiplyCoefficient(
-                    coefficient:scalar,
+                let newConstant:MLinearEquationsSolutionEquationItemConstant = itemConstant.multiply(
+                    dividend:scalar,
+                    divisor:1,
                     index:itemIndex)
                 
                 items.append(newConstant)
@@ -117,14 +119,16 @@ class MLinearEquationsSolutionEquation
         
         if let resultPolynomial:MLinearEquationsSolutionEquationItemPolynomial = result as? MLinearEquationsSolutionEquationItemPolynomial
         {
-            result = resultPolynomial.multiplyCoefficient(
-                coefficient:scalar,
+            result = resultPolynomial.multiply(
+                dividend:scalar,
+                divisor:1,
                 index:0)
         }
         else if let resultConstant:MLinearEquationsSolutionEquationItemConstant = result as? MLinearEquationsSolutionEquationItemConstant
         {
-            result = resultConstant.multiplyCoefficient(
-                coefficient:scalar,
+            result = resultConstant.multiply(
+                dividend:scalar,
+                divisor:1,
                 index:0)
         }
         
