@@ -158,13 +158,13 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
                     
                     if let polynomialResult:MLinearEquationsSolutionEquationItemPolynomial = currentResult as? MLinearEquationsSolutionEquationItemPolynomial
                     {
-                        result = polynomialResult.multiplyCoefficient(
+                        result = polynomialResult.divideCoefficient(
                             coefficient:greatestCommonDivisor,
                             index:0)
                     }
                     else if let constantResult:MLinearEquationsSolutionEquationItemConstant = currentResult as? MLinearEquationsSolutionEquationItemConstant
                     {
-                        result = constantResult.multiplyCoefficient(
+                        result = constantResult.divideCoefficient(
                             coefficient:greatestCommonDivisor,
                             index:0)
                     }
@@ -181,28 +181,28 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
                         
                         if indexItem == indexPolynomial
                         {
-                            let multipliedItem:MLinearEquationsSolutionEquationItem?
+                            let dividedItem:MLinearEquationsSolutionEquationItem?
                             
                             if let itemPolynomial:MLinearEquationsSolutionEquationItemPolynomial = currentItem as? MLinearEquationsSolutionEquationItemPolynomial
                             {
-                                multipliedItem = itemPolynomial.multiplyCoefficient(
+                                dividedItem = itemPolynomial.divideCoefficient(
                                     coefficient:greatestCommonDivisor,
                                     index:indexItem)
                             }
                             else if let itemConstant:MLinearEquationsSolutionEquationItemConstant = currentItem as? MLinearEquationsSolutionEquationItemConstant
                             {
-                                multipliedItem = itemConstant.multiplyCoefficient(
+                                dividedItem = itemConstant.divideCoefficient(
                                     coefficient:greatestCommonDivisor,
                                     index:indexItem)
                             }
                             else
                             {
-                                multipliedItem = nil
+                                dividedItem = nil
                             }
                             
-                            if let multipliedItem:MLinearEquationsSolutionEquationItem = multipliedItem
+                            if let dividedItem:MLinearEquationsSolutionEquationItem = dividedItem
                             {
-                                items.append(multipliedItem)
+                                items.append(dividedItem)
                             }
                         }
                         else
