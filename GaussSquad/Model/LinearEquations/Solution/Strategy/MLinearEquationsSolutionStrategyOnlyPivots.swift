@@ -96,10 +96,10 @@ class MLinearEquationsSolutionStrategyOnlyPivots:MLinearEquationsSolutionStrateg
         var equations:[MLinearEquationsSolutionEquation] = []
         let scalarString:String = MSession.sharedInstance.stringFrom(number:scalar)
         let descr:String = String(
-            format:NSLocalizedString("MLinearEquationsSolutionStrategyRowAddition_descr", comment:""),
+            format:NSLocalizedString("MLinearEquationsSolutionStrategyOnlyPivots_descr", comment:""),
             "\(indexRow + 1)",
             "\(indexRow + 1)",
-            "\((indexRow))",
+            "\((indexRow + 2))",
             scalarString)
         
         var indexEquation:Int = 0
@@ -110,12 +110,12 @@ class MLinearEquationsSolutionStrategyOnlyPivots:MLinearEquationsSolutionStrateg
             
             if indexEquation == indexRow
             {
-                let previousEquation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation - 1]
-                let scaledPrevious:MLinearEquationsSolutionEquation = previousEquation.multiplyScalar(
+                let nextEquation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation + 1]
+                let scaledNext:MLinearEquationsSolutionEquation = nextEquation.multiplyScalar(
                     scalar:scalar)
                 
                 newEquation = equation.addEquation(
-                    equation:scaledPrevious)
+                    equation:scaledNext)
             }
             else
             {
