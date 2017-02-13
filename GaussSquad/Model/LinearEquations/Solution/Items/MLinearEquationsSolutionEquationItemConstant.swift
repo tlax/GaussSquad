@@ -2,6 +2,7 @@ import UIKit
 
 class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquationItem
 {
+    let coefficient:Double
     let coefficientDividend:Double
     let coefficientDivisor:Double
     let showSign:Bool
@@ -19,6 +20,7 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         self.coefficientDivisor = coefficientDivisor
         self.showSign = showSign
         self.showAsDivision = showAsDivision
+        self.coefficient = coefficientDividend / coefficientDivisor
         
         super.init(
             reusableIdentifier:reusableIdentifier,

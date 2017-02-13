@@ -23,6 +23,21 @@ class MLinearEquationsSolutionStrategyRowAddition:MLinearEquationsSolutionStrate
                         
                         if pivotIndex == pivotIndexBelow
                         {
+                            guard
+                                
+                                let topPolynomial:MLinearEquationsSolutionEquationItemPolynomial = equation.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial,
+                                let bottomPolynomial:MLinearEquationsSolutionEquationItemPolynomial = equationBelow.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
+                            
+                            else
+                            {
+                                return nil
+                            }
+                            
+                            let scalar:Double
+                            
+                            
+                            if
+                            
                             let strategy:MLinearEquationsSolutionStrategyRowAddition = MLinearEquationsSolutionStrategyRowAddition(
                                 step:step,
                                 indexRow:indexEquation)

@@ -3,6 +3,7 @@ import UIKit
 class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEquationItem
 {
     weak var indeterminate:MLinearEquationsSolutionIndeterminatesItem!
+    let coefficient:Double
     let coefficientDividend:Double
     let coefficientDivisor:Double
     let showSign:Bool
@@ -22,6 +23,7 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         self.coefficientDivisor = coefficientDivisor
         self.showSign = showSign
         self.showAsDivision = showAsDivision
+        self.coefficient = coefficientDividend / coefficientDivisor
         
         super.init(
             reusableIdentifier:reusableIdentifier,
