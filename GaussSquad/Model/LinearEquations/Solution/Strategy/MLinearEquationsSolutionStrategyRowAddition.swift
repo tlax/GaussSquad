@@ -113,7 +113,8 @@ class MLinearEquationsSolutionStrategyRowAddition:MLinearEquationsSolutionStrate
                 let scaledPrevious:MLinearEquationsSolutionEquation = previousEquation.multiplyScalar(
                     scalar:scalar)
                 
-                
+                newEquation = equation.addEquation(
+                    equation:scaledPrevious)
             }
             else
             {

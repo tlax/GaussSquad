@@ -46,6 +46,11 @@ class MLinearEquationsSolutionStrategy
         {
             return pivotOrdering
         }
+        else if let rowAddition:MLinearEquationsSolutionStrategyRowAddition = MLinearEquationsSolutionStrategyRowAddition.samePivot(
+            step:step)
+        {
+            return rowAddition
+        }
         
         return nil
     }
