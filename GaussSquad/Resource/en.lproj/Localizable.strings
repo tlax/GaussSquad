@@ -10,7 +10,7 @@
 "MLinearEquationsSolutionStrategyReductionConstants_descr"="Reducing constants in equation %@";
 "MLinearEquationsSolutionStrategyReductionIndeterminates_descr"="Reducing indeterminate in equation %@";
 "MLinearEquationsSolutionStrategyIndeterminatesLeft_descr"="Moving indeterminate to left in equation %@";
-"MLinearEquationsSolutionStrategyMakeZero_descr"="Cleaning result in equation %@";
+"MLinearEquationsSolutionStrategyRemoveZero_descr"="Removed equation %@";
 "MLinearEquationsSolutionStrategyFractionReduction_descr"="Fraction reduction in equation %@";
 "MLinearEquationsSolutionStrategyZeroFill_descr"="Added %@ to equation %@";
 "MLinearEquationsSolutionStrategyOrderIndeterminates_descr"="Ordering polynomials in equation %@";
