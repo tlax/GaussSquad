@@ -56,6 +56,11 @@ class MLinearEquationsSolutionStrategy
         {
             return onlyPivots
         }
+        else if let removeCoefficient:MLinearEquationsSolutionStrategyRemoveCoefficients = MLinearEquationsSolutionStrategyRemoveCoefficients.coefficientPivot(
+            step:step)
+        {
+            return removeCoefficient
+        }
         
         return nil
     }
