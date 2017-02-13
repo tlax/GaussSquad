@@ -25,4 +25,34 @@ class MLinearEquationsSolutionEquation
         plainItems.append(result)
         self.plainItems = plainItems
     }
+    
+    //MARK: public
+    
+    func pivotIndex() -> Int
+    {
+        guard
+        
+            let items:[MLinearEquationsSolutionEquationItemPolynomial] = self.items as? [MLinearEquationsSolutionEquationItemPolynomial]
+            
+        else
+        {
+            let totalItems:Int = self.items.count
+            
+            return totalItems
+        }
+        
+        var index:Int = 0
+        
+        for item:MLinearEquationsSolutionEquationItemPolynomial in items
+        {
+            if item.coefficientDividend != 0
+            {
+                break
+            }
+            
+            index += 1
+        }
+        
+        return index
+    }
 }

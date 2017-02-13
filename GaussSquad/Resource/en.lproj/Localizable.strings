@@ -14,6 +14,7 @@
 "MLinearEquationsSolutionStrategyFractionReduction_descr"="Fraction reduction in equation %@";
 "MLinearEquationsSolutionStrategyZeroFill_descr"="Added %@ to equation %@";
 "MLinearEquationsSolutionStrategyOrderIndeterminates_descr"="Ordering polynomials in equation %@";
+"MLinearEquationsSolutionStrategyPivotOrdering_descr"="Swaping equations %@ and %@";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";

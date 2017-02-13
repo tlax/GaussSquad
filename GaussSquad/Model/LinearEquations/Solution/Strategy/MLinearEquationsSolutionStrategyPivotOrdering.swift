@@ -2,21 +2,10 @@ import Foundation
 
 class MLinearEquationsSolutionStrategyPivotOrdering:MLinearEquationsSolutionStrategy
 {
-    class func indeterminateUnordered(
-        step:MLinearEquationsSolutionStep,
-        indeterminates:MLinearEquationsSolutionIndeterminates?) -> MLinearEquationsSolutionStrategyOrderIndeterminates?
+    class func indeterminateUnordered(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyPivotOrdering?
     {
-        guard
-            
-            let indeterminates:MLinearEquationsSolutionIndeterminates = indeterminates
-            
-            else
-        {
-            return nil
-        }
-        
-        let countIndeterminates:Int = indeterminates.items.count
-        var indexEquation:Int = 0
+        var indexEquationA:Int = 0
+        let countEquations:Int = step.equations.count
         
         for equation:MLinearEquationsSolutionEquation in step.equations
         {
@@ -24,68 +13,44 @@ class MLinearEquationsSolutionStrategyPivotOrdering:MLinearEquationsSolutionStra
                 
                 let items:[MLinearEquationsSolutionEquationItemPolynomial] = equation.items as? [MLinearEquationsSolutionEquationItemPolynomial]
                 
-                else
+            else
             {
                 return nil
             }
             
-            let countItems:Int = items.count
+            var pivotIndex:Int = 0
             
-            if countIndeterminates != countItems
+            for item:MLinearEquationsSolutionEquationItemPolynomial in items
             {
-                return nil
-            }
-            
-            var orderMap:[Int] = []
-            
-            for indeterminate:MLinearEquationsSolutionIndeterminatesItem in indeterminates.items
-            {
-                var indexItem:Int = 0
-                
-                for item:MLinearEquationsSolutionEquationItemPolynomial in items
+                if item.coefficientDividend != 0
                 {
-                    if item.indeterminate === indeterminate
-                    {
-                        orderMap.append(indexItem)
-                        
-                        break
-                    }
-                    
-                    indexItem += 1
+                    break
                 }
-            }
-            
-            for indexMap:Int in 0 ..< countIndeterminates
-            {
-                let mapItem:Int = orderMap[indexMap]
                 
-                if mapItem != indexMap
-                {
-                    let strategy:MLinearEquationsSolutionStrategyOrderIndeterminates = MLinearEquationsSolutionStrategyOrderIndeterminates(
-                        step:step,
-                        indexEquation:indexEquation,
-                        orderMap:orderMap)
-                    
-                    return strategy
-                }
+                pivotIndex += 1
             }
             
-            indexEquation += 1
+            for indexEquationB:Int in indexEquationA + 1 ..< countEquations
+            {
+                
+            }
+            
+            indexEquationA += 1
         }
         
         return nil
     }
     
-    private let indexEquation:Int
-    private let orderMap:[Int]
+    private let indexRowA:Int
+    private let indexRowB:Int
     
     private init(
         step:MLinearEquationsSolutionStep,
-        indexEquation:Int,
-        orderMap:[Int])
+        indexRowA:Int,
+        indexRowB:Int)
     {
-        self.indexEquation = indexEquation
-        self.orderMap = orderMap
+        self.indexRowA = indexRowA
+        self.indexRowB = indexRowB
         super.init(step:step)
     }
     
@@ -102,49 +67,15 @@ class MLinearEquationsSolutionStrategyPivotOrdering:MLinearEquationsSolutionStra
     {
         var equations:[MLinearEquationsSolutionEquation] = []
         let descr:String = String(
-            format:NSLocalizedString("MLinearEquationsSolutionStrategyOrderIndeterminates_descr", comment:""),
-            "\((self.indexEquation + 1))")
+            format:NSLocalizedString("MLinearEquationsSolutionStrategyPivotOrdering_descr", comment:""),
+            "\((indexRowA + 1))",
+            "\((indexRowB + 1))")
         
         var indexEquation:Int = 0
         
         for equation:MLinearEquationsSolutionEquation in self.step.equations
         {
-            let newEquation:MLinearEquationsSolutionEquation
             
-            if self.indexEquation == indexEquation
-            {
-                var items:[MLinearEquationsSolutionEquationItem] = []
-                
-                for ordering:Int in orderMap
-                {
-                    guard
-                        
-                        let unorderdItem:MLinearEquationsSolutionEquationItemPolynomial = equation.items[ordering] as? MLinearEquationsSolutionEquationItemPolynomial
-                        
-                        else
-                    {
-                        continue
-                    }
-                    
-                    let newIndex:Int = items.count
-                    let orderedItem:MLinearEquationsSolutionEquationItemPolynomial = unorderdItem.reIndexed(
-                        newIndex:newIndex)
-                    items.append(orderedItem)
-                }
-                
-                newEquation = MLinearEquationsSolutionEquation(
-                    items:items,
-                    result:equation.result,
-                    equationIndex:indexEquation)
-            }
-            else
-            {
-                newEquation = equation
-            }
-            
-            equations.append(newEquation)
-            
-            indexEquation += 1
         }
         
         let step:MLinearEquationsSolutionStepProcess = MLinearEquationsSolutionStepProcess(
