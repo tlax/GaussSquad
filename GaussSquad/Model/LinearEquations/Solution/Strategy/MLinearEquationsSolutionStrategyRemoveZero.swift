@@ -76,7 +76,18 @@ class MLinearEquationsSolutionStrategyRemoveZero:MLinearEquationsSolutionStrateg
         {
             if indexEquation != self.indexEquation
             {
-                let equation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation]
+                let equation:MLinearEquationsSolutionEquation
+                
+                if indexEquation < self.indexEquation
+                {
+                    equation = self.step.equations[indexEquation]
+                }
+                else
+                {
+                    equation = self.step.equations[indexEquation].reIndexed(
+                        newIndex:indexEquation - 1)
+                }
+                
                 equations.append(equation)
             }   
         }
