@@ -40,6 +40,7 @@
 		DA23C3551E522319007C4C4D /* MLinearEquationsSolutionStrategyPivotOrdering.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C3541E522319007C4C4D /* MLinearEquationsSolutionStrategyPivotOrdering.swift */; };
 		DA23C3571E522D99007C4C4D /* MLinearEquationsSolutionStrategyRowAddition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C3561E522D99007C4C4D /* MLinearEquationsSolutionStrategyRowAddition.swift */; };
 		DA23C3591E5247AD007C4C4D /* MLinearEquationsSolutionStrategyRemoveZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C3581E5247AD007C4C4D /* MLinearEquationsSolutionStrategyRemoveZero.swift */; };
+		DA23C35B1E525FE7007C4C4D /* VLinearEquationsSolutionBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C35A1E525FE7007C4C4D /* VLinearEquationsSolutionBarCell.swift */; };
 		DA316CE51E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CE41E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift */; };
 		DA316CE91E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CE81E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift */; };
 		DA316CED1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CEC1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift */; };
@@ -191,6 +192,7 @@
 		DA23C3541E522319007C4C4D /* MLinearEquationsSolutionStrategyPivotOrdering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionStrategyPivotOrdering.swift; sourceTree = "<group>"; };
 		DA23C3561E522D99007C4C4D /* MLinearEquationsSolutionStrategyRowAddition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionStrategyRowAddition.swift; sourceTree = "<group>"; };
 		DA23C3581E5247AD007C4C4D /* MLinearEquationsSolutionStrategyRemoveZero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionStrategyRemoveZero.swift; sourceTree = "<group>"; };
+		DA23C35A1E525FE7007C4C4D /* VLinearEquationsSolutionBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionBarCell.swift; sourceTree = "<group>"; };
 		DA316CE41E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialIndeterminate.swift; sourceTree = "<group>"; };
 		DA316CE81E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquationsPolynomialIndeterminate.swift; sourceTree = "<group>"; };
 		DA316CEC1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsIndeterminateList.swift; sourceTree = "<group>"; };
@@ -402,6 +404,13 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		DA23C35C1E526003007C4C4D /* Bar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bar;
+			sourceTree = "<group>";
+		};
 		DA316CEB1E458AFF008E7270 /* PolynomialIndeterminate */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				DA62D3501E4CD39C000D0387 /* Base */,
+				DA23C35C1E526003007C4C4D /* Bar */,
 				DA62D3681E4CD730000D0387 /* Steps */,
 				DA62D3521E4CD39C000D0387 /* Items */,
 				DA62D34F1E4CD39C000D0387 /* Strategy */,
@@ -497,6 +507,7 @@
 			children = (
 				DA62D37A1E4CEC08000D0387 /* VLinearEquationsSolution.swift */,
 				DA62D37B1E4CEC08000D0387 /* VLinearEquationsSolutionBar.swift */,
+				DA23C35A1E525FE7007C4C4D /* VLinearEquationsSolutionBarCell.swift */,
 				DA62D3961E4CFDEF000D0387 /* VLinearEquationsSolutionFlow.swift */,
 				DA62D3821E4CECC1000D0387 /* VLinearEquationsSolutionHeader.swift */,
 				DA62D39C1E4D1B93000D0387 /* VLinearEquationsSolutionFooter.swift */,
@@ -955,6 +966,7 @@
 				DA23C3531E5218CF007C4C4D /* MLinearEquationsSolutionStrategyOrderIndeterminates.swift in Sources */,
 				DA36DAAB1E444BCE00C17436 /* VLinearEquationsIndeterminateText.swift in Sources */,
 				DAFDD4FA1E43873C00880556 /* VLinearEquationsProjectCellNewRow.swift in Sources */,
+				DA23C35B1E525FE7007C4C4D /* VLinearEquationsSolutionBarCell.swift in Sources */,
 				DAD518971E3FAF1D0004C8D8 /* CLinearEquationsProject.swift in Sources */,
 				DAFDD5021E43D3E800880556 /* MLinearEquationsProjectBarItemCompress.swift in Sources */,
 				DA316CE51E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift in Sources */,
