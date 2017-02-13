@@ -2,6 +2,7 @@ import UIKit
 
 class VLinearEquationsSolutionBar:UIView
 {
+    private let model:MLinearEquationsSolutionBar
     private weak var controller:CLinearEquationsSolution!
     private let kBorderHeight:CGFloat = 1
     private let kBackTop:CGFloat = 20
@@ -10,6 +11,8 @@ class VLinearEquationsSolutionBar:UIView
     
     init(controller:CLinearEquationsSolution)
     {
+        model = MLinearEquationsSolutionBar()
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
