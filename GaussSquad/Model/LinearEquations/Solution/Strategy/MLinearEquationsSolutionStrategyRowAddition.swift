@@ -53,8 +53,6 @@ class MLinearEquationsSolutionStrategyRowAddition:MLinearEquationsSolutionStrate
                                 }
                             }
                             
-                            print("row addition: \(nextIndex) scalar \(scalar). Top: \(topCoefficient), bottom: \(bottomCoefficient)")
-                            
                             let strategy:MLinearEquationsSolutionStrategyRowAddition = MLinearEquationsSolutionStrategyRowAddition(
                                 step:step,
                                 indexRow:nextIndex,

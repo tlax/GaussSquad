@@ -167,9 +167,6 @@ class MLinearEquationsSolutionEquation
                         let newPolynomial:MLinearEquationsSolutionEquationItemPolynomial = itemPolynomial.add(
                             otherPolynomial:addingPolynomial,
                             newIndex:indexItem)
-                        
-                        print("current: \(itemPolynomial.coefficient) add: \(addingPolynomial.coefficient) new: \(newPolynomial.coefficient)")
-                        
                         items.append(newPolynomial)
                     }
                 }
