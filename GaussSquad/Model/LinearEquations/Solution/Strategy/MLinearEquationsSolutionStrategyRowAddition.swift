@@ -12,55 +12,48 @@ class MLinearEquationsSolutionStrategyRowAddition:MLinearEquationsSolutionStrate
         {
             if indexEquation < maxEquation
             {
-                if equation.nonZero()
+                let nextIndex:Int = indexEquation + 1
+                let equationBelow:MLinearEquationsSolutionEquation = step.equations[nextIndex]
+                let pivotIndex:Int = equation.pivotIndex()
+                let pivotIndexBelow:Int = equationBelow.pivotIndex()
+                
+                if pivotIndex == pivotIndexBelow
                 {
-                    let nextIndex:Int = indexEquation + 1
-                    let equationBelow:MLinearEquationsSolutionEquation = step.equations[nextIndex]
-                    
-                    if equationBelow.nonZero()
-                    {
-                        let pivotIndex:Int = equation.pivotIndex()
-                        let pivotIndexBelow:Int = equationBelow.pivotIndex()
+                    guard
                         
-                        if pivotIndex == pivotIndexBelow
+                        let topPolynomial:MLinearEquationsSolutionEquationItemPolynomial = equation.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial,
+                        let bottomPolynomial:MLinearEquationsSolutionEquationItemPolynomial = equationBelow.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
+                        
+                    else
+                    {
+                        return nil
+                    }
+                    
+                    let topCoefficient:Double = topPolynomial.coefficient
+                    let bottomCoefficient:Double = bottomPolynomial.coefficient
+                    var scalar:Double = abs(bottomCoefficient / topCoefficient)
+                    
+                    if topCoefficient > 0
+                    {
+                        if bottomCoefficient > 0
                         {
-                            guard
-                                
-                                let topPolynomial:MLinearEquationsSolutionEquationItemPolynomial = equation.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial,
-                                let bottomPolynomial:MLinearEquationsSolutionEquationItemPolynomial = equationBelow.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
-                            
-                            else
-                            {
-                                return nil
-                            }
-                            
-                            let topCoefficient:Double = topPolynomial.coefficient
-                            let bottomCoefficient:Double = bottomPolynomial.coefficient
-                            var scalar:Double = abs(bottomCoefficient / topCoefficient)
-                            
-                            if topCoefficient > 0
-                            {
-                                if bottomCoefficient > 0
-                                {
-                                    scalar = -scalar
-                                }
-                            }
-                            else
-                            {
-                                if bottomCoefficient < 0
-                                {
-                                    scalar = -scalar
-                                }
-                            }
-                            
-                            let strategy:MLinearEquationsSolutionStrategyRowAddition = MLinearEquationsSolutionStrategyRowAddition(
-                                step:step,
-                                indexRow:nextIndex,
-                                scalar:scalar)
-                            
-                            return strategy
+                            scalar = -scalar
                         }
                     }
+                    else
+                    {
+                        if bottomCoefficient < 0
+                        {
+                            scalar = -scalar
+                        }
+                    }
+                    
+                    let strategy:MLinearEquationsSolutionStrategyRowAddition = MLinearEquationsSolutionStrategyRowAddition(
+                        step:step,
+                        indexRow:nextIndex,
+                        scalar:scalar)
+                    
+                    return strategy
                 }
             }
             
