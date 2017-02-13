@@ -93,17 +93,16 @@ class MLinearEquationsSolutionStrategyOrderIndeterminates:MLinearEquationsSoluti
     {
         super.process(delegate:delegate)
         
-        orderIndeterminates()
+        order()
     }
     
     //MARK: private
     
-    private func orderIndeterminates()
+    private func order()
     {
         var equations:[MLinearEquationsSolutionEquation] = []
         let descr:String = String(
-            format:NSLocalizedString("MLinearEquationsSolutionStrategyZeroFill_descr", comment:""),
-            indeterminate.symbol,
+            format:NSLocalizedString("MLinearEquationsSolutionStrategyOrderIndeterminates_descr", comment:""),
             "\((self.indexEquation + 1))")
         
         var indexEquation:Int = 0
@@ -112,26 +111,6 @@ class MLinearEquationsSolutionStrategyOrderIndeterminates:MLinearEquationsSoluti
         {
             let newEquation:MLinearEquationsSolutionEquation
             
-            if indexEquation == self.indexEquation
-            {
-                var items:[MLinearEquationsSolutionEquationItem] = equation.items
-                let countItems:Int = items.count
-                let newPolynomial:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.emptyPolynomial(
-                    indeterminate:indeterminate,
-                    index:countItems)
-                items.append(newPolynomial)
-                
-                newEquation = MLinearEquationsSolutionEquation(
-                    items:items,
-                    result:equation.result,
-                    equationIndex:indexEquation)
-            }
-            else
-            {
-                newEquation = equation
-            }
-            
-            equations.append(newEquation)
             
             indexEquation += 1
         }

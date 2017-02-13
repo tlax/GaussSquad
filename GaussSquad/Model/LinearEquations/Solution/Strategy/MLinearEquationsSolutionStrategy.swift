@@ -35,6 +35,12 @@ class MLinearEquationsSolutionStrategy
         {
             return zeroFill
         }
+        else if let orderIndeterminates:MLinearEquationsSolutionStrategyOrderIndeterminates = MLinearEquationsSolutionStrategyOrderIndeterminates.indeterminateUnordered(
+            step:step,
+            indeterminates:indeterminates)
+        {
+            return orderIndeterminates
+        }
         
         return nil
     }
