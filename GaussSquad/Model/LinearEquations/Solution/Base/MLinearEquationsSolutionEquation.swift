@@ -87,4 +87,52 @@ class MLinearEquationsSolutionEquation
         
         return false
     }
+    
+    func multiplyScalar(scalar:Double) -> MLinearEquationsSolutionEquation
+    {
+        var items:[MLinearEquationsSolutionEquationItem] = []
+        var result:MLinearEquationsSolutionEquationItem = self.result
+        
+        for item:MLinearEquationsSolutionEquationItem in self.items
+        {
+            let itemIndex:Int = items.count
+            
+            if let itemPolynomial:MLinearEquationsSolutionEquationItemPolynomial = item as? MLinearEquationsSolutionEquationItemPolynomial
+            {
+                let newPolynomial:MLinearEquationsSolutionEquationItemPolynomial = itemPolynomial.multiplyCoefficient(
+                    coefficient:scalar,
+                    index:itemIndex)
+                
+                items.append(newPolynomial)
+            }
+            else if let itemConstant:MLinearEquationsSolutionEquationItemConstant = item as? MLinearEquationsSolutionEquationItemConstant
+            {
+                let newConstant:MLinearEquationsSolutionEquationItemConstant = itemConstant.multiplyCoefficient(
+                    coefficient:scalar,
+                    index:itemIndex)
+                
+                items.append(newConstant)
+            }
+        }
+        
+        if let resultPolynomial:MLinearEquationsSolutionEquationItemPolynomial = result as? MLinearEquationsSolutionEquationItemPolynomial
+        {
+            result = resultPolynomial.multiplyCoefficient(
+                coefficient:scalar,
+                index:0)
+        }
+        else if let resultConstant:MLinearEquationsSolutionEquationItemConstant = result as? MLinearEquationsSolutionEquationItemConstant
+        {
+            result = resultConstant.multiplyCoefficient(
+                coefficient:scalar,
+                index:0)
+        }
+        
+        let newEquation:MLinearEquationsSolutionEquation = MLinearEquationsSolutionEquation(
+            items:items,
+            result:result,
+            equationIndex:index.index)
+        
+        return newEquation
+    }
 }

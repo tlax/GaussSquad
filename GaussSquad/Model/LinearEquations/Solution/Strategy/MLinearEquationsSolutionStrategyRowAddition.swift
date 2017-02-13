@@ -14,7 +14,8 @@ class MLinearEquationsSolutionStrategyRowAddition:MLinearEquationsSolutionStrate
             {
                 if equation.nonZero()
                 {
-                    let equationBelow:MLinearEquationsSolutionEquation = step.equations[indexEquation + 1]
+                    let nextIndex:Int = indexEquation + 1
+                    let equationBelow:MLinearEquationsSolutionEquation = step.equations[nextIndex]
                     
                     if equationBelow.nonZero()
                     {
@@ -33,14 +34,29 @@ class MLinearEquationsSolutionStrategyRowAddition:MLinearEquationsSolutionStrate
                                 return nil
                             }
                             
-                            let scalar:Double
+                            let topCoefficient:Double = topPolynomial.coefficient
+                            let bottomCoefficient:Double = bottomPolynomial.coefficient
+                            var scalar:Double = abs(bottomCoefficient / topCoefficient)
                             
-                            
-                            if
+                            if topCoefficient > 0
+                            {
+                                if bottomCoefficient > 0
+                                {
+                                    scalar = -scalar
+                                }
+                            }
+                            else
+                            {
+                                if bottomCoefficient < 0
+                                {
+                                    scalar = -scalar
+                                }
+                            }
                             
                             let strategy:MLinearEquationsSolutionStrategyRowAddition = MLinearEquationsSolutionStrategyRowAddition(
                                 step:step,
-                                indexRow:indexEquation)
+                                indexRow:nextIndex,
+                                scalar:scalar)
                             
                             return strategy
                         }
@@ -55,12 +71,15 @@ class MLinearEquationsSolutionStrategyRowAddition:MLinearEquationsSolutionStrate
     }
     
     private let indexRow:Int
+    private let scalar:Double
     
     private init(
         step:MLinearEquationsSolutionStep,
-        indexRow:Int)
+        indexRow:Int,
+        scalar:Double)
     {
         self.indexRow = indexRow
+        self.scalar = scalar
         super.init(step:step)
     }
     
@@ -77,33 +96,30 @@ class MLinearEquationsSolutionStrategyRowAddition:MLinearEquationsSolutionStrate
     {
         var equations:[MLinearEquationsSolutionEquation] = []
         let descr:String = String(
-            format:NSLocalizedString("MLinearEquationsSolutionStrategyPivotOrdering_descr", comment:""),
-            "\((indexRowA + 1))",
-            "\((indexRowB + 1))")
+            format:NSLocalizedString("MLinearEquationsSolutionStrategyRowAddition_descr", comment:""),
+            "\(scalar)",
+            "\(indexRow)",
+            "\((indexRow + 1))")
         
-        let totalEquations:Int = self.step.equations.count
+        var indexEquation:Int = 0
         
-        for indexEquation:Int in 0 ..< totalEquations
+        for equation:MLinearEquationsSolutionEquation in self.step.equations
         {
-            if indexEquation == indexRowA
+            let newEquation:MLinearEquationsSolutionEquation
+            
+            if indexEquation == indexRow
             {
-                let equationB:MLinearEquationsSolutionEquation = self.step.equations[indexRowB]
-                let indexedEquation:MLinearEquationsSolutionEquation = equationB.reIndexed(
-                    newIndex:indexEquation)
-                equations.append(indexedEquation)
-            }
-            else if indexEquation == indexRowB
-            {
-                let equationA:MLinearEquationsSolutionEquation = self.step.equations[indexRowA]
-                let indexedEquation:MLinearEquationsSolutionEquation = equationA.reIndexed(
-                    newIndex:indexEquation)
-                equations.append(indexedEquation)
+                let previousEquation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation - 1]
+                
             }
             else
             {
-                let equation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation]
-                equations.append(equation)
+                newEquation = equation
             }
+            
+            equations.append(newEquation)
+            
+            indexEquation += 1
         }
         
         let step:MLinearEquationsSolutionStepProcess = MLinearEquationsSolutionStepProcess(
