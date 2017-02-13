@@ -9,15 +9,6 @@ class MLinearEquationsSolutionStrategyPivotOrdering:MLinearEquationsSolutionStra
         
         for equationA:MLinearEquationsSolutionEquation in step.equations
         {
-            guard
-                
-                let items:[MLinearEquationsSolutionEquationItemPolynomial] = equationA.items as? [MLinearEquationsSolutionEquationItemPolynomial]
-                
-            else
-            {
-                return nil
-            }
-            
             let pivotIndexA:Int = equationA.pivotIndex()
             
             for indexEquationB:Int in indexEquationA + 1 ..< countEquations
@@ -72,11 +63,29 @@ class MLinearEquationsSolutionStrategyPivotOrdering:MLinearEquationsSolutionStra
             "\((indexRowA + 1))",
             "\((indexRowB + 1))")
         
-        var indexEquation:Int = 0
+        let totalEquations:Int = self.step.equations.count
         
-        for equation:MLinearEquationsSolutionEquation in self.step.equations
+        for indexEquation:Int in 0 ..< totalEquations
         {
-            
+            if indexEquation == indexRowA
+            {
+                let equationB:MLinearEquationsSolutionEquation = self.step.equations[indexRowB]
+                let indexedEquation:MLinearEquationsSolutionEquation = equationB.reIndexed(
+                    newIndex:indexEquation)
+                equations.append(indexedEquation)
+            }
+            else if indexEquation == indexRowB
+            {
+                let equationA:MLinearEquationsSolutionEquation = self.step.equations[indexRowA]
+                let indexedEquation:MLinearEquationsSolutionEquation = equationA.reIndexed(
+                    newIndex:indexEquation)
+                equations.append(indexedEquation)
+            }
+            else
+            {
+                let equation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation]
+                equations.append(equation)
+            }
         }
         
         let step:MLinearEquationsSolutionStepProcess = MLinearEquationsSolutionStepProcess(
