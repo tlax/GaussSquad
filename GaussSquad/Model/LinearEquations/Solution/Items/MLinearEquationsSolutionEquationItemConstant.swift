@@ -140,7 +140,7 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
     
     func divideCoefficient(coefficient:Double, index:Int) -> MLinearEquationsSolutionEquationItemConstant
     {
-        let newDividend:Double = coefficientDividend * coefficientDividend
+        let newDividend:Double = coefficientDividend / coefficientDividend
         let newDivisor:Double
         
         if coefficientDivisor == 1 && coefficient != 0
