@@ -9,7 +9,7 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
     private let kBackTop:CGFloat = 20
     private let kBackWidth:CGFloat = 60
     private let kBackHeight:CGFloat = 44
-    private let kCellSize:CGFloat = 60
+    private let kCellSize:CGFloat = 70
     private let kDeselectTime:TimeInterval = 0.25
     
     init(controller:CLinearEquationsSolution)
