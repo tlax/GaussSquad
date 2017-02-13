@@ -111,6 +111,27 @@ class MLinearEquationsSolutionStrategyOrderIndeterminates:MLinearEquationsSoluti
         {
             let newEquation:MLinearEquationsSolutionEquation
             
+            if self.indexEquation == indexEquation
+            {
+                var items:[MLinearEquationsSolutionEquationItem] = []
+                
+                for ordering:Int in orderMap
+                {
+                    let item:MLinearEquationsSolutionEquationItem = equation.items[ordering]
+                    items.append(item)
+                }
+                
+                newEquation = MLinearEquationsSolutionEquation(
+                    items:items,
+                    result:equation.result,
+                    equationIndex:indexEquation)
+            }
+            else
+            {
+                newEquation = equation
+            }
+            
+            equations.append(newEquation)
             
             indexEquation += 1
         }
