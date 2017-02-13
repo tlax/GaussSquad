@@ -11,7 +11,7 @@ class MLinearEquationsSolutionBarItem
     
     //MARK: public
     
-    func select(controller:CLinearEquationsSolution)
+    func selected(controller:CLinearEquationsSolution)
     {
     }
 }

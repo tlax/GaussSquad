@@ -61,6 +61,11 @@ class CLinearEquationsSolution:CController
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
     
+    func bottom()
+    {
+        
+    }
+    
     func plot()
     {
         
