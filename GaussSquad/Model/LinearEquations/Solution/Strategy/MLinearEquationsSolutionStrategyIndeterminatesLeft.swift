@@ -23,7 +23,7 @@ class MLinearEquationsSolutionStrategyIndeterminatesLeft:MLinearEquationsSolutio
         return nil
     }
     
-    let indexEquation:Int
+    private let indexEquation:Int
     
     private init(
         step:MLinearEquationsSolutionStep,

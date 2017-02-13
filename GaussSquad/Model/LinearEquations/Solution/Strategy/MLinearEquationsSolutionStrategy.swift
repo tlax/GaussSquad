@@ -5,7 +5,9 @@ class MLinearEquationsSolutionStrategy
     weak var step:MLinearEquationsSolutionStep!
     private weak var delegate:MLinearEquationsSolutionStrategyDelegate?
     
-    class func strategyFor(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategy?
+    class func strategyFor(
+        step:MLinearEquationsSolutionStep,
+        indeterminates:MLinearEquationsSolutionIndeterminates) -> MLinearEquationsSolutionStrategy?
     {
         if let reduction:MLinearEquationsSolutionStrategyReduction = MLinearEquationsSolutionStrategyReduction.reducible(
             step:step)

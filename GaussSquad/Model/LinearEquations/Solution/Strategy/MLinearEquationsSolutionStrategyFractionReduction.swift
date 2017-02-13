@@ -118,9 +118,9 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
         return numberA
     }
     
-    let indexEquation:Int
-    let indexPolynomial:Int
-    let greatestCommonDivisor:Double
+    private let indexEquation:Int
+    private let indexPolynomial:Int
+    private let greatestCommonDivisor:Double
     
     private init(
         step:MLinearEquationsSolutionStep,

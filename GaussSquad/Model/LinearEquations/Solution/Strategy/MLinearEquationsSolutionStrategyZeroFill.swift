@@ -1,8 +1,8 @@
 import Foundation
 
 class MLinearEquationsSolutionStrategyZeroFill:MLinearEquationsSolutionStrategy
-{/*
-    class func hasZeros(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyRemoveZeros?
+{
+    class func missingIndeterminate(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyZeroFill?
     {
         var indexEquation:Int = 0
         
@@ -46,13 +46,13 @@ class MLinearEquationsSolutionStrategyZeroFill:MLinearEquationsSolutionStrategy
         return nil
     }
     
-    let indexEquation:Int
-    let indexPolynomial:Int
+    private let indexEquation:Int
+    private weak var indeterminates:MLinearEquationsSolutionIndeterminates!
     
     private init(
         step:MLinearEquationsSolutionStep,
         indexEquation:Int,
-        indexPolynomial:Int)
+        indeterminates:MLinearEquationsSolutionIndeterminates)
     {
         self.indexEquation = indexEquation
         self.indexPolynomial = indexPolynomial
@@ -125,5 +125,5 @@ class MLinearEquationsSolutionStrategyZeroFill:MLinearEquationsSolutionStrategy
             equations:equations,
             descr:descr)
         completed(step:step)
-    }*/
+    }
 }
