@@ -1,7 +1,7 @@
 import Foundation
 
 class MLinearEquationsSolutionStrategyZeroFill:MLinearEquationsSolutionStrategy
-{
+{/*
     class func hasZeros(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyRemoveZeros?
     {
         var indexEquation:Int = 0
@@ -125,5 +125,5 @@ class MLinearEquationsSolutionStrategyZeroFill:MLinearEquationsSolutionStrategy
             equations:equations,
             descr:descr)
         completed(step:step)
-    }
+    }*/
 }
