@@ -1,9 +1,14 @@
-//
-//  MLinearEquationsSolutionBarItemBottom.swift
-//  GaussSquad
-//
-//  Created by zero on 2/13/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MLinearEquationsSolutionBarItemBottom:MLinearEquationsSolutionBarItem
+{
+    init()
+    {
+        super.init(image:#imageLiteral(resourceName: "assetGenericSolutionBottom"))
+    }
+    
+    override func selected(controller:CLinearEquationsSolution)
+    {
+        controller.bottom()
+    }
+}
