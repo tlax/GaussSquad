@@ -34,11 +34,11 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         changeSign:Bool,
         newIndex:Int) -> MLinearEquationsSolutionEquationItemConstant
     {
+        let sumItem:MLinearEquationsSolutionEquationItemConstant
         let otherConstantDivisor:Double = otherConstant.coefficientDivisor
         let otherConstantDividend:Double
         let sumDividend:Double
         let sumDivisor:Double
-        let showAsDivision:Bool
         
         if changeSign
         {
@@ -47,15 +47,6 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         else
         {
             otherConstantDividend = otherConstant.coefficientDividend
-        }
-        
-        if self.showAsDivision || otherConstant.showAsDivision
-        {
-            showAsDivision = true
-        }
-        else
-        {
-            showAsDivision = false
         }
         
         if coefficientDivisor == otherConstantDivisor
@@ -71,11 +62,32 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
             sumDivisor = coefficientDivisor * otherConstantDivisor
         }
         
-        let sumItem:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.coefficient(
-            coefficientDividend:sumDividend,
-            coefficientDivisor:sumDivisor,
-            index:newIndex,
-            showAsDivision:showAsDivision)
+        let newCoeffiecient:Double = abs(sumDividend / sumDivisor)
+        
+        if newCoeffiecient > MSession.sharedInstance.kMinNumber
+        {
+            let showAsDivision:Bool
+            
+            if self.showAsDivision || otherConstant.showAsDivision
+            {
+                showAsDivision = true
+            }
+            else
+            {
+                showAsDivision = false
+            }
+            
+            sumItem = MLinearEquationsSolutionEquationItem.coefficient(
+                coefficientDividend:sumDividend,
+                coefficientDivisor:sumDivisor,
+                index:newIndex,
+                showAsDivision:showAsDivision)
+        }
+        else
+        {
+            sumItem = MLinearEquationsSolutionEquationItem.emptyCoefficient(
+                index:newIndex)
+        }
         
         return sumItem
     }
@@ -122,14 +134,24 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         divisor:Double,
         index:Int) -> MLinearEquationsSolutionEquationItemConstant
     {
+        let multiplied:MLinearEquationsSolutionEquationItemConstant
         let newDividend:Double = coefficientDividend * dividend
         let newDivisor:Double = coefficientDivisor * divisor
+        let newCoefficient:Double = abs(newDividend / newDivisor)
         
-        let multiplied:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.coefficient(
-            coefficientDividend:newDividend,
-            coefficientDivisor:newDivisor,
-            index:index,
-            showAsDivision:showAsDivision)
+        if newCoefficient > MSession.sharedInstance.kMinNumber
+        {
+            multiplied = MLinearEquationsSolutionEquationItem.coefficient(
+                coefficientDividend:newDividend,
+                coefficientDivisor:newDivisor,
+                index:index,
+                showAsDivision:showAsDivision)
+        }
+        else
+        {
+            multiplied = MLinearEquationsSolutionEquationItem.emptyCoefficient(
+                index:index)
+        }
         
         return multiplied
     }
@@ -139,14 +161,24 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         divisor:Double,
         index:Int) -> MLinearEquationsSolutionEquationItemConstant
     {
+        let divided:MLinearEquationsSolutionEquationItemConstant
         let newDividend:Double = coefficientDividend / dividend
         let newDivisor:Double = coefficientDivisor / divisor
+        let newCoefficient:Double = abs(newDividend / newDivisor)
         
-        let divided:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.coefficient(
-            coefficientDividend:newDividend,
-            coefficientDivisor:newDivisor,
-            index:index,
-            showAsDivision:showAsDivision)
+        if newCoefficient > MSession.sharedInstance.kMinNumber
+        {
+            divided = MLinearEquationsSolutionEquationItem.coefficient(
+                coefficientDividend:newDividend,
+                coefficientDivisor:newDivisor,
+                index:index,
+                showAsDivision:showAsDivision)
+        }
+        else
+        {
+            divided = MLinearEquationsSolutionEquationItem.emptyCoefficient(
+                index:index)
+        }
         
         return divided
     }
