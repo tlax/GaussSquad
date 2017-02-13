@@ -110,6 +110,9 @@ class MLinearEquationsSolutionStrategyRowAddition:MLinearEquationsSolutionStrate
             if indexEquation == indexRow
             {
                 let previousEquation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation - 1]
+                let scaledPrevious:MLinearEquationsSolutionEquation = previousEquation.multiplyScalar(
+                    scalar:scalar)
+                
                 
             }
             else
