@@ -2,67 +2,41 @@ import Foundation
 
 class MLinearEquationsSolutionStrategyRemoveCoefficients:MLinearEquationsSolutionStrategy
 {
-    /*
-    class func samePivot(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyRemoveCoefficients?
+    class func coefficientPivot(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyRemoveCoefficients?
     {
         var indexEquation:Int = 0
-        let countEquations:Int = step.equations.count
-        let maxEquation:Int = countEquations - 1
         
         for equation:MLinearEquationsSolutionEquation in step.equations
         {
-            if indexEquation < maxEquation
+            let pivotIndex:Int = equation.pivotIndex()
+            
+            guard
+            
+                let pivotItem:MLinearEquationsSolutionEquationItemPolynomial = equation.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
+            
+            else
             {
-                let nextIndex:Int = indexEquation + 1
-                let equationBelow:MLinearEquationsSolutionEquation = step.equations[nextIndex]
-                let pivotIndex:Int = equation.pivotIndex()
-                let pivotIndexBelow:Int = equationBelow.pivotIndex()
+                continue
+            }
+            
+            let coefficient:Double = pivotItem.coefficient
+            
+            if coefficient != 1
+            {
+                let scalar:Double = 1 / coefficient
+                let strategy:MLinearEquationsSolutionStrategyRemoveCoefficients = MLinearEquationsSolutionStrategyRemoveCoefficients(
+                    step:step,
+                    indexRow:indexEquation,
+                    scalar:scalar)
                 
-                if pivotIndex == pivotIndexBelow
-                {
-                    guard
-                        
-                        let topPolynomial:MLinearEquationsSolutionEquationItemPolynomial = equation.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial,
-                        let bottomPolynomial:MLinearEquationsSolutionEquationItemPolynomial = equationBelow.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
-                        
-                        else
-                    {
-                        return nil
-                    }
-                    
-                    let topCoefficient:Double = topPolynomial.coefficient
-                    let bottomCoefficient:Double = bottomPolynomial.coefficient
-                    var scalar:Double = abs(bottomCoefficient / topCoefficient)
-                    
-                    if topCoefficient > 0
-                    {
-                        if bottomCoefficient > 0
-                        {
-                            scalar = -scalar
-                        }
-                    }
-                    else
-                    {
-                        if bottomCoefficient < 0
-                        {
-                            scalar = -scalar
-                        }
-                    }
-                    
-                    let strategy:MLinearEquationsSolutionStrategyRowAddition = MLinearEquationsSolutionStrategyRowAddition(
-                        step:step,
-                        indexRow:nextIndex,
-                        scalar:scalar)
-                    
-                    return strategy
-                }
+                return strategy
             }
             
             indexEquation += 1
         }
         
         return nil
-    }*/
+    }
     
     private let indexRow:Int
     private let scalar:Double

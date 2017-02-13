@@ -59,6 +59,8 @@ class MLinearEquationsSolutionStrategyOnlyPivots:MLinearEquationsSolutionStrateg
                             step:step,
                             indexRow:prevIndex,
                             scalar:scalar)
+                        
+                        return strategy
                     }
                 }
             }
