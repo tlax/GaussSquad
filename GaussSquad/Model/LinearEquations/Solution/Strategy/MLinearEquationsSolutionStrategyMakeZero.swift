@@ -70,62 +70,42 @@ class MLinearEquationsSolutionStrategyMakeZero:MLinearEquationsSolutionStrategy
     {
         super.process(delegate:delegate)
         
-        removeZero()
+        removeResult()
     }
     
     //MARK: private
     
-    private func removeZero()
+    private func removeResult()
     {
         var equations:[MLinearEquationsSolutionEquation] = []
         let descr:String = String(
-            format:NSLocalizedString("MLinearEquationsSolutionStrategyRemoveZeros_descr", comment:""),
+            format:NSLocalizedString("MLinearEquationsSolutionStrategyMakeZero_descr", comment:""),
             "\((indexEquation + 1))")
         
         let countEquations:Int = self.step.equations.count
         
         for indexEquation:Int in 0 ..< countEquations
         {
-            let equation:MLinearEquationsSolutionEquation?
+            let equation:MLinearEquationsSolutionEquation
             let currentEquation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation]
             
             if indexEquation == self.indexEquation
             {
-                let countItems:Int = currentEquation.items.count
+                let items:[MLinearEquationsSolutionEquationItem] = currentEquation.items
+                let result:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.emptyCoefficient(
+                    index:0)
                 
-                if countItems > 1
-                {
-                    var items:[MLinearEquationsSolutionEquationItem] = []
-                    let result:MLinearEquationsSolutionEquationItem = currentEquation.result
-                    
-                    for indexItem:Int in 0 ..< countItems
-                    {
-                        if indexItem != indexPolynomial
-                        {
-                            let currentItem:MLinearEquationsSolutionEquationItem = currentEquation.items[indexItem]
-                            items.append(currentItem)
-                        }
-                    }
-                    
-                    equation = MLinearEquationsSolutionEquation(
-                        items:items,
-                        result:result,
-                        equationIndex:indexEquation)
-                }
-                else
-                {
-                    equation = nil
-                }
+                equation = MLinearEquationsSolutionEquation(
+                    items:items,
+                    result:result,
+                    equationIndex:indexEquation)
             }
             else
             {
                 equation = currentEquation
             }
             
-            if let equation:MLinearEquationsSolutionEquation = equation
-            {
-                equations.append(equation)
-            }
+            equations.append(equation)
         }
         
         let step:MLinearEquationsSolutionStepProcess = MLinearEquationsSolutionStepProcess(
