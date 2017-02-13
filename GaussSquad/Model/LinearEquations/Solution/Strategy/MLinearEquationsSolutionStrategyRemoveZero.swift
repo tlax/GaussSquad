@@ -8,28 +8,9 @@ class MLinearEquationsSolutionStrategyRemoveZero:MLinearEquationsSolutionStrateg
         
         for equation:MLinearEquationsSolutionEquation in step.equations
         {
-            var onlyZeros:Bool = true
+            let nonZero:Bool = equation.nonZero()
             
-            for item:MLinearEquationsSolutionEquationItem in equation.items
-            {
-                guard
-                    
-                    let polynomial:MLinearEquationsSolutionEquationItemPolynomial = item as? MLinearEquationsSolutionEquationItemPolynomial
-                    
-                else
-                {
-                    continue
-                }
-                
-                if polynomial.coefficientDividend != 0
-                {
-                    onlyZeros = false
-                    
-                    break
-                }
-            }
-            
-            if onlyZeros
+            if !nonZero
             {
                 let strategy:MLinearEquationsSolutionStrategyRemoveZero = MLinearEquationsSolutionStrategyRemoveZero(
                     step:step,

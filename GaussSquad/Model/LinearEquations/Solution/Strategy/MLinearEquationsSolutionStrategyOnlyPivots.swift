@@ -2,15 +2,13 @@ import Foundation
 
 class MLinearEquationsSolutionStrategyOnlyPivots:MLinearEquationsSolutionStrategy
 {
-    class func samePivot(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyOnlyPivots?
+    class func pivotRepeated(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyOnlyPivots?
     {
         var indexEquation:Int = 0
-        let countEquations:Int = step.equations.count
-        let maxEquation:Int = countEquations - 1
         
         for equation:MLinearEquationsSolutionEquation in step.equations
         {
-            if indexEquation < maxEquation
+            if indexEquation > 0
             {
                 if equation.nonZero()
                 {
@@ -52,13 +50,6 @@ class MLinearEquationsSolutionStrategyOnlyPivots:MLinearEquationsSolutionStrateg
                                     scalar = -scalar
                                 }
                             }
-                            
-                            let strategy:MLinearEquationsSolutionStrategyRowAddition = MLinearEquationsSolutionStrategyRowAddition(
-                                step:step,
-                                indexRow:nextIndex,
-                                scalar:scalar)
-                            
-                            return strategy
                         }
                     }
                 }
