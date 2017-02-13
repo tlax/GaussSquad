@@ -7,32 +7,33 @@ class MLinearEquationsSolutionStrategyPivotOrdering:MLinearEquationsSolutionStra
         var indexEquationA:Int = 0
         let countEquations:Int = step.equations.count
         
-        for equation:MLinearEquationsSolutionEquation in step.equations
+        for equationA:MLinearEquationsSolutionEquation in step.equations
         {
             guard
                 
-                let items:[MLinearEquationsSolutionEquationItemPolynomial] = equation.items as? [MLinearEquationsSolutionEquationItemPolynomial]
+                let items:[MLinearEquationsSolutionEquationItemPolynomial] = equationA.items as? [MLinearEquationsSolutionEquationItemPolynomial]
                 
             else
             {
                 return nil
             }
             
-            var pivotIndex:Int = 0
-            
-            for item:MLinearEquationsSolutionEquationItemPolynomial in items
-            {
-                if item.coefficientDividend != 0
-                {
-                    break
-                }
-                
-                pivotIndex += 1
-            }
+            let pivotIndexA:Int = equationA.pivotIndex()
             
             for indexEquationB:Int in indexEquationA + 1 ..< countEquations
             {
+                let equationB:MLinearEquationsSolutionEquation = step.equations[indexEquationB]
+                let pivotIndexB:Int = equationB.pivotIndex()
                 
+                if pivotIndexA > pivotIndexB
+                {
+                    let strategy:MLinearEquationsSolutionStrategyPivotOrdering = MLinearEquationsSolutionStrategyPivotOrdering(
+                        step:step,
+                        indexRowA:indexEquationA,
+                        indexRowB:indexEquationB)
+                    
+                    return strategy
+                }
             }
             
             indexEquationA += 1

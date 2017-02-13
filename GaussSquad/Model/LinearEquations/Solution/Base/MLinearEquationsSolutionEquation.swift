@@ -55,4 +55,14 @@ class MLinearEquationsSolutionEquation
         
         return index
     }
+    
+    func reIndexed(newIndex:Int) -> MLinearEquationsSolutionEquation
+    {
+        let indexedEquation:MLinearEquationsSolutionEquation = MLinearEquationsSolutionEquation(
+            items:items,
+            result:result,
+            equationIndex:newIndex)
+        
+        return indexedEquation
+    }
 }
