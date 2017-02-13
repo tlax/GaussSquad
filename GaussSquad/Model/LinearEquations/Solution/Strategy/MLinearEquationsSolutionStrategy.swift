@@ -17,10 +17,10 @@ class MLinearEquationsSolutionStrategy
         {
             return indeterminatesLeft
         }
-        else if let removeZeros:MLinearEquationsSolutionStrategyRemoveZeros = MLinearEquationsSolutionStrategyRemoveZeros.hasZeros(
+        else if let makeZero:MLinearEquationsSolutionStrategyMakeZero = MLinearEquationsSolutionStrategyMakeZero.onlyZeros(
             step:step)
         {
-            return removeZeros
+            return makeZero
         }
         else if let fractionReduction:MLinearEquationsSolutionStrategyFractionReduction = MLinearEquationsSolutionStrategyFractionReduction.reducible(
             step:step)
