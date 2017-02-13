@@ -29,6 +29,12 @@ class MLinearEquationsSolutionStrategy
         {
             return fractionReduction
         }
+        else if let zeroFill:MLinearEquationsSolutionStrategyZeroFill = MLinearEquationsSolutionStrategyZeroFill.missingIndeterminate(
+            step:step,
+            indeterminates:indeterminates)
+        {
+            return zeroFill
+        }
         
         return nil
     }
