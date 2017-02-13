@@ -120,20 +120,10 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
     func multiplyCoefficient(coefficient:Double, index:Int) -> MLinearEquationsSolutionEquationItemConstant
     {
         let newDividend:Double = coefficientDividend * coefficient
-        let newDivisor:Double
-        
-        if coefficientDivisor == 1
-        {
-            newDivisor = coefficientDivisor
-        }
-        else
-        {
-            newDivisor = coefficientDivisor * coefficient
-        }
         
         let multiplied:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.coefficient(
             coefficientDividend:newDividend,
-            coefficientDivisor:newDivisor,
+            coefficientDivisor:coefficientDivisor,
             index:index,
             showAsDivision:showAsDivision)
         
@@ -143,20 +133,10 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
     func divideCoefficient(coefficient:Double, index:Int) -> MLinearEquationsSolutionEquationItemConstant
     {
         let newDividend:Double = coefficientDividend / coefficient
-        let newDivisor:Double
-        
-        if coefficientDivisor == 1 && coefficient != 0
-        {
-            newDivisor = coefficientDivisor
-        }
-        else
-        {
-            newDivisor = coefficientDivisor / coefficient
-        }
         
         let divided:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.coefficient(
             coefficientDividend:newDividend,
-            coefficientDivisor:newDivisor,
+            coefficientDivisor:coefficientDivisor,
             index:index,
             showAsDivision:showAsDivision)
         
