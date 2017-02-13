@@ -44,6 +44,7 @@
 		DA23C35E1E5260D2007C4C4D /* MLinearEquationsSolutionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C35D1E5260D2007C4C4D /* MLinearEquationsSolutionBar.swift */; };
 		DA23C3601E5260DE007C4C4D /* MLinearEquationsSolutionBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C35F1E5260DE007C4C4D /* MLinearEquationsSolutionBarItem.swift */; };
 		DA23C3621E5260EA007C4C4D /* MLinearEquationsSolutionBarItemBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C3611E5260EA007C4C4D /* MLinearEquationsSolutionBarItemBottom.swift */; };
+		DA23C3641E526BF9007C4C4D /* MLinearEquationsSolutionStrategyOnlyPivots.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C3631E526BF9007C4C4D /* MLinearEquationsSolutionStrategyOnlyPivots.swift */; };
 		DA316CE51E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CE41E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift */; };
 		DA316CE91E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CE81E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift */; };
 		DA316CED1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CEC1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift */; };
@@ -199,6 +200,7 @@
 		DA23C35D1E5260D2007C4C4D /* MLinearEquationsSolutionBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionBar.swift; sourceTree = "<group>"; };
 		DA23C35F1E5260DE007C4C4D /* MLinearEquationsSolutionBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionBarItem.swift; sourceTree = "<group>"; };
 		DA23C3611E5260EA007C4C4D /* MLinearEquationsSolutionBarItemBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionBarItemBottom.swift; sourceTree = "<group>"; };
+		DA23C3631E526BF9007C4C4D /* MLinearEquationsSolutionStrategyOnlyPivots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionStrategyOnlyPivots.swift; sourceTree = "<group>"; };
 		DA316CE41E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialIndeterminate.swift; sourceTree = "<group>"; };
 		DA316CE81E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquationsPolynomialIndeterminate.swift; sourceTree = "<group>"; };
 		DA316CEC1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsIndeterminateList.swift; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 				DA23C3521E5218CF007C4C4D /* MLinearEquationsSolutionStrategyOrderIndeterminates.swift */,
 				DA23C3541E522319007C4C4D /* MLinearEquationsSolutionStrategyPivotOrdering.swift */,
 				DA23C3561E522D99007C4C4D /* MLinearEquationsSolutionStrategyRowAddition.swift */,
+				DA23C3631E526BF9007C4C4D /* MLinearEquationsSolutionStrategyOnlyPivots.swift */,
 			);
 			path = Strategy;
 			sourceTree = "<group>";
@@ -1034,6 +1037,7 @@
 				DAD46DB41E46A13500AED3B9 /* MLinearEquationsIndeterminates.swift in Sources */,
 				DA12D4751E414BC7008327B5 /* MLinearEquationsProjectRowItemIndex.swift in Sources */,
 				DADDF86B1E4AA31100447C55 /* DEquationExtension.swift in Sources */,
+				DA23C3641E526BF9007C4C4D /* MLinearEquationsSolutionStrategyOnlyPivots.swift in Sources */,
 				DA133A601E4119E00028D90F /* VLinearEquationsProjectBarCell.swift in Sources */,
 				DA133A381E410F710028D90F /* MLinearEquationsProjectBar.swift in Sources */,
 				DA23C35E1E5260D2007C4C4D /* MLinearEquationsSolutionBar.swift in Sources */,
