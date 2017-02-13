@@ -122,13 +122,17 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         return inversedPolynomial
     }
     
-    func multiplyCoefficient(coefficient:Double, index:Int) -> MLinearEquationsSolutionEquationItemPolynomial
+    func multiply(
+        dividend:Double,
+        divisor:Double,
+        index:Int) -> MLinearEquationsSolutionEquationItemPolynomial
     {
-        let newDividend:Double = coefficientDividend * coefficient
+        let newDividend:Double = coefficientDividend * dividend
+        let newDivisor:Double = coefficientDivisor * divisor
         
         let multiplied:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.polynomial(
             coefficientDividend:newDividend,
-            coefficientDivisor:coefficientDivisor,
+            coefficientDivisor:newDivisor,
             indeterminate:indeterminate,
             index:index,
             showAsDivision:showAsDivision)
@@ -136,13 +140,17 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         return multiplied
     }
     
-    func divideCoefficient(coefficient:Double, index:Int) -> MLinearEquationsSolutionEquationItemPolynomial
+    func divide(
+        dividend:Double,
+        divisor:Double,
+        index:Int) -> MLinearEquationsSolutionEquationItemPolynomial
     {
-        let newDividend:Double = coefficientDividend / coefficient
+        let newDividend:Double = coefficientDividend / dividend
+        let newDivisor:Double = coefficientDivisor / divisor
         
         let divided:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.polynomial(
             coefficientDividend:newDividend,
-            coefficientDivisor:coefficientDivisor,
+            coefficientDivisor:newDivisor,
             indeterminate:indeterminate,
             index:index,
             showAsDivision:showAsDivision)
