@@ -65,4 +65,26 @@ class MLinearEquationsSolutionEquation
         
         return indexedEquation
     }
+    
+    func nonZero() -> Bool
+    {
+        guard
+            
+            let items:[MLinearEquationsSolutionEquationItemPolynomial] = self.items as? [MLinearEquationsSolutionEquationItemPolynomial]
+            
+        else
+        {
+            return false
+        }
+        
+        for item:MLinearEquationsSolutionEquationItemPolynomial in items
+        {
+            if item.coefficientDividend != 0
+            {
+                return true
+            }
+        }
+        
+        return false
+    }
 }
