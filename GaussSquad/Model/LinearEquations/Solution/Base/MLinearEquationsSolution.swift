@@ -30,7 +30,8 @@ class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate
         steps.append(step)
         
         let nextStrategy:MLinearEquationsSolutionStrategy? = MLinearEquationsSolutionStrategy.strategyFor(
-            step:step)
+            step:step,
+            indeterminates:indeterminates)
         
         if let nextStrategy:MLinearEquationsSolutionStrategy = nextStrategy
         {

@@ -2,42 +2,50 @@ import Foundation
 
 class MLinearEquationsSolutionStrategyZeroFill:MLinearEquationsSolutionStrategy
 {
-    class func missingIndeterminate(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyZeroFill?
+    class func missingIndeterminate(
+        step:MLinearEquationsSolutionStep,
+        indeterminates:MLinearEquationsSolutionIndeterminates?) -> MLinearEquationsSolutionStrategyZeroFill?
     {
+        guard
+            
+            let indeterminates:MLinearEquationsSolutionIndeterminates = indeterminates
+        
+        else
+        {
+            return nil
+        }
+        
         var indexEquation:Int = 0
         
         for equation:MLinearEquationsSolutionEquation in step.equations
         {
-            var indexItem:Int = 0
+            guard
             
-            for item:MLinearEquationsSolutionEquationItem in equation.items
+                let items:[MLinearEquationsSolutionEquationItemPolynomial] = equation.items as? [MLinearEquationsSolutionEquationItemPolynomial]
+            
+            else
             {
-                if let polynomial:MLinearEquationsSolutionEquationItemPolynomial = item as? MLinearEquationsSolutionEquationItemPolynomial
+                return nil
+            }
+            
+            for indeterminate:MLinearEquationsSolutionIndeterminatesItem in indeterminates.items
+            {
+                var found:Bool = false
+                
+                for item:MLinearEquationsSolutionEquationItemPolynomial in items
                 {
-                    if polynomial.coefficientDividend == 0
+                    if item.indeterminate === indeterminate
                     {
-                        let strategy:MLinearEquationsSolutionStrategyRemoveZeros = MLinearEquationsSolutionStrategyRemoveZeros(
-                            step:step,
-                            indexEquation:indexEquation,
-                            indexPolynomial:indexItem)
+                        found = true
                         
-                        return strategy
-                    }
-                }
-                else if let coefficient:MLinearEquationsSolutionEquationItemConstant = item as? MLinearEquationsSolutionEquationItemConstant
-                {
-                    if coefficient.coefficientDividend == 0
-                    {
-                        let strategy:MLinearEquationsSolutionStrategyRemoveZeros = MLinearEquationsSolutionStrategyRemoveZeros(
-                            step:step,
-                            indexEquation:indexEquation,
-                            indexPolynomial:indexItem)
-                        
-                        return strategy
+                        break
                     }
                 }
                 
-                indexItem += 1
+                if !found
+                {
+                    print("not found: \(indeterminate.symbol)")
+                }
             }
             
             indexEquation += 1
@@ -47,15 +55,15 @@ class MLinearEquationsSolutionStrategyZeroFill:MLinearEquationsSolutionStrategy
     }
     
     private let indexEquation:Int
-    private weak var indeterminates:MLinearEquationsSolutionIndeterminates!
+    private weak var indeterminate:MLinearEquationsSolutionIndeterminatesItem!
     
     private init(
         step:MLinearEquationsSolutionStep,
         indexEquation:Int,
-        indeterminates:MLinearEquationsSolutionIndeterminates)
+        indeterminate:MLinearEquationsSolutionIndeterminatesItem)
     {
         self.indexEquation = indexEquation
-        self.indexPolynomial = indexPolynomial
+        self.indeterminate = indeterminate
         super.init(step:step)
     }
     
@@ -79,46 +87,7 @@ class MLinearEquationsSolutionStrategyZeroFill:MLinearEquationsSolutionStrategy
         
         for indexEquation:Int in 0 ..< countEquations
         {
-            let equation:MLinearEquationsSolutionEquation?
-            let currentEquation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation]
             
-            if indexEquation == self.indexEquation
-            {
-                let countItems:Int = currentEquation.items.count
-                
-                if countItems > 1
-                {
-                    var items:[MLinearEquationsSolutionEquationItem] = []
-                    let result:MLinearEquationsSolutionEquationItem = currentEquation.result
-                    
-                    for indexItem:Int in 0 ..< countItems
-                    {
-                        if indexItem != indexPolynomial
-                        {
-                            let currentItem:MLinearEquationsSolutionEquationItem = currentEquation.items[indexItem]
-                            items.append(currentItem)
-                        }
-                    }
-                    
-                    equation = MLinearEquationsSolutionEquation(
-                        items:items,
-                        result:result,
-                        equationIndex:indexEquation)
-                }
-                else
-                {
-                    equation = nil
-                }
-            }
-            else
-            {
-                equation = currentEquation
-            }
-            
-            if let equation:MLinearEquationsSolutionEquation = equation
-            {
-                equations.append(equation)
-            }
         }
         
         let step:MLinearEquationsSolutionStepProcess = MLinearEquationsSolutionStepProcess(

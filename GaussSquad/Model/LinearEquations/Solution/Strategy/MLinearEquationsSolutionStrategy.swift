@@ -7,7 +7,7 @@ class MLinearEquationsSolutionStrategy
     
     class func strategyFor(
         step:MLinearEquationsSolutionStep,
-        indeterminates:MLinearEquationsSolutionIndeterminates) -> MLinearEquationsSolutionStrategy?
+        indeterminates:MLinearEquationsSolutionIndeterminates?) -> MLinearEquationsSolutionStrategy?
     {
         if let reduction:MLinearEquationsSolutionStrategyReduction = MLinearEquationsSolutionStrategyReduction.reducible(
             step:step)
