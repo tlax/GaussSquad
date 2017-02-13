@@ -93,13 +93,27 @@ class MLinearEquationsSolutionEquationItem
     
     class func emptyCoefficient(index:Int) -> MLinearEquationsSolutionEquationItemConstant
     {
-        let coefficient:MLinearEquationsSolutionEquationItemConstant = MLinearEquationsSolutionEquationItem.coefficient(
+        let newCoefficient:MLinearEquationsSolutionEquationItemConstant = coefficient(
             coefficientDividend:0,
             coefficientDivisor:1,
             index:index,
             showAsDivision:false)
         
-        return coefficient
+        return newCoefficient
+    }
+    
+    class func emptyPolynomial(
+        indeterminate:MLinearEquationsSolutionIndeterminatesItem,
+        index:Int) -> MLinearEquationsSolutionEquationItemPolynomial
+    {
+        let newPolynomial:MLinearEquationsSolutionEquationItemPolynomial = polynomial(
+            coefficientDividend:0,
+            coefficientDivisor:1,
+            indeterminate:indeterminate,
+            index:index,
+            showAsDivision:false)
+        
+        return newPolynomial
     }
     
     let reusableIdentifier:String

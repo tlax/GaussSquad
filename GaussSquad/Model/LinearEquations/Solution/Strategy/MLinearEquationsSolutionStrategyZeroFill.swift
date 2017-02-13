@@ -44,7 +44,12 @@ class MLinearEquationsSolutionStrategyZeroFill:MLinearEquationsSolutionStrategy
                 
                 if !found
                 {
-                    print("not found: \(indeterminate.symbol)")
+                    let strategy:MLinearEquationsSolutionStrategyZeroFill = MLinearEquationsSolutionStrategyZeroFill(
+                        step:step,
+                        indexEquation:indexEquation,
+                        indeterminate:indeterminate)
+                    
+                    return strategy
                 }
             }
             
@@ -80,14 +85,34 @@ class MLinearEquationsSolutionStrategyZeroFill:MLinearEquationsSolutionStrategy
     {
         var equations:[MLinearEquationsSolutionEquation] = []
         let descr:String = String(
-            format:NSLocalizedString("MLinearEquationsSolutionStrategyRemoveZeros_descr", comment:""),
-            "\((indexEquation + 1))")
+            format:NSLocalizedString("MLinearEquationsSolutionStrategyZeroFill_descr", comment:""),
+            indeterminate.symbol,
+            "\((self.indexEquation + 1))")
         
-        let countEquations:Int = self.step.equations.count
+        var indexEquation:Int = 0
         
-        for indexEquation:Int in 0 ..< countEquations
+        for equation:MLinearEquationsSolutionEquation in self.step.equations
         {
+            let newEquation:MLinearEquationsSolutionEquation
             
+            if indexEquation == self.indexEquation
+            {
+                var items:[MLinearEquationsSolutionEquationItem] = equation.items
+                let newPolynomial:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.polynomial(coefficientDividend: <#T##Double#>, coefficientDivisor: <#T##Double#>, indeterminate: <#T##MLinearEquationsSolutionIndeterminatesItem#>, index: <#T##Int#>, showAsDivision: <#T##Bool#>)
+                
+                newEquation = MLinearEquationsSolutionEquation(
+                    items:,
+                    result:equation.result,
+                    equationIndex:indexEquation)
+            }
+            else
+            {
+                newEquation = equation
+            }
+            
+            equations.append(newEquation)
+            
+            indexEquation += 1
         }
         
         let step:MLinearEquationsSolutionStepProcess = MLinearEquationsSolutionStepProcess(
