@@ -164,6 +164,8 @@ class MLinearEquationsSolutionEquation
                             otherPolynomial:addingPolynomial,
                             newIndex:indexItem)
                         
+                        print("current: \(itemPolynomial.coefficient) add: \(addingPolynomial.coefficient) new: \(newPolynomial.coefficient)")
+                        
                         items.append(newPolynomial)
                     }
                 }

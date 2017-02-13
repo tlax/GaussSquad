@@ -125,20 +125,10 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
     func multiplyCoefficient(coefficient:Double, index:Int) -> MLinearEquationsSolutionEquationItemPolynomial
     {
         let newDividend:Double = coefficientDividend * coefficient
-        let newDivisor:Double
-        
-        if coefficientDivisor == 1
-        {
-            newDivisor = coefficientDivisor
-        }
-        else
-        {
-            newDivisor = coefficientDivisor * coefficient
-        }
         
         let multiplied:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.polynomial(
             coefficientDividend:newDividend,
-            coefficientDivisor:newDivisor,
+            coefficientDivisor:coefficientDivisor,
             indeterminate:indeterminate,
             index:index,
             showAsDivision:showAsDivision)
@@ -149,20 +139,10 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
     func divideCoefficient(coefficient:Double, index:Int) -> MLinearEquationsSolutionEquationItemPolynomial
     {
         let newDividend:Double = coefficientDividend / coefficient
-        let newDivisor:Double
-        
-        if coefficientDivisor == 1 && coefficient != 0
-        {
-            newDivisor = coefficientDivisor
-        }
-        else
-        {
-            newDivisor = coefficientDivisor / coefficient
-        }
         
         let divided:MLinearEquationsSolutionEquationItemPolynomial = MLinearEquationsSolutionEquationItem.polynomial(
             coefficientDividend:newDividend,
-            coefficientDivisor:newDivisor,
+            coefficientDivisor:coefficientDivisor,
             indeterminate:indeterminate,
             index:index,
             showAsDivision:showAsDivision)
