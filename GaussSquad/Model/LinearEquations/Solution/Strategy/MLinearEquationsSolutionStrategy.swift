@@ -51,6 +51,11 @@ class MLinearEquationsSolutionStrategy
         {
             return rowAddition
         }
+        else if let onlyPivots:MLinearEquationsSolutionStrategyOnlyPivots = MLinearEquationsSolutionStrategyOnlyPivots.pivotRepeated(
+            step:step)
+        {
+            return onlyPivots
+        }
         
         return nil
     }
