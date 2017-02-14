@@ -47,6 +47,47 @@ class CLinearEquationsSolution:CController
     
     //MARK: private
     
+    private func shareSolutionImage()
+    {
+        let collectionView:VCollection = viewSolution.collectionView
+        let size:CGSize = collectionView.contentSize
+        let frame:CGRect = CGRect(origin:CGPoint.zero, size:size)
+        
+        UIGraphicsBeginImageContextWithOptions(size, true, 0)
+        
+        guard
+            
+            let context:CGContext = UIGraphicsGetCurrentContext()
+            
+        else
+        {
+            return
+        }
+        
+        context.setFillColor(UIColor.white.cgColor)
+        context.fill(frame)
+        collectionView.drawHierarchy(in:frame, afterScreenUpdates:true)
+        
+        guard
+            
+            let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+            
+        else
+        {
+            UIGraphicsEndImageContext()
+            return
+        }
+        
+        UIGraphicsEndImageContext()
+        let sharingItems:[Any] = [image]
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.share(items:sharingItems)
+        }
+    }
+    
     private func share(items:[Any])
     {
         let activity:UIActivityViewController = UIActivityViewController(
@@ -107,16 +148,13 @@ class CLinearEquationsSolution:CController
             NSLocalizedString("CLinearEquationsSolution_shareImage", comment:""),
             style:
             UIAlertActionStyle.default)
-        { [weak self] (action:UIAlertAction) in
+        { (action:UIAlertAction) in
             
-            let size:CGSize = CGSize(width:1000, height:1000)
-            let rect:CGRect = CGRect(x:0, y:0, width:1000, height:1000)
-            UIGraphicsBeginImageContextWithOptions(size, true, 0)
-            self!.viewSolution.collectionView.drawHierarchy(in:rect, afterScreenUpdates:true)
-            let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-            UIGraphicsEndImageContext()
-            
-            self?.share(items:[image])
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.shareSolutionImage()
+            }
         }
         
         let actionText:UIAlertAction = UIAlertAction(
