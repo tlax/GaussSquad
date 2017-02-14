@@ -73,6 +73,24 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
     
     override func shareText() -> String?
     {
-        return string.string
+        let mutableString:NSMutableString = NSMutableString()
+        
+        if showSign
+        {
+            if coefficient >= 0
+            {
+                mutableString.append("+")
+            }
+            else
+            {
+                mutableString.append("-")
+            }
+        }
+        
+        mutableString.append(self.string.string)
+        
+        let string:String = mutableString as String
+        
+        return string
     }
 }

@@ -51,7 +51,9 @@ class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol
             mutableString.append(equationString)
         }
         
-        return mutableString as String
+        let string:String = mutableString as String
+        
+        return string
     }
     
     func shareImage() -> UIImage?
