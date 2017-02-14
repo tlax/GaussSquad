@@ -61,6 +61,11 @@ class MLinearEquationsSolutionStrategy
         {
             return removeCoefficient
         }
+        else if let validateRows:MLinearEquationsSolutionStrategyValidateRows = MLinearEquationsSolutionStrategyValidateRows.rowsError(
+            step:step)
+        {
+            return validateRows
+        }
         else if let resultsOnly:MLinearEquationsSolutionStrategyResultsOnly = MLinearEquationsSolutionStrategyResultsOnly.finished(
             step:step)
         {
