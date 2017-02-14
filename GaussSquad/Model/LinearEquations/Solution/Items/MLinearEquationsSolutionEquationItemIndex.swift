@@ -4,6 +4,7 @@ class MLinearEquationsSolutionEquationItemIndex:MLinearEquationsSolutionEquation
 {
     let index:Int
     private let kCellWidth:CGFloat = 45
+    private let kSeparator:String = ":"
     
     init(index:Int)
     {
@@ -17,7 +18,7 @@ class MLinearEquationsSolutionEquationItemIndex:MLinearEquationsSolutionEquation
     
     override func shareText() -> String?
     {
-        let string:String = "\(index):"
+        let string:String = "\((index + 1))\(kSeparator)"
         
         return string
     }

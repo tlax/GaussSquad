@@ -9,6 +9,9 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
     private let kMaxStringHeight:CGFloat = 20
     private let kAddedWidth:CGFloat = 30
     private let kShowAsDivision:Bool = true
+    private let kAdd:String = "+"
+    private let kSubstract:String = "-"
+    private let kDivision:String = "/"
     
     init(
         indeterminate:MLinearEquationsSolutionIndeterminatesItem,
@@ -83,5 +86,30 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
             showAsDivision:kShowAsDivision,
             reusableIdentifier:reusableIdentifier,
             cellWidth:cellWidth)
+    }
+    
+    override func shareText() -> String?
+    {
+        let mutableString:NSMutableString = NSMutableString()
+        
+        if showSign
+        {
+            if coefficient >= 0
+            {
+                mutableString.append(kAdd)
+            }
+            else
+            {
+                mutableString.append(kSubstract)
+            }
+        }
+        
+        mutableString.append(stringDividend.string)
+        mutableString.append(kDivision)
+        mutableString.append(stringDivisor.string)
+        
+        let string:String = mutableString as String
+        
+        return string
     }
 }
