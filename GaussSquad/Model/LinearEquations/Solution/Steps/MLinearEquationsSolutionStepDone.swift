@@ -22,7 +22,6 @@ class MLinearEquationsSolutionStepDone:MLinearEquationsSolutionStep
         
         let mutableString:NSMutableString = NSMutableString()
         mutableString.append(title)
-        mutableString.append(kNewLine)
         mutableString.append(subtitle)
         mutableString.append(kNewLine)
         

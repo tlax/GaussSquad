@@ -123,23 +123,14 @@ class CLinearEquationsSolution:CController
                 
                 guard
                     
-                    let modelStep:MLinearEquationsSolutionStep = self?.model.steps[step]
+                    let string:String = self?.model.shareText()
                     
                 else
                 {
                     return
                 }
                 
-                guard
-                    
-                    let stepText:String = modelStep.shareText()
-                    
-                else
-                {
-                    return
-                }
-                
-                let sharingItems:[Any] = [stepText]
+                let sharingItems:[Any] = [string]
                 
                 DispatchQueue.main.async
                 { [weak self] in
