@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate, MLinearEquationsSolutionShareProtocol
 {
@@ -6,6 +6,7 @@ class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate, MLinear
     private weak var controller:CLinearEquationsSolution?
     private(set) var steps:[MLinearEquationsSolutionStep]
     private(set) var indeterminates:MLinearEquationsSolutionIndeterminates?
+    private let kNewLine:String = "\n"
     
     init(project:DProject)
     {
@@ -57,5 +58,40 @@ class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate, MLinear
     func solutionStrategyIndeterminates(indeterminates:MLinearEquationsSolutionIndeterminates)
     {
         self.indeterminates = indeterminates
+    }
+    
+    //MARK: share protocol
+    
+    func shareText() -> String?
+    {
+        let mutableString:NSMutableString = NSMutableString()
+        
+        for step:MLinearEquationsSolutionStep in steps
+        {
+            guard
+                
+                let stepString:String = step.shareText()
+                
+            else
+            {
+                continue
+            }
+            
+            if mutableString.length > 0
+            {
+                mutableString.append(kNewLine)
+            }
+            
+            mutableString.append(stepString)
+        }
+        
+        let string:String = mutableString as String
+        
+        return string
+    }
+    
+    func shareImage() -> UIImage?
+    {
+        return nil
     }
 }
