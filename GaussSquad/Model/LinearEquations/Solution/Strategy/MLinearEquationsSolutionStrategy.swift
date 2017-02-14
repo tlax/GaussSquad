@@ -41,15 +41,15 @@ class MLinearEquationsSolutionStrategy
         {
             return orderIndeterminates
         }
-        else if let pivotOrdering:MLinearEquationsSolutionStrategyPivotOrdering = MLinearEquationsSolutionStrategyPivotOrdering.rowUnordered(
-            step:step)
-        {
-            return pivotOrdering
-        }
         else if let rowAddition:MLinearEquationsSolutionStrategyRowAddition = MLinearEquationsSolutionStrategyRowAddition.samePivot(
             step:step)
         {
             return rowAddition
+        }
+        else if let pivotOrdering:MLinearEquationsSolutionStrategyPivotOrdering = MLinearEquationsSolutionStrategyPivotOrdering.rowUnordered(
+            step:step)
+        {
+            return pivotOrdering
         }
         else if let onlyPivots:MLinearEquationsSolutionStrategyOnlyPivots = MLinearEquationsSolutionStrategyOnlyPivots.pivotRepeated(
             step:step)

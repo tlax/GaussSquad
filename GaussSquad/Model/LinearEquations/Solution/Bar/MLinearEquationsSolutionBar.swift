@@ -7,9 +7,11 @@ class MLinearEquationsSolutionBar
     init()
     {
         let itemBottom:MLinearEquationsSolutionBarItemBottom = MLinearEquationsSolutionBarItemBottom()
+        let itemPlot:MLinearEquationsSolutionBarItemPlot = MLinearEquationsSolutionBarItemPlot()
         
         items = [
-            itemBottom
+            itemBottom,
+            itemPlot
         ]
     }
 }
