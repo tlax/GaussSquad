@@ -161,7 +161,65 @@ class CLinearEquationsProject:CController
     
     func editRow(index:IndexPath)
     {
+        let equationIndex:Int = index.section
+        let alertTitle:String = String(
+            format:NSLocalizedString("CLinearEquationsProject_alertEditRowTitle", comment:""),
+            "\((equationIndex + 1))")
         
+        let alert:UIAlertController = UIAlertController(
+            title:alertTitle,
+            message:nil,
+            preferredStyle:UIAlertControllerStyle.actionSheet)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CLinearEquationsProject_alertEditRowCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CLinearEquationsProject_alertEditRowDelete", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { [weak self] (action:UIAlertAction) in
+            
+            
+        }
+        
+        if equationIndex > 0
+        {
+            let actionMoveUp:UIAlertAction = UIAlertAction(
+                title:
+                NSLocalizedString("CLinearEquationsProject_alertEditRowMoveUp", comment:""),
+                style:
+                UIAlertActionStyle.default)
+            { [weak self] (action:UIAlertAction) in
+                
+                
+            }
+            
+            alert.addAction(actionMoveUp)
+        }
+        
+        if equationIndex < model.rows.count - 2
+        {
+            let actionMoveDown:UIAlertAction = UIAlertAction(
+                title:
+                NSLocalizedString("CLinearEquationsProject_alertEditRowMoveDown", comment:""),
+                style:
+                UIAlertActionStyle.default)
+            { [weak self] (action:UIAlertAction) in
+                
+                
+            }
+            
+            alert.addAction(actionMoveDown)
+        }
+        
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
     }
     
     func removeIndeterminate(indeterminate:DIndeterminate)

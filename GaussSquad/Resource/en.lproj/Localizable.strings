@@ -54,3 +54,8 @@
 "CLinearEquationsSolution_shareStepCancel"="Not now";
 "CLinearEquationsSolution_shareStepImage"="As image";
 "CLinearEquationsSolution_shareStepText"="As text";
+"CLinearEquationsProject_alertEditRowTitle"="Equation %@";
+"CLinearEquationsProject_alertEditRowDelete"="Delete";
+"CLinearEquationsProject_alertEditRowMoveUp"="Move up";
+"CLinearEquationsProject_alertEditRowMoveDown"="Move down";
+"CLinearEquationsProject_alertEditRowCancel"="Cancel";

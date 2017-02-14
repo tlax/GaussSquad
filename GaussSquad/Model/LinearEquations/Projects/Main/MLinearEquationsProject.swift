@@ -473,6 +473,21 @@ class MLinearEquationsProject
         saveAndRefresh()
     }
     
+    func removeEquation(index:Int)
+    {
+        guard
+        
+            let equation:DEquation = project?.equations?.array[index] as? DEquation
+        
+        else
+        {
+            return
+        }
+        
+        project?.deleteEquation(equation:equation)
+        saveAndRefresh()
+    }
+    
     func compress()
     {
         indeterminatesToLeft()
