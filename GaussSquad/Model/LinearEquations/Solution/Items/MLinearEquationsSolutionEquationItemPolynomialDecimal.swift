@@ -70,4 +70,9 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
             reusableIdentifier:reusableIdentifier,
             cellWidth:cellWidth)
     }
+    
+    override func shareText() -> String?
+    {
+        return string.string
+    }
 }

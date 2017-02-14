@@ -223,7 +223,23 @@ class MLinearEquationsSolutionEquation:MLinearEquationsSolutionShareProtocol
     
     func shareText() -> String?
     {
-        return nil
+        let mutableString:NSMutableString = NSMutableString()
+        
+        for item:MLinearEquationsSolutionEquationItem in plainItems
+        {
+            guard
+            
+                let itemString:String = item.shareText()
+            
+            else
+            {
+                continue
+            }
+            
+            mutableString.append(itemString)
+        }
+        
+        return mutableString as String
     }
     
     func shareImage() -> UIImage?

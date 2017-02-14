@@ -30,7 +30,28 @@ class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol
     
     func shareText() -> String?
     {
-        return "hello world"
+        let mutableString:NSMutableString = NSMutableString()
+        
+        for equation:MLinearEquationsSolutionEquation in equations
+        {
+            guard
+                
+                let equationString:String = equation.shareText()
+                
+            else
+            {
+                continue
+            }
+            
+            if mutableString.length > 0
+            {
+                mutableString.append("\n")
+            }
+            
+            mutableString.append(equationString)
+        }
+        
+        return mutableString as String
     }
     
     func shareImage() -> UIImage?
