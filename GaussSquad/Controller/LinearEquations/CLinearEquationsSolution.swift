@@ -53,11 +53,18 @@ class CLinearEquationsSolution:CController
     
     private func shareSolutionImage()
     {
+        let allFooters:CGFloat = CGFloat(model.steps.count)
+        let allFootersHeight:CGFloat = allFooters * kFooterHeight
+        let removeSize:CGFloat = kBarHeight + allFootersHeight
         let collectionView:VCollection = viewSolution.collectionView
-        let size:CGSize = collectionView.contentSize
-        let frame:CGRect = CGRect(origin:CGPoint.zero, size:size)
+        let originalSize:CGSize = collectionView.contentSize
+        let exportbleHeight:CGFloat = originalSize.height - removeSize
+        let exporableSize:CGSize = CGSize(
+            width:originalSize.width,
+            height:exportbleHeight)
+        let frame:CGRect = CGRect(origin:CGPoint.zero, size:exporableSize)
         
-        UIGraphicsBeginImageContextWithOptions(size, true, 0)
+        UIGraphicsBeginImageContextWithOptions(exporableSize, true, 0)
         
         guard
             
@@ -72,6 +79,7 @@ class CLinearEquationsSolution:CController
         context.fill(frame)
         
         var stepIndex:Int = 0
+        var removeTop:CGFloat = kBarHeight
         
         for step:MLinearEquationsSolutionStep in model.steps
         {
@@ -89,8 +97,12 @@ class CLinearEquationsSolution:CController
                 step:step,
                 indexPath:sectionPath)
             let headerFrame:CGRect = header.frame
+            let exportableHeaderFrame:CGRect = headerFrame.offsetBy(
+                dx:0,
+                dy:-removeTop)
+            
             header.drawHierarchy(
-                in:headerFrame,
+                in:exportableHeaderFrame,
                 afterScreenUpdates:true)
             
             for item:MLinearEquationsSolutionEquationItem in step.plainItems
@@ -106,14 +118,18 @@ class CLinearEquationsSolution:CController
                     model:item,
                     index:indexPath)
                 let cellFrame:CGRect = cell.frame
+                let exportableCellFrame:CGRect = cellFrame.offsetBy(
+                    dx:0,
+                    dy:-removeTop)
                 cell.drawHierarchy(
-                    in:cellFrame,
+                    in:exportableCellFrame,
                     afterScreenUpdates:true)
                 
                 itemIndex += 1
             }
             
             stepIndex += 1
+            removeTop += kFooterHeight
         }
         
         guard
