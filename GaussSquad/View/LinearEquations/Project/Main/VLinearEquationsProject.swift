@@ -2,6 +2,13 @@ import UIKit
 
 class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewDataSource
 {
+    private enum Drag
+    {
+        case stand
+        case restart
+        case avoid
+    }
+    
     private weak var controller:CLinearEquationsProject!
     private weak var viewBar:VLinearEquationsProjectBar!
     private weak var collectionView:VCollection!
