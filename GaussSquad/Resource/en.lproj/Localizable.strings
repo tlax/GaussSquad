@@ -18,6 +18,7 @@
 "MLinearEquationsSolutionStrategyRowAddition_descr"="Equation %@ = Equation %@ + (Equation %@ × %@)";
 "MLinearEquationsSolutionStrategyOnlyPivots_descr"="Equation %@ = Equation %@ + (Equation %@ × %@)";
 "MLinearEquationsSolutionStrategyRemoveCoefficients_descr"="Multiplying equation %@ by %@";
+"MLinearEquationsSolutionStrategyValidateTotalRows_emptyRows"="No valid equation found";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";
