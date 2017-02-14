@@ -211,7 +211,7 @@ class CLinearEquationsProject:CController
                 UIAlertActionStyle.default)
             { [weak self] (action:UIAlertAction) in
                 
-                
+                self?.model.moveDown(index:equationIndex)
             }
             
             alert.addAction(actionMoveDown)

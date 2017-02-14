@@ -492,25 +492,37 @@ class MLinearEquationsProject
     {
         guard
         
-            let equations:[DEquation] = project?.equations?.array as? [DEquation]
+            var equations:[DEquation] = project?.equations?.array as? [DEquation]
         
         else
         {
             return
         }
         
-        let topEquation:DEquation = equations[index - 1]
-        let bottomEquation:DEquation = equations[index]
-        let indexRange:NSRange = NSMakeRange(index - 1, 2)
-        let indexSet:NSIndexSet = NSIndexSet(indexesIn:indexRange)
-        let orderedEquations:[DEquation] = [
-            bottomEquation,
-            topEquation
-        ]
+        let equation:DEquation = equations[index]
+        equations.insert(equation, at:index - 1)
         
-        project?.replaceEquations(
-            at:indexSet,
-            with:orderedEquations)
+        let orderedSet:NSOrderedSet = NSOrderedSet(array:equations)
+        project?.equations = orderedSet
+        saveAndRefresh()
+    }
+    
+    func moveDown(index:Int)
+    {
+        guard
+            
+            var equations:[DEquation] = project?.equations?.array as? [DEquation]
+            
+            else
+        {
+            return
+        }
+        
+        let equationBelow:DEquation = equations[index + 1]
+        equations.insert(equationBelow, at:index)
+        
+        let orderedSet:NSOrderedSet = NSOrderedSet(array:equations)
+        project?.equations = orderedSet
         saveAndRefresh()
     }
     
