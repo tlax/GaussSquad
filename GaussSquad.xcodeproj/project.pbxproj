@@ -47,6 +47,7 @@
 		DA23C3641E526BF9007C4C4D /* MLinearEquationsSolutionStrategyOnlyPivots.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C3631E526BF9007C4C4D /* MLinearEquationsSolutionStrategyOnlyPivots.swift */; };
 		DA23C3661E527145007C4C4D /* MLinearEquationsSolutionStrategyRemoveCoefficients.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C3651E527145007C4C4D /* MLinearEquationsSolutionStrategyRemoveCoefficients.swift */; };
 		DA23C3681E527C40007C4C4D /* MLinearEquationsSolutionStrategyResultsOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C3671E527C40007C4C4D /* MLinearEquationsSolutionStrategyResultsOnly.swift */; };
+		DA23C36A1E5288C6007C4C4D /* MLinearEquationsSolutionStrategyValidateTotalRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23C3691E5288C6007C4C4D /* MLinearEquationsSolutionStrategyValidateTotalRows.swift */; };
 		DA316CE51E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CE41E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift */; };
 		DA316CE91E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CE81E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift */; };
 		DA316CED1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CEC1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift */; };
@@ -205,6 +206,7 @@
 		DA23C3631E526BF9007C4C4D /* MLinearEquationsSolutionStrategyOnlyPivots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionStrategyOnlyPivots.swift; sourceTree = "<group>"; };
 		DA23C3651E527145007C4C4D /* MLinearEquationsSolutionStrategyRemoveCoefficients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionStrategyRemoveCoefficients.swift; sourceTree = "<group>"; };
 		DA23C3671E527C40007C4C4D /* MLinearEquationsSolutionStrategyResultsOnly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionStrategyResultsOnly.swift; sourceTree = "<group>"; };
+		DA23C3691E5288C6007C4C4D /* MLinearEquationsSolutionStrategyValidateTotalRows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionStrategyValidateTotalRows.swift; sourceTree = "<group>"; };
 		DA316CE41E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialIndeterminate.swift; sourceTree = "<group>"; };
 		DA316CE81E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquationsPolynomialIndeterminate.swift; sourceTree = "<group>"; };
 		DA316CEC1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsIndeterminateList.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				DA23C3631E526BF9007C4C4D /* MLinearEquationsSolutionStrategyOnlyPivots.swift */,
 				DA23C3651E527145007C4C4D /* MLinearEquationsSolutionStrategyRemoveCoefficients.swift */,
 				DA23C3671E527C40007C4C4D /* MLinearEquationsSolutionStrategyResultsOnly.swift */,
+				DA23C3691E5288C6007C4C4D /* MLinearEquationsSolutionStrategyValidateTotalRows.swift */,
 			);
 			path = Strategy;
 			sourceTree = "<group>";
@@ -1038,6 +1041,7 @@
 				DAC2165C1E42A9BC009EDBF7 /* VLinearEquationsPolynomialText.swift in Sources */,
 				DA62D37E1E4CEC08000D0387 /* VLinearEquationsSolution.swift in Sources */,
 				DAFDD50E1E443FBF00880556 /* CLinearEquationsIndeterminate.swift in Sources */,
+				DA23C36A1E5288C6007C4C4D /* MLinearEquationsSolutionStrategyValidateTotalRows.swift in Sources */,
 				DAFF4AC11E397B9600A2DD4B /* VHelp.swift in Sources */,
 				DADA15821E44D71100766103 /* VToast.swift in Sources */,
 				DA62D3831E4CECC1000D0387 /* VLinearEquationsSolutionHeader.swift in Sources */,

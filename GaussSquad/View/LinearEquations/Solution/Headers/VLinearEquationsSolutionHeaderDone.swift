@@ -10,11 +10,11 @@ class VLinearEquationsSolutionHeaderDone:VLinearEquationsSolutionHeader
         super.init(frame:frame)
         
         let attributesTitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.bold(size:20),
+            NSFontAttributeName:UIFont.bold(size:22),
             NSForegroundColorAttributeName:UIColor.squadBlue]
         let attributesSubtitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.bold(size:14),
-            NSForegroundColorAttributeName:UIColor.squadGreen]
+            NSFontAttributeName:UIFont.medium(size:13),
+            NSForegroundColorAttributeName:UIColor.black]
         let stringTitle:NSAttributedString = NSAttributedString(
             string:NSLocalizedString("VLinearEquationsSolutionHeaderDone_title", comment:""),
             attributes:attributesTitle)
