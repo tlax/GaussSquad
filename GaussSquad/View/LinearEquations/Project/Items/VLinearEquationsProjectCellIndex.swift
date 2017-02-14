@@ -8,7 +8,6 @@ class VLinearEquationsProjectCellIndex:VLinearEquationsProjectCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        isUserInteractionEnabled = false
         
         let imageView:UIImageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
