@@ -56,21 +56,24 @@ class CLinearEquationsSolution:CController
     private func shareStepImage(stepIndex:Int)
     {
         let step:MLinearEquationsSolutionStep = model.steps[stepIndex]
+        let equationsCount:CGFloat = CGFloat(step.equations.count)
+        let equationsHeight:CGFloat = equationsCount * kCellHeight
         let collectionView:VCollection = viewSolution.collectionView
         let contentWidth:CGFloat = collectionView.contentSize.width
-        let exportbleHeight:CGFloat = originalSize.height - removeSize
-        let exporableSize:CGSize = CGSize(
-            width:originalSize.width,
-            height:exportbleHeight)
-        let frame:CGRect = CGRect(origin:CGPoint.zero, size:exporableSize)
+        let headerHeight:CGFloat = step.headerHeight
+        let contentHeight:CGFloat = headerHeight + equationsHeight
+        let exportableSize:CGSize = CGSize(
+            width:contentWidth,
+            height:contentHeight)
+        let frame:CGRect = CGRect(origin:CGPoint.zero, size:exportableSize)
         
-        UIGraphicsBeginImageContextWithOptions(exporableSize, true, 0)
+        UIGraphicsBeginImageContextWithOptions(exportableSize, true, 0)
         
         guard
             
             let context:CGContext = UIGraphicsGetCurrentContext()
             
-            else
+        else
         {
             return
         }
@@ -78,65 +81,58 @@ class CLinearEquationsSolution:CController
         context.setFillColor(UIColor.white.cgColor)
         context.fill(frame)
         
-        var stepIndex:Int = 0
-        var removeTop:CGFloat = kBarHeight
+        let sectionPath:IndexPath = IndexPath(
+            item:0,
+            section:stepIndex)
+        let header:VLinearEquationsSolutionHeader = collectionView.dequeueReusableSupplementaryView(
+            ofKind:UICollectionElementKindSectionHeader,
+            withReuseIdentifier:
+            step.reusableIdentifier,
+            for:sectionPath) as! VLinearEquationsSolutionHeader
+        header.config(
+            step:step,
+            indexPath:sectionPath)
+        let removeFromTop:CGFloat = header.frame.minY
+        let headerFrame:CGRect = CGRect(
+            x:0,
+            y:0,
+            width:contentWidth,
+            height:headerHeight)
         
-        for step:MLinearEquationsSolutionStep in model.steps
+        header.drawHierarchy(
+            in:headerFrame,
+            afterScreenUpdates:true)
+        
+        var itemIndex:Int = 0
+        
+        for item:MLinearEquationsSolutionEquationItem in step.plainItems
         {
-            var itemIndex:Int = 0
-            
-            let sectionPath:IndexPath = IndexPath(
-                item:0,
+            let indexPath:IndexPath = IndexPath(
+                item:itemIndex,
                 section:stepIndex)
-            let header:VLinearEquationsSolutionHeader = collectionView.dequeueReusableSupplementaryView(
-                ofKind:UICollectionElementKindSectionHeader,
+            let cell:VLinearEquationsSolutionCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier:
-                step.reusableIdentifier,
-                for:sectionPath) as! VLinearEquationsSolutionHeader
-            header.config(
-                step:step,
-                indexPath:sectionPath)
-            let headerFrame:CGRect = header.frame
-            let exportableHeaderFrame:CGRect = headerFrame.offsetBy(
+                item.reusableIdentifier,
+                for:indexPath) as! VLinearEquationsSolutionCell
+            cell.config(
+                model:item,
+                index:indexPath)
+            let cellFrame:CGRect = cell.frame
+            let exportableCellFrame:CGRect = cellFrame.offsetBy(
                 dx:0,
-                dy:-removeTop)
-            
-            header.drawHierarchy(
-                in:exportableHeaderFrame,
+                dy:-removeFromTop)
+            cell.drawHierarchy(
+                in:exportableCellFrame,
                 afterScreenUpdates:true)
             
-            for item:MLinearEquationsSolutionEquationItem in step.plainItems
-            {
-                let indexPath:IndexPath = IndexPath(
-                    item:itemIndex,
-                    section:stepIndex)
-                let cell:VLinearEquationsSolutionCell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier:
-                    item.reusableIdentifier,
-                    for:indexPath) as! VLinearEquationsSolutionCell
-                cell.config(
-                    model:item,
-                    index:indexPath)
-                let cellFrame:CGRect = cell.frame
-                let exportableCellFrame:CGRect = cellFrame.offsetBy(
-                    dx:0,
-                    dy:-removeTop)
-                cell.drawHierarchy(
-                    in:exportableCellFrame,
-                    afterScreenUpdates:true)
-                
-                itemIndex += 1
-            }
-            
-            stepIndex += 1
-            removeTop += kFooterHeight
+            itemIndex += 1
         }
         
         guard
             
             let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
             
-            else
+        else
         {
             UIGraphicsEndImageContext()
             return
@@ -157,12 +153,12 @@ class CLinearEquationsSolution:CController
         let collectionView:VCollection = viewSolution.collectionView
         let originalSize:CGSize = collectionView.contentSize
         let exportableHeight:CGFloat = originalSize.height - removeSize
-        let exporableSize:CGSize = CGSize(
+        let exportableSize:CGSize = CGSize(
             width:originalSize.width,
             height:exportableHeight)
-        let frame:CGRect = CGRect(origin:CGPoint.zero, size:exporableSize)
+        let frame:CGRect = CGRect(origin:CGPoint.zero, size:exportableSize)
         
-        UIGraphicsBeginImageContextWithOptions(exporableSize, true, 0)
+        UIGraphicsBeginImageContextWithOptions(exportableSize, true, 0)
         
         guard
             
@@ -376,7 +372,14 @@ class CLinearEquationsSolution:CController
             style:
             UIAlertActionStyle.default)
         { [weak self] (action:UIAlertAction) in
+         
+            self?.viewSolution.startExporting()
             
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.shareStepImage(stepIndex:step)
+            }
         }
         
         let actionText:UIAlertAction = UIAlertAction(
