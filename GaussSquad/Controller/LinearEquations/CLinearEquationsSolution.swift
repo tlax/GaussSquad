@@ -109,6 +109,14 @@ class CLinearEquationsSolution:CController
             UIAlertActionStyle.default)
         { [weak self] (action:UIAlertAction) in
             
+            let size:CGSize = CGSize(width:1000, height:1000)
+            let rect:CGRect = CGRect(x:0, y:0, width:1000, height:1000)
+            UIGraphicsBeginImageContextWithOptions(size, true, 0)
+            self!.viewSolution.collectionView.drawHierarchy(in:rect, afterScreenUpdates:true)
+            let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            
+            self?.share(items:[image])
         }
         
         let actionText:UIAlertAction = UIAlertAction(

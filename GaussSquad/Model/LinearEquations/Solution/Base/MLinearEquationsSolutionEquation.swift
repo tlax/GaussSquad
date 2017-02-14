@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 class MLinearEquationsSolutionEquation:MLinearEquationsSolutionShareProtocol
 {
@@ -242,10 +242,5 @@ class MLinearEquationsSolutionEquation:MLinearEquationsSolutionShareProtocol
         let string:String = mutableString as String
         
         return string
-    }
-    
-    func shareImage() -> UIImage?
-    {
-        return nil
     }
 }

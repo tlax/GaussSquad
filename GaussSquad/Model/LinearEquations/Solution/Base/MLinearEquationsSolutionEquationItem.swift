@@ -133,9 +133,4 @@ class MLinearEquationsSolutionEquationItem:MLinearEquationsSolutionShareProtocol
     {
         return nil
     }
-    
-    func shareImage() -> UIImage?
-    {
-        return nil
-    }
 }

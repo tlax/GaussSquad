@@ -56,9 +56,4 @@ class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol
         
         return string
     }
-    
-    func shareImage() -> UIImage?
-    {
-        return nil
-    }
 }
