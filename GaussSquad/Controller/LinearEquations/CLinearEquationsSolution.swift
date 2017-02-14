@@ -49,11 +49,12 @@ class CLinearEquationsSolution:CController
     
     private func shareSolutionImage()
     {
+        viewSolution.startExporting()
         let collectionView:VCollection = viewSolution.collectionView
         let size:CGSize = collectionView.contentSize
         let frame:CGRect = CGRect(origin:CGPoint.zero, size:size)
         
-        UIGraphicsBeginImageContextWithOptions(size, true, 1)
+        UIGraphicsBeginImageContextWithOptions(size, true, 0)
         
         guard
             
@@ -125,11 +126,8 @@ class CLinearEquationsSolution:CController
         UIGraphicsEndImageContext()
         let sharingItems:[Any] = [image]
         
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.share(items:sharingItems)
-        }
+        share(items:sharingItems)
+        viewSolution.endExporting()
     }
     
     private func share(items:[Any])
@@ -192,13 +190,9 @@ class CLinearEquationsSolution:CController
             NSLocalizedString("CLinearEquationsSolution_shareImage", comment:""),
             style:
             UIAlertActionStyle.default)
-        { (action:UIAlertAction) in
+        { [weak self] (action:UIAlertAction) in
             
-            DispatchQueue.main.async
-            { [weak self] in
-                
-                self?.shareSolutionImage()
-            }
+            self?.shareSolutionImage()
         }
         
         let actionText:UIAlertAction = UIAlertAction(

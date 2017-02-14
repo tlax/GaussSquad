@@ -5,7 +5,7 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
     weak var collectionView:VCollection!
     private weak var controller:CLinearEquationsSolution!
     private weak var viewBar:VLinearEquationsSolutionBar!
-    private weak var spinner:VSpinner?
+    private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 81
     
@@ -101,10 +101,22 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
     
     func refresh()
     {
-        spinner?.stopAnimating()
-        spinner?.removeFromSuperview()
+        spinner.stopAnimating()
         collectionView.reloadData()
-        viewBar.refresh()
+    }
+    
+    func startExporting()
+    {
+        collectionView.isHidden = true
+        viewBar.isHidden = true
+        spinner.startAnimating()
+    }
+    
+    func endExporting()
+    {
+        collectionView.isHidden = false
+        viewBar.isHidden = false
+        spinner.stopAnimating()
     }
     
     func bottom()

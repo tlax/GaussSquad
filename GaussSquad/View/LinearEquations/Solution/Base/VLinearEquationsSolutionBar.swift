@@ -74,13 +74,6 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
         return item
     }
     
-    //MARK: public
-    
-    func refresh()
-    {
-        
-    }
-    
     //MARK: collectionView delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
