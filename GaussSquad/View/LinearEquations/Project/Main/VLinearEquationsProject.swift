@@ -11,9 +11,12 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     
     private weak var controller:CLinearEquationsProject!
     private weak var viewBar:VLinearEquationsProjectBar!
+    private weak var viewControls:VLinearEquationsProjectControls!
     private weak var collectionView:VCollection!
     private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
+    private weak var layoutCollectionLeft:NSLayoutConstraint!
+    private weak var layoutControlsWidth:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 210
     private let kDeselectTime:TimeInterval = 0.2
     
@@ -52,7 +55,12 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
             cell:VLinearEquationsProjectCellNewRow.self)
         self.collectionView = collectionView
         
+        let viewControls:VLinearEquationsProjectControls = VLinearEquationsProjectControls(
+            controller:self.controller)
+        self.viewControls = viewControls
+        
         addSubview(collectionView)
+        addSubview(viewControls)
         addSubview(viewBar)
         addSubview(spinner)
         
@@ -70,9 +78,27 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
             view:spinner,
             toView:self)
         
-        NSLayoutConstraint.equals(
+        NSLayoutConstraint.equalsVertical(
             view:collectionView,
             toView:self)
+        layoutCollectionLeft = NSLayoutConstraint.leftToLeft(
+            view:collectionView,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:collectionView,
+            toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:viewControls,
+            toView:viewBar)
+        NSLayoutConstraint.bottomToBottom(
+            view:viewControls,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:viewControls,
+            toView:self)
+        layoutControlsWidth = NSLayoutConstraint.width(
+            view:viewControls)
     }
     
     required init?(coder:NSCoder)
