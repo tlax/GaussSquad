@@ -52,8 +52,8 @@
 "CLinearEquationsPolynomial_alertDelete"="Delete";
 "CLinearEquationsSolution_shareStepTitle"="Share";
 "CLinearEquationsSolution_shareStepCancel"="Not now";
-"CLinearEquationsSolution_shareStepImage"="As image";
-"CLinearEquationsSolution_shareStepText"="As text";
+"CLinearEquationsSolution_shareStepImage"="Image";
+"CLinearEquationsSolution_shareStepText"="Text";
 "CLinearEquationsProject_alertEditRowTitle"="Equation %@";
 "CLinearEquationsProject_alertEditRowDelete"="Delete";
 "CLinearEquationsProject_alertEditRowMoveUp"="Move up";

@@ -4,6 +4,7 @@ class MLinearEquationsSolutionStepProcess:MLinearEquationsSolutionStep
 {
     let descr:String
     private let kHeaderHeight:CGFloat = 70
+    private let kNewLine:String = "\n"
     
     init(
         equations:[MLinearEquationsSolutionEquation],
@@ -16,5 +17,21 @@ class MLinearEquationsSolutionStepProcess:MLinearEquationsSolutionStep
             equations:equations,
             reusableIdentifier:reusableIdentifier,
             headerHeight:kHeaderHeight)
+    }
+    
+    override func shareText() -> String?
+    {
+        let mutableString:NSMutableString = NSMutableString()
+        mutableString.append(descr)
+        mutableString.append(kNewLine)
+        
+        if let parentText:String = super.shareText()
+        {
+            mutableString.append(parentText)
+        }
+        
+        let string:String = mutableString as String
+        
+        return string
     }
 }
