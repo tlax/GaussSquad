@@ -45,6 +45,24 @@ class CLinearEquationsSolution:CController
         }
     }
     
+    //MARK: private
+    
+    private func share(items:[Any])
+    {
+        let activity:UIActivityViewController = UIActivityViewController(
+            activityItems:items,
+            applicationActivities:nil)
+        
+        if activity.popoverPresentationController != nil
+        {
+            activity.popoverPresentationController!.sourceView = self.viewSolution
+            activity.popoverPresentationController!.sourceRect = CGRect.zero
+            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
+        present(activity, animated:true)
+    }
+    
     //MARK: public
     
     func solutionComplete()
@@ -98,8 +116,37 @@ class CLinearEquationsSolution:CController
             NSLocalizedString("CLinearEquationsSolution_shareStepText", comment:""),
             style:
             UIAlertActionStyle.default)
-        { [weak self] (action:UIAlertAction) in
+        { (action:UIAlertAction) in
             
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                guard
+                    
+                    let modelStep:MLinearEquationsSolutionStep = self?.model.steps[step]
+                    
+                else
+                {
+                    return
+                }
+                
+                guard
+                    
+                    let stepText:String = modelStep.shareText()
+                
+                else
+                {
+                    return
+                }
+                
+                let sharingItems:[Any] = [stepText]
+                
+                DispatchQueue.main.async
+                { [weak self] in
+                    
+                    self?.share(items:sharingItems)
+                }
+            }
         }
         
         alert.addAction(actionImage)

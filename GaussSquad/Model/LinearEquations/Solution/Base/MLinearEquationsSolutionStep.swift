@@ -1,6 +1,6 @@
 import UIKit
 
-class MLinearEquationsSolutionStep
+class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol
 {
     let equations:[MLinearEquationsSolutionEquation]
     let reusableIdentifier:String
@@ -24,5 +24,17 @@ class MLinearEquationsSolutionStep
         }
         
         self.plainItems = plainItems
+    }
+    
+    //MARK: share protocol
+    
+    func shareText() -> String?
+    {
+        return "hello world"
+    }
+    
+    func shareImage() -> UIImage?
+    {
+        return nil
     }
 }
