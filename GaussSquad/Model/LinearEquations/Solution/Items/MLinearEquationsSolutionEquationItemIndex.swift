@@ -14,4 +14,11 @@ class MLinearEquationsSolutionEquationItemIndex:MLinearEquationsSolutionEquation
             reusableIdentifier:reusableIdentifier,
             cellWidth:kCellWidth)
     }
+    
+    override func shareText() -> String?
+    {
+        let string:String = "\(index):"
+        
+        return string
+    }
 }

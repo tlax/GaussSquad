@@ -8,6 +8,8 @@ class MLinearEquationsSolutionEquationItemConstantDecimal:MLinearEquationsSoluti
     private let kMaxStringHeight:CGFloat = 30
     private let kAddedWidth:CGFloat = 30
     private let kShowAsDivision:Bool = false
+    private let kAdd:String = "+"
+    private let kSubstract:String = "-"
     
     init(
         coefficientDividend:Double,
@@ -55,5 +57,28 @@ class MLinearEquationsSolutionEquationItemConstantDecimal:MLinearEquationsSoluti
             showAsDivision:kShowAsDivision,
             reusableIdentifier:reusableIdentifier,
             cellWidth:cellWidth)
+    }
+    
+    override func shareText() -> String?
+    {
+        let mutableString:NSMutableString = NSMutableString()
+        
+        if showSign
+        {
+            if coefficient >= 0
+            {
+                mutableString.append(kAdd)
+            }
+            else
+            {
+                mutableString.append(kSubstract)
+            }
+        }
+        
+        mutableString.append(self.string.string)
+        
+        let string:String = mutableString as String
+        
+        return string
     }
 }

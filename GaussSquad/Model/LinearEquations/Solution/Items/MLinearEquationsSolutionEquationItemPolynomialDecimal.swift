@@ -8,6 +8,8 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
     private let kMaxStringHeight:CGFloat = 30
     private let kAddedWidth:CGFloat = 30
     private let kShowAsDivision:Bool = false
+    private let kAdd:String = "+"
+    private let kSubstract:String = "-"
     
     init(
         indeterminate:MLinearEquationsSolutionIndeterminatesItem,
@@ -79,11 +81,11 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
         {
             if coefficient >= 0
             {
-                mutableString.append("+")
+                mutableString.append(kAdd)
             }
             else
             {
-                mutableString.append("-")
+                mutableString.append(kSubstract)
             }
         }
         

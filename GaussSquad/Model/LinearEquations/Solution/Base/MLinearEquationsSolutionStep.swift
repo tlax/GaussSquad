@@ -6,6 +6,7 @@ class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol
     let reusableIdentifier:String
     let headerHeight:CGFloat
     let plainItems:[MLinearEquationsSolutionEquationItem]
+    private let kNewLine:String = "\n"
     
     init(
         equations:[MLinearEquationsSolutionEquation],
@@ -45,7 +46,7 @@ class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol
             
             if mutableString.length > 0
             {
-                mutableString.append("\n")
+                mutableString.append(kNewLine)
             }
             
             mutableString.append(equationString)
