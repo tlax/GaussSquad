@@ -15,7 +15,9 @@ class MLinearEquationsProjectRowItem
     
     //MARK: public
     
-    func selected(controller:CLinearEquationsProject)
+    func selected(
+        controller:CLinearEquationsProject,
+        index:IndexPath)
     {
     }
 }

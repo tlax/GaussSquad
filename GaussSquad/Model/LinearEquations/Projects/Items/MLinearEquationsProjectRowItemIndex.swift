@@ -12,4 +12,11 @@ class MLinearEquationsProjectRowItemIndex:MLinearEquationsProjectRowItem
             cellWidth:kCellWidth,
             reusableIdentifier:reusableIdentifier)
     }
+    
+    override func selected(
+        controller:CLinearEquationsProject,
+        index:IndexPath)
+    {
+        controller.editRow(index:index)
+    }
 }

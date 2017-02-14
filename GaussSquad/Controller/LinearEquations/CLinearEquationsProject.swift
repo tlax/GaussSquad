@@ -159,6 +159,11 @@ class CLinearEquationsProject:CController
             controller:controllerIndeterminate)
     }
     
+    func editRow(index:IndexPath)
+    {
+        
+    }
+    
     func removeIndeterminate(indeterminate:DIndeterminate)
     {
         guard

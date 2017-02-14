@@ -15,7 +15,9 @@ class MLinearEquationsProjectRowItemPolynomial:MLinearEquationsProjectRowItem
             reusableIdentifier:reusableIdentifier)
     }
     
-    override func selected(controller:CLinearEquationsProject)
+    override func selected(
+        controller:CLinearEquationsProject,
+        index:IndexPath)
     {
         guard
             

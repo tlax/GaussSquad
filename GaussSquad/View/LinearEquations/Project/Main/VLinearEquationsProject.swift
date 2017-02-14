@@ -144,7 +144,9 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:MLinearEquationsProjectRowItem = modelAtIndex(index:indexPath)
-        item.selected(controller:controller)
+        item.selected(
+            controller:controller,
+            index:indexPath)
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)
