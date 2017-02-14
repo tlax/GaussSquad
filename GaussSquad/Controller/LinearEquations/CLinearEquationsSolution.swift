@@ -66,7 +66,14 @@ class CLinearEquationsSolution:CController
         
         context.setFillColor(UIColor.white.cgColor)
         context.fill(frame)
-        collectionView.drawHierarchy(in:frame, afterScreenUpdates:true)
+        
+        for subview:UIView in collectionView.subviews
+        {
+            let subviewFrame:CGRect = subview.frame
+            subview.drawHierarchy(in:subviewFrame, afterScreenUpdates:false)
+            
+            print(subview)
+        }
         
         guard
             
