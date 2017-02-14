@@ -33,6 +33,10 @@ class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate
         {
             controller?.solutionComplete()
         }
+        else if let _:MLinearEquationsSolutionStepError = step as? MLinearEquationsSolutionStepError
+        {
+            controller?.solutionComplete()
+        }
         else
         {
             let nextStrategy:MLinearEquationsSolutionStrategy? = MLinearEquationsSolutionStrategy.strategyFor(
