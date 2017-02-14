@@ -1,6 +1,6 @@
 import UIKit
 
-class MLinearEquationsSolutionEquationItem
+class MLinearEquationsSolutionEquationItem:MLinearEquationsSolutionShareProtocol
 {
     class func polynomial(
         coefficientDividend:Double,
@@ -125,5 +125,17 @@ class MLinearEquationsSolutionEquationItem
     {
         self.reusableIdentifier = reusableIdentifier
         self.cellWidth = cellWidth
+    }
+    
+    //MARK: share protocol
+    
+    func shareText() -> String?
+    {
+        return nil
+    }
+    
+    func shareImage() -> UIImage?
+    {
+        return nil
     }
 }

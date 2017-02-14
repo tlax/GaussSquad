@@ -1,6 +1,6 @@
-import Foundation
+import UIKit
 
-class MLinearEquationsSolutionEquation
+class MLinearEquationsSolutionEquation:MLinearEquationsSolutionShareProtocol
 {
     let items:[MLinearEquationsSolutionEquationItem]
     let result:MLinearEquationsSolutionEquationItem
@@ -217,5 +217,17 @@ class MLinearEquationsSolutionEquation
             equationIndex:index.index)
         
         return newEquation
+    }
+    
+    //MARK: share protocol
+    
+    func shareText() -> String?
+    {
+        return nil
+    }
+    
+    func shareImage() -> UIImage?
+    {
+        return nil
     }
 }
