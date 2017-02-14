@@ -126,7 +126,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     
     private func restartingScroll()
     {
-        drag = Drag.restart
+        drag = Drag.avoid
         layoutControlsWidth.constant = 0
         layoutCollectionLeft.constant = 0
         
