@@ -14,7 +14,7 @@ class VLinearEquationsSolutionHeaderError:VLinearEquationsSolutionHeader
             NSFontAttributeName:UIFont.bold(size:17),
             NSForegroundColorAttributeName:UIColor.squadRed]
         attributesSubtitle = [
-            NSFontAttributeName:UIFont.medium(size:13),
+            NSFontAttributeName:UIFont.medium(size:14),
             NSForegroundColorAttributeName:UIColor.black]
         
         stringTitle = NSAttributedString(
@@ -22,10 +22,6 @@ class VLinearEquationsSolutionHeaderError:VLinearEquationsSolutionHeader
             attributes:attributesTitle)
         
         super.init(frame:frame)
-
-        let stringSubtitle:NSAttributedString = NSAttributedString(
-            string:NSLocalizedString("VLinearEquationsSolutionHeaderDone_subtitle", comment:""),
-            attributes:attributesSubtitle)
         
         let label:UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
