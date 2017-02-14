@@ -5,6 +5,7 @@ class VLinearEquationsProjectControls:UIView, UICollectionViewDelegate, UICollec
     private var model:MLinearEquationsProjectControls?
     private weak var collectionView:VCollection!
     private weak var controller:CLinearEquationsProject!
+    private let barHeight:CGFloat
     private let kCellWidth:CGFloat = 60
     private let kCellHeight:CGFloat = 50
     private let kBorderWidth:CGFloat = 1
@@ -13,9 +14,11 @@ class VLinearEquationsProjectControls:UIView, UICollectionViewDelegate, UICollec
         controller:CLinearEquationsProject,
         barHeight:CGFloat)
     {
+        self.barHeight = barHeight
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -32,11 +35,6 @@ class VLinearEquationsProjectControls:UIView, UICollectionViewDelegate, UICollec
         if let flow:UICollectionViewFlowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         {
             flow.itemSize = CGSize(width:kCellWidth, height:kCellHeight)
-            flow.sectionInset = UIEdgeInsets(
-                top:barHeight,
-                left:0,
-                bottom:0,
-                right:0)
         }
         
         addSubview(border)
@@ -62,13 +60,6 @@ class VLinearEquationsProjectControls:UIView, UICollectionViewDelegate, UICollec
         return nil
     }
     
-    override func layoutSubviews()
-    {
-        collectionView.collectionViewLayout.invalidateLayout()
-        
-        super.layoutSubviews()
-    }
-    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MLinearEquationsProjectControlsItem
@@ -88,6 +79,32 @@ class VLinearEquationsProjectControls:UIView, UICollectionViewDelegate, UICollec
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
+    {
+        let top:CGFloat
+        let width:CGFloat = collectionView.bounds.maxX
+        let items:CGFloat = CGFloat(model!.items[section].count)
+        let itemsWidth:CGFloat = items * kCellWidth
+        let remain:CGFloat = width - itemsWidth
+        
+        if section == 0
+        {
+            top = barHeight
+        }
+        else
+        {
+            top = 0
+        }
+        
+        let insets:UIEdgeInsets = UIEdgeInsets(
+            top:top,
+            left:remain,
+            bottom:0,
+            right:0)
+        
+        return insets
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {

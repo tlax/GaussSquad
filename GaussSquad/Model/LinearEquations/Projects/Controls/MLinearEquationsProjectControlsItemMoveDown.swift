@@ -5,7 +5,7 @@ class MLinearEquationsProjectControlsItemMoveDown:MLinearEquationsProjectControl
     init(row:MLinearEquationsProjectRow)
     {
         super.init(
-            image:#imageLiteral(resourceName: "assetGenericTrashWhite"),
+            image:#imageLiteral(resourceName: "assetGenericMoveDown"),
             row:row)
     }
 }

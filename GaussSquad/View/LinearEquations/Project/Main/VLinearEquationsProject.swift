@@ -16,10 +16,10 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
     private weak var layoutCollectionLeft:NSLayoutConstraint!
-    private weak var layoutControlsWidth:NSLayoutConstraint!
+    private weak var layoutControlsRight:NSLayoutConstraint!
     private var drag:Drag
     private let kBarHeight:CGFloat = 210
-    private let kControlsMinThreshold:CGFloat = 7
+    private let kControlsMinThreshold:CGFloat = 5
     private let kControlsExtraThreshold:CGFloat = 30
     private let kControlsMenuThreshold:CGFloat = 60
     private let kControlsMaxThreshold:CGFloat = 180
@@ -46,6 +46,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
             model:self.controller.model,
             barHeight:kBarHeight)
         let collectionView:VCollection = VCollection(flow:flow)
+        collectionView.backgroundColor = UIColor.white
         collectionView.alwaysBounceVertical = true
         collectionView.alwaysBounceHorizontal = true
         collectionView.delegate = self
@@ -69,8 +70,8 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
             barHeight:kBarHeight)
         self.viewControls = viewControls
         
-        addSubview(collectionView)
         addSubview(viewControls)
+        addSubview(collectionView)
         addSubview(viewBar)
         addSubview(spinner)
         
@@ -101,11 +102,12 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
         NSLayoutConstraint.equalsVertical(
             view:viewControls,
             toView:self)
-        NSLayoutConstraint.leftToLeft(
+        layoutControlsRight = NSLayoutConstraint.rightToLeft(
             view:viewControls,
             toView:self)
-        layoutControlsWidth = NSLayoutConstraint.width(
-            view:viewControls)
+        NSLayoutConstraint.width(
+            view:viewControls,
+            constant:kControlsMaxThreshold)
     }
     
     required init?(coder:NSCoder)
@@ -125,7 +127,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     private func restartingScroll()
     {
         drag = Drag.avoid
-        layoutControlsWidth.constant = 0
+        layoutControlsRight.constant = 0
         layoutCollectionLeft.constant = 0
         
         UIView.animate(
@@ -202,7 +204,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
                 controlsWidth = offsetX + extraWidth
             }
             
-            layoutControlsWidth.constant = controlsWidth
+            layoutControlsRight.constant = controlsWidth
             
             break
             
@@ -241,7 +243,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     
     func scrollViewDidEndDragging(_ scrollView:UIScrollView, willDecelerate decelerate:Bool)
     {
-        let controlsWidth:CGFloat = layoutControlsWidth.constant
+        let controlsWidth:CGFloat = layoutControlsRight.constant
         
         if controlsWidth > kControlsMinThreshold
         {
@@ -258,7 +260,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
                 newControlsWidth = kControlsMenuThreshold
             }
             
-            layoutControlsWidth.constant = newControlsWidth
+            layoutControlsRight.constant = newControlsWidth
             layoutCollectionLeft.constant = newControlsWidth
             
             UIView.animate(

@@ -7,16 +7,12 @@ class MLinearEquationsProjectControls
     init(project:MLinearEquationsProject)
     {
         var items:[[MLinearEquationsProjectControlsItem]] = []
-        let countRows:Int = project.rows.count
+        let countRows:Int = project.rows.count - 1
         
         for indexRow:Int in 0 ..< countRows
         {
             let row:MLinearEquationsProjectRow = project.rows[indexRow]
             var rowItems:[MLinearEquationsProjectControlsItem] = []
-            
-            let itemDelete:MLinearEquationsProjectControlsItemDelete = MLinearEquationsProjectControlsItemDelete(
-                row:row)
-            rowItems.append(itemDelete)
             
             if indexRow > 0
             {
@@ -31,6 +27,10 @@ class MLinearEquationsProjectControls
                     row:row)
                 rowItems.append(itemMoveDown)
             }
+            
+            let itemDelete:MLinearEquationsProjectControlsItemDelete = MLinearEquationsProjectControlsItemDelete(
+                row:row)
+            rowItems.append(itemDelete)
             
             items.append(rowItems)
         }
