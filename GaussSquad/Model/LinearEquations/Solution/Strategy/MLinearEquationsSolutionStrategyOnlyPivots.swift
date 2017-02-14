@@ -9,58 +9,62 @@ class MLinearEquationsSolutionStrategyOnlyPivots:MLinearEquationsSolutionStrateg
         for indexEquation:Int in 1 ..< countEquations
         {
             let indexItem:Int = countEquations - indexEquation
-            let prevIndex:Int = indexItem - 1
             let equation:MLinearEquationsSolutionEquation = step.equations[indexItem]
-            let equationAbove:MLinearEquationsSolutionEquation = step.equations[prevIndex]
             let pivotIndex:Int = equation.pivotIndex()
             
             guard
                 
-                let itemAbove:MLinearEquationsSolutionEquationItemPolynomial = equationAbove.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
+                let pivotItem:MLinearEquationsSolutionEquationItemPolynomial = equation.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
                 
             else
             {
                 continue
             }
             
-            if abs(itemAbove.coefficient) > MSession.sharedInstance.kMinNumber
+            for prevIndex:Int in 0 ..< indexItem
             {
+                let equationAbove:MLinearEquationsSolutionEquation = step.equations[prevIndex]
+                
                 guard
                     
-                    let pivotItem:MLinearEquationsSolutionEquationItemPolynomial = equation.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
+                    let itemAbove:MLinearEquationsSolutionEquationItemPolynomial = equationAbove.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
                     
-                    else
+                else
                 {
                     continue
                 }
                 
-                if pivotItem.indeterminate === itemAbove.indeterminate
+                if abs(itemAbove.coefficient) > MSession.sharedInstance.kMinNumber
                 {
-                    let topCoefficient:Double = itemAbove.coefficient
-                    let bottomCoefficient:Double = pivotItem.coefficient
-                    var scalar:Double = abs(topCoefficient / bottomCoefficient)
-                    
-                    if topCoefficient > 0
+                    if pivotItem.indeterminate === itemAbove.indeterminate
                     {
-                        if bottomCoefficient > 0
+                        let topCoefficient:Double = itemAbove.coefficient
+                        let bottomCoefficient:Double = pivotItem.coefficient
+                        var scalar:Double = abs(topCoefficient / bottomCoefficient)
+                        
+                        if topCoefficient > 0
                         {
-                            scalar = -scalar
+                            if bottomCoefficient > 0
+                            {
+                                scalar = -scalar
+                            }
                         }
-                    }
-                    else
-                    {
-                        if bottomCoefficient < 0
+                        else
                         {
-                            scalar = -scalar
+                            if bottomCoefficient < 0
+                            {
+                                scalar = -scalar
+                            }
                         }
+                        
+                        let strategy:MLinearEquationsSolutionStrategyOnlyPivots = MLinearEquationsSolutionStrategyOnlyPivots(
+                            step:step,
+                            indexPivot:indexItem,
+                            indexAbove:prevIndex,
+                            scalar:scalar)
+                        
+                        return strategy
                     }
-                    
-                    let strategy:MLinearEquationsSolutionStrategyOnlyPivots = MLinearEquationsSolutionStrategyOnlyPivots(
-                        step:step,
-                        indexRow:prevIndex,
-                        scalar:scalar)
-                    
-                    return strategy
                 }
             }
         }
@@ -68,15 +72,18 @@ class MLinearEquationsSolutionStrategyOnlyPivots:MLinearEquationsSolutionStrateg
         return nil
     }
     
-    private let indexRow:Int
+    private let indexPivot:Int
+    private let indexAbove:Int
     private let scalar:Double
     
     private init(
         step:MLinearEquationsSolutionStep,
-        indexRow:Int,
+        indexPivot:Int,
+        indexAbove:Int,
         scalar:Double)
     {
-        self.indexRow = indexRow
+        self.indexPivot = indexPivot
+        self.indexAbove = indexAbove
         self.scalar = scalar
         super.init(step:step)
     }
@@ -96,9 +103,9 @@ class MLinearEquationsSolutionStrategyOnlyPivots:MLinearEquationsSolutionStrateg
         let scalarString:String = MSession.sharedInstance.stringFrom(number:scalar)
         let descr:String = String(
             format:NSLocalizedString("MLinearEquationsSolutionStrategyOnlyPivots_descr", comment:""),
-            "\(indexRow + 1)",
-            "\(indexRow + 1)",
-            "\((indexRow + 2))",
+            "\(indexAbove + 1)",
+            "\(indexAbove + 1)",
+            "\((indexPivot + 1))",
             scalarString)
         
         var indexEquation:Int = 0
@@ -107,14 +114,14 @@ class MLinearEquationsSolutionStrategyOnlyPivots:MLinearEquationsSolutionStrateg
         {
             let newEquation:MLinearEquationsSolutionEquation
             
-            if indexEquation == indexRow
+            if indexEquation == indexAbove
             {
-                let nextEquation:MLinearEquationsSolutionEquation = self.step.equations[indexEquation + 1]
-                let scaledNext:MLinearEquationsSolutionEquation = nextEquation.multiplyScalar(
+                let pivotEquation:MLinearEquationsSolutionEquation = self.step.equations[indexPivot]
+                let scaledPivot:MLinearEquationsSolutionEquation = pivotEquation.multiplyScalar(
                     scalar:scalar)
                 
                 newEquation = equation.addEquation(
-                    equation:scaledNext)
+                    equation:scaledPivot)
             }
             else
             {
