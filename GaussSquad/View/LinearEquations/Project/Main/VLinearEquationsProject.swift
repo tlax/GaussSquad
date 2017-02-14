@@ -17,11 +17,20 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     private weak var layoutBarTop:NSLayoutConstraint!
     private weak var layoutCollectionLeft:NSLayoutConstraint!
     private weak var layoutControlsWidth:NSLayoutConstraint!
+    private var drag:Drag
     private let kBarHeight:CGFloat = 210
+    private let kControlsMinThreshold:CGFloat = 7
+    private let kControlsExtraThreshold:CGFloat = 30
+    private let kControlsMenuThreshold:CGFloat = 50
+    private let kControlsMaxThreshold:CGFloat = 180
+    private let kExtraSpeed:CGFloat = 3
     private let kDeselectTime:TimeInterval = 0.2
+    private let kAnimationDuration:TimeInterval = 0.3
     
     override init(controller:CController)
     {
+        drag = Drag.stand
+        
         super.init(controller:controller)
         self.controller = controller as? CLinearEquationsProject
         
@@ -115,10 +124,32 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
         return item
     }
     
+    private func restartingScroll()
+    {
+        drag = Drag.restart
+        layoutControlsWidth.constant = 0
+        layoutCollectionLeft.constant = 0
+        
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
+            { [weak self] in
+                
+                self?.layoutIfNeeded()
+            })
+        { [weak self] (done:Bool) in
+            
+            self?.drag = Drag.stand
+        }
+    }
+    
     //MARK: public
     
     func refresh()
     {
+        layoutControlsWidth.constant = 0
+        layoutCollectionLeft.constant = 0
+        
         spinner.stopAnimating()
         collectionView.isHidden = false
         collectionView.reloadData()
@@ -145,6 +176,105 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
         }
         
         layoutBarTop.constant = offsetY
+        
+        switch drag
+        {
+        case Drag.stand:
+            
+            let offsetX:CGFloat = -scrollView.contentOffset.x
+            let controlsWidth:CGFloat
+            
+            if offsetX < 0
+            {
+                controlsWidth = 0
+            }
+            else
+            {
+                let extraDelta:CGFloat = offsetX - kControlsExtraThreshold
+                let extraWidth:CGFloat
+                
+                if extraDelta > 0
+                {
+                    extraWidth = kExtraSpeed * extraDelta
+                }
+                else
+                {
+                    extraWidth = 0
+                }
+                
+                controlsWidth = offsetX + extraWidth
+            }
+            
+            layoutControlsWidth.constant = controlsWidth
+            
+            break
+            
+        case Drag.restart:
+            
+            restartingScroll()
+            
+            break
+            
+        case Drag.avoid:
+            break
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView:UIScrollView)
+    {
+        switch drag
+        {
+        case Drag.restart:
+            
+            drag = Drag.stand
+            
+            break
+            
+        case Drag.avoid:
+            
+            drag = Drag.restart
+            
+            break
+            
+        default:
+            
+            break
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView:UIScrollView, willDecelerate decelerate:Bool)
+    {
+        let controlsWidth:CGFloat = layoutControlsWidth.constant
+        
+        if controlsWidth > kControlsMinThreshold
+        {
+            drag = Drag.avoid
+            
+            let newControlsWidth:CGFloat
+            
+            if controlsWidth > kControlsMenuThreshold
+            {
+                newControlsWidth = kControlsMaxThreshold
+            }
+            else
+            {
+                newControlsWidth = kControlsMenuThreshold
+            }
+            
+            layoutControlsWidth.constant = newControlsWidth
+            layoutCollectionLeft.constant = newControlsWidth
+            
+            UIView.animate(
+                withDuration:kAnimationDuration)
+            { [weak self] in
+                
+                self?.layoutIfNeeded()
+            }
+        }
+        else
+        {
+            drag = Drag.stand
+        }
     }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
@@ -175,17 +305,24 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        let item:MLinearEquationsProjectRowItem = modelAtIndex(index:indexPath)
-        item.selected(controller:controller)
-        
-        DispatchQueue.main.asyncAfter(
-            deadline:DispatchTime.now() + kDeselectTime)
-        { [weak collectionView] in
+        if drag == Drag.restart
+        {
+            restartingScroll()
+        }
+        else
+        {
+            let item:MLinearEquationsProjectRowItem = modelAtIndex(index:indexPath)
+            item.selected(controller:controller)
             
-            collectionView?.selectItem(
-                at:nil,
-                animated:true,
-                scrollPosition:UICollectionViewScrollPosition())
+            DispatchQueue.main.asyncAfter(
+                deadline:DispatchTime.now() + kDeselectTime)
+            { [weak collectionView] in
+                
+                collectionView?.selectItem(
+                    at:nil,
+                    animated:true,
+                    scrollPosition:UICollectionViewScrollPosition())
+            }
         }
     }
 }
