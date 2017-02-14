@@ -313,16 +313,16 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
         {
             let item:MLinearEquationsProjectRowItem = modelAtIndex(index:indexPath)
             item.selected(controller:controller)
+        }
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
             
-            DispatchQueue.main.asyncAfter(
-                deadline:DispatchTime.now() + kDeselectTime)
-            { [weak collectionView] in
-                
-                collectionView?.selectItem(
-                    at:nil,
-                    animated:true,
-                    scrollPosition:UICollectionViewScrollPosition())
-            }
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
         }
     }
 }
