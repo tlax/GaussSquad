@@ -53,7 +53,7 @@ class CLinearEquationsSolution:CController
         let size:CGSize = collectionView.contentSize
         let frame:CGRect = CGRect(origin:CGPoint.zero, size:size)
         
-        UIGraphicsBeginImageContextWithOptions(size, true, 0)
+        UIGraphicsBeginImageContextWithOptions(size, true, 1)
         
         guard
             
@@ -67,12 +67,49 @@ class CLinearEquationsSolution:CController
         context.setFillColor(UIColor.white.cgColor)
         context.fill(frame)
         
-        for subview:UIView in collectionView.subviews
+        var stepIndex:Int = 0
+        
+        for step:MLinearEquationsSolutionStep in model.steps
         {
-            let subviewFrame:CGRect = subview.frame
-            subview.drawHierarchy(in:subviewFrame, afterScreenUpdates:false)
+            var itemIndex:Int = 0
             
-            print(subview)
+            let sectionPath:IndexPath = IndexPath(
+                item:0,
+                section:stepIndex)
+            let header:VLinearEquationsSolutionHeader = collectionView.dequeueReusableSupplementaryView(
+                ofKind:UICollectionElementKindSectionHeader,
+                withReuseIdentifier:
+                step.reusableIdentifier,
+                for:sectionPath) as! VLinearEquationsSolutionHeader
+            header.config(
+                step:step,
+                indexPath:sectionPath)
+            let headerFrame:CGRect = header.frame
+            header.drawHierarchy(
+                in:headerFrame,
+                afterScreenUpdates:true)
+            
+            for item:MLinearEquationsSolutionEquationItem in step.plainItems
+            {
+                let indexPath:IndexPath = IndexPath(
+                    item:itemIndex,
+                    section:stepIndex)
+                let cell:VLinearEquationsSolutionCell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier:
+                    item.reusableIdentifier,
+                    for:indexPath) as! VLinearEquationsSolutionCell
+                cell.config(
+                    model:item,
+                    index:indexPath)
+                let cellFrame:CGRect = cell.frame
+                cell.drawHierarchy(
+                    in:cellFrame,
+                    afterScreenUpdates:true)
+                
+                itemIndex += 1
+            }
+            
+            stepIndex += 1
         }
         
         guard
@@ -157,7 +194,7 @@ class CLinearEquationsSolution:CController
             UIAlertActionStyle.default)
         { (action:UIAlertAction) in
             
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            DispatchQueue.main.async
             { [weak self] in
                 
                 self?.shareSolutionImage()
