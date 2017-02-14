@@ -488,6 +488,32 @@ class MLinearEquationsProject
         saveAndRefresh()
     }
     
+    func moveUp(index:Int)
+    {
+        guard
+        
+            let equations:[DEquation] = project?.equations?.array as? [DEquation]
+        
+        else
+        {
+            return
+        }
+        
+        let topEquation:DEquation = equations[index - 1]
+        let bottomEquation:DEquation = equations[index]
+        let indexRange:NSRange = NSMakeRange(index - 1, 2)
+        let indexSet:NSIndexSet = NSIndexSet(indexesIn:indexRange)
+        let orderedEquations:[DEquation] = [
+            bottomEquation,
+            topEquation
+        ]
+        
+        project?.replaceEquations(
+            at:indexSet,
+            with:orderedEquations)
+        saveAndRefresh()
+    }
+    
     func compress()
     {
         indeterminatesToLeft()

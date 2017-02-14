@@ -184,7 +184,7 @@ class CLinearEquationsProject:CController
             UIAlertActionStyle.destructive)
         { [weak self] (action:UIAlertAction) in
             
-            
+            self?.model.removeEquation(index:equationIndex)
         }
         
         if equationIndex > 0
@@ -196,7 +196,7 @@ class CLinearEquationsProject:CController
                 UIAlertActionStyle.default)
             { [weak self] (action:UIAlertAction) in
                 
-                
+                self?.model.moveUp(index:equationIndex)
             }
             
             alert.addAction(actionMoveUp)
