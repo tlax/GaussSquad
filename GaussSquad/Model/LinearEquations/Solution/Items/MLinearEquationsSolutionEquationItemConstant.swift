@@ -149,14 +149,15 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         if newCoefficient > MSession.sharedInstance.kMinNumber
         {
             let showAsDivision:Bool
+            let coefficientAprox:Double = abs(newCoefficient - 1)
             
-            if newCoefficient == 1
+            if coefficientAprox > MSession.sharedInstance.kMinNumber
             {
-                showAsDivision = false
+                showAsDivision = self.showAsDivision
             }
             else
             {
-                showAsDivision = self.showAsDivision
+                showAsDivision = false
             }
             
             multiplied = MLinearEquationsSolutionEquationItem.coefficient(
