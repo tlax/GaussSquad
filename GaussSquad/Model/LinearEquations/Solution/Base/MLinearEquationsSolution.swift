@@ -1,6 +1,6 @@
 import Foundation
 
-class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate
+class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate, MLinearEquationsSolutionShareProtocol
 {
     private weak var project:DProject?
     private weak var controller:CLinearEquationsSolution?

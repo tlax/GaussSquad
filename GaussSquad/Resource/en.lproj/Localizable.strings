@@ -50,7 +50,11 @@
 "CLinearEquationsPolynomial_alertTitle"="Delete polynomial?";
 "CLinearEquationsPolynomial_alertCancel"="Don't";
 "CLinearEquationsPolynomial_alertDelete"="Delete";
-"CLinearEquationsSolution_shareStepTitle"="Share";
+"CLinearEquationsSolution_shareTitle"="Share solution";
+"CLinearEquationsSolution_shareCancel"="Not now";
+"CLinearEquationsSolution_shareImage"="Image";
+"CLinearEquationsSolution_shareText"="Text";
+"CLinearEquationsSolution_shareStepTitle"="Share step %@";
 "CLinearEquationsSolution_shareStepCancel"="Not now";
 "CLinearEquationsSolution_shareStepImage"="Image";
 "CLinearEquationsSolution_shareStepText"="Text";

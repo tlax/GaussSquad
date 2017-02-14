@@ -5,6 +5,7 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
     private weak var controller:CLinearEquationsSolution!
     private weak var collectionView:VCollection!
     private let model:MLinearEquationsSolutionBar
+    private let kContentTop:CGFloat = 20
     private let kBorderHeight:CGFloat = 1
     private let kCellWidth:CGFloat = 60
     private let kDeselectTime:TimeInterval = 0.25
@@ -47,7 +48,14 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
             view:border,
             toView:self)
         
-        NSLayoutConstraint.equals(
+        NSLayoutConstraint.topToTop(
+            view:collectionView,
+            toView:self,
+            constant:kContentTop)
+        NSLayoutConstraint.bottomToTop(
+            view:collectionView,
+            toView:border)
+        NSLayoutConstraint.equalsHorizontal(
             view:collectionView,
             toView:self)
     }

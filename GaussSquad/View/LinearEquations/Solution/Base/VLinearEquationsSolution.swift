@@ -7,7 +7,7 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
     private weak var viewBar:VLinearEquationsSolutionBar!
     private weak var spinner:VSpinner?
     private weak var layoutBarTop:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 60
+    private let kBarHeight:CGFloat = 81
     
     override init(controller:CController)
     {

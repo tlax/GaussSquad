@@ -9,6 +9,6 @@ class MLinearEquationsSolutionBarItemShare:MLinearEquationsSolutionBarItem
     
     override func selected(controller:CLinearEquationsSolution)
     {
-        controller.bottom()
+        controller.share()
     }
 }

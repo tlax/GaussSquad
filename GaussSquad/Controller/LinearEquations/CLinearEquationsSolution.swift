@@ -89,10 +89,80 @@ class CLinearEquationsSolution:CController
         
     }
     
-    func share(step:Int)
+    func share()
     {
         let alert:UIAlertController = UIAlertController(
-            title:NSLocalizedString("CLinearEquationsSolution_shareStepTitle", comment:""),
+            title:NSLocalizedString("CLinearEquationsSolution_shareTitle", comment:""),
+            message:nil,
+            preferredStyle:UIAlertControllerStyle.actionSheet)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CLinearEquationsSolution_shareCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionImage:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CLinearEquationsSolution_shareImage", comment:""),
+            style:
+            UIAlertActionStyle.default)
+        { [weak self] (action:UIAlertAction) in
+            
+        }
+        
+        let actionText:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CLinearEquationsSolution_shareText", comment:""),
+            style:
+            UIAlertActionStyle.default)
+        { (action:UIAlertAction) in
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                guard
+                    
+                    let modelStep:MLinearEquationsSolutionStep = self?.model.steps[step]
+                    
+                else
+                {
+                    return
+                }
+                
+                guard
+                    
+                    let stepText:String = modelStep.shareText()
+                    
+                else
+                {
+                    return
+                }
+                
+                let sharingItems:[Any] = [stepText]
+                
+                DispatchQueue.main.async
+                { [weak self] in
+                    
+                    self?.share(items:sharingItems)
+                }
+            }
+        }
+        
+        alert.addAction(actionImage)
+        alert.addAction(actionText)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
+    }
+    
+    func share(step:Int)
+    {
+        let title:String = String(
+            format:NSLocalizedString("CLinearEquationsSolution_shareStepTitle", comment:""),
+            "\((step + 1))")
+        
+        let alert:UIAlertController = UIAlertController(
+            title:title,
             message:nil,
             preferredStyle:UIAlertControllerStyle.actionSheet)
         
