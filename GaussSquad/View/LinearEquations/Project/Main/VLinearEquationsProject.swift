@@ -21,7 +21,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     private let kBarHeight:CGFloat = 210
     private let kControlsMinThreshold:CGFloat = 7
     private let kControlsExtraThreshold:CGFloat = 30
-    private let kControlsMenuThreshold:CGFloat = 50
+    private let kControlsMenuThreshold:CGFloat = 60
     private let kControlsMaxThreshold:CGFloat = 180
     private let kExtraSpeed:CGFloat = 3
     private let kDeselectTime:TimeInterval = 0.2
@@ -65,7 +65,8 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
         self.collectionView = collectionView
         
         let viewControls:VLinearEquationsProjectControls = VLinearEquationsProjectControls(
-            controller:self.controller)
+            controller:self.controller,
+            barHeight:kBarHeight)
         self.viewControls = viewControls
         
         addSubview(collectionView)
@@ -97,10 +98,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
             view:collectionView,
             toView:self)
         
-        NSLayoutConstraint.topToBottom(
-            view:viewControls,
-            toView:viewBar)
-        NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.equalsVertical(
             view:viewControls,
             toView:self)
         NSLayoutConstraint.leftToLeft(
@@ -147,14 +145,13 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
     
     func refresh()
     {
-        layoutControlsWidth.constant = 0
-        layoutCollectionLeft.constant = 0
-        
+        restartingScroll()
         spinner.stopAnimating()
         collectionView.isHidden = false
         collectionView.reloadData()
         viewBar.isHidden = false
         viewBar.viewIndeterminates.refresh()
+        viewControls.refresh()
     }
     
     func startLoading()

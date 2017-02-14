@@ -5,7 +5,7 @@ class MLinearEquationsProjectControlsItemDelete:MLinearEquationsProjectControlsI
     init(row:MLinearEquationsProjectRow)
     {
         super.init(
-            image:#imageLiteral(resourceName: "assetGenericTrashWhite"),
+            image:#imageLiteral(resourceName: "assetGenericTrashRed"),
             row:row)
     }
 }
