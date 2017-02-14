@@ -9,16 +9,18 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
     private var contentWidth:CGFloat
     private var contentHeight:CGFloat
     private let barHeight:CGFloat
+    private let footerHeight:CGFloat
     private let kCellHeight:CGFloat = 54
-    private let kFooterHeight:CGFloat = 85
     private let kMarginRight:CGFloat = 20
     
     init(
         model:MLinearEquationsSolution,
-        barHeight:CGFloat)
+        barHeight:CGFloat,
+        footerHeight:CGFloat)
     {
         self.model = model
         self.barHeight = barHeight
+        self.footerHeight = footerHeight
         contentWidth = 0
         contentHeight = 0
         headerLayoutAttributes = []
@@ -118,10 +120,10 @@ class VLinearEquationsSolutionFlow:UICollectionViewLayout
                 x:0,
                 y:positionY,
                 width:0,
-                height:kFooterHeight)
+                height:footerHeight)
             footerLayoutAttributes.append(footerAttribute)
             
-            positionY += kFooterHeight
+            positionY += footerHeight
             section += 1
         }
         

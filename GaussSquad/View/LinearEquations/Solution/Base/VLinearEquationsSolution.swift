@@ -7,9 +7,11 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
     private weak var viewBar:VLinearEquationsSolutionBar!
     private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 81
     
-    override init(controller:CController)
+    init(
+        controller:CController,
+        barHeight:CGFloat,
+        footerHeight:CGFloat)
     {
         super.init(controller:controller)
         self.controller = controller as? CLinearEquationsSolution
@@ -23,7 +25,8 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
         
         let flow:VLinearEquationsSolutionFlow = VLinearEquationsSolutionFlow(
             model:self.controller.model,
-            barHeight:kBarHeight)
+            barHeight:barHeight,
+            footerHeight:footerHeight)
         let collectionView:VCollection = VCollection(flow:flow)
         collectionView.alwaysBounceVertical = true
         collectionView.alwaysBounceHorizontal = false
@@ -62,7 +65,7 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
             toView:self)
         NSLayoutConstraint.height(
             view:viewBar,
-            constant:kBarHeight)
+            constant:barHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)

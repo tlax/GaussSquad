@@ -4,6 +4,8 @@ class CLinearEquationsSolution:CController
 {
     let model:MLinearEquationsSolution
     private weak var viewSolution:VLinearEquationsSolution!
+    private let kBarHeight:CGFloat = 81
+    private let kFooterHeight:CGFloat = 85
     
     init(project:DProject)
     {
@@ -20,7 +22,9 @@ class CLinearEquationsSolution:CController
     override func loadView()
     {
         let viewSolution:VLinearEquationsSolution = VLinearEquationsSolution(
-            controller:self)
+            controller:self,
+            barHeight:kBarHeight,
+            footerHeight:kFooterHeight)
         self.viewSolution = viewSolution
         view = viewSolution
     }
