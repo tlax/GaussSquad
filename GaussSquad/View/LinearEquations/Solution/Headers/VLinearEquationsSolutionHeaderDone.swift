@@ -9,14 +9,28 @@ class VLinearEquationsSolutionHeaderDone:VLinearEquationsSolutionHeader
     {
         super.init(frame:frame)
         
+        let attributesTitle:[String:AnyObject] = [
+            NSFontAttributeName:UIFont.bold(size:20),
+            NSForegroundColorAttributeName:UIColor.squadBlue]
+        let attributesSubtitle:[String:AnyObject] = [
+            NSFontAttributeName:UIFont.bold(size:14),
+            NSForegroundColorAttributeName:UIColor.squadGreen]
+        let stringTitle:NSAttributedString = NSAttributedString(
+            string:NSLocalizedString("VLinearEquationsSolutionHeaderDone_title", comment:""),
+            attributes:attributesTitle)
+        let stringSubtitle:NSAttributedString = NSAttributedString(
+            string:NSLocalizedString("VLinearEquationsSolutionHeaderDone_subtitle", comment:""),
+            attributes:attributesSubtitle)
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        mutableString.append(stringTitle)
+        mutableString.append(stringSubtitle)
+        
         let label:UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.isUserInteractionEnabled = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:18)
-        label.textColor = UIColor.squadBlue
-        label.text = NSLocalizedString("VLinearEquationsSolutionHeaderStart_label", comment:"")
+        label.attributedText = mutableString
         
         addSubview(label)
         

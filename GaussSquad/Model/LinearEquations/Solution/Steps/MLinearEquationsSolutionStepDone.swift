@@ -2,7 +2,7 @@ import UIKit
 
 class MLinearEquationsSolutionStepDone:MLinearEquationsSolutionStep
 {
-    private let kHeaderHeight:CGFloat = 150
+    private let kHeaderHeight:CGFloat = 60
     
     init(equations:[MLinearEquationsSolutionEquation])
     {

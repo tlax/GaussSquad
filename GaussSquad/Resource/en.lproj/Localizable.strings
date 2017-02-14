@@ -32,6 +32,8 @@
 "VLinearEquationsIndeterminateListHeader_labelTitlte"="Indeterminate";
 "VLinearEquationsIndeterminateListHeader_buttonNone"="None";
 "VLinearEquationsSolutionHeaderStart_label"="Initial linear system";
+"VLinearEquationsSolutionHeaderDone_title"="Solution";
+"VLinearEquationsSolutionHeaderDone_subtitle"="\nReduced row echelon form";
 
 "CLinearEquationsIndeterminate_errorInvalid"="Name can't be empty";
 "CLinearEquationsIndeterminate_errorNoNumber"="Indeterminate can't start with a number";
