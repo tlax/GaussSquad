@@ -11,7 +11,8 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
     init(
         controller:CController,
         barHeight:CGFloat,
-        footerHeight:CGFloat)
+        footerHeight:CGFloat,
+        cellHeight:CGFloat)
     {
         super.init(controller:controller)
         self.controller = controller as? CLinearEquationsSolution
@@ -26,7 +27,8 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
         let flow:VLinearEquationsSolutionFlow = VLinearEquationsSolutionFlow(
             model:self.controller.model,
             barHeight:barHeight,
-            footerHeight:footerHeight)
+            footerHeight:footerHeight,
+            cellHeight:cellHeight)
         let collectionView:VCollection = VCollection(flow:flow)
         collectionView.alwaysBounceVertical = true
         collectionView.alwaysBounceHorizontal = false
