@@ -70,12 +70,9 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         if newCoefficient > MSession.sharedInstance.kMinNumber
         {
             let showAsDivision:Bool
+            let coefficientAprox:Double = abs(newCoefficient - 1)
             
-            if newCoefficient == 1
-            {
-                showAsDivision = false
-            }
-            else
+            if coefficientAprox > MSession.sharedInstance.kMinNumber
             {
                 if self.showAsDivision || otherPolynomial.showAsDivision
                 {
@@ -85,6 +82,10 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
                 {
                     showAsDivision = false
                 }
+            }
+            else
+            {
+                showAsDivision = false
             }
             
             sumItem = MLinearEquationsSolutionEquationItem.polynomial(
@@ -155,14 +156,15 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         if newCoefficient > MSession.sharedInstance.kMinNumber
         {
             let showAsDivision:Bool
+            let coefficientAprox:Double = abs(newCoefficient - 1)
             
-            if newCoefficient == 1
+            if coefficientAprox > MSession.sharedInstance.kMinNumber
             {
-                showAsDivision = false
+                showAsDivision = self.showAsDivision
             }
             else
             {
-                showAsDivision = self.showAsDivision
+                showAsDivision = false
             }
             
             multiplied = MLinearEquationsSolutionEquationItem.polynomial(
@@ -195,14 +197,15 @@ class MLinearEquationsSolutionEquationItemPolynomial:MLinearEquationsSolutionEqu
         if newCoefficient > MSession.sharedInstance.kMinNumber
         {
             let showAsDivision:Bool
+            let coefficientAprox:Double = abs(newCoefficient - 1)
             
-            if newCoefficient == 1
+            if coefficientAprox > MSession.sharedInstance.kMinNumber
             {
-                showAsDivision = false
+                showAsDivision = self.showAsDivision
             }
             else
             {
-                showAsDivision = self.showAsDivision
+                showAsDivision = false
             }
             
             divided = MLinearEquationsSolutionEquationItem.polynomial(
