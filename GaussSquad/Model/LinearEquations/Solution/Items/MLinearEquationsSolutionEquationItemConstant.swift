@@ -68,13 +68,20 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         {
             let showAsDivision:Bool
             
-            if self.showAsDivision || otherConstant.showAsDivision
+            if newCoeffiecient == 1
             {
-                showAsDivision = true
+                showAsDivision = false
             }
             else
             {
-                showAsDivision = false
+                if self.showAsDivision || otherConstant.showAsDivision
+                {
+                    showAsDivision = true
+                }
+                else
+                {
+                    showAsDivision = false
+                }
             }
             
             sumItem = MLinearEquationsSolutionEquationItem.coefficient(
@@ -141,6 +148,17 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         
         if newCoefficient > MSession.sharedInstance.kMinNumber
         {
+            let showAsDivision:Bool
+            
+            if newCoefficient == 1
+            {
+                showAsDivision = false
+            }
+            else
+            {
+                showAsDivision = self.showAsDivision
+            }
+            
             multiplied = MLinearEquationsSolutionEquationItem.coefficient(
                 coefficientDividend:newDividend,
                 coefficientDivisor:newDivisor,
@@ -168,6 +186,17 @@ class MLinearEquationsSolutionEquationItemConstant:MLinearEquationsSolutionEquat
         
         if newCoefficient > MSession.sharedInstance.kMinNumber
         {
+            let showAsDivision:Bool
+            
+            if newCoefficient == 1
+            {
+                showAsDivision = false
+            }
+            else
+            {
+                showAsDivision = self.showAsDivision
+            }
+            
             divided = MLinearEquationsSolutionEquationItem.coefficient(
                 coefficientDividend:newDividend,
                 coefficientDivisor:newDivisor,
