@@ -29,17 +29,24 @@ class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate
     {
         steps.append(step)
         
-        let nextStrategy:MLinearEquationsSolutionStrategy? = MLinearEquationsSolutionStrategy.strategyFor(
-            step:step,
-            indeterminates:indeterminates)
-        
-        if let nextStrategy:MLinearEquationsSolutionStrategy = nextStrategy
+        if let _:MLinearEquationsSolutionStepDone = step as? MLinearEquationsSolutionStepDone
         {
-            nextStrategy.process(delegate:self)
+            controller?.solutionComplete()
         }
         else
         {
-            controller?.solutionComplete()
+            let nextStrategy:MLinearEquationsSolutionStrategy? = MLinearEquationsSolutionStrategy.strategyFor(
+                step:step,
+                indeterminates:indeterminates)
+            
+            if let nextStrategy:MLinearEquationsSolutionStrategy = nextStrategy
+            {
+                nextStrategy.process(delegate:self)
+            }
+            else
+            {
+                controller?.solutionComplete()
+            }
         }
     }
     
