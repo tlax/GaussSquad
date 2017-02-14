@@ -49,7 +49,6 @@ class CLinearEquationsSolution:CController
     
     private func shareSolutionImage()
     {
-        viewSolution.startExporting()
         let collectionView:VCollection = viewSolution.collectionView
         let size:CGSize = collectionView.contentSize
         let frame:CGRect = CGRect(origin:CGPoint.zero, size:size)
@@ -192,7 +191,13 @@ class CLinearEquationsSolution:CController
             UIAlertActionStyle.default)
         { [weak self] (action:UIAlertAction) in
             
-            self?.shareSolutionImage()
+            self?.viewSolution.startExporting()
+            
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.shareSolutionImage()
+            }
         }
         
         let actionText:UIAlertAction = UIAlertAction(
