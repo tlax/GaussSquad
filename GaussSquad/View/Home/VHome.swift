@@ -8,7 +8,7 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     private let kCollectionBottom:CGFloat = 10
     private let kCollectionInterline:CGFloat = 1
     private let kCellHeight:CGFloat = 100
-    private let kDeselectTime:TimeInterval = 0.2
+    private let kDeselectTime:TimeInterval = 0.3
     
     override init(controller:CController)
     {
@@ -97,6 +97,8 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        collectionView.isUserInteractionEnabled = false
+        
         let item:MHomeItem = modelAtIndex(index:indexPath)
         controller.selected(item:item)
         
@@ -104,6 +106,7 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             deadline:DispatchTime.now() + kDeselectTime)
         { [weak collectionView] in
             
+            collectionView?.isUserInteractionEnabled = true
             collectionView?.selectItem(
                 at:nil,
                 animated:true,
