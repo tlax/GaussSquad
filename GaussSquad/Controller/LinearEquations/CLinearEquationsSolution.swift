@@ -102,6 +102,7 @@ class CLinearEquationsSolution:CController
             {
                 let itemIndex:MLinearEquationsSolutionEquationItem = equation.index
                 let itemResult:MLinearEquationsSolutionEquationItem = equation.result
+                let itemEquals:MLinearEquationsSolutionEquationItem = equation.equals
                 let items:[MLinearEquationsSolutionEquationItem] = equation.items
                 
                 var positionX:CGFloat = 0
@@ -129,6 +130,16 @@ class CLinearEquationsSolution:CController
                     positionX += itemWidth
                 }
                 
+                let itemEqualsWidth:CGFloat = itemEquals.cellWidth
+                let itemEqualsRect:CGRect = CGRect(
+                    x:positionX,
+                    y:positionY,
+                    width:itemEqualsWidth,
+                    height:kCellHeight)
+                
+                itemEquals.drawInRect(rect:itemEqualsRect)
+                positionX += itemEqualsWidth
+                
                 let itemResultWidth:CGFloat = itemResult.cellWidth
                 let itemResultRect:CGRect = CGRect(
                     x:positionX,
@@ -137,6 +148,7 @@ class CLinearEquationsSolution:CController
                     height:kCellHeight)
                 
                 itemResult.drawInRect(rect:itemResultRect)
+                positionX += itemResultWidth
                 positionY += kCellHeight
             }
             

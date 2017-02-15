@@ -18,4 +18,25 @@ class MLinearEquationsSolutionEquationItemEquals:MLinearEquationsSolutionEquatio
     {
         return kEquals
     }
+    
+    override func drawInRect(rect:CGRect)
+    {
+        let image:UIImage = #imageLiteral(resourceName: "assetGenericColEqualsSmall")
+        let imageWidth:CGFloat = image.size.width
+        let imageHeight:CGFloat = image.size.height
+        let remainTop:CGFloat = rect.size.height - imageHeight
+        let remainLeft:CGFloat = rect.size.width - imageWidth
+        let marginTop:CGFloat = remainTop / 2.0
+        let marginLeft:CGFloat = remainLeft / 2.0
+        let posX:CGFloat = marginLeft + rect.origin.x
+        let posY:CGFloat = marginTop + rect.origin.y
+        
+        let rect:CGRect = CGRect(
+            x:posX,
+            y:posY,
+            width:imageWidth,
+            height:imageHeight)
+        
+        image.draw(in:rect)
+    }
 }
