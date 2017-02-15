@@ -7,6 +7,7 @@ class CLinearEquationsSolution:CController
     private let kBarHeight:CGFloat = 81
     private let kFooterHeight:CGFloat = 50
     private let kCellHeight:CGFloat = 25
+    private let kSmallFooterHeight:CGFloat = 20
     
     init(project:DProject)
     {
@@ -62,6 +63,7 @@ class CLinearEquationsSolution:CController
         {
             let countEquations:CGFloat = CGFloat(step.equations.count)
             totalHeight += step.headerHeight
+            totalHeight += kSmallFooterHeight
             totalHeight += countEquations * kCellHeight
         }
         
@@ -137,6 +139,8 @@ class CLinearEquationsSolution:CController
                 itemResult.drawInRect(rect:itemResultRect)
                 positionY += kCellHeight
             }
+            
+            positionY += kSmallFooterHeight
         }
         
         guard
