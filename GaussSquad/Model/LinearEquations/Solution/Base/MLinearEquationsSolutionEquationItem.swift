@@ -1,6 +1,6 @@
 import UIKit
 
-class MLinearEquationsSolutionEquationItem:MLinearEquationsSolutionShareProtocol
+class MLinearEquationsSolutionEquationItem:MLinearEquationsSolutionShareProtocol, MLinearEquationsSolutionDrawableProtocol
 {
     class func polynomial(
         coefficientDividend:Double,
@@ -132,5 +132,18 @@ class MLinearEquationsSolutionEquationItem:MLinearEquationsSolutionShareProtocol
     func shareText() -> String?
     {
         return nil
+    }
+    
+    //MARK: drawable protocol
+    
+    func drawInRect(rect:CGRect)
+    {
+        let titleRect:CGRect = CGRect(
+            x:kTitleLeft,
+            y:rect.origin.y,
+            width:kTitleWidth,
+            height:rect.size.height)
+        
+        title.draw(in:titleRect)
     }
 }
