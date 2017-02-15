@@ -114,9 +114,14 @@ class CLinearEquationsSolution:CController
                 withReuseIdentifier:
                 item.reusableIdentifier,
                 for:indexPath) as! VLinearEquationsSolutionCell
+            
+            print(item.reusableIdentifier)
+            
             cell.config(
                 model:item,
                 index:indexPath)
+            cell.setNeedsDisplay()
+            
             let cellFrame:CGRect = cell.frame
             let exportableCellFrame:CGRect = cellFrame.offsetBy(
                 dx:0,
@@ -135,6 +140,7 @@ class CLinearEquationsSolution:CController
         else
         {
             UIGraphicsEndImageContext()
+            
             return
         }
         
@@ -233,6 +239,7 @@ class CLinearEquationsSolution:CController
         else
         {
             UIGraphicsEndImageContext()
+            
             return
         }
         
