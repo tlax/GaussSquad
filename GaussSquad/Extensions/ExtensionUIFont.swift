@@ -7,6 +7,11 @@ extension UIFont
         return UIFont(name:"HelveticaNeue-Thin", size:size)!
     }
     
+    class func numericBold(size:CGFloat) -> UIFont
+    {
+        return UIFont(name:"HelveticaNeue", size:size)!
+    }
+    
     class func regular(size:CGFloat) -> UIFont
     {
         return UIFont(name:"Avenir-Light", size:size)!

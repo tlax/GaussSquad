@@ -4,8 +4,7 @@ class VLinearEquationsSolutionFooter:UICollectionReusableView
 {
     private weak var controller:CLinearEquationsSolution?
     private var index:IndexPath?
-    private let kMarginBottom:CGFloat = -20
-    private let kButtonMargin:CGFloat = 20
+    private let kMarginBottom:CGFloat = -10
     private let kButtonWidth:CGFloat = 40
     
     override init(frame:CGRect)

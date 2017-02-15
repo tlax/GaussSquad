@@ -5,8 +5,8 @@ class CLinearEquationsSolution:CController
     let model:MLinearEquationsSolution
     private weak var viewSolution:VLinearEquationsSolution!
     private let kBarHeight:CGFloat = 81
-    private let kFooterHeight:CGFloat = 65
-    private let kCellHeight:CGFloat = 40
+    private let kFooterHeight:CGFloat = 50
+    private let kCellHeight:CGFloat = 25
     
     init(project:DProject)
     {

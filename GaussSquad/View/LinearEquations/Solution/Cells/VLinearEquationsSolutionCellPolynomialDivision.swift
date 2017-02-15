@@ -9,7 +9,7 @@ class VLinearEquationsSolutionCellPolynomialDivision:VLinearEquationsSolutionCel
     private weak var layoutBorderTop:NSLayoutConstraint!
     private let kImageWidth:CGFloat = 20
     private let kBorderHeight:CGFloat = 1
-    private let kLabelHeight:CGFloat = 22
+    private let kLabelHeight:CGFloat = 15
     
     override init(frame:CGRect)
     {
@@ -38,7 +38,7 @@ class VLinearEquationsSolutionCellPolynomialDivision:VLinearEquationsSolutionCel
         imageView.isUserInteractionEnabled = false
         self.imageView = imageView
         
-        let border:VBorder = VBorder(color:UIColor.black)
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.3))
         
         addSubview(border)
         addSubview(labelDividend)

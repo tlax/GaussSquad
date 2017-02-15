@@ -4,7 +4,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
 {
     let stringDividend:NSAttributedString
     let stringDivisor:NSAttributedString
-    private let kFontSize:CGFloat = 17
+    private let kFontSize:CGFloat = 12
     private let kMaxStringWidth:CGFloat = 5000
     private let kMaxStringHeight:CGFloat = 20
     private let kAddedWidth:CGFloat = 20
@@ -21,7 +21,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
     {
         let absoluteDividend:Double = abs(coefficientDividend)
         let attributes:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.numeric(size:kFontSize)]
+            NSFontAttributeName:UIFont.numericBold(size:kFontSize)]
         let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
             NSStringDrawingOptions.usesFontLeading,
             NSStringDrawingOptions.usesLineFragmentOrigin])
