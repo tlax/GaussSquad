@@ -11,7 +11,7 @@ class MSession
     private let kMinIntegers:Int = 1
     private let kMaxIntegers:Int = 10
     private let kMinDecimals:Int = 0
-    private let kMaxDecimals:Int = 5
+    private let kMaxDecimals:Int = 3
     private let kTtlDelta:Int16 = 1
     
     private init()
