@@ -145,7 +145,7 @@ class MLinearEquationsSolutionEquationItemConstantDivision:MLinearEquationsSolut
         let stringDivisorWidth:CGFloat = rectWidth - signWidth
         let stringDivisorRect:CGRect = CGRect(
             x:stringDivisorLeft,
-            y:rectHeight_2,
+            y:rectCenterY,
             width:stringDivisorWidth,
             height:kLabelHeight)
         
@@ -166,7 +166,7 @@ class MLinearEquationsSolutionEquationItemConstantDivision:MLinearEquationsSolut
         let borderTop:CGFloat = borderRemain / 2.0
         let borderRect:CGRect = CGRect(
             x:borderLeft,
-            y:borderTop,
+            y:borderTop + rectY,
             width:borderWidth,
             height:kBorderHeight)
         

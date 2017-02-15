@@ -161,7 +161,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
         let stringDivisorWidth:CGFloat = rectWidth - signWidth
         let stringDivisorRect:CGRect = CGRect(
             x:stringDivisorLeft,
-            y:rectHeight_2,
+            y:rectCenterY,
             width:stringDivisorWidth,
             height:kLabelHeight)
         
@@ -182,7 +182,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
         let borderTop:CGFloat = borderRemain / 2.0
         let borderRect:CGRect = CGRect(
             x:borderLeft,
-            y:borderTop,
+            y:borderTop + rectY,
             width:borderWidth,
             height:kBorderHeight)
         
