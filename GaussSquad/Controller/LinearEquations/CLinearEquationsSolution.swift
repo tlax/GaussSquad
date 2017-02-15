@@ -82,12 +82,20 @@ class CLinearEquationsSolution:CController
         context.setFillColor(UIColor.white.cgColor)
         context.fill(frame)
         
-        var stepIndex:Int = 0
-        var removeTop:CGFloat = kBarHeight
+        var positionY:CGFloat = 0
         
-        for step:MLinearEquationsSolutionStep in model.steps
+        for step:MLinearEquationsSolutionStep in steps
         {
+            let headerHeight:CGFloat = step.headerHeight
+            let rect:CGRect = CGRect(
+                x:0,
+                y:positionY,
+                width:totalWidth,
+                height:headerHeight)
             
+            step.drawInRect(rect:rect)
+            
+            positionY += headerHeight
         }
         
         guard

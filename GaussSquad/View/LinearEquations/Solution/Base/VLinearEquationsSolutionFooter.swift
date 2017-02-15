@@ -63,7 +63,7 @@ class VLinearEquationsSolutionFooter:UICollectionReusableView
             return
         }
         
-        controller?.share(step:step)
+        controller?.share(stepIndex:step)
     }
     
     //MARK: public
