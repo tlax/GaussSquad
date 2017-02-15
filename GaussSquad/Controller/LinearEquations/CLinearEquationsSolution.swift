@@ -324,7 +324,9 @@ class CLinearEquationsSolution:CController
             NSLocalizedString("CLinearEquationsSolution_shareText", comment:""),
             style:
             UIAlertActionStyle.default)
-        { (action:UIAlertAction) in
+        { [weak self] (action:UIAlertAction) in
+            
+            self?.viewSolution.startExporting()
             
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             { [weak self] in
@@ -344,6 +346,7 @@ class CLinearEquationsSolution:CController
                 { [weak self] in
                     
                     self?.share(items:sharingItems)
+                    self?.viewSolution.endExporting()
                 }
             }
         }
@@ -392,7 +395,9 @@ class CLinearEquationsSolution:CController
             NSLocalizedString("CLinearEquationsSolution_shareStepText", comment:""),
             style:
             UIAlertActionStyle.default)
-        { (action:UIAlertAction) in
+        { [weak self] (action:UIAlertAction) in
+            
+            self?.viewSolution.startExporting()
             
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             { [weak self] in
@@ -421,6 +426,7 @@ class CLinearEquationsSolution:CController
                 { [weak self] in
                     
                     self?.share(items:sharingItems)
+                    self?.viewSolution.endExporting()
                 }
             }
         }
