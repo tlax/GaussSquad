@@ -98,6 +98,11 @@ class CLinearEquationsProject:CController
         }
     }
     
+    func help()
+    {
+        
+    }
+    
     func save()
     {
         DManager.sharedInstance?.save
