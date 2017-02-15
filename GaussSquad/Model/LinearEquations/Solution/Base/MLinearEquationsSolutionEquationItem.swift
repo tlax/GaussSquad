@@ -138,12 +138,5 @@ class MLinearEquationsSolutionEquationItem:MLinearEquationsSolutionShareProtocol
     
     func drawInRect(rect:CGRect)
     {
-        let titleRect:CGRect = CGRect(
-            x:kTitleLeft,
-            y:rect.origin.y,
-            width:kTitleWidth,
-            height:rect.size.height)
-        
-        title.draw(in:titleRect)
     }
 }

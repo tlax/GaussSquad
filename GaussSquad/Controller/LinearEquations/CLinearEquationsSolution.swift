@@ -94,8 +94,49 @@ class CLinearEquationsSolution:CController
                 height:headerHeight)
             
             step.drawInRect(rect:rect)
-            
             positionY += headerHeight
+            
+            for equation:MLinearEquationsSolutionEquation in step.equations
+            {
+                let itemIndex:MLinearEquationsSolutionEquationItem = equation.index
+                let itemResult:MLinearEquationsSolutionEquationItem = equation.result
+                let items:[MLinearEquationsSolutionEquationItem] = equation.items
+                
+                var positionX:CGFloat = 0
+                
+                let itemIndexWidth:CGFloat = itemIndex.cellWidth
+                let itemIndexRect:CGRect = CGRect(
+                    x:positionX,
+                    y:positionY,
+                    width:itemIndexWidth,
+                    height:kCellHeight)
+                
+                itemIndex.drawInRect(rect:itemIndexRect)
+                positionX += itemIndexWidth
+                
+                for item:MLinearEquationsSolutionEquationItem in items
+                {
+                    let itemWidth:CGFloat = item.cellWidth
+                    let itemRect:CGRect = CGRect(
+                        x:positionX,
+                        y:positionY,
+                        width:itemWidth,
+                        height:kCellHeight)
+                    
+                    item.drawInRect(rect:itemRect)
+                    positionX += itemWidth
+                }
+                
+                let itemResultWidth:CGFloat = itemResult.cellWidth
+                let itemResultRect:CGRect = CGRect(
+                    x:positionX,
+                    y:positionY,
+                    width:itemResultWidth,
+                    height:kCellHeight)
+                
+                itemResult.drawInRect(rect:itemResultRect)
+                positionY += kCellHeight
+            }
         }
         
         guard
