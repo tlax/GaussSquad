@@ -9,6 +9,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
     let imageSign:UIImage?
     let kBorderHeight:CGFloat = 1
     let kLabelHeight:CGFloat = 15
+    private let drawingOptions:NSStringDrawingOptions
     private let kMaxSignWidth:CGFloat = 20
     private let kFontSize:CGFloat = 12
     private let kMaxStringWidth:CGFloat = 5000
@@ -25,12 +26,13 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
         coefficientDivisor:Double,
         showSign:Bool)
     {
+        drawingOptions = NSStringDrawingOptions([
+            NSStringDrawingOptions.usesLineFragmentOrigin,
+            NSStringDrawingOptions.usesFontLeading])
+        
         let absoluteDividend:Double = abs(coefficientDividend)
         let attributes:[String:AnyObject] = [
             NSFontAttributeName:UIFont.numericBold(size:kFontSize)]
-        let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
-            NSStringDrawingOptions.usesFontLeading,
-            NSStringDrawingOptions.usesLineFragmentOrigin])
         let maxSize:CGSize = CGSize(
             width:kMaxStringWidth,
             height:kMaxStringHeight)
@@ -146,23 +148,37 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
             imageSign.draw(in:imageRect)
         }
         
-        let stringDividendTop:CGFloat = rectCenterY - kLabelHeight
-        let stringDividendLeft:CGFloat = rectX + signWidth
-        let stringDividendWidth:CGFloat = rectWidth - signWidth
+        let stringPossibleWidth:CGFloat = rectWidth - signWidth
+        let dividendRect:CGRect = stringDividend.boundingRect(
+            with:rect.size,
+            options:drawingOptions,
+            context:nil)
+        let maxDividendWidth:CGFloat = ceil(dividendRect.width)
+        let dividendRemainWidth:CGFloat = stringPossibleWidth - maxDividendWidth
+        let dividendMarginLeft:CGFloat = dividendRemainWidth / 2.0
+        let stringDividendTop:CGFloat = (rectCenterY + kBorderHeight) - kLabelHeight
+        let stringDividendLeft:CGFloat = rectX + dividendMarginLeft + signWidth
         let stringDividendRect:CGRect = CGRect(
             x:stringDividendLeft,
             y:stringDividendTop,
-            width:stringDividendWidth,
+            width:maxDividendWidth,
             height:kLabelHeight)
         
         stringDividend.draw(in:stringDividendRect)
         
-        let stringDivisorLeft:CGFloat = rectX + signWidth
-        let stringDivisorWidth:CGFloat = rectWidth - signWidth
+        let divisorRect:CGRect = stringDivisor.boundingRect(
+            with:rect.size,
+            options:drawingOptions,
+            context:nil)
+        let maxDivisorWidth:CGFloat = ceil(divisorRect.width)
+        let divisorRemainWidth:CGFloat = stringPossibleWidth - maxDivisorWidth
+        let divisorMarginLeft:CGFloat = divisorRemainWidth / 2.0
+        let stringDivisorTop:CGFloat = rectCenterY - kBorderHeight
+        let stringDivisorLeft:CGFloat = rectX + divisorMarginLeft + signWidth
         let stringDivisorRect:CGRect = CGRect(
             x:stringDivisorLeft,
-            y:rectCenterY,
-            width:stringDivisorWidth,
+            y:stringDivisorTop,
+            width:maxDivisorWidth,
             height:kLabelHeight)
         
         stringDivisor.draw(in:stringDivisorRect)
