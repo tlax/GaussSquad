@@ -110,6 +110,7 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        collectionView.isUserInteractionEnabled = false
         let item:MLinearEquationsSolutionBarItem = modelAtIndex(index:indexPath)
         item.selected(controller:controller)
         
@@ -117,6 +118,7 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
             deadline:DispatchTime.now() + kDeselectTime)
         { [weak collectionView] in
             
+            collectionView?.isUserInteractionEnabled = true
             collectionView?.selectItem(
                 at:nil,
                 animated:true,
