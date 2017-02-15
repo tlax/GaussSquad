@@ -19,6 +19,8 @@
 "MLinearEquationsSolutionStrategyOnlyPivots_descr"="Equation %@ = Equation %@ + (Equation %@ × %@)";
 "MLinearEquationsSolutionStrategyRemoveCoefficients_descr"="Multiplying equation %@ by %@";
 "MLinearEquationsSolutionStrategyValidateTotalRows_emptyRows"="No valid equation found";
+"MLinearEquationsSolutionStepDone_title"="Solution";
+"MLinearEquationsSolutionStepDone_subtitle"="\nReduced row echelon form";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";
@@ -33,8 +35,6 @@
 "VLinearEquationsIndeterminateListHeader_labelTitlte"="Indeterminate";
 "VLinearEquationsIndeterminateListHeader_buttonNone"="None";
 "VLinearEquationsSolutionHeaderStart_label"="Initial linear system";
-"VLinearEquationsSolutionHeaderDone_title"="Solution";
-"VLinearEquationsSolutionHeaderDone_subtitle"="\nReduced row echelon form";
 "VLinearEquationsSolutionHeaderError_title"="Error\n";
 
 "CLinearEquationsIndeterminate_errorInvalid"="Name can't be empty";

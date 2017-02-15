@@ -9,29 +9,44 @@ class MLinearEquationsSolutionStepDone:MLinearEquationsSolutionStep
     {
         let reusableIdentifier:String = VLinearEquationsSolutionHeaderDone.reusableIdentifier
         
+        let attributesTitle:[String:AnyObject] = [
+            NSFontAttributeName:UIFont.bold(size:22),
+            NSForegroundColorAttributeName:UIColor.squadBlue]
+        let attributesSubtitle:[String:AnyObject] = [
+            NSFontAttributeName:UIFont.medium(size:13),
+            NSForegroundColorAttributeName:UIColor.black]
+        let stringTitle:NSAttributedString = NSAttributedString(
+            string:NSLocalizedString("MLinearEquationsSolutionStepDone_title", comment:""),
+            attributes:attributesTitle)
+        let stringSubtitle:NSAttributedString = NSAttributedString(
+            string:NSLocalizedString("MLinearEquationsSolutionStepDone_subtitle", comment:""),
+            attributes:attributesSubtitle)
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        mutableString.append(stringTitle)
+        mutableString.append(stringSubtitle)
+        
         super.init(
+            title:mutableString,
             equations:equations,
             reusableIdentifier:reusableIdentifier,
             headerHeight:kHeaderHeight)
     }
     
     override func shareText() -> String?
-    {
-        let title:String = NSLocalizedString("VLinearEquationsSolutionHeaderDone_title", comment:"")
-        let subtitle:String = NSLocalizedString("VLinearEquationsSolutionHeaderDone_subtitle", comment:"")
-        
-        let mutableString:NSMutableString = NSMutableString()
-        mutableString.append(title)
-        mutableString.append(subtitle)
-        mutableString.append(kNewLine)
-        
-        if let parentText:String = super.shareText()
-        {
-            mutableString.append(parentText)
-        }
-        
-        let string:String = mutableString as String
+    {        
+        let string:String = title.string as String
         
         return string
+    }
+    
+    override func drawInRect(rect:CGRect)
+    {
+        let titleRect:CGRect = CGRect(
+            x:kTitleLeft,
+            y:rect.origin.y,
+            width:kTitleWidth,
+            height:rect.size.height)
+        
+        title.draw(in:titleRect)
     }
 }

@@ -1,18 +1,23 @@
 import UIKit
 
-class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol
+class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol, MLinearEquationsSolutionDrawableProtocol
 {
+    let title:NSAttributedString
     let equations:[MLinearEquationsSolutionEquation]
     let reusableIdentifier:String
     let headerHeight:CGFloat
     let plainItems:[MLinearEquationsSolutionEquationItem]
+    let kTitleLeft:CGFloat = 10
+    let kTitleWidth:CGFloat = 280
     private let kNewLine:String = "\n"
     
     init(
+        title:NSAttributedString,
         equations:[MLinearEquationsSolutionEquation],
         reusableIdentifier:String,
         headerHeight:CGFloat)
     {
+        self.title = title
         self.equations = equations
         self.reusableIdentifier = reusableIdentifier
         self.headerHeight = headerHeight
@@ -55,5 +60,11 @@ class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol
         let string:String = mutableString as String
         
         return string
+    }
+    
+    //MARK: drawable protocol
+    
+    func drawInRect(rect:CGRect)
+    {
     }
 }

@@ -2,6 +2,7 @@ import UIKit
 
 class VLinearEquationsSolutionHeaderDone:VLinearEquationsSolutionHeader
 {
+    private weak var label:UILabel!
     private let kLabelLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 280
     
@@ -9,28 +10,12 @@ class VLinearEquationsSolutionHeaderDone:VLinearEquationsSolutionHeader
     {
         super.init(frame:frame)
         
-        let attributesTitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.bold(size:22),
-            NSForegroundColorAttributeName:UIColor.squadBlue]
-        let attributesSubtitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.medium(size:13),
-            NSForegroundColorAttributeName:UIColor.black]
-        let stringTitle:NSAttributedString = NSAttributedString(
-            string:NSLocalizedString("VLinearEquationsSolutionHeaderDone_title", comment:""),
-            attributes:attributesTitle)
-        let stringSubtitle:NSAttributedString = NSAttributedString(
-            string:NSLocalizedString("VLinearEquationsSolutionHeaderDone_subtitle", comment:""),
-            attributes:attributesSubtitle)
-        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
-        mutableString.append(stringTitle)
-        mutableString.append(stringSubtitle)
-        
         let label:UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.isUserInteractionEnabled = false
         label.backgroundColor = UIColor.clear
-        label.attributedText = mutableString
+        self.label = label
         
         addSubview(label)
         
@@ -49,5 +34,9 @@ class VLinearEquationsSolutionHeaderDone:VLinearEquationsSolutionHeader
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func config(step: MLinearEquationsSolutionStep, indexPath: IndexPath)
+    {
     }
 }
