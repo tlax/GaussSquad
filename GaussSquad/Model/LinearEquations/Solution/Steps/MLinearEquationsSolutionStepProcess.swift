@@ -2,34 +2,22 @@ import UIKit
 
 class MLinearEquationsSolutionStepProcess:MLinearEquationsSolutionStep
 {
-    private let kHeaderHeight:CGFloat = 70
+    private let kHeaderHeight:CGFloat = 50
     
     init(
         equations:[MLinearEquationsSolutionEquation],
         descr:String)
     {
-        self.descr = descr
-        let reusableIdentifier:String = VLinearEquationsSolutionHeaderProcess.reusableIdentifier
+        let attributes:[String:AnyObject] = [
+            NSFontAttributeName:UIFont.regular(size:14),
+            NSForegroundColorAttributeName:UIColor(white:0, alpha:0.8)]
+        let stringTitle:NSAttributedString = NSAttributedString(
+            string:descr,
+            attributes:attributes)
         
         super.init(
+            title:stringTitle,
             equations:equations,
-            reusableIdentifier:reusableIdentifier,
             headerHeight:kHeaderHeight)
-    }
-    
-    override func shareText() -> String?
-    {
-        let mutableString:NSMutableString = NSMutableString()
-        mutableString.append(descr)
-        mutableString.append(kNewLine)
-        
-        if let parentText:String = super.shareText()
-        {
-            mutableString.append(parentText)
-        }
-        
-        let string:String = mutableString as String
-        
-        return string
     }
 }

@@ -7,7 +7,7 @@ class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol, MLinea
     let headerHeight:CGFloat
     let plainItems:[MLinearEquationsSolutionEquationItem]
     let kTitleLeft:CGFloat = 10
-    let kTitleWidth:CGFloat = 280
+    let kTitleWidth:CGFloat = 310
     private let kNewLine:String = "\n"
     
     init(
