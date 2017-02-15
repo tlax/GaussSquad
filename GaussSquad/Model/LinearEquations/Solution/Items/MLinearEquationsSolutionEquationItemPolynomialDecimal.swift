@@ -3,13 +3,17 @@ import UIKit
 class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolutionEquationItemPolynomial
 {
     let string:NSAttributedString
+    let stringSign:String
+    let signWidth:CGFloat
+    let imageSign:UIImage?
+    private let kMaxSignWidth:CGFloat = 20
     private let kFontSize:CGFloat = 20
     private let kMaxStringWidth:CGFloat = 5000
     private let kMaxStringHeight:CGFloat = 30
-    private let kAddedWidth:CGFloat = 20
     private let kShowAsDivision:Bool = false
     private let kAdd:String = "+"
     private let kSubstract:String = "-"
+    private let kEmpty:String = ""
     
     init(
         indeterminate:MLinearEquationsSolutionIndeterminatesItem,
@@ -52,16 +56,30 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
             context:nil)
         let textWidth:CGFloat = ceil(stringRect.size.width)
         let reusableIdentifier:String = VLinearEquationsSolutionCellPolynomialDecimal.reusableIdentifier
-        let cellWidth:CGFloat
         
         if showSign
         {
-            cellWidth = textWidth + kAddedWidth
+            signWidth = kMaxSignWidth
+            
+            if coefficientDividend >= 0
+            {
+                imageSign = #imageLiteral(resourceName: "assetGenericColAddSmall")
+                stringSign = kAdd
+            }
+            else
+            {
+                imageSign = #imageLiteral(resourceName: "assetGenericColSubstractSmall")
+                stringSign = kSubstract
+            }
         }
         else
         {
-            cellWidth = textWidth
+            signWidth = 0
+            imageSign = nil
+            stringSign = kEmpty
         }
+        
+        let cellWidth:CGFloat = textWidth + signWidth
         
         super.init(
             indeterminate:indeterminate,
@@ -76,19 +94,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
     override func shareText() -> String?
     {
         let mutableString:NSMutableString = NSMutableString()
-        
-        if showSign
-        {
-            if coefficient >= 0
-            {
-                mutableString.append(kAdd)
-            }
-            else
-            {
-                mutableString.append(kSubstract)
-            }
-        }
-        
+        mutableString.append(stringSign)
         mutableString.append(self.string.string)
         
         let string:String = mutableString as String

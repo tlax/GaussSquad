@@ -4,14 +4,18 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
 {
     let stringDividend:NSAttributedString
     let stringDivisor:NSAttributedString
+    let stringSign:String
+    let signWidth:CGFloat
+    let imageSign:UIImage?
+    private let kMaxSignWidth:CGFloat = 20
     private let kFontSize:CGFloat = 12
     private let kMaxStringWidth:CGFloat = 5000
     private let kMaxStringHeight:CGFloat = 20
-    private let kAddedWidth:CGFloat = 20
     private let kShowAsDivision:Bool = true
     private let kAdd:String = "+"
     private let kSubstract:String = "-"
     private let kDivision:String = "/"
+    private let kEmpty:String = ""
     
     init(
         indeterminate:MLinearEquationsSolutionIndeterminatesItem,
@@ -65,18 +69,31 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
         let textDividendWidth:CGFloat = ceil(stringDividendRect.size.width)
         let textDivisorWidth:CGFloat = ceil(stringDivisorRect.size.width)
         let textMaxWidth:CGFloat = max(textDividendWidth, textDivisorWidth)
-        
         let reusableIdentifier:String = VLinearEquationsSolutionCellPolynomialDivision.reusableIdentifier
-        let cellWidth:CGFloat
         
         if showSign
         {
-            cellWidth = textMaxWidth + kAddedWidth
+            signWidth = kMaxSignWidth
+            
+            if coefficientDividend >= 0
+            {
+                imageSign = #imageLiteral(resourceName: "assetGenericColAddSmall")
+                stringSign = kAdd
+            }
+            else
+            {
+                imageSign = #imageLiteral(resourceName: "assetGenericColSubstractSmall")
+                stringSign = kSubstract
+            }
         }
         else
         {
-            cellWidth = textMaxWidth
+            signWidth = 0
+            imageSign = nil
+            stringSign = kEmpty
         }
+        
+        let cellWidth:CGFloat = textMaxWidth + signWidth
         
         super.init(
             indeterminate:indeterminate,
@@ -91,19 +108,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
     override func shareText() -> String?
     {
         let mutableString:NSMutableString = NSMutableString()
-        
-        if showSign
-        {
-            if coefficient >= 0
-            {
-                mutableString.append(kAdd)
-            }
-            else
-            {
-                mutableString.append(kSubstract)
-            }
-        }
-        
+        mutableString.append(stringSign)
         mutableString.append(stringDividend.string)
         mutableString.append(kDivision)
         mutableString.append(stringDivisor.string)

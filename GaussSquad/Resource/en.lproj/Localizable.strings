@@ -14,7 +14,7 @@
 "MLinearEquationsSolutionStrategyFractionReduction_descr"="Fraction reduction in equation %@";
 "MLinearEquationsSolutionStrategyZeroFill_descr"="Added %@ to equation %@";
 "MLinearEquationsSolutionStrategyOrderIndeterminates_descr"="Ordering polynomials in equation %@";
-"MLinearEquationsSolutionStrategyPivotOrdering_descr"="Swapping equations %@ and %@";
+"MLinearEquationsSolutionStrategyPivotOrdering_descr"="Swapp`ing equations %@ and %@";
 "MLinearEquationsSolutionStrategyRowAddition_descr"="Equation %@ = Equation %@ + (Equation %@ × %@)";
 "MLinearEquationsSolutionStrategyOnlyPivots_descr"="Equation %@ = Equation %@ + (Equation %@ × %@)";
 "MLinearEquationsSolutionStrategyRemoveCoefficients_descr"="Multiplying equation %@ by %@";
