@@ -4,8 +4,7 @@ class VLinearEquationsSolutionFooter:UICollectionReusableView
 {
     private weak var controller:CLinearEquationsSolution?
     private var index:IndexPath?
-    private let kMarginTop:CGFloat = 5
-    private let kMarginBottom:CGFloat = -35
+    private let kMarginBottom:CGFloat = -25
     private let kMarginLeft:CGFloat = 4
     private let kButtonMargin:CGFloat = 20
     private let kButtonWidth:CGFloat = 40
@@ -35,8 +34,7 @@ class VLinearEquationsSolutionFooter:UICollectionReusableView
         
         NSLayoutConstraint.topToTop(
             view:buttonShare,
-            toView:self,
-            constant:kMarginTop)
+            toView:self)
         NSLayoutConstraint.bottomToBottom(
             view:buttonShare,
             toView:self,
