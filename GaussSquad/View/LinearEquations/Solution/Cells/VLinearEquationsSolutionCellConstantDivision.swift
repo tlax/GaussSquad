@@ -7,7 +7,6 @@ class VLinearEquationsSolutionCellConstantDivision:VLinearEquationsSolutionCell
     private weak var imageView:UIImageView!
     private weak var layoutImageWidth:NSLayoutConstraint!
     private weak var layoutBorderTop:NSLayoutConstraint!
-    private let kImageWidth:CGFloat = 20
     private let kBorderHeight:CGFloat = 1
     private let kLabelHeight:CGFloat = 15
     
@@ -124,24 +123,7 @@ class VLinearEquationsSolutionCellConstantDivision:VLinearEquationsSolutionCell
         
         labelDividend.attributedText = model.stringDividend
         labelDivisor.attributedText = model.stringDivisor
-        
-        if model.showSign
-        {
-            layoutImageWidth.constant = kImageWidth
-            
-            if model.coefficientDividend >= 0
-            {
-                imageView.image = #imageLiteral(resourceName: "assetGenericColAddSmall")
-            }
-            else
-            {
-                imageView.image = #imageLiteral(resourceName: "assetGenericColSubstractSmall")
-            }
-        }
-        else
-        {
-            layoutImageWidth.constant = 0
-            imageView.image = nil
-        }
+        imageView.image = model.imageSign
+        layoutImageWidth.constant = model.signWidth
     }
 }

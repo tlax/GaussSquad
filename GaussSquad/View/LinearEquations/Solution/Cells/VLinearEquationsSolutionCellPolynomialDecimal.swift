@@ -4,7 +4,7 @@ class VLinearEquationsSolutionCellPolynomialDecimal:VLinearEquationsSolutionCell
 {
     private weak var label:UILabel!
     private weak var imageView:UIImageView!
-    private let kImageWidth:CGFloat = 20
+    private weak var layoutImageWidth:NSLayoutConstraint!
     
     override init(frame:CGRect)
     {
@@ -34,9 +34,8 @@ class VLinearEquationsSolutionCellPolynomialDecimal:VLinearEquationsSolutionCell
         NSLayoutConstraint.leftToLeft(
             view:imageView,
             toView:self)
-        NSLayoutConstraint.width(
-            view:imageView,
-            constant:kImageWidth)
+        layoutImageWidth = NSLayoutConstraint.width(
+            view:imageView)
         
         NSLayoutConstraint.equals(
             view:label,
@@ -62,21 +61,7 @@ class VLinearEquationsSolutionCellPolynomialDecimal:VLinearEquationsSolutionCell
         }
         
         label.attributedText = model.string
-        
-        if model.showSign
-        {
-            if model.coefficientDividend >= 0
-            {
-                imageView.image = #imageLiteral(resourceName: "assetGenericColAddSmall")
-            }
-            else
-            {
-                imageView.image = #imageLiteral(resourceName: "assetGenericColSubstractSmall")
-            }
-        }
-        else
-        {
-            imageView.image = nil
-        }
+        imageView.image = model.imageSign
+        layoutImageWidth.constant = model.signWidth
     }
 }
