@@ -30,7 +30,6 @@ class VLinearEquationsCell:UICollectionViewCell
         labelDescr.translatesAutoresizingMaskIntoConstraints = false
         labelDescr.backgroundColor = UIColor.clear
         labelDescr.textColor = UIColor.black
-        labelDescr.numberOfLines = 0
         self.labelDescr = labelDescr
         
         let labelAge:UILabel = UILabel()
@@ -72,7 +71,7 @@ class VLinearEquationsCell:UICollectionViewCell
         return nil
     }
     
-    override func layoutIfNeeded()
+    override func layoutSubviews()
     {
         guard
             
@@ -95,7 +94,7 @@ class VLinearEquationsCell:UICollectionViewCell
         let stringHeight:CGFloat = ceil(stringRect.size.height)
         layoutDescrHeight.constant = stringHeight
         
-        super.layoutIfNeeded()
+        super.layoutSubviews()
     }
     
     override var isSelected:Bool
@@ -136,6 +135,5 @@ class VLinearEquationsCell:UICollectionViewCell
         labelDescr.attributedText = model.descr
         labelAge.text = model.age
         hover()
-        layoutIfNeeded()
     }
 }

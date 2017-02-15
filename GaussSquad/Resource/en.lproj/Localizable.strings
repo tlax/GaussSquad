@@ -3,10 +3,10 @@
 "MHomeItemLinearEquations_symbol"="ax + b = 0";
 "MHomeItemLinearEquations_title"="Linear equations";
 "MLinearEquationsProject_defaultIndeterminate"="x";
-"MLinearEquationsItem_jump"="\n";
 "MLinearEquationsItem_positive"=" + ";
 "MLinearEquationsItem_negative"=" - ";
 "MLinearEquationsItem_division"="/";
+"MLinearEquationsItem_equals"=" = ";
 "MLinearEquationsSolutionStrategyReductionConstants_descr"="Reducing constants in equation %@";
 "MLinearEquationsSolutionStrategyReductionIndeterminates_descr"="Reducing indeterminate in equation %@";
 "MLinearEquationsSolutionStrategyIndeterminatesLeft_descr"="Moving indeterminate to left in equation %@";

@@ -12,7 +12,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var layoutBarHeight:NSLayoutConstraint!
     private weak var layoutButtonAddLeft:NSLayoutConstraint!
     private let kDeselectTime:TimeInterval = 0.2
-    private let kCellHeight:CGFloat = 180
+    private let kCellHeight:CGFloat = 75
     private let kCollectionBottom:CGFloat = 20
     private let kInterline:CGFloat = 1
     private let kBackTop:CGFloat = 20
@@ -23,7 +23,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     override init(controller:CController)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor(white:0.98, alpha:1)
+        backgroundColor = UIColor(white:0.95, alpha:1)
         self.controller = controller as? CLinearEquations
         
         let spinner:VSpinner = VSpinner()
