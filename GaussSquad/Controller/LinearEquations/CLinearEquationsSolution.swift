@@ -7,7 +7,7 @@ class CLinearEquationsSolution:CController
     private let kBarHeight:CGFloat = 81
     private let kFooterHeight:CGFloat = 50
     private let kCellHeight:CGFloat = 25
-    private let kSmallFooterHeight:CGFloat = 20
+    private let kSmallFooterHeight:CGFloat = 25
     
     init(project:DProject)
     {
@@ -57,7 +57,7 @@ class CLinearEquationsSolution:CController
     private func shareStepsImage(steps:[MLinearEquationsSolutionStep])
     {
         let totalWidth:CGFloat = viewSolution.collectionView.contentSize.width
-        var totalHeight:CGFloat = 0
+        var totalHeight:CGFloat = kSmallFooterHeight
         
         for step:MLinearEquationsSolutionStep in steps
         {
@@ -84,7 +84,7 @@ class CLinearEquationsSolution:CController
         context.setFillColor(UIColor.white.cgColor)
         context.fill(frame)
         
-        var positionY:CGFloat = 0
+        var positionY:CGFloat = kSmallFooterHeight
         
         for step:MLinearEquationsSolutionStep in steps
         {
