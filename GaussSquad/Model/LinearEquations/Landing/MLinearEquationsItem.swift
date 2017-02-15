@@ -12,7 +12,7 @@ class MLinearEquationsItem
         self.project = project
         
         attributes = [
-            NSFontAttributeName:UIFont.numeric(size:20),
+            NSFontAttributeName:UIFont.numeric(size:16),
             NSForegroundColorAttributeName:UIColor.black]
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
@@ -118,8 +118,6 @@ class MLinearEquationsItem
                 return string
             }
         }
-        
-        return ""
     }
     
     fileprivate class func stringOperator(

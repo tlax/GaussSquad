@@ -5,22 +5,13 @@ class VLinearEquationsCell:UICollectionViewCell
     private weak var model:MLinearEquationsItem?
     private weak var labelDescr:UILabel!
     private weak var labelAge:UILabel!
-    private weak var layoutDescrHeight:NSLayoutConstraint!
-    private let drawingOptions:NSStringDrawingOptions
-    private let labelMargin2:CGFloat
-    private let kLabelMaxHeight:CGFloat = 5000
     private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
     private let kLabelMargin:CGFloat = 10
-    private let kAgeHeight:CGFloat = 25
+    private let kAgeHeight:CGFloat = 20
  
     override init(frame:CGRect)
     {
-        labelMargin2 = kLabelMargin + kLabelMargin
-        drawingOptions = NSStringDrawingOptions([
-            NSStringDrawingOptions.usesLineFragmentOrigin,
-            NSStringDrawingOptions.usesFontLeading])
-        
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.white
@@ -36,8 +27,8 @@ class VLinearEquationsCell:UICollectionViewCell
         labelAge.isUserInteractionEnabled = false
         labelAge.translatesAutoresizingMaskIntoConstraints = false
         labelAge.backgroundColor = UIColor.clear
-        labelAge.font = UIFont.regular(size:11)
-        labelAge.textColor = UIColor.black
+        labelAge.font = UIFont.bold(size:13)
+        labelAge.textColor = UIColor.squadBlue
         self.labelAge = labelAge
         
         addSubview(labelDescr)
@@ -47,8 +38,9 @@ class VLinearEquationsCell:UICollectionViewCell
             view:labelDescr,
             toView:self,
             constant:kLabelMargin)
-        layoutDescrHeight = NSLayoutConstraint.height(
-            view:labelDescr)
+        NSLayoutConstraint.bottomToTop(
+            view:labelDescr,
+            toView:labelAge)
         NSLayoutConstraint.equalsHorizontal(
             view:labelDescr,
             toView:self,
@@ -56,7 +48,8 @@ class VLinearEquationsCell:UICollectionViewCell
         
         NSLayoutConstraint.bottomToBottom(
             view:labelAge,
-            toView:self)
+            toView:self,
+            constant:-kLabelMargin)
         NSLayoutConstraint.height(
             view:labelAge,
             constant:kAgeHeight)
@@ -69,32 +62,6 @@ class VLinearEquationsCell:UICollectionViewCell
     required init?(coder:NSCoder)
     {
         return nil
-    }
-    
-    override func layoutSubviews()
-    {
-        guard
-            
-            let attributedString:NSAttributedString = labelDescr.attributedText
-        
-        else
-        {
-            return
-        }
-        
-        let width:CGFloat = bounds.maxX
-        let remainWidth:CGFloat = width - labelMargin2
-        let maxSize:CGSize = CGSize(
-            width:remainWidth,
-            height:kLabelMaxHeight)
-        let stringRect:CGRect = attributedString.boundingRect(
-            with:maxSize,
-            options:drawingOptions,
-            context:nil)
-        let stringHeight:CGFloat = ceil(stringRect.size.height)
-        layoutDescrHeight.constant = stringHeight
-        
-        super.layoutSubviews()
     }
     
     override var isSelected:Bool
