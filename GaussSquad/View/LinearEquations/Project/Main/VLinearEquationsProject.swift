@@ -153,7 +153,7 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
             deadline:DispatchTime.now() + kDeselectTime)
         { [weak collectionView] in
             
-            collectionView?.isUserInteractionEnabled = false
+            collectionView?.isUserInteractionEnabled = true
             collectionView?.selectItem(
                 at:nil,
                 animated:true,
