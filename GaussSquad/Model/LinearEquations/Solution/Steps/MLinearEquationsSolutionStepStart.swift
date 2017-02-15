@@ -3,15 +3,11 @@ import UIKit
 class MLinearEquationsSolutionStepStart:MLinearEquationsSolutionStep
 {
     private let kHeaderHeight:CGFloat = 60
-    private let kNewLine:String = "\n"
     
     init(equations:[MLinearEquationsSolutionEquation])
     {
-        let reusableIdentifier:String = VLinearEquationsSolutionHeaderStart.reusableIdentifier
-        
         super.init(
             equations:equations,
-            reusableIdentifier:reusableIdentifier,
             headerHeight:kHeaderHeight)
     }
     

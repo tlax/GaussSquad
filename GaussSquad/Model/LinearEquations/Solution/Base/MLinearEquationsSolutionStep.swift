@@ -4,7 +4,6 @@ class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol, MLinea
 {
     let title:NSAttributedString
     let equations:[MLinearEquationsSolutionEquation]
-    let reusableIdentifier:String
     let headerHeight:CGFloat
     let plainItems:[MLinearEquationsSolutionEquationItem]
     let kTitleLeft:CGFloat = 10
@@ -14,12 +13,10 @@ class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol, MLinea
     init(
         title:NSAttributedString,
         equations:[MLinearEquationsSolutionEquation],
-        reusableIdentifier:String,
         headerHeight:CGFloat)
     {
         self.title = title
         self.equations = equations
-        self.reusableIdentifier = reusableIdentifier
         self.headerHeight = headerHeight
         
         var plainItems:[MLinearEquationsSolutionEquationItem] = []
@@ -37,6 +34,8 @@ class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol, MLinea
     func shareText() -> String?
     {
         let mutableString:NSMutableString = NSMutableString()
+        mutableString.append(title.string)
+        mutableString.append(kNewLine)
         
         for equation:MLinearEquationsSolutionEquation in equations
         {
@@ -66,5 +65,12 @@ class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol, MLinea
     
     func drawInRect(rect:CGRect)
     {
+        let titleRect:CGRect = CGRect(
+            x:kTitleLeft,
+            y:rect.origin.y,
+            width:kTitleWidth,
+            height:rect.size.height)
+        
+        title.draw(in:titleRect)
     }
 }

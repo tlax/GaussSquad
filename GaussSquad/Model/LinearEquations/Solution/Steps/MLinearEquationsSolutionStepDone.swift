@@ -3,12 +3,9 @@ import UIKit
 class MLinearEquationsSolutionStepDone:MLinearEquationsSolutionStep
 {
     private let kHeaderHeight:CGFloat = 100
-    private let kNewLine:String = "\n"
     
     init(equations:[MLinearEquationsSolutionEquation])
     {
-        let reusableIdentifier:String = VLinearEquationsSolutionHeaderDone.reusableIdentifier
-        
         let attributesTitle:[String:AnyObject] = [
             NSFontAttributeName:UIFont.bold(size:22),
             NSForegroundColorAttributeName:UIColor.squadBlue]
@@ -28,25 +25,6 @@ class MLinearEquationsSolutionStepDone:MLinearEquationsSolutionStep
         super.init(
             title:mutableString,
             equations:equations,
-            reusableIdentifier:reusableIdentifier,
             headerHeight:kHeaderHeight)
-    }
-    
-    override func shareText() -> String?
-    {        
-        let string:String = title.string as String
-        
-        return string
-    }
-    
-    override func drawInRect(rect:CGRect)
-    {
-        let titleRect:CGRect = CGRect(
-            x:kTitleLeft,
-            y:rect.origin.y,
-            width:kTitleWidth,
-            height:rect.size.height)
-        
-        title.draw(in:titleRect)
     }
 }
