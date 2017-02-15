@@ -119,4 +119,74 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
         
         return string
     }
+    
+    override func drawInRect(rect:CGRect)
+    {
+        let rectX:CGFloat = rect.origin.x
+        let rectY:CGFloat = rect.origin.y
+        let rectWidth:CGFloat = rect.size.width
+        let rectHeight:CGFloat = rect.size.height
+        let rectHeight_2:CGFloat = rectHeight / 2.0
+        let rectCenterY:CGFloat = rectY + rectHeight_2
+        
+        if let imageSign:UIImage = self.imageSign
+        {
+            let imageWidth:CGFloat = imageSign.size.width
+            let imageHeight:CGFloat = imageSign.size.height
+            let imageRemainX:CGFloat = signWidth - imageWidth
+            let imageRemainY:CGFloat = rectHeight - imageHeight
+            let imageMarginX:CGFloat = imageRemainX / 2.0
+            let imageMarginY:CGFloat = imageRemainY / 2.0
+            let imageRect:CGRect = CGRect(
+                x:rectX + imageMarginX,
+                y:rectY + imageMarginY,
+                width:imageWidth,
+                height:imageHeight)
+            
+            imageSign.draw(in:imageRect)
+        }
+        
+        let stringDividendTop:CGFloat = rectCenterY - kLabelHeight
+        let stringDividendLeft:CGFloat = rectX + signWidth
+        let stringDividendWidth:CGFloat = rectWidth - signWidth
+        let stringDividendRect:CGRect = CGRect(
+            x:stringDividendLeft,
+            y:stringDividendTop,
+            width:stringDividendWidth,
+            height:kLabelHeight)
+        
+        stringDividend.draw(in:stringDividendRect)
+        
+        let stringDivisorLeft:CGFloat = rectX + signWidth
+        let stringDivisorWidth:CGFloat = rectWidth - signWidth
+        let stringDivisorRect:CGRect = CGRect(
+            x:stringDivisorLeft,
+            y:rectHeight_2,
+            width:stringDivisorWidth,
+            height:kLabelHeight)
+        
+        stringDivisor.draw(in:stringDivisorRect)
+        
+        guard
+            
+            let context:CGContext = UIGraphicsGetCurrentContext()
+            
+        else
+        {
+            return
+        }
+        
+        let borderLeft:CGFloat = rectX + signWidth
+        let borderWidth:CGFloat = rectWidth - signWidth
+        let borderRemain:CGFloat = rectHeight - kBorderHeight
+        let borderTop:CGFloat = borderRemain / 2.0
+        let borderRect:CGRect = CGRect(
+            x:borderLeft,
+            y:borderTop,
+            width:borderWidth,
+            height:kBorderHeight)
+        
+        context.setFillColor(UIColor(white:0, alpha:0.3).cgColor)
+        context.fill(borderRect)
+    }
 }
