@@ -2,17 +2,17 @@ import UIKit
 
 class MLinearEquationsSolutionStepError:MLinearEquationsSolutionStep
 {
-    private let kHeaderHeight:CGFloat = 80
+    private let kHeaderHeight:CGFloat = 70
     
     init(
         equations:[MLinearEquationsSolutionEquation],
         descr:String)
     {
         let attributesTitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.bold(size:17),
+            NSFontAttributeName:UIFont.bold(size:15),
             NSForegroundColorAttributeName:UIColor.squadRed]
         let attributesSubtitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.medium(size:14),
+            NSFontAttributeName:UIFont.medium(size:13),
             NSForegroundColorAttributeName:UIColor.black]
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()

@@ -87,11 +87,10 @@ class CLinearEquationsSolution:CController
         let header:VLinearEquationsSolutionHeader = collectionView.dequeueReusableSupplementaryView(
             ofKind:UICollectionElementKindSectionHeader,
             withReuseIdentifier:
-            step.reusableIdentifier,
+            VLinearEquationsSolutionHeader.reusableIdentifier,
             for:sectionPath) as! VLinearEquationsSolutionHeader
         header.config(
-            step:step,
-            indexPath:sectionPath)
+            step:step)
         let removeFromTop:CGFloat = header.frame.minY
         let headerFrame:CGRect = CGRect(
             x:0,
@@ -191,11 +190,10 @@ class CLinearEquationsSolution:CController
             let header:VLinearEquationsSolutionHeader = collectionView.dequeueReusableSupplementaryView(
                 ofKind:UICollectionElementKindSectionHeader,
                 withReuseIdentifier:
-                step.reusableIdentifier,
+                VLinearEquationsSolutionHeader.reusableIdentifier,
                 for:sectionPath) as! VLinearEquationsSolutionHeader
             header.config(
-                step:step,
-                indexPath:sectionPath)
+                step:step)
             let headerFrame:CGRect = header.frame
             let exportableHeaderFrame:CGRect = headerFrame.offsetBy(
                 dx:0,

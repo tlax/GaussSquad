@@ -7,7 +7,7 @@ class MLinearEquationsSolutionStepDone:MLinearEquationsSolutionStep
     init(equations:[MLinearEquationsSolutionEquation])
     {
         let attributesTitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.bold(size:22),
+            NSFontAttributeName:UIFont.bold(size:20),
             NSForegroundColorAttributeName:UIColor.squadBlue]
         let attributesSubtitle:[String:AnyObject] = [
             NSFontAttributeName:UIFont.medium(size:13),

@@ -6,64 +6,67 @@ class MLinearEquationsSolutionStrategyOnlyPivots:MLinearEquationsSolutionStrateg
     {
         let countEquations:Int = step.equations.count
         
-        for indexEquation:Int in 1 ..< countEquations
+        if countEquations > 1
         {
-            let indexItem:Int = countEquations - indexEquation
-            let equation:MLinearEquationsSolutionEquation = step.equations[indexItem]
-            let pivotIndex:Int = equation.pivotIndex()
-            
-            guard
-                
-                let pivotItem:MLinearEquationsSolutionEquationItemPolynomial = equation.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
-                
-            else
+            for indexEquation:Int in 1 ..< countEquations
             {
-                continue
-            }
-            
-            for prevIndex:Int in 0 ..< indexItem
-            {
-                let equationAbove:MLinearEquationsSolutionEquation = step.equations[prevIndex]
+                let indexItem:Int = countEquations - indexEquation
+                let equation:MLinearEquationsSolutionEquation = step.equations[indexItem]
+                let pivotIndex:Int = equation.pivotIndex()
                 
                 guard
                     
-                    let itemAbove:MLinearEquationsSolutionEquationItemPolynomial = equationAbove.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
+                    let pivotItem:MLinearEquationsSolutionEquationItemPolynomial = equation.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
                     
                 else
                 {
                     continue
                 }
                 
-                if abs(itemAbove.coefficient) > MSession.sharedInstance.kMinNumber
+                for prevIndex:Int in 0 ..< indexItem
                 {
-                    if pivotItem.indeterminate === itemAbove.indeterminate
+                    let equationAbove:MLinearEquationsSolutionEquation = step.equations[prevIndex]
+                    
+                    guard
+                        
+                        let itemAbove:MLinearEquationsSolutionEquationItemPolynomial = equationAbove.items[pivotIndex] as? MLinearEquationsSolutionEquationItemPolynomial
+                        
+                    else
                     {
-                        let topCoefficient:Double = itemAbove.coefficient
-                        let bottomCoefficient:Double = pivotItem.coefficient
-                        var scalar:Double = abs(topCoefficient / bottomCoefficient)
-                        
-                        if topCoefficient > 0
+                        continue
+                    }
+                    
+                    if abs(itemAbove.coefficient) > MSession.sharedInstance.kMinNumber
+                    {
+                        if pivotItem.indeterminate === itemAbove.indeterminate
                         {
-                            if bottomCoefficient > 0
+                            let topCoefficient:Double = itemAbove.coefficient
+                            let bottomCoefficient:Double = pivotItem.coefficient
+                            var scalar:Double = abs(topCoefficient / bottomCoefficient)
+                            
+                            if topCoefficient > 0
                             {
-                                scalar = -scalar
+                                if bottomCoefficient > 0
+                                {
+                                    scalar = -scalar
+                                }
                             }
-                        }
-                        else
-                        {
-                            if bottomCoefficient < 0
+                            else
                             {
-                                scalar = -scalar
+                                if bottomCoefficient < 0
+                                {
+                                    scalar = -scalar
+                                }
                             }
+                            
+                            let strategy:MLinearEquationsSolutionStrategyOnlyPivots = MLinearEquationsSolutionStrategyOnlyPivots(
+                                step:step,
+                                indexPivot:indexItem,
+                                indexAbove:prevIndex,
+                                scalar:scalar)
+                            
+                            return strategy
                         }
-                        
-                        let strategy:MLinearEquationsSolutionStrategyOnlyPivots = MLinearEquationsSolutionStrategyOnlyPivots(
-                            step:step,
-                            indexPivot:indexItem,
-                            indexAbove:prevIndex,
-                            scalar:scalar)
-                        
-                        return strategy
                     }
                 }
             }
