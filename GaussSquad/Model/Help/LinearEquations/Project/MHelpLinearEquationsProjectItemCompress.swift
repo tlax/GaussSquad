@@ -1,9 +1,11 @@
-//
-//  MHelpLinearEquationsProjectItemCompress.swift
-//  GaussSquad
-//
-//  Created by zero on 2/15/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MHelpLinearEquationsProjectItemCompress:MHelpItem
+{
+    init()
+    {
+        super.init(
+            image:image,
+            title:NSLocalizedString("MHelpLinearEquationsProjectItemCompress_title", comment:""))
+    }
+}

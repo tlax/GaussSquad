@@ -100,7 +100,9 @@ class CLinearEquationsProject:CController
     
     func help()
     {
-        let controllerHelp:CHelp = CHelp(model: <#T##MHelp#>)
+        let modelHelp:MHelpLinearEquationsProject = MHelpLinearEquationsProject()
+        let controllerHelp:CHelp = CHelp(model:modelHelp)
+        parentController.animateOver(controller:controllerHelp)
     }
     
     func save()

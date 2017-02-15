@@ -582,10 +582,10 @@
 			isa = PBXGroup;
 			children = (
 				DA9F6F941E5518A6003C5486 /* MHelpLinearEquationsProject.swift */,
+				DA9F6F9C1E551907003C5486 /* MHelpLinearEquationsProjectItemPolynomials.swift */,
 				DA9F6F961E5518DC003C5486 /* MHelpLinearEquationsProjectItemAddPolynomial.swift */,
 				DA9F6F981E5518E5003C5486 /* MHelpLinearEquationsProjectItemAddRow.swift */,
 				DA9F6F9A1E5518F5003C5486 /* MHelpLinearEquationsProjectItemIndeterminates.swift */,
-				DA9F6F9C1E551907003C5486 /* MHelpLinearEquationsProjectItemPolynomials.swift */,
 				DA9F6F9E1E551911003C5486 /* MHelpLinearEquationsProjectItemCompress.swift */,
 				DA9F6FA01E55191B003C5486 /* MHelpLinearEquationsProjectItemSolution.swift */,
 			);
