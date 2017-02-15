@@ -78,9 +78,7 @@
 		DA62D3811E4CECAB000D0387 /* VLinearEquationsSolutionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3801E4CECAB000D0387 /* VLinearEquationsSolutionCell.swift */; };
 		DA62D3831E4CECC1000D0387 /* VLinearEquationsSolutionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3821E4CECC1000D0387 /* VLinearEquationsSolutionHeader.swift */; };
 		DA62D3871E4CED2B000D0387 /* VLinearEquationsSolutionHeaderProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3861E4CED2B000D0387 /* VLinearEquationsSolutionHeaderProcess.swift */; };
-		DA62D3891E4CED34000D0387 /* VLinearEquationsSolutionHeaderDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3881E4CED34000D0387 /* VLinearEquationsSolutionHeaderDone.swift */; };
 		DA62D38B1E4CED40000D0387 /* VLinearEquationsSolutionHeaderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D38A1E4CED40000D0387 /* VLinearEquationsSolutionHeaderError.swift */; };
-		DA62D38D1E4CEDF9000D0387 /* VLinearEquationsSolutionHeaderStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D38C1E4CEDF9000D0387 /* VLinearEquationsSolutionHeaderStart.swift */; };
 		DA62D38F1E4CF839000D0387 /* VLinearEquationsSolutionCellPolynomialDecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D38E1E4CF839000D0387 /* VLinearEquationsSolutionCellPolynomialDecimal.swift */; };
 		DA62D3911E4CF85B000D0387 /* VLinearEquationsSolutionCellPolynomialDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3901E4CF85B000D0387 /* VLinearEquationsSolutionCellPolynomialDivision.swift */; };
 		DA62D3931E4CF865000D0387 /* VLinearEquationsSolutionCellConstantDecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3921E4CF865000D0387 /* VLinearEquationsSolutionCellConstantDecimal.swift */; };
@@ -242,9 +240,7 @@
 		DA62D3801E4CECAB000D0387 /* VLinearEquationsSolutionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionCell.swift; sourceTree = "<group>"; };
 		DA62D3821E4CECC1000D0387 /* VLinearEquationsSolutionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionHeader.swift; sourceTree = "<group>"; };
 		DA62D3861E4CED2B000D0387 /* VLinearEquationsSolutionHeaderProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionHeaderProcess.swift; sourceTree = "<group>"; };
-		DA62D3881E4CED34000D0387 /* VLinearEquationsSolutionHeaderDone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionHeaderDone.swift; sourceTree = "<group>"; };
 		DA62D38A1E4CED40000D0387 /* VLinearEquationsSolutionHeaderError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionHeaderError.swift; sourceTree = "<group>"; };
-		DA62D38C1E4CEDF9000D0387 /* VLinearEquationsSolutionHeaderStart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionHeaderStart.swift; sourceTree = "<group>"; };
 		DA62D38E1E4CF839000D0387 /* VLinearEquationsSolutionCellPolynomialDecimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionCellPolynomialDecimal.swift; sourceTree = "<group>"; };
 		DA62D3901E4CF85B000D0387 /* VLinearEquationsSolutionCellPolynomialDivision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionCellPolynomialDivision.swift; sourceTree = "<group>"; };
 		DA62D3921E4CF865000D0387 /* VLinearEquationsSolutionCellConstantDecimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionCellConstantDecimal.swift; sourceTree = "<group>"; };
@@ -568,9 +564,7 @@
 		DA62D37D1E4CEC08000D0387 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				DA62D38C1E4CEDF9000D0387 /* VLinearEquationsSolutionHeaderStart.swift */,
 				DA62D3861E4CED2B000D0387 /* VLinearEquationsSolutionHeaderProcess.swift */,
-				DA62D3881E4CED34000D0387 /* VLinearEquationsSolutionHeaderDone.swift */,
 				DA62D38A1E4CED40000D0387 /* VLinearEquationsSolutionHeaderError.swift */,
 			);
 			path = Headers;
@@ -1029,7 +1023,6 @@
 				DA62D38F1E4CF839000D0387 /* VLinearEquationsSolutionCellPolynomialDecimal.swift in Sources */,
 				DAFF4ABF1E397B9600A2DD4B /* MSession.swift in Sources */,
 				DA316CEF1E45900D008E7270 /* VLinearEquationsIndeterminateListHeader.swift in Sources */,
-				DA62D38D1E4CEDF9000D0387 /* VLinearEquationsSolutionHeaderStart.swift in Sources */,
 				DA62D3531E4CD39C000D0387 /* MLinearEquationsSolution.swift in Sources */,
 				DAD518AD1E3FBCF90004C8D8 /* MLinearEquations.swift in Sources */,
 				DAFDD4FC1E439D8400880556 /* MLinearEquationsProjectBarItemBack.swift in Sources */,
@@ -1102,7 +1095,6 @@
 				DA62D3911E4CF85B000D0387 /* VLinearEquationsSolutionCellPolynomialDivision.swift in Sources */,
 				DAC2164D1E42304E009EDBF7 /* VLinearEquationsProjectCellNewPolynomial.swift in Sources */,
 				DA133A641E4119E00028D90F /* VLinearEquationsProject.swift in Sources */,
-				DA62D3891E4CED34000D0387 /* VLinearEquationsSolutionHeaderDone.swift in Sources */,
 				DA62D3971E4CFDEF000D0387 /* VLinearEquationsSolutionFlow.swift in Sources */,
 				DAD518CA1E4006420004C8D8 /* MLinearEquationsItem.swift in Sources */,
 				DA62D3631E4CD599000D0387 /* MLinearEquationsSolutionEquationItemPolynomialDecimal.swift in Sources */,

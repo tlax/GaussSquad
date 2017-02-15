@@ -35,13 +35,7 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerHeader(
-            header:VLinearEquationsSolutionHeaderStart.self)
-        collectionView.registerHeader(
-            header:VLinearEquationsSolutionHeaderProcess.self)
-        collectionView.registerHeader(
-            header:VLinearEquationsSolutionHeaderDone.self)
-        collectionView.registerHeader(
-            header:VLinearEquationsSolutionHeaderError.self)
+            header:VLinearEquationsSolutionHeader.self)
         collectionView.registerFooter(
             footer:VLinearEquationsSolutionFooter.self)
         collectionView.registerCell(
@@ -181,7 +175,7 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
             let header:VLinearEquationsSolutionHeader = collectionView.dequeueReusableSupplementaryView(
                 ofKind:kind,
                 withReuseIdentifier:
-                step.reusableIdentifier,
+                VLinearEquationsSolutionHeader.reusableIdentifier,
                 for:indexPath) as! VLinearEquationsSolutionHeader
             header.config(
                 step:step,
