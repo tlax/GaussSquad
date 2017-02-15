@@ -4,7 +4,7 @@ class VLinearEquationsSolutionCellConstantDecimal:VLinearEquationsSolutionCell
 {
     private weak var label:UILabel!
     private weak var imageView:UIImageView!
-    private let kImageWidth:CGFloat = 30
+    private let kImageWidth:CGFloat = 20
     
     override init(frame:CGRect)
     {

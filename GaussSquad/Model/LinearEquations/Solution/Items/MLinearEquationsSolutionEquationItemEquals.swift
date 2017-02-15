@@ -2,7 +2,7 @@ import UIKit
 
 class MLinearEquationsSolutionEquationItemEquals:MLinearEquationsSolutionEquationItem
 {
-    private let kCellWidth:CGFloat = 40
+    private let kCellWidth:CGFloat = 20
     private let kEquals:String = "="
     
     init()

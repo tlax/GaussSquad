@@ -4,10 +4,10 @@ class MLinearEquationsSolutionEquationItemConstantDivision:MLinearEquationsSolut
 {
     let stringDividend:NSAttributedString
     let stringDivisor:NSAttributedString
-    private let kFontSize:CGFloat = 20
+    private let kFontSize:CGFloat = 17
     private let kMaxStringWidth:CGFloat = 5000
     private let kMaxStringHeight:CGFloat = 20
-    private let kAddedWidth:CGFloat = 30
+    private let kAddedWidth:CGFloat = 20
     private let kShowAsDivision:Bool = true
     private let kAdd:String = "+"
     private let kSubstract:String = "-"

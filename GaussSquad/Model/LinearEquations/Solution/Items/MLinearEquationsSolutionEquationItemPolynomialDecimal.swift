@@ -6,7 +6,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDecimal:MLinearEquationsSolu
     private let kFontSize:CGFloat = 20
     private let kMaxStringWidth:CGFloat = 5000
     private let kMaxStringHeight:CGFloat = 30
-    private let kAddedWidth:CGFloat = 30
+    private let kAddedWidth:CGFloat = 20
     private let kShowAsDivision:Bool = false
     private let kAdd:String = "+"
     private let kSubstract:String = "-"

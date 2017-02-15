@@ -4,8 +4,7 @@ class VLinearEquationsSolutionFooter:UICollectionReusableView
 {
     private weak var controller:CLinearEquationsSolution?
     private var index:IndexPath?
-    private let kMarginBottom:CGFloat = -25
-    private let kMarginLeft:CGFloat = 4
+    private let kMarginBottom:CGFloat = -20
     private let kButtonMargin:CGFloat = 20
     private let kButtonWidth:CGFloat = 40
     
@@ -41,8 +40,7 @@ class VLinearEquationsSolutionFooter:UICollectionReusableView
             constant:kMarginBottom)
         NSLayoutConstraint.leftToLeft(
             view:buttonShare,
-            toView:self,
-            constant:kMarginLeft)
+            toView:self)
         NSLayoutConstraint.width(
             view:buttonShare,
             constant:kButtonWidth)
