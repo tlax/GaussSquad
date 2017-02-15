@@ -3,8 +3,8 @@ import UIKit
 class VLinearEquationsSolutionCellIndex:VLinearEquationsSolutionCell
 {
     private weak var label:UILabel!
-    private let kMarginTop:CGFloat = 3
-    private let kMarginLeft:CGFloat = 10
+    private weak var layoutLabelTop:NSLayoutConstraint!
+    private weak var layoutLabelLeft:NSLayoutConstraint!
     
     override init(frame:CGRect)
     {
@@ -14,26 +14,22 @@ class VLinearEquationsSolutionCellIndex:VLinearEquationsSolutionCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.textColor = UIColor.squadBlue
-        label.font = UIFont.bold(size:13)
         self.label = label
         
         addSubview(label)
         
-        NSLayoutConstraint.topToTop(
+        layoutLabelTop = NSLayoutConstraint.topToTop(
             view:label,
-            toView:self,
-            constant:kMarginTop)
+            toView:self)
         NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:self)
         NSLayoutConstraint.rightToRight(
             view:label,
             toView:self)
-        NSLayoutConstraint.leftToLeft(
+        layoutLabelLeft = NSLayoutConstraint.leftToLeft(
             view:label,
-            toView:self,
-            constant:kMarginLeft)
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -52,6 +48,8 @@ class VLinearEquationsSolutionCellIndex:VLinearEquationsSolutionCell
             return
         }
         
-        label.text = "\(model.index + 1)"
+        label.attributedText = model.string
+        layoutLabelTop.constant = model.kMarginTop
+        layoutLabelLeft.constant = model.kMarginLeft
     }
 }
