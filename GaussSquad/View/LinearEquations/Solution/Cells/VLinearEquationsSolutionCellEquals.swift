@@ -2,6 +2,8 @@ import UIKit
 
 class VLinearEquationsSolutionCellEquals:VLinearEquationsSolutionCell
 {
+    private weak var imageView:UIImageView!
+    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
@@ -11,7 +13,7 @@ class VLinearEquationsSolutionCellEquals:VLinearEquationsSolutionCell
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.center
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = #imageLiteral(resourceName: "assetGenericColEqualsSmall")
+        self.imageView = imageView
         
         addSubview(imageView)
         
@@ -23,5 +25,19 @@ class VLinearEquationsSolutionCellEquals:VLinearEquationsSolutionCell
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func config(model:MLinearEquationsSolutionEquationItem, index:IndexPath)
+    {
+        guard
+        
+            let model:MLinearEquationsSolutionEquationItemEquals = model as? MLinearEquationsSolutionEquationItemEquals
+        
+        else
+        {
+            return
+        }
+        
+        imageView.image = model.image
     }
 }

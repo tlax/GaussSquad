@@ -2,11 +2,13 @@ import UIKit
 
 class MLinearEquationsSolutionEquationItemEquals:MLinearEquationsSolutionEquationItem
 {
+    let image:UIImage
     private let kCellWidth:CGFloat = 20
     private let kEquals:String = "="
     
     init()
     {
+        image = #imageLiteral(resourceName: "assetGenericColEqualsSmall")
         let reusableIdentifier:String =  VLinearEquationsSolutionCellEquals.reusableIdentifier
         
         super.init(
@@ -21,7 +23,6 @@ class MLinearEquationsSolutionEquationItemEquals:MLinearEquationsSolutionEquatio
     
     override func drawInRect(rect:CGRect)
     {
-        let image:UIImage = #imageLiteral(resourceName: "assetGenericColEqualsSmall")
         let imageWidth:CGFloat = image.size.width
         let imageHeight:CGFloat = image.size.height
         let remainTop:CGFloat = rect.size.height - imageHeight
