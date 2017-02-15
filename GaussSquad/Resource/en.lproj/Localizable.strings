@@ -7,6 +7,9 @@
 "MLinearEquationsItem_negative"=" - ";
 "MLinearEquationsItem_division"="/";
 "MLinearEquationsItem_equals"=" = ";
+"MLinearEquationsItem_ageDays"="%@ days ago";
+"MLinearEquationsItem_ageHours"="%@ hours ago";
+"MLinearEquationsItem_ageMinutes"="%@ minutes ago";
 "MLinearEquationsSolutionStrategyReductionConstants_descr"="Reducing constants in equation %@";
 "MLinearEquationsSolutionStrategyReductionIndeterminates_descr"="Reducing indeterminate in equation %@";
 "MLinearEquationsSolutionStrategyIndeterminatesLeft_descr"="Moving indeterminate to left in equation %@";

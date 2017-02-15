@@ -34,7 +34,7 @@ class MLinearEquationsItem
                         forcePositive = true
                     }
                     
-                    if let strOperator:NSAttributedString = stringOperator(
+                    if let strOperator:NSAttributedString = MLinearEquationsItem.stringOperator(
                         polynomial:polynomial,
                         attributes:attributes,
                         forcePositive:forcePositive)
@@ -42,7 +42,7 @@ class MLinearEquationsItem
                         mutableString.append(strOperator)
                     }
                     
-                    let strPolynomial:NSAttributedString = stringPolynomial(
+                    let strPolynomial:NSAttributedString = MLinearEquationsItem.stringPolynomial(
                         polynomial:polynomial,
                         attributes:attributes)
                     mutableString.append(strPolynomial)
@@ -57,7 +57,7 @@ class MLinearEquationsItem
                 
                 mutableString.append(stringEquals)
                 
-                if let strOperator:NSAttributedString = stringOperator(
+                if let strOperator:NSAttributedString = MLinearEquationsItem.stringOperator(
                     polynomial:result,
                     attributes:attributes,
                     forcePositive:false)
@@ -65,7 +65,7 @@ class MLinearEquationsItem
                     mutableString.append(strOperator)
                 }
                 
-                let strPolynomial:NSAttributedString = stringPolynomial(
+                let strPolynomial:NSAttributedString = MLinearEquationsItem.stringPolynomial(
                     polynomial:result,
                     attributes:attributes)
                 mutableString.append(strPolynomial)
@@ -73,14 +73,53 @@ class MLinearEquationsItem
         }
         
         descr = mutableString
-        age = ageSince(timestamp: <#T##TimeInterval#>)
+        age = MLinearEquationsItem.ageSince(timestamp:project.created)
     }
     
     //MARK: private
     
     fileprivate class func ageSince(timestamp:TimeInterval) -> String
     {
+        let currentTime:TimeInterval = Date().timeIntervalSince1970
+        let deltaTime:TimeInterval = currentTime - timestamp
+        let minutesCount:TimeInterval = 60
+        let hoursCount:TimeInterval = 3600
+        let daysCount:TimeInterval = 86400
+        let days:Int = Int(deltaTime / daysCount)
         
+        if days >= 1
+        {
+            let string:String = String(
+                format:NSLocalizedString("MLinearEquationsItem_ageDays", comment:""),
+                "\(days)")
+            
+            return string
+        }
+        else
+        {
+            let hours:Int = Int(deltaTime / hoursCount)
+            
+            if hours >= 1
+            {
+                let string:String = String(
+                    format:NSLocalizedString("MLinearEquationsItem_ageHours", comment:""),
+                    "\(hours)")
+                
+                return string
+            }
+            else
+            {
+                let minutes:Int = Int(deltaTime / minutesCount)
+                
+                let string:String = String(
+                    format:NSLocalizedString("MLinearEquationsItem_ageMinutes", comment:""),
+                    "\(minutes)")
+                
+                return string
+            }
+        }
+        
+        return ""
     }
     
     fileprivate class func stringOperator(

@@ -51,7 +51,7 @@ class MLinearEquationsProjectRow
         
         for polynomial:DPolynomial in polynomials
         {
-            let itemPolynomial:MLinearEquationsProjectRowItemPolynomial = polynomialItem(
+            let itemPolynomial:MLinearEquationsProjectRowItemPolynomial = MLinearEquationsProjectRow.polynomialItem(
                 polynomial:polynomial)
             items.append(itemPolynomial)
         }
@@ -59,7 +59,7 @@ class MLinearEquationsProjectRow
         let itemEquals:MLinearEquationsProjectRowItemEquals = MLinearEquationsProjectRowItemEquals()
         items.append(itemEquals)
         
-        let itemResult:MLinearEquationsProjectRowItemPolynomial = polynomialItem(
+        let itemResult:MLinearEquationsProjectRowItemPolynomial = MLinearEquationsProjectRow.polynomialItem(
             polynomial:result)
         items.append(itemResult)
         
