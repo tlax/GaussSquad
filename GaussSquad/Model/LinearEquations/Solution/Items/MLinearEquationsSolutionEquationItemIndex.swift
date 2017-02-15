@@ -33,4 +33,15 @@ class MLinearEquationsSolutionEquationItemIndex:MLinearEquationsSolutionEquation
         
         return text
     }
+    
+    override func drawInRect(rect:CGRect)
+    {
+        let rect:CGRect = CGRect(
+            x:rect.origin.x + kMarginLeft,
+            y:rect.origin.y + kMarginTop,
+            width:cellWidth - kMarginLeft,
+            height:rect.size.width)
+        
+        string.draw(in:rect)
+    }
 }
