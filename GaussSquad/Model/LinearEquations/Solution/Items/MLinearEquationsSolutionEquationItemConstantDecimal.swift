@@ -87,4 +87,31 @@ class MLinearEquationsSolutionEquationItemConstantDecimal:MLinearEquationsSoluti
         
         return string
     }
+    
+    override func drawInRect(rect:CGRect)
+    {
+        let rectX:CGFloat = rect.origin.x
+        let rectY:CGFloat = rect.origin.y
+        let rectWidth:CGFloat = rect.size.width
+        let rectHeight:CGFloat = rect.size.height
+        
+        if let imageSign:UIImage = self.imageSign
+        {
+            let imageRect:CGRect = CGRect(
+                x:rectX,
+                y:rectY,
+                width:signWidth,
+                height:rectHeight)
+            
+            imageSign.draw(in:imageRect)
+        }
+        
+        let stringRect:CGRect = CGRect(
+            x:rectX + signWidth,
+            y:rectY,
+            width:rectWidth - signWidth,
+            height:rectHeight)
+        
+        string.draw(in:stringRect)
+    }
 }
