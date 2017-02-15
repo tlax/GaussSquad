@@ -35,7 +35,6 @@ class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol, MLinea
     {
         let mutableString:NSMutableString = NSMutableString()
         mutableString.append(title.string)
-        mutableString.append(kNewLine)
         
         for equation:MLinearEquationsSolutionEquation in equations
         {
@@ -55,6 +54,8 @@ class MLinearEquationsSolutionStep:MLinearEquationsSolutionShareProtocol, MLinea
             
             mutableString.append(equationString)
         }
+        
+        mutableString.append(kNewLine)
         
         let string:String = mutableString as String
         
