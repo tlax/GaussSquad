@@ -97,11 +97,17 @@ class MLinearEquationsSolutionEquationItemConstantDecimal:MLinearEquationsSoluti
         
         if let imageSign:UIImage = self.imageSign
         {
+            let imageWidth:CGFloat = imageSign.size.width
+            let imageHeight:CGFloat = imageSign.size.height
+            let imageRemainX:CGFloat = signWidth - imageWidth
+            let imageRemainY:CGFloat = rectHeight - imageHeight
+            let imageMarginX:CGFloat = imageRemainX / 2.0
+            let imageMarginY:CGFloat = imageRemainY / 2.0
             let imageRect:CGRect = CGRect(
-                x:rectX,
-                y:rectY,
-                width:signWidth,
-                height:rectHeight)
+                x:rectX + imageMarginX,
+                y:rectY + imageMarginY,
+                width:imageWidth,
+                height:imageHeight)
             
             imageSign.draw(in:imageRect)
         }
