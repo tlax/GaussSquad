@@ -8,6 +8,7 @@ class MLinearEquationsSolutionEquationItemIndex:MLinearEquationsSolutionEquation
     let kMarginLeft:CGFloat = 10
     private let kCellWidth:CGFloat = 30
     private let kSeparator:String = ":"
+    private let kIndexHeight:CGFloat = 16
     
     init(index:Int)
     {
@@ -40,7 +41,7 @@ class MLinearEquationsSolutionEquationItemIndex:MLinearEquationsSolutionEquation
             x:rect.origin.x + kMarginLeft,
             y:rect.origin.y + kMarginTop,
             width:cellWidth - kMarginLeft,
-            height:rect.size.width)
+            height:kIndexHeight)
         
         string.draw(in:rect)
     }
