@@ -89,11 +89,11 @@ class MLinearEquationsItem
         {
             if forcePositive
             {
-                return nil
+                rawOperator = NSLocalizedString("MLinearEquationsItem_positive", comment:"")
             }
             else
             {
-                rawOperator = NSLocalizedString("MLinearEquationsItem_positive", comment:"")
+                return nil
             }
         }
         else
