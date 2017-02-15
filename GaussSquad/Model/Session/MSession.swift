@@ -3,7 +3,7 @@ import Foundation
 class MSession
 {
     static let sharedInstance:MSession = MSession()
-    let kMinNumber:Double = 0.000001
+    let kMinNumber:Double = 0.0001
     //private(set) var settings:DSettings?
     private let numberFormatter:NumberFormatter
     private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
