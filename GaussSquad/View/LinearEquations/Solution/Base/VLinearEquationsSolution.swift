@@ -178,8 +178,7 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
                 VLinearEquationsSolutionHeader.reusableIdentifier,
                 for:indexPath) as! VLinearEquationsSolutionHeader
             header.config(
-                step:step,
-                indexPath:indexPath)
+                step:step)
             
             reusable = header
         }

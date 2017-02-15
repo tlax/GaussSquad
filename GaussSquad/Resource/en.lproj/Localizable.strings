@@ -22,6 +22,7 @@
 "MLinearEquationsSolutionStepDone_title"="Solution";
 "MLinearEquationsSolutionStepDone_subtitle"="\nReduced row echelon form";
 "MLinearEquationsSolutionStepStart_label"="Initial linear system";
+"MLinearEquationsSolutionStepError_title"="Error: ";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";
@@ -35,7 +36,6 @@
 "VLinearEquationsPolynomialIndeterminate_labelTitle"="Indeterminate";
 "VLinearEquationsIndeterminateListHeader_labelTitlte"="Indeterminate";
 "VLinearEquationsIndeterminateListHeader_buttonNone"="None";
-"VLinearEquationsSolutionHeaderError_title"="Error\n";
 
 "CLinearEquationsIndeterminate_errorInvalid"="Name can't be empty";
 "CLinearEquationsIndeterminate_errorNoNumber"="Indeterminate can't start with a number";

@@ -39,7 +39,7 @@ class VLinearEquationsSolutionHeader:UICollectionReusableView
     
     //MARK: public
     
-    func config(step:MLinearEquationsSolutionStep, indexPath:IndexPath)
+    func config(step:MLinearEquationsSolutionStep)
     {
         label.attributedText = step.title
         layoutLabelLeft.constant = step.kTitleLeft
