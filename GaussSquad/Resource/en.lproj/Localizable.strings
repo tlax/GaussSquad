@@ -14,14 +14,14 @@
 "MLinearEquationsSolutionStrategyFractionReduction_descr"="Fraction reduction in equation %@";
 "MLinearEquationsSolutionStrategyZeroFill_descr"="Added %@ to equation %@";
 "MLinearEquationsSolutionStrategyOrderIndeterminates_descr"="Ordering polynomials in equation %@";
-"MLinearEquationsSolutionStrategyPivotOrdering_descr"="Swapp`ing equations %@ and %@";
+"MLinearEquationsSolutionStrategyPivotOrdering_descr"="Swapping equations %@ and %@";
 "MLinearEquationsSolutionStrategyRowAddition_descr"="Equation %@ = Equation %@ + (Equation %@ × %@)";
 "MLinearEquationsSolutionStrategyOnlyPivots_descr"="Equation %@ = Equation %@ + (Equation %@ × %@)";
 "MLinearEquationsSolutionStrategyRemoveCoefficients_descr"="Multiplying equation %@ by %@";
 "MLinearEquationsSolutionStrategyValidateTotalRows_emptyRows"="No valid equation found";
 "MLinearEquationsSolutionStepDone_title"="Solution";
 "MLinearEquationsSolutionStepDone_subtitle"="\nReduced row echelon form";
-"MLinearEquationsSolutionStepStart_label"="Initial linear system";
+"MLinearEquationsSolutionStepStart_label"="Linear equations system";
 "MLinearEquationsSolutionStepError_title"="Error: ";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
