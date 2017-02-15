@@ -7,6 +7,8 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
     let stringSign:String
     let signWidth:CGFloat
     let imageSign:UIImage?
+    let kBorderHeight:CGFloat = 1
+    let kLabelHeight:CGFloat = 15
     private let kMaxSignWidth:CGFloat = 20
     private let kFontSize:CGFloat = 12
     private let kMaxStringWidth:CGFloat = 5000

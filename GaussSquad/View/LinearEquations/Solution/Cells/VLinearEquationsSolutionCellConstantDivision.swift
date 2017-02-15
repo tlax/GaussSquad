@@ -7,8 +7,6 @@ class VLinearEquationsSolutionCellConstantDivision:VLinearEquationsSolutionCell
     private weak var imageView:UIImageView!
     private weak var layoutImageWidth:NSLayoutConstraint!
     private weak var layoutBorderTop:NSLayoutConstraint!
-    private let kBorderHeight:CGFloat = 1
-    private let kLabelHeight:CGFloat = 15
     
     override init(frame:CGRect)
     {
