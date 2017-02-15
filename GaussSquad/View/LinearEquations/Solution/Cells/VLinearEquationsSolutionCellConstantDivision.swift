@@ -7,6 +7,9 @@ class VLinearEquationsSolutionCellConstantDivision:VLinearEquationsSolutionCell
     private weak var imageView:UIImageView!
     private weak var layoutImageWidth:NSLayoutConstraint!
     private weak var layoutBorderTop:NSLayoutConstraint!
+    private weak var layoutBorderHeight:NSLayoutConstraint!
+    private weak var layoutDividendHeight:NSLayoutConstraint!
+    private weak var layoutDivisorHeight:NSLayoutConstraint!
     
     override init(frame:CGRect)
     {
@@ -45,9 +48,8 @@ class VLinearEquationsSolutionCellConstantDivision:VLinearEquationsSolutionCell
         layoutBorderTop = NSLayoutConstraint.topToTop(
             view:border,
             toView:self)
-        NSLayoutConstraint.height(
-            view:border,
-            constant:kBorderHeight)
+        layoutBorderHeight = NSLayoutConstraint.height(
+            view:border)
         NSLayoutConstraint.leftToRight(
             view:border,
             toView:imageView)
@@ -67,9 +69,8 @@ class VLinearEquationsSolutionCellConstantDivision:VLinearEquationsSolutionCell
         NSLayoutConstraint.bottomToBottom(
             view:labelDividend,
             toView:border)
-        NSLayoutConstraint.height(
-            view:labelDividend,
-            constant:kLabelHeight)
+        layoutDividendHeight = NSLayoutConstraint.height(
+            view:labelDividend)
         NSLayoutConstraint.leftToRight(
             view:labelDividend,
             toView:imageView)
@@ -80,9 +81,8 @@ class VLinearEquationsSolutionCellConstantDivision:VLinearEquationsSolutionCell
         NSLayoutConstraint.topToTop(
             view:labelDivisor,
             toView:border)
-        NSLayoutConstraint.height(
-            view:labelDivisor,
-            constant:kLabelHeight)
+        layoutDivisorHeight = NSLayoutConstraint.height(
+            view:labelDivisor)
         NSLayoutConstraint.leftToRight(
             view:labelDivisor,
             toView:imageView)
@@ -98,9 +98,8 @@ class VLinearEquationsSolutionCellConstantDivision:VLinearEquationsSolutionCell
     
     override func layoutSubviews()
     {
-        let height:CGFloat = bounds.maxY
-        let remain:CGFloat = height - kBorderHeight
-        let marginTop:CGFloat = remain / 2.0
+        let height:CGFloat = bounds.maxY - 1
+        let marginTop:CGFloat = height / 2.0
         layoutBorderTop.constant = marginTop
         
         super.layoutSubviews()
@@ -123,5 +122,8 @@ class VLinearEquationsSolutionCellConstantDivision:VLinearEquationsSolutionCell
         labelDivisor.attributedText = model.stringDivisor
         imageView.image = model.imageSign
         layoutImageWidth.constant = model.signWidth
+        layoutBorderHeight.constant = model.kBorderHeight
+        layoutDividendHeight.constant = model.kLabelHeight
+        layoutDivisorHeight.constant = model.kLabelHeight
     }
 }
