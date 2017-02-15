@@ -13,7 +13,7 @@ class MLinearEquationsProjectRow
         return row
     }
     
-    private class func polynomialItem(polynomial:DPolynomial) -> MLinearEquationsProjectRowItemPolynomial
+    fileprivate class func polynomialItem(polynomial:DPolynomial) -> MLinearEquationsProjectRowItemPolynomial
     {
         let itemPolynomial:MLinearEquationsProjectRowItemPolynomial
         
@@ -51,7 +51,7 @@ class MLinearEquationsProjectRow
         
         for polynomial:DPolynomial in polynomials
         {
-            let itemPolynomial:MLinearEquationsProjectRowItemPolynomial = MLinearEquationsProjectRow.polynomialItem(
+            let itemPolynomial:MLinearEquationsProjectRowItemPolynomial = polynomialItem(
                 polynomial:polynomial)
             items.append(itemPolynomial)
         }
@@ -59,7 +59,7 @@ class MLinearEquationsProjectRow
         let itemEquals:MLinearEquationsProjectRowItemEquals = MLinearEquationsProjectRowItemEquals()
         items.append(itemEquals)
         
-        let itemResult:MLinearEquationsProjectRowItemPolynomial = MLinearEquationsProjectRow.polynomialItem(
+        let itemResult:MLinearEquationsProjectRowItemPolynomial = polynomialItem(
             polynomial:result)
         items.append(itemResult)
         

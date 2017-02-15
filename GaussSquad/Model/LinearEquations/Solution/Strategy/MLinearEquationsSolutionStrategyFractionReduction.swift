@@ -65,7 +65,7 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
         return nil
     }
     
-    private class func findGreatestCommonDivisor(
+    fileprivate class func findGreatestCommonDivisor(
         dividend:Double,
         divisor:Double) -> Double?
     {
@@ -91,7 +91,7 @@ class MLinearEquationsSolutionStrategyFractionReduction:MLinearEquationsSolution
         return nil
     }
     
-    private class func recursiveDivisor(
+    fileprivate class func recursiveDivisor(
         numberA:Double,
         numberB:Double) -> Double?
     {

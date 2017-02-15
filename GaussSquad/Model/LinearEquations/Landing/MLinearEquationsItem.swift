@@ -34,7 +34,7 @@ class MLinearEquationsItem
                         forcePositive = true
                     }
                     
-                    if let strOperator:NSAttributedString = MLinearEquationsItem.stringOperator(
+                    if let strOperator:NSAttributedString = stringOperator(
                         polynomial:polynomial,
                         attributes:attributes,
                         forcePositive:forcePositive)
@@ -42,7 +42,7 @@ class MLinearEquationsItem
                         mutableString.append(strOperator)
                     }
                     
-                    let strPolynomial:NSAttributedString = MLinearEquationsItem.stringPolynomial(
+                    let strPolynomial:NSAttributedString = stringPolynomial(
                         polynomial:polynomial,
                         attributes:attributes)
                     mutableString.append(strPolynomial)
@@ -57,7 +57,7 @@ class MLinearEquationsItem
                 
                 mutableString.append(stringEquals)
                 
-                if let strOperator:NSAttributedString = MLinearEquationsItem.stringOperator(
+                if let strOperator:NSAttributedString = stringOperator(
                     polynomial:result,
                     attributes:attributes,
                     forcePositive:false)
@@ -65,7 +65,7 @@ class MLinearEquationsItem
                     mutableString.append(strOperator)
                 }
                 
-                let strPolynomial:NSAttributedString = MLinearEquationsItem.stringPolynomial(
+                let strPolynomial:NSAttributedString = stringPolynomial(
                     polynomial:result,
                     attributes:attributes)
                 mutableString.append(strPolynomial)
@@ -73,12 +73,17 @@ class MLinearEquationsItem
         }
         
         descr = mutableString
-        age = "2 hours"
+        age = ageSince(timestamp: <#T##TimeInterval#>)
     }
     
     //MARK: private
     
-    private class func stringOperator(
+    fileprivate class func ageSince(timestamp:TimeInterval) -> String
+    {
+        
+    }
+    
+    fileprivate class func stringOperator(
         polynomial:DPolynomial,
         attributes:[String:AnyObject],
         forcePositive:Bool) -> NSAttributedString?
@@ -101,14 +106,14 @@ class MLinearEquationsItem
             rawOperator = NSLocalizedString("MLinearEquationsItem_negative", comment:"")
         }
         
-        let stringOperator:NSAttributedString = NSAttributedString(
+        let string:NSAttributedString = NSAttributedString(
             string:rawOperator,
             attributes:attributes)
         
-        return stringOperator
+        return string
     }
     
-    private class func stringPolynomial(
+    fileprivate class func stringPolynomial(
         polynomial:DPolynomial,
         attributes:[String:AnyObject]) -> NSAttributedString
     {
