@@ -33,6 +33,8 @@
 "MHelpLinearEquationsProjectItemIndeterminates_title"="Add or delete indeterminate";
 "MHelpLinearEquationsProjectItemCompress_title"="Compress equations and remove unnecesary polynomials";
 "MHelpLinearEquationsProjectItemSolution_title"="Apply Gaussian Elimination displaying every step";
+"MStoreItemPlus_title"="Plus";
+"MStoreItemPlus_descr"="Unlimited indeterminate creation.\nCreate as many variables as you want";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";

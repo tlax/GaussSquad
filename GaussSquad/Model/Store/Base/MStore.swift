@@ -16,16 +16,13 @@ class MStore
         priceFormatter.numberStyle = NumberFormatter.Style.currencyISOCode
         
         let itemPlus:MStoreItemPlus = MStoreItemPlus()
-        let itemWatermark:MStoreItemWatermark = MStoreItemWatermark()
         
         mapItems = [
-            itemPlus.purchaseId:itemPlus,
-            itemWatermark.purchaseId:itemWatermark
+            itemPlus.purchaseId:itemPlus
         ]
         
         references = [
-            itemPlus.purchaseId,
-            itemWatermark.purchaseId
+            itemPlus.purchaseId
         ]
     }
     
@@ -78,32 +75,32 @@ class MStore
             
             switch skPaymentTransaction.transactionState
             {
-                case SKPaymentTransactionState.deferred:
-                    
-                    mappedItem.statusDeferred()
-                    
-                    break
-                    
-                case SKPaymentTransactionState.failed:
-                    
-                    mappedItem.statusNew()
-                    SKPaymentQueue.default().finishTransaction(skPaymentTransaction)
-                    
-                    break
-                    
-                case SKPaymentTransactionState.purchased,
-                     SKPaymentTransactionState.restored:
-                    
-                    mappedItem.statusPurchased(callAction:true)
-                    SKPaymentQueue.default().finishTransaction(skPaymentTransaction)
-                    
-                    break
-                    
-                case SKPaymentTransactionState.purchasing:
-                    
-                    mappedItem.statusPurchasing()
-                    
-                    break
+            case SKPaymentTransactionState.deferred:
+                
+                mappedItem.statusDeferred()
+                
+                break
+                
+            case SKPaymentTransactionState.failed:
+                
+                mappedItem.statusNew()
+                SKPaymentQueue.default().finishTransaction(skPaymentTransaction)
+                
+                break
+                
+            case SKPaymentTransactionState.purchased,
+                 SKPaymentTransactionState.restored:
+                
+                mappedItem.statusPurchased(callAction:true)
+                SKPaymentQueue.default().finishTransaction(skPaymentTransaction)
+                
+                break
+                
+            case SKPaymentTransactionState.purchasing:
+                
+                mappedItem.statusPurchasing()
+                
+                break
             }
         }
     }

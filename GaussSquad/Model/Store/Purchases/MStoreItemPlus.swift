@@ -19,8 +19,7 @@ class MStoreItemPlus:MStoreItem
     
     override func purchaseAction()
     {
-        MSession.sharedInstance.settings?.plus = true
-        DManager.sharedInstance.save()
+        MSession.sharedInstance.settings?.purchasePlus()
     }
     
     override func validatePurchase() -> Bool
@@ -31,7 +30,7 @@ class MStoreItemPlus:MStoreItem
             
             let plus:Bool = MSession.sharedInstance.settings?.plus
             
-            else
+        else
         {
             return isPurchased
         }

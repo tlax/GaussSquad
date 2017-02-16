@@ -17,4 +17,10 @@ extension DSettings
         ttl += 1
         DManager.sharedInstance?.save()
     }
+    
+    func purchasePlus()
+    {
+        plus = true
+        DManager.sharedInstance?.save()
+    }
 }
