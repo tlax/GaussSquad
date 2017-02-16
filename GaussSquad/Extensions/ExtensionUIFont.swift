@@ -24,6 +24,11 @@ extension UIFont
     
     class func bold(size:CGFloat) -> UIFont
     {
+        return UIFont(name:"AvenirNext-Medium", size:size)!
+    }
+    
+    class func bolder(size:CGFloat) -> UIFont
+    {
         return UIFont(name:"AvenirNext-Bold", size:size)!
     }
 }

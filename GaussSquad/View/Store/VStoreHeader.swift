@@ -16,7 +16,7 @@ class VStoreHeader:UICollectionReusableView
     override init(frame:CGRect)
     {
         attrTitle = [
-            NSFontAttributeName:UIFont.bold(size:20),
+            NSFontAttributeName:UIFont.bolder(size:20),
             NSForegroundColorAttributeName:UIColor.squadBlue]
         
         attrDescr = [

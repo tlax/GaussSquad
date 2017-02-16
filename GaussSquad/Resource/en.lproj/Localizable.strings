@@ -34,7 +34,7 @@
 "MHelpLinearEquationsProjectItemCompress_title"="Compress equations and remove unnecesary polynomials";
 "MHelpLinearEquationsProjectItemSolution_title"="Apply Gaussian Elimination displaying every step";
 "MStoreItemPlus_title"="Plus\n";
-"MStoreItemPlus_descr"="Unlimited indeterminates.\nAs many variables as you want";
+"MStoreItemPlus_descr"="Unlimited indeterminates.\nCreate as many variables as you need without restrictions";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";

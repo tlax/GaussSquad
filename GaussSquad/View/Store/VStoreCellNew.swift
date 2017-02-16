@@ -23,7 +23,7 @@ class VStoreCellNew:VStoreCell
         buttonPurchase.setTitle(
             NSLocalizedString("VStoreCellNew_buttonPurchase", comment:""),
             for:UIControlState.normal)
-        buttonPurchase.titleLabel!.font = UIFont.medium(size:15)
+        buttonPurchase.titleLabel!.font = UIFont.bold(size:15)
         buttonPurchase.addTarget(
             self,
             action:#selector(actionPurchase(sender:)),
@@ -33,7 +33,7 @@ class VStoreCellNew:VStoreCell
         labelPrice.isUserInteractionEnabled = false
         labelPrice.translatesAutoresizingMaskIntoConstraints = false
         labelPrice.backgroundColor = UIColor.clear
-        labelPrice.font = UIFont.medium(size:16)
+        labelPrice.font = UIFont.bold(size:16)
         labelPrice.textColor = UIColor.black
         labelPrice.textAlignment = NSTextAlignment.right
         self.labelPrice = labelPrice
