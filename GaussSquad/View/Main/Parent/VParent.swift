@@ -172,6 +172,7 @@ class VParent:UIView
             animations:
         {
             self.layoutIfNeeded()
+            pushBackground.alpha = 1
         })
         { (done:Bool) in
             
@@ -228,6 +229,7 @@ class VParent:UIView
             animations:
         {
             self.layoutIfNeeded()
+            currentView.pushBackground?.alpha = 0
         })
         { (done:Bool) in
             
