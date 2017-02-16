@@ -221,7 +221,8 @@ class CParent:UIViewController
     
     func pop(
         horizontal:TransitionHorizontal = TransitionHorizontal.none,
-        vertical:TransitionVertical = TransitionVertical.none)
+        vertical:TransitionVertical = TransitionVertical.none,
+        completion:(() -> ())? = nil)
     {
         let width:CGFloat = viewParent.bounds.maxX
         let height:CGFloat = viewParent.bounds.maxY
@@ -253,6 +254,8 @@ class CParent:UIViewController
                 previousController.endAppearanceTransition()
                 currentController.endAppearanceTransition()
                 currentController.removeFromParentViewController()
+                
+                completion?()
             }
         }
     }

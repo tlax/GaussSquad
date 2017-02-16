@@ -169,15 +169,21 @@ class VParentBar:UIView
     {
         if !buttonStore.isSelected
         {
-            buttonHome.isSelected = false
-            buttonSettings.isSelected = false
-            buttonStore.isSelected = true
-            
-            let controllerStore:CStore = CStore()
-            
-            controller.slideTo(
-                horizontal:CParent.TransitionHorizontal.fromRight,
-                controller:controllerStore)
+            goStore()
         }
+    }
+    
+    //MARK: public
+    
+    func goStore()
+    {
+        buttonHome.isSelected = false
+        buttonSettings.isSelected = false
+        buttonStore.isSelected = true
+        
+        let controllerStore:CStore = CStore()
+        controller.slideTo(
+            horizontal:CParent.TransitionHorizontal.fromRight,
+            controller:controllerStore)
     }
 }

@@ -21,13 +21,18 @@ class CStoreGoPlus:CController
     func openStore()
     {
         let parentController:CParent = self.parentController
-        let controllerStore:CStore = CStore()
         
         parentController.dismissAnimateOver
         {
-            parentController.slideTo(
-                horizontal:CParent.TransitionHorizontal.fromRight,
-                controller:controllerStore)
+            parentController.pop(
+                horizontal:CParent.TransitionHorizontal.fromRight)
+            {
+                parentController.pop(
+                    horizontal:CParent.TransitionHorizontal.fromRight)
+                {
+                    parentController.viewParent.viewBar.goStore()
+                }
+            }
         }
     }
 }

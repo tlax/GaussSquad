@@ -4,6 +4,7 @@ class CLinearEquationsProject:CController
 {
     let model:MLinearEquationsProject
     private weak var viewProject:VLinearEquationsProject!
+    private let kFroobIndeterminates:Int = 2
     
     init(project:DProject?)
     {
@@ -162,6 +163,28 @@ class CLinearEquationsProject:CController
     
     func addIndeterminate()
     {
+        guard
+        
+            let indeterminatesCount:Int = model.project?.indeterminates?.count,
+            let plus:Bool = MSession.sharedInstance.settings?.plus
+        
+        else
+        {
+            return
+        }
+        
+        if !plus
+        {
+            if indeterminatesCount >= kFroobIndeterminates
+            {
+                let controllerGoPlus:CStoreGoPlus = CStoreGoPlus()
+                parentController.animateOver(
+                    controller:controllerGoPlus)
+                
+                return
+            }
+        }
+        
         let controllerIndeterminate:CLinearEquationsIndeterminate = CLinearEquationsIndeterminate(
             model:model)
         parentController.animateOver(
