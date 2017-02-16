@@ -23,7 +23,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     override init(controller:CController)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor(white:0.95, alpha:1)
+        backgroundColor = UIColor(white:0.97, alpha:1)
         self.controller = controller as? CLinearEquations
         
         let spinner:VSpinner = VSpinner()

@@ -30,7 +30,7 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
         collectionView.registerCell(cell:VLinearEquationsSolutionBarCell.self)
         self.collectionView = collectionView
         
-        if let flow:UICollectionViewFlowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         }

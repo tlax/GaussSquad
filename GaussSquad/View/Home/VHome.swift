@@ -13,7 +13,7 @@ class VHome:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     override init(controller:CController)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor(white:0.98, alpha:1)
+        backgroundColor = UIColor(white:0.97, alpha:1)
         self.controller = controller as? CHome
         
         let collectionView:VCollection = VCollection()
