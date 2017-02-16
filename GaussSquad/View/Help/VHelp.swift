@@ -113,6 +113,8 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let remain:CGFloat = width - kButtonWidth
         let margin:CGFloat = remain / 2.0
         layoutButtonLeft.constant = margin
+        collectionView.contentOffset = CGPoint.zero
+        collectionView.collectionViewLayout.invalidateLayout()
         
         super.layoutSubviews()
     }
@@ -168,7 +170,7 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         return size
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int
+    func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
     }
@@ -190,5 +192,15 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldDeselectItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
     }
 }
