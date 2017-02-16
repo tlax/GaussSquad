@@ -198,6 +198,8 @@ class CLinearEquationsSolution:CController
     
     func solutionComplete(stepDone:MLinearEquationsSolutionStepDone?)
     {
+        self.stepDone = stepDone
+        
         DispatchQueue.main.async
         { [weak self] in
             
@@ -225,6 +227,10 @@ class CLinearEquationsSolution:CController
         {
             return
         }
+        
+        let controllerPlot:CLinearEquationsPlot = CLinearEquationsPlot(
+            stepDone:stepDone)
+        parentController.push(controller:controllerPlot)
     }
     
     func share()
