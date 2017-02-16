@@ -26,4 +26,49 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     {
         return nil
     }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MSettingsItem
+    {
+        let item:MSettingsItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MSettingsItem = modelAtIndex(index:indexPath)
+        let cell:VSettingsCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            item.reusableIdentifier,
+            for:indexPath) as! VSettingsCell
+        cell.config(model:item)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
+    }
 }
