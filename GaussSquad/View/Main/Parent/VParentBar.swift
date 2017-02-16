@@ -4,6 +4,7 @@ class VParentBar:UIView
 {
     private weak var controller:CParent!
     private weak var buttonHome:VParentBarButton!
+    private weak var buttonSettings:VParentBarButton!
     private weak var buttonStore:VParentBarButton!
     private weak var layoutHomeLeft:NSLayoutConstraint!
     private let kBorderHeight:CGFloat = 1
@@ -28,12 +29,19 @@ class VParentBar:UIView
             for:UIControlEvents.touchUpInside)
         self.buttonHome = buttonHome
         
+        let buttonSettings:VParentBarButton = VParentBarButton(
+            image:#imageLiteral(resourceName: "assetGenericSettings"))
+        buttonSettings.isSelected = false
+        self.buttonSettings = buttonSettings
+        
         let buttonStore:VParentBarButton = VParentBarButton(
             image:#imageLiteral(resourceName: "assetGenericStore"))
+        buttonStore.isSelected = false
         self.buttonStore = buttonStore
         
         addSubview(border)
         addSubview(buttonStore)
+        addSubview(buttonSettings)
         addSubview(buttonHome)
         
         NSLayoutConstraint.height(
@@ -61,13 +69,27 @@ class VParentBar:UIView
             constant:kButtonsWidth)
         
         NSLayoutConstraint.topToTop(
+            view:buttonSettings,
+            toView:self,
+            constant:kButtonsTop)
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonSettings,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:buttonSettings,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:buttonSettings,
+            constant:kButtonsWidth)
+        
+        NSLayoutConstraint.topToTop(
             view:buttonStore,
             toView:self,
             constant:kButtonsTop)
         NSLayoutConstraint.bottomToBottom(
             view:buttonStore,
             toView:self)
-        NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.rightToRight(
             view:buttonStore,
             toView:self)
         NSLayoutConstraint.width(
