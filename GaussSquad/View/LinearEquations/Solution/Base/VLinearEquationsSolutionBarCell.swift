@@ -66,6 +66,18 @@ class VLinearEquationsSolutionBarCell:UICollectionViewCell
     func config(model:MLinearEquationsSolutionBarItem)
     {
         imageView.image = model.image
+        
+        if model.active
+        {
+            isUserInteractionEnabled = true
+            isSelected = false
+        }
+        else
+        {
+            isUserInteractionEnabled = false
+            isSelected = true
+        }
+        
         hover()
     }
 }

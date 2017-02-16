@@ -6,23 +6,28 @@ class MLinearEquationsSolutionBar
     
     init(stepDone:MLinearEquationsSolutionStepDone?)
     {
-        var items:[MLinearEquationsSolutionBarItem] = []
-        
-        let itemBack:MLinearEquationsSolutionBarItemBack = MLinearEquationsSolutionBarItemBack()
-        items.append(itemBack)
-        
-        let itemBottom:MLinearEquationsSolutionBarItemBottom = MLinearEquationsSolutionBarItemBottom()
-        items.append(itemBottom)
+        let doneActive:Bool
         
         if stepDone != nil
         {
-            let itemPlot:MLinearEquationsSolutionBarItemPlot = MLinearEquationsSolutionBarItemPlot()
-            items.append(itemPlot)
+            doneActive = true
+        }
+        else
+        {
+            doneActive = false
         }
         
+        let itemBack:MLinearEquationsSolutionBarItemBack = MLinearEquationsSolutionBarItemBack()
+        let itemBottom:MLinearEquationsSolutionBarItemBottom = MLinearEquationsSolutionBarItemBottom()
+        let itemPlot:MLinearEquationsSolutionBarItemPlot = MLinearEquationsSolutionBarItemPlot(
+            active:doneActive)
         let itemShare:MLinearEquationsSolutionBarItemShare = MLinearEquationsSolutionBarItemShare()
-        items.append(itemShare)
         
-        self.items = items
+        items = [
+            itemBack,
+            itemBottom,
+            itemPlot,
+            itemShare
+        ]
     }
 }

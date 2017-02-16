@@ -2,9 +2,11 @@ import UIKit
 
 class MLinearEquationsSolutionBarItemPlot:MLinearEquationsSolutionBarItem
 {
-    init()
+    init(active:Bool)
     {
-        super.init(image:#imageLiteral(resourceName: "assetGenericNext"))
+        super.init(
+            image:#imageLiteral(resourceName: "assetGenericNext"),
+            active:active)
     }
     
     override func selected(controller:CLinearEquationsSolution)
