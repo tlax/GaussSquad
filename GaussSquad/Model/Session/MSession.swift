@@ -4,14 +4,13 @@ class MSession
 {
     static let sharedInstance:MSession = MSession()
     let kMinNumber:Double = 0.0001
-    //private(set) var settings:DSettings?
+    private(set) var settings:DSettings?
     private let numberFormatter:NumberFormatter
     private let kNumberFormatterStyle:NumberFormatter.Style = NumberFormatter.Style.decimal
     private let kEmpty:String = ""
     private let kMinIntegers:Int = 1
     private let kMaxIntegers:Int = 10
     private let kMinDecimals:Int = 0
-    private let kMaxDecimals:Int = 3
     private let kTtlDelta:Int16 = 1
     
     private init()
@@ -21,21 +20,19 @@ class MSession
         numberFormatter.minimumIntegerDigits = kMinIntegers
         numberFormatter.maximumIntegerDigits = kMaxIntegers
         numberFormatter.minimumFractionDigits = kMinDecimals
-        numberFormatter.maximumFractionDigits = kMaxDecimals
     }
     
     //MARK: private
-    /*
+    
     private func asyncLoadSettings()
     {
-        DManager.sharedInstance.fetchManagedObjects(
-            entityName:DSettings.entityName,
-            limit:1)
-        { (fetched) in
+        DManager.sharedInstance?.fetchData(
+            entityName:DSettings.entityName)
+        { (data) in
             
             guard
             
-                let settings:DSettings = fetched?.first as? DSettings
+                let settings:DSettings = data?.first as? DSettings
             
             else
             {
@@ -45,28 +42,26 @@ class MSession
             }
             
             self.settingsReady(settings:settings)
-             self.addTtl()
+            self.addTtl()
         }
     }
     
     private func createSettings()
     {
-        DManager.sharedInstance.createManagedObject(
+        DManager.sharedInstance?.createData(
             entityName:DSettings.entityName)
-        { (created) in
+        { (data) in
             
             guard
-                
-                let settings:DSettings = created as? DSettings
-                
+            
+                let settings:DSettings = data as? DSettings
+            
             else
             {
-                self.createSettings()
-                
                 return
             }
             
-            DManager.sharedInstance.save()
+            DManager.sharedInstance?.save()
             self.settingsReady(settings:settings)
         }
     }
@@ -74,7 +69,8 @@ class MSession
     private func settingsReady(settings:DSettings)
     {
         self.settings = settings
-    }*/
+        numberFormatter.maximumFractionDigits = Int(settings.maxFractionDigits)
+    }
     
     //MARK: public
     
@@ -82,15 +78,15 @@ class MSession
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
-//            if self.settings == nil
-//            {
-//                self.asyncLoadSettings()
-//            }
+            if self.settings == nil
+            {
+                self.asyncLoadSettings()
+            }
         }
     }
     
     func addTtl()
-    {/*
+    {
         guard
             
             let settings:DSettings = self.settings
@@ -101,7 +97,7 @@ class MSession
         }
         
         settings.ttl += kTtlDelta
-        DManager.sharedInstance.save()*/
+        DManager.sharedInstance?.save()
     }
     
     func stringFrom(number:Double) -> String

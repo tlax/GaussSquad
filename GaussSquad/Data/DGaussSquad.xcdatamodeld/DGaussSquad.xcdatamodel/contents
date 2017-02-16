@@ -28,12 +28,13 @@
     </entity>
     <entity name="DSettings" representedClassName="DSettings" syncable="YES" codeGenerationType="class">
         <attribute name="maxFractionDigits" attributeType="Double" defaultValueString="3" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ttl" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
         <element name="DEquation" positionX="-18" positionY="63" width="128" height="105"/>
         <element name="DIndeterminate" positionX="-36" positionY="9" width="128" height="90"/>
         <element name="DPolynomial" positionX="-54" positionY="-9" width="128" height="165"/>
         <element name="DProject" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="DSettings" positionX="-36" positionY="63" width="128" height="60"/>
+        <element name="DSettings" positionX="-36" positionY="63" width="128" height="75"/>
     </elements>
 </model>
