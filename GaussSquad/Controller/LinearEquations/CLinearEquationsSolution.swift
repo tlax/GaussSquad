@@ -230,7 +230,9 @@ class CLinearEquationsSolution:CController
         
         let controllerPlot:CLinearEquationsPlot = CLinearEquationsPlot(
             stepDone:stepDone)
-        parentController.push(controller:controllerPlot)
+        parentController.push(
+            controller:controllerPlot,
+            horizontal:CParent.TransitionHorizontal.fromRight)
     }
     
     func share()
