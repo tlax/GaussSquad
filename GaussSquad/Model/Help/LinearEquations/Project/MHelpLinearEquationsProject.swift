@@ -6,6 +6,7 @@ class MHelpLinearEquationsProject:MHelp
     {
         let itemPolynomials:MHelpLinearEquationsProjectItemPolynomials = MHelpLinearEquationsProjectItemPolynomials()
         let itemAddPolynomial:MHelpLinearEquationsProjectItemAddPolynomial = MHelpLinearEquationsProjectItemAddPolynomial()
+        let itemEditRow:MHelpLinearEquationsProjectItemEditRow = MHelpLinearEquationsProjectItemEditRow()
         let itemAddRow:MHelpLinearEquationsProjectItemAddRow = MHelpLinearEquationsProjectItemAddRow()
         let itemIndeterminates:MHelpLinearEquationsProjectItemIndeterminates = MHelpLinearEquationsProjectItemIndeterminates()
         let itemCompress:MHelpLinearEquationsProjectItemCompress = MHelpLinearEquationsProjectItemCompress()
@@ -14,6 +15,7 @@ class MHelpLinearEquationsProject:MHelp
         let items:[MHelpItem] = [
             itemPolynomials,
             itemAddPolynomial,
+            itemEditRow,
             itemAddRow,
             itemIndeterminates,
             itemCompress,
