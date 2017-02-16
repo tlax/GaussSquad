@@ -32,11 +32,19 @@ class VParentBar:UIView
         let buttonSettings:VParentBarButton = VParentBarButton(
             image:#imageLiteral(resourceName: "assetGenericSettings"))
         buttonSettings.isSelected = false
+        buttonSettings.addTarget(
+            self,
+            action:#selector(actionSettings(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonSettings = buttonSettings
         
         let buttonStore:VParentBarButton = VParentBarButton(
             image:#imageLiteral(resourceName: "assetGenericStore"))
         buttonStore.isSelected = false
+        buttonStore.addTarget(
+            self,
+            action:#selector(actionStore(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonStore = buttonStore
         
         addSubview(border)
@@ -116,11 +124,31 @@ class VParentBar:UIView
     
     func actionHome(sender button:UIButton)
     {
-        
+        if !buttonHome.isSelected
+        {
+            buttonHome.isSelected = true
+            buttonSettings.isSelected = false
+            buttonStore.isSelected = false
+        }
+    }
+    
+    func actionSettings(sender button:UIButton)
+    {
+        if !buttonSettings.isSelected
+        {
+            buttonHome.isSelected = false
+            buttonSettings.isSelected = true
+            buttonStore.isSelected = false
+        }
     }
     
     func actionStore(sender button:UIButton)
     {
-        
+        if !buttonStore.isSelected
+        {
+            buttonHome.isSelected = false
+            buttonSettings.isSelected = false
+            buttonStore.isSelected = true
+        }
     }
 }
