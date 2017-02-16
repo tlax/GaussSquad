@@ -19,7 +19,18 @@
                     <view key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="assetGenericSplash" translatesAutoresizingMaskIntoConstraints="NO" id="I23-pX-6lB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="I23-pX-6lB" secondAttribute="bottom" id="MwI-KW-XPW"/>
+                            <constraint firstItem="I23-pX-6lB" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="hiB-l5-aKH"/>
+                            <constraint firstAttribute="trailing" secondItem="I23-pX-6lB" secondAttribute="trailing" id="p9x-2h-3LP"/>
+                            <constraint firstItem="I23-pX-6lB" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="rbv-OK-7Vi"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -27,4 +38,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="assetGenericSplash" width="156" height="156"/>
+    </resources>
 </document>
