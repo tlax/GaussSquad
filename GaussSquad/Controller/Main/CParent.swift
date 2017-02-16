@@ -89,11 +89,9 @@ class CParent:UIViewController
     
     //MARK: public
     
-    func moveToSettings()
+    func slideTo(horizontal:TransitionHorizontal, controller:CController)
     {
-        let left:CGFloat = viewParent.bounds.maxX
-        let controller:CStore = CStore()
-        
+        let left:CGFloat = viewParent.bounds.maxX * horizontal.rawValue
         slide(controller:controller, left:left)
     }
     
