@@ -1,9 +1,13 @@
-//
-//  MSettingsItem.swift
-//  GaussSquad
-//
-//  Created by zero on 2/16/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MSettingsItem
+{
+    let reusableIdentifier:String
+    let cellHeight:CGFloat
+    
+    init(reusableIdentifier:String, cellHeight:CGFloat)
+    {
+        self.reusableIdentifier = reusableIdentifier
+        self.cellHeight = cellHeight
+    }
+}
