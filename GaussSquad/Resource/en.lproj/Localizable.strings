@@ -30,7 +30,7 @@
 "MHelpLinearEquationsProjectItemAddPolynomial_title"="Add polynomials";
 "MHelpLinearEquationsProjectItemEditRow_title"="Rearrange or delete equation";
 "MHelpLinearEquationsProjectItemAddRow_title"="Add equation";
-"MHelpLinearEquationsProjectItemIndeterminates_title"="Create a new indeterminate, you can select one from the list to remove it";
+"MHelpLinearEquationsProjectItemIndeterminates_title"="Add or delete indeterminate";
 "MHelpLinearEquationsProjectItemCompress_title"="Compress the equations and remove unnecesary polynomials";
 "MHelpLinearEquationsProjectItemSolution_title"="Apply Gaussian Elimination displaying every step";
 
