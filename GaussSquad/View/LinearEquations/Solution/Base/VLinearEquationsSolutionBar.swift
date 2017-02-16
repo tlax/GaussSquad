@@ -4,7 +4,7 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
 {
     private weak var controller:CLinearEquationsSolution!
     private weak var collectionView:VCollection!
-    private let model:MLinearEquationsSolutionBar
+    private var model:MLinearEquationsSolutionBar?
     private let kContentTop:CGFloat = 20
     private let kBorderHeight:CGFloat = 1
     private let kCellWidth:CGFloat = 60
@@ -12,8 +12,6 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
     
     init(controller:CLinearEquationsSolution)
     {
-        model = MLinearEquationsSolutionBar()
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -69,9 +67,17 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
     
     private func modelAtIndex(index:IndexPath) -> MLinearEquationsSolutionBarItem
     {
-        let item:MLinearEquationsSolutionBarItem = model.items[index.item]
+        let item:MLinearEquationsSolutionBarItem = model!.items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func refresh(stepDone:MLinearEquationsSolutionStepDone?)
+    {
+        model = MLinearEquationsSolutionBar(stepDone:stepDone)
+        collectionView.reloadData()
     }
     
     //MARK: collectionView delegate
@@ -91,7 +97,14 @@ class VLinearEquationsSolutionBar:UIView, UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = model.items.count
+        guard
+            
+            let count:Int = model?.items.count
+        
+        else
+        {
+            return 0
+        }
         
         return count
     }

@@ -201,7 +201,7 @@ class CLinearEquationsSolution:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.viewSolution.refresh()
+            self?.viewSolution.refresh(stepDone:stepDone)
         }
     }
     

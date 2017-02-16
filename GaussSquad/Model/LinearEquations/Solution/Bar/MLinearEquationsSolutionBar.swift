@@ -4,18 +4,25 @@ class MLinearEquationsSolutionBar
 {
     let items:[MLinearEquationsSolutionBarItem]
     
-    init()
+    init(stepDone:MLinearEquationsSolutionStepDone?)
     {
-        let itemBack:MLinearEquationsSolutionBarItemBack = MLinearEquationsSolutionBarItemBack()
-        let itemBottom:MLinearEquationsSolutionBarItemBottom = MLinearEquationsSolutionBarItemBottom()
-        let itemPlot:MLinearEquationsSolutionBarItemPlot = MLinearEquationsSolutionBarItemPlot()
-        let itemShare:MLinearEquationsSolutionBarItemShare = MLinearEquationsSolutionBarItemShare()
+        var items:[MLinearEquationsSolutionBarItem] = []
         
-        items = [
-            itemBack,
-            itemBottom,
-            itemPlot,
-            itemShare
-        ]
+        let itemBack:MLinearEquationsSolutionBarItemBack = MLinearEquationsSolutionBarItemBack()
+        items.append(itemBack)
+        
+        let itemBottom:MLinearEquationsSolutionBarItemBottom = MLinearEquationsSolutionBarItemBottom()
+        items.append(itemBottom)
+        
+        if stepDone != nil
+        {
+            let itemPlot:MLinearEquationsSolutionBarItemPlot = MLinearEquationsSolutionBarItemPlot()
+            items.append(itemPlot)
+        }
+        
+        let itemShare:MLinearEquationsSolutionBarItemShare = MLinearEquationsSolutionBarItemShare()
+        items.append(itemShare)
+        
+        self.items = items
     }
 }
