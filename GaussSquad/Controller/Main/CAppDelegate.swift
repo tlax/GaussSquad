@@ -4,7 +4,6 @@ import UIKit
 class AppDelegate:UIResponder, UIApplicationDelegate
 {
     var window:UIWindow?
-    private let kTtlDelta:Int16 = 1
 
     func application(_ application:UIApplication, didFinishLaunchingWithOptions launchOptions:[UIApplicationLaunchOptionsKey:Any]?) -> Bool
     {
@@ -21,6 +20,6 @@ class AppDelegate:UIResponder, UIApplicationDelegate
     
     func applicationWillEnterForeground(_ application:UIApplication)
     {
-        MSession.sharedInstance.addTtl()
+        MSession.sharedInstance.settings?.addTtl()
     }
 }

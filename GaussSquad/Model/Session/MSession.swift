@@ -11,7 +11,6 @@ class MSession
     private let kMinIntegers:Int = 1
     private let kMaxIntegers:Int = 10
     private let kMinDecimals:Int = 0
-    private let kTtlDelta:Int16 = 1
     
     private init()
     {
@@ -42,7 +41,7 @@ class MSession
             }
             
             self.settingsReady(settings:settings)
-            self.addTtl()
+            settings.addTtl()
         }
     }
     
@@ -69,10 +68,23 @@ class MSession
     private func settingsReady(settings:DSettings)
     {
         self.settings = settings
-        numberFormatter.maximumFractionDigits = Int(settings.maxFractionDigits)
     }
     
     //MARK: public
+    
+    func updateFractionDigits()
+    {
+        guard
+            
+            let settings:DSettings = self.settings
+        
+        else
+        {
+            return
+        }
+        
+        numberFormatter.maximumFractionDigits = Int(settings.maxFractionDigits)
+    }
     
     func loadSettings()
     {
@@ -83,21 +95,6 @@ class MSession
                 self.asyncLoadSettings()
             }
         }
-    }
-    
-    func addTtl()
-    {
-        guard
-            
-            let settings:DSettings = self.settings
-            
-        else
-        {
-            return
-        }
-        
-        settings.ttl += kTtlDelta
-        DManager.sharedInstance?.save()
     }
     
     func stringFrom(number:Double) -> String
