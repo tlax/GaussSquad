@@ -17,7 +17,7 @@ class VStoreHeader:UICollectionReusableView
     {
         attrTitle = [
             NSFontAttributeName:UIFont.bold(size:20),
-            NSForegroundColorAttributeName:UIColor.genericLight]
+            NSForegroundColorAttributeName:UIColor.squadBlue]
         
         attrDescr = [
             NSFontAttributeName:UIFont.regular(size:18),
@@ -75,7 +75,7 @@ class VStoreHeader:UICollectionReusableView
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     override func layoutSubviews()

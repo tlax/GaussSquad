@@ -43,7 +43,7 @@ class VStoreFooter:UICollectionReusableView
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     //MARK: actions

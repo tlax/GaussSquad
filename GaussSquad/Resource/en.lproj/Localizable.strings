@@ -49,6 +49,16 @@
 "VLinearEquationsIndeterminateListHeader_labelTitlte"="Indeterminate";
 "VLinearEquationsIndeterminateListHeader_buttonNone"="None";
 "VSettingsCellFractionDigits_labelTitle"="Max fraction digits";
+"VStoreFooter_buttonRestore"="Restore purchase";
+"VStoreCellNew_buttonPurchase"="Purchase";
+"VStoreCellDeferred_label"="Purchase deferred";
+"VStoreCellPurchasing_label"="Purchasing";
+"VStoreCellPurchased_label"="Purchased";
+"VStoreCellNotAvailable_label"="Not available";
+"VStoreGoPlus_title"="Video captures full";
+"VStoreGoPlus_descr"="Go plus to get unlimited captures";
+"VStoreGoPlusButtons_buttonCancel"="No thanks";
+"VStoreGoPlusButtons_buttonStore"="Go Plus";
 "VHelp_button"="Done";
 
 "CLinearEquationsIndeterminate_errorInvalid"="Name can't be empty";

@@ -13,7 +13,7 @@ class VStoreCellNew:VStoreCell
         
         let buttonPurchase:UIButton = UIButton()
         buttonPurchase.translatesAutoresizingMaskIntoConstraints = false
-        buttonPurchase.backgroundColor = UIColor.genericLight
+        buttonPurchase.backgroundColor = UIColor.squadBlue
         buttonPurchase.setTitleColor(
             UIColor.white,
             for:UIControlState.normal)
@@ -65,7 +65,7 @@ class VStoreCellNew:VStoreCell
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     override func config(controller:CStore, model:MStoreItem)

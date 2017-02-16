@@ -21,13 +21,6 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         self.spinner = spinner
         
         let collectionView:VCollection = VCollection()
-        collectionView.flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
-        collectionView.flow.minimumLineSpacing = kInterLine
-        collectionView.flow.sectionInset = UIEdgeInsets(
-            top:kInterLine,
-            left:0,
-            bottom:kCollectionBottom,
-            right:0)
         collectionView.isHidden = true
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
@@ -40,6 +33,17 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         collectionView.registerHeader(header:VStoreHeader.self)
         collectionView.registerFooter(footer:VStoreFooter.self)
         self.collectionView = collectionView
+        
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
+            flow.minimumLineSpacing = kInterLine
+            flow.sectionInset = UIEdgeInsets(
+                top:kInterLine,
+                left:0,
+                bottom:kCollectionBottom,
+                right:0)
+        }
         
         addSubview(collectionView)
         addSubview(spinner)
@@ -62,7 +66,7 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     deinit

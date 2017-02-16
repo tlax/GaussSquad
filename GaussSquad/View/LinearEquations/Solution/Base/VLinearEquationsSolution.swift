@@ -79,6 +79,11 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
         return nil
     }
     
+    deinit
+    {
+        spinner.stopAnimating()
+    }
+    
     //MARK: private
     
     private func stepAtIndex(index:IndexPath) -> MLinearEquationsSolutionStep

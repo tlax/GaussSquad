@@ -133,6 +133,11 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         return nil
     }
     
+    deinit
+    {
+        spinner.stopAnimating()
+    }
+    
     override func layoutSubviews()
     {
         viewBar.layoutIfNeeded()

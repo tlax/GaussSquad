@@ -24,6 +24,6 @@ class VStoreCellDeferred:VStoreCell
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
 }

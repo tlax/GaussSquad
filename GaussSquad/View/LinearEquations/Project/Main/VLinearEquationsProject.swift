@@ -74,6 +74,11 @@ class VLinearEquationsProject:VView, UICollectionViewDelegate, UICollectionViewD
         return nil
     }
     
+    deinit
+    {
+        spinner.stopAnimating()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MLinearEquationsProjectRowItem

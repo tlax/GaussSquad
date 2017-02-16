@@ -5,7 +5,7 @@ class VStoreCellPurchased:VStoreCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.genericLight
+        backgroundColor = UIColor.squadBlue
         isUserInteractionEnabled = false
         
         let label:UILabel = UILabel()
@@ -25,6 +25,6 @@ class VStoreCellPurchased:VStoreCell
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
 }
