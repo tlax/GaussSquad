@@ -22,4 +22,11 @@ class CLinearEquationsPlot:CController
         self.viewPlot = viewPlot
         view = viewPlot
     }
+    
+    //MARK: public
+    
+    func back()
+    {
+        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+    }
 }
