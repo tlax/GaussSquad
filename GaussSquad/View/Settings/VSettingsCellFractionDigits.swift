@@ -26,6 +26,10 @@ class VSettingsCellFractionDigits:VSettingsCell
         let stepper:UIStepper = UIStepper()
         stepper.translatesAutoresizingMaskIntoConstraints = false
         stepper.tintColor = UIColor.black
+        stepper.addTarget(
+            self,
+            action:#selector(actionStepper(sender:)),
+            for:UIControlEvents.valueChanged)
         self.stepper = stepper
         
         let labelNumber:UILabel = UILabel()
@@ -97,5 +101,34 @@ class VSettingsCellFractionDigits:VSettingsCell
         stepper.isContinuous = false
         stepper.maximumValue = model.kMaxDigits
         stepper.minimumValue = model.kMinDigits
+        
+        guard
+        
+            let maxFractionDigits:Double = MSession.sharedInstance.settings?.maxFractionDigits
+        
+        else
+        {
+            return
+        }
+        
+        stepper.value = maxFractionDigits
+        displayValue()
+    }
+    
+    //MARK: actions
+    
+    func actionStepper(sender stepper:UIStepper)
+    {
+        let current:Double = stepper.value
+        MSession.sharedInstance.settings?.newMaxFractionDigits(maxFractionDigits:current)
+    }
+    
+    //MARK: private
+    
+    private func displayValue()
+    {
+        let current:Double = stepper.value
+        let stringCurrent:String = "\(current)"
+        labelNumber.text = stringCurrent
     }
 }
