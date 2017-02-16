@@ -126,9 +126,26 @@ class VParentBar:UIView
     {
         if !buttonHome.isSelected
         {
+            let transition:CParent.TransitionHorizontal
+            
+            if buttonSettings.isSelected
+            {
+                transition = CParent.TransitionHorizontal.fromRight
+            }
+            else
+            {
+                transition = CParent.TransitionHorizontal.fromLeft
+            }
+            
             buttonHome.isSelected = true
             buttonSettings.isSelected = false
             buttonStore.isSelected = false
+            
+            let controllerHome:CHome = CHome()
+            
+            controller.slideTo(
+                horizontal:transition,
+                controller:controllerHome)
         }
     }
     
@@ -139,6 +156,12 @@ class VParentBar:UIView
             buttonHome.isSelected = false
             buttonSettings.isSelected = true
             buttonStore.isSelected = false
+            
+            let controllerSettings:CSettings = CSettings()
+            
+            controller.slideTo(
+                horizontal:CParent.TransitionHorizontal.fromLeft,
+                controller:controllerSettings)
         }
     }
     

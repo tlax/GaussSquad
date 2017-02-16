@@ -91,7 +91,7 @@ class CParent:UIViewController
     
     func slideTo(horizontal:TransitionHorizontal, controller:CController)
     {
-        let left:CGFloat = viewParent.bounds.maxX * horizontal.rawValue
+        let left:CGFloat = -viewParent.bounds.maxX * horizontal.rawValue
         slide(controller:controller, left:left)
     }
     

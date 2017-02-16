@@ -73,7 +73,7 @@ class VParent:UIView
         left:CGFloat,
         completion:@escaping(() -> ()))
     {
-        addSubview(newView)
+        insertSubview(newView, belowSubview:viewBar)
         
         newView.layoutTop = NSLayoutConstraint.topToTop(
             view:newView,
