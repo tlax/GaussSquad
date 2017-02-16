@@ -5,6 +5,8 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     private weak var controller:CSettings!
     private weak var collectionView:VCollection!
     private let kCollectionTop:CGFloat = 70
+    private let kCollectionBottom:CGFloat = 20
+    private let kInterLine:CGFloat = 1
     
     override init(controller:CController)
     {
@@ -13,7 +15,21 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         self.controller = controller as? CSettings
         
         let collectionView:VCollection = VCollection()
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(cell:VSettingsCellFractionDigits.self)
         self.collectionView = collectionView
+        
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            flow.minimumInteritemSpacing = kInterLine
+            flow.sectionInset = UIEdgeInsets(
+                top:kCollectionTop,
+                left:0,
+                bottom:kCollectionBottom,
+                right:0)
+        }
         
         addSubview(collectionView)
         
@@ -37,6 +53,15 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let item:MSettingsItem = modelAtIndex(index:indexPath)
+        let width:CGFloat = collectionView.bounds.size.width
+        let size:CGSize = CGSize(width:width, height:item.cellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
