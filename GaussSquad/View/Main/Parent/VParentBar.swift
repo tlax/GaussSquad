@@ -172,6 +172,12 @@ class VParentBar:UIView
             buttonHome.isSelected = false
             buttonSettings.isSelected = false
             buttonStore.isSelected = true
+            
+            let controllerStore:CStore = CStore()
+            
+            controller.slideTo(
+                horizontal:CParent.TransitionHorizontal.fromRight,
+                controller:controllerStore)
         }
     }
 }
