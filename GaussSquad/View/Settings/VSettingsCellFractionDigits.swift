@@ -5,7 +5,7 @@ class VSettingsCellFractionDigits:VSettingsCell
     private weak var labelNumber:UILabel!
     private weak var stepper:UIStepper!
     private let kLabelTitleLeft:CGFloat = 10
-    private let kLabelNumberWidth:CGFloat = 40
+    private let kLabelNumberWidth:CGFloat = 50
     private let kLabelNumberRight:CGFloat = -5
     private let kStepperWidth:CGFloat = 110
     private let kStepperHeight:CGFloat = 70
@@ -35,9 +35,9 @@ class VSettingsCellFractionDigits:VSettingsCell
         let labelNumber:UILabel = UILabel()
         labelNumber.isUserInteractionEnabled = false
         labelNumber.translatesAutoresizingMaskIntoConstraints = false
-        labelNumber.backgroundColor = UIColor.gray
+        labelNumber.backgroundColor = UIColor.clear
         labelNumber.textAlignment = NSTextAlignment.right
-        labelNumber.font = UIFont.numericBold(size:14)
+        labelNumber.font = UIFont.numericBold(size:21)
         labelNumber.textColor = UIColor.squadBlue
         self.labelNumber = labelNumber
         
@@ -98,7 +98,7 @@ class VSettingsCellFractionDigits:VSettingsCell
             return
         }
 
-        stepper.isContinuous = false
+        stepper.isContinuous = true
         stepper.maximumValue = model.kMaxDigits
         stepper.minimumValue = model.kMinDigits
         
@@ -121,6 +121,8 @@ class VSettingsCellFractionDigits:VSettingsCell
     {
         let current:Double = stepper.value
         MSession.sharedInstance.settings?.newMaxFractionDigits(maxFractionDigits:current)
+        
+        displayValue()
     }
     
     //MARK: private

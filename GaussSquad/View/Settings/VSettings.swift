@@ -43,6 +43,13 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         return nil
     }
     
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MSettingsItem
