@@ -70,6 +70,7 @@
 		DA476F0B1E562E740058F4A4 /* MStoreItemStatusNotAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476F021E562E740058F4A4 /* MStoreItemStatusNotAvailable.swift */; };
 		DA476F0C1E562E740058F4A4 /* MStoreItemStatusPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476F031E562E740058F4A4 /* MStoreItemStatusPurchased.swift */; };
 		DA476F0D1E562E740058F4A4 /* MStoreItemStatusPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476F041E562E740058F4A4 /* MStoreItemStatusPurchasing.swift */; };
+		DA476F0F1E562ED50058F4A4 /* MStoreItemPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476F0E1E562ED50058F4A4 /* MStoreItemPlus.swift */; };
 		DA62D3461E4CCA0A000D0387 /* CLinearEquationsSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3451E4CCA0A000D0387 /* CLinearEquationsSolution.swift */; };
 		DA62D3531E4CD39C000D0387 /* MLinearEquationsSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3511E4CD39C000D0387 /* MLinearEquationsSolution.swift */; };
 		DA62D3551E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3541E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift */; };
@@ -256,6 +257,7 @@
 		DA476F021E562E740058F4A4 /* MStoreItemStatusNotAvailable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusNotAvailable.swift; sourceTree = "<group>"; };
 		DA476F031E562E740058F4A4 /* MStoreItemStatusPurchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusPurchased.swift; sourceTree = "<group>"; };
 		DA476F041E562E740058F4A4 /* MStoreItemStatusPurchasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusPurchasing.swift; sourceTree = "<group>"; };
+		DA476F0E1E562ED50058F4A4 /* MStoreItemPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemPlus.swift; sourceTree = "<group>"; };
 		DA62D3451E4CCA0A000D0387 /* CLinearEquationsSolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquationsSolution.swift; sourceTree = "<group>"; };
 		DA62D3511E4CD39C000D0387 /* MLinearEquationsSolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolution.swift; sourceTree = "<group>"; };
 		DA62D3541E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionEquation.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 		DA476F051E562E740058F4A4 /* Purchases */ = {
 			isa = PBXGroup;
 			children = (
+				DA476F0E1E562ED50058F4A4 /* MStoreItemPlus.swift */,
 			);
 			path = Purchases;
 			sourceTree = "<group>";
@@ -1129,6 +1132,7 @@
 				DA99E1801E53A76100DB692B /* MLinearEquationsSolutionBarItemShare.swift in Sources */,
 				DA62D3991E4D00A5000D0387 /* MLinearEquationsSolutionEquationItemEquals.swift in Sources */,
 				DA033CEA1E3A935700F7645C /* VHome.swift in Sources */,
+				DA476F0F1E562ED50058F4A4 /* MStoreItemPlus.swift in Sources */,
 				DA62D3761E4CDC85000D0387 /* MLinearEquationsSolutionStrategyDelegate.swift in Sources */,
 				DA9F6F9F1E551911003C5486 /* MHelpLinearEquationsProjectItemCompress.swift in Sources */,
 				DA0D4DE11E4E5B6C00699018 /* MLinearEquationsSolutionStrategyReduction.swift in Sources */,
