@@ -62,7 +62,8 @@ class MLinearEquationsSolutionStrategy
             return removeCoefficient
         }
         else if let validateRows:MLinearEquationsSolutionStrategyValidateRows = MLinearEquationsSolutionStrategyValidateRows.rowsError(
-            step:step)
+            step:step,
+            indeterminates:indeterminates)
         {
             return validateRows
         }

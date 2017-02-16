@@ -2,13 +2,33 @@ import Foundation
 
 class MLinearEquationsSolutionStrategyValidateRows:MLinearEquationsSolutionStrategy
 {
-    class func rowsError(step:MLinearEquationsSolutionStep) -> MLinearEquationsSolutionStrategyValidateRows?
+    class func rowsError(
+        step:MLinearEquationsSolutionStep,
+        indeterminates:MLinearEquationsSolutionIndeterminates?) -> MLinearEquationsSolutionStrategyValidateRows?
     {
+        guard
+            
+            let countIndeterminates:Int = indeterminates?.items.count
+        
+        else
+        {
+            return nil
+        }
+        
         let countRows:Int = step.equations.count
         
         if countRows < 1
         {
             let descr:String = NSLocalizedString("MLinearEquationsSolutionStrategyValidateTotalRows_emptyRows", comment:"")
+            let strategy:MLinearEquationsSolutionStrategyValidateRows = MLinearEquationsSolutionStrategyValidateRows(
+                step:step,
+                descr:descr)
+            
+            return strategy
+        }
+        else if countIndeterminates > countRows
+        {
+            let descr:String = NSLocalizedString("MLinearEquationsSolutionStrategyValidateTotalRows_notEnoughRows", comment:"")
             let strategy:MLinearEquationsSolutionStrategyValidateRows = MLinearEquationsSolutionStrategyValidateRows(
                 step:step,
                 descr:descr)

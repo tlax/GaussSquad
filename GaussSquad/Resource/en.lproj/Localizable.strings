@@ -22,6 +22,7 @@
 "MLinearEquationsSolutionStrategyOnlyPivots_descr"="Equation %@ = Equation %@ + (Equation %@ × %@)";
 "MLinearEquationsSolutionStrategyRemoveCoefficients_descr"="Multiplying equation %@ by %@";
 "MLinearEquationsSolutionStrategyValidateTotalRows_emptyRows"="No valid equation found";
+"MLinearEquationsSolutionStrategyValidateTotalRows_notEnoughRows"="Need at least the same amount of equations as of indeterminates";
 "MLinearEquationsSolutionStepDone_title"="Solution";
 "MLinearEquationsSolutionStepDone_subtitle"="\nReduced row echelon form";
 "MLinearEquationsSolutionStepStart_label"="Linear equations system";
