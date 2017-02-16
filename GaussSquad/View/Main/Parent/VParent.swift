@@ -116,7 +116,15 @@ class VParent:UIView
         top:CGFloat,
         completion:@escaping(() -> ()))
     {
+        let pushBackground:VParentPushBackground = VParentPushBackground()
+        newView.pushBackground = pushBackground
+        
+        addSubview(pushBackground)
         addSubview(newView)
+        
+        NSLayoutConstraint.equals(
+            view:pushBackground,
+            toView:self)
         
         newView.layoutTop = NSLayoutConstraint.topToTop(
             view:newView,
@@ -223,6 +231,7 @@ class VParent:UIView
         })
         { (done:Bool) in
             
+            currentView.pushBackground?.removeFromSuperview()
             currentView.removeFromSuperview()
             completion()
         }

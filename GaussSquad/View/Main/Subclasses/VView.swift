@@ -6,6 +6,7 @@ class VView:UIView
     weak var layoutRight:NSLayoutConstraint!
     weak var layoutTop:NSLayoutConstraint!
     weak var layoutBottom:NSLayoutConstraint!
+    weak var pushBackground:VParentPushBackground?
     
     init(controller:CController)
     {
