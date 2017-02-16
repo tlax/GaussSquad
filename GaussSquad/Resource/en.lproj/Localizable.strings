@@ -31,7 +31,7 @@
 "MHelpLinearEquationsProjectItemEditRow_title"="Rearrange or delete equation";
 "MHelpLinearEquationsProjectItemAddRow_title"="Add equation";
 "MHelpLinearEquationsProjectItemIndeterminates_title"="Add or delete indeterminate";
-"MHelpLinearEquationsProjectItemCompress_title"="Compress the equations and remove unnecesary polynomials";
+"MHelpLinearEquationsProjectItemCompress_title"="Compress equations and remove unnecesary polynomials";
 "MHelpLinearEquationsProjectItemSolution_title"="Apply Gaussian Elimination displaying every step";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";

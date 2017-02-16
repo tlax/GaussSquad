@@ -5,7 +5,7 @@ class MHelpLinearEquationsProjectItemSolution:MHelpItem
     init()
     {
         super.init(
-            image:#imageLiteral(resourceName: "assetHelpLinearEquationsProjectPolynomials"),
+            image:#imageLiteral(resourceName: "assetHelpLinearEquationsProjectSolution"),
             title:NSLocalizedString("MHelpLinearEquationsProjectItemSolution_title", comment:""))
     }
 }
