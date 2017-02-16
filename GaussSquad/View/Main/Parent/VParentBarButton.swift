@@ -18,7 +18,7 @@ class VParentBarButton:UIButton
             for:UIControlState.normal)
         imageView!.clipsToBounds = true
         imageView!.contentMode = UIViewContentMode.center
-        imageView!.tintColor = UIColor(white:0, alpha:0.4)
+        imageView!.tintColor = UIColor(white:0, alpha:0.2)
     }
     
     required init?(coder:NSCoder)
