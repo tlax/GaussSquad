@@ -80,6 +80,7 @@
 		DA476F1F1E5634690058F4A4 /* VStoreCellPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476F161E5634690058F4A4 /* VStoreCellPurchasing.swift */; };
 		DA476F201E5634690058F4A4 /* VStoreFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476F171E5634690058F4A4 /* VStoreFooter.swift */; };
 		DA476F211E5634690058F4A4 /* VStoreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476F181E5634690058F4A4 /* VStoreHeader.swift */; };
+		DA476F231E5643000058F4A4 /* CStoreGoPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476F221E5643000058F4A4 /* CStoreGoPlus.swift */; };
 		DA62D3461E4CCA0A000D0387 /* CLinearEquationsSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3451E4CCA0A000D0387 /* CLinearEquationsSolution.swift */; };
 		DA62D3531E4CD39C000D0387 /* MLinearEquationsSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3511E4CD39C000D0387 /* MLinearEquationsSolution.swift */; };
 		DA62D3551E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3541E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift */; };
@@ -276,6 +277,7 @@
 		DA476F161E5634690058F4A4 /* VStoreCellPurchasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellPurchasing.swift; sourceTree = "<group>"; };
 		DA476F171E5634690058F4A4 /* VStoreFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreFooter.swift; sourceTree = "<group>"; };
 		DA476F181E5634690058F4A4 /* VStoreHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreHeader.swift; sourceTree = "<group>"; };
+		DA476F221E5643000058F4A4 /* CStoreGoPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStoreGoPlus.swift; sourceTree = "<group>"; };
 		DA62D3451E4CCA0A000D0387 /* CLinearEquationsSolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquationsSolution.swift; sourceTree = "<group>"; };
 		DA62D3511E4CD39C000D0387 /* MLinearEquationsSolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolution.swift; sourceTree = "<group>"; };
 		DA62D3541E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionEquation.swift; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 			isa = PBXGroup;
 			children = (
 				DA476EF81E562D5B0058F4A4 /* CStore.swift */,
+				DA476F221E5643000058F4A4 /* CStoreGoPlus.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1278,6 +1281,7 @@
 				DA476F0B1E562E740058F4A4 /* MStoreItemStatusNotAvailable.swift in Sources */,
 				DAB84C351E416AB10052F778 /* MLinearEquationsProjectRowItemNewPolynomial.swift in Sources */,
 				DA62D3571E4CD407000D0387 /* MLinearEquationsSolutionEquationItem.swift in Sources */,
+				DA476F231E5643000058F4A4 /* CStoreGoPlus.swift in Sources */,
 				DA9F6FA11E55191B003C5486 /* MHelpLinearEquationsProjectItemSolution.swift in Sources */,
 				DA62D3651E4CD5A5000D0387 /* MLinearEquationsSolutionEquationItemPolynomialDivision.swift in Sources */,
 				DAFDD4FE1E43D2EA00880556 /* MLinearEquationsProjectBarItemHelp.swift in Sources */,
