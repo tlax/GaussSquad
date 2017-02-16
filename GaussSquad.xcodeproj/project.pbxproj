@@ -58,6 +58,8 @@
 		DA476EED1E56108E0058F4A4 /* MSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EEC1E56108E0058F4A4 /* MSettings.swift */; };
 		DA476EEF1E5610960058F4A4 /* MSettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EEE1E5610960058F4A4 /* MSettingsItem.swift */; };
 		DA476EF11E5610A60058F4A4 /* MSettingsItemFractionDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EF01E5610A60058F4A4 /* MSettingsItemFractionDigits.swift */; };
+		DA476EF31E5611820058F4A4 /* VSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EF21E5611820058F4A4 /* VSettingsCell.swift */; };
+		DA476EF51E5611930058F4A4 /* VSettingsCellFractionDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EF41E5611930058F4A4 /* VSettingsCellFractionDigits.swift */; };
 		DA62D3461E4CCA0A000D0387 /* CLinearEquationsSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3451E4CCA0A000D0387 /* CLinearEquationsSolution.swift */; };
 		DA62D3531E4CD39C000D0387 /* MLinearEquationsSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3511E4CD39C000D0387 /* MLinearEquationsSolution.swift */; };
 		DA62D3551E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3541E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift */; };
@@ -232,6 +234,8 @@
 		DA476EEC1E56108E0058F4A4 /* MSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettings.swift; sourceTree = "<group>"; };
 		DA476EEE1E5610960058F4A4 /* MSettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItem.swift; sourceTree = "<group>"; };
 		DA476EF01E5610A60058F4A4 /* MSettingsItemFractionDigits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemFractionDigits.swift; sourceTree = "<group>"; };
+		DA476EF21E5611820058F4A4 /* VSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCell.swift; sourceTree = "<group>"; };
+		DA476EF41E5611930058F4A4 /* VSettingsCellFractionDigits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellFractionDigits.swift; sourceTree = "<group>"; };
 		DA62D3451E4CCA0A000D0387 /* CLinearEquationsSolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquationsSolution.swift; sourceTree = "<group>"; };
 		DA62D3511E4CD39C000D0387 /* MLinearEquationsSolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolution.swift; sourceTree = "<group>"; };
 		DA62D3541E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionEquation.swift; sourceTree = "<group>"; };
@@ -603,6 +607,8 @@
 			isa = PBXGroup;
 			children = (
 				DA6D62D41E560EC4002D9C1A /* VSettings.swift */,
+				DA476EF21E5611820058F4A4 /* VSettingsCell.swift */,
+				DA476EF41E5611930058F4A4 /* VSettingsCellFractionDigits.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1117,6 +1123,7 @@
 				DA62D38F1E4CF839000D0387 /* VLinearEquationsSolutionCellPolynomialDecimal.swift in Sources */,
 				DAFF4ABF1E397B9600A2DD4B /* MSession.swift in Sources */,
 				DA316CEF1E45900D008E7270 /* VLinearEquationsIndeterminateListHeader.swift in Sources */,
+				DA476EF51E5611930058F4A4 /* VSettingsCellFractionDigits.swift in Sources */,
 				DA62D3531E4CD39C000D0387 /* MLinearEquationsSolution.swift in Sources */,
 				DAD518AD1E3FBCF90004C8D8 /* MLinearEquations.swift in Sources */,
 				DAFDD4FC1E439D8400880556 /* MLinearEquationsProjectBarItemBack.swift in Sources */,
@@ -1188,6 +1195,7 @@
 				DA89F19D1E4A47080062DE48 /* VLinearEquationsPolynomialShowAs.swift in Sources */,
 				DA133A441E410F710028D90F /* MLinearEquationsProject.swift in Sources */,
 				DA316CED1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift in Sources */,
+				DA476EF31E5611820058F4A4 /* VSettingsCell.swift in Sources */,
 				DAC216511E424DEC009EDBF7 /* VLinearEquationsProjectFlow.swift in Sources */,
 				DA316CE91E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift in Sources */,
 				DA62D3671E4CD6C3000D0387 /* MLinearEquationsSolutionStep.swift in Sources */,

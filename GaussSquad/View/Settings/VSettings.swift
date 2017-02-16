@@ -4,6 +4,7 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
 {
     private weak var controller:CSettings!
     private weak var collectionView:VCollection!
+    private let kCollectionTop:CGFloat = 70
     
     override init(controller:CController)
     {
@@ -16,7 +17,9 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         
         addSubview(collectionView)
         
-        
+        NSLayoutConstraint.equals(
+            view:collectionView,
+            toView:self)
     }
     
     required init?(coder:NSCoder)

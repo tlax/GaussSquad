@@ -6,7 +6,10 @@ class MSettings
     
     init()
     {
+        let itemFractionDigits:MSettingsItemFractionDigits = MSettingsItemFractionDigits()
+        
         items = [
+            itemFractionDigits
         ]
     }
 }
