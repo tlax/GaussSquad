@@ -22,11 +22,15 @@ class VParentBar:UIView
         let buttonHome:VParentBarButton = VParentBarButton(
             image:#imageLiteral(resourceName: "assetGenericHome"))
         buttonHome.isSelected = true
+        buttonHome.addTarget(
+            self,
+            action:#selector(actionHome(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonHome = buttonHome
         
         let buttonStore:VParentBarButton = VParentBarButton(
             image:#imageLiteral(resourceName: "assetGenericStore"))
-        buttonStore.isSelected = false
+        buttonStore.isSelected = true
         self.buttonStore = buttonStore
         
         addSubview(border)
@@ -85,5 +89,17 @@ class VParentBar:UIView
         layoutHomeLeft.constant = marginHome
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionHome(sender button:UIButton)
+    {
+        
+    }
+    
+    func actionStore(sender button:UIButton)
+    {
+        
     }
 }
