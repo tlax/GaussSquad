@@ -74,6 +74,13 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         spinner?.stopAnimating()
     }
     
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MStoreItem

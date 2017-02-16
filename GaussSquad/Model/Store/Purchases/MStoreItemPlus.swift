@@ -8,7 +8,7 @@ class MStoreItemPlus:MStoreItem
     {
         let title:String = NSLocalizedString("MStoreItemPlus_title", comment:"")
         let descr:String = NSLocalizedString("MStoreItemPlus_descr", comment:"")
-        let image:UIImage = #imageLiteral(resourceName: "assetGenericStorePlus")
+        let image:UIImage = #imageLiteral(resourceName: "assetGenericPurchasePlus")
         
         super.init(
             purchaseId:kStorePurchaseId,

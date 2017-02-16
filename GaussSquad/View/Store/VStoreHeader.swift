@@ -20,7 +20,7 @@ class VStoreHeader:UICollectionReusableView
             NSForegroundColorAttributeName:UIColor.squadBlue]
         
         attrDescr = [
-            NSFontAttributeName:UIFont.regular(size:18),
+            NSFontAttributeName:UIFont.regular(size:16),
             NSForegroundColorAttributeName:UIColor.black]
         
         labelMargins = -kLabelRight + kLabelLeft + kImageSize
