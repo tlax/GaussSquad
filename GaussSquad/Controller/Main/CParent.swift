@@ -89,6 +89,14 @@ class CParent:UIViewController
     
     //MARK: public
     
+    func moveToSettings()
+    {
+        let left:CGFloat = viewParent.bounds.maxX
+        let controller:CStore = CStore()
+        
+        slide(controller:controller, left:left)
+    }
+    
     func mainController(controller:CController)
     {
         addChildViewController(controller)
