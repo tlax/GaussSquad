@@ -8,7 +8,7 @@ class VParentBar:UIView
     private weak var layoutHomeLeft:NSLayoutConstraint!
     private let kBorderHeight:CGFloat = 1
     private let kButtonsTop:CGFloat = 20
-    private let kButtonsWidth:CGFloat = 70
+    private let kButtonsWidth:CGFloat = 60
     
     init(controller:CParent)
     {
@@ -30,7 +30,6 @@ class VParentBar:UIView
         
         let buttonStore:VParentBarButton = VParentBarButton(
             image:#imageLiteral(resourceName: "assetGenericStore"))
-        buttonStore.isSelected = true
         self.buttonStore = buttonStore
         
         addSubview(border)
