@@ -68,6 +68,7 @@ class MSession
     private func settingsReady(settings:DSettings)
     {
         self.settings = settings
+        updateFractionDigits()
     }
     
     //MARK: public
