@@ -31,7 +31,7 @@
 "MHelpLinearEquationsProjectItemAddRow_title"="Add another equation";
 "MHelpLinearEquationsProjectItemIndeterminates_title"="Create a new indeterminate, you can select one from the list to remove it";
 "MHelpLinearEquationsProjectItemCompress_title"="Compress the equations and remove unnecesary polynomials";
-"MHelpLinearEquationsProjectItemSolution_title"="Solve the system and display every step";
+"MHelpLinearEquationsProjectItemSolution_title"="Apply Gaussian Elimination displaying every step";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";
