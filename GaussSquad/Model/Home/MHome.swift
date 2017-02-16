@@ -6,11 +6,9 @@ class MHome
     
     init()
     {
-        let itemArithmetic:MHomeItemArithmetic = MHomeItemArithmetic()
         let itemLinearEquations:MHomeItemLinearEquations = MHomeItemLinearEquations()
         
         items = [
-            itemArithmetic,
             itemLinearEquations]
     }
 }
