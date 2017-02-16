@@ -26,6 +26,7 @@
 "MLinearEquationsSolutionStepDone_subtitle"="\nReduced row echelon form";
 "MLinearEquationsSolutionStepStart_label"="Linear equations system";
 "MLinearEquationsSolutionStepError_title"="Error: ";
+"MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition, change its indeterminateand how to display it";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
 "VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";
