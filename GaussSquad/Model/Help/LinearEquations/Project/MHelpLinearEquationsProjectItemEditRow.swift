@@ -1,0 +1,11 @@
+import UIKit
+
+class MHelpLinearEquationsProjectItemEditRow:MHelpItem
+{
+    init()
+    {
+        super.init(
+            image:#imageLiteral(resourceName: "assetHelpLinearEquationsProjectPolynomials"),
+            title:NSLocalizedString("MHelpLinearEquationsProjectItemEditRow_title", comment:""))
+    }
+}
