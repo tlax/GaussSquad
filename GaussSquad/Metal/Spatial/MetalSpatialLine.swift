@@ -12,15 +12,23 @@ class MetalSpatialLine
     
     init(
         device:MTLDevice,
-        width:Float,
-        height:Float)
+        aPointX:Float,
+        aPointY:Float,
+        bPointX:Float,
+        bPointY:Float,
+        lineWidth:Float)
     {
-        let width_2:Float = width / 2.0
-        let height_2:Float = height / 2.0
-        let top:Float = height_2
-        let bottom:Float = -height_2
-        let left:Float = -width_2
-        let right:Float = width_2
+        let lineWidth_2:Float = lineWidth / 2.0
+        let aPointXMin:Float
+        let aPointYMin:Float
+        let aPointXMax:Float
+        let aPointYMax:Float
+        let bPointXMin:Float
+        let bPointYMin:Float
+        let bPointXMax:Float
+        let bPointYMax:Float
+        
+        
         
         let topLeft:MetalVertex = MetalVertex(
             positionX:left,
