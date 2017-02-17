@@ -5,8 +5,7 @@ extension MTLRenderCommandEncoder
 {
     func render(
         vertex:MTLBuffer,
-        position:MTLBuffer,
-        rotation:MTLBuffer)
+        position:MTLBuffer)
     {
         setVertexBuffer(
             vertex,
@@ -16,10 +15,6 @@ extension MTLRenderCommandEncoder
             position,
             offset:0,
             at:MetalConstants.kPositionIndex)
-        setVertexBuffer(
-            rotation,
-            offset:0,
-            at:MetalConstants.kRotationIndex)
         drawPrimitives(
             type:MetalConstants.kPrimitiveType,
             vertexStart:0,

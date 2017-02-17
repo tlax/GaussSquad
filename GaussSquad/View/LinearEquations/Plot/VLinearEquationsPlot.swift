@@ -40,15 +40,9 @@ class VLinearEquationsPlot:VView
         
         self.viewMetal = viewMetal
         
-        addSubview(viewMetal)
+        insertSubview(viewMetal, belowSubview:viewBar)
 
-        NSLayoutConstraint.topToBottom(
-            view:viewMetal,
-            toView:viewBar)
-        NSLayoutConstraint.bottomToBottom(
-            view:viewMetal,
-            toView:self)
-        NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equals(
             view:viewMetal,
             toView:self)
     }

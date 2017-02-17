@@ -23,9 +23,4 @@ struct position_matrix
     float move_y;
 };
 
-struct rotation_matrix
-{
-    float2x2 rotate;
-};
-
 #endif

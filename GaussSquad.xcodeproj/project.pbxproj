@@ -63,7 +63,6 @@
 		DA4691401E56744600FAD188 /* MetalProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691271E56744600FAD188 /* MetalProjection.swift */; };
 		DA4691411E56744600FAD188 /* MetalProjectionMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691281E56744600FAD188 /* MetalProjectionMatrix.swift */; };
 		DA4691421E56744600FAD188 /* MetalRenderableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691291E56744600FAD188 /* MetalRenderableProtocol.swift */; };
-		DA4691431E56744600FAD188 /* MetalRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46912A1E56744600FAD188 /* MetalRotation.swift */; };
 		DA4691441E56744600FAD188 /* MetalShaderFragmentSimple.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA46912C1E56744600FAD188 /* MetalShaderFragmentSimple.metal */; };
 		DA4691451E56744600FAD188 /* MetalShaderVertexTextured.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA46912E1E56744600FAD188 /* MetalShaderVertexTextured.metal */; };
 		DA46914C1E56744600FAD188 /* MetalVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46913A1E56744600FAD188 /* MetalVertex.swift */; };
@@ -287,7 +286,6 @@
 		DA4691271E56744600FAD188 /* MetalProjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalProjection.swift; sourceTree = "<group>"; };
 		DA4691281E56744600FAD188 /* MetalProjectionMatrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalProjectionMatrix.swift; sourceTree = "<group>"; };
 		DA4691291E56744600FAD188 /* MetalRenderableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalRenderableProtocol.swift; sourceTree = "<group>"; };
-		DA46912A1E56744600FAD188 /* MetalRotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalRotation.swift; sourceTree = "<group>"; };
 		DA46912C1E56744600FAD188 /* MetalShaderFragmentSimple.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderFragmentSimple.metal; sourceTree = "<group>"; };
 		DA46912D1E56744600FAD188 /* MetalShaderStructs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalShaderStructs.h; sourceTree = "<group>"; };
 		DA46912E1E56744600FAD188 /* MetalShaderVertexTextured.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderVertexTextured.metal; sourceTree = "<group>"; };
@@ -592,7 +590,6 @@
 				DA4691271E56744600FAD188 /* MetalProjection.swift */,
 				DA4691281E56744600FAD188 /* MetalProjectionMatrix.swift */,
 				DA4691291E56744600FAD188 /* MetalRenderableProtocol.swift */,
-				DA46912A1E56744600FAD188 /* MetalRotation.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1426,7 +1423,6 @@
 				DA476F1A1E5634690058F4A4 /* VStoreCell.swift in Sources */,
 				DA62D3551E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift in Sources */,
 				DAFF4AA31E397B9600A2DD4B /* ExtensionUICollectionReusableView.swift in Sources */,
-				DA4691431E56744600FAD188 /* MetalRotation.swift in Sources */,
 				DA62D39D1E4D1B93000D0387 /* VLinearEquationsSolutionFooter.swift in Sources */,
 				DA476F211E5634690058F4A4 /* VStoreHeader.swift in Sources */,
 				DAFF4AC51E397B9600A2DD4B /* VBlur.swift in Sources */,

@@ -3,7 +3,6 @@ import MetalKit
 
 class MPlotRenderCartesian:MetalRenderableProtocol
 {
-    private let rotationBuffer:MTLBuffer
     private let axisX:MetalSpatialLine
     private let axisY:MetalSpatialLine
     private let positionBuffer:MTLBuffer
@@ -13,9 +12,7 @@ class MPlotRenderCartesian:MetalRenderableProtocol
     init(device:MTLDevice)
     {
         let position:MetalPosition = MetalPosition.zero()
-        let rotation:MetalRotation = MetalRotation.none()
         positionBuffer = device.generateBuffer(bufferable:position)
-        rotationBuffer = device.generateBuffer(bufferable:rotation)
         
         axisX = MetalSpatialLine(
             device:device,
@@ -40,12 +37,10 @@ class MPlotRenderCartesian:MetalRenderableProtocol
     {
         renderEncoder.render(
             vertex:axisX.vertexBuffer,
-            position:positionBuffer,
-            rotation:rotationBuffer)
+            position:positionBuffer)
         
         renderEncoder.render(
             vertex:axisY.vertexBuffer,
-            position:positionBuffer,
-            rotation:rotationBuffer)
+            position:positionBuffer)
     }
 }
