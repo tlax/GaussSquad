@@ -75,6 +75,12 @@
 		DA46914C1E56744600FAD188 /* MetalVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46913A1E56744600FAD188 /* MetalVertex.swift */; };
 		DA46914D1E56744600FAD188 /* MetalVertexFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46913B1E56744600FAD188 /* MetalVertexFace.swift */; };
 		DA46914E1E56744600FAD188 /* MetalVertexTextured.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46913C1E56744600FAD188 /* MetalVertexTextured.swift */; };
+		DA4691511E56755E00FAD188 /* MPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691501E56755E00FAD188 /* MPlot.swift */; };
+		DA4691531E56757200FAD188 /* MPlotRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691521E56757200FAD188 /* MPlotRender.swift */; };
+		DA4691581E56766500FAD188 /* ExtensionMTKTextureLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691541E56766500FAD188 /* ExtensionMTKTextureLoader.swift */; };
+		DA4691591E56766500FAD188 /* ExtensionMTLDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691551E56766500FAD188 /* ExtensionMTLDevice.swift */; };
+		DA46915A1E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691561E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift */; };
+		DA46915B1E56766500FAD188 /* ExtensionMTLTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691571E56766500FAD188 /* ExtensionMTLTexture.swift */; };
 		DA476EED1E56108E0058F4A4 /* MSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EEC1E56108E0058F4A4 /* MSettings.swift */; };
 		DA476EEF1E5610960058F4A4 /* MSettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EEE1E5610960058F4A4 /* MSettingsItem.swift */; };
 		DA476EF11E5610A60058F4A4 /* MSettingsItemFractionDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EF01E5610A60058F4A4 /* MSettingsItemFractionDigits.swift */; };
@@ -298,6 +304,12 @@
 		DA46913A1E56744600FAD188 /* MetalVertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertex.swift; sourceTree = "<group>"; };
 		DA46913B1E56744600FAD188 /* MetalVertexFace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertexFace.swift; sourceTree = "<group>"; };
 		DA46913C1E56744600FAD188 /* MetalVertexTextured.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertexTextured.swift; sourceTree = "<group>"; };
+		DA4691501E56755E00FAD188 /* MPlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPlot.swift; sourceTree = "<group>"; };
+		DA4691521E56757200FAD188 /* MPlotRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPlotRender.swift; sourceTree = "<group>"; };
+		DA4691541E56766500FAD188 /* ExtensionMTKTextureLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTKTextureLoader.swift; sourceTree = "<group>"; };
+		DA4691551E56766500FAD188 /* ExtensionMTLDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLDevice.swift; sourceTree = "<group>"; };
+		DA4691561E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLRenderCommandEncoder.swift; sourceTree = "<group>"; };
+		DA4691571E56766500FAD188 /* ExtensionMTLTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLTexture.swift; sourceTree = "<group>"; };
 		DA476EEC1E56108E0058F4A4 /* MSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettings.swift; sourceTree = "<group>"; };
 		DA476EEE1E5610960058F4A4 /* MSettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItem.swift; sourceTree = "<group>"; };
 		DA476EF01E5610A60058F4A4 /* MSettingsItemFractionDigits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemFractionDigits.swift; sourceTree = "<group>"; };
@@ -650,6 +662,15 @@
 			path = Vertex;
 			sourceTree = "<group>";
 		};
+		DA46914F1E56755200FAD188 /* Plot */ = {
+			isa = PBXGroup;
+			children = (
+				DA4691501E56755E00FAD188 /* MPlot.swift */,
+				DA4691521E56757200FAD188 /* MPlotRender.swift */,
+			);
+			path = Plot;
+			sourceTree = "<group>";
+		};
 		DA476EFC1E562E740058F4A4 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -970,6 +991,7 @@
 		DAF37AD31E3D5098005052D8 /* LinearEquations */ = {
 			isa = PBXGroup;
 			children = (
+				DA46914F1E56755200FAD188 /* Plot */,
 				DA62D34C1E4CD18B000D0387 /* Solution */,
 				DAD46DB21E46A12500AED3B9 /* Indeterminates */,
 				DAD518A71E3FBCF90004C8D8 /* Landing */,
@@ -1095,6 +1117,10 @@
 		DAFF4A521E397B9500A2DD4B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DA4691541E56766500FAD188 /* ExtensionMTKTextureLoader.swift */,
+				DA4691551E56766500FAD188 /* ExtensionMTLDevice.swift */,
+				DA4691561E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift */,
+				DA4691571E56766500FAD188 /* ExtensionMTLTexture.swift */,
 				DAFF4A531E397B9500A2DD4B /* ExtensionFileManager.swift */,
 				DAFF4A581E397B9500A2DD4B /* ExtensionNotification.swift */,
 				DAFF4A591E397B9600A2DD4B /* ExtensionNSLayoutConstraint.swift */,
@@ -1305,6 +1331,7 @@
 			files = (
 				DA0D4DDB1E4E1C9500699018 /* MLinearEquationsSolutionEquationItemIndex.swift in Sources */,
 				DA4691211E56736D00FAD188 /* VLinearEquationsPlotMetal.swift in Sources */,
+				DA46915A1E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift in Sources */,
 				DA476F1C1E5634690058F4A4 /* VStoreCellNew.swift in Sources */,
 				DA033CEC1E3A99EE00F7645C /* VParentBar.swift in Sources */,
 				DA23C3661E527145007C4C4D /* MLinearEquationsSolutionStrategyRemoveCoefficients.swift in Sources */,
@@ -1409,6 +1436,7 @@
 				DA23C34F1E52099F007C4C4D /* MLinearEquationsSolutionStrategyZeroFill.swift in Sources */,
 				DAC2165C1E42A9BC009EDBF7 /* VLinearEquationsPolynomialText.swift in Sources */,
 				DA62D37E1E4CEC08000D0387 /* VLinearEquationsSolution.swift in Sources */,
+				DA4691531E56757200FAD188 /* MPlotRender.swift in Sources */,
 				DA476EF11E5610A60058F4A4 /* MSettingsItemFractionDigits.swift in Sources */,
 				DA9F6FA51E5529C3003C5486 /* MHelpLinearEquationsProjectItemEditRow.swift in Sources */,
 				DAFDD50E1E443FBF00880556 /* CLinearEquationsIndeterminate.swift in Sources */,
@@ -1441,6 +1469,7 @@
 				DA46914A1E56744600FAD188 /* MetalSpatialShapeSquare.swift in Sources */,
 				DA476F211E5634690058F4A4 /* VStoreHeader.swift in Sources */,
 				DAFF4AC51E397B9600A2DD4B /* VBlur.swift in Sources */,
+				DA4691581E56766500FAD188 /* ExtensionMTKTextureLoader.swift in Sources */,
 				DA12D4791E415990008327B5 /* MLinearEquationsProjectRowItemPolynomialDecimal.swift in Sources */,
 				DA62D3811E4CECAB000D0387 /* VLinearEquationsSolutionCell.swift in Sources */,
 				DAB84C331E41681A0052F778 /* VLinearEquationsProjectCellPolynomialDivision.swift in Sources */,
@@ -1454,10 +1483,12 @@
 				DAB84C351E416AB10052F778 /* MLinearEquationsProjectRowItemNewPolynomial.swift in Sources */,
 				DA62D3571E4CD407000D0387 /* MLinearEquationsSolutionEquationItem.swift in Sources */,
 				DA476F231E5643000058F4A4 /* CStoreGoPlus.swift in Sources */,
+				DA46915B1E56766500FAD188 /* ExtensionMTLTexture.swift in Sources */,
 				DA9F6FA11E55191B003C5486 /* MHelpLinearEquationsProjectItemSolution.swift in Sources */,
 				DA62D3651E4CD5A5000D0387 /* MLinearEquationsSolutionEquationItemPolynomialDivision.swift in Sources */,
 				DAFDD4FE1E43D2EA00880556 /* MLinearEquationsProjectBarItemHelp.swift in Sources */,
 				DA4691451E56744600FAD188 /* MetalShaderVertexTextured.metal in Sources */,
+				DA4691591E56766500FAD188 /* ExtensionMTLDevice.swift in Sources */,
 				DA476F191E5634690058F4A4 /* VStore.swift in Sources */,
 				DA62D3A11E4D24D3000D0387 /* MLinearEquationsSolutionIndeterminates.swift in Sources */,
 				DA89F19D1E4A47080062DE48 /* VLinearEquationsPolynomialShowAs.swift in Sources */,
@@ -1507,6 +1538,7 @@
 				DA46914D1E56744600FAD188 /* MetalVertexFace.swift in Sources */,
 				DA62D3741E4CDB9B000D0387 /* MLinearEquationsSolutionStrategy.swift in Sources */,
 				DA62D39B1E4D02B3000D0387 /* VLinearEquationsSolutionCellEquals.swift in Sources */,
+				DA4691511E56755E00FAD188 /* MPlot.swift in Sources */,
 				DAD46DB61E46A15C00AED3B9 /* MLinearEquationsIndeterminatesItem.swift in Sources */,
 				DAF37AE51E3D6EA1005052D8 /* VLinearEquationsBar.swift in Sources */,
 				DA23C34D1E512046007C4C4D /* MLinearEquationsSolutionStrategyFractionReduction.swift in Sources */,
