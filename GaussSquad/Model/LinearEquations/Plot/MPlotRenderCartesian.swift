@@ -3,15 +3,15 @@ import MetalKit
 
 class MPlotRenderCartesian:MetalRenderableProtocol
 {
-    private let axisX:MetalSpatialLine
-    private let axisY:MetalSpatialLine
+    private let axisX:MTLBuffer
+    private let axisY:MTLBuffer
     private let color:MTLBuffer
     private let kAxisWidth:Float = 5
     private let kBoundaries:Float = 2000
     
     init(device:MTLDevice)
     {
-        axisX = MetalSpatialLine(
+        axisX = MetalSpatialLine.vertex(
             device:device,
             aPointX:-kBoundaries,
             aPointY:0,
@@ -19,7 +19,7 @@ class MPlotRenderCartesian:MetalRenderableProtocol
             bPointY:0,
             lineWidth:kAxisWidth)
         
-        axisY = MetalSpatialLine(
+        axisY = MetalSpatialLine.vertex(
             device:device,
             aPointX:0,
             aPointY:-kBoundaries,
@@ -37,11 +37,11 @@ class MPlotRenderCartesian:MetalRenderableProtocol
     func render(renderEncoder:MTLRenderCommandEncoder)
     {
         renderEncoder.render(
-            vertex:axisX.vertexBuffer,
+            vertex:axisX,
             color:color)
         
         renderEncoder.render(
-            vertex:axisY.vertexBuffer,
+            vertex:axisY,
             color:color)
     }
 }

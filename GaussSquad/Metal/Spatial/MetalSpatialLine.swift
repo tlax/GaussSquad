@@ -3,9 +3,29 @@ import MetalKit
 
 class MetalSpatialLine
 {
-    let vertexBuffer:MTLBuffer
+    class func vertex(device:MTLDevice,
+                      aPointX:Float,
+                      aPointY:Float,
+                      bPointX:Float,
+                      bPointY:Float,
+                      lineWidth:Float) -> MTLBuffer
+    {
+        let line:MetalSpatialLine = MetalSpatialLine(
+            device:device,
+            aPointX:aPointX,
+            aPointY:aPointY,
+            bPointX:bPointX,
+            bPointY:bPointY,
+            lineWidth:lineWidth)
+        
+        let buffer:MTLBuffer = line.vertexBuffer
+        
+        return buffer
+    }
     
-    init(
+    private let vertexBuffer:MTLBuffer
+    
+    private init(
         device:MTLDevice,
         aPointX:Float,
         aPointY:Float,

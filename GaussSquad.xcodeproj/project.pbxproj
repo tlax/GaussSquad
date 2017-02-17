@@ -182,6 +182,7 @@
 		DADA15821E44D71100766103 /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA15811E44D71100766103 /* VToast.swift */; };
 		DADDF86B1E4AA31100447C55 /* DEquationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADDF86A1E4AA31100447C55 /* DEquationExtension.swift */; };
 		DAEE488A1E57A7B2000D27A9 /* MetalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE48891E57A7B2000D27A9 /* MetalColor.swift */; };
+		DAEE488C1E57AE5A000D27A9 /* MPlotRenderIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE488B1E57AE5A000D27A9 /* MPlotRenderIndeterminate.swift */; };
 		DAF37AD21E3D4FEF005052D8 /* CLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */; };
 		DAF37AD91E3D51D7005052D8 /* VLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AD81E3D51D7005052D8 /* VLinearEquations.swift */; };
 		DAF37ADB1E3D6588005052D8 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAF37ADA1E3D6588005052D8 /* spinner.xcassets */; };
@@ -405,6 +406,7 @@
 		DADA15811E44D71100766103 /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
 		DADDF86A1E4AA31100447C55 /* DEquationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEquationExtension.swift; sourceTree = "<group>"; };
 		DAEE48891E57A7B2000D27A9 /* MetalColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalColor.swift; sourceTree = "<group>"; };
+		DAEE488B1E57AE5A000D27A9 /* MPlotRenderIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPlotRenderIndeterminate.swift; sourceTree = "<group>"; };
 		DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquations.swift; sourceTree = "<group>"; };
 		DAF37AD81E3D51D7005052D8 /* VLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquations.swift; sourceTree = "<group>"; };
 		DAF37ADA1E3D6588005052D8 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 				DA4691501E56755E00FAD188 /* MPlot.swift */,
 				DA4691521E56757200FAD188 /* MPlotRender.swift */,
 				DA46915E1E56781C00FAD188 /* MPlotRenderCartesian.swift */,
+				DAEE488B1E57AE5A000D27A9 /* MPlotRenderIndeterminate.swift */,
 			);
 			path = Plot;
 			sourceTree = "<group>";
@@ -1499,6 +1502,7 @@
 				DAFF4AC61E397B9600A2DD4B /* VBorder.swift in Sources */,
 				DAFF4A991E397B9600A2DD4B /* CParent.swift in Sources */,
 				DAFF4AC91E397B9600A2DD4B /* VView.swift in Sources */,
+				DAEE488C1E57AE5A000D27A9 /* MPlotRenderIndeterminate.swift in Sources */,
 				DA033CF21E3AB68400F7645C /* VHomeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
