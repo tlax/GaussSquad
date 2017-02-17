@@ -1,7 +1,7 @@
 import Foundation
 import MetalKit
 
-class MetalSpatialShapeRect
+class MetalSpatialRect
 {
     let vertexBuffer:MTLBuffer
     
