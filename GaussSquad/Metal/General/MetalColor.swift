@@ -7,7 +7,7 @@ class MetalColor:MetalBufferableProtocol
     {
         let color:MetalColor = MetalColor(originalColor:originalColor)
         let metalBuffer:MTLBuffer = device.generateBuffer(
-            bufferable:originalColor)
+            bufferable:color)
         
         return metalBuffer
     }
@@ -19,10 +19,10 @@ class MetalColor:MetalBufferableProtocol
     
     private init(originalColor:UIColor)
     {
-        var red:CGFloat
-        var green:CGFloat
-        var blue:CGFloat
-        var alpha:CGFloat
+        var red:CGFloat = 0
+        var green:CGFloat = 0
+        var blue:CGFloat = 0
+        var alpha:CGFloat = 0
         
         originalColor.getRed(
             &red,

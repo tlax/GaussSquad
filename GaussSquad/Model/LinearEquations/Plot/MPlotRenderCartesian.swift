@@ -5,6 +5,7 @@ class MPlotRenderCartesian:MetalRenderableProtocol
 {
     private let axisX:MetalSpatialLine
     private let axisY:MetalSpatialLine
+    private let color:MTLBuffer
     private let kAxisWidth:Float = 5
     private let kBoundaries:Float = 2000
     
@@ -25,6 +26,10 @@ class MPlotRenderCartesian:MetalRenderableProtocol
             bPointX:0,
             bPointY:kBoundaries,
             lineWidth:kAxisWidth)
+        
+        color = MetalColor.color(
+            device:device,
+            originalColor:UIColor.black)
     }
     
     //MARK: renderable Protocol
@@ -32,9 +37,11 @@ class MPlotRenderCartesian:MetalRenderableProtocol
     func render(renderEncoder:MTLRenderCommandEncoder)
     {
         renderEncoder.render(
-            vertex:axisX.vertexBuffer)
+            vertex:axisX.vertexBuffer,
+            color:color)
         
         renderEncoder.render(
-            vertex:axisY.vertexBuffer)
+            vertex:axisY.vertexBuffer,
+            color:color)
     }
 }
