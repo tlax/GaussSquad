@@ -2,10 +2,6 @@ import UIKit
 
 class MetalProjection
 {
-    let minY:Float
-    let maxY:Float
-    let minX:Float
-    let maxX:Float
     let projectionBuffer:MTLBuffer
     
     init(device:MTLDevice)
@@ -14,9 +10,15 @@ class MetalProjection
         
         projectionBuffer = device.generateBuffer(
             bufferable:projectionMatrix)
-        minY = projectionMatrix.minY
-        maxY = projectionMatrix.maxY
-        minX = projectionMatrix.minX
-        maxX = projectionMatrix.maxX
+    }
+    
+    init(device:MTLDevice, width:CGFloat, height:CGFloat)
+    {
+        let projectionMatrix:MetalProjectionMatrix = MetalProjectionMatrix(
+            width:width,
+            height:height)
+        
+        projectionBuffer = device.generateBuffer(
+            bufferable:projectionMatrix)
     }
 }

@@ -6,8 +6,8 @@ class MPlotRenderCartesian:MetalRenderableProtocol
     private let axisX:MetalSpatialLine
     private let axisY:MetalSpatialLine
     private let positionBuffer:MTLBuffer
-    private let kAxisWidth:Float = 10
-    private let kBoundaries:Float = 3000
+    private let kAxisWidth:Float = 5
+    private let kBoundaries:Float = 2000
     
     init(device:MTLDevice)
     {

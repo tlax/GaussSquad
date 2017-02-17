@@ -41,6 +41,13 @@ class CLinearEquationsPlot:CController
         }
     }
     
+    override func viewWillTransition(to size:CGSize, with coordinator:UIViewControllerTransitionCoordinator)
+    {
+        model.modelRender?.updateProjection(
+            width:size.width,
+            height:size.height)
+    }
+    
     //MARK: public
     
     func back()
