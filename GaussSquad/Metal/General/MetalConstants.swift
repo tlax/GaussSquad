@@ -18,6 +18,7 @@ class MetalConstants
     static let kBufferElementSize:Int = 4
     static let kColorAttachmentIndex:Int = 0
     static let kVertexIndex:Int = 0
+    static let kColorIndex:Int = 0
     static let kProjectionIndex:Int = 1
     static let kBlendingEnabled:Bool = true
 }

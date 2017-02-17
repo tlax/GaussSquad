@@ -17,4 +17,12 @@ struct projection_matrix
     float project_height;
 };
 
+struct fragment_color
+{
+    float red;
+    float green;
+    float blue;
+    float alpha;
+};
+
 #endif
