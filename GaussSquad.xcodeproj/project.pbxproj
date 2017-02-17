@@ -67,9 +67,6 @@
 		DA4691441E56744600FAD188 /* MetalShaderFragmentSimple.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA46912C1E56744600FAD188 /* MetalShaderFragmentSimple.metal */; };
 		DA4691451E56744600FAD188 /* MetalShaderVertexTextured.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA46912E1E56744600FAD188 /* MetalShaderVertexTextured.metal */; };
 		DA4691461E56744600FAD188 /* MetalSpatialBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691311E56744600FAD188 /* MetalSpatialBase.swift */; };
-		DA4691471E56744600FAD188 /* MetalSpatialDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691331E56744600FAD188 /* MetalSpatialDirection.swift */; };
-		DA4691481E56744600FAD188 /* MetalSpatialDirectionNegative.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691341E56744600FAD188 /* MetalSpatialDirectionNegative.swift */; };
-		DA4691491E56744600FAD188 /* MetalSpatialDirectionPositive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691351E56744600FAD188 /* MetalSpatialDirectionPositive.swift */; };
 		DA46914A1E56744600FAD188 /* MetalSpatialShapeSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691371E56744600FAD188 /* MetalSpatialShapeSquare.swift */; };
 		DA46914B1E56744600FAD188 /* MetalSpatialShapeSquarePositive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691381E56744600FAD188 /* MetalSpatialShapeSquarePositive.swift */; };
 		DA46914C1E56744600FAD188 /* MetalVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46913A1E56744600FAD188 /* MetalVertex.swift */; };
@@ -81,6 +78,7 @@
 		DA4691591E56766500FAD188 /* ExtensionMTLDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691551E56766500FAD188 /* ExtensionMTLDevice.swift */; };
 		DA46915A1E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691561E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift */; };
 		DA46915B1E56766500FAD188 /* ExtensionMTLTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691571E56766500FAD188 /* ExtensionMTLTexture.swift */; };
+		DA46915F1E56781C00FAD188 /* MPlotRenderCartesian.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46915E1E56781C00FAD188 /* MPlotRenderCartesian.swift */; };
 		DA476EED1E56108E0058F4A4 /* MSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EEC1E56108E0058F4A4 /* MSettings.swift */; };
 		DA476EEF1E5610960058F4A4 /* MSettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EEE1E5610960058F4A4 /* MSettingsItem.swift */; };
 		DA476EF11E5610A60058F4A4 /* MSettingsItemFractionDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EF01E5610A60058F4A4 /* MSettingsItemFractionDigits.swift */; };
@@ -296,9 +294,6 @@
 		DA46912D1E56744600FAD188 /* MetalShaderStructs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalShaderStructs.h; sourceTree = "<group>"; };
 		DA46912E1E56744600FAD188 /* MetalShaderVertexTextured.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderVertexTextured.metal; sourceTree = "<group>"; };
 		DA4691311E56744600FAD188 /* MetalSpatialBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialBase.swift; sourceTree = "<group>"; };
-		DA4691331E56744600FAD188 /* MetalSpatialDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialDirection.swift; sourceTree = "<group>"; };
-		DA4691341E56744600FAD188 /* MetalSpatialDirectionNegative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialDirectionNegative.swift; sourceTree = "<group>"; };
-		DA4691351E56744600FAD188 /* MetalSpatialDirectionPositive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialDirectionPositive.swift; sourceTree = "<group>"; };
 		DA4691371E56744600FAD188 /* MetalSpatialShapeSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialShapeSquare.swift; sourceTree = "<group>"; };
 		DA4691381E56744600FAD188 /* MetalSpatialShapeSquarePositive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialShapeSquarePositive.swift; sourceTree = "<group>"; };
 		DA46913A1E56744600FAD188 /* MetalVertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertex.swift; sourceTree = "<group>"; };
@@ -310,6 +305,7 @@
 		DA4691551E56766500FAD188 /* ExtensionMTLDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLDevice.swift; sourceTree = "<group>"; };
 		DA4691561E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLRenderCommandEncoder.swift; sourceTree = "<group>"; };
 		DA4691571E56766500FAD188 /* ExtensionMTLTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLTexture.swift; sourceTree = "<group>"; };
+		DA46915E1E56781C00FAD188 /* MPlotRenderCartesian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPlotRenderCartesian.swift; sourceTree = "<group>"; };
 		DA476EEC1E56108E0058F4A4 /* MSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettings.swift; sourceTree = "<group>"; };
 		DA476EEE1E5610960058F4A4 /* MSettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItem.swift; sourceTree = "<group>"; };
 		DA476EF01E5610A60058F4A4 /* MSettingsItemFractionDigits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemFractionDigits.swift; sourceTree = "<group>"; };
@@ -619,7 +615,6 @@
 			isa = PBXGroup;
 			children = (
 				DA4691301E56744600FAD188 /* Base */,
-				DA4691321E56744600FAD188 /* Direction */,
 				DA4691361E56744600FAD188 /* Shape */,
 			);
 			path = Spatial;
@@ -631,16 +626,6 @@
 				DA4691311E56744600FAD188 /* MetalSpatialBase.swift */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		DA4691321E56744600FAD188 /* Direction */ = {
-			isa = PBXGroup;
-			children = (
-				DA4691331E56744600FAD188 /* MetalSpatialDirection.swift */,
-				DA4691341E56744600FAD188 /* MetalSpatialDirectionNegative.swift */,
-				DA4691351E56744600FAD188 /* MetalSpatialDirectionPositive.swift */,
-			);
-			path = Direction;
 			sourceTree = "<group>";
 		};
 		DA4691361E56744600FAD188 /* Shape */ = {
@@ -667,6 +652,7 @@
 			children = (
 				DA4691501E56755E00FAD188 /* MPlot.swift */,
 				DA4691521E56757200FAD188 /* MPlotRender.swift */,
+				DA46915E1E56781C00FAD188 /* MPlotRenderCartesian.swift */,
 			);
 			path = Plot;
 			sourceTree = "<group>";
@@ -1358,10 +1344,8 @@
 				DA8AFE4D1E53D82D0098CF2F /* MLinearEquationsSolutionDrawableProtocol.swift in Sources */,
 				DA476F2F1E5666270058F4A4 /* VLinearEquationsPlot.swift in Sources */,
 				DA476F0C1E562E740058F4A4 /* MStoreItemStatusPurchased.swift in Sources */,
-				DA4691481E56744600FAD188 /* MetalSpatialDirectionNegative.swift in Sources */,
 				DA476EF91E562D5B0058F4A4 /* CStore.swift in Sources */,
 				DAFF4ABE1E397B9600A2DD4B /* MHelpItem.swift in Sources */,
-				DA4691471E56744600FAD188 /* MetalSpatialDirection.swift in Sources */,
 				DAFF4AC21E397B9600A2DD4B /* VHelpCell.swift in Sources */,
 				DAFDD5111E4442F400880556 /* VLinearEquationsIndeterminate.swift in Sources */,
 				DA23C3681E527C40007C4C4D /* MLinearEquationsSolutionStrategyResultsOnly.swift in Sources */,
@@ -1392,6 +1376,7 @@
 				DA476F1D1E5634690058F4A4 /* VStoreCellNotAvailable.swift in Sources */,
 				DAC2BB791E53991E00F7C049 /* MLinearEquationsSolutionShareProtocol.swift in Sources */,
 				DAFF4ABD1E397B9600A2DD4B /* MHelp.swift in Sources */,
+				DA46915F1E56781C00FAD188 /* MPlotRenderCartesian.swift in Sources */,
 				DA23C3621E5260EA007C4C4D /* MLinearEquationsSolutionBarItemBottom.swift in Sources */,
 				DA23C3571E522D99007C4C4D /* MLinearEquationsSolutionStrategyRowAddition.swift in Sources */,
 				DA476F201E5634690058F4A4 /* VStoreFooter.swift in Sources */,
@@ -1524,7 +1509,6 @@
 				DAA4BD701E3A4BDE00B0360D /* MHome.swift in Sources */,
 				DAFDD5001E43D3AA00880556 /* MLinearEquationsProjectBarItemTrash.swift in Sources */,
 				DAFDD5131E44441100880556 /* VLinearEquationsIndeterminateControl.swift in Sources */,
-				DA4691491E56744600FAD188 /* MetalSpatialDirectionPositive.swift in Sources */,
 				DA62D3951E4CF870000D0387 /* VLinearEquationsSolutionCellConstantDivision.swift in Sources */,
 				DA476F061E562E740058F4A4 /* MStore.swift in Sources */,
 				DA62D3611E4CD58D000D0387 /* MLinearEquationsSolutionEquationItemConstantDivision.swift in Sources */,
