@@ -5,15 +5,11 @@ class MPlotRenderCartesian:MetalRenderableProtocol
 {
     private let axisX:MetalSpatialLine
     private let axisY:MetalSpatialLine
-    private let positionBuffer:MTLBuffer
     private let kAxisWidth:Float = 5
     private let kBoundaries:Float = 2000
     
     init(device:MTLDevice)
     {
-        let position:MetalPosition = MetalPosition.zero()
-        positionBuffer = device.generateBuffer(bufferable:position)
-        
         axisX = MetalSpatialLine(
             device:device,
             aPointX:-kBoundaries,
@@ -36,11 +32,9 @@ class MPlotRenderCartesian:MetalRenderableProtocol
     func render(renderEncoder:MTLRenderCommandEncoder)
     {
         renderEncoder.render(
-            vertex:axisX.vertexBuffer,
-            position:positionBuffer)
+            vertex:axisX.vertexBuffer)
         
         renderEncoder.render(
-            vertex:axisY.vertexBuffer,
-            position:positionBuffer)
+            vertex:axisY.vertexBuffer)
     }
 }

@@ -17,10 +17,4 @@ struct projection_matrix
     float project_height;
 };
 
-struct position_matrix
-{
-    float move_x;
-    float move_y;
-};
-
 #endif

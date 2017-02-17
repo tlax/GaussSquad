@@ -3,18 +3,12 @@ import MetalKit
 
 extension MTLRenderCommandEncoder
 {
-    func render(
-        vertex:MTLBuffer,
-        position:MTLBuffer)
+    func render(vertex:MTLBuffer)
     {
         setVertexBuffer(
             vertex,
             offset:0,
             at:MetalConstants.kVertexIndex)
-        setVertexBuffer(
-            position,
-            offset:0,
-            at:MetalConstants.kPositionIndex)
         drawPrimitives(
             type:MetalConstants.kPrimitiveType,
             vertexStart:0,
