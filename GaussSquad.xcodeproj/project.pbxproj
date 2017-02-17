@@ -66,7 +66,6 @@
 		DA4691431E56744600FAD188 /* MetalRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46912A1E56744600FAD188 /* MetalRotation.swift */; };
 		DA4691441E56744600FAD188 /* MetalShaderFragmentSimple.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA46912C1E56744600FAD188 /* MetalShaderFragmentSimple.metal */; };
 		DA4691451E56744600FAD188 /* MetalShaderVertexTextured.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA46912E1E56744600FAD188 /* MetalShaderVertexTextured.metal */; };
-		DA4691461E56744600FAD188 /* MetalSpatialBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691311E56744600FAD188 /* MetalSpatialBase.swift */; };
 		DA46914A1E56744600FAD188 /* MetalSpatialShapeSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691371E56744600FAD188 /* MetalSpatialShapeSquare.swift */; };
 		DA46914C1E56744600FAD188 /* MetalVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46913A1E56744600FAD188 /* MetalVertex.swift */; };
 		DA46914D1E56744600FAD188 /* MetalVertexFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46913B1E56744600FAD188 /* MetalVertexFace.swift */; };
@@ -77,6 +76,8 @@
 		DA46915A1E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691561E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift */; };
 		DA46915B1E56766500FAD188 /* ExtensionMTLTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691571E56766500FAD188 /* ExtensionMTLTexture.swift */; };
 		DA46915F1E56781C00FAD188 /* MPlotRenderCartesian.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46915E1E56781C00FAD188 /* MPlotRenderCartesian.swift */; };
+		DA4691611E567B0100FAD188 /* MetalSpatialShapeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691601E567B0100FAD188 /* MetalSpatialShapeLine.swift */; };
+		DA4691631E567B0D00FAD188 /* MetalSpatialShapeRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691621E567B0D00FAD188 /* MetalSpatialShapeRect.swift */; };
 		DA476EED1E56108E0058F4A4 /* MSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EEC1E56108E0058F4A4 /* MSettings.swift */; };
 		DA476EEF1E5610960058F4A4 /* MSettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EEE1E5610960058F4A4 /* MSettingsItem.swift */; };
 		DA476EF11E5610A60058F4A4 /* MSettingsItemFractionDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476EF01E5610A60058F4A4 /* MSettingsItemFractionDigits.swift */; };
@@ -291,7 +292,6 @@
 		DA46912C1E56744600FAD188 /* MetalShaderFragmentSimple.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderFragmentSimple.metal; sourceTree = "<group>"; };
 		DA46912D1E56744600FAD188 /* MetalShaderStructs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalShaderStructs.h; sourceTree = "<group>"; };
 		DA46912E1E56744600FAD188 /* MetalShaderVertexTextured.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderVertexTextured.metal; sourceTree = "<group>"; };
-		DA4691311E56744600FAD188 /* MetalSpatialBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialBase.swift; sourceTree = "<group>"; };
 		DA4691371E56744600FAD188 /* MetalSpatialShapeSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialShapeSquare.swift; sourceTree = "<group>"; };
 		DA46913A1E56744600FAD188 /* MetalVertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertex.swift; sourceTree = "<group>"; };
 		DA46913B1E56744600FAD188 /* MetalVertexFace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertexFace.swift; sourceTree = "<group>"; };
@@ -302,6 +302,8 @@
 		DA4691561E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLRenderCommandEncoder.swift; sourceTree = "<group>"; };
 		DA4691571E56766500FAD188 /* ExtensionMTLTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLTexture.swift; sourceTree = "<group>"; };
 		DA46915E1E56781C00FAD188 /* MPlotRenderCartesian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPlotRenderCartesian.swift; sourceTree = "<group>"; };
+		DA4691601E567B0100FAD188 /* MetalSpatialShapeLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialShapeLine.swift; sourceTree = "<group>"; };
+		DA4691621E567B0D00FAD188 /* MetalSpatialShapeRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialShapeRect.swift; sourceTree = "<group>"; };
 		DA476EEC1E56108E0058F4A4 /* MSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettings.swift; sourceTree = "<group>"; };
 		DA476EEE1E5610960058F4A4 /* MSettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItem.swift; sourceTree = "<group>"; };
 		DA476EF01E5610A60058F4A4 /* MSettingsItemFractionDigits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemFractionDigits.swift; sourceTree = "<group>"; };
@@ -610,24 +612,17 @@
 		DA46912F1E56744600FAD188 /* Spatial */ = {
 			isa = PBXGroup;
 			children = (
-				DA4691301E56744600FAD188 /* Base */,
 				DA4691361E56744600FAD188 /* Shape */,
 			);
 			path = Spatial;
-			sourceTree = "<group>";
-		};
-		DA4691301E56744600FAD188 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				DA4691311E56744600FAD188 /* MetalSpatialBase.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		DA4691361E56744600FAD188 /* Shape */ = {
 			isa = PBXGroup;
 			children = (
 				DA4691371E56744600FAD188 /* MetalSpatialShapeSquare.swift */,
+				DA4691601E567B0100FAD188 /* MetalSpatialShapeLine.swift */,
+				DA4691621E567B0D00FAD188 /* MetalSpatialShapeRect.swift */,
 			);
 			path = Shape;
 			sourceTree = "<group>";
@@ -1413,6 +1408,7 @@
 				DA23C34F1E52099F007C4C4D /* MLinearEquationsSolutionStrategyZeroFill.swift in Sources */,
 				DAC2165C1E42A9BC009EDBF7 /* VLinearEquationsPolynomialText.swift in Sources */,
 				DA62D37E1E4CEC08000D0387 /* VLinearEquationsSolution.swift in Sources */,
+				DA4691611E567B0100FAD188 /* MetalSpatialShapeLine.swift in Sources */,
 				DA4691531E56757200FAD188 /* MPlotRender.swift in Sources */,
 				DA476EF11E5610A60058F4A4 /* MSettingsItemFractionDigits.swift in Sources */,
 				DA9F6FA51E5529C3003C5486 /* MHelpLinearEquationsProjectItemEditRow.swift in Sources */,
@@ -1450,6 +1446,7 @@
 				DA12D4791E415990008327B5 /* MLinearEquationsProjectRowItemPolynomialDecimal.swift in Sources */,
 				DA62D3811E4CECAB000D0387 /* VLinearEquationsSolutionCell.swift in Sources */,
 				DAB84C331E41681A0052F778 /* VLinearEquationsProjectCellPolynomialDivision.swift in Sources */,
+				DA4691631E567B0D00FAD188 /* MetalSpatialShapeRect.swift in Sources */,
 				DA476F091E562E740058F4A4 /* MStoreItemStatusDeferred.swift in Sources */,
 				DA0D4DD91E4E1A8900699018 /* VLinearEquationsSolutionCellIndex.swift in Sources */,
 				DA133A401E410F710028D90F /* MLinearEquationsProjectRowItem.swift in Sources */,
@@ -1483,7 +1480,6 @@
 				DA62D3971E4CFDEF000D0387 /* VLinearEquationsSolutionFlow.swift in Sources */,
 				DAD518CA1E4006420004C8D8 /* MLinearEquationsItem.swift in Sources */,
 				DA62D3631E4CD599000D0387 /* MLinearEquationsSolutionEquationItemPolynomialDecimal.swift in Sources */,
-				DA4691461E56744600FAD188 /* MetalSpatialBase.swift in Sources */,
 				DA0D4DE51E4E99AD00699018 /* MLinearEquationsSolutionStrategyReductionIndeterminates.swift in Sources */,
 				DAFF4A981E397B9600A2DD4B /* CController.swift in Sources */,
 				DA46913D1E56744600FAD188 /* MetalBufferableProtocol.swift in Sources */,
