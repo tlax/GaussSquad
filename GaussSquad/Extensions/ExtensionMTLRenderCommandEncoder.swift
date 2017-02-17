@@ -6,8 +6,7 @@ extension MTLRenderCommandEncoder
     func render(
         vertex:MTLBuffer,
         position:MTLBuffer,
-        rotation:MTLBuffer,
-        texture:MTLTexture)
+        rotation:MTLBuffer)
     {
         setVertexBuffer(
             vertex,
@@ -21,9 +20,6 @@ extension MTLRenderCommandEncoder
             rotation,
             offset:0,
             at:MetalConstants.kRotationIndex)
-        setFragmentTexture(
-            texture,
-            at:MetalConstants.kTextureIndex)
         drawPrimitives(
             type:MetalConstants.kPrimitiveType,
             vertexStart:0,
