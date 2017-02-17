@@ -5,12 +5,12 @@ class MPlotRender:MetalRenderableProtocol
 {
     private weak var device:MTLDevice?
     let cartesian:MPlotRenderCartesian
-    private var projection:MetalProjection
+    private var projection:MTLBuffer
     
     init(device:MTLDevice)
     {
         self.device = device
-        projection = MetalProjection(device:device)
+        projection = MetalProjection.projectionMatrix(device:device)
         cartesian = MPlotRenderCartesian(device:device)
     }
     
@@ -27,7 +27,7 @@ class MPlotRender:MetalRenderableProtocol
             return
         }
         
-        projection = MetalProjection(
+        projection = MetalProjection.projectionMatrix(
             device:device,
             width:width,
             height:height)
@@ -38,7 +38,7 @@ class MPlotRender:MetalRenderableProtocol
     func render(renderEncoder:MTLRenderCommandEncoder)
     {
         renderEncoder.projectionMatrix(
-            projection:projection.projectionBuffer)
+            projection:projection)
         cartesian.render(renderEncoder:renderEncoder)
     }
 }

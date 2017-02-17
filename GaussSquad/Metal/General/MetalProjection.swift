@@ -9,7 +9,6 @@ class MetalProjection:MetalBufferableProtocol
         let width:CGFloat = size.width
         let height:CGFloat = size.height
         let projection:MetalProjection = MetalProjection(
-            device:device,
             width:width,
             height:height)
         let metalBuffer:MTLBuffer = device.generateBuffer(
@@ -24,7 +23,6 @@ class MetalProjection:MetalBufferableProtocol
         height:CGFloat) -> MTLBuffer
     {
         let projection:MetalProjection = MetalProjection(
-            device:device,
             width:width,
             height:height)
         let metalBuffer:MTLBuffer = device.generateBuffer(
@@ -36,7 +34,7 @@ class MetalProjection:MetalBufferableProtocol
     private let ratioX:Float
     private let ratioY:Float
     
-    private init(device:MTLDevice, width:CGFloat, height:CGFloat)
+    private init(width:CGFloat, height:CGFloat)
     {
         let scale:Float = Float(UIScreen.main.scale)
         ratioX = Float(width) / scale
