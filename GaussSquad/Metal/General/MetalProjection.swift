@@ -1,24 +1,57 @@
 import UIKit
+import MetalKit
 
-class MetalProjection
+class MetalProjection:MetalBufferableProtocol
 {
-    let projectionBuffer:MTLBuffer
-    
-    init(device:MTLDevice)
+    class func projectionMatrix(device:MTLDevice) -> MTLBuffer
     {
-        let projectionMatrix:MetalProjectionMatrix = MetalProjectionMatrix()
-        
-        projectionBuffer = device.generateBuffer(
-            bufferable:projectionMatrix)
-    }
-    
-    init(device:MTLDevice, width:CGFloat, height:CGFloat)
-    {
-        let projectionMatrix:MetalProjectionMatrix = MetalProjectionMatrix(
+        let size:CGSize = UIScreen.main.bounds.size
+        let width:CGFloat = size.width
+        let height:CGFloat = size.height
+        let projection:MetalProjection = MetalProjection(
+            device:device,
             width:width,
             height:height)
+        let metalBuffer:MTLBuffer = device.generateBuffer(
+            bufferable:projection)
         
-        projectionBuffer = device.generateBuffer(
-            bufferable:projectionMatrix)
+        return metalBuffer
+    }
+    
+    class func projectionMatrix(
+        device:MTLDevice,
+        width:CGFloat,
+        height:CGFloat) -> MTLBuffer
+    {
+        let projection:MetalProjection = MetalProjection(
+            device:device,
+            width:width,
+            height:height)
+        let metalBuffer:MTLBuffer = device.generateBuffer(
+            bufferable:projection)
+        
+        return metalBuffer
+    }
+    
+    private let ratioX:Float
+    private let ratioY:Float
+    
+    private init(device:MTLDevice, width:CGFloat, height:CGFloat)
+    {
+        let scale:Float = Float(UIScreen.main.scale)
+        ratioX = Float(width) / scale
+        ratioY = Float(height) / scale
+    }
+    
+    //MARK: bufferableProtocol
+    
+    func buffer() -> [Float]
+    {
+        let bufferArray:[Float] = [
+            ratioX,
+            ratioY
+        ]
+        
+        return bufferArray
     }
 }
