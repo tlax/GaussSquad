@@ -600,8 +600,8 @@
 		DA46912B1E56744600FAD188 /* Shader */ = {
 			isa = PBXGroup;
 			children = (
-				DA46912C1E56744600FAD188 /* MetalShaderFragmentSimple.metal */,
 				DA46912D1E56744600FAD188 /* MetalShaderStructs.h */,
+				DA46912C1E56744600FAD188 /* MetalShaderFragmentSimple.metal */,
 				DA46912E1E56744600FAD188 /* MetalShaderVertexTextured.metal */,
 			);
 			path = Shader;
