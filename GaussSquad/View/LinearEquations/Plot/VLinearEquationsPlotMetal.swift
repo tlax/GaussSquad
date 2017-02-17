@@ -4,7 +4,6 @@ import MetalKit
 class VLinearEquationsPlotMetal:MTKView
 {
     private weak var controller:CLinearEquationsPlot!
-    private let samplerState:MTLSamplerState
     private let commandQueue:MTLCommandQueue
     private let pipelineState:MTLRenderPipelineState
     
@@ -25,19 +24,6 @@ class VLinearEquationsPlotMetal:MTKView
         }
         
         commandQueue = device.makeCommandQueue()
-        
-        let sampleDescriptor = MTLSamplerDescriptor()
-        sampleDescriptor.minFilter = MetalConstants.kSamplerMinFilter
-        sampleDescriptor.magFilter = MetalConstants.kSamplerMagFilter
-        sampleDescriptor.mipFilter = MetalConstants.kSamplerMipFilter
-        sampleDescriptor.sAddressMode = MetalConstants.kSamplerSAddressMode
-        sampleDescriptor.tAddressMode = MetalConstants.kSamplerTAddressMode
-        sampleDescriptor.rAddressMode = MetalConstants.kSamplerRAddressMode
-        sampleDescriptor.lodMinClamp = MetalConstants.kSamplerLodMinClamp
-        sampleDescriptor.lodMaxClamp = MetalConstants.kSamplerLodMaxClamp
-        sampleDescriptor.maxAnisotropy = MetalConstants.kSamplerMaxAnisotropy
-        sampleDescriptor.normalizedCoordinates = MetalConstants.kSamplerNormalizedCoordinates
-        samplerState = device.makeSamplerState(descriptor:sampleDescriptor)
         
         let pipelineDescriptor:MTLRenderPipelineDescriptor = MTLRenderPipelineDescriptor()
         pipelineDescriptor.vertexFunction = vertexFunction
@@ -72,6 +58,7 @@ class VLinearEquationsPlotMetal:MTKView
         contentMode = UIViewContentMode.center
         autoResizeDrawable = true
         isPaused = false
+        clearColor = MTLClearColor(red:1, green:1, blue:1, alpha:1)
         self.controller = controller
     }
     
@@ -99,12 +86,9 @@ class VLinearEquationsPlotMetal:MTKView
             descriptor:passDescriptor)
         renderEncoder.setCullMode(MTLCullMode.none)
         renderEncoder.setRenderPipelineState(pipelineState)
-        renderEncoder.setFragmentSamplerState(
-            samplerState,
-            at:MetalConstants.kFragmentSamplerIndex)
         controller.model.modelRender?.render(
             renderEncoder:renderEncoder)
-        
+
         renderEncoder.endEncoding()
         commandBuffer.present(drawable)
         commandBuffer.commit()

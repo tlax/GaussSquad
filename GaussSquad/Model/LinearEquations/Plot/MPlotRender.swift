@@ -3,23 +3,13 @@ import MetalKit
 
 class MPlotRender:MetalRenderableProtocol
 {
-    private let textureLoader:MTKTextureLoader
+    let cartesian:MPlotRenderCartesian
     private let projection:MetalProjection
     
     init(device:MTLDevice)
     {
-        textureLoader = MTKTextureLoader(device:device)
         projection = MetalProjection(device:device)
-        
-        guard
-            
-            let textureMenuBase:MTLTexture = textureLoader.loadImage(
-                image:#imageLiteral(resourceName: "assetTextureBase"))
-            
-        else
-        {
-            return
-        }
+        cartesian = MPlotRenderCartesian(device:device)
     }
     
     //MARK: public
@@ -30,5 +20,6 @@ class MPlotRender:MetalRenderableProtocol
     {
         renderEncoder.projectionMatrix(
             projection:projection.projectionBuffer)
+        cartesian.render(renderEncoder:renderEncoder)
     }
 }
