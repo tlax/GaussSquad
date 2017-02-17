@@ -21,6 +21,5 @@ class MetalConstants
     static let kPositionIndex:Int = 2
     static let kRotationIndex:Int = 3
     static let kProjectionIndex:Int = 1
-    static let kFragmentSamplerIndex:Int = 0
     static let kBlendingEnabled:Bool = true
 }

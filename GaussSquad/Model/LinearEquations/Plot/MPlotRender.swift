@@ -12,8 +12,6 @@ class MPlotRender:MetalRenderableProtocol
         cartesian = MPlotRenderCartesian(device:device)
     }
     
-    //MARK: public
-    
     //MARK: renderable Protocol
     
     func render(renderEncoder:MTLRenderCommandEncoder)

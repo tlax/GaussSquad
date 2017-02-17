@@ -32,7 +32,6 @@ vertex_textured(constant vertex_source* vertex_array [[buffer(0)]],
     float4 coords = float4(final_x, final_y, coord_z, destination_position);
     
     destination.coords = coords;
-    destination.texture = source.texture;
     
     return destination;
 }
