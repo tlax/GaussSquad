@@ -4,7 +4,7 @@ import MetalKit
 class MPlotRenderCartesian:MetalRenderableProtocol
 {
     private let rotationBuffer:MTLBuffer
-    private let spatialSquare:MetalSpatialShapeSquarePositive
+    private let axisX:MetalSpatialLine
     private let positionBuffer:MTLBuffer
     private let kCameraWidth:Float = 480
     private let kCameraHeight:Float = 640
@@ -24,29 +24,23 @@ class MPlotRenderCartesian:MetalRenderableProtocol
         let rotation:MetalRotation = MetalRotation.none()
         positionBuffer = device.generateBuffer(bufferable:position)
         rotationBuffer = device.generateBuffer(bufferable:rotation)
-        spatialSquare = MetalSpatialShapeSquarePositive(
+        
+        axisX = MetalSpatialLine(
             device:device,
-            width:textureWidth,
-            height:textureHeight)
+            aPointX:100,
+            aPointY:100,
+            bPointX:200,
+            bPointY:200,
+            lineWidth:10)
     }
     
     //MARK: renderable Protocol
     
     func render(renderEncoder:MTLRenderCommandEncoder)
     {
-        guard
-            
-            let texture:MTLTexture = self.texture
-            
-            else
-        {
-            return
-        }
-        
         renderEncoder.render(
-            vertex:spatialSquare.vertexBuffer,
+            vertex:axisX.vertexBuffer,
             position:positionBuffer,
-            rotation:rotationBuffer,
-            texture:texture)
+            rotation:rotationBuffer)
     }
 }

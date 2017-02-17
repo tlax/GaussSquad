@@ -2,6 +2,7 @@ import UIKit
 
 class VLinearEquationsPlot:VView
 {
+    weak var viewMetal:VLinearEquationsPlotMetal?
     private weak var controller:CLinearEquationsPlot!
     private weak var viewBar:VLinearEquationsPlotBar!
     private let kBarHeight:CGFloat = 80
@@ -25,6 +26,24 @@ class VLinearEquationsPlot:VView
             constant:kBarHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
+            toView:self)
+        
+        guard
+            
+            let viewMetal:VLinearEquationsPlotMetal = VLinearEquationsPlotMetal(
+                controller:self.controller)
+            
+        else
+        {
+            return
+        }
+        
+        self.viewMetal = viewMetal
+        
+        addSubview(viewMetal)
+        
+        NSLayoutConstraint.equals(
+            view:viewMetal,
             toView:self)
     }
     

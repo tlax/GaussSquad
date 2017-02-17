@@ -89,7 +89,7 @@ class VLinearEquationsPlotMetal:MTKView
             let drawable:CAMetalDrawable = currentDrawable,
             let passDescriptor:MTLRenderPassDescriptor = currentRenderPassDescriptor
             
-            else
+        else
         {
             return
         }
@@ -102,7 +102,8 @@ class VLinearEquationsPlotMetal:MTKView
         renderEncoder.setFragmentSamplerState(
             samplerState,
             at:MetalConstants.kFragmentSamplerIndex)
-        controller.modelRender?.render(renderEncoder:renderEncoder)
+        controller.model.modelRender?.render(
+            renderEncoder:renderEncoder)
         
         renderEncoder.endEncoding()
         commandBuffer.present(drawable)

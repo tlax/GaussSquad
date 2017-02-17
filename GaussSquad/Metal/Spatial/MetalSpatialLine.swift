@@ -5,11 +5,6 @@ class MetalSpatialLine
 {
     let vertexBuffer:MTLBuffer
     
-    init(vertexBuffer:MTLBuffer)
-    {
-        self.vertexBuffer = vertexBuffer
-    }
-    
     init(
         device:MTLDevice,
         aPointX:Float,

@@ -2,12 +2,12 @@ import UIKit
 
 class CLinearEquationsPlot:CController
 {
+    let model:MPlot
     private weak var viewPlot:VLinearEquationsPlot!
-    private weak var stepDone:MLinearEquationsSolutionStepDone!
     
     init(stepDone:MLinearEquationsSolutionStepDone)
     {
-        self.stepDone = stepDone
+        model = MPlot(stepDone:stepDone)
         super.init()
     }
     
@@ -21,6 +21,24 @@ class CLinearEquationsPlot:CController
         let viewPlot:VLinearEquationsPlot = VLinearEquationsPlot(controller:self)
         self.viewPlot = viewPlot
         view = viewPlot
+    }
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        guard
+            
+            let device:MTLDevice = viewPlot.viewMetal?.device
+            
+        else
+        {
+            return
+        }
+        
+        if model.modelRender == nil
+        {
+            model.modelRender = MPlotRender(device:device)
+        }
     }
     
     //MARK: public
