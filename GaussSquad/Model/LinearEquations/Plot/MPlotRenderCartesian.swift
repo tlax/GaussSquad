@@ -11,20 +11,21 @@ class MPlotRenderCartesian:MetalRenderableProtocol
     
     init(device:MTLDevice)
     {
+        let vectorStartX:float2 = float2(-kBoundaries, 0)
+        let vectorEndX:float2 = float2(kBoundaries, 0)
+        let vectorStartY:float2 = float2(0, -kBoundaries)
+        let vectorEndY:float2 = float2(0, kBoundaries)
+        
         axisX = MetalSpatialLine.vertex(
             device:device,
-            aPointX:-kBoundaries,
-            aPointY:0,
-            bPointX:kBoundaries,
-            bPointY:0,
+            vectorStart:vectorStartX,
+            vectorEnd:vectorEndX,
             lineWidth:kAxisWidth)
         
         axisY = MetalSpatialLine.vertex(
             device:device,
-            aPointX:0,
-            aPointY:-kBoundaries,
-            bPointX:0,
-            bPointY:kBoundaries,
+            vectorStart:vectorStartY,
+            vectorEnd:vectorEndY,
             lineWidth:kAxisWidth)
         
         color = MetalColor.color(

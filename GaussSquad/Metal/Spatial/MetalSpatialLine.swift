@@ -4,18 +4,14 @@ import MetalKit
 class MetalSpatialLine
 {
     class func vertex(device:MTLDevice,
-                      aPointX:Float,
-                      aPointY:Float,
-                      bPointX:Float,
-                      bPointY:Float,
+                      vectorStart:float2,
+                      vectorEnd:float2,
                       lineWidth:Float) -> MTLBuffer
     {
         let line:MetalSpatialLine = MetalSpatialLine(
             device:device,
-            aPointX:aPointX,
-            aPointY:aPointY,
-            bPointX:bPointX,
-            bPointY:bPointY,
+            vectorStart:vectorStart,
+            vectorEnd:vectorEnd,
             lineWidth:lineWidth)
         
         let buffer:MTLBuffer = line.vertexBuffer
@@ -27,62 +23,39 @@ class MetalSpatialLine
     
     private init(
         device:MTLDevice,
-        aPointX:Float,
-        aPointY:Float,
-        bPointX:Float,
-        bPointY:Float,
+        vectorStart:float2,
+        vectorEnd:float2,
         lineWidth:Float)
     {
         let lineWidth_2:Float = lineWidth / 2.0
-        let aPointYMin:Float = aPointY - lineWidth_2
-        let aPointYMax:Float = aPointY + lineWidth_2
-        let bPointYMin:Float = bPointY - lineWidth_2
-        let bPointYMax:Float = bPointY + lineWidth_2
-        let aPointXMin:Float
-        let aPointXMax:Float
-        let bPointXMin:Float
-        let bPointXMax:Float
         
-        if aPointX < bPointX
-        {
-            aPointXMin = aPointX - lineWidth_2
-            aPointXMax = aPointX - lineWidth_2
-            bPointXMin = bPointX + lineWidth_2
-            bPointXMax = bPointX + lineWidth_2
-        }
-        else if aPointX > bPointX
-        {
-            aPointXMin = aPointX + lineWidth_2
-            aPointXMax = aPointX + lineWidth_2
-            bPointXMin = bPointX - lineWidth_2
-            bPointXMax = bPointX - lineWidth_2
-        }
-        else
-        {
-            aPointXMin = aPointX - lineWidth_2
-            aPointXMax = aPointX + lineWidth_2
-            bPointXMin = bPointX - lineWidth_2
-            bPointXMax = bPointX + lineWidth_2
-        }
+        let vector:float2 = vectorEnd - vectorStart;
+        let vectorNormal:float2 = float2(-vector.y, vector.x)
+        let vectorNormalized:float2 = normalize(vectorNormal)
+        let vectorThickness:float2 = lineWidth_2 * vectorNormalized
+        let vectorStartMin:float2 = vectorStart - vectorThickness
+        let vectorStartMax:float2 = vectorStart + vectorThickness
+        let vectorEndMin:float2 = vectorEnd - vectorThickness
+        let vectorEndMax:float2 = vectorEnd + vectorThickness
         
-        let pointAMin:MetalVertex = MetalVertex(
-            positionX:aPointXMin,
-            positionY:aPointYMin)
-        let pointAMax:MetalVertex = MetalVertex(
-            positionX:aPointXMax,
-            positionY:aPointYMax)
-        let pointBMin:MetalVertex = MetalVertex(
-            positionX:bPointXMin,
-            positionY:bPointYMin)
-        let pointBMax:MetalVertex = MetalVertex(
-            positionX:bPointXMax,
-            positionY:bPointYMax)
+        let startMin:MetalVertex = MetalVertex(
+            positionX:vectorStartMin.x,
+            positionY:vectorStartMin.y)
+        let startMax:MetalVertex = MetalVertex(
+            positionX:vectorStartMax.x,
+            positionY:vectorStartMax.y)
+        let endMin:MetalVertex = MetalVertex(
+            positionX:vectorEndMin.x,
+            positionY:vectorEndMin.y)
+        let endMax:MetalVertex = MetalVertex(
+            positionX:vectorEndMax.x,
+            positionY:vectorEndMax.y)
         
         let vertexFace:MetalVertexFace = MetalVertexFace(
-            topLeft:pointAMin,
-            topRight:pointBMin,
-            bottomLeft:pointAMax,
-            bottomRight:pointBMax)
+            topLeft:startMin,
+            topRight:endMin,
+            bottomLeft:startMax,
+            bottomRight:endMax)
         
         vertexBuffer = device.generateBuffer(bufferable:vertexFace)
     }

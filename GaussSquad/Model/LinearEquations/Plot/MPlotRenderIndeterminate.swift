@@ -8,18 +8,14 @@ class MPlotRenderIndeterminate:MetalRenderableProtocol
     private let kLineWidth:Float = 10
     
     init(device:MTLDevice,
-        aPointX:Float,
-        aPointY:Float,
-        bPointX:Float,
-        bPointY:Float,
-        color:UIColor)
+         vectorStart:float2,
+         vectorEnd:float2,
+         color:UIColor)
     {
         vector = MetalSpatialLine.vertex(
             device:device,
-            aPointX:aPointX,
-            aPointY:aPointY,
-            bPointX:bPointX,
-            bPointY:bPointY,
+            vectorStart:vectorStart,
+            vectorEnd:vectorEnd,
             lineWidth:kLineWidth)
         
         self.color = MetalColor.color(

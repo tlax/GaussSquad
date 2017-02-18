@@ -44,13 +44,13 @@ class MPlotRender:MetalRenderableProtocol
         let floatValue:Float = Float(value)
         let minY:Float = floatValue * kMinX
         let maxY:Float = floatValue * kMaxX
+        let vectorStart:float2 = float2(kMinX, minY)
+        let vectorEnd:float2 = float2(kMaxX, maxY)
         
         let indeterminate:MPlotRenderIndeterminate = MPlotRenderIndeterminate(
             device:device,
-            aPointX:kMinX,
-            aPointY:minY,
-            bPointX:kMaxX,
-            bPointY:maxY,
+            vectorStart:vectorStart,
+            vectorEnd:vectorEnd,
             color:UIColor.squadBlue)
         
         indeterminates.append(indeterminate)

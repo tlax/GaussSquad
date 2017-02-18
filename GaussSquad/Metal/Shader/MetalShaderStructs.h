@@ -3,17 +3,12 @@
 
 struct vertex_source
 {
-    float2 vector_start;
-    float2 vector_end;
-    float line_width;
+    float2 coords;
 };
 
 struct vertex_destination
 {
-    float4 vector_start_a [[position]];
-    float4 vector_start_b [[position]];
-    float4 vector_end_a [[position_end_a]];
-    float4 vector_end_b [[position_end_b]];
+    float4 coords [[position]];
 };
 
 struct projection_matrix
