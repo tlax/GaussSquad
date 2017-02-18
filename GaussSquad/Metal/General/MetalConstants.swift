@@ -13,9 +13,12 @@ class MetalConstants
     static let kDestinationRgbBlendFactor:MTLBlendFactor = MTLBlendFactor.oneMinusSourceAlpha
     static let kDestinationAlphaBlendFactor:MTLBlendFactor = MTLBlendFactor.oneMinusSourceAlpha
     static let kPrimitiveType:MTLPrimitiveType = MTLPrimitiveType.triangle
+    static let kTextureUsage:NSObject = MTLTextureUsage.shaderRead.rawValue as NSObject
+    static let kTextureSrgb:NSObject = false as NSObject
     static let kPrimitiveCount:Int = 6
     static let kBufferElementSize:Int = 4
-    static let kTextureIndex:Int = 0
+    static let kTextureReadIndex:Int = 0
+    static let kTextureWriteIndex:Int = 1
     static let kColorAttachmentIndex:Int = 0
     static let kVertexIndex:Int = 0
     static let kColorIndex:Int = 0

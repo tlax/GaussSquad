@@ -4,14 +4,14 @@ import MetalKit
 class VLinearEquationsPlotMetal:MTKView
 {
     private weak var controller:CLinearEquationsPlot!
+    private var threadgroupCounts:MTLSize
+    private var threadgroups:MTLSize
     private let pipelineCompute:MTLComputePipelineState
     private let kernelFunction:MTLFunction
     private let commandQueue:MTLCommandQueue
     private let pipelineState:MTLRenderPipelineState
-    private var threadgroupCounts:MTLSize
-    private var threadgroups:MTLSize
-    private let kThreadgroupWidth:Int = 8
-    private let kThreadgroupHeight:Int = 8
+    private let kThreadgroupWidth:Int = 2
+    private let kThreadgroupHeight:Int = 2
     private let kThreadgroupDeep:Int = 1
     
     init?(controller:CLinearEquationsPlot)
@@ -98,8 +98,9 @@ class VLinearEquationsPlotMetal:MTKView
     
     override func layoutSubviews()
     {
-        let width:Int = Int(bounds.maxX)
-        let height:Int = Int(bounds.maxY)
+        let scale:Int = Int(UIScreen.main.scale)
+        let width:Int = Int(bounds.maxX) * scale
+        let height:Int = Int(bounds.maxY) * scale
         let threadgroupsHorizontal:Int = width / kThreadgroupWidth
         let threadgroupsVertical:Int = height / kThreadgroupHeight
         threadgroupCounts = MTLSizeMake(
@@ -142,12 +143,14 @@ class VLinearEquationsPlotMetal:MTKView
         commandEncoder.setComputePipelineState(pipelineCompute)
         commandEncoder.setTexture(
             drawable.texture,
-            at:MetalConstants.kTextureIndex)
+            at:MetalConstants.kTextureReadIndex)
+        commandEncoder.setTexture(
+            drawable.texture,
+            at:MetalConstants.kTextureWriteIndex)
         commandEncoder.dispatchThreadgroups(
             threadgroups,
             threadsPerThreadgroup:threadgroupCounts)
         commandEncoder.endEncoding()
-        
         
         commandBuffer.present(drawable)
         commandBuffer.commit()
