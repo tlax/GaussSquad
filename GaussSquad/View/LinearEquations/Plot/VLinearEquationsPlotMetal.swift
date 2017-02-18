@@ -4,8 +4,15 @@ import MetalKit
 class VLinearEquationsPlotMetal:MTKView
 {
     private weak var controller:CLinearEquationsPlot!
+    private let pipelineCompute:MTLComputePipelineState
+    private let kernelFunction:MTLFunction
     private let commandQueue:MTLCommandQueue
     private let pipelineState:MTLRenderPipelineState
+    private var threadgroupCounts:MTLSize
+    private var threadgroups:MTLSize
+    private let kThreadgroupWidth:Int = 8
+    private let kThreadgroupHeight:Int = 8
+    private let kThreadgroupDeep:Int = 1
     
     init?(controller:CLinearEquationsPlot)
     {
@@ -16,13 +23,26 @@ class VLinearEquationsPlotMetal:MTKView
             let vertexFunction:MTLFunction = library.makeFunction(
                 name:MetalConstants.kVertexFunction),
             let fragmentFunction:MTLFunction = library.makeFunction(
-                name:MetalConstants.kFragmentFunction)
+                name:MetalConstants.kFragmentFunction),
+            let kernelFunction:MTLFunction = library.makeFunction(
+                name:MetalConstants.kKernelFunction)
             
         else
         {
             return nil
         }
         
+        do
+        {
+            try pipelineCompute = device.makeComputePipelineState(
+                function:kernelFunction)
+        }
+        catch
+        {
+            return nil
+        }
+        
+        self.kernelFunction = kernelFunction
         commandQueue = device.makeCommandQueue()
         
         let pipelineDescriptor:MTLRenderPipelineDescriptor = MTLRenderPipelineDescriptor()
@@ -49,6 +69,15 @@ class VLinearEquationsPlotMetal:MTKView
             return nil
         }
         
+        threadgroupCounts = MTLSizeMake(
+            kThreadgroupWidth,
+            kThreadgroupHeight,
+            kThreadgroupDeep)
+        threadgroups = MTLSizeMake(
+            0,
+            0,
+            kThreadgroupDeep)
+        
         super.init(frame:CGRect.zero, device:device)
         backgroundColor = UIColor.clear
         framebufferOnly = false
@@ -65,6 +94,24 @@ class VLinearEquationsPlotMetal:MTKView
     required init(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:Int = Int(bounds.maxX)
+        let height:Int = Int(bounds.maxY)
+        let threadgroupsHorizontal:Int = width / kThreadgroupWidth
+        let threadgroupsVertical:Int = height / kThreadgroupHeight
+        threadgroupCounts = MTLSizeMake(
+            kThreadgroupWidth,
+            kThreadgroupHeight,
+            kThreadgroupDeep)
+        threadgroups = MTLSizeMake(
+            threadgroupsHorizontal,
+            threadgroupsVertical,
+            kThreadgroupDeep)
+        
+        super.layoutSubviews()
     }
     
     override func draw()
@@ -90,6 +137,18 @@ class VLinearEquationsPlotMetal:MTKView
             renderEncoder:renderEncoder)
 
         renderEncoder.endEncoding()
+        
+        let commandEncoder:MTLComputeCommandEncoder = commandBuffer.makeComputeCommandEncoder()
+        commandEncoder.setComputePipelineState(pipelineCompute)
+        commandEncoder.setTexture(
+            drawable.texture,
+            at:MetalConstants.kTextureIndex)
+        commandEncoder.dispatchThreadgroups(
+            threadgroups,
+            threadsPerThreadgroup:threadgroupCounts)
+        commandEncoder.endEncoding()
+        
+        
         commandBuffer.present(drawable)
         commandBuffer.commit()
     }

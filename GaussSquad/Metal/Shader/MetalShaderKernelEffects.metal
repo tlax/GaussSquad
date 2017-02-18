@@ -3,24 +3,18 @@
 using namespace metal;
 #include "MetalShaderStructs.h"
 
-static constant float destination_position = 1;
-static constant float coord_z = 0;
-
 kernel void
-vertex_arrangement(texture2d<float, access::write> baseTexture [[texture(0)]])
+kernel_effects(texture2d<float, access::write> base_texture [[texture(0)]],
+                   uint2 grid_id [[thread_position_in_grid]])
 {
-    vertex_source source = vertex_array[vid];
-    vertex_destination destination;
+    int width = base_texture.get_width();
+    int height = base_texture.get_height();
+    float2 uv = float2(grid_id) / float2(width, height);
     
-    float coords_x = source.coords[0];
-    float coords_y = source.coords[1];
-    
-    float projected_x = coords_x / projection.project_width;
-    float projected_y = coords_y / projection.project_height;
-    
-    float4 coords = float4(projected_x, projected_y, coord_z, destination_position);
-    
-    destination.coords = coords;
-    
-    return destination;
+    float3 color = float3(0.7);
+    if(fmod(uv.x, 0.1) < 0.005 || fmod(uv.y, 0.1) < 0.005) color = float3(0,0,1);
+    float2 uv_ext = uv * 2.0 - 1.0;
+    if(abs(uv_ext.x) < 0.02 || abs(uv_ext.y) < 0.02) color = float3(1, 0, 0);
+    if(abs(uv_ext.x - uv_ext.y) < 0.02 || abs(uv_ext.x + uv_ext.y) < 0.02) color = float3(0, 1, 0);
+    base_texture.write(float4(color, 1), grid_id);
 }

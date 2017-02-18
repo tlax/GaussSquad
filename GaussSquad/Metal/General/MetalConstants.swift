@@ -2,8 +2,9 @@ import MetalKit
 
 class MetalConstants
 {
-    static let kVertexFunction:String = "vertex_textured"
+    static let kVertexFunction:String = "vertex_arrangement"
     static let kFragmentFunction:String = "fragment_simple"
+    static let kKernelFunction:String = "kernel_effects"
     static let kPixelFormat:MTLPixelFormat = MTLPixelFormat.bgra8Unorm
     static let kRgbBlendOperation:MTLBlendOperation = MTLBlendOperation.add
     static let kAlphaBlendOperation:MTLBlendOperation = MTLBlendOperation.add
@@ -12,10 +13,9 @@ class MetalConstants
     static let kDestinationRgbBlendFactor:MTLBlendFactor = MTLBlendFactor.oneMinusSourceAlpha
     static let kDestinationAlphaBlendFactor:MTLBlendFactor = MTLBlendFactor.oneMinusSourceAlpha
     static let kPrimitiveType:MTLPrimitiveType = MTLPrimitiveType.triangle
-    static let kTextureUsage:NSObject = MTLTextureUsage.shaderRead.rawValue as NSObject
-    static let kTextureSrgb:NSObject = false as NSObject
     static let kPrimitiveCount:Int = 6
     static let kBufferElementSize:Int = 4
+    static let kTextureIndex:Int = 0
     static let kColorAttachmentIndex:Int = 0
     static let kVertexIndex:Int = 0
     static let kColorIndex:Int = 0
