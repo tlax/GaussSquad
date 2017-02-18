@@ -5,7 +5,7 @@ class MPlotRenderIndeterminate:MetalRenderableProtocol
 {
     private let vector:MTLBuffer
     private let color:MTLBuffer
-    private let kLineWidth:Float = 10
+    private let kLineWidth:Float = 20
     
     init(device:MTLDevice,
          vectorStart:float2,
