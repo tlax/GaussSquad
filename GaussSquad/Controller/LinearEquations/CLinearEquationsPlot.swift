@@ -37,7 +37,7 @@ class CLinearEquationsPlot:CController
         
         if model.modelRender == nil
         {
-            model.modelRender = MPlotRender(device:device)
+            model.makeRender(device:device)
         }
     }
     

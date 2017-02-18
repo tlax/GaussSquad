@@ -21,7 +21,7 @@ class MPlot
         {
             guard
             
-                let coefficient:MLinearEquationsSolutionEquationItemConstant = equation.items.first as? MLinearEquationsSolutionEquationItemConstant
+                let coefficient:MLinearEquationsSolutionEquationItemConstant = equation.result as? MLinearEquationsSolutionEquationItemConstant
             
             else
             {
