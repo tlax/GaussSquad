@@ -6,12 +6,24 @@ class MPlotRender:MetalRenderableProtocol
     private let cartesian:MPlotRenderCartesian
     private var projection:MTLBuffer
     private var indeterminates:[MPlotRenderIndeterminate]
+    private let colors:[UIColor]
     private weak var device:MTLDevice?
     private let kMinX:Float = 1
     private let kMaxX:Float = 100
     
     init(device:MTLDevice)
     {
+        colors = [
+            UIColor.squadBlue,
+            UIColor.squadRed,
+            UIColor.squadGreen,
+            UIColor.purple,
+            UIColor.brown,
+            UIColor.orange,
+            UIColor.yellow,
+            UIColor.gray
+        ]
+        
         self.device = device
         projection = MetalProjection.projectionMatrix(device:device)
         cartesian = MPlotRenderCartesian(device:device)
@@ -46,12 +58,14 @@ class MPlotRender:MetalRenderableProtocol
         let maxY:Float = floatValue * kMaxX
         let vectorStart:float2 = float2(kMinX, minY)
         let vectorEnd:float2 = float2(kMaxX, maxY)
+        let indexColor:Int = indeterminates.count % colors.count
+        let color:UIColor = colors[indexColor]
         
         let indeterminate:MPlotRenderIndeterminate = MPlotRenderIndeterminate(
             device:device,
             vectorStart:vectorStart,
             vectorEnd:vectorEnd,
-            color:UIColor.squadBlue)
+            color:color)
         
         indeterminates.append(indeterminate)
     }

@@ -139,18 +139,18 @@ class VLinearEquationsPlotMetal:MTKView
 
         renderEncoder.endEncoding()
         
-        let commandEncoder:MTLComputeCommandEncoder = commandBuffer.makeComputeCommandEncoder()
-        commandEncoder.setComputePipelineState(pipelineCompute)
-        commandEncoder.setTexture(
-            drawable.texture,
-            at:MetalConstants.kTextureReadIndex)
-        commandEncoder.setTexture(
-            drawable.texture,
-            at:MetalConstants.kTextureWriteIndex)
-        commandEncoder.dispatchThreadgroups(
-            threadgroups,
-            threadsPerThreadgroup:threadgroupCounts)
-        commandEncoder.endEncoding()
+//        let commandEncoder:MTLComputeCommandEncoder = commandBuffer.makeComputeCommandEncoder()
+//        commandEncoder.setComputePipelineState(pipelineCompute)
+//        commandEncoder.setTexture(
+//            drawable.texture,
+//            at:MetalConstants.kTextureReadIndex)
+//        commandEncoder.setTexture(
+//            drawable.texture,
+//            at:MetalConstants.kTextureWriteIndex)
+//        commandEncoder.dispatchThreadgroups(
+//            threadgroups,
+//            threadsPerThreadgroup:threadgroupCounts)
+//        commandEncoder.endEncoding()
         
         commandBuffer.present(drawable)
         commandBuffer.commit()
