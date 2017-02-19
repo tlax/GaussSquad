@@ -9,7 +9,7 @@ class MPlotRender:MetalRenderableProtocol
     private let colors:[UIColor]
     private weak var device:MTLDevice?
     private let kMinX:Float = 1
-    private let kMaxX:Float = 100
+    private let kMaxX:Float = 1000
     
     init(device:MTLDevice)
     {
