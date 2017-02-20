@@ -14,7 +14,7 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor(white:0, alpha:0.1)
+        backgroundColor = UIColor(white:1, alpha:0.8)
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false

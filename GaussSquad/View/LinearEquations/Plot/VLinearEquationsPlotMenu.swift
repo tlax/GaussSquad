@@ -4,8 +4,8 @@ class VLinearEquationsPlotMenu:UIView, UICollectionViewDelegate, UICollectionVie
 {
     private weak var controller:CLinearEquationsPlot!
     private weak var collectionView:VCollection!
-    private let kCellWidth:CGFloat = 120
-    private let kInterLine:CGFloat = 10
+    private let kCellWidth:CGFloat = 140
+    private let kInterLine:CGFloat = 1
     private let kBorderHeight:CGFloat = 1
     private let kDeselectTime:TimeInterval = 0.2
     
@@ -14,7 +14,7 @@ class VLinearEquationsPlotMenu:UIView, UICollectionViewDelegate, UICollectionVie
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.squadBlue.withAlphaComponent(0.06)
         self.controller = controller
         
         let blur:VBlur = VBlur.light()
@@ -40,8 +40,8 @@ class VLinearEquationsPlotMenu:UIView, UICollectionViewDelegate, UICollectionVie
         }
         
         addSubview(blur)
-        addSubview(border)
         addSubview(collectionView)
+        addSubview(border)
         
         NSLayoutConstraint.equals(
             view:blur,
@@ -134,6 +134,11 @@ class VLinearEquationsPlotMenu:UIView, UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:MPlotMenuItem = modelAtIndex(index:indexPath)
+        controller.viewPlot.centerItem(item:item)
+        collectionView.scrollToItem(
+            at:indexPath,
+            at:UICollectionViewScrollPosition.centeredHorizontally,
+            animated:true)
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)

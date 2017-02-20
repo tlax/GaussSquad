@@ -3,7 +3,7 @@ import UIKit
 class CLinearEquationsPlot:CController
 {
     let model:MPlot
-    private weak var viewPlot:VLinearEquationsPlot!
+    weak var viewPlot:VLinearEquationsPlot!
     
     init(stepDone:MLinearEquationsSolutionStepDone)
     {

@@ -122,4 +122,16 @@ class VLinearEquationsPlot:VView
     {
         startingPoint = nil
     }
+    
+    //MARK: public
+    
+    func centerItem(item:MPlotMenuItem)
+    {
+        positionX = -item.positionX
+        positionY = -item.positionY
+        
+        viewMetal?.newPosition(
+            positionX:positionX,
+            positionY:positionY)
+    }
 }
