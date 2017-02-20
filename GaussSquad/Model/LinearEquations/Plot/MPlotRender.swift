@@ -88,7 +88,12 @@ class MPlotRender:MetalRenderableProtocol
             positionY:floatPositionY,
             color:color)
         
-        indeterminates.append(indeterminate)
+        indeterminates.insert(indeterminate, at:0)
+    }
+    
+    func clearIndeterminates()
+    {
+        indeterminates = []
     }
     
     //MARK: renderable Protocol
