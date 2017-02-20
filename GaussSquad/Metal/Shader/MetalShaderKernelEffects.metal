@@ -4,6 +4,7 @@ using namespace metal;
 #include "MetalShaderStructs.h"
 
 static constant float3 color_white = float3(1,1,1);
+static constant float min_white = 0.95;
 
 kernel void
 kernel_effects(texture2d<float, access::read> read_texture [[texture(0)]],
@@ -21,7 +22,7 @@ kernel_effects(texture2d<float, access::read> read_texture [[texture(0)]],
         float cos_y = cos(y_pos);
         float sin_x = sin(x_pos);
         float sin_y = sin(y_pos);
-        float rand = max(max(max(cos_x, cos_y), max(sin_x, sin_y)), 0.95);
+        float rand = max(max(max(cos_x, cos_y), max(sin_x, sin_y)), min_white);
         float4 new_color = float4(rand, rand, rand, 1);
         write_texture.write(new_color, grid_id);
     }
