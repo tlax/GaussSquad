@@ -44,7 +44,7 @@ class VLinearEquationsPlot:VView
         NSLayoutConstraint.bottomToBottom(
             view:viewMenu,
             toView:self)
-        NSLayoutConstraint.equals(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewMenu,
             toView:self)
         
