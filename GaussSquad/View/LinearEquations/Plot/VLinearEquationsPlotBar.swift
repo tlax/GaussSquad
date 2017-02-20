@@ -3,9 +3,11 @@ import UIKit
 class VLinearEquationsPlotBar:UIView
 {
     private weak var controller:CLinearEquationsPlot!
+    private weak var viewZoom:VLinearEquationsPlotBarZoom!
     private let kBorderHeight:CGFloat = 1
     private let kContentTop:CGFloat = 20
     private let kBackWidth:CGFloat = 50
+    private let kZoomWidth:CGFloat = 120
     
     init(controller:CLinearEquationsPlot)
     {
@@ -33,9 +35,14 @@ class VLinearEquationsPlotBar:UIView
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let viewZoom:VLinearEquationsPlotBarZoom = VLinearEquationsPlotBarZoom(
+            controller:controller)
+        self.viewZoom = viewZoom
+        
         addSubview(blur)
         addSubview(border)
         addSubview(buttonBack)
+        addSubview(viewZoom)
         
         NSLayoutConstraint.equals(
             view:blur,
@@ -64,6 +71,16 @@ class VLinearEquationsPlotBar:UIView
         NSLayoutConstraint.width(
             view:buttonBack,
             constant:kBackWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:viewZoom,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:viewZoom,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:viewZoom,
+            constant:kZoomWidth)
     }
     
     required init?(coder:NSCoder)

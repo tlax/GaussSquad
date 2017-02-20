@@ -186,6 +186,7 @@
 		DAE4A87D1E5B4909000A07A3 /* MetalSpatialPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4A87C1E5B4909000A07A3 /* MetalSpatialPoint.swift */; };
 		DAE4A87F1E5B5551000A07A3 /* MetalVertexTextured.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4A87E1E5B5551000A07A3 /* MetalVertexTextured.swift */; };
 		DAE4A8811E5B7735000A07A3 /* MetalPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4A8801E5B7735000A07A3 /* MetalPosition.swift */; };
+		DAE4A8831E5B89F5000A07A3 /* VLinearEquationsPlotBarZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4A8821E5B89F5000A07A3 /* VLinearEquationsPlotBarZoom.swift */; };
 		DAEE488A1E57A7B2000D27A9 /* MetalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE48891E57A7B2000D27A9 /* MetalColor.swift */; };
 		DAEE488C1E57AE5A000D27A9 /* MPlotRenderIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE488B1E57AE5A000D27A9 /* MPlotRenderIndeterminate.swift */; };
 		DAF37AD21E3D4FEF005052D8 /* CLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */; };
@@ -415,6 +416,7 @@
 		DAE4A87C1E5B4909000A07A3 /* MetalSpatialPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialPoint.swift; sourceTree = "<group>"; };
 		DAE4A87E1E5B5551000A07A3 /* MetalVertexTextured.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertexTextured.swift; sourceTree = "<group>"; };
 		DAE4A8801E5B7735000A07A3 /* MetalPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalPosition.swift; sourceTree = "<group>"; };
+		DAE4A8821E5B89F5000A07A3 /* VLinearEquationsPlotBarZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPlotBarZoom.swift; sourceTree = "<group>"; };
 		DAEE48891E57A7B2000D27A9 /* MetalColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalColor.swift; sourceTree = "<group>"; };
 		DAEE488B1E57AE5A000D27A9 /* MPlotRenderIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPlotRenderIndeterminate.swift; sourceTree = "<group>"; };
 		DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquations.swift; sourceTree = "<group>"; };
@@ -683,6 +685,7 @@
 			children = (
 				DA476F2E1E5666270058F4A4 /* VLinearEquationsPlot.swift */,
 				DA46911E1E566EC400FAD188 /* VLinearEquationsPlotBar.swift */,
+				DAE4A8821E5B89F5000A07A3 /* VLinearEquationsPlotBarZoom.swift */,
 				DA4691201E56736D00FAD188 /* VLinearEquationsPlotMetal.swift */,
 			);
 			path = Plot;
@@ -1386,6 +1389,7 @@
 				DAE4A87D1E5B4909000A07A3 /* MetalSpatialPoint.swift in Sources */,
 				DA12D4731E414A71008327B5 /* VLinearEquationsProjectCellIndex.swift in Sources */,
 				DA133A451E410F710028D90F /* MLinearEquationsProjectRow.swift in Sources */,
+				DAE4A8831E5B89F5000A07A3 /* VLinearEquationsPlotBarZoom.swift in Sources */,
 				DAFF4AA51E397B9600A2DD4B /* ExtensionUIFont.swift in Sources */,
 				DAFF4AA11E397B9600A2DD4B /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DA99E1821E53A96200DB692B /* MLinearEquationsSolutionBarItemBack.swift in Sources */,
