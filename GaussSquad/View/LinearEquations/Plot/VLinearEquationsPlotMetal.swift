@@ -143,6 +143,8 @@ class VLinearEquationsPlotMetal:MTKView
             return
         }
 
+        let baseTexture:MTLTexture = drawable.texture
+        
         let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
         let renderEncoder:MTLRenderCommandEncoder = commandBuffer.makeRenderCommandEncoder(
             descriptor:passDescriptor)
@@ -158,10 +160,10 @@ class VLinearEquationsPlotMetal:MTKView
         let commandEncoder:MTLComputeCommandEncoder = commandBuffer.makeComputeCommandEncoder()
         commandEncoder.setComputePipelineState(pipelineCompute)
         commandEncoder.setTexture(
-            drawable.texture,
+            baseTexture,
             at:MetalConstants.kTextureReadIndex)
         commandEncoder.setTexture(
-            drawable.texture,
+            baseTexture,
             at:MetalConstants.kTextureWriteIndex)
         commandEncoder.dispatchThreadgroups(
             threadgroups,

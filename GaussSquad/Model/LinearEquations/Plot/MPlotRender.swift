@@ -9,8 +9,6 @@ class MPlotRender:MetalRenderableProtocol
     private let texturePoint:MTLTexture?
     private let cartesian:MPlotRenderCartesian?
     private let colors:[UIColor]
-    private let kMinX:Float = 1
-    private let kMaxX:Float = 1000
     
     init(device:MTLDevice)
     {

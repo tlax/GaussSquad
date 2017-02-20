@@ -43,8 +43,7 @@ class MetalColor:MetalBufferableProtocol
         let bufferArray:[Float] = [
             red,
             green,
-            blue,
-            alpha
+            blue
         ]
         
         return bufferArray

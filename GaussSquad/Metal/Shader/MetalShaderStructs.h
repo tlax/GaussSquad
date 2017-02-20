@@ -24,7 +24,6 @@ struct fragment_color
     float red;
     float green;
     float blue;
-    float alpha;
 };
 
 #endif

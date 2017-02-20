@@ -16,6 +16,7 @@ extension MTKTextureLoader
         
         let texture:MTLTexture? = loadCGImage(
             cGImage:cGImage)
+        
         return texture
     }
     
@@ -33,8 +34,9 @@ extension MTKTextureLoader
                     MTKTextureLoaderOptionSRGB:
                         MetalConstants.kTextureSrgb])
         }
-        catch
+        catch let error
         {
+            print(error.localizedDescription)
             return nil
         }
         

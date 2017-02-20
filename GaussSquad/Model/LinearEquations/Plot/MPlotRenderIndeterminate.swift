@@ -6,7 +6,7 @@ class MPlotRenderIndeterminate:MetalRenderableProtocol
     private let texture:MTLTexture
     private let point:MTLBuffer
     private let color:MTLBuffer
-    private let kRadius:Float = 10
+    private let kRadius:Float = 25
     
     init(device:MTLDevice,
          texture:MTLTexture,
