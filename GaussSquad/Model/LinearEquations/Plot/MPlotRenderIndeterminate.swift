@@ -31,5 +31,9 @@ class MPlotRenderIndeterminate:MetalRenderableProtocol
     
     func render(renderEncoder:MTLRenderCommandEncoder)
     {
+        renderEncoder.render(
+            vertex:point,
+            color:color,
+            texture:texture)
     }
 }

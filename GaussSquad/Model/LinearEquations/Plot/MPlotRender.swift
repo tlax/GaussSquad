@@ -7,7 +7,7 @@ class MPlotRender:MetalRenderableProtocol
     private var projection:MTLBuffer
     private var indeterminates:[MPlotRenderIndeterminate]
     private let texturePoint:MTLTexture?
-    private let cartesian:MPlotRenderCartesian
+    private let cartesian:MPlotRenderCartesian?
     private let colors:[UIColor]
     private let kMinX:Float = 1
     private let kMaxX:Float = 1000
@@ -28,8 +28,19 @@ class MPlotRender:MetalRenderableProtocol
             UIColor.yellow
         ]
         
+        if let textureCartesian:MTLTexture = textureLoader.loadImage(
+            image:#imageLiteral(resourceName: "assetTextureLine"))
+        {
+            cartesian = MPlotRenderCartesian(
+                device:device,
+                texture:textureCartesian)
+        }
+        else
+        {
+            cartesian = nil
+        }
+        
         projection = MetalProjection.projectionMatrix(device:device)
-        cartesian = MPlotRenderCartesian(device:device)
         indeterminates = []
         self.device = device
     }
@@ -88,7 +99,7 @@ class MPlotRender:MetalRenderableProtocol
     {
         renderEncoder.projectionMatrix(
             projection:projection)
-        cartesian.render(renderEncoder:renderEncoder)
+        cartesian?.render(renderEncoder:renderEncoder)
         
         for indeterminate:MPlotRenderIndeterminate in indeterminates
         {

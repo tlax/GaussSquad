@@ -148,11 +148,11 @@ class VLinearEquationsPlotMetal:MTKView
             descriptor:passDescriptor)
         renderEncoder.setCullMode(MTLCullMode.none)
         renderEncoder.setRenderPipelineState(pipelineState)
-        controller.model.modelRender?.render(
-            renderEncoder:renderEncoder)
         renderEncoder.setFragmentSamplerState(
             samplerState,
             at:MetalConstants.kFragmentSamplerIndex)
+        controller.model.modelRender?.render(
+            renderEncoder:renderEncoder)
         renderEncoder.endEncoding()
         
         let commandEncoder:MTLComputeCommandEncoder = commandBuffer.makeComputeCommandEncoder()

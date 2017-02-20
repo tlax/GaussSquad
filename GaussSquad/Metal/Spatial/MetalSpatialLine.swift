@@ -20,6 +20,10 @@ class MetalSpatialLine
     }
     
     private let vertexBuffer:MTLBuffer
+    private let kTop:Float = 0
+    private let kBottom:Float = 1
+    private let kLeft:Float = 0
+    private let kRight:Float = 1
     
     private init(
         device:MTLDevice,
@@ -38,18 +42,26 @@ class MetalSpatialLine
         let vectorEndMin:float2 = vectorEnd - vectorThickness
         let vectorEndMax:float2 = vectorEnd + vectorThickness
         
-        let startMin:MetalVertex = MetalVertex(
+        let startMin:MetalVertexTextured = MetalVertexTextured(
             positionX:vectorStartMin.x,
-            positionY:vectorStartMin.y)
-        let startMax:MetalVertex = MetalVertex(
+            positionY:vectorStartMin.y,
+            horizontal:kLeft,
+            vertical:kTop)
+        let startMax:MetalVertexTextured = MetalVertexTextured(
             positionX:vectorStartMax.x,
-            positionY:vectorStartMax.y)
-        let endMin:MetalVertex = MetalVertex(
+            positionY:vectorStartMax.y,
+            horizontal:kLeft,
+            vertical:kBottom)
+        let endMin:MetalVertexTextured = MetalVertexTextured(
             positionX:vectorEndMin.x,
-            positionY:vectorEndMin.y)
-        let endMax:MetalVertex = MetalVertex(
+            positionY:vectorEndMin.y,
+            horizontal:kRight,
+            vertical:kTop)
+        let endMax:MetalVertexTextured = MetalVertexTextured(
             positionX:vectorEndMax.x,
-            positionY:vectorEndMax.y)
+            positionY:vectorEndMax.y,
+            horizontal:kRight,
+            vertical:kBottom)
         
         let vertexFace:MetalVertexFace = MetalVertexFace(
             topLeft:startMin,

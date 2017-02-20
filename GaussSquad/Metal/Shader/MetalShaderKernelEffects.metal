@@ -4,7 +4,7 @@ using namespace metal;
 #include "MetalShaderStructs.h"
 
 static constant float3 color_white = float3(1,1,1);
-static constant float min_white = 0.95;
+static constant float min_white = 0.92;
 
 kernel void
 kernel_effects(texture2d<float, access::read> read_texture [[texture(0)]],

@@ -8,13 +8,17 @@ class MPlotRenderCartesian:MetalRenderableProtocol
     private let color:MTLBuffer
     private let kAxisWidth:Float = 1
     private let kBoundaries:Float = 2000
+    private let texture:MTLTexture
     
-    init(device:MTLDevice)
+    init(
+        device:MTLDevice,
+        texture:MTLTexture)
     {
         let vectorStartX:float2 = float2(-kBoundaries, 0)
         let vectorEndX:float2 = float2(kBoundaries, 0)
         let vectorStartY:float2 = float2(0, -kBoundaries)
         let vectorEndY:float2 = float2(0, kBoundaries)
+        self.texture = texture
         
         axisX = MetalSpatialLine.vertex(
             device:device,
@@ -39,10 +43,12 @@ class MPlotRenderCartesian:MetalRenderableProtocol
     {
         renderEncoder.render(
             vertex:axisX,
-            color:color)
+            color:color,
+            texture:texture)
         
         renderEncoder.render(
             vertex:axisY,
-            color:color)
+            color:color,
+            texture:texture)
     }
 }
