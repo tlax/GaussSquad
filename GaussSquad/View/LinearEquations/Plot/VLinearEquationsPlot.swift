@@ -7,6 +7,8 @@ class VLinearEquationsPlot:VView
     private weak var viewBar:VLinearEquationsPlotBar!
     private var startingPoint:CGPoint?
     private let kBarHeight:CGFloat = 80
+    private var positionX:CGFloat = 0
+    private var positionY:CGFloat = 0
     
     override init(controller:CController)
     {
@@ -75,12 +77,23 @@ class VLinearEquationsPlot:VView
     {
         guard
         
-            let startingPoint:CGPoint = self.startingPoint
+            let startingPoint:CGPoint = self.startingPoint,
+            let newPoint:CGPoint = touches.first?.location(in:self)
         
         else
         {
             return
         }
+        
+        self.startingPoint = newPoint
+        let deltaX:CGFloat = startingPoint.x - newPoint.x
+        let deltaY:CGFloat = startingPoint.y - newPoint.y
+        positionX -= deltaX
+        positionY += deltaY
+        
+        viewMetal?.newPosition(
+            positionX:positionX,
+            positionY:positionY)
     }
     
     override func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?)

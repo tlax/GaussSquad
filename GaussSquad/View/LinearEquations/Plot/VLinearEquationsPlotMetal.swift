@@ -188,6 +188,21 @@ class VLinearEquationsPlotMetal:MTKView
     
     func newPosition(positionX:CGFloat, positionY:CGFloat)
     {
+        guard
         
+            let device:MTLDevice = self.device
+        
+        else
+        {
+            return
+        }
+        
+        let floatX:Float = Float(positionX)
+        let floatY:Float = Float(positionY)
+        
+        positionBuffer = MetalPosition.position(
+            device:device,
+            positionX:floatX,
+            positionY:floatY)
     }
 }
