@@ -22,6 +22,7 @@ class CLinearEquationsPlot:CController
         self.viewPlot = viewPlot
         view = viewPlot
     }
+    
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
@@ -38,6 +39,7 @@ class CLinearEquationsPlot:CController
         if model.modelRender == nil
         {
             model.makeRender(device:device)
+            viewPlot.viewMenu.refresh()
         }
     }
     
@@ -53,5 +55,16 @@ class CLinearEquationsPlot:CController
     func back()
     {
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+    }
+    
+    func updateZoom(zoom:Double)
+    {
+        model.updateZoom(zoom:zoom)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewPlot.viewMenu.refresh()
+        }
     }
 }

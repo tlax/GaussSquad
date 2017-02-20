@@ -107,7 +107,7 @@ class VLinearEquationsPlotBarZoom:UIView
                 value = 1 / negativeValue
             }
             
-            self?.controller.model.updateZoom(zoom:value)
+            self?.controller.updateZoom(zoom:value)
             
             DispatchQueue.main.async
             { [weak self] in

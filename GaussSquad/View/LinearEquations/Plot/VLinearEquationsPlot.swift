@@ -3,10 +3,12 @@ import UIKit
 class VLinearEquationsPlot:VView
 {
     weak var viewMetal:VLinearEquationsPlotMetal?
+    weak var viewMenu:VLinearEquationsPlotMenu!
     private weak var controller:CLinearEquationsPlot!
     private weak var viewBar:VLinearEquationsPlotBar!
     private var startingPoint:CGPoint?
     private let kBarHeight:CGFloat = 80
+    private let kMenuHeight:CGFloat = 60
     private var positionX:CGFloat = 0
     private var positionY:CGFloat = 0
     
@@ -19,7 +21,12 @@ class VLinearEquationsPlot:VView
             controller:self.controller)
         self.viewBar = viewBar
         
+        let viewMenu:VLinearEquationsPlotMenu = VLinearEquationsPlotMenu(
+            controller:self.controller)
+        self.viewMenu = viewMenu
+        
         addSubview(viewBar)
+        addSubview(viewMenu)
         
         NSLayoutConstraint.topToTop(
             view:viewBar,
@@ -29,6 +36,16 @@ class VLinearEquationsPlot:VView
             constant:kBarHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
+            toView:self)
+        
+        NSLayoutConstraint.height(
+            view:viewMenu,
+            constant:kMenuHeight)
+        NSLayoutConstraint.bottomToBottom(
+            view:viewMenu,
+            toView:self)
+        NSLayoutConstraint.equals(
+            view:viewMenu,
             toView:self)
         
         guard
