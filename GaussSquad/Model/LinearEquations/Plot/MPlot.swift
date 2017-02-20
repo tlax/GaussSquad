@@ -7,7 +7,7 @@ class MPlot
     private(set) var modelRender:MPlotRender?
     private weak var stepDone:MLinearEquationsSolutionStepDone?
     private weak var device:MTLDevice?
-    private let kDeltaPosition:Double = 1
+    private let kDeltaPosition:Double = 10
     
     init(stepDone:MLinearEquationsSolutionStepDone)
     {
@@ -40,7 +40,7 @@ class MPlot
                 
                 let coefficient:MLinearEquationsSolutionEquationItemConstant = equation.result as? MLinearEquationsSolutionEquationItemConstant
                 
-                else
+            else
             {
                 continue
             }

@@ -7,6 +7,7 @@ class MPlotRender:MetalRenderableProtocol
     private var projection:MTLBuffer
     private var indeterminates:[MPlotRenderIndeterminate]
     private let texturePoint:MTLTexture?
+    private let textureLine:MTLTexture?
     private let cartesian:MPlotRenderCartesian?
     private let colors:[UIColor]
     
@@ -26,15 +27,17 @@ class MPlotRender:MetalRenderableProtocol
             UIColor.yellow
         ]
         
-        if let textureCartesian:MTLTexture = textureLoader.loadImage(
+        if let textureLine:MTLTexture = textureLoader.loadImage(
             image:#imageLiteral(resourceName: "assetTextureLine"))
         {
+            self.textureLine = textureLine
             cartesian = MPlotRenderCartesian(
                 device:device,
-                texture:textureCartesian)
+                texture:textureLine)
         }
         else
         {
+            self.textureLine = nil
             cartesian = nil
         }
         
@@ -69,7 +72,8 @@ class MPlotRender:MetalRenderableProtocol
     {
         guard
             
-            let texturePoint:MTLTexture = self.texturePoint
+            let texturePoint:MTLTexture = self.texturePoint,
+            let textureLine:MTLTexture = self.textureLine
         
         else
         {
@@ -83,7 +87,8 @@ class MPlotRender:MetalRenderableProtocol
         
         let indeterminate:MPlotRenderIndeterminate = MPlotRenderIndeterminate(
             device:device,
-            texture:texturePoint,
+            texturePoint:texturePoint,
+            textureLine:textureLine,
             positionX:floatPositionX,
             positionY:floatPositionY,
             color:color)

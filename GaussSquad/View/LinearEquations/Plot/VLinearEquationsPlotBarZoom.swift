@@ -8,20 +8,22 @@ class VLinearEquationsPlotBarZoom:UIView
     private let numberFormatter:NumberFormatter
     private let kMinInteger:Int = 1
     private let kMinFraction:Int = 0
+    private let kMaxFraction:Int = 3
     private let kLabelRight:CGFloat = -10
-    private let kLabelWidth:CGFloat = 60
+    private let kLabelWidth:CGFloat = 80
     private let kLabelBottom:CGFloat = -15
     private let kLabelHeight:CGFloat = 30
     private let kStepperWidth:CGFloat = 110
-    private let kStepperHeight:CGFloat = 47
-    private let kMinZoom:Double = -10
-    private let kMaxZoom:Double = 10
+    private let kStepperHeight:CGFloat = 46
+    private let kMinZoom:Double = -28
+    private let kMaxZoom:Double = 30
     
     init(controller:CLinearEquationsPlot)
     {
         numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         numberFormatter.minimumFractionDigits = kMinFraction
+        numberFormatter.maximumFractionDigits = kMaxFraction
         numberFormatter.minimumIntegerDigits = kMinInteger
         
         super.init(frame:CGRect.zero)
@@ -35,7 +37,7 @@ class VLinearEquationsPlotBarZoom:UIView
         label.isUserInteractionEnabled = false
         label.backgroundColor = UIColor.clear
         label.textAlignment = NSTextAlignment.right
-        label.font = UIFont.bold(size:18)
+        label.font = UIFont.bold(size:14)
         label.textColor = UIColor.black
         self.label = label
         
@@ -44,6 +46,7 @@ class VLinearEquationsPlotBarZoom:UIView
         stepper.tintColor = UIColor.black
         stepper.minimumValue = kMinZoom
         stepper.maximumValue = kMaxZoom
+        stepper.value = controller.model.zoom
         stepper.addTarget(
             self,
             action:#selector(actionStepper(sender:)),
@@ -100,7 +103,8 @@ class VLinearEquationsPlotBarZoom:UIView
             
             if value < 1
             {
-                value = 1 / abs(value)
+                let negativeValue:Double = abs(value - 2)
+                value = 1 / negativeValue
             }
             
             self?.controller.model.updateZoom(zoom:value)
