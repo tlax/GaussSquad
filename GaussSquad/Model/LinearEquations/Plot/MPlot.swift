@@ -5,6 +5,7 @@ class MPlot
 {
     private(set) var modelRender:MPlotRender?
     private weak var stepDone:MLinearEquationsSolutionStepDone!
+    private let kDeltaPositionX:Double = 10
     
     init(stepDone:MLinearEquationsSolutionStepDone)
     {
@@ -17,6 +18,8 @@ class MPlot
     {
         modelRender = MPlotRender(device:device)
         
+        var positionX:Double = kDeltaPositionX
+        
         for equation:MLinearEquationsSolutionEquation in stepDone.equations
         {
             guard
@@ -28,10 +31,13 @@ class MPlot
                 continue
             }
             
-            let value:Double = coefficient.coefficient
+            let positionY:Double = coefficient.coefficient
             modelRender?.addIndeterminate(
                 device:device,
-                value:value)
+                positionX:positionX,
+                positionY:positionY)
+            
+            positionX += kDeltaPositionX
         }
     }
 }

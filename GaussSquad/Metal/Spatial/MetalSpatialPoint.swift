@@ -27,35 +27,29 @@ class MetalSpatialPoint
         positionY:Float,
         radius:Float)
     {
-        let lineWidth_2:Float = lineWidth / 2.0
+        let minX:Float = positionX - radius
+        let maxX:Float = positionX + radius
+        let minY:Float = positionY - radius
+        let maxY:Float = positionY + radius
         
-        let vector:float2 = vectorEnd - vectorStart;
-        let vectorNormal:float2 = float2(-vector.y, vector.x)
-        let vectorNormalized:float2 = normalize(vectorNormal)
-        let vectorThickness:float2 = lineWidth_2 * vectorNormalized
-        let vectorStartMin:float2 = vectorStart - vectorThickness
-        let vectorStartMax:float2 = vectorStart + vectorThickness
-        let vectorEndMin:float2 = vectorEnd - vectorThickness
-        let vectorEndMax:float2 = vectorEnd + vectorThickness
-        
-        let startMin:MetalVertex = MetalVertex(
-            positionX:vectorStartMin.x,
-            positionY:vectorStartMin.y)
-        let startMax:MetalVertex = MetalVertex(
-            positionX:vectorStartMax.x,
-            positionY:vectorStartMax.y)
-        let endMin:MetalVertex = MetalVertex(
-            positionX:vectorEndMin.x,
-            positionY:vectorEndMin.y)
-        let endMax:MetalVertex = MetalVertex(
-            positionX:vectorEndMax.x,
-            positionY:vectorEndMax.y)
+        let topLeft:MetalVertex = MetalVertex(
+            positionX:minX,
+            positionY:minY)
+        let topRight:MetalVertex = MetalVertex(
+            positionX:maxX,
+            positionY:minY)
+        let bottomLeft:MetalVertex = MetalVertex(
+            positionX:minX,
+            positionY:maxY)
+        let bottomRight:MetalVertex = MetalVertex(
+            positionX:maxX,
+            positionY:maxY)
         
         let vertexFace:MetalVertexFace = MetalVertexFace(
-            topLeft:startMin,
-            topRight:endMin,
-            bottomLeft:startMax,
-            bottomRight:endMax)
+            topLeft:topLeft,
+            topRight:topRight,
+            bottomLeft:bottomLeft,
+            bottomRight:bottomRight)
         
         vertexBuffer = device.generateBuffer(bufferable:vertexFace)
     }
