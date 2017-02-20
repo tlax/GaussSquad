@@ -4,17 +4,17 @@ import MetalKit
 class MetalSpatialPoint
 {
     class func vertex(device:MTLDevice,
-                      vectorStart:float2,
-                      vectorEnd:float2,
-                      lineWidth:Float) -> MTLBuffer
+                      positionX:Float,
+                      positionY:Float,
+                      radius:Float) -> MTLBuffer
     {
-        let line:MetalSpatialPoint = MetalSpatialPoint(
+        let point:MetalSpatialPoint = MetalSpatialPoint(
             device:device,
-            vectorStart:vectorStart,
-            vectorEnd:vectorEnd,
-            lineWidth:lineWidth)
+            positionX:positionX,
+            positionY:positionY,
+            radius:radius)
         
-        let buffer:MTLBuffer = line.vertexBuffer
+        let buffer:MTLBuffer = point.vertexBuffer
         
         return buffer
     }
@@ -23,9 +23,9 @@ class MetalSpatialPoint
     
     private init(
         device:MTLDevice,
-        vectorStart:float2,
-        vectorEnd:float2,
-        lineWidth:Float)
+        positionX:Float,
+        positionY:Float,
+        radius:Float)
     {
         let lineWidth_2:Float = lineWidth / 2.0
         

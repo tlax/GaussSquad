@@ -3,16 +3,21 @@ import MetalKit
 
 class MPlotRender:MetalRenderableProtocol
 {
-    private let cartesian:MPlotRenderCartesian
+    private weak var device:MTLDevice?
     private var projection:MTLBuffer
     private var indeterminates:[MPlotRenderIndeterminate]
+    private let texturePoint:MTLTexture?
+    private let cartesian:MPlotRenderCartesian
     private let colors:[UIColor]
-    private weak var device:MTLDevice?
     private let kMinX:Float = 1
     private let kMaxX:Float = 1000
     
     init(device:MTLDevice)
     {
+        let textureLoader:MTKTextureLoader = MTKTextureLoader(device:device)
+        texturePoint = textureLoader.loadImage(
+            image:#imageLiteral(resourceName: "assetTexturePoint"))
+        
         colors = [
             UIColor.squadBlue,
             UIColor.squadRed,
@@ -20,14 +25,13 @@ class MPlotRender:MetalRenderableProtocol
             UIColor.purple,
             UIColor.brown,
             UIColor.orange,
-            UIColor.yellow,
-            UIColor.gray
+            UIColor.yellow
         ]
         
-        self.device = device
         projection = MetalProjection.projectionMatrix(device:device)
         cartesian = MPlotRenderCartesian(device:device)
         indeterminates = []
+        self.device = device
     }
     
     //MARK: public
@@ -51,20 +55,28 @@ class MPlotRender:MetalRenderableProtocol
     
     func addIndeterminate(
         device:MTLDevice,
-        value:Double)
+        positionX:Double,
+        positionY:Double)
     {
-        let floatValue:Float = Float(value)
-        let minY:Float = floatValue * kMinX
-        let maxY:Float = floatValue * kMaxX
-        let vectorStart:float2 = float2(kMinX, minY)
-        let vectorEnd:float2 = float2(kMaxX, maxY)
+        guard
+            
+            let texturePoint:MTLTexture = self.texturePoint
+        
+        else
+        {
+            return
+        }
+        
+        let floatPositionX:Float = Float(positionX)
+        let floatPositionY:Float = Float(positionY)
         let indexColor:Int = indeterminates.count % colors.count
         let color:UIColor = colors[indexColor]
         
         let indeterminate:MPlotRenderIndeterminate = MPlotRenderIndeterminate(
             device:device,
-            vectorStart:vectorStart,
-            vectorEnd:vectorEnd,
+            texture:texturePoint,
+            positionX:floatPositionX,
+            positionY:floatPositionY,
             color:color)
         
         indeterminates.append(indeterminate)

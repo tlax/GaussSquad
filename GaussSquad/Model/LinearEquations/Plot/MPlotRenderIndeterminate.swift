@@ -3,20 +3,24 @@ import MetalKit
 
 class MPlotRenderIndeterminate:MetalRenderableProtocol
 {
-    private let vector:MTLBuffer
+    private let texture:MTLTexture
+    private let point:MTLBuffer
     private let color:MTLBuffer
-    private let kLineWidth:Float = 5
+    private let kRadius:Float = 10
     
     init(device:MTLDevice,
-         vectorStart:float2,
-         vectorEnd:float2,
+         texture:MTLTexture,
+         positionX:Float,
+         positionY:Float,
          color:UIColor)
     {
-        vector = MetalSpatialLine.vertex(
+        self.texture = texture
+        
+        point = MetalSpatialPoint.vertex(
             device:device,
-            vectorStart:vectorStart,
-            vectorEnd:vectorEnd,
-            lineWidth:kLineWidth)
+            positionX:positionX,
+            positionY:positionY,
+            radius:kRadius)
         
         self.color = MetalColor.color(
             device:device,
@@ -27,8 +31,5 @@ class MPlotRenderIndeterminate:MetalRenderableProtocol
     
     func render(renderEncoder:MTLRenderCommandEncoder)
     {
-        renderEncoder.render(
-            vertex:vector,
-            color:color)
     }
 }
