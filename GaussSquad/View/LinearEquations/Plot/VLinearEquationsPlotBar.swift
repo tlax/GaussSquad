@@ -7,7 +7,7 @@ class VLinearEquationsPlotBar:UIView
     private let kBorderHeight:CGFloat = 1
     private let kContentTop:CGFloat = 20
     private let kBackWidth:CGFloat = 50
-    private let kZoomWidth:CGFloat = 120
+    private let kZoomWidth:CGFloat = 160
     
     init(controller:CLinearEquationsPlot)
     {
