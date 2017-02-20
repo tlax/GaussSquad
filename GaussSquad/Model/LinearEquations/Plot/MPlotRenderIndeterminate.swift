@@ -9,7 +9,7 @@ class MPlotRenderIndeterminate:MetalRenderableProtocol
     private let line:MTLBuffer
     private let color:MTLBuffer
     private let kRadius:Float = 25
-    private let kLineWidth:Float = 3
+    private let kLineWidth:Float = 6
     
     init(device:MTLDevice,
          texturePoint:MTLTexture,

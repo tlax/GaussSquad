@@ -18,7 +18,7 @@ class VLinearEquationsPlotBar:UIView
         self.controller = controller
         
         let blur:VBlur = VBlur.light()
-        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.2))
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         let buttonBack:UIButton = UIButton()
         buttonBack.translatesAutoresizingMaskIntoConstraints = false
         buttonBack.setImage(
