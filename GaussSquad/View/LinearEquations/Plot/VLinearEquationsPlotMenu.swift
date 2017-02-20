@@ -5,6 +5,7 @@ class VLinearEquationsPlotMenu:UIView, UICollectionViewDelegate, UICollectionVie
     private weak var controller:CLinearEquationsPlot!
     private weak var collectionView:VCollection!
     private let kCellWidth:CGFloat = 120
+    private let kInterLine:CGFloat = 10
     private let kBorderHeight:CGFloat = 1
     private let kDeselectTime:TimeInterval = 0.2
     
@@ -29,6 +30,13 @@ class VLinearEquationsPlotMenu:UIView, UICollectionViewDelegate, UICollectionVie
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+            flow.minimumInteritemSpacing = kInterLine
+            flow.minimumLineSpacing = kInterLine
+            flow.sectionInset = UIEdgeInsets(
+                top:0,
+                left:kInterLine,
+                bottom:0,
+                right:kInterLine)
         }
         
         addSubview(blur)

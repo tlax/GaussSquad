@@ -27,6 +27,7 @@
 "MLinearEquationsSolutionStepDone_subtitle"="\nReduced row echelon form";
 "MLinearEquationsSolutionStepStart_label"="Linear equations system";
 "MLinearEquationsSolutionStepError_title"="Error: ";
+"MPlotMenuItemOrigin_title"="Origin";
 "MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition and chage the indeterminate";
 "MHelpLinearEquationsProjectItemAddPolynomial_title"="Add polynomials";
 "MHelpLinearEquationsProjectItemEditRow_title"="Rearrange or delete equation";

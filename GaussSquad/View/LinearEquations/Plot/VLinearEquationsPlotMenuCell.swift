@@ -4,7 +4,8 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var label:UILabel!
-    private let kImageWidth:CGFloat = 50
+    private let kImageWidth:CGFloat = 40
+    private let kImageLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 100
     private let kAlphaSelected:CGFloat = 0.15
     private let kAlphaNotSelected:CGFloat = 1
@@ -13,7 +14,7 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor(white:0, alpha:0.1)
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -28,7 +29,7 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:14)
+        label.font = UIFont.bold(size:16)
         label.textColor = UIColor.black
         self.label = label
         
@@ -40,7 +41,8 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
             toView:self)
         NSLayoutConstraint.leftToLeft(
             view:imageView,
-            toView:self)
+            toView:self,
+            constant:kImageLeft)
         NSLayoutConstraint.width(
             view:imageView,
             constant:kImageWidth)
