@@ -7,6 +7,7 @@ class VLinearEquationsPlotMetal:MTKView
     private var threadgroupCounts:MTLSize
     private var threadgroups:MTLSize
     private let pipelineCompute:MTLComputePipelineState
+    private let samplerState:MTLSamplerState
     private let kernelFunction:MTLFunction
     private let commandQueue:MTLCommandQueue
     private let pipelineState:MTLRenderPipelineState
@@ -44,6 +45,19 @@ class VLinearEquationsPlotMetal:MTKView
         
         self.kernelFunction = kernelFunction
         commandQueue = device.makeCommandQueue()
+        
+        let sampleDescriptor = MTLSamplerDescriptor()
+        sampleDescriptor.minFilter = MetalConstants.kSamplerMinFilter
+        sampleDescriptor.magFilter = MetalConstants.kSamplerMagFilter
+        sampleDescriptor.mipFilter = MetalConstants.kSamplerMipFilter
+        sampleDescriptor.sAddressMode = MetalConstants.kSamplerSAddressMode
+        sampleDescriptor.tAddressMode = MetalConstants.kSamplerTAddressMode
+        sampleDescriptor.rAddressMode = MetalConstants.kSamplerRAddressMode
+        sampleDescriptor.lodMinClamp = MetalConstants.kSamplerLodMinClamp
+        sampleDescriptor.lodMaxClamp = MetalConstants.kSamplerLodMaxClamp
+        sampleDescriptor.maxAnisotropy = MetalConstants.kSamplerMaxAnisotropy
+        sampleDescriptor.normalizedCoordinates = MetalConstants.kSamplerNormalizedCoordinates
+        samplerState = device.makeSamplerState(descriptor:sampleDescriptor)
         
         let pipelineDescriptor:MTLRenderPipelineDescriptor = MTLRenderPipelineDescriptor()
         pipelineDescriptor.vertexFunction = vertexFunction
@@ -136,7 +150,9 @@ class VLinearEquationsPlotMetal:MTKView
         renderEncoder.setRenderPipelineState(pipelineState)
         controller.model.modelRender?.render(
             renderEncoder:renderEncoder)
-
+        renderEncoder.setFragmentSamplerState(
+            samplerState,
+            at:MetalConstants.kFragmentSamplerIndex)
         renderEncoder.endEncoding()
         
         let commandEncoder:MTLComputeCommandEncoder = commandBuffer.makeComputeCommandEncoder()

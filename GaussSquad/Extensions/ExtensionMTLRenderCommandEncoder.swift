@@ -5,7 +5,8 @@ extension MTLRenderCommandEncoder
 {
     func render(
         vertex:MTLBuffer,
-        color:MTLBuffer)
+        color:MTLBuffer,
+        texture:MTLTexture)
     {
         setVertexBuffer(
             vertex,
@@ -15,6 +16,9 @@ extension MTLRenderCommandEncoder
             color,
             offset:0,
             at:MetalConstants.kColorIndex)
+        setFragmentTexture(
+            texture,
+            at:MetalConstants.kFragmentTextureIndex)
         drawPrimitives(
             type:MetalConstants.kPrimitiveType,
             vertexStart:0,

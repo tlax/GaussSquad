@@ -15,6 +15,16 @@ class MetalConstants
     static let kPrimitiveType:MTLPrimitiveType = MTLPrimitiveType.triangle
     static let kTextureUsage:NSObject = MTLTextureUsage.shaderRead.rawValue as NSObject
     static let kTextureSrgb:NSObject = false as NSObject
+    static let kSamplerMinFilter:MTLSamplerMinMagFilter = MTLSamplerMinMagFilter.linear
+    static let kSamplerMagFilter:MTLSamplerMinMagFilter = MTLSamplerMinMagFilter.linear
+    static let kSamplerMipFilter:MTLSamplerMipFilter = MTLSamplerMipFilter.linear
+    static let kSamplerSAddressMode:MTLSamplerAddressMode = MTLSamplerAddressMode.clampToEdge
+    static let kSamplerTAddressMode:MTLSamplerAddressMode = MTLSamplerAddressMode.clampToEdge
+    static let kSamplerRAddressMode:MTLSamplerAddressMode = MTLSamplerAddressMode.clampToEdge
+    static let kSamplerLodMaxClamp:Float = FLT_MAX
+    static let kSamplerLodMinClamp:Float = 0
+    static let kSamplerMaxAnisotropy:Int = 1
+    static let kSamplerNormalizedCoordinates:Bool = true
     static let kPrimitiveCount:Int = 6
     static let kBufferElementSize:Int = 4
     static let kTextureReadIndex:Int = 0
@@ -23,5 +33,7 @@ class MetalConstants
     static let kVertexIndex:Int = 0
     static let kColorIndex:Int = 0
     static let kProjectionIndex:Int = 1
+    static let kFragmentTextureIndex:Int = 0
+    static let kFragmentSamplerIndex:Int = 0
     static let kBlendingEnabled:Bool = true
 }
