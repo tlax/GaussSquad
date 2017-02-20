@@ -5,6 +5,7 @@ class VLinearEquationsPlot:VView
     weak var viewMetal:VLinearEquationsPlotMetal?
     private weak var controller:CLinearEquationsPlot!
     private weak var viewBar:VLinearEquationsPlotBar!
+    private var startingPoint:CGPoint?
     private let kBarHeight:CGFloat = 80
     
     override init(controller:CController)
@@ -56,7 +57,8 @@ class VLinearEquationsPlot:VView
     {
         guard
         
-            let view:UIView = touches.first?.view
+            let touch:UITouch = touches.first,
+            let view:UIView = touch.view
         
         else
         {
@@ -65,20 +67,29 @@ class VLinearEquationsPlot:VView
         
         if view !== viewBar
         {
-            
+            startingPoint = touch.location(in:self)
+        }
+    }
+    
+    override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        guard
+        
+            let startingPoint:CGPoint = self.startingPoint
+        
+        else
+        {
+            return
         }
     }
     
     override func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?)
     {
-    }
-    
-    override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)
-    {
+        startingPoint = nil
     }
     
     override func touchesCancelled(_ touches:Set<UITouch>, with event:UIEvent?)
     {
-        
+        startingPoint = nil
     }
 }
