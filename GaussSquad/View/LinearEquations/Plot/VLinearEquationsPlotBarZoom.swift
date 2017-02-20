@@ -44,6 +44,10 @@ class VLinearEquationsPlotBarZoom:UIView
         stepper.tintColor = UIColor.black
         stepper.minimumValue = kMinZoom
         stepper.maximumValue = kMaxZoom
+        stepper.addTarget(
+            self,
+            action:#selector(actionStepper(sender:)),
+            for:UIControlEvents.valueChanged)
         self.stepper = stepper
         
         addSubview(label)
