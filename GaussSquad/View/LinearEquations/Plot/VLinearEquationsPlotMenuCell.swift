@@ -3,8 +3,10 @@ import UIKit
 class VLinearEquationsPlotMenuCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
-    private let kImageWidth:CGFloat = 40
-    private let kAlphaSelected:CGFloat = 0.3
+    private weak var label:UILabel!
+    private let kImageWidth:CGFloat = 50
+    private let kLabelWidth:CGFloat = 100
+    private let kAlphaSelected:CGFloat = 0.15
     private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)
@@ -22,7 +24,16 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
             UIImageRenderingMode.alwaysTemplate)
         self.imageView = imageView
         
+        let label:UILabel = UILabel()
+        label.isUserInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.clear
+        label.font = UIFont.bold(size:14)
+        label.textColor = UIColor.black
+        self.label = label
+        
         addSubview(imageView)
+        addSubview(label)
         
         NSLayoutConstraint.equalsVertical(
             view:imageView,
@@ -33,6 +44,16 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
         NSLayoutConstraint.width(
             view:imageView,
             constant:kImageWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:label,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:label,
+            toView:imageView)
+        NSLayoutConstraint.width(
+            view:label,
+            constant:kLabelWidth)
     }
     
     required init?(coder:NSCoder)
@@ -75,6 +96,7 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
     func config(model:MPlotMenuItem)
     {
         imageView.tintColor = model.color
+        label.text = model.title
         hover()
     }
 }
