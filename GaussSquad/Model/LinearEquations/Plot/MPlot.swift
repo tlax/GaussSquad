@@ -3,14 +3,13 @@ import MetalKit
 
 class MPlot
 {
+    var zoom:Double = 1
     private(set) var modelRender:MPlotRender?
     private weak var stepDone:MLinearEquationsSolutionStepDone!
-    private let kDeltaPosition:Double = 25
-    private let deltaPosition_2:Double
+    private let kDeltaPosition:Double = 1
     
     init(stepDone:MLinearEquationsSolutionStepDone)
     {
-        deltaPosition_2 = kDeltaPosition + kDeltaPosition
         self.stepDone = stepDone
     }
     
@@ -20,7 +19,9 @@ class MPlot
     {
         modelRender = MPlotRender(device:device)
         
-        var positionX:Double = kDeltaPosition
+        let positionZoom:Double = kDeltaPosition * zoom
+        let positionZoom2:Double = positionZoom + positionZoom
+        var positionX:Double = positionZoom
         
         for equation:MLinearEquationsSolutionEquation in stepDone.equations
         {
@@ -33,13 +34,13 @@ class MPlot
                 continue
             }
             
-            let positionY:Double = coefficient.coefficient * kDeltaPosition
+            let positionY:Double = coefficient.coefficient * positionZoom
             modelRender?.addIndeterminate(
                 device:device,
                 positionX:positionX,
                 positionY:positionY)
             
-            positionX += deltaPosition_2
+            positionX += positionZoom2
         }
     }
 }
