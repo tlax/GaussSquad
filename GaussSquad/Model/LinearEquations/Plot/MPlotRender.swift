@@ -9,23 +9,12 @@ class MPlotRender:MetalRenderableProtocol
     private let texturePoint:MTLTexture?
     private let textureLine:MTLTexture?
     private let cartesian:MPlotRenderCartesian?
-    private let colors:[UIColor]
     
     init(device:MTLDevice)
     {
         let textureLoader:MTKTextureLoader = MTKTextureLoader(device:device)
         texturePoint = textureLoader.loadImage(
             image:#imageLiteral(resourceName: "assetTexturePoint"))
-        
-        colors = [
-            UIColor.squadBlue,
-            UIColor.squadRed,
-            UIColor.squadGreen,
-            UIColor.purple,
-            UIColor.brown,
-            UIColor.orange,
-            UIColor.yellow
-        ]
         
         if let textureLine:MTLTexture = textureLoader.loadImage(
             image:#imageLiteral(resourceName: "assetTextureLine"))
@@ -68,7 +57,8 @@ class MPlotRender:MetalRenderableProtocol
     func addIndeterminate(
         device:MTLDevice,
         positionX:Double,
-        positionY:Double)
+        positionY:Double,
+        color:UIColor)
     {
         guard
             
@@ -82,8 +72,6 @@ class MPlotRender:MetalRenderableProtocol
         
         let floatPositionX:Float = Float(positionX)
         let floatPositionY:Float = Float(positionY)
-        let indexColor:Int = indeterminates.count % colors.count
-        let color:UIColor = colors[indexColor]
         
         let indeterminate:MPlotRenderIndeterminate = MPlotRenderIndeterminate(
             device:device,
