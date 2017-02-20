@@ -1,11 +1,27 @@
 import Foundation
+import MetalKit
 
 class MetalPosition:MetalBufferableProtocol
 {
-    var positionX:Float
-    var positionY:Float
+    class func position(
+        device:MTLDevice,
+        positionX:Float,
+        positionY:Float) -> MTLBuffer
+    {
+        let metalPosition:MetalPosition = MetalPosition(
+            positionX:positionX,
+            positionY:positionY)
+        
+        let bufferPosition:MTLBuffer = device.generateBuffer(
+            bufferable:metalPosition)
+        
+        return bufferPosition
+    }
     
-    init(positionX:Float, positionY:Float)
+    private let positionX:Float
+    private let positionY:Float
+    
+    private init(positionX:Float, positionY:Float)
     {
         self.positionX = positionX
         self.positionY = positionY

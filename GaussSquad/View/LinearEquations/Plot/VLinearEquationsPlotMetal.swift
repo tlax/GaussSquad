@@ -3,6 +3,7 @@ import MetalKit
 
 class VLinearEquationsPlotMetal:MTKView
 {
+    private var positionBuffer:MTLBuffer
     private weak var controller:CLinearEquationsPlot!
     private var threadgroupCounts:MTLSize
     private var threadgroups:MTLSize
@@ -92,6 +93,11 @@ class VLinearEquationsPlotMetal:MTKView
             0,
             kThreadgroupDeep)
         
+        positionBuffer = MetalPosition.position(
+            device:device,
+            positionX:0,
+            positionY:0)
+        
         super.init(frame:CGRect.zero, device:device)
         backgroundColor = UIColor.clear
         framebufferOnly = false
@@ -150,6 +156,10 @@ class VLinearEquationsPlotMetal:MTKView
             descriptor:passDescriptor)
         renderEncoder.setCullMode(MTLCullMode.none)
         renderEncoder.setRenderPipelineState(pipelineState)
+        renderEncoder.setVertexBuffer(
+            positionBuffer,
+            offset:0,
+            at:MetalConstants.kPositionIndex)
         renderEncoder.setFragmentSamplerState(
             samplerState,
             at:MetalConstants.kFragmentSamplerIndex)
@@ -172,5 +182,12 @@ class VLinearEquationsPlotMetal:MTKView
         
         commandBuffer.present(drawable)
         commandBuffer.commit()
+    }
+    
+    //MARK: public
+    
+    func newPosition(positionX:CGFloat, positionY:CGFloat)
+    {
+        
     }
 }

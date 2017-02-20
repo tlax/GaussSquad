@@ -33,6 +33,7 @@ class MetalConstants
     static let kVertexIndex:Int = 0
     static let kColorIndex:Int = 0
     static let kProjectionIndex:Int = 1
+    static let kPositionIndex:Int = 2
     static let kFragmentTextureIndex:Int = 0
     static let kFragmentSamplerIndex:Int = 0
     static let kBlendingEnabled:Bool = true
