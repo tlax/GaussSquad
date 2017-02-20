@@ -134,4 +134,33 @@ class VLinearEquationsPlot:VView
             positionX:positionX,
             positionY:positionY)
     }
+    
+    func increaseAndRefresh(delta:Double)
+    {
+        let floatDelta:CGFloat = CGFloat(delta)
+        
+        if positionX >= 0
+        {
+            positionX += floatDelta
+        }
+        else
+        {
+            positionX -= floatDelta
+        }
+        
+        if positionY >= 0
+        {
+            positionY += floatDelta
+        }
+        else
+        {
+            positionY -= floatDelta
+        }
+        
+        viewMetal?.newPosition(
+            positionX:positionX,
+            positionY:positionY)
+        
+        viewMenu.refresh()
+    }
 }

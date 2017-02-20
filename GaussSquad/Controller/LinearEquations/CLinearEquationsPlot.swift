@@ -59,12 +59,12 @@ class CLinearEquationsPlot:CController
     
     func updateZoom(zoom:Double)
     {
-        model.updateZoom(zoom:zoom)
+        let increase:Double = model.updateZoom(zoom:zoom)
         
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.viewPlot.viewMenu.refresh()
+            self?.viewPlot.increaseAndRefresh(delta:increase)
         }
     }
 }

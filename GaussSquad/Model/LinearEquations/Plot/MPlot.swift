@@ -93,9 +93,22 @@ class MPlot
         makeIndeterminates()
     }
     
-    func updateZoom(zoom:Double)
+    func updateZoom(zoom:Double) -> Double
     {
+        let increase:Double
+        
+        if zoom >= self.zoom
+        {
+            increase = kDeltaPosition
+        }
+        else
+        {
+            increase = -kDeltaPosition
+        }
+        
         self.zoom = zoom
         makeIndeterminates()
+        
+        return increase
     }
 }
