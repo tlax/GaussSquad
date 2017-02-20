@@ -185,6 +185,7 @@
 		DAE4A87B1E5B3E93000A07A3 /* texture.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE4A87A1E5B3E93000A07A3 /* texture.xcassets */; };
 		DAE4A87D1E5B4909000A07A3 /* MetalSpatialPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4A87C1E5B4909000A07A3 /* MetalSpatialPoint.swift */; };
 		DAE4A87F1E5B5551000A07A3 /* MetalVertexTextured.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4A87E1E5B5551000A07A3 /* MetalVertexTextured.swift */; };
+		DAE4A8811E5B7735000A07A3 /* MetalPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4A8801E5B7735000A07A3 /* MetalPosition.swift */; };
 		DAEE488A1E57A7B2000D27A9 /* MetalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE48891E57A7B2000D27A9 /* MetalColor.swift */; };
 		DAEE488C1E57AE5A000D27A9 /* MPlotRenderIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE488B1E57AE5A000D27A9 /* MPlotRenderIndeterminate.swift */; };
 		DAF37AD21E3D4FEF005052D8 /* CLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */; };
@@ -413,6 +414,7 @@
 		DAE4A87A1E5B3E93000A07A3 /* texture.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = texture.xcassets; sourceTree = "<group>"; };
 		DAE4A87C1E5B4909000A07A3 /* MetalSpatialPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialPoint.swift; sourceTree = "<group>"; };
 		DAE4A87E1E5B5551000A07A3 /* MetalVertexTextured.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertexTextured.swift; sourceTree = "<group>"; };
+		DAE4A8801E5B7735000A07A3 /* MetalPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalPosition.swift; sourceTree = "<group>"; };
 		DAEE48891E57A7B2000D27A9 /* MetalColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalColor.swift; sourceTree = "<group>"; };
 		DAEE488B1E57AE5A000D27A9 /* MPlotRenderIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPlotRenderIndeterminate.swift; sourceTree = "<group>"; };
 		DAF37AD11E3D4FEF005052D8 /* CLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquations.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 				DA4691251E56744600FAD188 /* MetalConstants.swift */,
 				DA4691271E56744600FAD188 /* MetalProjection.swift */,
 				DAEE48891E57A7B2000D27A9 /* MetalColor.swift */,
+				DAE4A8801E5B7735000A07A3 /* MetalPosition.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1485,6 +1488,7 @@
 				DA9F6F991E5518E5003C5486 /* MHelpLinearEquationsProjectItemAddRow.swift in Sources */,
 				DA89F1A11E4A549B0062DE48 /* VLinearEquationsPolynomialDivision.swift in Sources */,
 				DA62D3721E4CD77D000D0387 /* MLinearEquationsSolutionStepDone.swift in Sources */,
+				DAE4A8811E5B7735000A07A3 /* MetalPosition.swift in Sources */,
 				DA476F071E562E740058F4A4 /* MStoreItem.swift in Sources */,
 				DA23C36C1E528AD9007C4C4D /* MLinearEquationsSolutionStrategyValidateRows.swift in Sources */,
 				DA4691401E56744600FAD188 /* MetalProjection.swift in Sources */,
