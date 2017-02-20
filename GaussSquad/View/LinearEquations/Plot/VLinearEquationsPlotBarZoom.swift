@@ -8,10 +8,14 @@ class VLinearEquationsPlotBarZoom:UIView
     private let numberFormatter:NumberFormatter
     private let kMinInteger:Int = 1
     private let kMinFraction:Int = 0
-    private let kLabelRight:CGFloat = -5
+    private let kLabelRight:CGFloat = -10
     private let kLabelWidth:CGFloat = 60
+    private let kLabelBottom:CGFloat = -15
+    private let kLabelHeight:CGFloat = 30
     private let kStepperWidth:CGFloat = 110
-    private let kStepperHeight:CGFloat = 50
+    private let kStepperHeight:CGFloat = 47
+    private let kMinZoom:Double = -10
+    private let kMaxZoom:Double = 10
     
     init(controller:CLinearEquationsPlot)
     {
@@ -31,13 +35,15 @@ class VLinearEquationsPlotBarZoom:UIView
         label.isUserInteractionEnabled = false
         label.backgroundColor = UIColor.clear
         label.textAlignment = NSTextAlignment.right
-        label.font = UIFont.bold(size:15)
+        label.font = UIFont.bold(size:18)
         label.textColor = UIColor.black
         self.label = label
         
         let stepper:UIStepper = UIStepper()
         stepper.translatesAutoresizingMaskIntoConstraints = false
         stepper.tintColor = UIColor.black
+        stepper.minimumValue = kMinZoom
+        stepper.maximumValue = kMaxZoom
         self.stepper = stepper
         
         addSubview(label)
@@ -56,9 +62,13 @@ class VLinearEquationsPlotBarZoom:UIView
             view:stepper,
             constant:kStepperWidth)
         
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.bottomToBottom(
             view:label,
-            toView:stepper)
+            toView:self,
+            constant:kLabelBottom)
+        NSLayoutConstraint.height(
+            view:label,
+            constant:kLabelHeight)
         NSLayoutConstraint.rightToLeft(
             view:label,
             toView:stepper,
@@ -73,6 +83,30 @@ class VLinearEquationsPlotBarZoom:UIView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: actions
+    
+    func actionStepper(sender stepper:UIStepper)
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            var value:Double = stepper.value
+            
+            if value < 1
+            {
+                value = 1 / abs(value)
+            }
+            
+            self?.controller.model.updateZoom(zoom:value)
+            
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.showZoom()
+            }
+        }
     }
     
     //MARK: private
@@ -93,7 +127,7 @@ class VLinearEquationsPlotBarZoom:UIView
         
         let zoomDescr:String = String(
             format:NSLocalizedString("VLinearEquationsPlotBarZoom_descr", comment:""),
-            zoomNumber)
+            zoomString)
         label.text = zoomDescr
     }
 }

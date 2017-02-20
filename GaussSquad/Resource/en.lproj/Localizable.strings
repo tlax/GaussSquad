@@ -49,6 +49,7 @@
 "VLinearEquationsPolynomialIndeterminate_labelTitle"="Indeterminate";
 "VLinearEquationsIndeterminateListHeader_labelTitlte"="Indeterminate";
 "VLinearEquationsIndeterminateListHeader_buttonNone"="None";
+"VLinearEquationsPlotBarZoom_descr"="%@ x";
 "VSettingsCellFractionDigits_labelTitle"="Max fraction digits";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
