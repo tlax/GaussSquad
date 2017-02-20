@@ -20,6 +20,10 @@ class MetalSpatialPoint
     }
     
     private let vertexBuffer:MTLBuffer
+    private let kTop:Float = 0
+    private let kBottom:Float = 1
+    private let kLeft:Float = 0
+    private let kRight:Float = 1
     
     private init(
         device:MTLDevice,
@@ -32,18 +36,26 @@ class MetalSpatialPoint
         let minY:Float = positionY - radius
         let maxY:Float = positionY + radius
         
-        let topLeft:MetalVertex = MetalVertex(
+        let topLeft:MetalVertexTextured = MetalVertexTextured(
             positionX:minX,
-            positionY:minY)
-        let topRight:MetalVertex = MetalVertex(
+            positionY:minY,
+            horizontal:kLeft,
+            vertical:kTop)
+        let topRight:MetalVertexTextured = MetalVertexTextured(
             positionX:maxX,
-            positionY:minY)
-        let bottomLeft:MetalVertex = MetalVertex(
+            positionY:minY,
+            horizontal:kRight,
+            vertical:kTop)
+        let bottomLeft:MetalVertexTextured = MetalVertexTextured(
             positionX:minX,
-            positionY:maxY)
-        let bottomRight:MetalVertex = MetalVertex(
+            positionY:maxY,
+            horizontal:kLeft,
+            vertical:kBottom)
+        let bottomRight:MetalVertexTextured = MetalVertexTextured(
             positionX:maxX,
-            positionY:maxY)
+            positionY:maxY,
+            horizontal:kRight,
+            vertical:kBottom)
         
         let vertexFace:MetalVertexFace = MetalVertexFace(
             topLeft:topLeft,

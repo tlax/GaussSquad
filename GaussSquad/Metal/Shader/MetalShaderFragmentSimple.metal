@@ -5,7 +5,9 @@ using namespace metal;
 
 fragment float4
 fragment_simple(vertex_destination interpolated [[stage_in]],
-                constant fragment_color& input_color [[buffer(0)]])
+                constant fragment_color& input_color [[buffer(0)]],
+                texture2d<float> current_texture [[texture(0)]],
+                sampler curret_sampler [[sampler(0)]])
 {
     float4 color = float4(input_color.red, input_color.green, input_color.blue, input_color.alpha);
     return color;
