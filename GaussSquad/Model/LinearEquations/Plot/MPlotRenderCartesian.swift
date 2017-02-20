@@ -6,7 +6,7 @@ class MPlotRenderCartesian:MetalRenderableProtocol
     private let axisX:MTLBuffer
     private let axisY:MTLBuffer
     private let color:MTLBuffer
-    private let kAxisWidth:Float = 3
+    private let kAxisWidth:Float = 1
     private let kBoundaries:Float = 2000
     
     init(device:MTLDevice)
