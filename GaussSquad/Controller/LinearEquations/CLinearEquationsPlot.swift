@@ -4,7 +4,7 @@ class CLinearEquationsPlot:CController
 {
     let model:MPlot
     weak var viewPlot:VLinearEquationsPlot!
-    private let kIndeterminatesWidth:CGFloat = 120
+    private let kIndeterminatesWidth:CGFloat = 210
     
     init(stepDone:MLinearEquationsSolutionStepDone)
     {
@@ -71,7 +71,7 @@ class CLinearEquationsPlot:CController
         let totalFrame:CGRect = CGRect(origin:CGPoint.zero, size:totalSize)
         let textureFrame:CGRect = CGRect(origin:CGPoint.zero, size:texture.size)
         
-        UIGraphicsBeginImageContextWithOptions(totalSize, true, 0)
+        UIGraphicsBeginImageContextWithOptions(totalSize, true, 1)
         
         guard
             
