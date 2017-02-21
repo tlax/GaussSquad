@@ -4,6 +4,7 @@ class CLinearEquationsPlot:CController
 {
     let model:MPlot
     weak var viewPlot:VLinearEquationsPlot!
+    private let kIndeterminatesWidth:CGFloat = 120
     
     init(stepDone:MLinearEquationsSolutionStepDone)
     {
@@ -58,10 +59,16 @@ class CLinearEquationsPlot:CController
             
             let texture:UIImage = viewPlot.viewMetal?.currentDrawable?.texture.exportImage()
             
-            else
+        else
         {
             return
         }
+        
+        let textureWidth:CGFloat = texture.size.width
+        let textureHeight:CGFloat = texture.size.height
+        let totalWidth:CGFloat = textureWidth + kIndeterminatesWidth
+        
+        //MARK: todo
         
         DispatchQueue.main.async
         { [weak self] in
