@@ -26,8 +26,8 @@ class MLinearEquationsSolutionBar
         items = [
             itemBack,
             itemBottom,
-            itemPlot,
-            itemShare
+            itemShare,
+            itemPlot
         ]
     }
 }

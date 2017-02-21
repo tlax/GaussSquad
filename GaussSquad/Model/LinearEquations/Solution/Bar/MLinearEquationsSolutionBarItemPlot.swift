@@ -5,7 +5,7 @@ class MLinearEquationsSolutionBarItemPlot:MLinearEquationsSolutionBarItem
     init(active:Bool)
     {
         super.init(
-            image:#imageLiteral(resourceName: "assetGenericNext"),
+            image:#imageLiteral(resourceName: "assetGenericPlot"),
             active:active)
     }
     
