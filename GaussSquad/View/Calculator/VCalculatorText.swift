@@ -3,23 +3,18 @@ import UIKit
 class VCalculatorText:UITextView, UITextViewDelegate
 {
     private weak var controller:CCalculator!
-    private let attributes:[String:AnyObject]
     private let drawingOptions:NSStringDrawingOptions
-    private let insetsHorizontal2:CGFloat
+    private let insetsHorizontal3:CGFloat
     private let kFontSize:CGFloat = 50
     private let kInsetsHorizontal:CGFloat = 5
-    private let kMaxInsetsTop:CGFloat = 170
+    private let kMaxInsetsTop:CGFloat = 150
     
     init(controller:CCalculator)
     {
-        let font:UIFont = UIFont.numeric(size:kFontSize)
-        
-        attributes = [
-            NSFontAttributeName:font]
         drawingOptions = NSStringDrawingOptions([
             NSStringDrawingOptions.usesLineFragmentOrigin,
             NSStringDrawingOptions.usesFontLeading])
-        insetsHorizontal2 = kInsetsHorizontal + kInsetsHorizontal
+        insetsHorizontal3 = kInsetsHorizontal + kInsetsHorizontal + kInsetsHorizontal
         
         super.init(frame:CGRect.zero, textContainer:nil)
         delegate = self
@@ -40,7 +35,7 @@ class VCalculatorText:UITextView, UITextViewDelegate
         keyboardType = UIKeyboardType.numbersAndPunctuation
         contentInset = UIEdgeInsets.zero
         textAlignment = NSTextAlignment.right
-        self.font = font
+        font = UIFont.numeric(size:kFontSize)
         self.controller = controller
         
         restart()
@@ -68,27 +63,20 @@ class VCalculatorText:UITextView, UITextViewDelegate
     
     private func updateInsets()
     {
-        let width:CGFloat = bounds.maxX
-        let height:CGFloat = bounds.maxY
-        let usableWidth:CGFloat = width - insetsHorizontal2
+        let width:CGFloat = contentSize.width
+        let height:CGFloat = contentSize.height
+        let usableWidth:CGFloat = width - insetsHorizontal3
         let usableSize:CGSize = CGSize(width:usableWidth, height:height)
-        let attributed:NSAttributedString = NSAttributedString(
-            string:text,
-            attributes:attributes)
-        let boundingRect:CGRect = attributed.boundingRect(
+        let boundingRect:CGRect = attributedText.boundingRect(
             with:usableSize,
             options:drawingOptions,
             context:nil)
-        let textHeight:CGFloat = ceil(boundingRect.size.height)
+        let textHeight:CGFloat = ceil(boundingRect.maxY)
         var insetsTop:CGFloat = height - textHeight
         
         if insetsTop > kMaxInsetsTop
         {
             insetsTop = kMaxInsetsTop
-        }
-        else
-        {
-            insetsTop -= 10
         }
         
         textContainerInset = UIEdgeInsets(
