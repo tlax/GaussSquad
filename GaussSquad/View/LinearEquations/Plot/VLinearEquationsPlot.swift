@@ -6,6 +6,7 @@ class VLinearEquationsPlot:VView
     weak var viewMenu:VLinearEquationsPlotMenu!
     private weak var controller:CLinearEquationsPlot!
     private weak var viewBar:VLinearEquationsPlotBar!
+    private weak var spinner:VSpinner?
     private var startingPoint:CGPoint?
     private let kBarHeight:CGFloat = 64
     private let kMenuHeight:CGFloat = 46
@@ -162,5 +163,32 @@ class VLinearEquationsPlot:VView
             positionY:positionY)
         
         viewMenu.refresh()
+    }
+    
+    func startLoading()
+    {
+        isUserInteractionEnabled = false
+        self.spinner?.stopAnimating()
+        self.spinner?.removeFromSuperview()
+        viewMetal?.isPaused = true
+        viewMetal?.isHidden = true
+        
+        let spinner:VSpinner = VSpinner()
+        self.spinner = spinner
+        
+        addSubview(spinner)
+        
+        NSLayoutConstraint.equals(
+            view:spinner,
+            toView:self)
+    }
+    
+    func stopLoading()
+    {
+        spinner?.stopAnimating()
+        spinner?.removeFromSuperview()
+        isUserInteractionEnabled = true
+        viewMetal?.isHidden = false
+        viewMetal?.isPaused = false
     }
 }
