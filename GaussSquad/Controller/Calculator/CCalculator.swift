@@ -22,6 +22,7 @@ class CCalculator:CController
     
     func back()
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
         parentController.hideBar(barHidden:false)
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }

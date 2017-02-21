@@ -5,9 +5,11 @@ class VCalculator:VView
     private weak var controller:CCalculator!
     private weak var viewText:VCalculatorText!
     private weak var viewBar:VCalculatorBar!
+    private weak var layoutTextHeight:NSLayoutConstraint!
     private weak var layoutBarBottom:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 50
-    private let kTextHeight:CGFloat = 125
+    private let kTextMaxHeight:CGFloat = 125
+    private let kTextMinHeight:CGFloat = 65
     private let kTextBorderHeight:CGFloat = 1
     private let kAnimationDuration:TimeInterval = 0.35
     
@@ -43,9 +45,8 @@ class VCalculator:VView
         NSLayoutConstraint.topToTop(
             view:viewText,
             toView:self)
-        NSLayoutConstraint.height(
-            view:viewText,
-            constant:kTextHeight)
+        layoutTextHeight = NSLayoutConstraint.height(
+            view:viewText)
         NSLayoutConstraint.equalsHorizontal(
             view:viewText,
             toView:self)
@@ -75,6 +76,26 @@ class VCalculator:VView
     deinit
     {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let height:CGFloat = bounds.maxY
+        let textHeight:CGFloat
+        
+        if height >= width
+        {
+            textHeight = kTextMaxHeight
+        }
+        else
+        {
+            textHeight = kTextMinHeight
+        }
+        
+        layoutTextHeight.constant = textHeight
+        
+        super.layoutSubviews()
     }
     
     //MARK: notifications
