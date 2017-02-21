@@ -1,6 +1,6 @@
 import Foundation
 
-class MHomeItemArithmetic:MHomeItem
+class MHomeItemCalculator:MHomeItem
 {
     init()
     {
