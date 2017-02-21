@@ -70,6 +70,7 @@ class CLinearEquationsPlot:CController
         
         let textureWidth:CGFloat = texture.size.width
         let textureHeight:CGFloat = texture.size.height
+        let textWidth:CGFloat = kIndeterminatesWidth - (kEquationsMargin + kEquationsMargin)
         let totalWidth:CGFloat = textureWidth + kIndeterminatesWidth
         let totalSize:CGSize = CGSize(width:totalWidth, height:textureHeight)
         let totalFrame:CGRect = CGRect(origin:CGPoint.zero, size:totalSize)
@@ -93,11 +94,13 @@ class CLinearEquationsPlot:CController
         context.fill(totalFrame)
         texture.draw(in:textureFrame)
         
-        let attr
+        let textAttributes:[String:AnyObject] = [
+            NSFontAttributeName:UIFont.numericBold(size:16),
+            NSForegroundColorAttributeName:UIColor.black]
         let equationIcon:UIImage = #imageLiteral(resourceName: "assetTexturePoint")
         let iconWidth:CGFloat = equationIcon.size.width
         let iconHeight:CGFloat = equationIcon.size.height
-        var currentX:CGFloat = textureWidth + kEquationsMargin
+        let currentX:CGFloat = textureWidth + kEquationsMargin
         var currentY:CGFloat = kEquationsMargin
         
         for menuItem:MPlotMenuItem in modelMenu.items
@@ -116,6 +119,21 @@ class CLinearEquationsPlot:CController
                 y:currentY,
                 width:iconWidth,
                 height:iconHeight)
+            let textRect:CGRect = CGRect(
+                x:currentX + kEquationsMargin,
+                y:currentY,
+                width:textWidth,
+                height:iconHeight)
+            let numberString:String = MSession.sharedInstance.stringFrom(
+                number:menuItem.value)
+            let indeterminate:String = menuItem.title
+            let compositeString:String = String(
+                format:NSLocalizedString("CLinearEquationsPlot_sharingText", comment:""),
+                indeterminate,
+                numberString)
+            let attributedString:NSAttributedString = NSAttributedString(
+                string:compositeString,
+                attributes:textAttributes)
             
             context.setBlendMode(CGBlendMode.normal)
             context.draw(equationIcon.cgImage!, in:iconRect)
@@ -123,6 +141,8 @@ class CLinearEquationsPlot:CController
             context.setFillColor(menuItem.color.cgColor)
             context.fill(iconRect)
             context.setBlendMode(CGBlendMode.normal)
+            
+            attributedString.draw(in:textRect)
             
             currentY += iconHeight
             currentY += kEquationsMargin
