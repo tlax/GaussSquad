@@ -7,7 +7,6 @@ class VCalculatorText:UITextView, UITextViewDelegate
     private let insetsHorizontal3:CGFloat
     private let kFontSize:CGFloat = 50
     private let kInsetsHorizontal:CGFloat = 5
-    private let kMaxInsetsTop:CGFloat = 150
     
     init(controller:CCalculator)
     {
@@ -66,17 +65,18 @@ class VCalculatorText:UITextView, UITextViewDelegate
         let width:CGFloat = contentSize.width
         let height:CGFloat = contentSize.height
         let usableWidth:CGFloat = width - insetsHorizontal3
-        let usableSize:CGSize = CGSize(width:usableWidth, height:height)
+        let usableHeight:CGFloat = height - kInsetsHorizontal
+        let usableSize:CGSize = CGSize(width:usableWidth, height:usableHeight)
         let boundingRect:CGRect = attributedText.boundingRect(
             with:usableSize,
             options:drawingOptions,
             context:nil)
         let textHeight:CGFloat = ceil(boundingRect.maxY)
-        var insetsTop:CGFloat = height - textHeight
+        var insetsTop:CGFloat = usableHeight - textHeight
         
-        if insetsTop > kMaxInsetsTop
+        if insetsTop < 0
         {
-            insetsTop = kMaxInsetsTop
+            insetsTop = 0
         }
         
         textContainerInset = UIEdgeInsets(
