@@ -4,11 +4,6 @@ class CCalculator:CController
 {
     private weak var viewCalculator:VCalculator!
     
-    override var prefersStatusBarHidden:Bool
-    {
-        return true
-    }
-    
     override func loadView()
     {
         let viewCalculator:VCalculator = VCalculator(controller:self)
@@ -16,10 +11,17 @@ class CCalculator:CController
         view = viewCalculator
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        parentController.hideBar(barHidden:true)
+    }
+    
     //MARK: public
     
     func back()
     {
+        parentController.hideBar(barHidden:false)
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
 }

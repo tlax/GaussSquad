@@ -17,8 +17,8 @@ class CParent:UIViewController
     }
     
     weak var viewParent:VParent!
+    private var barHidden:Bool = false
     private let kStatusBarStyle:UIStatusBarStyle = UIStatusBarStyle.default
-    private let kBarHidden:Bool = false
     
     init()
     {
@@ -54,7 +54,7 @@ class CParent:UIViewController
     
     override var prefersStatusBarHidden:Bool
     {
-        return kBarHidden
+        return barHidden
     }
     
     //MARK: private
@@ -88,6 +88,12 @@ class CParent:UIViewController
     }
     
     //MARK: public
+    
+    func hideBar(barHidden:Bool)
+    {
+        self.barHidden = barHidden
+        setNeedsStatusBarAppearanceUpdate()
+    }
     
     func slideTo(horizontal:TransitionHorizontal, controller:CController)
     {

@@ -3,8 +3,7 @@ import UIKit
 class VCalculatorBar:UIView
 {
     private weak var controller:CCalculator!
-    private let kBackWidth:CGFloat = 50
-    private let kBackHeight:CGFloat = 40
+    private let kButtonWidth:CGFloat = 50
     private let kBorderHeight:CGFloat = 1
     
     init(controller:CCalculator)
@@ -33,21 +32,45 @@ class VCalculatorBar:UIView
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonOptions:UIButton = UIButton()
+        buttonOptions.translatesAutoresizingMaskIntoConstraints = false
+        buttonOptions.setImage(
+            #imageLiteral(resourceName: "assetGenericOptions").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonOptions.setImage(
+            #imageLiteral(resourceName: "assetGenericOptions").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonOptions.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        buttonOptions.imageView!.clipsToBounds = true
+        buttonOptions.imageView!.contentMode = UIViewContentMode.center
+        buttonOptions.addTarget(
+            self,
+            action:#selector(actionOptions(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         addSubview(border)
         addSubview(buttonBack)
+        addSubview(buttonOptions)
         
-        NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsVertical(
             view:buttonBack,
             toView:self)
-        NSLayoutConstraint.height(
-            view:buttonBack,
-            constant:kBackHeight)
         NSLayoutConstraint.leftToLeft(
             view:buttonBack,
             toView:self)
         NSLayoutConstraint.width(
             view:buttonBack,
-            constant:kBackWidth)
+            constant:kButtonWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonOptions,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:buttonOptions,
+            toView:buttonBack)
+        NSLayoutConstraint.width(
+            view:buttonOptions,
+            constant:kButtonWidth)
         
         NSLayoutConstraint.topToTop(
             view:border,
@@ -70,5 +93,10 @@ class VCalculatorBar:UIView
     func actionBack(sender button:UIButton)
     {
         controller.back()
+    }
+    
+    func actionOptions(sender button:UIButton)
+    {
+        
     }
 }
