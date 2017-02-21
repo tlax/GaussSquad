@@ -64,7 +64,7 @@ class CLinearEquationsPlot:CController
             
         else
         {
-            viewPlot.stopLoading()
+            finishLoading()
             
             return
         }
@@ -85,7 +85,7 @@ class CLinearEquationsPlot:CController
         else
         {
             UIGraphicsEndImageContext()
-            viewPlot.stopLoading()
+            finishLoading()
             
             return
         }
@@ -156,7 +156,7 @@ class CLinearEquationsPlot:CController
         else
         {
             UIGraphicsEndImageContext()
-            viewPlot.stopLoading()
+            finishLoading()
             
             return
         }
@@ -183,8 +183,17 @@ class CLinearEquationsPlot:CController
             activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
         }
         
-        viewPlot.stopLoading()
+        finishLoading()
         present(activity, animated:true)
+    }
+    
+    private func finishLoading()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewPlot.stopLoading()
+        }
     }
     
     //MARK: public
