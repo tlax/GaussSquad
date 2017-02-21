@@ -137,7 +137,7 @@ class CLinearEquationsPlot:CController
                 attributes:textAttributes)
             
             context.setBlendMode(CGBlendMode.normal)
-            context.draw(equationIcon.cgImage!, in:iconRect)
+            equationIcon.draw(in:iconRect)
             context.setBlendMode(CGBlendMode.color)
             context.setFillColor(menuItem.color.cgColor)
             context.fill(iconRect)

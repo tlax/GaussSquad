@@ -3,6 +3,7 @@ import UIKit
 class VCalculatorText:UITextView, UITextViewDelegate
 {
     private weak var controller:CCalculator!
+    private let attributes:[String:AnyObject]
     private let drawingOptions:NSStringDrawingOptions
     private let insetsHorizontal2:CGFloat
     private let kFontSize:CGFloat = 50
@@ -11,6 +12,10 @@ class VCalculatorText:UITextView, UITextViewDelegate
     
     init(controller:CCalculator)
     {
+        let font:UIFont = UIFont.numeric(size:kFontSize)
+        
+        attributes = [
+            NSFontAttributeName:font]
         drawingOptions = NSStringDrawingOptions([
             NSStringDrawingOptions.usesLineFragmentOrigin,
             NSStringDrawingOptions.usesFontLeading])
@@ -35,7 +40,7 @@ class VCalculatorText:UITextView, UITextViewDelegate
         keyboardType = UIKeyboardType.numbersAndPunctuation
         contentInset = UIEdgeInsets.zero
         textAlignment = NSTextAlignment.right
-        font = UIFont.numeric(size:kFontSize)
+        self.font = font
         self.controller = controller
         
         restart()
@@ -48,7 +53,7 @@ class VCalculatorText:UITextView, UITextViewDelegate
     
     override func layoutSubviews()
     {
-        print("shisus")
+        updateInsets()
         
         super.layoutSubviews()
     }
@@ -64,10 +69,13 @@ class VCalculatorText:UITextView, UITextViewDelegate
     private func updateInsets()
     {
         let width:CGFloat = bounds.maxX
-        let height:CGFloat = bounds.maxX
+        let height:CGFloat = bounds.maxY
         let usableWidth:CGFloat = width - insetsHorizontal2
         let usableSize:CGSize = CGSize(width:usableWidth, height:height)
-        let boundingRect:CGRect = attributedText.boundingRect(
+        let attributed:NSAttributedString = NSAttributedString(
+            string:text,
+            attributes:attributes)
+        let boundingRect:CGRect = attributed.boundingRect(
             with:usableSize,
             options:drawingOptions,
             context:nil)
@@ -77,6 +85,10 @@ class VCalculatorText:UITextView, UITextViewDelegate
         if insetsTop > kMaxInsetsTop
         {
             insetsTop = kMaxInsetsTop
+        }
+        else
+        {
+            insetsTop -= 10
         }
         
         textContainerInset = UIEdgeInsets(
