@@ -56,11 +56,13 @@ class VLinearEquationsPlot:VView
             
         else
         {
+            let error:String = NSLocalizedString("VLinearEquationsPlot_notSupported", comment:"")
+            VAlert.message(message:error)
+            
             return
         }
         
         self.viewMetal = viewMetal
-        
         insertSubview(viewMetal, belowSubview:viewBar)
 
         NSLayoutConstraint.equals(
