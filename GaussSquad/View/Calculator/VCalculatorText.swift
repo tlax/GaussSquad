@@ -1,15 +1,16 @@
 import UIKit
 
-class VCalculatorText:UITextView
+class VCalculatorText:UITextView, UITextViewDelegate
 {
-    private weak var controller:CLinearEquationsPolynomial!
-    private let kFontSize:CGFloat = 70
+    private weak var controller:CCalculator!
+    private let kFontSize:CGFloat = 60
     private let kInsetsHorizontal:CGFloat = 5
-    private let kInsetsTop:CGFloat = 25
+    private let kInsetsTop:CGFloat = 10
     
-    init(controller:CLinearEquationsPolynomial)
+    init(controller:CCalculator)
     {
         super.init(frame:CGRect.zero, textContainer:nil)
+        delegate = self
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear
@@ -33,6 +34,7 @@ class VCalculatorText:UITextView
             left:kInsetsHorizontal,
             bottom:0,
             right:kInsetsHorizontal)
+        
         self.controller = controller
     }
     

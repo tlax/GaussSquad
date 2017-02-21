@@ -15,6 +15,7 @@ class CCalculator:CController
     {
         super.viewDidAppear(animated)
         parentController.hideBar(barHidden:true)
+        viewCalculator.viewAppeared()
     }
     
     //MARK: public
