@@ -5,6 +5,7 @@ class VCalculatorBar:UIView
     private weak var controller:CCalculator!
     private let kBackWidth:CGFloat = 50
     private let kBackHeight:CGFloat = 40
+    private let kBorderHeight:CGFloat = 1
     
     init(controller:CCalculator)
     {
@@ -12,6 +13,9 @@ class VCalculatorBar:UIView
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear
+        self.controller = controller
+        
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         let buttonBack:UIButton = UIButton()
         buttonBack.translatesAutoresizingMaskIntoConstraints = false
@@ -29,6 +33,7 @@ class VCalculatorBar:UIView
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        addSubview(border)
         addSubview(buttonBack)
         
         NSLayoutConstraint.topToTop(
@@ -43,6 +48,16 @@ class VCalculatorBar:UIView
         NSLayoutConstraint.width(
             view:buttonBack,
             constant:kBackWidth)
+        
+        NSLayoutConstraint.topToTop(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
