@@ -4,7 +4,7 @@ class CLinearEquationsPlot:CController
 {
     let model:MPlot
     weak var viewPlot:VLinearEquationsPlot!
-    private let kIndeterminatesWidth:CGFloat = 210
+    private let kIndeterminatesWidth:CGFloat = 240
     
     init(stepDone:MLinearEquationsSolutionStepDone)
     {
@@ -57,10 +57,13 @@ class CLinearEquationsPlot:CController
     {
         guard
             
-            let texture:UIImage = viewPlot.viewMetal?.currentDrawable?.texture.exportImage()
+            let texture:UIImage = viewPlot.viewMetal?.currentDrawable?.texture.exportImage(),
+            let stepDone:MLinearEquationsSolutionStepDone = model.stepDone
             
         else
         {
+            viewPlot.stopLoading()
+            
             return
         }
         
@@ -79,12 +82,33 @@ class CLinearEquationsPlot:CController
             
         else
         {
+            UIGraphicsEndImageContext()
+            viewPlot.stopLoading()
+            
             return
         }
         
         context.setFillColor(UIColor.white.cgColor)
         context.fill(totalFrame)
         texture.draw(in:textureFrame)
+        
+        for equation:MLinearEquationsSolutionEquation in stepDone.equations
+        {
+            guard
+                
+                let polynomial:MLinearEquationsSolutionEquationItemPolynomial = equation.items.first as? MLinearEquationsSolutionEquationItemPolynomial,
+                let coefficient:MLinearEquationsSolutionEquationItemConstant = equation.result as? MLinearEquationsSolutionEquationItemConstant
+            
+            else
+            {
+                continue
+            }
+            
+            let indeterminate:String = polynomial.indeterminate.symbol
+            let number:Double = coefficient.coefficient
+            let equationIcon:UIImage = #imageLiteral(resourceName: "assetGenericPoint")
+            equationIcon.draw
+        }
         
         guard
             

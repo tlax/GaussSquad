@@ -79,6 +79,8 @@ class CLinearEquationsSolution:CController
             
         else
         {
+            UIGraphicsEndImageContext()
+            
             return
         }
         

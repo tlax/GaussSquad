@@ -188,7 +188,7 @@ class MLinearEquationsSolutionEquationItemPolynomialDivision:MLinearEquationsSol
             let context:CGContext = UIGraphicsGetCurrentContext()
             
         else
-        {
+        {            
             return
         }
         

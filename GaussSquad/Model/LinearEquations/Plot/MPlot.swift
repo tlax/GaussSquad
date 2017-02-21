@@ -3,10 +3,10 @@ import MetalKit
 
 class MPlot
 {
+    weak var stepDone:MLinearEquationsSolutionStepDone?
     private(set) var zoom:Double = 1
     private(set) var modelRender:MPlotRender?
     private(set) var modelMenu:MPlotMenu?
-    private weak var stepDone:MLinearEquationsSolutionStepDone?
     private weak var device:MTLDevice?
     private let kDeltaPosition:Double = 10
     private let colors:[UIColor]
@@ -61,10 +61,11 @@ class MPlot
                 continue
             }
             
+            let coefficientValue:Double = coefficient.coefficient
             let indeterminate:String = polynomial.indeterminate.symbol
             let indexColor:Int = indexItem % colors.count
             let color:UIColor = colors[indexColor]
-            let positionY:Double = coefficient.coefficient * positionZoom
+            let positionY:Double = coefficientValue * positionZoom
             
             modelRender.addIndeterminate(
                 device:device,
@@ -74,6 +75,7 @@ class MPlot
             modelMenu.addItem(
                 color:color,
                 title:indeterminate,
+                value:coefficientValue,
                 positionX:positionX,
                 positionY:positionY)
             
