@@ -10,7 +10,7 @@ class VAlert:UIView
     private let kAnimationDuration:TimeInterval = 0.2
     private let kTimeOut:TimeInterval = 4
     private let kFontSize:CGFloat = 15
-    private let kLabelMargin:CGFloat = 5
+    private let kLabelMargin:CGFloat = 10
     private let kCornerRadius:CGFloat = 12
     private let kBorderWidth:CGFloat = 0.5
     
@@ -56,7 +56,7 @@ class VAlert:UIView
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.medium(size:kFontSize)
+        label.font = UIFont.bold(size:kFontSize)
         label.textColor = UIColor.black
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
