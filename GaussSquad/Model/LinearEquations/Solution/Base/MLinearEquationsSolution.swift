@@ -30,13 +30,13 @@ class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate, MLinear
     {
         steps.append(step)
         
-        if let _:MLinearEquationsSolutionStepDone = step as? MLinearEquationsSolutionStepDone
+        if let stepDone:MLinearEquationsSolutionStepDone = step as? MLinearEquationsSolutionStepDone
         {
-            controller?.solutionComplete()
+            controller?.solutionComplete(stepDone:stepDone)
         }
         else if let _:MLinearEquationsSolutionStepError = step as? MLinearEquationsSolutionStepError
         {
-            controller?.solutionComplete()
+            controller?.solutionComplete(stepDone:nil)
         }
         else
         {
@@ -50,7 +50,7 @@ class MLinearEquationsSolution:MLinearEquationsSolutionStrategyDelegate, MLinear
             }
             else
             {
-                controller?.solutionComplete()
+                controller?.solutionComplete(stepDone:nil)
             }
         }
     }

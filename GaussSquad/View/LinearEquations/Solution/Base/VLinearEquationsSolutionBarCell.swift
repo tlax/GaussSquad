@@ -3,7 +3,7 @@ import UIKit
 class VLinearEquationsSolutionBarCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
-    private let kAlphaSelected:CGFloat = 0.3
+    private let kAlphaSelected:CGFloat = 0.15
     private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)
@@ -66,6 +66,18 @@ class VLinearEquationsSolutionBarCell:UICollectionViewCell
     func config(model:MLinearEquationsSolutionBarItem)
     {
         imageView.image = model.image
+        
+        if model.active
+        {
+            isUserInteractionEnabled = true
+            isSelected = false
+        }
+        else
+        {
+            isUserInteractionEnabled = false
+            isSelected = true
+        }
+        
         hover()
     }
 }

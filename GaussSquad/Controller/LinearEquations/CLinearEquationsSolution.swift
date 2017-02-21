@@ -4,6 +4,7 @@ class CLinearEquationsSolution:CController
 {
     let model:MLinearEquationsSolution
     private weak var viewSolution:VLinearEquationsSolution!
+    private weak var stepDone:MLinearEquationsSolutionStepDone?
     private let kBarHeight:CGFloat = 81
     private let kFooterHeight:CGFloat = 50
     private let kCellHeight:CGFloat = 25
@@ -78,6 +79,8 @@ class CLinearEquationsSolution:CController
             
         else
         {
+            UIGraphicsEndImageContext()
+            
             return
         }
         
@@ -195,12 +198,14 @@ class CLinearEquationsSolution:CController
     
     //MARK: public
     
-    func solutionComplete()
+    func solutionComplete(stepDone:MLinearEquationsSolutionStepDone?)
     {
+        self.stepDone = stepDone
+        
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.viewSolution.refresh()
+            self?.viewSolution.refresh(stepDone:stepDone)
         }
     }
     
@@ -216,7 +221,20 @@ class CLinearEquationsSolution:CController
     
     func plot()
     {
+        guard
         
+            let stepDone:MLinearEquationsSolutionStepDone = self.stepDone
+        
+        else
+        {
+            return
+        }
+        
+        let controllerPlot:CLinearEquationsPlot = CLinearEquationsPlot(
+            stepDone:stepDone)
+        parentController.push(
+            controller:controllerPlot,
+            horizontal:CParent.TransitionHorizontal.fromRight)
     }
     
     func share()

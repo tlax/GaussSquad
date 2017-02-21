@@ -103,10 +103,11 @@ class VLinearEquationsSolution:VView, UICollectionViewDelegate, UICollectionView
     
     //MARK: public
     
-    func refresh()
+    func refresh(stepDone:MLinearEquationsSolutionStepDone?)
     {
         spinner.stopAnimating()
         collectionView.reloadData()
+        viewBar.refresh(stepDone:stepDone)
     }
     
     func startExporting()

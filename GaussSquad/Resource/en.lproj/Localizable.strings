@@ -27,6 +27,7 @@
 "MLinearEquationsSolutionStepDone_subtitle"="\nReduced row echelon form";
 "MLinearEquationsSolutionStepStart_label"="Linear equations system";
 "MLinearEquationsSolutionStepError_title"="Error: ";
+"MPlotMenuItemOrigin_title"="Origin";
 "MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition and chage the indeterminate";
 "MHelpLinearEquationsProjectItemAddPolynomial_title"="Add polynomials";
 "MHelpLinearEquationsProjectItemEditRow_title"="Rearrange or delete equation";
@@ -49,7 +50,9 @@
 "VLinearEquationsPolynomialIndeterminate_labelTitle"="Indeterminate";
 "VLinearEquationsIndeterminateListHeader_labelTitlte"="Indeterminate";
 "VLinearEquationsIndeterminateListHeader_buttonNone"="None";
+"VLinearEquationsPlotBarZoom_descr"="%@x";
 "VSettingsCellFractionDigits_labelTitle"="Max fraction digits";
+"VLinearEquationsPlot_notSupported"="Sorry, your device does not support Metal";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
 "VStoreCellDeferred_label"="Purchase deferred";
@@ -88,3 +91,4 @@
 "CLinearEquationsProject_alertEditRowMoveUp"="Move up";
 "CLinearEquationsProject_alertEditRowMoveDown"="Move down";
 "CLinearEquationsProject_alertEditRowCancel"="Cancel";
+"CLinearEquationsPlot_sharingText"="%@ = %@";
