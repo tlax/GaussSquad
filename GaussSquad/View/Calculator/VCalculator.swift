@@ -7,7 +7,7 @@ class VCalculator:VView
     private weak var viewBar:VCalculatorBar!
     private weak var layoutBarBottom:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 50
-    private let kTextHeight:CGFloat = 150
+    private let kTextHeight:CGFloat = 200
     
     override init(controller:CController)
     {
