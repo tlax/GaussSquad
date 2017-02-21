@@ -50,26 +50,30 @@ class CLinearEquationsPlot:CController
             height:size.height)
     }
     
-    //MARK: public
+    //MARK: private
     
-    func back()
-    {
-        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
-    }
-    
-    func share()
+    private func shareTexture()
     {
         guard
-        
+            
             let texture:UIImage = viewPlot.viewMetal?.currentDrawable?.texture.exportImage()
-        
-        else
+            
+            else
         {
             return
         }
         
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.finishSharing(image:texture)
+        }
+    }
+    
+    private func finishSharing(image:UIImage)
+    {
         let activity:UIActivityViewController = UIActivityViewController(
-            activityItems:[texture],
+            activityItems:[image],
             applicationActivities:nil)
         
         if activity.popoverPresentationController != nil
@@ -79,7 +83,26 @@ class CLinearEquationsPlot:CController
             activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
         }
         
+        viewPlot.stopLoading()
         present(activity, animated:true)
+    }
+    
+    //MARK: public
+    
+    func back()
+    {
+        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+    }
+    
+    func share()
+    {
+        viewPlot.startLoading()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.shareTexture()
+        }
     }
     
     func updateZoom(zoom:Double)
