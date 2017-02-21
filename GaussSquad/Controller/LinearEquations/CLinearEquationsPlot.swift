@@ -59,7 +59,27 @@ class CLinearEquationsPlot:CController
     
     func share()
     {
+        guard
         
+            let texture:UIImage = viewPlot.viewMetal?.currentDrawable?.texture.exportImage()
+        
+        else
+        {
+            return
+        }
+        
+        let activity:UIActivityViewController = UIActivityViewController(
+            activityItems:[texture],
+            applicationActivities:nil)
+        
+        if activity.popoverPresentationController != nil
+        {
+            activity.popoverPresentationController!.sourceView = self.viewPlot
+            activity.popoverPresentationController!.sourceRect = CGRect.zero
+            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
+        present(activity, animated:true)
     }
     
     func updateZoom(zoom:Double)

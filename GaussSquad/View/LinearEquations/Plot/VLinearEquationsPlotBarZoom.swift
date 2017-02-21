@@ -8,9 +8,9 @@ class VLinearEquationsPlotBarZoom:UIView
     private let numberFormatter:NumberFormatter
     private let kMinInteger:Int = 1
     private let kMinFraction:Int = 0
-    private let kMaxFraction:Int = 4
+    private let kMaxFraction:Int = 3
     private let kLabelRight:CGFloat = -10
-    private let kLabelWidth:CGFloat = 90
+    private let kLabelWidth:CGFloat = 70
     private let kLabelBottom:CGFloat = -8
     private let kLabelHeight:CGFloat = 30
     private let kStepperWidth:CGFloat = 110
