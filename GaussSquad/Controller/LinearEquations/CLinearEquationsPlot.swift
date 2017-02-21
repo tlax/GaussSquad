@@ -67,8 +67,18 @@ class CLinearEquationsPlot:CController
         let textureWidth:CGFloat = texture.size.width
         let textureHeight:CGFloat = texture.size.height
         let totalWidth:CGFloat = textureWidth + kIndeterminatesWidth
+        let totalSize:CGSize = CGSize(width:totalWidth, height:textureHeight)
         
-        //MARK: todo
+        UIGraphicsBeginImageContextWithOptions(totalSize, true, 0)
+        
+        guard
+            
+            let context:CGContext = UIGraphicsGetCurrentContext()
+            
+        else
+        {
+            return
+        }
         
         DispatchQueue.main.async
         { [weak self] in
