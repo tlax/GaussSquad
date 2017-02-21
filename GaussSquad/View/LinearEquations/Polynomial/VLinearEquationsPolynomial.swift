@@ -104,6 +104,11 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         return nil
     }
     
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     //MARK: notifications
     
     func notifiedKeyboardChanged(sender notification:Notification)
