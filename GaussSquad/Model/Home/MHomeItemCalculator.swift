@@ -12,4 +12,11 @@ class MHomeItemCalculator:MHomeItem
             title:title,
             image:#imageLiteral(resourceName: "assetGenericArithmetic"))
     }
+    
+    override func selected() -> CController?
+    {
+        let controller:CCalculator = CCalculator()
+        
+        return controller
+    }
 }
