@@ -5,8 +5,13 @@ class VCalculatorText:UITextView, UITextViewDelegate
     private weak var controller:CCalculator!
     private let drawingOptions:NSStringDrawingOptions
     private let insetsHorizontal3:CGFloat
+    private let kNewline:String = "\n"
+    private let kDot:String = "."
     private let kFontSize:CGFloat = 50
     private let kInsetsHorizontal:CGFloat = 5
+    private let kNumbersMin:UInt32 = 48
+    private let kNumbersMax:UInt32 = 57
+    private let kDecimalPoint:UInt32 = 46
     
     init(controller:CCalculator)
     {
@@ -90,6 +95,87 @@ class VCalculatorText:UITextView, UITextViewDelegate
     
     func textViewDidChange(_ textView:UITextView)
     {
+        let text:String = textView.text
+        
+        if text.characters.count == 2
+        {
+            let firstCharacter:Character = text[text.startIndex]
+            let secondCharacter:Character = text[
+                text.index(
+                    text.startIndex,
+                    offsetBy:1)]
+            let firstString:String = "\(firstCharacter)"
+            let secondString:String = "\(secondCharacter)"
+            
+            guard
+                
+                let firstScalar:UnicodeScalar = UnicodeScalar(firstString),
+                let secondScalar:UnicodeScalar = UnicodeScalar(secondString)
+                
+                else
+            {
+                return
+            }
+            
+            let firstUnicode:UInt32 = firstScalar.value
+            let secondUnicode:UInt32 = secondScalar.value
+            
+            if firstUnicode == kNumbersMin
+            {
+                if secondUnicode != kDecimalPoint
+                {
+                    textView.text = secondString
+                }
+            }
+        }
+        
         updateInsets()
+    }
+    
+    func textView(_ textView:UITextView, shouldChangeTextIn range:NSRange, replacementText text:String) -> Bool
+    {
+        if text == kNewline
+        {
+            textView.resignFirstResponder()
+        }
+        
+        let newTextCount:Int = text.characters.count
+        
+        for newTextIndex:Int in 0 ..< newTextCount
+        {
+            let character:Character = text[
+                text.index(
+                    text.startIndex,
+                    offsetBy:newTextIndex)]
+            let characterString:String = "\(character)"
+            
+            guard
+                
+                let unicodeScalar:UnicodeScalar = UnicodeScalar(characterString)
+                
+            else
+            {
+                return false
+            }
+            
+            let unicodeInt:UInt32 = unicodeScalar.value
+            
+            if unicodeInt == kDecimalPoint
+            {
+                if textView.text.contains(kDot)
+                {
+                    return false
+                }
+            }
+            else
+            {
+                if unicodeInt < kNumbersMin || unicodeInt > kNumbersMax
+                {
+                    return false
+                }
+            }
+        }
+        
+        return true
     }
 }
