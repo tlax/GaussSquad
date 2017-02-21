@@ -68,6 +68,8 @@ class CLinearEquationsPlot:CController
         let textureHeight:CGFloat = texture.size.height
         let totalWidth:CGFloat = textureWidth + kIndeterminatesWidth
         let totalSize:CGSize = CGSize(width:totalWidth, height:textureHeight)
+        let totalFrame:CGRect = CGRect(origin:CGPoint.zero, size:totalSize)
+        let textureFrame:CGRect = CGRect(origin:CGPoint.zero, size:texture.size)
         
         UIGraphicsBeginImageContextWithOptions(totalSize, true, 0)
         
@@ -80,10 +82,28 @@ class CLinearEquationsPlot:CController
             return
         }
         
+        context.setFillColor(UIColor.white.cgColor)
+        context.fill(totalFrame)
+        texture.draw(in:textureFrame)
+        
+        guard
+            
+            let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+            
+        else
+        {
+            UIGraphicsEndImageContext()
+            viewPlot.stopLoading()
+            
+            return
+        }
+        
+        UIGraphicsEndImageContext()
+        
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.finishSharing(image:texture)
+            self?.finishSharing(image:image)
         }
     }
     
