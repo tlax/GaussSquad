@@ -7,8 +7,8 @@ class VLinearEquationsPlot:VView
     private weak var controller:CLinearEquationsPlot!
     private weak var viewBar:VLinearEquationsPlotBar!
     private var startingPoint:CGPoint?
-    private let kBarHeight:CGFloat = 80
-    private let kMenuHeight:CGFloat = 60
+    private let kBarHeight:CGFloat = 64
+    private let kMenuHeight:CGFloat = 46
     private var positionX:CGFloat = 0
     private var positionY:CGFloat = 0
     

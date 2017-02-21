@@ -57,6 +57,11 @@ class CLinearEquationsPlot:CController
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
     
+    func share()
+    {
+        
+    }
+    
     func updateZoom(zoom:Double)
     {
         let increase:Double = model.updateZoom(zoom:zoom)
