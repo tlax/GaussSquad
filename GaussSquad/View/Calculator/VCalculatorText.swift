@@ -1,12 +1,13 @@
 import UIKit
 
-class VLinearEquationsPolynomialText:UITextView
+class VCalculatorText:UITextView
 {
+    private weak var controller:CLinearEquationsPolynomial!
     private let kFontSize:CGFloat = 70
     private let kInsetsHorizontal:CGFloat = 5
     private let kInsetsTop:CGFloat = 25
     
-    init()
+    init(controller:CLinearEquationsPolynomial)
     {
         super.init(frame:CGRect.zero, textContainer:nil)
         clipsToBounds = true
@@ -32,6 +33,7 @@ class VLinearEquationsPolynomialText:UITextView
             left:kInsetsHorizontal,
             bottom:0,
             right:kInsetsHorizontal)
+        self.controller = controller
     }
     
     required init?(coder:NSCoder)

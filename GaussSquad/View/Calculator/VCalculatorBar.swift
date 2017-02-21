@@ -48,9 +48,26 @@ class VCalculatorBar:UIView
             action:#selector(actionOptions(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonClear:UIButton = UIButton()
+        buttonClear.translatesAutoresizingMaskIntoConstraints = false
+        buttonClear.setImage(
+            #imageLiteral(resourceName: "assetGenericClear").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonClear.setImage(
+            #imageLiteral(resourceName: "assetGenericClear").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonClear.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        buttonClear.imageView!.clipsToBounds = true
+        buttonClear.imageView!.contentMode = UIViewContentMode.center
+        buttonClear.addTarget(
+            self,
+            action:#selector(actionClear(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         addSubview(border)
         addSubview(buttonBack)
         addSubview(buttonOptions)
+        addSubview(buttonClear)
         
         NSLayoutConstraint.equalsVertical(
             view:buttonBack,
@@ -70,6 +87,16 @@ class VCalculatorBar:UIView
             toView:buttonBack)
         NSLayoutConstraint.width(
             view:buttonOptions,
+            constant:kButtonWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonClear,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:buttonClear,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:buttonClear,
             constant:kButtonWidth)
         
         NSLayoutConstraint.topToTop(
@@ -96,6 +123,11 @@ class VCalculatorBar:UIView
     }
     
     func actionOptions(sender button:UIButton)
+    {
+        
+    }
+    
+    func actionClear(sender button:UIButton)
     {
         
     }
