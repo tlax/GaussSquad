@@ -4,8 +4,8 @@ class MHomeItemCalculator:MHomeItem
 {
     init()
     {
-        let symbol:String = NSLocalizedString("MHomeItemArithmetic_symbol", comment:"")
-        let title:String = NSLocalizedString("MHomeItemArithmetic_title", comment:"")
+        let symbol:String = NSLocalizedString("MHomeItemCalculator_symbol", comment:"")
+        let title:String = NSLocalizedString("MHomeItemCalculator_title", comment:"")
         
         super.init(
             symbol:symbol,

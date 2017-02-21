@@ -1,5 +1,5 @@
-"MHomeItemArithmetic_symbol"="a × b = c";
-"MHomeItemArithmetic_title"="Arithmetic";
+"MHomeItemCalculator_symbol"="a × b = c";
+"MHomeItemCalculator_title"="Calculator";
 "MHomeItemLinearEquations_symbol"="ax + b = 0";
 "MHomeItemLinearEquations_title"="Linear equations";
 "MLinearEquationsProject_defaultIndeterminate"="x";
