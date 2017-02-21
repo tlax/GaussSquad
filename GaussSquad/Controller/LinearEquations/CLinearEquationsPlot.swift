@@ -4,8 +4,9 @@ class CLinearEquationsPlot:CController
 {
     let model:MPlot
     weak var viewPlot:VLinearEquationsPlot!
-    private let kIndeterminatesWidth:CGFloat = 280
+    private let kIndeterminatesWidth:CGFloat = 350
     private let kEquationsMargin:CGFloat = 20
+    private let kTextTop:CGFloat = 9
     
     init(stepDone:MLinearEquationsSolutionStepDone)
     {
@@ -70,7 +71,6 @@ class CLinearEquationsPlot:CController
         
         let textureWidth:CGFloat = texture.size.width
         let textureHeight:CGFloat = texture.size.height
-        let textWidth:CGFloat = kIndeterminatesWidth - (kEquationsMargin + kEquationsMargin)
         let totalWidth:CGFloat = textureWidth + kIndeterminatesWidth
         let totalSize:CGSize = CGSize(width:totalWidth, height:textureHeight)
         let totalFrame:CGRect = CGRect(origin:CGPoint.zero, size:totalSize)
@@ -95,11 +95,12 @@ class CLinearEquationsPlot:CController
         texture.draw(in:textureFrame)
         
         let textAttributes:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.numericBold(size:16),
+            NSFontAttributeName:UIFont.numericBold(size:30),
             NSForegroundColorAttributeName:UIColor.black]
         let equationIcon:UIImage = #imageLiteral(resourceName: "assetTexturePoint")
         let iconWidth:CGFloat = equationIcon.size.width
         let iconHeight:CGFloat = equationIcon.size.height
+        let textWidth:CGFloat = kIndeterminatesWidth - (iconWidth + kEquationsMargin + kEquationsMargin)
         let currentX:CGFloat = textureWidth + kEquationsMargin
         var currentY:CGFloat = kEquationsMargin
         
@@ -120,8 +121,8 @@ class CLinearEquationsPlot:CController
                 width:iconWidth,
                 height:iconHeight)
             let textRect:CGRect = CGRect(
-                x:currentX + kEquationsMargin,
-                y:currentY,
+                x:currentX + iconWidth + kEquationsMargin,
+                y:currentY + kTextTop,
                 width:textWidth,
                 height:iconHeight)
             let numberString:String = MSession.sharedInstance.stringFrom(
