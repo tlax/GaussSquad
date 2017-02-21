@@ -4,7 +4,8 @@ class CLinearEquationsPlot:CController
 {
     let model:MPlot
     weak var viewPlot:VLinearEquationsPlot!
-    private let kIndeterminatesWidth:CGFloat = 240
+    private let kIndeterminatesWidth:CGFloat = 280
+    private let kEquationsMargin:CGFloat = 20
     
     init(stepDone:MLinearEquationsSolutionStepDone)
     {
@@ -58,7 +59,7 @@ class CLinearEquationsPlot:CController
         guard
             
             let texture:UIImage = viewPlot.viewMetal?.currentDrawable?.texture.exportImage(),
-            let stepDone:MLinearEquationsSolutionStepDone = model.stepDone
+            let modelMenu:MPlotMenu = model.modelMenu
             
         else
         {
@@ -92,22 +93,39 @@ class CLinearEquationsPlot:CController
         context.fill(totalFrame)
         texture.draw(in:textureFrame)
         
-        for equation:MLinearEquationsSolutionEquation in stepDone.equations
+        let attr
+        let equationIcon:UIImage = #imageLiteral(resourceName: "assetTexturePoint")
+        let iconWidth:CGFloat = equationIcon.size.width
+        let iconHeight:CGFloat = equationIcon.size.height
+        var currentX:CGFloat = textureWidth + kEquationsMargin
+        var currentY:CGFloat = kEquationsMargin
+        
+        for menuItem:MPlotMenuItem in modelMenu.items
         {
             guard
                 
-                let polynomial:MLinearEquationsSolutionEquationItemPolynomial = equation.items.first as? MLinearEquationsSolutionEquationItemPolynomial,
-                let coefficient:MLinearEquationsSolutionEquationItemConstant = equation.result as? MLinearEquationsSolutionEquationItemConstant
+                let menuItem:MPlotMenuItemEquation = menuItem as? MPlotMenuItemEquation
             
             else
             {
                 continue
             }
             
-            let indeterminate:String = polynomial.indeterminate.symbol
-            let number:Double = coefficient.coefficient
-            let equationIcon:UIImage = #imageLiteral(resourceName: "assetGenericPoint")
-            equationIcon.draw
+            let iconRect:CGRect = CGRect(
+                x:currentX,
+                y:currentY,
+                width:iconWidth,
+                height:iconHeight)
+            
+            context.setBlendMode(CGBlendMode.normal)
+            context.draw(equationIcon.cgImage!, in:iconRect)
+            context.setBlendMode(CGBlendMode.color)
+            context.setFillColor(menuItem.color.cgColor)
+            context.fill(iconRect)
+            context.setBlendMode(CGBlendMode.normal)
+            
+            currentY += iconHeight
+            currentY += kEquationsMargin
         }
         
         guard
