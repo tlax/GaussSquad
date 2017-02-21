@@ -7,7 +7,6 @@ class VCalculatorText:UITextView, UITextViewDelegate
     private let insetsHorizontal3:CGFloat
     private let kFontSize:CGFloat = 50
     private let kInsetsHorizontal:CGFloat = 5
-    private let kBorderHeight:CGFloat = 1
     
     init(controller:CCalculator)
     {
@@ -38,20 +37,6 @@ class VCalculatorText:UITextView, UITextViewDelegate
         font = UIFont.numeric(size:kFontSize)
         self.controller = controller
         
-        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
-        
-        addSubview(border)
-        
-        NSLayoutConstraint.bottomToBottom(
-            view:border,
-            toView:self)
-        NSLayoutConstraint.height(
-            view:border,
-            constant:kBorderHeight)
-        NSLayoutConstraint.equalsHorizontal(
-            view:border,
-            toView:self)
-        
         restart()
     }
     
@@ -77,8 +62,8 @@ class VCalculatorText:UITextView, UITextViewDelegate
     
     private func updateInsets()
     {
-        let width:CGFloat = contentSize.width
-        let height:CGFloat = contentSize.height
+        let width:CGFloat = bounds.maxX
+        let height:CGFloat = bounds.maxY
         let usableWidth:CGFloat = width - insetsHorizontal3
         let usableHeight:CGFloat = height - kInsetsHorizontal
         let usableSize:CGSize = CGSize(width:usableWidth, height:usableHeight)
