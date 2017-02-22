@@ -1,11 +1,11 @@
-import UIKit
+import Foundation
 
 class MKeyboard
 {
     let rows:[MKeyboardRow]
     
-    init()
+    init(rows:[MKeyboardRow])
     {
-        rows = []
+        self.rows = rows
     }
 }
