@@ -7,7 +7,7 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private let model:MKeyboard
     private let keyboardHeight:CGFloat
     private let kBorderHeight:CGFloat = 1
-    private let kRowHeight:CGFloat = 30
+    private let kRowHeight:CGFloat = 35
     
     init(textView:UITextView)
     {
@@ -112,9 +112,11 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MKeyboardRowItem = modelAtIndex(index:indexPath)
         let cell:VKeyboardCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:VKeyboardCell.reusableIdentifier,
             for:indexPath) as! VKeyboardCell
+        cell.config(model:item)
         
         return cell
     }
