@@ -42,8 +42,7 @@ class VCalculatorText:UITextView, UITextViewDelegate
         font = UIFont.numeric(size:kFontSize)
         self.controller = controller
         
-        let textInput:VKeyboard = VKeyboard(textView:self)
-        inputView = textInput
+        
         
         restart()
     }
@@ -58,6 +57,14 @@ class VCalculatorText:UITextView, UITextViewDelegate
         updateInsets()
         
         super.layoutSubviews()
+    }
+    
+    override func becomeFirstResponder() -> Bool
+    {
+        let textInput:VKeyboard = VKeyboard(textView:self)
+        inputView = textInput
+        
+        return super.becomeFirstResponder()
     }
     
     //MARK: private

@@ -51,6 +51,11 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         return nil
     }
     
+    deinit
+    {
+        print("success dying")
+    }
+    
     override var intrinsicContentSize:CGSize
     {
         get
