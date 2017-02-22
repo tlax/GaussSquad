@@ -85,6 +85,15 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         }
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MKeyboardRowItem
+    {
+        let item:MKeyboardRowItem = model.rows[index.section].items[index.item]
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
