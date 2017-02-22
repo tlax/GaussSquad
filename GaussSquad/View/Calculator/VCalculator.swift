@@ -80,6 +80,10 @@ class VCalculator:VView
     
     override func layoutSubviews()
     {
+        print("layout")
+        
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
         let textHeight:CGFloat
