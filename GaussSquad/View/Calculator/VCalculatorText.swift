@@ -42,7 +42,7 @@ class VCalculatorText:UITextView, UITextViewDelegate
         font = UIFont.numeric(size:kFontSize)
         self.controller = controller
         
-        let textInput:VCalculatorTextInput = VCalculatorTextInput()
+        let textInput:VKeyboard = VKeyboard(textView:self)
         inputView = textInput
         
         restart()
