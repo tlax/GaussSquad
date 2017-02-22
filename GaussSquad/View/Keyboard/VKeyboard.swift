@@ -7,7 +7,8 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private let model:MKeyboard
     private let keyboardHeight:CGFloat
     private let kBorderHeight:CGFloat = 1
-    private let kRowHeight:CGFloat = 35
+    private let kRowHeight:CGFloat = 50
+    private let kInterLine:CGFloat = 1
     
     init(textView:UITextView)
     {
@@ -24,12 +25,15 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             model = MKeyboardLandscape()
         }
         
-        keyboardHeight = CGFloat(model.rows.count) * kRowHeight
+        let countRows:CGFloat = CGFloat(model.rows.count)
+        let interLines:CGFloat = kInterLine * (countRows - 1)
+        let rowsHeight:CGFloat = kRowHeight * countRows
+        keyboardHeight = interLines + rowsHeight
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor(white:0.96, alpha:1)
         self.textView = textView
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
@@ -45,9 +49,13 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             let cols:CGFloat = CGFloat(model.cols)
-            let cellWidth:CGFloat = width / cols
+            let colsLines:CGFloat = (cols - 1) + kInterLine
+            let usableWidth:CGFloat = width - colsLines
+            let cellWidth:CGFloat = usableWidth / cols
             let cellSize:CGSize = CGSize(width:cellWidth, height:kRowHeight)
             flow.itemSize = cellSize
+            flow.minimumInteritemSpacing = kInterLine
+            flow.minimumLineSpacing = kInterLine
         }
         
         addSubview(border)

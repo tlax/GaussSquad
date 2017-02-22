@@ -10,7 +10,7 @@ class VKeyboardCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.white
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false

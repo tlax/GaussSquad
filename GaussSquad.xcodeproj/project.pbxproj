@@ -148,6 +148,7 @@
 		DA7A9CF81E5D0C3700ED71D1 /* VKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CF71E5D0C3700ED71D1 /* VKeyboard.swift */; };
 		DA7A9CFA1E5D0C4000ED71D1 /* VKeyboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CF91E5D0C4000ED71D1 /* VKeyboardCell.swift */; };
 		DA8118521E5E580100B6ED7C /* keyboard.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8118511E5E580100B6ED7C /* keyboard.xcassets */; };
+		DA8118541E5E5CF200B6ED7C /* MKeyboardRowItem2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8118531E5E5CF200B6ED7C /* MKeyboardRowItem2.swift */; };
 		DA89F19D1E4A47080062DE48 /* VLinearEquationsPolynomialShowAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89F19C1E4A47080062DE48 /* VLinearEquationsPolynomialShowAs.swift */; };
 		DA89F19F1E4A4BCE0062DE48 /* VLinearEquationsPolynomialSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89F19E1E4A4BCE0062DE48 /* VLinearEquationsPolynomialSign.swift */; };
 		DA89F1A11E4A549B0062DE48 /* VLinearEquationsPolynomialDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89F1A01E4A549B0062DE48 /* VLinearEquationsPolynomialDivision.swift */; };
@@ -398,6 +399,7 @@
 		DA7A9CF71E5D0C3700ED71D1 /* VKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKeyboard.swift; sourceTree = "<group>"; };
 		DA7A9CF91E5D0C4000ED71D1 /* VKeyboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKeyboardCell.swift; sourceTree = "<group>"; };
 		DA8118511E5E580100B6ED7C /* keyboard.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = keyboard.xcassets; sourceTree = "<group>"; };
+		DA8118531E5E5CF200B6ED7C /* MKeyboardRowItem2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItem2.swift; sourceTree = "<group>"; };
 		DA89F19C1E4A47080062DE48 /* VLinearEquationsPolynomialShowAs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialShowAs.swift; sourceTree = "<group>"; };
 		DA89F19E1E4A4BCE0062DE48 /* VLinearEquationsPolynomialSign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialSign.swift; sourceTree = "<group>"; };
 		DA89F1A01E4A549B0062DE48 /* VLinearEquationsPolynomialDivision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialDivision.swift; sourceTree = "<group>"; };
@@ -1047,6 +1049,7 @@
 			children = (
 				DAEB54C11E5D105400492F38 /* MKeyboardRowItem0.swift */,
 				DAEB54C31E5D105C00492F38 /* MKeyboardRowItem1.swift */,
+				DA8118531E5E5CF200B6ED7C /* MKeyboardRowItem2.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -1655,6 +1658,7 @@
 				DAE4A88D1E5BA4DC000A07A3 /* MPlotMenuItemOrigin.swift in Sources */,
 				DA476F1F1E5634690058F4A4 /* VStoreCellPurchasing.swift in Sources */,
 				DA89F1A51E4A9FC00062DE48 /* DProjectExtension.swift in Sources */,
+				DA8118541E5E5CF200B6ED7C /* MKeyboardRowItem2.swift in Sources */,
 				DA6D62D51E560EC4002D9C1A /* VSettings.swift in Sources */,
 				DA476EF71E56245F0058F4A4 /* DSettingsExtension.swift in Sources */,
 				DA46913E1E56744600FAD188 /* MetalConstants.swift in Sources */,
