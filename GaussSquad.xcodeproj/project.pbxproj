@@ -147,6 +147,7 @@
 		DA7A9CEF1E5CE09E00ED71D1 /* VCalculatorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CEE1E5CE09E00ED71D1 /* VCalculatorText.swift */; };
 		DA7A9CF81E5D0C3700ED71D1 /* VKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CF71E5D0C3700ED71D1 /* VKeyboard.swift */; };
 		DA7A9CFA1E5D0C4000ED71D1 /* VKeyboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CF91E5D0C4000ED71D1 /* VKeyboardCell.swift */; };
+		DA8118521E5E580100B6ED7C /* keyboard.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8118511E5E580100B6ED7C /* keyboard.xcassets */; };
 		DA89F19D1E4A47080062DE48 /* VLinearEquationsPolynomialShowAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89F19C1E4A47080062DE48 /* VLinearEquationsPolynomialShowAs.swift */; };
 		DA89F19F1E4A4BCE0062DE48 /* VLinearEquationsPolynomialSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89F19E1E4A4BCE0062DE48 /* VLinearEquationsPolynomialSign.swift */; };
 		DA89F1A11E4A549B0062DE48 /* VLinearEquationsPolynomialDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89F1A01E4A549B0062DE48 /* VLinearEquationsPolynomialDivision.swift */; };
@@ -396,6 +397,7 @@
 		DA7A9CEE1E5CE09E00ED71D1 /* VCalculatorText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCalculatorText.swift; sourceTree = "<group>"; };
 		DA7A9CF71E5D0C3700ED71D1 /* VKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKeyboard.swift; sourceTree = "<group>"; };
 		DA7A9CF91E5D0C4000ED71D1 /* VKeyboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKeyboardCell.swift; sourceTree = "<group>"; };
+		DA8118511E5E580100B6ED7C /* keyboard.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = keyboard.xcassets; sourceTree = "<group>"; };
 		DA89F19C1E4A47080062DE48 /* VLinearEquationsPolynomialShowAs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialShowAs.swift; sourceTree = "<group>"; };
 		DA89F19E1E4A4BCE0062DE48 /* VLinearEquationsPolynomialSign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialSign.swift; sourceTree = "<group>"; };
 		DA89F1A01E4A549B0062DE48 /* VLinearEquationsPolynomialDivision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialDivision.swift; sourceTree = "<group>"; };
@@ -1169,6 +1171,7 @@
 				DAF37ADA1E3D6588005052D8 /* spinner.xcassets */,
 				DA9F6FA21E551C33003C5486 /* help.xcassets */,
 				DAE4A87A1E5B3E93000A07A3 /* texture.xcassets */,
+				DA8118511E5E580100B6ED7C /* keyboard.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -1419,6 +1422,7 @@
 				DA033CEE1E3AA2DC00F7645C /* generic.xcassets in Resources */,
 				DAE4A87B1E5B3E93000A07A3 /* texture.xcassets in Resources */,
 				DAFF4A961E397B9600A2DD4B /* LaunchScreen.storyboard in Resources */,
+				DA8118521E5E580100B6ED7C /* keyboard.xcassets in Resources */,
 				DAA4BD781E3A703900B0360D /* brand.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
