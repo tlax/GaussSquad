@@ -78,30 +78,6 @@ class VCalculator:VView
         NotificationCenter.default.removeObserver(self)
     }
     
-    override func layoutSubviews()
-    {
-        print("layout")
-        
-        UIApplication.shared.keyWindow!.endEditing(true)
-        
-        let width:CGFloat = bounds.maxX
-        let height:CGFloat = bounds.maxY
-        let textHeight:CGFloat
-        
-        if height >= width
-        {
-            textHeight = kTextMaxHeight
-        }
-        else
-        {
-            textHeight = kTextMinHeight
-        }
-        
-        layoutTextHeight.constant = textHeight
-        
-        super.layoutSubviews()
-    }
-    
     //MARK: notifications
     
     func notifiedKeyboardChanged(sender notification:Notification)
@@ -139,10 +115,49 @@ class VCalculator:VView
         }
     }
     
+    //MARK: private
+    
+    private func resizeField()
+    {
+        let width:CGFloat = bounds.maxX
+        let height:CGFloat = bounds.maxY
+        let textHeight:CGFloat
+        
+        if height >= width
+        {
+            textHeight = kTextMaxHeight
+        }
+        else
+        {
+            textHeight = kTextMinHeight
+        }
+        
+        layoutTextHeight.constant = textHeight
+        
+        UIView.animate(
+            withDuration:kAnimationDuration,
+        animations:
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+            
+        })
+        { [weak self] (done:Bool) in
+            
+            self?.viewText.becomeFirstResponder()
+        }
+    }
+    
     //MARK: public
     
     func viewAppeared()
     {
+        resizeField()
         viewText.becomeFirstResponder()
+    }
+    
+    func orientationChange()
+    {
+        resizeField()
     }
 }
