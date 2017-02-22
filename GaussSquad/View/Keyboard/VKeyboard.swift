@@ -2,12 +2,14 @@ import UIKit
 
 class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    private let model
+    private let model:MKeyboard
     private let kHeight:CGFloat = 200
     private let kBorderHeight:CGFloat = 1
     
     init()
     {
+        model = MKeyboard()
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
@@ -47,5 +49,8 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     //MARK: collectionView delegate
     
-    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        
+    }
 }

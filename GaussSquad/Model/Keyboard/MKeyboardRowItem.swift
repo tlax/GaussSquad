@@ -1,6 +1,6 @@
 import UIKit
 
-class MKeyboardItem
+class MKeyboardRowItem
 {
     
 }
