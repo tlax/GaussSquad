@@ -1,7 +1,8 @@
 import UIKit
 
-class VCalculatorTextInput:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    private let model
     private let kHeight:CGFloat = 200
     private let kBorderHeight:CGFloat = 1
     
@@ -33,7 +34,7 @@ class VCalculatorTextInput:UIView, UICollectionViewDelegate, UICollectionViewDat
     }
     
     override var intrinsicContentSize:CGSize
-    {
+        {
         get
         {
             let size:CGSize = CGSize(
@@ -43,4 +44,8 @@ class VCalculatorTextInput:UIView, UICollectionViewDelegate, UICollectionViewDat
             return size
         }
     }
+    
+    //MARK: collectionView delegate
+    
+    
 }
