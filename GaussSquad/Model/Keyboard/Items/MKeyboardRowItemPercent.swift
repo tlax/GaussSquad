@@ -9,32 +9,13 @@ class MKeyboardRowItemPercent:MKeyboardRowItem
     
     override func selected(model:MKeyboard, view:UITextView)
     {
-        updateIfNeeded(model:model, view:view)
-        
         let currentString:String = view.text
-        let countCharacters:Int = currentString.characters.count
+        let scalar:Double = model.stringAsNumber(string:currentString)
+        let percent:Double = scalar / 100
+        let newString:String = model.numberAsString(scalar:percent)
         
-        if countCharacters < 3
-        {
-            let currentNumber:Double = model.lastNumber()
-            
-            if currentNumber == 0
-            {
-                if !currentString.contains(model.kDot)
-                {
-                    if currentString.contains(model.kSign)
-                    {
-                        view.text = model.kSign
-                    }
-                    else
-                    {
-                        view.text = model.kEmpty
-                    }
-                }
-            }
-        }
-        
-        view.insertText(number)
-        model.states.last?.editing = view.text
+        view.text = model.kEmpty
+        view.insertText(newString)
+        model.states.last?.editing = newString
     }
 }

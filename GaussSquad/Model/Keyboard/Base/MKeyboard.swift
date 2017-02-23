@@ -101,4 +101,21 @@ class MKeyboard
         
         return string
     }
+    
+    func stringAsNumber(string:String) -> Double
+    {
+        guard
+            
+            let number:NSNumber = numberFormatter.number(
+                from:string)
+            
+        else
+        {
+            return 0
+        }
+        
+        let scalar:Double = number.doubleValue
+        
+        return scalar
+    }
 }
