@@ -14,6 +14,8 @@ class MKeyboardRowItemNumeric:MKeyboardRowItem
         model:MKeyboard,
         view:UITextView)
     {
+        updateIfNeeded(model:model, view:view)
+        
         let currentString:String = view.text
         let countCharacters:Int = currentString.characters.count
         

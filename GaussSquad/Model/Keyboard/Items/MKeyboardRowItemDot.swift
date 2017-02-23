@@ -9,6 +9,8 @@ class MKeyboardRowItemDot:MKeyboardRowItem
     
     override func selected(model:MKeyboard, view:UITextView)
     {
+        updateIfNeeded(model:model, view:view)
+        
         let current:String = view.text
         
         if !current.contains(model.kDot)

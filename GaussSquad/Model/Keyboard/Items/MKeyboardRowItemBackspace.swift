@@ -9,6 +9,8 @@ class MKeyboardRowItemBackspace:MKeyboardRowItem
     
     override func selected(model:MKeyboard, view:UITextView)
     {
+        updateIfNeeded(model:model, view:view)
+        
         let current:String = view.text
         let countCurrent:Int = current.characters.count
         
