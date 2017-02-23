@@ -35,7 +35,7 @@ class MKeyboard
         }
         else
         {
-            let stateInitial:MKeyboardStateInitial = MKeyboardStateInitial()
+            let stateInitial:MKeyboardState = MKeyboardState(editing:kInitial)
             self.states = [stateInitial]
         }
         
