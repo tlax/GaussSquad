@@ -67,6 +67,7 @@
 		DA316CF11E459016008E7270 /* VLinearEquationsIndeterminateListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CF01E459016008E7270 /* VLinearEquationsIndeterminateListCell.swift */; };
 		DA36DAAB1E444BCE00C17436 /* VLinearEquationsIndeterminateText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA36DAAA1E444BCE00C17436 /* VLinearEquationsIndeterminateText.swift */; };
 		DA3F44161E5F8315003336C7 /* MKeyboardStatePlain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3F44151E5F8315003336C7 /* MKeyboardStatePlain.swift */; };
+		DA3F44181E5F87CC003336C7 /* MKeyboardStateAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3F44171E5F87CC003336C7 /* MKeyboardStateAdd.swift */; };
 		DA46911F1E566EC400FAD188 /* VLinearEquationsPlotBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46911E1E566EC400FAD188 /* VLinearEquationsPlotBar.swift */; };
 		DA4691211E56736D00FAD188 /* VLinearEquationsPlotMetal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691201E56736D00FAD188 /* VLinearEquationsPlotMetal.swift */; };
 		DA46913D1E56744600FAD188 /* MetalBufferableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691241E56744600FAD188 /* MetalBufferableProtocol.swift */; };
@@ -337,6 +338,7 @@
 		DA316CF01E459016008E7270 /* VLinearEquationsIndeterminateListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsIndeterminateListCell.swift; sourceTree = "<group>"; };
 		DA36DAAA1E444BCE00C17436 /* VLinearEquationsIndeterminateText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsIndeterminateText.swift; sourceTree = "<group>"; };
 		DA3F44151E5F8315003336C7 /* MKeyboardStatePlain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardStatePlain.swift; sourceTree = "<group>"; };
+		DA3F44171E5F87CC003336C7 /* MKeyboardStateAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardStateAdd.swift; sourceTree = "<group>"; };
 		DA46911E1E566EC400FAD188 /* VLinearEquationsPlotBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPlotBar.swift; sourceTree = "<group>"; };
 		DA4691201E56736D00FAD188 /* VLinearEquationsPlotMetal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPlotMetal.swift; sourceTree = "<group>"; };
 		DA4691241E56744600FAD188 /* MetalBufferableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalBufferableProtocol.swift; sourceTree = "<group>"; };
@@ -658,6 +660,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3F44151E5F8315003336C7 /* MKeyboardStatePlain.swift */,
+				DA3F44171E5F87CC003336C7 /* MKeyboardStateAdd.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -1539,6 +1542,7 @@
 				DA133A6C1E411B070028D90F /* VLinearEquationsProjectCellEquals.swift in Sources */,
 				DAFF4AC71E397B9600A2DD4B /* VCollection.swift in Sources */,
 				DA8AFE4D1E53D82D0098CF2F /* MLinearEquationsSolutionDrawableProtocol.swift in Sources */,
+				DA3F44181E5F87CC003336C7 /* MKeyboardStateAdd.swift in Sources */,
 				DA81185C1E5E61E600B6ED7C /* MKeyboardRowItem6.swift in Sources */,
 				DA476F2F1E5666270058F4A4 /* VLinearEquationsPlot.swift in Sources */,
 				DA476F0C1E562E740058F4A4 /* MStoreItemStatusPurchased.swift in Sources */,

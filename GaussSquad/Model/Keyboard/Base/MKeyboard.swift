@@ -76,24 +76,4 @@ class MKeyboard
         
         return scalar
     }
-    
-    func checkForClearing()
-    {
-        guard
-        
-            let lastState:MKeyboardState = states.last
-        
-        else
-        {
-            return
-        }
-        
-        if lastState.clearBeforeEdition
-        {
-            let previousValue:Double = lastNumber()
-            lastState.clearForEdition(
-                previousValue:previousValue,
-                editing:kInitial)
-        }
-    }
 }
