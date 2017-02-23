@@ -22,6 +22,10 @@ class MKeyboardPortrait:MKeyboard
         let itemPercent:MKeyboardRowItemPercent = MKeyboardRowItemPercent()
         
         let itemDivision:MKeyboardRowItemDivision = MKeyboardRowItemDivision()
+        let itemMultiplication:MKeyboardRowItemMultiplication = MKeyboardRowItemMultiplication()
+        let itemSubtract:MKeyboardRowItemSubtract = MKeyboardRowItemSubtract()
+        let itemAdd:MKeyboardRowItemAdd = MKeyboardRowItemAdd()
+        let itemEquals:MKeyboardRowItemEquals = MKeyboardRowItemEquals()
         
         let itemsFirstRow:[MKeyboardRowItem] = [
             itemClear,
@@ -31,19 +35,23 @@ class MKeyboardPortrait:MKeyboard
         let itemsSecondRow:[MKeyboardRowItem] = [
             item7,
             item8,
-            item9]
+            item9,
+            itemMultiplication]
         let itemsThirdRow:[MKeyboardRowItem] = [
             item4,
             item5,
-            item6]
+            item6,
+            itemSubtract]
         let itemsFourthRow:[MKeyboardRowItem] = [
             item1,
             item2,
-            item3]
+            item3,
+            itemAdd]
         let itemsFifthRow:[MKeyboardRowItem] = [
             item0,
             itemDot,
-            itemPercent]
+            itemPercent,
+            itemEquals]
         
         let firstRow:MKeyboardRow = MKeyboardRow(
             items:itemsFirstRow)
