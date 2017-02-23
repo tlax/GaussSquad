@@ -15,6 +15,8 @@ class MKeyboardPortrait:MKeyboard
         let item8:MKeyboardRowItem8 = MKeyboardRowItem8()
         let item9:MKeyboardRowItem9 = MKeyboardRowItem9()
         
+        let itemDot:MKeyboardRowItemDot = MKeyboardRowItemDot()
+        
         let itemsFirstRow:[MKeyboardRowItem] = [
             item7,
             item8,
@@ -28,7 +30,8 @@ class MKeyboardPortrait:MKeyboard
             item2,
             item3]
         let itemsFourthRow:[MKeyboardRowItem] = [
-            item0]
+            item0,
+            itemDot]
         
         let firstRow:MKeyboardRow = MKeyboardRow(
             items:itemsFirstRow)

@@ -8,7 +8,7 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private let keyboardHeight:CGFloat
     private let kRowHeight:CGFloat = 48
     private let kInterLine:CGFloat = 1
-    private let kDeselectTime:TimeInterval = 0.18
+    private let kDeselectTime:TimeInterval = 0.1
     
     init(textView:UITextView)
     {
