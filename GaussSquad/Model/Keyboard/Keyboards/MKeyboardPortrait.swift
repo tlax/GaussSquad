@@ -21,10 +21,13 @@ class MKeyboardPortrait:MKeyboard
         let itemBackspace:MKeyboardRowItemBackspace = MKeyboardRowItemBackspace()
         let itemPercent:MKeyboardRowItemPercent = MKeyboardRowItemPercent()
         
+        let itemDivision:MKeyboardRowItemDivision = MKeyboardRowItemDivision()
+        
         let itemsFirstRow:[MKeyboardRowItem] = [
             itemClear,
             itemBackspace,
-            itemSign]
+            itemSign,
+            itemDivision]
         let itemsSecondRow:[MKeyboardRowItem] = [
             item7,
             item8,

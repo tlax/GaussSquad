@@ -54,6 +54,10 @@
 		DA2CE38D1E5F37FA00626A43 /* MKeyboardRowItemBackspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2CE38C1E5F37FA00626A43 /* MKeyboardRowItemBackspace.swift */; };
 		DA2CE38F1E5F3AFC00626A43 /* MKeyboardRowItemPercent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2CE38E1E5F3AFC00626A43 /* MKeyboardRowItemPercent.swift */; };
 		DA2CE3911E5F3BF200626A43 /* MKeyboardRowItemDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2CE3901E5F3BF200626A43 /* MKeyboardRowItemDivision.swift */; };
+		DA2CE3931E5F3D8000626A43 /* MKeyboardRowItemMultiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2CE3921E5F3D8000626A43 /* MKeyboardRowItemMultiplication.swift */; };
+		DA2CE3951E5F3D8900626A43 /* MKeyboardRowItemSubtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2CE3941E5F3D8900626A43 /* MKeyboardRowItemSubtract.swift */; };
+		DA2CE3971E5F3D9100626A43 /* MKeyboardRowItemAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2CE3961E5F3D9100626A43 /* MKeyboardRowItemAdd.swift */; };
+		DA2CE3991E5F3D9A00626A43 /* MKeyboardRowItemEquals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2CE3981E5F3D9A00626A43 /* MKeyboardRowItemEquals.swift */; };
 		DA316CE51E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CE41E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift */; };
 		DA316CE91E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CE81E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift */; };
 		DA316CED1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CEC1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift */; };
@@ -317,6 +321,10 @@
 		DA2CE38C1E5F37FA00626A43 /* MKeyboardRowItemBackspace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItemBackspace.swift; sourceTree = "<group>"; };
 		DA2CE38E1E5F3AFC00626A43 /* MKeyboardRowItemPercent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItemPercent.swift; sourceTree = "<group>"; };
 		DA2CE3901E5F3BF200626A43 /* MKeyboardRowItemDivision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItemDivision.swift; sourceTree = "<group>"; };
+		DA2CE3921E5F3D8000626A43 /* MKeyboardRowItemMultiplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItemMultiplication.swift; sourceTree = "<group>"; };
+		DA2CE3941E5F3D8900626A43 /* MKeyboardRowItemSubtract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItemSubtract.swift; sourceTree = "<group>"; };
+		DA2CE3961E5F3D9100626A43 /* MKeyboardRowItemAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItemAdd.swift; sourceTree = "<group>"; };
+		DA2CE3981E5F3D9A00626A43 /* MKeyboardRowItemEquals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItemEquals.swift; sourceTree = "<group>"; };
 		DA316CE41E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialIndeterminate.swift; sourceTree = "<group>"; };
 		DA316CE81E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquationsPolynomialIndeterminate.swift; sourceTree = "<group>"; };
 		DA316CEC1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsIndeterminateList.swift; sourceTree = "<group>"; };
@@ -1089,6 +1097,10 @@
 				DA2CE38C1E5F37FA00626A43 /* MKeyboardRowItemBackspace.swift */,
 				DA2CE38E1E5F3AFC00626A43 /* MKeyboardRowItemPercent.swift */,
 				DA2CE3901E5F3BF200626A43 /* MKeyboardRowItemDivision.swift */,
+				DA2CE3921E5F3D8000626A43 /* MKeyboardRowItemMultiplication.swift */,
+				DA2CE3941E5F3D8900626A43 /* MKeyboardRowItemSubtract.swift */,
+				DA2CE3961E5F3D9100626A43 /* MKeyboardRowItemAdd.swift */,
+				DA2CE3981E5F3D9A00626A43 /* MKeyboardRowItemEquals.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -1515,6 +1527,7 @@
 				DAFF4ABE1E397B9600A2DD4B /* MHelpItem.swift in Sources */,
 				DAFF4AC21E397B9600A2DD4B /* VHelpCell.swift in Sources */,
 				DAFDD5111E4442F400880556 /* VLinearEquationsIndeterminate.swift in Sources */,
+				DA2CE3991E5F3D9A00626A43 /* MKeyboardRowItemEquals.swift in Sources */,
 				DA23C3681E527C40007C4C4D /* MLinearEquationsSolutionStrategyResultsOnly.swift in Sources */,
 				DA476EED1E56108E0058F4A4 /* MSettings.swift in Sources */,
 				DA23C3601E5260DE007C4C4D /* MLinearEquationsSolutionBarItem.swift in Sources */,
@@ -1642,6 +1655,7 @@
 				DAB84C331E41681A0052F778 /* VLinearEquationsProjectCellPolynomialDivision.swift in Sources */,
 				DA476F091E562E740058F4A4 /* MStoreItemStatusDeferred.swift in Sources */,
 				DA0D4DD91E4E1A8900699018 /* VLinearEquationsSolutionCellIndex.swift in Sources */,
+				DA2CE3951E5F3D8900626A43 /* MKeyboardRowItemSubtract.swift in Sources */,
 				DA133A401E410F710028D90F /* MLinearEquationsProjectRowItem.swift in Sources */,
 				DA4691441E56744600FAD188 /* MetalShaderFragmentSimple.metal in Sources */,
 				DAFF4AA61E397B9600A2DD4B /* ExtensionURL.swift in Sources */,
@@ -1682,7 +1696,9 @@
 				DA0D4DE51E4E99AD00699018 /* MLinearEquationsSolutionStrategyReductionIndeterminates.swift in Sources */,
 				DAFF4A981E397B9600A2DD4B /* CController.swift in Sources */,
 				DA46913D1E56744600FAD188 /* MetalBufferableProtocol.swift in Sources */,
+				DA2CE3931E5F3D8000626A43 /* MKeyboardRowItemMultiplication.swift in Sources */,
 				DA9F6F991E5518E5003C5486 /* MHelpLinearEquationsProjectItemAddRow.swift in Sources */,
+				DA2CE3971E5F3D9100626A43 /* MKeyboardRowItemAdd.swift in Sources */,
 				DA89F1A11E4A549B0062DE48 /* VLinearEquationsPolynomialDivision.swift in Sources */,
 				DA62D3721E4CD77D000D0387 /* MLinearEquationsSolutionStepDone.swift in Sources */,
 				DAE4A8811E5B7735000A07A3 /* MetalPosition.swift in Sources */,
