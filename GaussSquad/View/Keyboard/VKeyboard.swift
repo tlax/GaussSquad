@@ -6,8 +6,8 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private weak var collectionView:VCollection!
     private let model:MKeyboard
     private let keyboardHeight:CGFloat
-    private let kRowHeight:CGFloat = 50
-    private let kInterLine:CGFloat = 4
+    private let kRowHeight:CGFloat = 48
+    private let kInterLine:CGFloat = 1
     
     init(textView:UITextView)
     {
@@ -32,7 +32,7 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor(white:0.9, alpha:1)
+        backgroundColor = UIColor(white:0.95, alpha:1)
         self.textView = textView
         
         let collectionView:VCollection = VCollection()
