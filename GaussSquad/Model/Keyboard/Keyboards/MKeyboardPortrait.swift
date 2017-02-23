@@ -19,6 +19,7 @@ class MKeyboardPortrait:MKeyboard
         let itemSign:MKeyboardRowItemSign = MKeyboardRowItemSign()
         let itemClear:MKeyboardRowItemClear = MKeyboardRowItemClear()
         let itemBackspace:MKeyboardRowItemBackspace = MKeyboardRowItemBackspace()
+        let itemPercent:MKeyboardRowItemPercent = MKeyboardRowItemPercent()
         
         let itemsFirstRow:[MKeyboardRowItem] = [
             itemClear,
@@ -38,7 +39,8 @@ class MKeyboardPortrait:MKeyboard
             item3]
         let itemsFifthRow:[MKeyboardRowItem] = [
             item0,
-            itemDot]
+            itemDot,
+            itemPercent]
         
         let firstRow:MKeyboardRow = MKeyboardRow(
             items:itemsFirstRow)
