@@ -9,8 +9,20 @@ class MKeyboardRowItemClear:MKeyboardRowItem
     
     override func selected(model:MKeyboard, view:UITextView)
     {
+        if let _:MKeyboardStatePlain = model.states.last as? MKeyboardStatePlain
+        {
+            model.states.last?.editing = model.kInitial
+        }
+        else
+        {
+            let newState:MKeyboardStatePlain = MKeyboardStatePlain(
+                editing:model.kInitial)
+            model.states.append(newState)
+            
+            print("new state -------------------- ")
+        }
+        
         view.text = model.kEmpty
         view.insertText(model.kInitial)
-        model.states.last?.editing = model.kInitial
     }
 }

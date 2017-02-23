@@ -17,8 +17,9 @@ class MKeyboardStateAdd:MKeyboardState
     {
         let currentValue:Double = model.lastNumber()
         let newValue:Double = previousValue + currentValue
-        let newString:String = model.numberAsString(scalar:newValue)
+        editing = model.numberAsString(scalar:newValue)
+        
         view.text = model.kEmpty
-        view.insertText(newString)
+        view.insertText(editing)
     }
 }
