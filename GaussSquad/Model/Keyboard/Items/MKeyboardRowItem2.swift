@@ -1,9 +1,11 @@
 import UIKit
 
-class MKeyboardRowItem2:MKeyboardRowItem
+class MKeyboardRowItem2:MKeyboardRowItemNumeric
 {
+    private let kNumber:Double = 2
+    
     init()
     {
-        super.init(icon:#imageLiteral(resourceName: "assetKeyboard2"))
+        super.init(number:kNumber, icon:#imageLiteral(resourceName: "assetKeyboard2"))
     }
 }
