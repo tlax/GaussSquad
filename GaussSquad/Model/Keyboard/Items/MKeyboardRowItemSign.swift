@@ -2,9 +2,6 @@ import UIKit
 
 class MKeyboardRowItemSign:MKeyboardRowItem
 {
-    private let kSign:String = "-"
-    private let kEmpty:String = ""
-    
     init()
     {
         super.init(icon:#imageLiteral(resourceName: "assetKeyboardSign"))

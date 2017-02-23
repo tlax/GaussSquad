@@ -3,7 +3,6 @@ import UIKit
 class MKeyboardRowItemNumeric:MKeyboardRowItem
 {
     private let number:String
-    private let kEmpty:String = ""
     
     init(number:String, icon:UIImage)
     {
@@ -15,11 +14,24 @@ class MKeyboardRowItemNumeric:MKeyboardRowItem
         model:MKeyboard,
         view:UITextView)
     {
-        let currentNumber:Double = model.lastNumber()
+        let currentString:String = view.text
+        let countCharacters:Int = currentString.characters.count
         
-        if currentNumber == 0
+        if countCharacters < 3
         {
-            view.text = kEmpty
+            let currentNumber:Double = model.lastNumber()
+            
+            if currentNumber == 0
+            {
+                if currentString.contains(kSign)
+                {
+                    view.text = kSign
+                }
+                else
+                {
+                    view.text = kEmpty
+                }
+            }
         }
         
         view.insertText(number)
