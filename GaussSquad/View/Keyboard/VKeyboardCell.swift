@@ -17,6 +17,7 @@ class VKeyboardCell:UICollectionViewCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = UIViewContentMode.center
         imageView.clipsToBounds = true
+        imageView.tintColor = UIColor(white:0, alpha:0.4)
         self.imageView = imageView
         
         addSubview(imageView)
@@ -65,7 +66,7 @@ class VKeyboardCell:UICollectionViewCell
     
     func config(model:MKeyboardRowItem)
     {
-        imageView.image = model.icon
+        imageView.image = model.icon.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         hover()
     }
 }

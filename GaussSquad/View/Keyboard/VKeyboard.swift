@@ -33,7 +33,7 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor(white:0.95, alpha:1)
+        backgroundColor = UIColor(white:0.96, alpha:1)
         self.textView = textView
         
         let collectionView:VCollection = VCollection()
