@@ -8,6 +8,7 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private let keyboardHeight:CGFloat
     private let kRowHeight:CGFloat = 48
     private let kInterLine:CGFloat = 1
+    private let kDeselectTime:TimeInterval = 0.18
     
     init(textView:UITextView)
     {
@@ -135,5 +136,18 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }
