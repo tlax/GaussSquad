@@ -9,12 +9,6 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private let kRowHeight:CGFloat = 48
     private let kInterLine:CGFloat = 1
     private let kDeselectTime:TimeInterval = 0.07
-    private let kEmpty:String = ""
-    private let numberFormatter:NumberFormatter
-    private let kMinFraction:Int = 0
-    private let kMaxFraction:Int = 10
-    private let kMinIntegers:Int = 1
-    private let kMaxIntegers:Int = 10
     
     init(textView:UITextView)
     {
@@ -35,13 +29,6 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         let interLines:CGFloat = kInterLine * (countRows + 1)
         let rowsHeight:CGFloat = kRowHeight * countRows
         keyboardHeight = interLines + rowsHeight
-        
-        numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = NumberFormatter.Style.decimal
-        numberFormatter.minimumFractionDigits = kMinFraction
-        numberFormatter.maximumFractionDigits = kMaxFraction
-        numberFormatter.minimumIntegerDigits = kMinIntegers
-        numberFormatter.maximumFractionDigits = kMaxFraction
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true

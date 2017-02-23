@@ -5,6 +5,8 @@ class MKeyboard
     var states:[MKeyboardState]
     let rows:[MKeyboardRow]
     let cols:Int
+    private let numberFormatter:NumberFormatter
+    private let kEmpty:String = ""
     
     init(rows:[MKeyboardRow])
     {
@@ -26,5 +28,41 @@ class MKeyboard
         
         let stateInitial:MKeyboardStateInitial = MKeyboardStateInitial()
         states = [stateInitial]
+        numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+    }
+    
+    //MARK: public
+    
+    func lastString() -> String
+    {
+        guard
+        
+            let string:String = states.last?.editing
+        
+        else
+        {
+            return kEmpty
+        }
+        
+        return string
+    }
+    
+    func lastNumber() -> Double
+    {
+        guard
+            
+            let string:String = states.last?.editing,
+            let number:NSNumber = numberFormatter.number(
+                from:string)
+            
+        else
+        {
+            return 0
+        }
+        
+        let scalar:Double = number.doubleValue
+        
+        return scalar
     }
 }
