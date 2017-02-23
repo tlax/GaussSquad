@@ -4,6 +4,6 @@ class MKeyboardRowItem1:MKeyboardRowItem
 {
     init()
     {
-        super.init(icon:#imageLiteral(resourceName: "assetGenericAdd"))
+        super.init(icon:#imageLiteral(resourceName: "assetKeyboard1"))
     }
 }

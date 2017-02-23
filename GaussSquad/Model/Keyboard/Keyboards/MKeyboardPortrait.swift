@@ -6,9 +6,12 @@ class MKeyboardPortrait:MKeyboard
     {
         let item0:MKeyboardRowItem0 = MKeyboardRowItem0()
         let item1:MKeyboardRowItem1 = MKeyboardRowItem1()
+        let item2:MKeyboardRowItem2 = MKeyboardRowItem2()
         
         let itemsFirstRow:[MKeyboardRowItem] = [
-            item0]
+            item0,
+            item1,
+            item2]
         let itemsSecondRow:[MKeyboardRowItem] = [
             item1]
         

@@ -6,9 +6,8 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private weak var collectionView:VCollection!
     private let model:MKeyboard
     private let keyboardHeight:CGFloat
-    private let kBorderHeight:CGFloat = 1
     private let kRowHeight:CGFloat = 50
-    private let kInterLine:CGFloat = 1
+    private let kInterLine:CGFloat = 4
     
     init(textView:UITextView)
     {
@@ -26,17 +25,15 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         }
         
         let countRows:CGFloat = CGFloat(model.rows.count)
-        let interLines:CGFloat = kInterLine * (countRows - 1)
+        let interLines:CGFloat = kInterLine * (countRows + 1)
         let rowsHeight:CGFloat = kRowHeight * countRows
         keyboardHeight = interLines + rowsHeight
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor(white:0.96, alpha:1)
+        backgroundColor = UIColor(white:0.9, alpha:1)
         self.textView = textView
-        
-        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         let collectionView:VCollection = VCollection()
         collectionView.bounces = false
@@ -49,7 +46,7 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             let cols:CGFloat = CGFloat(model.cols)
-            let colsLines:CGFloat = (cols - 1) + kInterLine
+            let colsLines:CGFloat = (cols + 1) * kInterLine
             let usableWidth:CGFloat = width - colsLines
             let cellWidth:CGFloat = usableWidth / cols
             let cellSize:CGSize = CGSize(width:cellWidth, height:kRowHeight)
@@ -58,18 +55,7 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             flow.minimumLineSpacing = kInterLine
         }
         
-        addSubview(border)
         addSubview(collectionView)
-        
-        NSLayoutConstraint.topToTop(
-            view:border,
-            toView:self)
-        NSLayoutConstraint.height(
-            view:border,
-            constant:kBorderHeight)
-        NSLayoutConstraint.equalsHorizontal(
-            view:border,
-            toView:self)
         
         NSLayoutConstraint.equals(
             view:collectionView,
@@ -103,6 +89,28 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
+    {
+        let bottom:CGFloat
+        
+        if section == model.rows.count - 1
+        {
+            bottom = kInterLine
+        }
+        else
+        {
+            bottom = 0
+        }
+        
+        let insets:UIEdgeInsets = UIEdgeInsets(
+            top:kInterLine,
+            left:kInterLine,
+            bottom:bottom,
+            right:kInterLine)
+        
+        return insets
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
