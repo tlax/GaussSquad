@@ -18,8 +18,6 @@ class MKeyboardRowItemClear:MKeyboardRowItem
             let newState:MKeyboardStatePlain = MKeyboardStatePlain(
                 editing:model.kInitial)
             model.states.append(newState)
-            
-            print("new state -------------------- ")
         }
         
         view.text = model.kEmpty
