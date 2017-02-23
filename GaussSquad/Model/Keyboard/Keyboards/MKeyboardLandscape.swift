@@ -32,24 +32,23 @@ class MKeyboardLandscape:MKeyboard
             item7,
             item8,
             item9,
+            itemSign,
+            itemDivision,
             itemMultiplication]
         let itemsSecondRow:[MKeyboardRowItem] = [
             itemBackspace,
             item4,
             item5,
             item6,
-            itemSubtract]
+            itemPercent,
+            itemSubtract,
+            itemAdd]
         let itemsThirdRow:[MKeyboardRowItem] = [
-            itemSign,
+            item0,
             item1,
             item2,
             item3,
-            itemAdd]
-        let itemsFourthRow:[MKeyboardRowItem] = [
-            itemPercent,
-            item0,
             itemDot,
-            itemDivision,
             itemEquals]
         
         let firstRow:MKeyboardRow = MKeyboardRow(
@@ -58,14 +57,11 @@ class MKeyboardLandscape:MKeyboard
             items:itemsSecondRow)
         let thirdRow:MKeyboardRow = MKeyboardRow(
             items:itemsThirdRow)
-        let fourthRow:MKeyboardRow = MKeyboardRow(
-            items:itemsFourthRow)
         
         let rows:[MKeyboardRow] = [
             firstRow,
             secondRow,
-            thirdRow,
-            fourthRow]
+            thirdRow]
         
         super.init(rows:rows)
     }
