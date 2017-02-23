@@ -157,6 +157,15 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             return
         }
         
+        if let state:MKeyboardState = model.states.last
+        {
+            if state.needsUpdate
+            {
+                state.needsUpdate = false
+                textView.text = state.editing
+            }
+        }
+        
         let item:MKeyboardRowItem = modelAtIndex(index:indexPath)
         item.selected(
             model:model,
