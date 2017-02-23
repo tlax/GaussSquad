@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class MKeyboardState
 {
@@ -15,8 +15,7 @@ class MKeyboardState
     
     //MARK: public
     
-    func commitState()
+    func commitState(model:MKeyboard, view:UITextView)
     {
-        
     }
 }

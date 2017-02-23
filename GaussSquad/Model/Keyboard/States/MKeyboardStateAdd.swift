@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class MKeyboardStateAdd:MKeyboardState
 {
@@ -11,5 +11,14 @@ class MKeyboardStateAdd:MKeyboardState
         super.init(
             editing:editing,
             needsUpdate:kNeedsUpdate)
+    }
+    
+    override func commitState(model:MKeyboard, view:UITextView)
+    {
+        let currentValue:Double = model.lastNumber()
+        let newValue:Double = previousValue + currentValue
+        let newString:String = model.numberAsString(scalar:newValue)
+        view.text = model.kEmpty
+        view.insertText(newString)
     }
 }

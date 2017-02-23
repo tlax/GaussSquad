@@ -10,6 +10,10 @@ class MKeyboard
     let kInitial:String = "0"
     let kDot:String = "."
     private let numberFormatter:NumberFormatter
+    private let kMinIntegers:Int = 1
+    private let kMaxIntegers:Int = 30
+    private let kMinDecimals:Int = 0
+    private let kMaxDecimals:Int = 30
     
     init(rows:[MKeyboardRow], states:[MKeyboardState]?)
     {
@@ -41,6 +45,10 @@ class MKeyboard
         
         numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        numberFormatter.minimumIntegerDigits = kMinIntegers
+        numberFormatter.maximumIntegerDigits = kMaxIntegers
+        numberFormatter.minimumFractionDigits = kMinDecimals
+        numberFormatter.maximumFractionDigits = kMaxDecimals
     }
     
     //MARK: public
@@ -53,7 +61,7 @@ class MKeyboard
         
         else
         {
-            return kEmpty
+            return kInitial
         }
         
         return string
@@ -75,5 +83,21 @@ class MKeyboard
         let scalar:Double = number.doubleValue
         
         return scalar
+    }
+    
+    func numberAsString(scalar:Double) -> String
+    {
+        let number:NSNumber = NSNumber(value:scalar)
+        
+        guard
+        
+            let string:String = numberFormatter.string(from:number)
+        
+        else
+        {
+            return kInitial
+        }
+        
+        return string
     }
 }
