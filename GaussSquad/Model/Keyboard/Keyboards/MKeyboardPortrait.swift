@@ -21,8 +21,8 @@ class MKeyboardPortrait:MKeyboard
         let itemBackspace:MKeyboardRowItemBackspace = MKeyboardRowItemBackspace()
         
         let itemsFirstRow:[MKeyboardRowItem] = [
-            itemBackspace,
             itemClear,
+            itemBackspace,
             itemSign]
         let itemsSecondRow:[MKeyboardRowItem] = [
             item7,

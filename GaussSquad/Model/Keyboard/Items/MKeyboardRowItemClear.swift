@@ -4,6 +4,6 @@ class MKeyboardRowItemClear:MKeyboardRowItem
 {
     init()
     {
-        super.init(icon:#imageLiteral(resourceName: "assetGenericClear"))
+        super.init(icon:#imageLiteral(resourceName: "assetKeyboardClear"))
     }
 }
