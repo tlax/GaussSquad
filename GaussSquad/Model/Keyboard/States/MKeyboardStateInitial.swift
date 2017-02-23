@@ -2,10 +2,10 @@ import Foundation
 
 class MKeyboardStateInitial:MKeyboardState
 {
-    private let kInitialNumber:Double = 0
+    private let kInitialString:String = "0"
     
     init()
     {
-        super.init(number:kInitialNumber)
+        super.init(editing:kInitialString)
     }
 }

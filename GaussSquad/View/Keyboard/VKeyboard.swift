@@ -8,7 +8,7 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private let keyboardHeight:CGFloat
     private let kRowHeight:CGFloat = 48
     private let kInterLine:CGFloat = 1
-    private let kDeselectTime:TimeInterval = 0.1
+    private let kDeselectTime:TimeInterval = 0.07
     private let kEmpty:String = ""
     private let numberFormatter:NumberFormatter
     private let kMinFraction:Int = 0
@@ -75,7 +75,7 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             view:collectionView,
             toView:self)
         
-        updateState()
+        textView.text = model.states.last?.editing
     }
     
     required init?(coder:NSCoder)
@@ -102,35 +102,6 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         let item:MKeyboardRowItem = model.rows[index.section].items[index.item]
         
         return item
-    }
-    
-    //MARK: public
-    
-    func updateState()
-    {
-        textView?.text = kEmpty
-        
-        guard
-        
-            let editingDouble:Double = model.states.last?.editingNumber
-        
-        else
-        {
-            return
-        }
-        
-        let editingNumber:NSNumber = NSNumber(value:editingDouble)
-        
-        guard
-            
-            let editingString:String = numberFormatter.string(from:editingNumber)
-        
-        else
-        {
-            return
-        }
-            
-        textView?.insertText(editingString)
     }
     
     //MARK: collectionView delegate
@@ -184,10 +155,19 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        let item:MKeyboardRowItem = modelAtIndex(index:indexPath)
-        item.selected(model:model)
+        guard
+            
+            let textView:UITextView = self.textView
         
-        updateState()
+        else
+        {
+            return
+        }
+        
+        let item:MKeyboardRowItem = modelAtIndex(index:indexPath)
+        item.selected(
+            model:model,
+            field:textView)
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)

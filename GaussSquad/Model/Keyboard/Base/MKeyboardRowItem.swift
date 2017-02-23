@@ -11,7 +11,9 @@ class MKeyboardRowItem
     
     //MARK: public
     
-    func selected(model:MKeyboard)
+    func selected(
+        model:MKeyboard,
+        field:UIKeyInput)
     {
         
     }

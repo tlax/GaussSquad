@@ -2,7 +2,7 @@ import UIKit
 
 class MKeyboardRowItem4:MKeyboardRowItemNumeric
 {
-    private let kNumber:Double = 4
+    private let kNumber:String = "4"
     
     init()
     {
