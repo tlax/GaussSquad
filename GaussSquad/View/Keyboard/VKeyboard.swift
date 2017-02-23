@@ -62,7 +62,11 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             view:collectionView,
             toView:self)
         
-        textView.text = model.states.last?.editing
+        if textView.text.isEmpty
+        {
+            let startingText:String = model.lastString()
+            textView.insertText(startingText)
+        }
     }
     
     required init?(coder:NSCoder)
@@ -154,16 +158,11 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         let item:MKeyboardRowItem = modelAtIndex(index:indexPath)
         item.selected(
             model:model,
-            field:textView)
+            view:textView)
         
-        DispatchQueue.main.asyncAfter(
-            deadline:DispatchTime.now() + kDeselectTime)
-        { [weak collectionView] in
-            
-            collectionView?.selectItem(
-                at:nil,
-                animated:true,
-                scrollPosition:UICollectionViewScrollPosition())
-        }
+        collectionView.selectItem(
+            at:nil,
+            animated:false,
+            scrollPosition:UICollectionViewScrollPosition())
     }
 }

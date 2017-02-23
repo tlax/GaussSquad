@@ -12,6 +12,7 @@ class VCalculator:VView
     private let kTextMinHeight:CGFloat = 65
     private let kTextBorderHeight:CGFloat = 1
     private let kAnimationDuration:TimeInterval = 0.35
+    private let kAnimationFastDuration:TimeInterval = 0.15
     
     override init(controller:CController)
     {
@@ -135,7 +136,7 @@ class VCalculator:VView
         layoutTextHeight.constant = textHeight
         
         UIView.animate(
-            withDuration:kAnimationDuration,
+            withDuration:kAnimationFastDuration,
         animations:
         { [weak self] in
             

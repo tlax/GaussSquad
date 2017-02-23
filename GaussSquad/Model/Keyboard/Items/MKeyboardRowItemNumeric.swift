@@ -12,8 +12,9 @@ class MKeyboardRowItemNumeric:MKeyboardRowItem
     
     override func selected(
         model:MKeyboard,
-        field:UIKeyInput)
+        view:UITextView)
     {
-        
+        view.insertText(number)
+        model.states.last?.editing = view.text
     }
 }
