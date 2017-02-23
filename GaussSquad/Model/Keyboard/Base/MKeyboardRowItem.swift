@@ -11,7 +11,7 @@ class MKeyboardRowItem
     
     //MARK: public
     
-    func selected()
+    func selected(model:MKeyboard)
     {
         
     }

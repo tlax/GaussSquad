@@ -5,13 +5,8 @@ class VCalculatorText:UITextView, UITextViewDelegate
     private weak var controller:CCalculator!
     private let drawingOptions:NSStringDrawingOptions
     private let insetsHorizontal3:CGFloat
-    private let kNewline:String = "\n"
-    private let kDot:String = "."
     private let kFontSize:CGFloat = 50
     private let kInsetsHorizontal:CGFloat = 5
-    private let kNumbersMin:UInt32 = 48
-    private let kNumbersMax:UInt32 = 57
-    private let kDecimalPoint:UInt32 = 46
     
     init(controller:CCalculator)
     {
@@ -41,10 +36,6 @@ class VCalculatorText:UITextView, UITextViewDelegate
         textAlignment = NSTextAlignment.right
         font = UIFont.numeric(size:kFontSize)
         self.controller = controller
-        
-        
-        
-        restart()
     }
     
     required init?(coder:NSCoder)
@@ -68,12 +59,6 @@ class VCalculatorText:UITextView, UITextViewDelegate
     }
     
     //MARK: private
-    
-    private func restart()
-    {
-        text = NSLocalizedString("VCalculatorText_initial", comment:"")
-        updateInsets()
-    }
     
     private func updateInsets()
     {
@@ -105,6 +90,8 @@ class VCalculatorText:UITextView, UITextViewDelegate
     
     func textViewDidChange(_ textView:UITextView)
     {
+        
+        /*
         let text:String = textView.text
         
         if text.characters.count == 2
@@ -137,13 +124,15 @@ class VCalculatorText:UITextView, UITextViewDelegate
                     textView.text = secondString
                 }
             }
-        }
+        }*/
         
         updateInsets()
     }
     
     func textView(_ textView:UITextView, shouldChangeTextIn range:NSRange, replacementText text:String) -> Bool
     {
+        
+        /*
         if text == kNewline
         {
             textView.resignFirstResponder()
@@ -184,7 +173,7 @@ class VCalculatorText:UITextView, UITextViewDelegate
                     return false
                 }
             }
-        }
+        }*/
         
         return true
     }

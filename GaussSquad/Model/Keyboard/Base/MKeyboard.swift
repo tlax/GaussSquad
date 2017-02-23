@@ -23,6 +23,8 @@ class MKeyboard
         }
         
         self.cols = cols
-        states = []
+        
+        let stateInitial:MKeyboardStateInitial = MKeyboardStateInitial()
+        states = [stateInitial]
     }
 }

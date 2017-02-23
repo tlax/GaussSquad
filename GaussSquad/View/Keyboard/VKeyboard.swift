@@ -9,6 +9,12 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private let kRowHeight:CGFloat = 48
     private let kInterLine:CGFloat = 1
     private let kDeselectTime:TimeInterval = 0.1
+    private let kEmpty:String = ""
+    private let numberFormatter:NumberFormatter
+    private let kMinFraction:Int = 0
+    private let kMaxFraction:Int = 10
+    private let kMinIntegers:Int = 1
+    private let kMaxIntegers:Int = 10
     
     init(textView:UITextView)
     {
@@ -29,6 +35,13 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         let interLines:CGFloat = kInterLine * (countRows + 1)
         let rowsHeight:CGFloat = kRowHeight * countRows
         keyboardHeight = interLines + rowsHeight
+        
+        numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        numberFormatter.minimumFractionDigits = kMinFraction
+        numberFormatter.maximumFractionDigits = kMaxFraction
+        numberFormatter.minimumIntegerDigits = kMinIntegers
+        numberFormatter.maximumFractionDigits = kMaxFraction
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -61,6 +74,8 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         NSLayoutConstraint.equals(
             view:collectionView,
             toView:self)
+        
+        updateState()
     }
     
     required init?(coder:NSCoder)
@@ -87,6 +102,35 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         let item:MKeyboardRowItem = model.rows[index.section].items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func updateState()
+    {
+        textView?.text = kEmpty
+        
+        guard
+        
+            let editingDouble:Double = model.states.last?.editingNumber
+        
+        else
+        {
+            return
+        }
+        
+        let editingNumber:NSNumber = NSNumber(value:editingDouble)
+        
+        guard
+            
+            let editingString:String = numberFormatter.string(from:editingNumber)
+        
+        else
+        {
+            return
+        }
+            
+        textView?.insertText(editingString)
     }
     
     //MARK: collectionView delegate
@@ -140,6 +184,11 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        let item:MKeyboardRowItem = modelAtIndex(index:indexPath)
+        item.selected(model:model)
+        
+        updateState()
+        
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)
         { [weak collectionView] in
