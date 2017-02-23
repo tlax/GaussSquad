@@ -8,4 +8,11 @@ class MKeyboardRowItem
     {
         self.icon = icon
     }
+    
+    //MARK: public
+    
+    func selected()
+    {
+        
+    }
 }

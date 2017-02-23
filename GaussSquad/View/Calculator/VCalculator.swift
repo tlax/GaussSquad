@@ -7,7 +7,7 @@ class VCalculator:VView
     private weak var viewBar:VCalculatorBar!
     private weak var layoutTextHeight:NSLayoutConstraint!
     private weak var layoutBarBottom:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 50
+    private let kBarHeight:CGFloat = 45
     private let kTextMaxHeight:CGFloat = 125
     private let kTextMinHeight:CGFloat = 65
     private let kTextBorderHeight:CGFloat = 1
@@ -26,7 +26,7 @@ class VCalculator:VView
             controller:self.controller)
         self.viewText = viewText
         
-        let textBorder:VBorder = VBorder(color:UIColor(white:0, alpha:0.2))
+        let textBorder:VBorder = VBorder(color:UIColor(white:0, alpha:0.3))
         
         addSubview(textBorder)
         addSubview(viewText)
@@ -144,7 +144,7 @@ class VCalculator:VView
         })
         { [weak self] (done:Bool) in
             
-            self?.viewText.becomeFirstResponder()
+            let _:Bool? = self?.viewText.becomeFirstResponder()
         }
     }
     
@@ -153,7 +153,7 @@ class VCalculator:VView
     func viewAppeared()
     {
         resizeField()
-        viewText.becomeFirstResponder()
+        let _:Bool = viewText.becomeFirstResponder()
     }
     
     func orientationChange()
