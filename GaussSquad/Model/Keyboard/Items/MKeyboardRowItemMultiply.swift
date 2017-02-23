@@ -9,9 +9,25 @@ class MKeyboardRowItemMultiply:MKeyboardRowItem
     
     override func selected(model:MKeyboard, view:UITextView)
     {
-        model.states.last?.commitState(
-            model:model,
-            view:view)
+        guard
+            
+            let lastState:MKeyboardState = model.states.last
+        
+        else
+        {
+            return
+        }
+        
+        if lastState.needsUpdate
+        {
+            model.states.removeLast()
+        }
+        else
+        {
+            model.states.last?.commitState(
+                model:model,
+                view:view)
+        }
         
         let previousValue:Double = model.lastNumber()
         let stateMultiply:MKeyboardStateMultiply = MKeyboardStateMultiply(
