@@ -21,8 +21,8 @@ class MKeyboardPortrait:MKeyboard
         let itemBackspace:MKeyboardRowItemBackspace = MKeyboardRowItemBackspace()
         let itemPercent:MKeyboardRowItemPercent = MKeyboardRowItemPercent()
         
-        let itemDivision:MKeyboardRowItemDivision = MKeyboardRowItemDivision()
-        let itemMultiplication:MKeyboardRowItemMultiplication = MKeyboardRowItemMultiplication()
+        let itemDivide:MKeyboardRowItemDivide = MKeyboardRowItemDivide()
+        let itemMultiply:MKeyboardRowItemMultiply = MKeyboardRowItemMultiply()
         let itemSubtract:MKeyboardRowItemSubtract = MKeyboardRowItemSubtract()
         let itemAdd:MKeyboardRowItemAdd = MKeyboardRowItemAdd()
         let itemEquals:MKeyboardRowItemEquals = MKeyboardRowItemEquals()
@@ -31,12 +31,12 @@ class MKeyboardPortrait:MKeyboard
             itemClear,
             itemBackspace,
             itemSign,
-            itemDivision]
+            itemDivide]
         let itemsSecondRow:[MKeyboardRowItem] = [
             item7,
             item8,
             item9,
-            itemMultiplication]
+            itemMultiply]
         let itemsThirdRow:[MKeyboardRowItem] = [
             item4,
             item5,

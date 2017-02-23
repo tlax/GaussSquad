@@ -1,6 +1,6 @@
 import UIKit
 
-class MKeyboardRowItemMultiplication:MKeyboardRowItem
+class MKeyboardRowItemMultiply:MKeyboardRowItem
 {
     init()
     {

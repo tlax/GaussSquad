@@ -21,8 +21,8 @@ class MKeyboardLandscape:MKeyboard
         let itemBackspace:MKeyboardRowItemBackspace = MKeyboardRowItemBackspace()
         let itemPercent:MKeyboardRowItemPercent = MKeyboardRowItemPercent()
         
-        let itemDivision:MKeyboardRowItemDivision = MKeyboardRowItemDivision()
-        let itemMultiplication:MKeyboardRowItemMultiplication = MKeyboardRowItemMultiplication()
+        let itemDivide:MKeyboardRowItemDivide = MKeyboardRowItemDivide()
+        let itemMultiply:MKeyboardRowItemMultiply = MKeyboardRowItemMultiply()
         let itemSubtract:MKeyboardRowItemSubtract = MKeyboardRowItemSubtract()
         let itemAdd:MKeyboardRowItemAdd = MKeyboardRowItemAdd()
         let itemEquals:MKeyboardRowItemEquals = MKeyboardRowItemEquals()
@@ -33,8 +33,8 @@ class MKeyboardLandscape:MKeyboard
             item8,
             item9,
             itemSign,
-            itemDivision,
-            itemMultiplication]
+            itemDivide,
+            itemMultiply]
         let itemsSecondRow:[MKeyboardRowItem] = [
             itemBackspace,
             item4,
