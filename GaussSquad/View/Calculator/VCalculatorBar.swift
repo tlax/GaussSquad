@@ -40,7 +40,7 @@ class VCalculatorBar:UIView
         buttonOptions.setImage(
             #imageLiteral(resourceName: "assetGenericOptions").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
-        buttonOptions.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        buttonOptions.imageView!.tintColor = UIColor(white:0, alpha:0.1)
         buttonOptions.imageView!.clipsToBounds = true
         buttonOptions.imageView!.contentMode = UIViewContentMode.center
         buttonOptions.addTarget(

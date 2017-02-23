@@ -2,6 +2,8 @@ import UIKit
 
 class MKeyboardRowItemBackspace:MKeyboardRowItem
 {
+    private let kInitial:String = "0"
+    
     init()
     {
         super.init(icon:#imageLiteral(resourceName: "assetKeyboardBackspace"))
@@ -10,6 +12,15 @@ class MKeyboardRowItemBackspace:MKeyboardRowItem
     override func selected(model:MKeyboard, view:UITextView)
     {
         view.deleteBackward()
-        model.states.last?.editing = view.text
+        
+        var current:String = view.text
+        
+        if current.isEmpty
+        {
+            current = kInitial
+            view.insertText(current)
+        }
+        
+        model.states.last?.editing = current
     }
 }

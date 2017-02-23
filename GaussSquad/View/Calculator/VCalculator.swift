@@ -12,7 +12,7 @@ class VCalculator:VView
     private let kTextMinHeight:CGFloat = 65
     private let kTextBorderHeight:CGFloat = 1
     private let kAnimationDuration:TimeInterval = 0.35
-    private let kAnimationFastDuration:TimeInterval = 0.15
+    private let kAnimationFastDuration:TimeInterval = 0.1
     
     override init(controller:CController)
     {
@@ -27,7 +27,7 @@ class VCalculator:VView
             controller:self.controller)
         self.viewText = viewText
         
-        let textBorder:VBorder = VBorder(color:UIColor(white:0, alpha:0.3))
+        let textBorder:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         addSubview(textBorder)
         addSubview(viewText)
