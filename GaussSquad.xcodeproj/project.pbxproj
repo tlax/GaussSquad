@@ -59,6 +59,7 @@
 		DA2CE3971E5F3D9100626A43 /* MKeyboardRowItemAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2CE3961E5F3D9100626A43 /* MKeyboardRowItemAdd.swift */; };
 		DA2CE3991E5F3D9A00626A43 /* MKeyboardRowItemEquals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2CE3981E5F3D9A00626A43 /* MKeyboardRowItemEquals.swift */; };
 		DA2CE39B1E5F48F400626A43 /* MKeyboardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2CE39A1E5F48F400626A43 /* MKeyboardState.swift */; };
+		DA2CE39E1E5F49D300626A43 /* MKeyboardStateInitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2CE39D1E5F49D300626A43 /* MKeyboardStateInitial.swift */; };
 		DA316CE51E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CE41E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift */; };
 		DA316CE91E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CE81E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift */; };
 		DA316CED1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA316CEC1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift */; };
@@ -327,6 +328,7 @@
 		DA2CE3961E5F3D9100626A43 /* MKeyboardRowItemAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItemAdd.swift; sourceTree = "<group>"; };
 		DA2CE3981E5F3D9A00626A43 /* MKeyboardRowItemEquals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItemEquals.swift; sourceTree = "<group>"; };
 		DA2CE39A1E5F48F400626A43 /* MKeyboardState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardState.swift; sourceTree = "<group>"; };
+		DA2CE39D1E5F49D300626A43 /* MKeyboardStateInitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardStateInitial.swift; sourceTree = "<group>"; };
 		DA316CE41E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialIndeterminate.swift; sourceTree = "<group>"; };
 		DA316CE81E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquationsPolynomialIndeterminate.swift; sourceTree = "<group>"; };
 		DA316CEC1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsIndeterminateList.swift; sourceTree = "<group>"; };
@@ -648,6 +650,14 @@
 				DA23C36D1E528D27007C4C4D /* MLinearEquationsSolutionBarItemPlot.swift */,
 			);
 			path = Bar;
+			sourceTree = "<group>";
+		};
+		DA2CE39C1E5F49B800626A43 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				DA2CE39D1E5F49D300626A43 /* MKeyboardStateInitial.swift */,
+			);
+			path = States;
 			sourceTree = "<group>";
 		};
 		DA316CEB1E458AFF008E7270 /* PolynomialIndeterminate */ = {
@@ -990,6 +1000,7 @@
 				DAEB54B31E5D0ED800492F38 /* Base */,
 				DAEB54B11E5D0ED800492F38 /* Items */,
 				DAEB54B71E5D0ED800492F38 /* Keyboards */,
+				DA2CE39C1E5F49B800626A43 /* States */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -1732,6 +1743,7 @@
 				DA8118541E5E5CF200B6ED7C /* MKeyboardRowItem2.swift in Sources */,
 				DA6D62D51E560EC4002D9C1A /* VSettings.swift in Sources */,
 				DA476EF71E56245F0058F4A4 /* DSettingsExtension.swift in Sources */,
+				DA2CE39E1E5F49D300626A43 /* MKeyboardStateInitial.swift in Sources */,
 				DA46913E1E56744600FAD188 /* MetalConstants.swift in Sources */,
 				DA46914D1E56744600FAD188 /* MetalVertexFace.swift in Sources */,
 				DA62D3741E4CDB9B000D0387 /* MLinearEquationsSolutionStrategy.swift in Sources */,

@@ -2,6 +2,7 @@ import Foundation
 
 class MKeyboard
 {
+    var states:[MKeyboardState]
     let rows:[MKeyboardRow]
     let cols:Int
     
@@ -22,5 +23,6 @@ class MKeyboard
         }
         
         self.cols = cols
+        states = []
     }
 }
