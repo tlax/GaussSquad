@@ -8,7 +8,7 @@ class MKeyboard
     private let numberFormatter:NumberFormatter
     private let kEmpty:String = ""
     
-    init(rows:[MKeyboardRow])
+    init(rows:[MKeyboardRow], states:[MKeyboardState]?)
     {
         self.rows = rows
         
@@ -26,8 +26,16 @@ class MKeyboard
         
         self.cols = cols
         
-        let stateInitial:MKeyboardStateInitial = MKeyboardStateInitial()
-        states = [stateInitial]
+        if let states:[MKeyboardState] = states
+        {
+            self.states = states
+        }
+        else
+        {
+            let stateInitial:MKeyboardStateInitial = MKeyboardStateInitial()
+            self.states = [stateInitial]
+        }
+        
         numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
     }

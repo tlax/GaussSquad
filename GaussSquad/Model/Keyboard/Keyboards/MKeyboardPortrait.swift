@@ -2,7 +2,7 @@ import Foundation
 
 class MKeyboardPortrait:MKeyboard
 {
-    init()
+    init(states:[MKeyboardState]?)
     {
         let item0:MKeyboardRowItem0 = MKeyboardRowItem0()
         let item1:MKeyboardRowItem1 = MKeyboardRowItem1()
@@ -71,6 +71,6 @@ class MKeyboardPortrait:MKeyboard
             fourthRow,
             fifthRow]
         
-        super.init(rows:rows)
+        super.init(rows:rows, states:states)
     }
 }

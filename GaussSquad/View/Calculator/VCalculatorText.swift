@@ -52,7 +52,18 @@ class VCalculatorText:UITextView, UITextViewDelegate
     
     override func becomeFirstResponder() -> Bool
     {
-        let textInput:VKeyboard = VKeyboard(textView:self)
+        let states:[MKeyboardState]?
+        
+        if let inputView:VKeyboard = self.inputView as? VKeyboard
+        {
+            states = inputView.model.states
+        }
+        else
+        {
+            states = nil
+        }
+        
+        let textInput:VKeyboard = VKeyboard(textView:self, states:states)
         inputView = textInput
         
         return super.becomeFirstResponder()

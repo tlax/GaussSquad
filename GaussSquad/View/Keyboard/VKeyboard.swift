@@ -2,15 +2,17 @@ import UIKit
 
 class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    let model:MKeyboard
     private weak var textView:UITextView?
     private weak var collectionView:VCollection!
-    private let model:MKeyboard
     private let keyboardHeight:CGFloat
     private let kRowHeight:CGFloat = 48
     private let kInterLine:CGFloat = 1
     private let kDeselectTime:TimeInterval = 0.07
     
-    init(textView:UITextView)
+    init(
+        textView:UITextView,
+        states:[MKeyboardState]?)
     {
         let screenSize:CGSize = UIScreen.main.bounds.size
         let width:CGFloat = screenSize.width
@@ -18,11 +20,11 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         
         if height >= width
         {
-            model = MKeyboardPortrait()
+            model = MKeyboardPortrait(states:states)
         }
         else
         {
-            model = MKeyboardLandscape()
+            model = MKeyboardLandscape(states:states)
         }
         
         let countRows:CGFloat = CGFloat(model.rows.count)
