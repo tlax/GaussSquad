@@ -157,6 +157,8 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             return
         }
         
+        model.checkForClearing()
+        
         let item:MKeyboardRowItem = modelAtIndex(index:indexPath)
         item.selected(
             model:model,

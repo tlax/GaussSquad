@@ -3,7 +3,8 @@ import Foundation
 class MKeyboardState
 {
     var editing:String
-    var clearBeforeEdition:Bool
+    var previousValue:Double?
+    private(set) var clearBeforeEdition:Bool
     
     init(
         editing:String,
@@ -14,6 +15,13 @@ class MKeyboardState
     }
     
     //MARK: public
+    
+    func clearForEdition(previousValue:Double, editing:String)
+    {
+        clearBeforeEdition = false
+        self.previousValue = previousValue
+        self.editing = editing
+    }
     
     func commitState()
     {
