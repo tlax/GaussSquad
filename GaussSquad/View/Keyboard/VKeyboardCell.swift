@@ -17,7 +17,7 @@ class VKeyboardCell:UICollectionViewCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = UIViewContentMode.center
         imageView.clipsToBounds = true
-        imageView.tintColor = UIColor(white:0, alpha:0.4)
+        imageView.tintColor = UIColor(white:0, alpha:0.6)
         self.imageView = imageView
         
         addSubview(imageView)
