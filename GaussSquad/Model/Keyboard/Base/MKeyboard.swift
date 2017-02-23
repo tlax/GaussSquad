@@ -9,11 +9,12 @@ class MKeyboard
     let kSign:String = "-"
     let kInitial:String = "0"
     let kDot:String = "."
+    let kInfinitum:String = "∞"
     private let numberFormatter:NumberFormatter
     private let kMinIntegers:Int = 1
-    private let kMaxIntegers:Int = 30
+    private let kMaxIntegers:Int = 9
     private let kMinDecimals:Int = 0
-    private let kMaxDecimals:Int = 30
+    private let kMaxDecimals:Int = 9
     
     init(rows:[MKeyboardRow], states:[MKeyboardState]?)
     {

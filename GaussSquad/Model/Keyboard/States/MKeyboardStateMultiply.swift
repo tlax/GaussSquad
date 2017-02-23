@@ -1,6 +1,6 @@
 import UIKit
 
-class MKeyboardStateDivide:MKeyboardState
+class MKeyboardStateMultiply:MKeyboardState
 {
     private let previousValue:Double
     private let kNeedsUpdate:Bool = true
@@ -16,7 +16,7 @@ class MKeyboardStateDivide:MKeyboardState
     override func commitState(model:MKeyboard, view:UITextView)
     {
         let currentValue:Double = model.lastNumber()
-        let newValue:Double = previousValue / currentValue
+        let newValue:Double = previousValue * currentValue
         editing = model.numberAsString(scalar:newValue)
         
         view.text = model.kEmpty

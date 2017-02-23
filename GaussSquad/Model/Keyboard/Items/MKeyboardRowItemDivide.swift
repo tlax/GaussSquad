@@ -6,4 +6,17 @@ class MKeyboardRowItemDivide:MKeyboardRowItem
     {
         super.init(icon:#imageLiteral(resourceName: "assetKeyboardDivide"))
     }
+    
+    override func selected(model:MKeyboard, view:UITextView)
+    {
+        model.states.last?.commitState(
+            model:model,
+            view:view)
+        
+        let previousValue:Double = model.lastNumber()
+        let stateDivide:MKeyboardStateDivide = MKeyboardStateDivide(
+            previousValue:previousValue,
+            editing:model.kInitial)
+        model.states.append(stateDivide)
+    }
 }
