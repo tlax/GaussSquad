@@ -4,6 +4,6 @@ class MKeyboardRowItemMultiplication:MKeyboardRowItem
 {
     init()
     {
-        super.init(icon:#imageLiteral(resourceName: "assetKeyboardMultiplication"))
+        super.init(icon:#imageLiteral(resourceName: "assetKeyboardMultiply"))
     }
 }
