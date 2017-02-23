@@ -154,7 +154,6 @@ class VCalculator:VView
     func viewAppeared()
     {
         resizeField()
-        let _:Bool = viewText.becomeFirstResponder()
     }
     
     func orientationChange()
