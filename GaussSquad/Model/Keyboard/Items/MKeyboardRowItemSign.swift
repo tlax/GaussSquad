@@ -11,16 +11,18 @@ class MKeyboardRowItemSign:MKeyboardRowItem
     {
         var current:String = view.text
         
-        if current.contains(kSign)
+        if current.contains(model.kSign)
         {
-            current = current.replacingOccurrences(of:kSign, with:kEmpty)
+            current = current.replacingOccurrences(
+                of:model.kSign,
+                with:model.kEmpty)
         }
         else
         {
-            current = "\(kSign)\(current)"
+            current = "\(model.kSign)\(current)"
         }
         
-        view.text = kEmpty
+        view.text = model.kEmpty
         view.insertText(current)
         model.states.last?.editing = current
     }

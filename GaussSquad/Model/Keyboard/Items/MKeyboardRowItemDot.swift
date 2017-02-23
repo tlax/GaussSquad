@@ -11,9 +11,9 @@ class MKeyboardRowItemDot:MKeyboardRowItem
     {
         let current:String = view.text
         
-        if !current.contains(kDot)
+        if !current.contains(model.kDot)
         {
-            view.insertText(kDot)
+            view.insertText(model.kDot)
             let newText:String = view.text
             model.states.last?.editing = newText
         }

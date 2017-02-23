@@ -5,8 +5,11 @@ class MKeyboard
     var states:[MKeyboardState]
     let rows:[MKeyboardRow]
     let cols:Int
+    let kEmpty:String = ""
+    let kSign:String = "-"
+    let kInitial:String = "0"
+    let kDot:String = "."
     private let numberFormatter:NumberFormatter
-    private let kEmpty:String = ""
     
     init(rows:[MKeyboardRow], states:[MKeyboardState]?)
     {

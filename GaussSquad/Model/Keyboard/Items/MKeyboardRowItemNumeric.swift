@@ -23,13 +23,13 @@ class MKeyboardRowItemNumeric:MKeyboardRowItem
             
             if currentNumber == 0
             {
-                if currentString.contains(kSign)
+                if currentString.contains(model.kSign)
                 {
-                    view.text = kSign
+                    view.text = model.kSign
                 }
                 else
                 {
-                    view.text = kEmpty
+                    view.text = model.kEmpty
                 }
             }
         }

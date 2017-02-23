@@ -14,10 +14,10 @@ class MKeyboardRowItemBackspace:MKeyboardRowItem
         
         if countCurrent < 3
         {
-            if current.contains(kSign)
+            if current.contains(model.kSign)
             {
-                view.text = kEmpty
-                view.insertText(kInitial)
+                view.text = model.kEmpty
+                view.insertText(model.kInitial)
             }
             else
             {
