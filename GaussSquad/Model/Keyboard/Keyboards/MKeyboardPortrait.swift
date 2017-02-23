@@ -17,23 +17,28 @@ class MKeyboardPortrait:MKeyboard
         
         let itemDot:MKeyboardRowItemDot = MKeyboardRowItemDot()
         let itemSign:MKeyboardRowItemSign = MKeyboardRowItemSign()
+        let itemClear:MKeyboardRowItemClear = MKeyboardRowItemClear()
+        let itemBackspace:MKeyboardRowItemBackspace = MKeyboardRowItemBackspace()
         
         let itemsFirstRow:[MKeyboardRowItem] = [
+            itemBackspace,
+            itemClear,
+            itemSign]
+        let itemsSecondRow:[MKeyboardRowItem] = [
             item7,
             item8,
             item9]
-        let itemsSecondRow:[MKeyboardRowItem] = [
+        let itemsThirdRow:[MKeyboardRowItem] = [
             item4,
             item5,
             item6]
-        let itemsThirdRow:[MKeyboardRowItem] = [
+        let itemsFourthRow:[MKeyboardRowItem] = [
             item1,
             item2,
             item3]
-        let itemsFourthRow:[MKeyboardRowItem] = [
+        let itemsFifthRow:[MKeyboardRowItem] = [
             item0,
-            itemDot,
-            itemSign]
+            itemDot]
         
         let firstRow:MKeyboardRow = MKeyboardRow(
             items:itemsFirstRow)
@@ -43,12 +48,15 @@ class MKeyboardPortrait:MKeyboard
             items:itemsThirdRow)
         let fourthRow:MKeyboardRow = MKeyboardRow(
             items:itemsFourthRow)
+        let fifthRow:MKeyboardRow = MKeyboardRow(
+            items:itemsFifthRow)
         
         let rows:[MKeyboardRow] = [
             firstRow,
             secondRow,
             thirdRow,
-            fourthRow]
+            fourthRow,
+            fifthRow]
         
         super.init(rows:rows)
     }
