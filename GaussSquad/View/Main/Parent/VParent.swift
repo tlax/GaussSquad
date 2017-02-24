@@ -114,17 +114,21 @@ class VParent:UIView
         newView:VView,
         left:CGFloat,
         top:CGFloat,
+        background:Bool,
         completion:@escaping(() -> ()))
     {
-        let pushBackground:VParentPushBackground = VParentPushBackground()
-        newView.pushBackground = pushBackground
-        
-        addSubview(pushBackground)
-        addSubview(newView)
-        
-        NSLayoutConstraint.equals(
-            view:pushBackground,
-            toView:self)
+        if background
+        {
+            let pushBackground:VParentPushBackground = VParentPushBackground()
+            newView.pushBackground = pushBackground
+            
+            addSubview(pushBackground)
+            addSubview(newView)
+            
+            NSLayoutConstraint.equals(
+                view:pushBackground,
+                toView:self)
+        }
         
         newView.layoutTop = NSLayoutConstraint.topToTop(
             view:newView,
@@ -172,7 +176,7 @@ class VParent:UIView
             animations:
         {
             self.layoutIfNeeded()
-            pushBackground.alpha = 1
+            newView.pushBackground?.alpha = 1
         })
         { (done:Bool) in
             

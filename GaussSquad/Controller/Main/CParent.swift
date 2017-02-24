@@ -120,7 +120,8 @@ class CParent:UIViewController
     func push(
         controller:CController,
         horizontal:TransitionHorizontal = TransitionHorizontal.none,
-        vertical:TransitionVertical = TransitionVertical.none)
+        vertical:TransitionVertical = TransitionVertical.none,
+        background:Bool = true)
     {
         let width:CGFloat = viewParent.bounds.maxX
         let height:CGFloat = viewParent.bounds.maxY
@@ -144,7 +145,8 @@ class CParent:UIViewController
         viewParent.push(
             newView:newView,
             left:left,
-            top:top)
+            top:top,
+            background:background)
         {
             controller.endAppearanceTransition()
             currentController.endAppearanceTransition()
