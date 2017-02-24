@@ -6,8 +6,7 @@ class MCalculatorSteps
     
     init()
     {
-        let itemBegin:MCalculatorStepsItemInfo = MCalculatorStepsItemInfo(
-            info:NSLocalizedString("MCalculatorSteps_stepBegin", comment:""))
+        let itemBegin:MCalculatorStepsItemBegin = MCalculatorStepsItemBegin()
         
         items = [itemBegin]
     }

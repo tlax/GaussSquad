@@ -95,6 +95,12 @@ class CCalculator:CController
         {
             print("found")
         }
+        else if let stepBegin:MCalculatorStepsItemBegin = lastStep as? MCalculatorStepsItemBegin
+        {
+            model.steps.items.append(stepBegin)
+            
+            undoFinished()
+        }
         else
         {
             lookForUndo()
