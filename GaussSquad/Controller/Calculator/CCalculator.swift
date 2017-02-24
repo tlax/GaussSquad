@@ -48,7 +48,9 @@ class CCalculator:CController
                 return
             }
             
-            self?.model.addStepWithKeyboardState(keyboardState:keyboardState)
+            let item:MCalculatorStepsItemKeyboardState = MCalculatorStepsItemKeyboardState(
+                keyboardState:keyboardState)
+            self?.model.steps.items.append(item)
             self?.viewCalculator.viewHistory.refresh()
         }
     }
