@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class MKeyboardStatePlain:MKeyboardState
 {
@@ -9,5 +9,10 @@ class MKeyboardStatePlain:MKeyboardState
         super.init(
             editing:editing,
             needsUpdate:kNeedsUpdate)
+    }
+    
+    override func commitState(model:MKeyboard, view:UITextView)
+    {
+        commitingDescription = model.lastString()
     }
 }
