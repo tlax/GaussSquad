@@ -27,6 +27,8 @@ class MKeyboardLandscape:MKeyboard
         let itemAdd:MKeyboardRowItemAdd = MKeyboardRowItemAdd()
         let itemEquals:MKeyboardRowItemEquals = MKeyboardRowItemEquals()
         
+        let itemHide:MKeyboardRowItemHide = MKeyboardRowItemHide()
+        
         let itemsFirstRow:[MKeyboardRowItem] = [
             itemClear,
             item7,
@@ -49,7 +51,8 @@ class MKeyboardLandscape:MKeyboard
             item2,
             item3,
             itemDot,
-            itemEquals]
+            itemEquals,
+            itemHide]
         
         let firstRow:MKeyboardRow = MKeyboardRow(
             items:itemsFirstRow)
