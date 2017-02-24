@@ -9,7 +9,7 @@ class MKeyboardRowItemDivide:MKeyboardRowItem
     
     override func selected(model:MKeyboard, view:UITextView)
     {
-        commitIfNeeded(model:model, view:view)
+        model.commitIfNeeded(view:view)
         
         let previousValue:Double = model.lastNumber()
         let stateDivide:MKeyboardStateDivide = MKeyboardStateDivide(

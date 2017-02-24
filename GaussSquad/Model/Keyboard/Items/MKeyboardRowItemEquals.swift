@@ -14,7 +14,7 @@ class MKeyboardRowItemEquals:MKeyboardRowItem
         }
         else
         {
-            commitIfNeeded(model:model, view:view)
+            model.commitIfNeeded(view:view)
             
             let previousString:String = model.lastString()
             let statePlain:MKeyboardStatePlain = MKeyboardStatePlain(

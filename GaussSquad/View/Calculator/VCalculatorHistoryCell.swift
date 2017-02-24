@@ -16,7 +16,7 @@ class VCalculatorHistoryCell:UICollectionViewCell
         label.isUserInteractionEnabled = false
         label.backgroundColor = UIColor.clear
         label.font = UIFont.numeric(size:15)
-        label.textColor = UIColor(white:0, alpha:0.9)
+        label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         self.label = label
         

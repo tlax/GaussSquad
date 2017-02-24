@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class MKeyboard
 {
@@ -155,5 +155,50 @@ class MKeyboard
         let scalar:Double = number.doubleValue
         
         return scalar
+    }
+    
+    func updateIfNeeded(view:UITextView)
+    {
+        guard
+            
+            let lastState:MKeyboardState = states.last
+            
+        else
+        {
+            return
+        }
+        
+        if lastState.needsUpdate
+        {
+            lastState.needsUpdate = false
+            view.text = lastState.editing
+        }
+    }
+    
+    func commitIfNeeded(view:UITextView)
+    {
+        guard
+            
+            let lastState:MKeyboardState = states.last
+            
+        else
+        {
+            return
+        }
+        
+        if lastState.needsUpdate
+        {
+            states.removeLast()
+        }
+        else
+        {
+            lastState.commitState(
+                model:self,
+                view:view)
+            
+            NotificationCenter.default.post(
+                name:Notification.keyboardUpdate,
+                object:lastState)
+        }
     }
 }
