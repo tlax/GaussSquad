@@ -52,6 +52,12 @@ class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataS
     {
         collectionView.collectionViewLayout.invalidateLayout()
         
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.scrollToBottom()
+        }
+        
         super.layoutSubviews()
     }
     
@@ -64,12 +70,8 @@ class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataS
         return item
     }
     
-    //MARK: public
-    
-    func refresh()
+    private func scrollToBottom()
     {
-        collectionView.reloadData()
-        
         let countItems:Int = controller.model.steps.items.count
         
         if countItems > 0
@@ -82,6 +84,14 @@ class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataS
                 at:UICollectionViewScrollPosition.top,
                 animated:true)
         }
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        collectionView.reloadData()
+        scrollToBottom()
     }
     
     //MARK: collectionView delegate
