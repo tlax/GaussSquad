@@ -1,10 +1,10 @@
 import UIKit
 
-class MKeyboardStateSin:MKeyboardStateExtra
+class MKeyboardStateSinDeg:MKeyboardStateExtra
 {
     override func unflowedCommitState(model:MKeyboard, view:UITextView)
     {
-        let sinValue:Double = sin(currentValue)
+        let sinValue:Double = sin(currentValue) * 180 / M_PI
         editing = model.numberAsString(scalar:sinValue)
         
         view.text = model.kEmpty
@@ -13,6 +13,6 @@ class MKeyboardStateSin:MKeyboardStateExtra
         let currentString:String = model.numberAsString(
             scalar:currentValue)
         
-        commitingDescription = "\(kTabSpace)rad sin(\(currentString)) = \(editing)"
+        commitingDescription = "\(kTabSpace)deg sin(\(currentString)) = \(editing)"
     }
 }

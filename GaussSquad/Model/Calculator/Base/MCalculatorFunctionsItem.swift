@@ -36,6 +36,15 @@ class MCalculatorFunctionsItem
         modelKeyboard:MKeyboard,
         view:UITextView)
     {
+        guard
+            
+            let lastState:MKeyboardState = modelKeyboard.states.last
+            
+        else
+        {
+            return
+        }
+        
         modelKeyboard.states.append(state)
         
         DispatchQueue.main.async
@@ -50,12 +59,23 @@ class MCalculatorFunctionsItem
                 return
             }
             
-            modelKeyboard.commitIfNeeded(view:view)
+            state.unflowedCommitState(
+                model:modelKeyboard,
+                view:view)
             
-            let previousString:String = modelKeyboard.lastString()
-            let statePlain:MKeyboardStatePlain = MKeyboardStatePlain(
-                editing:previousString)
-            modelKeyboard.states.append(statePlain)
+            NotificationCenter.default.post(
+                name:Notification.keyboardUpdate,
+                object:state)
+            
+            lastState.commitState(
+                model:modelKeyboard,
+                view:view)
+            
+            NotificationCenter.default.post(
+                name:Notification.keyboardUpdate,
+                object:lastState)
+            
+            state.editing = lastState.editing
         }
     }
     

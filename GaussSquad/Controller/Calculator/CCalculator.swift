@@ -95,12 +95,22 @@ class CCalculator:CController
         {
             guard
             
-                let keyboardState:MKeyboardState = stepKeyboardStatus.keyboardState,
                 let keyboard:VKeyboard = viewCalculator.viewText.inputView as? VKeyboard
             
             else
             {
                 undoFinished()
+                
+                return
+            }
+            
+            guard
+                
+                let keyboardState:MKeyboardState = stepKeyboardStatus.keyboardState
+                
+            else
+            {
+                lookForUndo()
                 
                 return
             }
