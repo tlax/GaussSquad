@@ -2,10 +2,14 @@ import Foundation
 
 class MCalculatorFunctions
 {
+    let title:String
     let items:[MCalculatorFunctionsItem]
     
-    init()
+    init(
+        title:String,
+        items:[MCalculatorFunctionsItem])
     {
-        items = []
+        self.title = title
+        self.items = items
     }
 }
