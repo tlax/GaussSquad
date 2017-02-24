@@ -28,7 +28,7 @@
 "MLinearEquationsSolutionStepStart_label"="Linear equations system";
 "MLinearEquationsSolutionStepError_title"="Error: ";
 "MPlotMenuItemOrigin_title"="Origin";
-"MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition and chage the indeterminate";
+"MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition or change the indeterminate";
 "MHelpLinearEquationsProjectItemAddPolynomial_title"="Add polynomials";
 "MHelpLinearEquationsProjectItemEditRow_title"="Rearrange or delete equation";
 "MHelpLinearEquationsProjectItemAddRow_title"="Add equation";
