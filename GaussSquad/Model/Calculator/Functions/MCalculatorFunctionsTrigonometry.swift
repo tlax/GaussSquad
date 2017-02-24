@@ -8,10 +8,12 @@ class MCalculatorFunctionsTrigonometry:MCalculatorFunctions
         
         let itemSin:MCalculatorFunctionsItemSin = MCalculatorFunctionsItemSin()
         let itemCos:MCalculatorFunctionsItemCos = MCalculatorFunctionsItemCos()
+        let itemTan:MCalculatorFunctionsItemTan = MCalculatorFunctionsItemTan()
         
         let items:[MCalculatorFunctionsItem] = [
             itemSin,
-            itemCos]
+            itemCos,
+            itemTan]
         
         super.init(
             title:title,
