@@ -101,7 +101,26 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func undoToState(state:MKeyboardState)
     {
+        model.removeAllAfter(state:state)
         
+        let emptyString:String = model.kEmpty
+        let editing:String = state.editing
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            guard
+                
+                let strongSelf:VKeyboard = self
+            
+            else
+            {
+                return
+            }
+
+            strongSelf.textView?.text = emptyString
+            strongSelf.textView?.insertText(editing)
+        }
     }
     
     //MARK: collectionView delegate
