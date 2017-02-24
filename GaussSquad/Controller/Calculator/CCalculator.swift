@@ -114,6 +114,18 @@ class CCalculator:CController
         {
             model.steps.items.append(stepBegin)
             
+            guard
+                
+                let keyboard:VKeyboard = viewCalculator.viewText.inputView as? VKeyboard
+                
+            else
+            {
+                undoFinished()
+                
+                return
+            }
+            
+            keyboard.restartEditing()
             undoFinished()
         }
         else

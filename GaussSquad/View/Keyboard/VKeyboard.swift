@@ -123,16 +123,7 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
     
     func restartEditing()
-    {
-        guard
-        
-            let state:MKeyboardState = model.states.last
-        
-        else
-        {
-            return
-        }
-        
+    {   
         let emptyString:String = model.kEmpty
         let initialString:String = model.kInitial
         
