@@ -1,11 +1,16 @@
 import UIKit
 
-class VCalculatorOptions:VView
+class VCalculatorOptions:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CCalculatorOptions!
+    private weak var collectionView:VCollection!
     private weak var layoutBaseBottom:NSLayoutConstraint!
     private let kBaseHeight:CGFloat = 280
     private let kAnimationDuration:TimeInterval = 0.25
+    private let kCellHeight:CGFloat = 50
+    private let kHeaderHeight:CGFloat = 60
+    private let kCollectionBottom:CGFloat = 20
+    private let kInterItem:CGFloat = 1
     
     override init(controller:CController)
     {
@@ -23,9 +28,29 @@ class VCalculatorOptions:VView
             for:UIControlEvents.touchUpInside)
         
         let viewBase:UIView = UIView()
-        viewBase.backgroundColor = UIColor.white
+        viewBase.backgroundColor = UIColor(white:0.95, alpha:1)
         viewBase.translatesAutoresizingMaskIntoConstraints = false
         
+        let collectionView:VCollection = VCollection()
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerHeader(header:VCalculatorOptionsHeader.self)
+        self.collectionView = collectionView
+        
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
+            flow.minimumInteritemSpacing = kInterItem
+            flow.minimumLineSpacing = kInterItem
+            flow.sectionInset = UIEdgeInsets(
+                top:0,
+                left:0,
+                bottom:kCollectionBottom,
+                right:0)
+        }
+        
+        viewBase.addSubview(collectionView)
         addSubview(blur)
         addSubview(closeButton)
         addSubview(viewBase)
@@ -48,11 +73,22 @@ class VCalculatorOptions:VView
         NSLayoutConstraint.equalsHorizontal(
             view:viewBase,
             toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:collectionView,
+            toView:viewBase)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
     }
     
     //MARK: actions
@@ -73,5 +109,12 @@ class VCalculatorOptions:VView
             
             self?.layoutIfNeeded()
         }
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
     }
 }

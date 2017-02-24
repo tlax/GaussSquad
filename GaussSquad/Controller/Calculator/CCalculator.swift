@@ -176,7 +176,8 @@ class CCalculator:CController
     
     func showOptions()
     {
-        let controllerOptions:CCalculatorOptions = CCalculatorOptions()
+        let controllerOptions:CCalculatorOptions = CCalculatorOptions(
+            model:model)
         parentController.animateOver(
             controller:controllerOptions)
     }

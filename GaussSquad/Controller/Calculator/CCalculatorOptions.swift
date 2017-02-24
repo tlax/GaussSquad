@@ -2,7 +2,20 @@ import UIKit
 
 class CCalculatorOptions:CController
 {
+    weak var model:MCalculator!
     private weak var viewOptions:VCalculatorOptions!
+    
+    init(model:MCalculator)
+    {
+        self.model = model
+        
+        super.init()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        return nil
+    }
     
     override func loadView()
     {
