@@ -29,6 +29,7 @@
 "MLinearEquationsSolutionStepError_title"="Error: ";
 "MPlotMenuItemOrigin_title"="Origin";
 "MCalculatorStepsItemBegin_descr"="Begin";
+"MCalculatorFunctionsItemSin_title"="Sin";
 "MCalculatorFunctionsTrigonometry_title"="Trigonometry";
 "MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition or change the indeterminate";
 "MHelpLinearEquationsProjectItemAddPolynomial_title"="Add polynomials";

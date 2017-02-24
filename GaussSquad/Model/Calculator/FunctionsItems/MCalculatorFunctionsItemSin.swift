@@ -1,9 +1,14 @@
-//
-//  MCalculatorFunctionsItemSin.swift
-//  GaussSquad
-//
-//  Created by zero on 2/24/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MCalculatorFunctionsItemSin:MCalculatorFunctionsItem
+{
+    init()
+    {
+        let icon:UIImage = #imageLiteral(resourceName: "assetGenericAdd")
+        let title:String = NSLocalizedString("MCalculatorFunctionsItemSin_title", comment:"")
+        
+        super.init(
+            icon:icon,
+            title:title)
+    }
+}
