@@ -97,6 +97,13 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         return item
     }
     
+    //MARK: public
+    
+    func undoToState(state:MKeyboardState)
+    {
+        
+    }
+    
     //MARK: collectionView delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets

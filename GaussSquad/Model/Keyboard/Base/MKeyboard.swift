@@ -54,6 +54,27 @@ class MKeyboard
     
     //MARK: public
     
+    func removeAllAfter(state:MKeyboardState)
+    {
+        guard
+        
+            let lastState:MKeyboardState = states.popLast()
+        
+        else
+        {
+            return
+        }
+        
+        if lastState === state
+        {
+            states.append(lastState)
+        }
+        else
+        {
+            removeAllAfter(state:state)
+        }
+    }
+    
     func lastString() -> String
     {
         guard
