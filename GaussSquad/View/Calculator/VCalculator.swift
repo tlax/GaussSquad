@@ -4,6 +4,7 @@ class VCalculator:VView
 {
     private weak var controller:CCalculator!
     private weak var viewText:VCalculatorText!
+    private weak var viewHistory:VCalculatorHistory!
     private weak var viewBar:VCalculatorBar!
     private weak var layoutTextHeight:NSLayoutConstraint!
     private weak var layoutBarBottom:NSLayoutConstraint!
@@ -27,9 +28,14 @@ class VCalculator:VView
             controller:self.controller)
         self.viewText = viewText
         
+        let viewHistory:VCalculatorHistory = VCalculatorHistory(
+            controller:self.controller)
+        self.viewHistory = viewHistory
+        
         let textBorder:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         addSubview(textBorder)
+        addSubview(viewHistory)
         addSubview(viewText)
         addSubview(viewBar)
         
@@ -50,6 +56,16 @@ class VCalculator:VView
             view:viewText)
         NSLayoutConstraint.equalsHorizontal(
             view:viewText,
+            toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:viewHistory,
+            toView:viewText)
+        NSLayoutConstraint.bottomToTop(
+            view:viewHistory,
+            toView:viewBar)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewHistory,
             toView:self)
         
         NSLayoutConstraint.bottomToBottom(

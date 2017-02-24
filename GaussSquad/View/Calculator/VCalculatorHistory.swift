@@ -3,6 +3,10 @@ import UIKit
 class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CCalculator!
+    private weak var collectionView:VCollection!
+    private let kCellHeight:CGFloat = 30
+    private let kCollectionTop:CGFloat = 20
+    private let kCollectionBottom:CGFloat = 20
     
     init(controller:CCalculator)
     {
@@ -10,6 +14,28 @@ class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataS
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        
+        let collectionView:VCollection = VCollection()
+        collectionView.isUserInteractionEnabled = false
+        collectionView.isScrollEnabled = false
+        collectionView.bounces = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(cell:VCalculatorHistoryCell.self)
+        
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            flow.headerReferenceSize = CGSize(width:0, height:kCollectionTop)
+            flow.footerReferenceSize = CGSize(width:0, height:kCollectionBottom)
+        }
+        
+        self.collectionView = collectionView
+        
+        addSubview(collectionView)
+        
+        NSLayoutConstraint.equals(
+            view:collectionView,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -17,7 +43,22 @@ class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataS
         return nil
     }
     
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
+    }
+    
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
