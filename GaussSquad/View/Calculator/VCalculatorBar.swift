@@ -48,9 +48,26 @@ class VCalculatorBar:UIView
             action:#selector(actionOptions(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonUndo:UIButton = UIButton()
+        buttonUndo.translatesAutoresizingMaskIntoConstraints = false
+        buttonUndo.setImage(
+            #imageLiteral(resourceName: "assetGenericUndo").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonUndo.setImage(
+            #imageLiteral(resourceName: "assetGenericUndo").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonUndo.imageView!.tintColor = UIColor(white:0, alpha:0.1)
+        buttonUndo.imageView!.clipsToBounds = true
+        buttonUndo.imageView!.contentMode = UIViewContentMode.center
+        buttonUndo.addTarget(
+            self,
+            action:#selector(actionUndo(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         addSubview(border)
         addSubview(buttonBack)
         addSubview(buttonOptions)
+        addSubview(buttonUndo)
         
         NSLayoutConstraint.equalsVertical(
             view:buttonBack,
@@ -81,6 +98,16 @@ class VCalculatorBar:UIView
         NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonUndo,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:buttonUndo,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:buttonUndo,
+            constant:kButtonWidth)
     }
     
     required init?(coder:NSCoder)
@@ -100,7 +127,7 @@ class VCalculatorBar:UIView
         
     }
     
-    func actionClear(sender button:UIButton)
+    func actionUndo(sender button:UIButton)
     {
         
     }
