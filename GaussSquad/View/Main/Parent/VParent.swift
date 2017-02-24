@@ -123,12 +123,13 @@ class VParent:UIView
             newView.pushBackground = pushBackground
             
             addSubview(pushBackground)
-            addSubview(newView)
             
             NSLayoutConstraint.equals(
                 view:pushBackground,
                 toView:self)
         }
+        
+        addSubview(newView)
         
         newView.layoutTop = NSLayoutConstraint.topToTop(
             view:newView,
