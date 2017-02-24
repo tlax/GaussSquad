@@ -4,9 +4,9 @@ class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataS
 {
     private weak var controller:CCalculator!
     private weak var collectionView:VCollection!
-    private let kCellHeight:CGFloat = 24
-    private let kCollectionTop:CGFloat = 20
-    private let kCollectionBottom:CGFloat = 20
+    private let kCellHeight:CGFloat = 22
+    private let kCollectionTop:CGFloat = 5
+    private let kCollectionBottom:CGFloat = 60
     
     init(controller:CCalculator)
     {
@@ -27,8 +27,11 @@ class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataS
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
-            flow.headerReferenceSize = CGSize(width:0, height:kCollectionTop)
-            flow.footerReferenceSize = CGSize(width:0, height:kCollectionBottom)
+            flow.sectionInset = UIEdgeInsets(
+                top:kCollectionTop,
+                left:0,
+                bottom:kCollectionBottom,
+                right:0)
         }
         
         self.collectionView = collectionView
