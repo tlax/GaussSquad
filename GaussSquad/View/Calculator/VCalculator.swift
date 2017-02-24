@@ -8,7 +8,7 @@ class VCalculator:VView
     private weak var viewBar:VCalculatorBar!
     private weak var layoutTextHeight:NSLayoutConstraint!
     private weak var layoutBarBottom:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 45
+    private let kBarHeight:CGFloat = 38
     private let kTextMaxHeight:CGFloat = 125
     private let kTextMinHeight:CGFloat = 65
     private let kTextBorderHeight:CGFloat = 1

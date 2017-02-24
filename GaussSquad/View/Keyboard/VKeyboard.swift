@@ -6,7 +6,7 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private weak var textView:UITextView?
     private weak var collectionView:VCollection!
     private let keyboardHeight:CGFloat
-    private let kRowHeight:CGFloat = 48
+    private let kRowHeight:CGFloat = 42
     private let kInterLine:CGFloat = 1
     private let kDeselectTime:TimeInterval = 0.07
     
