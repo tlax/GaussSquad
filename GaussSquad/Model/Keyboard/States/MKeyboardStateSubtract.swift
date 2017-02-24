@@ -21,5 +21,10 @@ class MKeyboardStateSubtract:MKeyboardState
         
         view.text = model.kEmpty
         view.insertText(editing)
+        
+        let currentString:String = model.numberAsString(
+            scalar:currentValue)
+        
+        commitingDescription = "- \(currentString) = \(editing)"
     }
 }
