@@ -38,4 +38,10 @@ class CCalculatorOptions:CController
     {
         parentController.dismissAnimateOver(completion:nil)
     }
+    
+    func selectOption(item:MCalculatorFunctions?)
+    {
+        model.currentFunction = item
+        back()
+    }
 }

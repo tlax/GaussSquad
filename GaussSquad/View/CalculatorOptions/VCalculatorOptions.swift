@@ -35,6 +35,7 @@ class VCalculatorOptions:VView, UICollectionViewDelegate, UICollectionViewDataSo
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.registerCell(cell:VCalculatorOptionsCell.self)
         collectionView.registerHeader(header:VCalculatorOptionsHeader.self)
         self.collectionView = collectionView
         
@@ -98,6 +99,15 @@ class VCalculatorOptions:VView, UICollectionViewDelegate, UICollectionViewDataSo
         controller.back()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MCalculatorFunctions
+    {
+        let item:MCalculatorFunctions = controller.model.functions[index.item]
+        
+        return item
+    }
+    
     //MARK: public
     
     func viewAppeared()
@@ -113,13 +123,55 @@ class VCalculatorOptions:VView, UICollectionViewDelegate, UICollectionViewDataSo
     
     //MARK: collectionView delegate
     
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
+    
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
+        let count:Int = controller.model.functions.count
         
+        return count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
+    {
+        let header:VCalculatorOptionsHeader = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:
+            VCalculatorOptionsHeader.reusableIdentifier,
+            for:indexPath) as! VCalculatorOptionsHeader
+        header.config(controller:controller)
+        
+        return header
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MCalculatorFunctions = modelAtIndex(index:indexPath)
+        let cell:VCalculatorOptionsCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VCalculatorOptionsCell.reusableIdentifier,
+            for:indexPath) as! VCalculatorOptionsCell
+        cell.config(model:item)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        collectionView.isUserInteractionEnabled = false
+        
+        let item:MCalculatorFunctions = modelAtIndex(index:indexPath)
+        controller.selectOption(item:item)
     }
 }
