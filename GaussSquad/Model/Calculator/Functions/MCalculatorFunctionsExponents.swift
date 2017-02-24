@@ -6,20 +6,10 @@ class MCalculatorFunctionsExponents:MCalculatorFunctions
     {
         let title:String = NSLocalizedString("MCalculatorFunctionsExponents_title", comment:"")
         
-        let itemSin:MCalculatorFunctionsItemSin = MCalculatorFunctionsItemSin()
-        let itemSinDeg:MCalculatorFunctionsItemSinDeg = MCalculatorFunctionsItemSinDeg()
-        let itemCos:MCalculatorFunctionsItemCos = MCalculatorFunctionsItemCos()
-        let itemCosDeg:MCalculatorFunctionsItemCosDeg = MCalculatorFunctionsItemCosDeg()
-        let itemTan:MCalculatorFunctionsItemTan = MCalculatorFunctionsItemTan()
-        let itemTanDeg:MCalculatorFunctionsItemTanDeg = MCalculatorFunctionsItemTanDeg()
+        let itemSquareRoot:MCalculatorFunctionsItemSquareRoot = MCalculatorFunctionsItemSquareRoot()
         
         let items:[MCalculatorFunctionsItem] = [
-            itemSin,
-            itemSinDeg,
-            itemCos,
-            itemCosDeg,
-            itemTan,
-            itemTanDeg]
+            itemSquareRoot]
         
         super.init(
             title:title,
