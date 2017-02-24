@@ -22,6 +22,9 @@ class MKeyboardStateMultiply:MKeyboardState
         view.text = model.kEmpty
         view.insertText(editing)
         
-        commitingDescription = "\(previousValue) * \(currentValue)"
+        let currentString:String = model.numberAsString(
+            scalar:currentValue)
+        
+        commitingDescription = "× \(currentString) = \(editing)"
     }
 }

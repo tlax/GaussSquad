@@ -4,7 +4,7 @@ class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataS
 {
     private weak var controller:CCalculator!
     private weak var collectionView:VCollection!
-    private let kCellHeight:CGFloat = 30
+    private let kCellHeight:CGFloat = 24
     private let kCollectionTop:CGFloat = 20
     private let kCollectionBottom:CGFloat = 20
     
@@ -66,6 +66,19 @@ class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataS
     func refresh()
     {
         collectionView.reloadData()
+        
+        let countItems:Int = controller.model.steps.items.count
+        
+        if countItems > 0
+        {
+            let indexPath:IndexPath = IndexPath(
+                item:countItems - 1,
+                section:0)
+            collectionView.scrollToItem(
+                at:indexPath,
+                at:UICollectionViewScrollPosition.top,
+                animated:true)
+        }
     }
     
     //MARK: collectionView delegate
