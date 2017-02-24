@@ -4,6 +4,8 @@ class MKeyboardState
 {
     var editing:String
     var needsUpdate:Bool
+    var commitingDescription:String
+    private let kEmpty:String = ""
     
     init(
         editing:String,
@@ -11,6 +13,7 @@ class MKeyboardState
     {
         self.editing = editing
         self.needsUpdate = needsUpdate
+        commitingDescription = kEmpty
     }
     
     //MARK: public

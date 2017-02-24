@@ -52,6 +52,22 @@ class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataS
         super.layoutSubviews()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MCalculatorStepsItem
+    {
+        let item:MCalculatorStepsItem = controller.model.steps.items[index.item]
+        
+        return item
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        collectionView.reloadData()
+    }
+    
     //MARK: collectionView delegate
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
@@ -76,10 +92,12 @@ class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MCalculatorStepsItem = modelAtIndex(index:indexPath)
         let cell:VCalculatorHistoryCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VCalculatorHistoryCell.reusableIdentifier,
             for:indexPath) as! VCalculatorHistoryCell
+        cell.config(model:item)
         
         return cell
     }

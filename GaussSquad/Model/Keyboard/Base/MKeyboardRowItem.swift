@@ -56,6 +56,10 @@ class MKeyboardRowItem
             lastState.commitState(
                 model:model,
                 view:view)
+            
+            NotificationCenter.default.post(
+                name:Notification.keyboardUpdate,
+                object:lastState)
         }
     }
 }

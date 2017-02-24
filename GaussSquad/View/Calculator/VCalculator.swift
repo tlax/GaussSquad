@@ -2,9 +2,9 @@ import UIKit
 
 class VCalculator:VView
 {
+    weak var viewHistory:VCalculatorHistory!
     private weak var controller:CCalculator!
     private weak var viewText:VCalculatorText!
-    private weak var viewHistory:VCalculatorHistory!
     private weak var viewBar:VCalculatorBar!
     private weak var layoutTextHeight:NSLayoutConstraint!
     private weak var layoutBarBottom:NSLayoutConstraint!

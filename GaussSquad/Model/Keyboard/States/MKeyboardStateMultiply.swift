@@ -21,5 +21,7 @@ class MKeyboardStateMultiply:MKeyboardState
         
         view.text = model.kEmpty
         view.insertText(editing)
+        
+        commitingDescription = "\(previousValue) * \(currentValue)"
     }
 }

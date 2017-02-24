@@ -2,5 +2,5 @@ import Foundation
 
 extension Notification
 {
-    static let keyboardStateAdded:Notification.Name = Notification.Name("keyboardStateAdded")
+    static let keyboardUpdate:Notification.Name = Notification.Name("keyboardUpdate")
 }
