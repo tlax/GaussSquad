@@ -21,4 +21,10 @@ class MKeyboardState
     func commitState(model:MKeyboard, view:UITextView)
     {
     }
+    
+    func undoBack(model:MKeyboard)
+    {
+        editing = model.kInitial
+        needsUpdate = true
+    }
 }

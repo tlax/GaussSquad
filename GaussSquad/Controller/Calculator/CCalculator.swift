@@ -93,7 +93,22 @@ class CCalculator:CController
         
         if let stepKeyboardStatus:MCalculatorStepsItemKeyboardState = lastStep as? MCalculatorStepsItemKeyboardState
         {
-            print("found")
+            guard
+            
+                let keyboardState:MKeyboardState = stepKeyboardStatus.keyboardState,
+                let keyboard:VKeyboard = viewCalculator.viewText.inputView as? VKeyboard
+            
+            else
+            {
+                undoFinished()
+                
+                return
+            }
+            
+            keyboard.undoToState(
+                state:keyboardState)
+            
+            undoFinished()
         }
         else if let stepBegin:MCalculatorStepsItemBegin = lastStep as? MCalculatorStepsItemBegin
         {

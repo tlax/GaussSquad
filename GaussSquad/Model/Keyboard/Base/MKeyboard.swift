@@ -54,7 +54,7 @@ class MKeyboard
     
     //MARK: public
     
-    func removeAllAfter(state:MKeyboardState)
+    func removeAllAfter(state:MKeyboardState) -> String
     {
         guard
         
@@ -62,16 +62,33 @@ class MKeyboard
         
         else
         {
-            return
+            let editing:String = state.editing
+            
+            return editing
         }
         
         if lastState === state
         {
+            let editing:String
+            
+            if let previous:MKeyboardState = states.last
+            {
+                editing = previous.editing
+            }
+            else
+            {
+                editing = lastState.editing
+            }
+            
             states.append(lastState)
+            
+            return editing
         }
         else
         {
-            removeAllAfter(state:state)
+            let editing:String = removeAllAfter(state:state)
+            
+            return editing
         }
     }
     

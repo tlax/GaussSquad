@@ -101,10 +101,9 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func undoToState(state:MKeyboardState)
     {
-        model.removeAllAfter(state:state)
-        
+        let editing:String = model.removeAllAfter(state:state)
         let emptyString:String = model.kEmpty
-        let editing:String = state.editing
+        state.undoBack(model:model)
         
         DispatchQueue.main.async
         { [weak self] in
