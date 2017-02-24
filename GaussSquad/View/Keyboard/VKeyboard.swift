@@ -122,6 +122,37 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         }
     }
     
+    func restartEditing()
+    {
+        guard
+        
+            let state:MKeyboardState = model.states.last
+        
+        else
+        {
+            return
+        }
+        
+        let emptyString:String = model.kEmpty
+        let initialString:String = model.kInitial
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            guard
+                
+                let strongSelf:VKeyboard = self
+                
+            else
+            {
+                return
+            }
+            
+            strongSelf.textView?.text = emptyString
+            strongSelf.textView?.insertText(initialString)
+        }
+    }
+    
     //MARK: collectionView delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
