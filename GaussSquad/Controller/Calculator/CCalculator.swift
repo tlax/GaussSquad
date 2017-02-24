@@ -173,4 +173,11 @@ class CCalculator:CController
             self?.lookForUndo()
         }
     }
+    
+    func showOptions()
+    {
+        let controllerOptions:CCalculatorOptions = CCalculatorOptions()
+        parentController.animateOver(
+            controller:controllerOptions)
+    }
 }

@@ -124,7 +124,8 @@ class VCalculatorBar:UIView
     
     func actionOptions(sender button:UIButton)
     {
-        
+        UIApplication.shared.keyWindow!.endEditing(true)
+        controller.showOptions()
     }
     
     func actionUndo(sender button:UIButton)

@@ -63,6 +63,7 @@
 "VLinearEquationsPlotBarZoom_descr"="%@x";
 "VSettingsCellFractionDigits_labelTitle"="Max fraction digits";
 "VLinearEquationsPlot_notSupported"="Sorry, your device does not support Metal";
+"VCalculatorOptionsHeader_title"="Functions";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
 "VStoreCellDeferred_label"="Purchase deferred";
