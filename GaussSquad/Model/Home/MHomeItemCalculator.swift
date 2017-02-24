@@ -10,7 +10,7 @@ class MHomeItemCalculator:MHomeItem
         super.init(
             symbol:symbol,
             title:title,
-            image:#imageLiteral(resourceName: "assetGenericArithmetic"))
+            image:#imageLiteral(resourceName: "assetGenericCalculator"))
     }
     
     override func selected() -> CController?

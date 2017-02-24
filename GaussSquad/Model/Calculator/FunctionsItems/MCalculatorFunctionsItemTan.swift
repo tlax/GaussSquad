@@ -4,7 +4,7 @@ class MCalculatorFunctionsItemTan:MCalculatorFunctionsItem
 {
     init()
     {
-        let icon:UIImage = #imageLiteral(resourceName: "assetGenericAdd")
+        let icon:UIImage = #imageLiteral(resourceName: "assetFunctionTan")
         let title:String = NSLocalizedString("MCalculatorFunctionsItemTan_title", comment:"")
         
         super.init(

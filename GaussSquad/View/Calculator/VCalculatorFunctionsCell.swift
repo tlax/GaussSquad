@@ -105,7 +105,7 @@ class VCalculatorFunctionsCell:UICollectionViewCell
             background.layer.borderWidth = 1
             background.layer.borderColor = UIColor(white:0, alpha:0.06).cgColor
             labelTitle.textColor = UIColor(white:0, alpha:0.6)
-            imageView.alpha = 0.4
+            imageView.alpha = 0.7
         }
     }
     

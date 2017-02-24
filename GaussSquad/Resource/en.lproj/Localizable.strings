@@ -31,7 +31,7 @@
 "MCalculatorStepsItemBegin_descr"="Begin";
 "MCalculatorFunctionsItemSin_title"="Sine";
 "MCalculatorFunctionsItemCos_title"="Cosine";
-"MCalculatorFunctionsItemCos_title"="Tangent";
+"MCalculatorFunctionsItemTan_title"="Tangent";
 "MCalculatorFunctionsTrigonometry_title"="Trigonometry";
 "MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition or change the indeterminate";
 "MHelpLinearEquationsProjectItemAddPolynomial_title"="Add polynomials";
