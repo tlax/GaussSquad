@@ -1,11 +1,11 @@
 import UIKit
 
-class MCalculatorFunctionsItemCosDeg:MCalculatorFunctionsItem
+class MCalculatorFunctionsItemTanDeg:MCalculatorFunctionsItem
 {
     init()
     {
-        let icon:UIImage = #imageLiteral(resourceName: "assetFunctionCos")
-        let title:String = NSLocalizedString("MCalculatorFunctionsItemCosDeg_title", comment:"")
+        let icon:UIImage = #imageLiteral(resourceName: "assetFunctionTan")
+        let title:String = NSLocalizedString("MCalculatorFunctionsItemTanDeg_title", comment:"")
         
         super.init(
             icon:icon,
@@ -15,11 +15,11 @@ class MCalculatorFunctionsItemCosDeg:MCalculatorFunctionsItem
     override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
     {
         let currentValue:Double = modelKeyboard.lastNumber()
-        let stateCosDeg:MKeyboardStateCosDeg = MKeyboardStateCosDeg(
+        let stateTanDeg:MKeyboardStateTanDeg = MKeyboardStateTanDeg(
             currentValue:currentValue)
         
         applyState(
-            state:stateCosDeg,
+            state:stateTanDeg,
             modelKeyboard:modelKeyboard,
             view:view)
     }

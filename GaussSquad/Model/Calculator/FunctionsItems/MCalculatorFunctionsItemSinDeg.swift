@@ -15,11 +15,11 @@ class MCalculatorFunctionsItemSinDeg:MCalculatorFunctionsItem
     override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
     {
         let currentValue:Double = modelKeyboard.lastNumber()
-        let stateSin:MKeyboardStateSinDeg = MKeyboardStateSinDeg(
+        let stateSinDeg:MKeyboardStateSinDeg = MKeyboardStateSinDeg(
             currentValue:currentValue)
         
         applyState(
-            state:stateSin,
+            state:stateSinDeg,
             modelKeyboard:modelKeyboard,
             view:view)
     }

@@ -11,4 +11,16 @@ class MCalculatorFunctionsItemCos:MCalculatorFunctionsItem
             icon:icon,
             title:title)
     }
+    
+    override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
+    {
+        let currentValue:Double = modelKeyboard.lastNumber()
+        let stateCos:MKeyboardStateCos = MKeyboardStateCos(
+            currentValue:currentValue)
+        
+        applyState(
+            state:stateCos,
+            modelKeyboard:modelKeyboard,
+            view:view)
+    }
 }
