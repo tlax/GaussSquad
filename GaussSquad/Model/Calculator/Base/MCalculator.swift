@@ -9,9 +9,11 @@ class MCalculator
     init()
     {
         let functionTrigonometry:MCalculatorFunctionsTrigonometry = MCalculatorFunctionsTrigonometry()
+        let functionExponents:MCalculatorFunctionsExponents = MCalculatorFunctionsExponents()
         
         functions = [
-            functionTrigonometry]
+            functionTrigonometry,
+            functionExponents]
         steps = MCalculatorSteps()
         currentFunction = functions.first
     }

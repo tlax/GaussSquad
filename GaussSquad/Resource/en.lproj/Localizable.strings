@@ -35,7 +35,9 @@
 "MCalculatorFunctionsItemSinDeg_title"="Deg Sine";
 "MCalculatorFunctionsItemCosDeg_title"="Deg Cosine";
 "MCalculatorFunctionsItemTanDeg_title"="Deg Tangent";
+"MCalculatorFunctionsItemSquareRoot_title"="Square root";
 "MCalculatorFunctionsTrigonometry_title"="Trigonometry";
+"MCalculatorFunctionsExponents_title"="Exponents";
 "MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition or change the indeterminate";
 "MHelpLinearEquationsProjectItemAddPolynomial_title"="Add polynomials";
 "MHelpLinearEquationsProjectItemEditRow_title"="Rearrange or delete equation";
