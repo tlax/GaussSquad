@@ -76,6 +76,41 @@ class CCalculator:CController
         }
     }
     
+    //MARK: private
+    
+    private func lookForUndo()
+    {
+        guard
+        
+            let lastStep:MCalculatorStepsItem = model.steps.items.popLast()
+        
+        else
+        {
+            undoFinished()
+            
+            return
+        }
+        
+        if let stepKeyboardStatus:MCalculatorStepsItemKeyboardState = lastStep as? MCalculatorStepsItemKeyboardState
+        {
+            print("found")
+        }
+        else
+        {
+            lookForUndo()
+        }
+    }
+    
+    private func undoFinished()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewCalculator.isUserInteractionEnabled = false
+            self?.viewCalculator.viewHistory.refresh()
+        }
+    }
+    
     //MARK: public
     
     func back()
@@ -83,5 +118,16 @@ class CCalculator:CController
         UIApplication.shared.keyWindow!.endEditing(true)
         parentController.hideBar(barHidden:false)
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+    }
+    
+    func undo()
+    {
+        viewCalculator.isUserInteractionEnabled = false
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.lookForUndo()
+        }
     }
 }

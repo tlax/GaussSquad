@@ -129,6 +129,6 @@ class VCalculatorBar:UIView
     
     func actionUndo(sender button:UIButton)
     {
-        
+        controller.undo()
     }
 }
