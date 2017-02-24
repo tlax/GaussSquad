@@ -7,7 +7,7 @@ class VCalculatorOptionsHeader:UICollectionReusableView
     private let kLabelLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 200
     private let kButtonRight:CGFloat = -10
-    private let kButtonWidth:CGFloat = 150
+    private let kButtonWidth:CGFloat = 120
     private let kButtonHeight:CGFloat = 34
     
     override init(frame:CGRect)
@@ -30,7 +30,7 @@ class VCalculatorOptionsHeader:UICollectionReusableView
         buttonNone.backgroundColor = UIColor.squadRed
         buttonNone.layer.cornerRadius = kButtonHeight / 2.0
         buttonNone.setTitle(
-            NSLocalizedString("", comment:""),
+            NSLocalizedString("VCalculatorOptionsHeader_buttonNone", comment:""),
             for:UIControlState.normal)
         buttonNone.setTitleColor(
             UIColor.white,
@@ -92,7 +92,7 @@ class VCalculatorOptionsHeader:UICollectionReusableView
     
     func actionNone(sender button:UIButton)
     {
-        
+        controller?.selectOption(item:nil)
     }
     
     //MARK: public

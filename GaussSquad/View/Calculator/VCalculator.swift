@@ -187,6 +187,7 @@ class VCalculator:VView
     func viewAppeared()
     {
         resizeField()
+        viewFunctions.refresh()
     }
     
     func orientationChange()

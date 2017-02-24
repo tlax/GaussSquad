@@ -8,7 +8,7 @@ class VCalculatorOptions:VView, UICollectionViewDelegate, UICollectionViewDataSo
     private let kBaseHeight:CGFloat = 280
     private let kAnimationDuration:TimeInterval = 0.25
     private let kCellHeight:CGFloat = 50
-    private let kHeaderHeight:CGFloat = 60
+    private let kHeaderHeight:CGFloat = 62
     private let kCollectionBottom:CGFloat = 20
     private let kInterItem:CGFloat = 1
     
@@ -45,7 +45,7 @@ class VCalculatorOptions:VView, UICollectionViewDelegate, UICollectionViewDataSo
             flow.minimumInteritemSpacing = kInterItem
             flow.minimumLineSpacing = kInterItem
             flow.sectionInset = UIEdgeInsets(
-                top:0,
+                top:kInterItem,
                 left:0,
                 bottom:kCollectionBottom,
                 right:0)
@@ -114,10 +114,45 @@ class VCalculatorOptions:VView, UICollectionViewDelegate, UICollectionViewDataSo
     {
         layoutBaseBottom.constant = 0
         
-        UIView.animate(withDuration:kAnimationDuration)
+        UIView.animate(
+            withDuration:kAnimationDuration,
+        animations:
         { [weak self] in
             
             self?.layoutIfNeeded()
+            
+        })
+        { [weak self] (done:Bool) in
+            
+            guard
+            
+                let functionList:[MCalculatorFunctions] = self?.controller.model.functions,
+                let selectedFunction:MCalculatorFunctions = self?.controller.model.currentFunction
+            
+            else
+            {
+                return
+            }
+            
+            var indexFunction:Int = 0
+            
+            for function:MCalculatorFunctions in functionList
+            {
+                if function === selectedFunction
+                {
+                    break
+                }
+                
+                indexFunction += 1
+            }
+            
+            let indexPath:IndexPath = IndexPath(
+                item:indexFunction,
+                section:0)
+            self?.collectionView.selectItem(
+                at:indexPath,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition.centeredVertically)
         }
     }
     

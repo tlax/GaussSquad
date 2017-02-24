@@ -58,6 +58,7 @@ class CCalculator:CController
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
+        
         parentController.hideBar(barHidden:true)
         viewCalculator.viewAppeared()
     }
