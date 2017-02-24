@@ -109,6 +109,11 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         collectionView.isUserInteractionEnabled = false
+        collectionView.scrollToItem(
+            at:indexPath,
+            at:UICollectionViewScrollPosition.centeredHorizontally,
+            animated:true)
+        
         let item:MCalculatorFunctionsItem = modelAtIndex(index:indexPath)
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
