@@ -259,6 +259,7 @@
 		DAFDD5131E44441100880556 /* VLinearEquationsIndeterminateControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD5121E44441100880556 /* VLinearEquationsIndeterminateControl.swift */; };
 		DAFEB18B1E6091EA00E609C9 /* MCalculatorStepsItemKeyboardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFEB18A1E6091EA00E609C9 /* MCalculatorStepsItemKeyboardState.swift */; };
 		DAFEB18D1E60929B00E609C9 /* MCalculatorStepsItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFEB18C1E60929B00E609C9 /* MCalculatorStepsItemInfo.swift */; };
+		DAFEB18F1E60993800E609C9 /* MKeyboardRowItemHide.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFEB18E1E60993800E609C9 /* MKeyboardRowItemHide.swift */; };
 		DAFF4A961E397B9600A2DD4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */; };
 		DAFF4A971E397B9600A2DD4B /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */; };
 		DAFF4A981E397B9600A2DD4B /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF4A4E1E397B9500A2DD4B /* CController.swift */; };
@@ -543,6 +544,7 @@
 		DAFDD5121E44441100880556 /* VLinearEquationsIndeterminateControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsIndeterminateControl.swift; sourceTree = "<group>"; };
 		DAFEB18A1E6091EA00E609C9 /* MCalculatorStepsItemKeyboardState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCalculatorStepsItemKeyboardState.swift; sourceTree = "<group>"; };
 		DAFEB18C1E60929B00E609C9 /* MCalculatorStepsItemInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCalculatorStepsItemInfo.swift; sourceTree = "<group>"; };
+		DAFEB18E1E60993800E609C9 /* MKeyboardRowItemHide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItemHide.swift; sourceTree = "<group>"; };
 		DAFF4A341E3979B600A2DD4B /* GaussSquad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GaussSquad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFF4A4A1E397B9500A2DD4B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
@@ -1156,6 +1158,7 @@
 				DA2CE3941E5F3D8900626A43 /* MKeyboardRowItemSubtract.swift */,
 				DA2CE3961E5F3D9100626A43 /* MKeyboardRowItemAdd.swift */,
 				DA2CE3981E5F3D9A00626A43 /* MKeyboardRowItemEquals.swift */,
+				DAFEB18E1E60993800E609C9 /* MKeyboardRowItemHide.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -1598,6 +1601,7 @@
 				DA2CE38F1E5F3AFC00626A43 /* MKeyboardRowItemPercent.swift in Sources */,
 				DA8D8D1E1E5F9BF1006F1488 /* MKeyboardRowItemDivide.swift in Sources */,
 				DA7A9CF81E5D0C3700ED71D1 /* VKeyboard.swift in Sources */,
+				DAFEB18F1E60993800E609C9 /* MKeyboardRowItemHide.swift in Sources */,
 				DA62D36A1E4CD752000D0387 /* MLinearEquationsSolutionStepStart.swift in Sources */,
 				DA23C3531E5218CF007C4C4D /* MLinearEquationsSolutionStrategyOrderIndeterminates.swift in Sources */,
 				DA23C36E1E528D27007C4C4D /* MLinearEquationsSolutionBarItemPlot.swift in Sources */,
