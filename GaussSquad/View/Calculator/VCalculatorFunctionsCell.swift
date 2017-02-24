@@ -3,13 +3,11 @@ import UIKit
 class VCalculatorFunctionsCell:UICollectionViewCell
 {
     private weak var controller:CCalculator?
+    private weak var background:UIView!
     private weak var imageView:UIImageView!
     private weak var labelTitle:UILabel!
-    private let kTitleHeight:CGFloat = 20
+    private let kTitleHeight:CGFloat = 18
     private let kTitleBottom:CGFloat = -10
-    private let kCornerRadius:CGFloat = 4
-    private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.3
     
     override init(frame:CGRect)
     {
@@ -21,10 +19,7 @@ class VCalculatorFunctionsCell:UICollectionViewCell
         background.clipsToBounds = true
         background.translatesAutoresizingMaskIntoConstraints = false
         background.isUserInteractionEnabled = false
-        background.backgroundColor = UIColor.white
-        background.layer.cornerRadius = kCornerRadius
-        background.layer.borderWidth = 1
-        background.layer.borderColor = UIColor(white:0, alpha:0.5).cgColor
+        self.background = background
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -39,7 +34,6 @@ class VCalculatorFunctionsCell:UICollectionViewCell
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.font = UIFont.medium(size:13)
-        labelTitle.textColor = UIColor.black
         self.labelTitle = labelTitle
         
         addSubview(background)
@@ -99,11 +93,15 @@ class VCalculatorFunctionsCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            alpha = kAlphaSelected
+            background.backgroundColor = UIColor.white
+            background.layer.borderWidth = 3
+            background.layer.borderColor = UIColor.squadBlue.cgColor
         }
         else
         {
-            alpha = kAlphaNotSelected
+            background.backgroundColor = UIColor(white:0.985, alpha:1)
+            background.layer.borderWidth = 1
+            background.layer.borderColor = UIColor(white:0, alpha:0.06).cgColor
         }
     }
     

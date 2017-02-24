@@ -6,7 +6,7 @@ class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataS
     private weak var collectionView:VCollection!
     private let kCellHeight:CGFloat = 20
     private let kCollectionTop:CGFloat = 5
-    private let kCollectionBottom:CGFloat = 130
+    private let kCollectionBottom:CGFloat = 110
     
     init(controller:CCalculator)
     {

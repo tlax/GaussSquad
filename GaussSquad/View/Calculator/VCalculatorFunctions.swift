@@ -4,17 +4,11 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
 {
     private weak var controller:CCalculator!
     private weak var collectionView:VCollection!
-    private let marginVertical2:CGFloat
-    private let kMarginHorizontal:CGFloat = 10
-    private let kMarginVertical:CGFloat = 5
-    private let kCellWidth:CGFloat = 120
-    private let kInterItem:CGFloat = 3
-    private let kDeselectTime:TimeInterval = 0.4
+    private let kCellWidth:CGFloat = 110
+    private let kDeselectTime:TimeInterval = 0.6
     
     init(controller:CCalculator)
     {
-        marginVertical2 = kMarginVertical + kMarginVertical
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -31,13 +25,6 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
-            flow.minimumInteritemSpacing = kInterItem
-            flow.minimumLineSpacing = kInterItem
-            flow.sectionInset = UIEdgeInsets(
-                top:kMarginVertical,
-                left:kMarginHorizontal,
-                bottom:kMarginVertical,
-                right:kMarginHorizontal)
         }
         
         addSubview(collectionView)
@@ -82,7 +69,7 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
-        let height:CGFloat = collectionView.bounds.maxY - marginVertical2
+        let height:CGFloat = collectionView.bounds.maxY
         let size:CGSize = CGSize(width:kCellWidth, height:height)
         
         return size
@@ -123,6 +110,7 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        collectionView.isUserInteractionEnabled = false
         let item:MCalculatorFunctionsItem = modelAtIndex(index:indexPath)
         
         DispatchQueue.main.asyncAfter(
@@ -133,6 +121,7 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
                 at:nil,
                 animated:true,
                 scrollPosition:UICollectionViewScrollPosition())
+            collectionView?.isUserInteractionEnabled = true
         }
     }
 }
