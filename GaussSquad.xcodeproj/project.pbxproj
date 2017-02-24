@@ -223,6 +223,9 @@
 		DACC20D61E60EFB600F8D2D7 /* MCalculatorFunctionsItemSquareRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC20D51E60EFB600F8D2D7 /* MCalculatorFunctionsItemSquareRoot.swift */; };
 		DACC20D81E60F02600F8D2D7 /* MKeyboardStateSquareRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC20D71E60F02600F8D2D7 /* MKeyboardStateSquareRoot.swift */; };
 		DACC20DA1E60F26E00F8D2D7 /* CCalculatorOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC20D91E60F26E00F8D2D7 /* CCalculatorOptions.swift */; };
+		DACC20DD1E60F2AC00F8D2D7 /* VCalculatorOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC20DC1E60F2AC00F8D2D7 /* VCalculatorOptions.swift */; };
+		DACC20DF1E60F2B600F8D2D7 /* VCalculatorOptionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC20DE1E60F2B600F8D2D7 /* VCalculatorOptionsHeader.swift */; };
+		DACC20E11E60F2BE00F8D2D7 /* VCalculatorOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC20E01E60F2BE00F8D2D7 /* VCalculatorOptionsCell.swift */; };
 		DAD1A2B51E5C950400D90102 /* MPlotMenuItemEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1A2B41E5C950400D90102 /* MPlotMenuItemEquation.swift */; };
 		DAD46DB41E46A13500AED3B9 /* MLinearEquationsIndeterminates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD46DB31E46A13500AED3B9 /* MLinearEquationsIndeterminates.swift */; };
 		DAD46DB61E46A15C00AED3B9 /* MLinearEquationsIndeterminatesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD46DB51E46A15C00AED3B9 /* MLinearEquationsIndeterminatesItem.swift */; };
@@ -529,6 +532,9 @@
 		DACC20D51E60EFB600F8D2D7 /* MCalculatorFunctionsItemSquareRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCalculatorFunctionsItemSquareRoot.swift; sourceTree = "<group>"; };
 		DACC20D71E60F02600F8D2D7 /* MKeyboardStateSquareRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardStateSquareRoot.swift; sourceTree = "<group>"; };
 		DACC20D91E60F26E00F8D2D7 /* CCalculatorOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCalculatorOptions.swift; sourceTree = "<group>"; };
+		DACC20DC1E60F2AC00F8D2D7 /* VCalculatorOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCalculatorOptions.swift; sourceTree = "<group>"; };
+		DACC20DE1E60F2B600F8D2D7 /* VCalculatorOptionsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCalculatorOptionsHeader.swift; sourceTree = "<group>"; };
+		DACC20E01E60F2BE00F8D2D7 /* VCalculatorOptionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCalculatorOptionsCell.swift; sourceTree = "<group>"; };
 		DAD1A2B41E5C950400D90102 /* MPlotMenuItemEquation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPlotMenuItemEquation.swift; sourceTree = "<group>"; };
 		DAD46DB31E46A13500AED3B9 /* MLinearEquationsIndeterminates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsIndeterminates.swift; sourceTree = "<group>"; };
 		DAD46DB51E46A15C00AED3B9 /* MLinearEquationsIndeterminatesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsIndeterminatesItem.swift; sourceTree = "<group>"; };
@@ -1153,6 +1159,16 @@
 			path = StatesExtra;
 			sourceTree = "<group>";
 		};
+		DACC20DB1E60F29B00F8D2D7 /* CalculatorOptions */ = {
+			isa = PBXGroup;
+			children = (
+				DACC20DC1E60F2AC00F8D2D7 /* VCalculatorOptions.swift */,
+				DACC20DE1E60F2B600F8D2D7 /* VCalculatorOptionsHeader.swift */,
+				DACC20E01E60F2BE00F8D2D7 /* VCalculatorOptionsCell.swift */,
+			);
+			path = CalculatorOptions;
+			sourceTree = "<group>";
+		};
 		DAD46DB21E46A12500AED3B9 /* Indeterminates */ = {
 			isa = PBXGroup;
 			children = (
@@ -1500,6 +1516,7 @@
 		DAFF4A881E397B9600A2DD4B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DACC20DB1E60F29B00F8D2D7 /* CalculatorOptions */,
 				DA7A9CF51E5D0C2200ED71D1 /* Keyboard */,
 				DA7A9CE91E5CBFA600ED71D1 /* Calculator */,
 				DA476F241E5643720058F4A4 /* StoreGo */,
@@ -1677,6 +1694,7 @@
 				DAC2165A1E42A136009EDBF7 /* VLinearEquationsPolynomialControl.swift in Sources */,
 				DA8D8D261E5FACBB006F1488 /* VCalculatorHistory.swift in Sources */,
 				DA89F19F1E4A4BCE0062DE48 /* VLinearEquationsPolynomialSign.swift in Sources */,
+				DACC20DF1E60F2B600F8D2D7 /* VCalculatorOptionsHeader.swift in Sources */,
 				DA99E1801E53A76100DB692B /* MLinearEquationsSolutionBarItemShare.swift in Sources */,
 				DA62D3991E4D00A5000D0387 /* MLinearEquationsSolutionEquationItemEquals.swift in Sources */,
 				DA3F44161E5F8315003336C7 /* MKeyboardStatePlain.swift in Sources */,
@@ -1716,6 +1734,7 @@
 				DAFDD4FA1E43873C00880556 /* VLinearEquationsProjectCellNewRow.swift in Sources */,
 				DA23C35B1E525FE7007C4C4D /* VLinearEquationsSolutionBarCell.swift in Sources */,
 				DAD518971E3FAF1D0004C8D8 /* CLinearEquationsProject.swift in Sources */,
+				DACC20DD1E60F2AC00F8D2D7 /* VCalculatorOptions.swift in Sources */,
 				DAFDD5021E43D3E800880556 /* MLinearEquationsProjectBarItemCompress.swift in Sources */,
 				DA316CE51E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift in Sources */,
 				DAFF4AA41E397B9600A2DD4B /* ExtensionUIColor.swift in Sources */,
@@ -1900,6 +1919,7 @@
 				DAE4A8811E5B7735000A07A3 /* MetalPosition.swift in Sources */,
 				DA476F071E562E740058F4A4 /* MStoreItem.swift in Sources */,
 				DA23C36C1E528AD9007C4C4D /* MLinearEquationsSolutionStrategyValidateRows.swift in Sources */,
+				DACC20E11E60F2BE00F8D2D7 /* VCalculatorOptionsCell.swift in Sources */,
 				DA8118561E5E61D200B6ED7C /* MKeyboardRowItem3.swift in Sources */,
 				DA4691401E56744600FAD188 /* MetalProjection.swift in Sources */,
 				DA476F2A1E5662860058F4A4 /* VParentPushBackground.swift in Sources */,
