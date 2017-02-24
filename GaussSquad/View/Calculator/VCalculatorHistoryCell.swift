@@ -15,8 +15,8 @@ class VCalculatorHistoryCell:UICollectionViewCell
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.numeric(size:12)
-        label.textColor = UIColor(white:0, alpha:0.6)
+        label.font = UIFont.numeric(size:13)
+        label.textColor = UIColor(white:0, alpha:0.85)
         label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         self.label = label
@@ -41,6 +41,6 @@ class VCalculatorHistoryCell:UICollectionViewCell
     
     func config(model:MCalculatorStepsItem)
     {
-        
+        label.text = model.itemDescr
     }
 }
