@@ -3,6 +3,10 @@ import UIKit
 class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CCalculator!
+    private weak var collectionView:VCollection!
+    private let kMarginHorizontal:CGFloat = 20
+    private let kCellWidth:CGFloat = 120
+    private let kInterItem:CGFloat = 2
     
     init(controller:CCalculator)
     {
@@ -12,7 +16,30 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
+        let collectionView:VCollection = VCollection()
+        collectionView.alwaysBounceHorizontal = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(cell:VCalculatorFunctionsCell.self)
+        self.collectionView = collectionView
         
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+            flow.minimumInteritemSpacing = kInterItem
+            flow.minimumLineSpacing = kInterItem
+            flow.sectionInset = UIEdgeInsets(
+                top:0,
+                left:kMarginHorizontal,
+                bottom:0,
+                right:kMarginHorizontal)
+        }
+        
+        addSubview(collectionView)
+        
+        NSLayoutConstraint.equals(
+            view:collectionView,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -20,7 +47,34 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
         return nil
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MCalculatorFunctionsItem
+    {
+        let item:MCalculatorFunctionsItem = controller.model.currentFunction!.items[index.item]
+        
+        return item
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        collectionView.reloadData()
+        
+        let rectZero:CGRect = CGRect(x:0, y:0, width:1, height:1)
+        collectionView.scrollRectToVisible(rectZero, animated:true)
+    }
+    
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let height:CGFloat = collectionView.bounds.maxY
+        let size:CGSize = CGSize(width:kCellWidth, height:height)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
@@ -43,11 +97,23 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MCalculatorFunctionsItem = modelAtIndex(index:indexPath)
         let cell:VCalculatorFunctionsCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VCalculatorFunctionsCell.reusableIdentifier,
             for:indexPath) as! VCalculatorFunctionsCell
+        cell.config(
+            controller:controller,
+            model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        collectionView.scrollToItem(
+            at:indexPath,
+            at:UICollectionViewScrollPosition.centeredHorizontally,
+            animated:true)
     }
 }
