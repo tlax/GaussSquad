@@ -208,6 +208,7 @@
 		DAC2165C1E42A9BC009EDBF7 /* VLinearEquationsPolynomialText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2165B1E42A9BC009EDBF7 /* VLinearEquationsPolynomialText.swift */; };
 		DAC2165E1E42DF43009EDBF7 /* MLinearEquationsProjectRowItemNewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2165D1E42DF43009EDBF7 /* MLinearEquationsProjectRowItemNewRow.swift */; };
 		DAC2BB791E53991E00F7C049 /* MLinearEquationsSolutionShareProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2BB781E53991E00F7C049 /* MLinearEquationsSolutionShareProtocol.swift */; };
+		DACC20BD1E60B66A00F8D2D7 /* function.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACC20BC1E60B66A00F8D2D7 /* function.xcassets */; };
 		DAD1A2B51E5C950400D90102 /* MPlotMenuItemEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1A2B41E5C950400D90102 /* MPlotMenuItemEquation.swift */; };
 		DAD46DB41E46A13500AED3B9 /* MLinearEquationsIndeterminates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD46DB31E46A13500AED3B9 /* MLinearEquationsIndeterminates.swift */; };
 		DAD46DB61E46A15C00AED3B9 /* MLinearEquationsIndeterminatesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD46DB51E46A15C00AED3B9 /* MLinearEquationsIndeterminatesItem.swift */; };
@@ -499,6 +500,7 @@
 		DAC2165B1E42A9BC009EDBF7 /* VLinearEquationsPolynomialText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPolynomialText.swift; sourceTree = "<group>"; };
 		DAC2165D1E42DF43009EDBF7 /* MLinearEquationsProjectRowItemNewRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectRowItemNewRow.swift; sourceTree = "<group>"; };
 		DAC2BB781E53991E00F7C049 /* MLinearEquationsSolutionShareProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionShareProtocol.swift; sourceTree = "<group>"; };
+		DACC20BC1E60B66A00F8D2D7 /* function.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = function.xcassets; sourceTree = "<group>"; };
 		DAD1A2B41E5C950400D90102 /* MPlotMenuItemEquation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPlotMenuItemEquation.swift; sourceTree = "<group>"; };
 		DAD46DB31E46A13500AED3B9 /* MLinearEquationsIndeterminates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsIndeterminates.swift; sourceTree = "<group>"; };
 		DAD46DB51E46A15C00AED3B9 /* MLinearEquationsIndeterminatesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsIndeterminatesItem.swift; sourceTree = "<group>"; };
@@ -1335,6 +1337,7 @@
 				DA9F6FA21E551C33003C5486 /* help.xcassets */,
 				DAE4A87A1E5B3E93000A07A3 /* texture.xcassets */,
 				DA8118511E5E580100B6ED7C /* keyboard.xcassets */,
+				DACC20BC1E60B66A00F8D2D7 /* function.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -1581,6 +1584,7 @@
 			files = (
 				DAF37ADB1E3D6588005052D8 /* spinner.xcassets in Resources */,
 				DAFF4AC01E397B9600A2DD4B /* Localizable.strings in Resources */,
+				DACC20BD1E60B66A00F8D2D7 /* function.xcassets in Resources */,
 				DA9F6FA31E551C33003C5486 /* help.xcassets in Resources */,
 				DA033CEE1E3AA2DC00F7645C /* generic.xcassets in Resources */,
 				DAE4A87B1E5B3E93000A07A3 /* texture.xcassets in Resources */,
