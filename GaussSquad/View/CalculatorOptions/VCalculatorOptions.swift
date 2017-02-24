@@ -117,4 +117,9 @@ class VCalculatorOptions:VView, UICollectionViewDelegate, UICollectionViewDataSo
     {
         return 1
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        
+    }
 }

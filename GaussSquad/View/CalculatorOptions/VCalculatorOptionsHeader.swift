@@ -13,6 +13,8 @@ class VCalculatorOptionsHeader:UICollectionReusableView
     override init(frame:CGRect)
     {
         super.init(frame:frame)
+        clipsToBounds = true
+        backgroundColor = UIColor.white
         
         let labelTitle:UILabel = UILabel()
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -91,5 +93,12 @@ class VCalculatorOptionsHeader:UICollectionReusableView
     func actionNone(sender button:UIButton)
     {
         
+    }
+    
+    //MARK: public
+    
+    func config(controller:CCalculatorOptions)
+    {
+        self.controller = controller
     }
 }
