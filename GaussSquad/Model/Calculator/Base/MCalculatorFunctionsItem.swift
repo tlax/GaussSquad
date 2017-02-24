@@ -15,5 +15,23 @@ class MCalculatorFunctionsItem
     
     func selected(controller:CCalculator)
     {
+        let textView:UITextView = controller.viewCalculator.viewText
+        
+        guard
+        
+            let keyboard:VKeyboard = textView.inputView as? VKeyboard
+        
+        else
+        {
+            return
+        }
+        
+        applyTo(
+            modelKeyboard:keyboard.model,
+            view:textView)
+    }
+    
+    func applyTo(modelKeyboard:MKeyboard, view:UITextView)
+    {
     }
 }

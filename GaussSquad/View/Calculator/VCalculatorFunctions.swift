@@ -101,9 +101,7 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
             withReuseIdentifier:
             VCalculatorFunctionsCell.reusableIdentifier,
             for:indexPath) as! VCalculatorFunctionsCell
-        cell.config(
-            controller:controller,
-            model:item)
+        cell.config(model:item)
         
         return cell
     }
@@ -112,6 +110,21 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
     {
         collectionView.isUserInteractionEnabled = false
         let item:MCalculatorFunctionsItem = modelAtIndex(index:indexPath)
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            guard
+                
+                let controller:CCalculator = self?.controller
+            
+            else
+            {
+                return
+            }
+            
+            item.selected(controller:controller)
+        }
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)

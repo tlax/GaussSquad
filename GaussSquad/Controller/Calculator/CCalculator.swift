@@ -3,7 +3,7 @@ import UIKit
 class CCalculator:CController
 {
     let model:MCalculator
-    private weak var viewCalculator:VCalculator!
+    weak var viewCalculator:VCalculator!
     
     override init()
     {
