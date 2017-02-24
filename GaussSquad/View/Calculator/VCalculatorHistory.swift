@@ -14,6 +14,8 @@ class VCalculatorHistory:UIView, UICollectionViewDelegate, UICollectionViewDataS
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        isUserInteractionEnabled = false
+        self.controller = controller
         
         let collectionView:VCollection = VCollection()
         collectionView.isUserInteractionEnabled = false

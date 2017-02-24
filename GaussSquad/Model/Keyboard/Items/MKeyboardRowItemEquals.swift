@@ -9,8 +9,11 @@ class MKeyboardRowItemEquals:MKeyboardRowItem
     
     override func selected(model:MKeyboard, view:UITextView)
     {
-        model.states.last?.commitState(
-            model:model,
-            view:view)
+        commitIfNeeded(model:model, view:view)
+        
+        let previousString:String = model.lastString()
+        let statePlain:MKeyboardStatePlain = MKeyboardStatePlain(
+            editing:previousString)
+        model.states.append(statePlain)
     }
 }
