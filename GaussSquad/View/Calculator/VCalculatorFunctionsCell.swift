@@ -104,18 +104,15 @@ class VCalculatorFunctionsCell:UICollectionViewCell
             background.backgroundColor = UIColor(white:0.99, alpha:1)
             background.layer.borderWidth = 1
             background.layer.borderColor = UIColor(white:0, alpha:0.06).cgColor
-            labelTitle.textColor = UIColor(white:0, alpha:0.6)
-            imageView.alpha = 0.7
+            labelTitle.textColor = UIColor(white:0, alpha:0.7)
+            imageView.alpha = 0.6
         }
     }
     
     //MARK: public
     
-    func config(
-        controller:CCalculator,
-        model:MCalculatorFunctionsItem)
+    func config(model:MCalculatorFunctionsItem)
     {
-        self.controller = controller
         imageView.image = model.icon
         labelTitle.text = model.title
         

@@ -10,4 +10,10 @@ class MCalculatorFunctionsItem
         self.icon = icon
         self.title = title
     }
+    
+    //MARK: public
+    
+    func selected(controller:CCalculator)
+    {
+    }
 }
