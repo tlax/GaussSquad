@@ -106,7 +106,7 @@ class CCalculator:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.viewCalculator.isUserInteractionEnabled = false
+            self?.viewCalculator.isUserInteractionEnabled = true
             self?.viewCalculator.viewHistory.refresh()
         }
     }
