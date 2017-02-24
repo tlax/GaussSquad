@@ -6,6 +6,9 @@ class MCalculatorSteps
     
     init()
     {
-        items = []
+        let itemBegin:MCalculatorStepsItemInfo = MCalculatorStepsItemInfo(
+            info:NSLocalizedString("MCalculatorSteps_stepBegin", comment:""))
+        
+        items = [itemBegin]
     }
 }
