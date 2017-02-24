@@ -4,13 +4,17 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
 {
     private weak var controller:CCalculator!
     private weak var collectionView:VCollection!
+    private let marginVertical2:CGFloat
     private let kMarginHorizontal:CGFloat = 20
+    private let kMarginVertical:CGFloat = 5
     private let kCellWidth:CGFloat = 120
-    private let kInterItem:CGFloat = 2
+    private let kInterItem:CGFloat = 3
     private let kDeselectTime:TimeInterval = 0.4
     
     init(controller:CCalculator)
     {
+        marginVertical2 = kMarginVertical + kMarginVertical
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -30,9 +34,9 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
             flow.minimumInteritemSpacing = kInterItem
             flow.minimumLineSpacing = kInterItem
             flow.sectionInset = UIEdgeInsets(
-                top:0,
+                top:kMarginVertical,
                 left:kMarginHorizontal,
-                bottom:0,
+                bottom:kMarginVertical,
                 right:kMarginHorizontal)
         }
         
@@ -78,7 +82,7 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
-        let height:CGFloat = collectionView.bounds.maxY
+        let height:CGFloat = collectionView.bounds.maxY - marginVertical2
         let size:CGSize = CGSize(width:kCellWidth, height:height)
         
         return size

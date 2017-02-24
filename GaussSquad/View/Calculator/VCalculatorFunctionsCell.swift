@@ -7,12 +7,24 @@ class VCalculatorFunctionsCell:UICollectionViewCell
     private weak var labelTitle:UILabel!
     private let kTitleHeight:CGFloat = 20
     private let kTitleBottom:CGFloat = -10
+    private let kCornerRadius:CGFloat = 4
+    private let kAlphaSelected:CGFloat = 1
+    private let kAlphaNotSelected:CGFloat = 0.3
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
+        
+        let background:UIView = UIView()
+        background.clipsToBounds = true
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.isUserInteractionEnabled = false
+        background.backgroundColor = UIColor.white
+        background.layer.cornerRadius = kCornerRadius
+        background.layer.borderWidth = 1
+        background.layer.borderColor = UIColor(white:0, alpha:0.5).cgColor
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -30,8 +42,13 @@ class VCalculatorFunctionsCell:UICollectionViewCell
         labelTitle.textColor = UIColor.black
         self.labelTitle = labelTitle
         
+        addSubview(background)
         addSubview(labelTitle)
         addSubview(imageView)
+        
+        NSLayoutConstraint.equals(
+            view:background,
+            toView:self)
         
         NSLayoutConstraint.bottomToBottom(
             view:labelTitle,
@@ -60,6 +77,36 @@ class VCalculatorFunctionsCell:UICollectionViewCell
         return nil
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            alpha = kAlphaSelected
+        }
+        else
+        {
+            alpha = kAlphaNotSelected
+        }
+    }
+    
     //MARK: public
     
     func config(
@@ -69,5 +116,7 @@ class VCalculatorFunctionsCell:UICollectionViewCell
         self.controller = controller
         imageView.image = model.icon
         labelTitle.text = model.title
+        
+        hover()
     }
 }
