@@ -7,6 +7,7 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
     private let kMarginHorizontal:CGFloat = 20
     private let kCellWidth:CGFloat = 120
     private let kInterItem:CGFloat = 2
+    private let kDeselectTime:TimeInterval = 0.4
     
     init(controller:CCalculator)
     {
@@ -45,6 +46,13 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
     }
     
     //MARK: private
@@ -111,9 +119,16 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        collectionView.scrollToItem(
-            at:indexPath,
-            at:UICollectionViewScrollPosition.centeredHorizontally,
-            animated:true)
+        let item:MCalculatorFunctionsItem = modelAtIndex(index:indexPath)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

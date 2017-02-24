@@ -4,11 +4,13 @@ class VCalculator:VView
 {
     weak var viewHistory:VCalculatorHistory!
     weak var viewText:VCalculatorText!
+    weak var viewFunctions:VCalculatorFunctions!
     private weak var controller:CCalculator!
     private weak var viewBar:VCalculatorBar!
     private weak var layoutTextHeight:NSLayoutConstraint!
     private weak var layoutBarBottom:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 38
+    private let kFunctionsHeight:CGFloat = 80
     private let kTextMaxHeight:CGFloat = 125
     private let kTextMinHeight:CGFloat = 65
     private let kTextBorderHeight:CGFloat = 1
@@ -32,11 +34,16 @@ class VCalculator:VView
             controller:self.controller)
         self.viewHistory = viewHistory
         
+        let viewFunctions:VCalculatorFunctions = VCalculatorFunctions(
+            controller:self.controller)
+        self.viewFunctions = viewFunctions
+        
         let textBorder:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         addSubview(textBorder)
         addSubview(viewHistory)
         addSubview(viewText)
+        addSubview(viewFunctions)
         addSubview(viewBar)
         
         layoutBarBottom = NSLayoutConstraint.bottomToBottom(
@@ -66,6 +73,16 @@ class VCalculator:VView
             toView:viewBar)
         NSLayoutConstraint.equalsHorizontal(
             view:viewHistory,
+            toView:self)
+        
+        NSLayoutConstraint.height(
+            view:viewFunctions,
+            constant:kFunctionsHeight)
+        NSLayoutConstraint.bottomToTop(
+            view:viewFunctions,
+            toView:viewBar)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewFunctions,
             toView:self)
         
         NSLayoutConstraint.bottomToBottom(
