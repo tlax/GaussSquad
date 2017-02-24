@@ -5,7 +5,7 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
     private weak var controller:CCalculator!
     private weak var collectionView:VCollection!
     private let marginVertical2:CGFloat
-    private let kMarginHorizontal:CGFloat = 20
+    private let kMarginHorizontal:CGFloat = 10
     private let kMarginVertical:CGFloat = 5
     private let kCellWidth:CGFloat = 120
     private let kInterItem:CGFloat = 3
