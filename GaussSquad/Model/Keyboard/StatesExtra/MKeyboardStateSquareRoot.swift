@@ -13,6 +13,6 @@ class MKeyboardStateSquareRoot:MKeyboardStateExtra
         let currentString:String = model.numberAsString(
             scalar:currentValue)
         
-        commitingDescription = "\(kTabSpace) square root (\(currentString)) = \(editing)"
+        commitingDescription = "\(kTabSpace)square root (\(currentString)) = \(editing)"
     }
 }

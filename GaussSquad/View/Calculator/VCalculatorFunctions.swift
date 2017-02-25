@@ -4,8 +4,9 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
 {
     private weak var controller:CCalculator!
     private weak var collectionView:VCollection!
-    private let kCellWidth:CGFloat = 120
+    private let kCellWidth:CGFloat = 135
     private let kDeselectTime:TimeInterval = 1
+    private let kInterItem:CGFloat = 2
     
     init(controller:CCalculator)
     {
@@ -25,6 +26,13 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+            flow.minimumLineSpacing = kInterItem
+            flow.minimumInteritemSpacing = kInterItem
+            flow.sectionInset = UIEdgeInsets(
+                top:0,
+                left:kInterItem,
+                bottom:0,
+                right:kInterItem)
         }
         
         addSubview(collectionView)

@@ -17,8 +17,8 @@ class MCalculatorFunctionsTrigonometry:MCalculatorFunctions
             itemSin,
             itemCos,
             itemTan,
-            itemCosDeg,
             itemSinDeg,
+            itemCosDeg,
             itemTanDeg]
         
         super.init(
