@@ -101,7 +101,7 @@ class VCalculatorFunctionsCell:UICollectionViewCell
         else
         {
             background.layer.borderWidth = 1
-            background.layer.borderColor = UIColor(white:0, alpha:0.06).cgColor
+            background.layer.borderColor = UIColor(white:0, alpha:0.1).cgColor
         }
     }
     
