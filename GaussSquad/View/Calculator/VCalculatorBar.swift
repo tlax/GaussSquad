@@ -4,7 +4,6 @@ class VCalculatorBar:UIView
 {
     private weak var controller:CCalculator!
     private let kButtonWidth:CGFloat = 50
-    private let kBorderHeight:CGFloat = 1
     
     init(controller:CCalculator)
     {
@@ -13,8 +12,6 @@ class VCalculatorBar:UIView
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear
         self.controller = controller
-        
-        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         let buttonBack:UIButton = UIButton()
         buttonBack.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +61,6 @@ class VCalculatorBar:UIView
             action:#selector(actionUndo(sender:)),
             for:UIControlEvents.touchUpInside)
         
-        addSubview(border)
         addSubview(buttonBack)
         addSubview(buttonOptions)
         addSubview(buttonUndo)
@@ -88,16 +84,6 @@ class VCalculatorBar:UIView
         NSLayoutConstraint.width(
             view:buttonOptions,
             constant:kButtonWidth)
-        
-        NSLayoutConstraint.topToTop(
-            view:border,
-            toView:self)
-        NSLayoutConstraint.height(
-            view:border,
-            constant:kBorderHeight)
-        NSLayoutConstraint.equalsHorizontal(
-            view:border,
-            toView:self)
         
         NSLayoutConstraint.equalsVertical(
             view:buttonUndo,

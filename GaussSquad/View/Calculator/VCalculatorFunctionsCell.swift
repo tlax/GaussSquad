@@ -19,6 +19,7 @@ class VCalculatorFunctionsCell:UICollectionViewCell
         background.clipsToBounds = true
         background.translatesAutoresizingMaskIntoConstraints = false
         background.isUserInteractionEnabled = false
+        background.backgroundColor = UIColor.white
         self.background = background
         
         let imageView:UIImageView = UIImageView()
@@ -34,6 +35,7 @@ class VCalculatorFunctionsCell:UICollectionViewCell
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.font = UIFont.medium(size:13)
+        labelTitle.textColor = UIColor.black
         self.labelTitle = labelTitle
         
         addSubview(background)
@@ -93,19 +95,13 @@ class VCalculatorFunctionsCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            background.backgroundColor = UIColor.white
-            background.layer.borderWidth = 3
+            background.layer.borderWidth = 4
             background.layer.borderColor = UIColor.squadBlue.cgColor
-            labelTitle.textColor = UIColor.black
-            imageView.alpha = 1
         }
         else
         {
-            background.backgroundColor = UIColor(white:0.99, alpha:1)
             background.layer.borderWidth = 1
             background.layer.borderColor = UIColor(white:0, alpha:0.06).cgColor
-            labelTitle.textColor = UIColor(white:0, alpha:0.7)
-            imageView.alpha = 0.6
         }
     }
     
