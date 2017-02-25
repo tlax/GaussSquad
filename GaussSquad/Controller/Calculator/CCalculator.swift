@@ -37,7 +37,7 @@ class CCalculator:CController
             forName:Notification.keyboardUpdate,
             object:nil,
             queue:OperationQueue.main)
-        { [weak self] (notification) in
+        { [weak self] (notification:Notification) in
             
             guard
             
@@ -52,6 +52,14 @@ class CCalculator:CController
                 keyboardState:keyboardState)
             self?.model.steps.items.append(item)
             self?.viewCalculator.viewHistory.refresh()
+        }
+        
+        NotificationCenter.default.addObserver(
+            forName:Notification.functionUpdate,
+            object:nil,
+            queue:OperationQueue.main)
+        { [weak self] (notification:Notification) in
+            
         }
     }
     

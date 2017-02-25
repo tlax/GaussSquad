@@ -31,10 +31,11 @@ class MCalculatorFunctionsItem
             view:textView)
     }
     
-    func applyState(
-        state:MKeyboardStateExtra,
+    func applyUpdate(
         modelKeyboard:MKeyboard,
-        view:UITextView)
+        view:UITextView,
+        newValue:Double,
+        descr:String)
     {
         guard
             
@@ -45,7 +46,9 @@ class MCalculatorFunctionsItem
             return
         }
         
-        modelKeyboard.states.append(state)
+        let emptyString:String = modelKeyboard.kEmpty
+        let newEditing:String = modelKeyboard.numberAsString(
+            scalar:newValue)
         
         DispatchQueue.main.async
         { [weak view] in
@@ -59,23 +62,13 @@ class MCalculatorFunctionsItem
                 return
             }
             
-            state.unflowedCommitState(
-                model:modelKeyboard,
-                view:view)
+            view.text = emptyString
+            view.insertText(newEditing)
+            lastState.editing = newEditing
             
             NotificationCenter.default.post(
-                name:Notification.keyboardUpdate,
-                object:state)
-            
-            lastState.commitState(
-                model:modelKeyboard,
-                view:view)
-            
-            NotificationCenter.default.post(
-                name:Notification.keyboardUpdate,
-                object:lastState)
-            
-            state.editing = lastState.editing
+                name:Notification.functionUpdate,
+                object:descr)
         }
     }
     
