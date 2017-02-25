@@ -8,10 +8,16 @@ class MCalculatorFunctionsExponents:MCalculatorFunctions
         
         let itemSquareRoot:MCalculatorFunctionsItemSquareRoot = MCalculatorFunctionsItemSquareRoot()
         let itemCubeRoot:MCalculatorFunctionsItemCubeRoot = MCalculatorFunctionsItemCubeRoot()
+        let itemSquare:MCalculatorFunctionsItemSquare = MCalculatorFunctionsItemSquare()
+        let itemCube:MCalculatorFunctionsItemCube = MCalculatorFunctionsItemCube()
+        let itemReciprocal:MCalculatorFunctionsItemReciprocal = MCalculatorFunctionsItemReciprocal()
         
         let items:[MCalculatorFunctionsItem] = [
             itemSquareRoot,
-            itemCubeRoot]
+            itemCubeRoot,
+            itemSquare,
+            itemCube,
+            itemReciprocal]
         
         super.init(
             title:title,
