@@ -7,8 +7,8 @@ class VCalculatorOptions:VView, UICollectionViewDelegate, UICollectionViewDataSo
     private weak var layoutBaseBottom:NSLayoutConstraint!
     private let kBaseHeight:CGFloat = 280
     private let kAnimationDuration:TimeInterval = 0.25
-    private let kCellHeight:CGFloat = 50
-    private let kHeaderHeight:CGFloat = 62
+    private let kCellHeight:CGFloat = 52
+    private let kHeaderHeight:CGFloat = 64
     private let kCollectionBottom:CGFloat = 20
     private let kInterItem:CGFloat = 1
     
