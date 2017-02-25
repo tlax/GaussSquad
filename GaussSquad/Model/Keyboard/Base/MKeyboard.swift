@@ -196,15 +196,9 @@ class MKeyboard
                 model:self,
                 view:view)
             
-            if let _:MKeyboardStateExtra = lastState as? MKeyboardStateExtra
-            {
-            }
-            else
-            {
-                NotificationCenter.default.post(
-                    name:Notification.keyboardUpdate,
-                    object:lastState)
-            }
+            NotificationCenter.default.post(
+                name:Notification.keyboardUpdate,
+                object:lastState)
         }
     }
 }
