@@ -150,7 +150,6 @@ class CCalculator:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.viewCalculator.isUserInteractionEnabled = true
             self?.viewCalculator.viewHistory.refresh()
         }
     }
@@ -166,8 +165,6 @@ class CCalculator:CController
     
     func undo()
     {
-        viewCalculator.isUserInteractionEnabled = false
-        
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             

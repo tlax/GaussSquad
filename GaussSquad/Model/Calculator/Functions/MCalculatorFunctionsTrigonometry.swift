@@ -15,10 +15,10 @@ class MCalculatorFunctionsTrigonometry:MCalculatorFunctions
         
         let items:[MCalculatorFunctionsItem] = [
             itemSin,
-            itemSinDeg,
             itemCos,
-            itemCosDeg,
             itemTan,
+            itemCosDeg,
+            itemSinDeg,
             itemTanDeg]
         
         super.init(

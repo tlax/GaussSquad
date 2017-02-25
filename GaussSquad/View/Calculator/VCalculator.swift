@@ -9,8 +9,8 @@ class VCalculator:VView
     private weak var viewBar:VCalculatorBar!
     private weak var layoutTextHeight:NSLayoutConstraint!
     private weak var layoutBarBottom:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 38
-    private let kFunctionsHeight:CGFloat = 100
+    private let kBarHeight:CGFloat = 48
+    private let kFunctionsHeight:CGFloat = 90
     private let kTextMaxHeight:CGFloat = 125
     private let kTextMinHeight:CGFloat = 65
     private let kTextBorderHeight:CGFloat = 1
@@ -38,7 +38,7 @@ class VCalculator:VView
             controller:self.controller)
         self.viewFunctions = viewFunctions
         
-        let textBorder:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
+        let textBorder:VBorder = VBorder(color:UIColor.black)
         
         addSubview(textBorder)
         addSubview(viewHistory)
