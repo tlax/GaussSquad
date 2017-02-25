@@ -6,8 +6,9 @@ class VCalculatorFunctionsCell:UICollectionViewCell
     private weak var background:UIView!
     private weak var imageView:UIImageView!
     private weak var labelTitle:UILabel!
+    private let kImageBottom:CGFloat = 6
     private let kTitleHeight:CGFloat = 18
-    private let kTitleBottom:CGFloat = -10
+    private let kTitleBottom:CGFloat = -8
     
     override init(frame:CGRect)
     {
@@ -62,7 +63,8 @@ class VCalculatorFunctionsCell:UICollectionViewCell
             toView:self)
         NSLayoutConstraint.bottomToTop(
             view:imageView,
-            toView:labelTitle)
+            toView:labelTitle,
+            constant:kImageBottom)
         NSLayoutConstraint.equalsHorizontal(
             view:imageView,
             toView:self)

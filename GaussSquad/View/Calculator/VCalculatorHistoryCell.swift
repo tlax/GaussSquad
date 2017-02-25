@@ -15,8 +15,8 @@ class VCalculatorHistoryCell:UICollectionViewCell
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.numeric(size:15)
-        label.textColor = UIColor.black
+        label.font = UIFont.bold(size:14)
+        label.textColor = UIColor(white:0, alpha:0.4)
         label.translatesAutoresizingMaskIntoConstraints = false
         self.label = label
         
