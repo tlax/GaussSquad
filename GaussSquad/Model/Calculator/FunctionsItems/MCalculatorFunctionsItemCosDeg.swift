@@ -15,12 +15,15 @@ class MCalculatorFunctionsItemCosDeg:MCalculatorFunctionsItem
     override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
     {
         let currentValue:Double = modelKeyboard.lastNumber()
-        let stateCosDeg:MKeyboardStateCosDeg = MKeyboardStateCosDeg(
-            currentValue:currentValue)
+        let currentString:String = modelKeyboard.lastString()
+        let cosDegValue:Double = cos(currentValue * M_PI / 180.0)
+        let cosDegString:String = modelKeyboard.numberAsString(scalar:cosDegValue)
+        let descr:String = "deg cos(\(currentString)) = \(cosDegString)"
         
-        applyState(
-            state:stateCosDeg,
+        applyUpdate(
             modelKeyboard:modelKeyboard,
-            view:view)
+            view:view,
+            newEditing:cosDegString,
+            descr:descr)
     }
 }
