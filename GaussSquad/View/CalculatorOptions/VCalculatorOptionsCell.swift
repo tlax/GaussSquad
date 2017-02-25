@@ -13,7 +13,7 @@ class VCalculatorOptionsCell:UICollectionViewCell
         labelTitle.isUserInteractionEnabled = false
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
-        labelTitle.font = UIFont.bold(size:15)
+        labelTitle.font = UIFont.medium(size:15)
         labelTitle.textAlignment = NSTextAlignment.center
         self.labelTitle = labelTitle
         

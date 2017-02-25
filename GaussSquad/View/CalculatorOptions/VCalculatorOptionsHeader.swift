@@ -20,7 +20,7 @@ class VCalculatorOptionsHeader:UICollectionReusableView
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.isUserInteractionEnabled = false
-        labelTitle.font = UIFont.bold(size:16)
+        labelTitle.font = UIFont.bold(size:17)
         labelTitle.textColor = UIColor.black
         labelTitle.text = NSLocalizedString("VCalculatorOptionsHeader_title", comment:"")
         
