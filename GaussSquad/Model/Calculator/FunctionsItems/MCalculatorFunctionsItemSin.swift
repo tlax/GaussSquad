@@ -15,12 +15,15 @@ class MCalculatorFunctionsItemSin:MCalculatorFunctionsItem
     override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
     {
         let currentValue:Double = modelKeyboard.lastNumber()
-        let stateSin:MKeyboardStateSin = MKeyboardStateSin(
-            currentValue:currentValue)
+        let currentString:String = modelKeyboard.lastString()
+        let sinValue:Double = sin(currentValue)
+        let sinString:String = modelKeyboard.numberAsString(scalar:sinValue)
+        let descr:String = "rad sin(\(currentString)) = \(sinString)"
         
-        applyState(
-            state:stateSin,
+        applyUpdate(
             modelKeyboard:modelKeyboard,
-            view:view)
+            view:view,
+            newEditing:sinString,
+            descr:descr)
     }
 }

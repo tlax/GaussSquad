@@ -34,7 +34,7 @@ class MCalculatorFunctionsItem
     func applyUpdate(
         modelKeyboard:MKeyboard,
         view:UITextView,
-        newValue:Double,
+        newEditing:String,
         descr:String)
     {
         guard
@@ -47,8 +47,6 @@ class MCalculatorFunctionsItem
         }
         
         let emptyString:String = modelKeyboard.kEmpty
-        let newEditing:String = modelKeyboard.numberAsString(
-            scalar:newValue)
         
         DispatchQueue.main.async
         { [weak view] in

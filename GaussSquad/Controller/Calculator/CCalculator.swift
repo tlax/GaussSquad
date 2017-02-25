@@ -50,8 +50,7 @@ class CCalculator:CController
             
             let item:MCalculatorStepsItemKeyboardState = MCalculatorStepsItemKeyboardState(
                 keyboardState:keyboardState)
-            self?.model.steps.items.append(item)
-            self?.viewCalculator.viewHistory.refresh()
+            self?.appendStep(item:item)
         }
         
         NotificationCenter.default.addObserver(
@@ -60,6 +59,18 @@ class CCalculator:CController
             queue:OperationQueue.main)
         { [weak self] (notification:Notification) in
             
+            guard
+                
+                let descr:String = notification.object as? String
+                
+            else
+            {
+                return
+            }
+            
+            let item:MCalculatorStepsItemFunction = MCalculatorStepsItemFunction(
+                descr:descr)
+            self?.appendStep(item:item)
         }
     }
     
@@ -89,6 +100,12 @@ class CCalculator:CController
     }
     
     //MARK: private
+    
+    private func appendStep(item:MCalculatorStepsItem)
+    {
+        model.steps.items.append(item)
+        viewCalculator.viewHistory.refresh()
+    }
     
     private func lookForUndo()
     {
