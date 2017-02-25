@@ -6,7 +6,7 @@ class MCalculatorFunctionsItemSquare:MCalculatorFunctionsItem
     
     init()
     {
-        let icon:UIImage = #imageLiteral(resourceName: "assetFunctionSquareRoot")
+        let icon:UIImage = #imageLiteral(resourceName: "assetFunctionSquare")
         let title:String = NSLocalizedString("MCalculatorFunctionsItemSquare_title", comment:"")
         
         super.init(

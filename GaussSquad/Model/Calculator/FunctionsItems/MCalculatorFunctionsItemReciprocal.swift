@@ -6,7 +6,7 @@ class MCalculatorFunctionsItemReciprocal:MCalculatorFunctionsItem
     
     init()
     {
-        let icon:UIImage = #imageLiteral(resourceName: "assetFunctionSquareRoot")
+        let icon:UIImage = #imageLiteral(resourceName: "assetFunctionReciprocal")
         let title:String = NSLocalizedString("MCalculatorFunctionsItemReciprocal_title", comment:"")
         
         super.init(

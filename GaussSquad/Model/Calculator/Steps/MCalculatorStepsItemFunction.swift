@@ -2,7 +2,7 @@ import Foundation
 
 class MCalculatorStepsItemFunction:MCalculatorStepsItem
 {
-    private let kTab:String = "     "
+    private let kTab:String = "       "
     
     init(descr:String)
     {
