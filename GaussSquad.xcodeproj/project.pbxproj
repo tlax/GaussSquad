@@ -210,6 +210,9 @@
 		DAC2BB791E53991E00F7C049 /* MLinearEquationsSolutionShareProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2BB781E53991E00F7C049 /* MLinearEquationsSolutionShareProtocol.swift */; };
 		DAC9FEDC1E6161AB0085BA7F /* MCalculatorStepsItemFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9FEDB1E6161AB0085BA7F /* MCalculatorStepsItemFunction.swift */; };
 		DAC9FEDE1E6179CD0085BA7F /* MCalculatorFunctionsItemCubeRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9FEDD1E6179CD0085BA7F /* MCalculatorFunctionsItemCubeRoot.swift */; };
+		DAC9FEE01E617CC50085BA7F /* MCalculatorFunctionsItemSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9FEDF1E617CC50085BA7F /* MCalculatorFunctionsItemSquare.swift */; };
+		DAC9FEE21E617CCE0085BA7F /* MCalculatorFunctionsItemCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9FEE11E617CCE0085BA7F /* MCalculatorFunctionsItemCube.swift */; };
+		DAC9FEE41E617CD70085BA7F /* MCalculatorFunctionsItemReciprocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC9FEE31E617CD70085BA7F /* MCalculatorFunctionsItemReciprocal.swift */; };
 		DACC20BD1E60B66A00F8D2D7 /* function.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACC20BC1E60B66A00F8D2D7 /* function.xcassets */; };
 		DACC20C61E60E46A00F8D2D7 /* MCalculatorFunctionsItemSinDeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC20C51E60E46A00F8D2D7 /* MCalculatorFunctionsItemSinDeg.swift */; };
 		DACC20C81E60E6B400F8D2D7 /* MCalculatorFunctionsItemCosDeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC20C71E60E6B400F8D2D7 /* MCalculatorFunctionsItemCosDeg.swift */; };
@@ -513,6 +516,9 @@
 		DAC2BB781E53991E00F7C049 /* MLinearEquationsSolutionShareProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionShareProtocol.swift; sourceTree = "<group>"; };
 		DAC9FEDB1E6161AB0085BA7F /* MCalculatorStepsItemFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCalculatorStepsItemFunction.swift; sourceTree = "<group>"; };
 		DAC9FEDD1E6179CD0085BA7F /* MCalculatorFunctionsItemCubeRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCalculatorFunctionsItemCubeRoot.swift; sourceTree = "<group>"; };
+		DAC9FEDF1E617CC50085BA7F /* MCalculatorFunctionsItemSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCalculatorFunctionsItemSquare.swift; sourceTree = "<group>"; };
+		DAC9FEE11E617CCE0085BA7F /* MCalculatorFunctionsItemCube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCalculatorFunctionsItemCube.swift; sourceTree = "<group>"; };
+		DAC9FEE31E617CD70085BA7F /* MCalculatorFunctionsItemReciprocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCalculatorFunctionsItemReciprocal.swift; sourceTree = "<group>"; };
 		DACC20BC1E60B66A00F8D2D7 /* function.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = function.xcassets; sourceTree = "<group>"; };
 		DACC20C51E60E46A00F8D2D7 /* MCalculatorFunctionsItemSinDeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCalculatorFunctionsItemSinDeg.swift; sourceTree = "<group>"; };
 		DACC20C71E60E6B400F8D2D7 /* MCalculatorFunctionsItemCosDeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCalculatorFunctionsItemCosDeg.swift; sourceTree = "<group>"; };
@@ -1331,6 +1337,9 @@
 				DACC20D11E60EBAB00F8D2D7 /* MCalculatorFunctionsItemTanDeg.swift */,
 				DACC20D51E60EFB600F8D2D7 /* MCalculatorFunctionsItemSquareRoot.swift */,
 				DAC9FEDD1E6179CD0085BA7F /* MCalculatorFunctionsItemCubeRoot.swift */,
+				DAC9FEDF1E617CC50085BA7F /* MCalculatorFunctionsItemSquare.swift */,
+				DAC9FEE11E617CCE0085BA7F /* MCalculatorFunctionsItemCube.swift */,
+				DAC9FEE31E617CD70085BA7F /* MCalculatorFunctionsItemReciprocal.swift */,
 			);
 			path = FunctionsItems;
 			sourceTree = "<group>";
@@ -1643,6 +1652,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA0D4DDB1E4E1C9500699018 /* MLinearEquationsSolutionEquationItemIndex.swift in Sources */,
+				DAC9FEE41E617CD70085BA7F /* MCalculatorFunctionsItemReciprocal.swift in Sources */,
 				DA4691211E56736D00FAD188 /* VLinearEquationsPlotMetal.swift in Sources */,
 				DACC20D41E60EED700F8D2D7 /* MCalculatorFunctionsExponents.swift in Sources */,
 				DA5502391E58EEB600DF0F95 /* MetalShaderKernelEffects.metal in Sources */,
@@ -1685,6 +1695,7 @@
 				DA81185C1E5E61E600B6ED7C /* MKeyboardRowItem6.swift in Sources */,
 				DA476F2F1E5666270058F4A4 /* VLinearEquationsPlot.swift in Sources */,
 				DA476F0C1E562E740058F4A4 /* MStoreItemStatusPurchased.swift in Sources */,
+				DAC9FEE21E617CCE0085BA7F /* MCalculatorFunctionsItemCube.swift in Sources */,
 				DA476EF91E562D5B0058F4A4 /* CStore.swift in Sources */,
 				DAFF4ABE1E397B9600A2DD4B /* MHelpItem.swift in Sources */,
 				DAFF4AC21E397B9600A2DD4B /* VHelpCell.swift in Sources */,
@@ -1754,6 +1765,7 @@
 				DA23C3551E522319007C4C4D /* MLinearEquationsSolutionStrategyPivotOrdering.swift in Sources */,
 				DAE4A87D1E5B4909000A07A3 /* MetalSpatialPoint.swift in Sources */,
 				DA12D4731E414A71008327B5 /* VLinearEquationsProjectCellIndex.swift in Sources */,
+				DAC9FEE01E617CC50085BA7F /* MCalculatorFunctionsItemSquare.swift in Sources */,
 				DA133A451E410F710028D90F /* MLinearEquationsProjectRow.swift in Sources */,
 				DACC20D21E60EBAB00F8D2D7 /* MCalculatorFunctionsItemTanDeg.swift in Sources */,
 				DA81185E1E5E61ED00B6ED7C /* MKeyboardRowItem7.swift in Sources */,
