@@ -5,7 +5,7 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
     private weak var controller:CCalculator!
     private weak var collectionView:VCollection!
     private let kCellWidth:CGFloat = 135
-    private let kDeselectTime:TimeInterval = 1
+    private let kDeselectTime:TimeInterval = 0.4
     private let kInterItem:CGFloat = 2
     
     init(controller:CCalculator)
