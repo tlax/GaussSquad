@@ -12,10 +12,12 @@ class MCalculatorFunctionsItemCos:MCalculatorFunctionsItem
             title:title)
     }
     
-    override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
+    override func processFunction(
+        currentValue:Double,
+        currentString:String,
+        modelKeyboard:MKeyboard,
+        view:UITextView)
     {
-        let currentValue:Double = modelKeyboard.lastNumber()
-        let currentString:String = modelKeyboard.lastString()
         let cosValue:Double = cos(currentValue)
         let cosString:String = modelKeyboard.numberAsString(scalar:cosValue)
         let descr:String = "rad cos(\(currentString)) = \(cosString)"

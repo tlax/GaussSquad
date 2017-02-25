@@ -123,21 +123,7 @@ class VCalculatorFunctions:UIView, UICollectionViewDelegate, UICollectionViewDat
             animated:true)
         
         let item:MCalculatorFunctionsItem = modelAtIndex(index:indexPath)
-        
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            guard
-                
-                let controller:CCalculator = self?.controller
-            
-            else
-            {
-                return
-            }
-            
-            item.selected(controller:controller)
-        }
+        item.selected(controller:controller)
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)

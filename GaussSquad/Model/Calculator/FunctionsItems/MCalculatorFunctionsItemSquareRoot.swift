@@ -12,10 +12,12 @@ class MCalculatorFunctionsItemSquareRoot:MCalculatorFunctionsItem
             title:title)
     }
     
-    override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
+    override func processFunction(
+        currentValue:Double,
+        currentString:String,
+        modelKeyboard:MKeyboard,
+        view:UITextView)
     {
-        let currentValue:Double = modelKeyboard.lastNumber()
-        let currentString:String = modelKeyboard.lastString()
         let sqrtValue:Double = sqrt(currentValue)
         let sqrtString:String = modelKeyboard.numberAsString(scalar:sqrtValue)
         let descr:String = "square root(\(currentString)) = \(sqrtString)"

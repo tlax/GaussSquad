@@ -12,10 +12,12 @@ class MCalculatorFunctionsItemTan:MCalculatorFunctionsItem
             title:title)
     }
     
-    override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
+    override func processFunction(
+        currentValue:Double,
+        currentString:String,
+        modelKeyboard:MKeyboard,
+        view:UITextView)
     {
-        let currentValue:Double = modelKeyboard.lastNumber()
-        let currentString:String = modelKeyboard.lastString()
         let tanValue:Double = tan(currentValue)
         let tanString:String = modelKeyboard.numberAsString(scalar:tanValue)
         let descr:String = "rad tan(\(currentString)) = \(tanString)"

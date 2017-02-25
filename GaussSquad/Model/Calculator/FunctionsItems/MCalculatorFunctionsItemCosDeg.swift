@@ -12,10 +12,12 @@ class MCalculatorFunctionsItemCosDeg:MCalculatorFunctionsItem
             title:title)
     }
     
-    override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
+    override func processFunction(
+        currentValue:Double,
+        currentString:String,
+        modelKeyboard:MKeyboard,
+        view:UITextView)
     {
-        let currentValue:Double = modelKeyboard.lastNumber()
-        let currentString:String = modelKeyboard.lastString()
         let cosDegValue:Double = cos(currentValue * M_PI / 180.0)
         let cosDegString:String = modelKeyboard.numberAsString(scalar:cosDegValue)
         let descr:String = "deg cos(\(currentString)) = \(cosDegString)"

@@ -15,20 +15,44 @@ class MCalculatorFunctionsItem
     
     func selected(controller:CCalculator)
     {
-        let textView:UITextView = controller.viewCalculator.viewText
-        
-        guard
-        
-            let keyboard:VKeyboard = textView.inputView as? VKeyboard
-        
-        else
-        {
-            return
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self, weak controller] in
+            
+            guard
+                
+                let textView:UITextView = controller?.viewCalculator.viewText,
+                let keyboard:VKeyboard = textView.inputView as? VKeyboard
+                
+            else
+            {
+                return
+            }
+            
+            let model:MKeyboard = keyboard.model
+            
+            guard
+                
+                let lastState:MKeyboardState = model.states.last
+                
+            else
+            {
+                return
+            }
+            
+            if lastState.needsUpdate
+            {
+                model.states.removeLast()
+            }
+            
+            let currentValue:Double = model.lastNumber()
+            let currentString:String = model.lastString()
+            
+            self?.processFunction(
+                currentValue:currentValue,
+                currentString:currentString,
+                modelKeyboard:model,
+                view:textView)
         }
-        
-        applyTo(
-            modelKeyboard:keyboard.model,
-            view:textView)
     }
     
     func applyUpdate(
@@ -70,7 +94,11 @@ class MCalculatorFunctionsItem
         }
     }
     
-    func applyTo(modelKeyboard:MKeyboard, view:UITextView)
+    func processFunction(
+        currentValue:Double,
+        currentString:String,
+        modelKeyboard:MKeyboard,
+        view:UITextView)
     {
     }
 }

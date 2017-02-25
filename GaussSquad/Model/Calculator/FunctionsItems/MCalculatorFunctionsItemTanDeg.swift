@@ -12,10 +12,12 @@ class MCalculatorFunctionsItemTanDeg:MCalculatorFunctionsItem
             title:title)
     }
     
-    override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
+    override func processFunction(
+        currentValue:Double,
+        currentString:String,
+        modelKeyboard:MKeyboard,
+        view:UITextView)
     {
-        let currentValue:Double = modelKeyboard.lastNumber()
-        let currentString:String = modelKeyboard.lastString()
         let tanDegValue:Double = tan(currentValue * M_PI / 180.0)
         let tanDegString:String = modelKeyboard.numberAsString(scalar:tanDegValue)
         let descr:String = "deg tan(\(currentString)) = \(tanDegString)"

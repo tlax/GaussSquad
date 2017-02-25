@@ -12,10 +12,12 @@ class MCalculatorFunctionsItemSin:MCalculatorFunctionsItem
             title:title)
     }
     
-    override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
+    override func processFunction(
+        currentValue:Double,
+        currentString:String,
+        modelKeyboard:MKeyboard,
+        view:UITextView)
     {
-        let currentValue:Double = modelKeyboard.lastNumber()
-        let currentString:String = modelKeyboard.lastString()
         let sinValue:Double = sin(currentValue)
         let sinString:String = modelKeyboard.numberAsString(scalar:sinValue)
         let descr:String = "rad sin(\(currentString)) = \(sinString)"
