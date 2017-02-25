@@ -15,12 +15,15 @@ class MCalculatorFunctionsItemTan:MCalculatorFunctionsItem
     override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
     {
         let currentValue:Double = modelKeyboard.lastNumber()
-        let stateTan:MKeyboardStateTan = MKeyboardStateTan(
-            currentValue:currentValue)
+        let currentString:String = modelKeyboard.lastString()
+        let tanValue:Double = tan(currentValue)
+        let tanString:String = modelKeyboard.numberAsString(scalar:tanValue)
+        let descr:String = "rad tan(\(currentString)) = \(tanString)"
         
-        applyState(
-            state:stateTan,
+        applyUpdate(
             modelKeyboard:modelKeyboard,
-            view:view)
+            view:view,
+            newEditing:tanString,
+            descr:descr)
     }
 }
