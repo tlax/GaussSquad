@@ -15,12 +15,15 @@ class MCalculatorFunctionsItemSquareRoot:MCalculatorFunctionsItem
     override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
     {
         let currentValue:Double = modelKeyboard.lastNumber()
-        let stateSquareRoot:MKeyboardStateSquareRoot = MKeyboardStateSquareRoot(
-            currentValue:currentValue)
+        let currentString:String = modelKeyboard.lastString()
+        let sqrtValue:Double = sqrt(currentValue)
+        let sqrtString:String = modelKeyboard.numberAsString(scalar:sqrtValue)
+        let descr:String = "square root(\(currentString)) = \(sqrtString)"
         
-        applyState(
-            state:stateSquareRoot,
+        applyUpdate(
             modelKeyboard:modelKeyboard,
-            view:view)
+            view:view,
+            newEditing:sqrtString,
+            descr:descr)
     }
 }
