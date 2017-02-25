@@ -65,15 +65,18 @@ class CCalculator:CController
     
     override func viewWillTransition(to size:CGSize, with coordinator:UIViewControllerTransitionCoordinator)
     {
-        UIApplication.shared.keyWindow!.endEditing(true)
-        
-        coordinator.animate(alongsideTransition:
-        { (context:UIViewControllerTransitionCoordinatorContext) in
-        
-        })
-        { [weak self] (context:UIViewControllerTransitionCoordinatorContext) in
+        if parentController.childViewControllers.last === self
+        {
+            UIApplication.shared.keyWindow!.endEditing(true)
             
-            self?.viewCalculator.orientationChange()
+            coordinator.animate(alongsideTransition:
+            { (context:UIViewControllerTransitionCoordinatorContext) in
+                
+            })
+            { [weak self] (context:UIViewControllerTransitionCoordinatorContext) in
+                
+                self?.viewCalculator.orientationChange()
+            }
         }
     }
     
