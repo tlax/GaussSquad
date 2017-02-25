@@ -15,12 +15,15 @@ class MCalculatorFunctionsItemSinDeg:MCalculatorFunctionsItem
     override func applyTo(modelKeyboard:MKeyboard, view:UITextView)
     {
         let currentValue:Double = modelKeyboard.lastNumber()
-        let stateSinDeg:MKeyboardStateSinDeg = MKeyboardStateSinDeg(
-            currentValue:currentValue)
+        let currentString:String = modelKeyboard.lastString()
+        let sinDegValue:Double = sin(currentValue * M_PI / 180.0)
+        let sinDegString:String = modelKeyboard.numberAsString(scalar:sinDegValue)
+        let descr:String = "deg sin(\(currentString)) = \(sinDegString)"
         
-        applyState(
-            state:stateSinDeg,
+        applyUpdate(
             modelKeyboard:modelKeyboard,
-            view:view)
+            view:view,
+            newEditing:sinDegString,
+            descr:descr)
     }
 }
