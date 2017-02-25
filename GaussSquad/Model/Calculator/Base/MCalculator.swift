@@ -15,6 +15,5 @@ class MCalculator
             functionTrigonometry,
             functionExponents]
         steps = MCalculatorSteps()
-        currentFunction = functions.first
     }
 }
