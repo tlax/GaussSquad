@@ -23,7 +23,8 @@ class VLinearEquationsPlotMenu:UIView, UICollectionViewDelegate, UICollectionVie
         collectionView.alwaysBounceHorizontal = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.registerCell(cell:VLinearEquationsPlotMenuCell.self)
+        collectionView.registerCell(cell:VLinearEquationsPlotMenuCellOrigin.self)
+        collectionView.registerCell(cell:VLinearEquationsPlotMenuCellEquation.self)
         self.collectionView = collectionView
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
@@ -75,9 +76,9 @@ class VLinearEquationsPlotMenu:UIView, UICollectionViewDelegate, UICollectionVie
     
     //MARK: private
     
-    private func modelAtIndex(index:IndexPath) -> MPlotMenuItem
+    private func modelAtIndex(index:IndexPath) -> MLinearEquationsPlotMenuItem
     {
-        let item:MPlotMenuItem = controller.model.modelMenu!.items[index.item]
+        let item:MLinearEquationsPlotMenuItem = controller.model.modelMenu!.items[index.item]
         
         return item
     }
@@ -93,8 +94,11 @@ class VLinearEquationsPlotMenu:UIView, UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
+        let item:MLinearEquationsPlotMenuItem = modelAtIndex(index:indexPath)
         let height:CGFloat = collectionView.bounds.maxY
-        let size:CGSize = CGSize(width:kCellWidth, height:height)
+        let size:CGSize = CGSize(
+            width:item.cellWidth,
+            height:height)
         
         return size
     }
@@ -120,10 +124,10 @@ class VLinearEquationsPlotMenu:UIView, UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MPlotMenuItem = modelAtIndex(index:indexPath)
+        let item:MLinearEquationsPlotMenuItem = modelAtIndex(index:indexPath)
         let cell:VLinearEquationsPlotMenuCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
-            VLinearEquationsPlotMenuCell.reusableIdentifier,
+            item.reusableIdentifier,
             for:indexPath) as! VLinearEquationsPlotMenuCell
         cell.config(model:item)
         
@@ -132,7 +136,7 @@ class VLinearEquationsPlotMenu:UIView, UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        let item:MPlotMenuItem = modelAtIndex(index:indexPath)
+        let item:MLinearEquationsPlotMenuItem = modelAtIndex(index:indexPath)
         controller.viewPlot.centerItem(item:item)
         collectionView.scrollToItem(
             at:indexPath,
