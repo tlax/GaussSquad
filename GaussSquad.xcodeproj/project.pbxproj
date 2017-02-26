@@ -13,6 +13,7 @@
 		DA033CF01E3AA30700F7645C /* VParentBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA033CEF1E3AA30700F7645C /* VParentBarButton.swift */; };
 		DA033CF21E3AB68400F7645C /* VHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA033CF11E3AB68400F7645C /* VHomeCell.swift */; };
 		DA0CB7FF1E62702E003AA283 /* MCalculatorFunctionsItemAnyRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB7FE1E62702E003AA283 /* MCalculatorFunctionsItemAnyRoot.swift */; };
+		DA0CB8011E627092003AA283 /* MCalculatorFunctionsItemAnyExponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB8001E627092003AA283 /* MCalculatorFunctionsItemAnyExponent.swift */; };
 		DA0D4DD91E4E1A8900699018 /* VLinearEquationsSolutionCellIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0D4DD81E4E1A8900699018 /* VLinearEquationsSolutionCellIndex.swift */; };
 		DA0D4DDB1E4E1C9500699018 /* MLinearEquationsSolutionEquationItemIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0D4DDA1E4E1C9500699018 /* MLinearEquationsSolutionEquationItemIndex.swift */; };
 		DA0D4DE11E4E5B6C00699018 /* MLinearEquationsSolutionStrategyReduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0D4DE01E4E5B6C00699018 /* MLinearEquationsSolutionStrategyReduction.swift */; };
@@ -319,6 +320,7 @@
 		DA033CEF1E3AA30700F7645C /* VParentBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParentBarButton.swift; sourceTree = "<group>"; };
 		DA033CF11E3AB68400F7645C /* VHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCell.swift; sourceTree = "<group>"; };
 		DA0CB7FE1E62702E003AA283 /* MCalculatorFunctionsItemAnyRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCalculatorFunctionsItemAnyRoot.swift; sourceTree = "<group>"; };
+		DA0CB8001E627092003AA283 /* MCalculatorFunctionsItemAnyExponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCalculatorFunctionsItemAnyExponent.swift; sourceTree = "<group>"; };
 		DA0D4DD81E4E1A8900699018 /* VLinearEquationsSolutionCellIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionCellIndex.swift; sourceTree = "<group>"; };
 		DA0D4DDA1E4E1C9500699018 /* MLinearEquationsSolutionEquationItemIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionEquationItemIndex.swift; sourceTree = "<group>"; };
 		DA0D4DE01E4E5B6C00699018 /* MLinearEquationsSolutionStrategyReduction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionStrategyReduction.swift; sourceTree = "<group>"; };
@@ -1343,6 +1345,7 @@
 				DAC9FEE11E617CCE0085BA7F /* MCalculatorFunctionsItemCube.swift */,
 				DAC9FEE31E617CD70085BA7F /* MCalculatorFunctionsItemReciprocal.swift */,
 				DA0CB7FE1E62702E003AA283 /* MCalculatorFunctionsItemAnyRoot.swift */,
+				DA0CB8001E627092003AA283 /* MCalculatorFunctionsItemAnyExponent.swift */,
 			);
 			path = FunctionsItems;
 			sourceTree = "<group>";
@@ -1946,6 +1949,7 @@
 				DAFF4A991E397B9600A2DD4B /* CParent.swift in Sources */,
 				DA2CE3A01E5F56E300626A43 /* MKeyboardRowItemNumeric.swift in Sources */,
 				DAFF4AC91E397B9600A2DD4B /* VView.swift in Sources */,
+				DA0CB8011E627092003AA283 /* MCalculatorFunctionsItemAnyExponent.swift in Sources */,
 				DAEE488C1E57AE5A000D27A9 /* MPlotRenderIndeterminate.swift in Sources */,
 				DA033CF21E3AB68400F7645C /* VHomeCell.swift in Sources */,
 			);

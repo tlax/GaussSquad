@@ -35,11 +35,13 @@
 "MCalculatorFunctionsItemSinDeg_title"="Deg Sine";
 "MCalculatorFunctionsItemCosDeg_title"="Deg Cosine";
 "MCalculatorFunctionsItemTanDeg_title"="Deg Tangent";
-"MCalculatorFunctionsItemSquareRoot_title"="Square root";
-"MCalculatorFunctionsItemCubeRoot_title"="Cube root";
+"MCalculatorFunctionsItemSquareRoot_title"="Square Root";
+"MCalculatorFunctionsItemCubeRoot_title"="Cube Root";
 "MCalculatorFunctionsItemSquare_title"="Square";
 "MCalculatorFunctionsItemCube_title"="Cube";
 "MCalculatorFunctionsItemReciprocal_title"="Reciprocal";
+"MCalculatorFunctionsItemAnyRoot_title"="Any Root";
+"MCalculatorFunctionsItemAnyExponent_title"="Any Exponent";
 "MCalculatorFunctionsTrigonometry_title"="Trigonometry";
 "MCalculatorFunctionsExponents_title"="Exponents";
 "MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition or change the indeterminate";
