@@ -73,6 +73,8 @@
 "VLinearEquationsPlotMenuCellOrigin_title"="Origin";
 "VSettingsCellSupport_labelTitle"="Need support?";
 "VSettingsCellSupport_labelSubtitle"="\nSend us your questions, we'd like to read you";
+"VSettingsCellReview_labelTitle"="You like Gauss Squad?";
+"VSettingsCellReview_labelSubtitle"="Write a review on the App Store";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
 "VStoreCellDeferred_label"="Purchase deferred";

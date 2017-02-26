@@ -25,6 +25,7 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             flow.minimumInteritemSpacing = kInterLine
+            flow.minimumLineSpacing = kInterLine
             flow.sectionInset = UIEdgeInsets(
                 top:kCollectionTop,
                 left:0,
