@@ -14,23 +14,23 @@ class MCalculatorFunctionsItemAnyRoot:MCalculatorFunctionsItem
     
     override func selected(controller:CCalculator)
     {
+        guard
+            
+            let textView:UITextView = controller.viewCalculator.viewText,
+            let keyboard:VKeyboard = textView.inputView as? VKeyboard
+            
+        else
+        {
+            return
+        }
         
-    }
-    
-    override func processFunction(
-        currentValue:Double,
-        currentString:String,
-        modelKeyboard:MKeyboard,
-        view:UITextView)
-    {
-        let cbrtValue:Double = cbrt(currentValue)
-        let cbrtString:String = modelKeyboard.numberAsString(scalar:cbrtValue)
-        let descr:String = "cube root(\(currentString)) = \(cbrtString)"
+        let model:MKeyboard = keyboard.model
+        model.commitIfNeeded(view:textView)
         
-        applyUpdate(
-            modelKeyboard:modelKeyboard,
-            view:view,
-            newEditing:cbrtString,
-            descr:descr)
+        let previousValue:Double = model.lastNumber()
+        let stateRoot:MKeyboardStateRoot = MKeyboardStateRoot(
+            previousValue:previousValue,
+            editing:model.kInitial)
+        model.states.append(stateRoot)
     }
 }
