@@ -1,23 +1,14 @@
 import UIKit
 
-class VLinearEquationsPlotMenuCell:UICollectionViewCell
+class VLinearEquationsPlotMenuCellEquation:VLinearEquationsPlotMenuCell
 {
     private weak var imageView:UIImageView!
     private weak var label:UILabel!
     private let kImageWidth:CGFloat = 40
-    private let kImageLeft:CGFloat = 10
-    private let kLabelWidth:CGFloat = 100
-    private let kAlphaSelected:CGFloat = 0.15
-    private let kAlphaNotSelected:CGFloat = 1
-    private let kBorderWidth:CGFloat = 1
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        clipsToBounds = true
-        backgroundColor = UIColor.clear
-        
-        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -35,8 +26,7 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
         label.font = UIFont.bold(size:16)
         label.textColor = UIColor.black
         self.label = label
-        
-        addSubview(border)
+
         addSubview(imageView)
         addSubview(label)
         
@@ -45,8 +35,7 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
             toView:self)
         NSLayoutConstraint.leftToLeft(
             view:imageView,
-            toView:self,
-            constant:kImageLeft)
+            toView:self)
         NSLayoutConstraint.width(
             view:imageView,
             constant:kImageWidth)
@@ -60,16 +49,6 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
         NSLayoutConstraint.width(
             view:label,
             constant:kLabelWidth)
-        
-        NSLayoutConstraint.equalsVertical(
-            view:border,
-            toView:self)
-        NSLayoutConstraint.rightToRight(
-            view:border,
-            toView:self)
-        NSLayoutConstraint.width(
-            view:border,
-            constant:kBorderWidth)
     }
     
     required init?(coder:NSCoder)
@@ -77,40 +56,12 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
         return nil
     }
     
-    override var isSelected:Bool
-    {
-        didSet
-        {
-            hover()
-        }
-    }
-    
-    override var isHighlighted:Bool
-    {
-        didSet
-        {
-            hover()
-        }
-    }
-    
-    //MARK: private
-    
-    private func hover()
-    {
-        if isSelected || isHighlighted
-        {
-            alpha = kAlphaSelected
-        }
-        else
-        {
-            alpha = kAlphaNotSelected
-        }
-    }
-    
     //MARK: public
     
-    func config(model:MPlotMenuItem)
+    override func config(model:MPlotMenuItem)
     {
-        hover()
+        super.config(model:model)
+        imageView.tintColor = model.color
+        label.text = model.title
     }
 }

@@ -7,12 +7,7 @@ class MPlotMenuItemOrigin:MPlotMenuItem
     
     init()
     {
-        let title:String = NSLocalizedString("MPlotMenuItemOrigin_title", comment:"")
-        let color:UIColor = UIColor.black
-        
         super.init(
-            color:color,
-            title:title,
             positionX:kPositionX,
             positionY:kPositionY)
     }

@@ -27,7 +27,6 @@
 "MLinearEquationsSolutionStepDone_subtitle"="\nReduced row echelon form";
 "MLinearEquationsSolutionStepStart_label"="Linear equations system";
 "MLinearEquationsSolutionStepError_title"="Error: ";
-"MPlotMenuItemOrigin_title"="Origin";
 "MCalculatorStepsItemBegin_descr"="Begin";
 "MCalculatorFunctionsItemSin_title"="Rad Sine";
 "MCalculatorFunctionsItemCos_title"="Rad Cosine";
@@ -71,6 +70,7 @@
 "VLinearEquationsPlot_notSupported"="Sorry, your device does not support Metal";
 "VCalculatorOptionsHeader_title"="Functions";
 "VCalculatorOptionsHeader_buttonNone"="None";
+"VLinearEquationsPlotMenuCellOrigin_title"="Origin";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
 "VStoreCellDeferred_label"="Purchase deferred";

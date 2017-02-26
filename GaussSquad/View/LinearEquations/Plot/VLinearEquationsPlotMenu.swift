@@ -14,7 +14,7 @@ class VLinearEquationsPlotMenu:UIView, UICollectionViewDelegate, UICollectionVie
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor.squadBlue.withAlphaComponent(0.06)
+        backgroundColor = UIColor.clear
         self.controller = controller
         
         let blur:VBlur = VBlur.light()

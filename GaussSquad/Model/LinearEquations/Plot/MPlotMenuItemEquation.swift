@@ -2,6 +2,7 @@ import UIKit
 
 class MPlotMenuItemEquation:MPlotMenuItem
 {
+    let color:UIColor
     let value:Double
     
     init(
@@ -12,6 +13,7 @@ class MPlotMenuItemEquation:MPlotMenuItem
         positionY:CGFloat)
     {
         self.value = value
+        self.color = color
         
         super.init(
             color:color,

@@ -2,20 +2,20 @@ import UIKit
 
 class MPlotMenuItem
 {
-    let color:UIColor
-    let title:String
     let positionX:CGFloat
     let positionY:CGFloat
+    let cellWidth:CGFloat
+    let reusableIdentifier:String
     
     init(
-        color:UIColor,
-        title:String,
         positionX:CGFloat,
-        positionY:CGFloat)
+        positionY:CGFloat,
+        cellWidth:CGFloat,
+        reusableIdentifier:String)
     {
-        self.color = color
-        self.title = title
         self.positionX = positionX
         self.positionY = positionY
+        self.cellWidth = cellWidth
+        self.reusableIdentifier = reusableIdentifier
     }
 }
