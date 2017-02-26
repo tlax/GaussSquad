@@ -214,6 +214,8 @@
 		DABC07BF1E636CD400EC2FBE /* VSettingsCellReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC07BE1E636CD400EC2FBE /* VSettingsCellReview.swift */; };
 		DABC07C11E63737300EC2FBE /* MSettingsItemSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC07C01E63737300EC2FBE /* MSettingsItemSupport.swift */; };
 		DABC07C31E6377C700EC2FBE /* MSettingsItemReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC07C21E6377C700EC2FBE /* MSettingsItemReview.swift */; };
+		DABC07C51E63790200EC2FBE /* VSettingsCellShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC07C41E63790200EC2FBE /* VSettingsCellShare.swift */; };
+		DABC07C71E637A3D00EC2FBE /* MSettingsItemShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC07C61E637A3D00EC2FBE /* MSettingsItemShare.swift */; };
 		DAC2164D1E42304E009EDBF7 /* VLinearEquationsProjectCellNewPolynomial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2164C1E42304E009EDBF7 /* VLinearEquationsProjectCellNewPolynomial.swift */; };
 		DAC216511E424DEC009EDBF7 /* VLinearEquationsProjectFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC216501E424DEC009EDBF7 /* VLinearEquationsProjectFlow.swift */; };
 		DAC216531E427D1C009EDBF7 /* VCollectionFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC216521E427D1C009EDBF7 /* VCollectionFlow.swift */; };
@@ -530,6 +532,8 @@
 		DABC07BE1E636CD400EC2FBE /* VSettingsCellReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellReview.swift; sourceTree = "<group>"; };
 		DABC07C01E63737300EC2FBE /* MSettingsItemSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemSupport.swift; sourceTree = "<group>"; };
 		DABC07C21E6377C700EC2FBE /* MSettingsItemReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemReview.swift; sourceTree = "<group>"; };
+		DABC07C41E63790200EC2FBE /* VSettingsCellShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellShare.swift; sourceTree = "<group>"; };
+		DABC07C61E637A3D00EC2FBE /* MSettingsItemShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemShare.swift; sourceTree = "<group>"; };
 		DAC2164C1E42304E009EDBF7 /* VLinearEquationsProjectCellNewPolynomial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectCellNewPolynomial.swift; sourceTree = "<group>"; };
 		DAC216501E424DEC009EDBF7 /* VLinearEquationsProjectFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectFlow.swift; sourceTree = "<group>"; };
 		DAC216521E427D1C009EDBF7 /* VCollectionFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCollectionFlow.swift; sourceTree = "<group>"; };
@@ -1023,6 +1027,7 @@
 				DA476EF41E5611930058F4A4 /* VSettingsCellFractionDigits.swift */,
 				DABC07BC1E636CCB00EC2FBE /* VSettingsCellSupport.swift */,
 				DABC07BE1E636CD400EC2FBE /* VSettingsCellReview.swift */,
+				DABC07C41E63790200EC2FBE /* VSettingsCellShare.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1051,6 +1056,7 @@
 				DA476EF01E5610A60058F4A4 /* MSettingsItemFractionDigits.swift */,
 				DABC07C01E63737300EC2FBE /* MSettingsItemSupport.swift */,
 				DABC07C21E6377C700EC2FBE /* MSettingsItemReview.swift */,
+				DABC07C61E637A3D00EC2FBE /* MSettingsItemShare.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1764,6 +1770,7 @@
 				DA2CE38D1E5F37FA00626A43 /* MKeyboardRowItemBackspace.swift in Sources */,
 				DAF37AD91E3D51D7005052D8 /* VLinearEquations.swift in Sources */,
 				DA12D47B1E41599A008327B5 /* MLinearEquationsProjectRowItemPolynomialDivision.swift in Sources */,
+				DABC07C71E637A3D00EC2FBE /* MSettingsItemShare.swift in Sources */,
 				DA476F1B1E5634690058F4A4 /* VStoreCellDeferred.swift in Sources */,
 				DAEE488A1E57A7B2000D27A9 /* MetalColor.swift in Sources */,
 				DAFEB1AB1E60A6F300E609C9 /* MCalculatorFunctionsItemTan.swift in Sources */,
@@ -1966,6 +1973,7 @@
 				DA8118541E5E5CF200B6ED7C /* MKeyboardRowItem2.swift in Sources */,
 				DA6D62D51E560EC4002D9C1A /* VSettings.swift in Sources */,
 				DA476EF71E56245F0058F4A4 /* DSettingsExtension.swift in Sources */,
+				DABC07C51E63790200EC2FBE /* VSettingsCellShare.swift in Sources */,
 				DA46913E1E56744600FAD188 /* MetalConstants.swift in Sources */,
 				DAC9FEDE1E6179CD0085BA7F /* MCalculatorFunctionsItemCubeRoot.swift in Sources */,
 				DA46914D1E56744600FAD188 /* MetalVertexFace.swift in Sources */,

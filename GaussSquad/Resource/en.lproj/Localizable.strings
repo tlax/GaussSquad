@@ -74,7 +74,9 @@
 "VSettingsCellSupport_labelTitle"="Need support?";
 "VSettingsCellSupport_labelSubtitle"="\nSend us your questions, we'd like to read you";
 "VSettingsCellReview_labelTitle"="You like Gauss Squad?";
-"VSettingsCellReview_labelSubtitle"="Write a review on the App Store";
+"VSettingsCellReview_labelSubtitle"="\nWrite a review on the App Store";
+"VSettingsCellShare_labelTitle"="Share the app";
+"VSettingsCellShare_labelSubtitle"="Let others know about Gauss Squad";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
 "VStoreCellDeferred_label"="Purchase deferred";

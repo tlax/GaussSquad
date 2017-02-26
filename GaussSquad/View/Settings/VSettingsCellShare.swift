@@ -1,6 +1,6 @@
 import UIKit
 
-class VSettingsCellReview:VSettingsCell
+class VSettingsCellShare:VSettingsCell
 {
     private let kLabelLeft:CGFloat = 10
     private let kButtonWidth:CGFloat = 70
@@ -16,10 +16,10 @@ class VSettingsCellReview:VSettingsCell
             NSFontAttributeName:UIFont.regular(size:15),
             NSForegroundColorAttributeName:UIColor(white:0, alpha:0.7)]
         let stringTitle:NSAttributedString = NSAttributedString(
-            string:NSLocalizedString("VSettingsCellReview_labelTitle", comment:""),
+            string:NSLocalizedString("VSettingsCellShare_labelTitle", comment:""),
             attributes:attributesTitle)
         let stringSubtitle:NSAttributedString = NSAttributedString(
-            string:NSLocalizedString("VSettingsCellReview_labelSubtitle", comment:""),
+            string:NSLocalizedString("VSettingsCellShare_labelSubtitle", comment:""),
             attributes:attributesSubtitle)
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         mutableString.append(stringTitle)
@@ -28,10 +28,10 @@ class VSettingsCellReview:VSettingsCell
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(
-            #imageLiteral(resourceName: "assetGenericReview").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            #imageLiteral(resourceName: "assetGenericSolutionShareBlue").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
         button.setImage(
-            #imageLiteral(resourceName: "assetGenericReview").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            #imageLiteral(resourceName: "assetGenericSolutionShareBlue").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
         button.imageView!.clipsToBounds = true
         button.imageView!.contentMode = UIViewContentMode.center

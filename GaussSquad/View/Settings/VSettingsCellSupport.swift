@@ -3,7 +3,7 @@ import UIKit
 class VSettingsCellSupport:VSettingsCell
 {
     private let kLabelLeft:CGFloat = 10
-    private let kButtonWidth:CGFloat = 55
+    private let kButtonWidth:CGFloat = 70
     
     override init(frame:CGRect)
     {

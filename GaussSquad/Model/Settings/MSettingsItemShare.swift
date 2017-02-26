@@ -1,12 +1,12 @@
 import UIKit
 
-class MSettingsItemReview:MSettingsItem
+class MSettingsItemShare:MSettingsItem
 {
     private let kCellHeight:CGFloat = 80
     
     init()
     {
-        let reusableIdentifier:String = VSettingsCellReview.reusableIdentifier
+        let reusableIdentifier:String = VSettingsCellShare.reusableIdentifier
         
         super.init(
             reusableIdentifier:reusableIdentifier,
