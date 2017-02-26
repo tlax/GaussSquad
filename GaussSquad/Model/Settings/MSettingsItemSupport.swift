@@ -2,7 +2,7 @@ import UIKit
 
 class MSettingsItemSupport:MSettingsItem
 {
-    private let kCellHeight:CGFloat = 80
+    private let kCellHeight:CGFloat = 85
     
     init()
     {

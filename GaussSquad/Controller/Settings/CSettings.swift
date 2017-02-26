@@ -22,4 +22,21 @@ class CSettings:CController
         self.viewSettings = viewSettings
         view = viewSettings
     }
+    
+    //MARK: public
+    
+    func support()
+    {
+        
+    }
+    
+    func review()
+    {
+        
+    }
+    
+    func share()
+    {
+        
+    }
 }
