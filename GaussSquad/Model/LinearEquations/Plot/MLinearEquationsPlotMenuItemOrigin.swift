@@ -2,7 +2,7 @@ import UIKit
 
 class MLinearEquationsPlotMenuItemOrigin:MLinearEquationsPlotMenuItem
 {
-    private let kCellWidth:CGFloat = 70
+    private let kCellWidth:CGFloat = 80
     private let kPositionX:CGFloat = 0
     private let kPositionY:CGFloat = 0
     

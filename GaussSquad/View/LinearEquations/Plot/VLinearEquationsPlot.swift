@@ -9,7 +9,7 @@ class VLinearEquationsPlot:VView
     private weak var spinner:VSpinner?
     private var startingPoint:CGPoint?
     private let kBarHeight:CGFloat = 64
-    private let kMenuHeight:CGFloat = 52
+    private let kMenuHeight:CGFloat = 56
     private var positionX:CGFloat = 0
     private var positionY:CGFloat = 0
     

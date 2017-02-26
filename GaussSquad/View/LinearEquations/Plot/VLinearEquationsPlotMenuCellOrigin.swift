@@ -10,8 +10,9 @@ class VLinearEquationsPlotMenuCellOrigin:VLinearEquationsPlotMenuCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:15)
+        label.font = UIFont.regular(size:14)
         label.textColor = UIColor.black
+        label.textAlignment = NSTextAlignment.center
         label.text = NSLocalizedString("VLinearEquationsPlotMenuCellOrigin_title", comment:"")
         
         addSubview(label)

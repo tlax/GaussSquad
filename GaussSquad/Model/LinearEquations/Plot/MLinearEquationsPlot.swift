@@ -62,7 +62,10 @@ class MLinearEquationsPlot
             }
             
             let coefficientValue:Double = coefficient.coefficient
+            let coefficientString:String = MSession.sharedInstance.stringFrom(
+                number:coefficientValue)
             let indeterminate:String = polynomial.indeterminate.symbol
+            let indeterminateCoefficient:String = "\(indeterminate): \(coefficientString)"
             let indexColor:Int = indexItem % colors.count
             let color:UIColor = colors[indexColor]
             let positionY:Double = coefficientValue * positionZoom
@@ -74,7 +77,7 @@ class MLinearEquationsPlot
                 color:color)
             modelMenu.addItem(
                 color:color,
-                title:indeterminate,
+                title:indeterminateCoefficient,
                 value:coefficientValue,
                 positionX:positionX,
                 positionY:positionY)

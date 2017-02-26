@@ -5,7 +5,7 @@ class MLinearEquationsPlotMenuItemEquation:MLinearEquationsPlotMenuItem
     let color:UIColor
     let title:String
     let value:Double
-    private let kCellWidth:CGFloat = 200
+    private let kCellWidth:CGFloat = 150
     
     init(
         color:UIColor,
