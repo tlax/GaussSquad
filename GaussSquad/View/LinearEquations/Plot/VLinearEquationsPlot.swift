@@ -128,7 +128,7 @@ class VLinearEquationsPlot:VView
     
     //MARK: public
     
-    func centerItem(item:MPlotMenuItem)
+    func centerItem(item:MLinearEquationsPlotMenuItem)
     {
         positionX = -item.positionX
         positionY = -item.positionY

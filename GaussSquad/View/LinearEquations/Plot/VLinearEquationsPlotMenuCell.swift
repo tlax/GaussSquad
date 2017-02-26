@@ -64,7 +64,7 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MPlotMenuItem)
+    func config(model:MLinearEquationsPlotMenuItem)
     {
         hover()
     }

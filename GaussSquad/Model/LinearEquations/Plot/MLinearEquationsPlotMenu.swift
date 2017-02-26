@@ -2,11 +2,11 @@ import UIKit
 
 class MLinearEquationsPlotMenu
 {
-    private(set) var items:[MPlotMenuItem]
+    private(set) var items:[MLinearEquationsPlotMenuItem]
     
     init()
     {
-        let itemOrigin:MPlotMenuItemOrigin = MPlotMenuItemOrigin()
+        let itemOrigin:MLinearEquationsPlotMenuItemOrigin = MLinearEquationsPlotMenuItemOrigin()
         items = [itemOrigin]
     }
     
@@ -21,7 +21,7 @@ class MLinearEquationsPlotMenu
         let floatX:CGFloat = CGFloat(positionX)
         let floatY:CGFloat = CGFloat(positionY)
         
-        let item:MPlotMenuItemEquation = MPlotMenuItemEquation(
+        let item:MLinearEquationsPlotMenuItemEquation = MLinearEquationsPlotMenuItemEquation(
             color:color,
             title:title,
             value:value,

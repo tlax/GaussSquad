@@ -5,10 +5,10 @@ class MLinearEquationsPlotRender:MetalRenderableProtocol
 {
     private weak var device:MTLDevice?
     private var projection:MTLBuffer
-    private var indeterminates:[MPlotRenderIndeterminate]
+    private var indeterminates:[MLinearEquationsPlotRenderIndeterminate]
     private let texturePoint:MTLTexture?
     private let textureLine:MTLTexture?
-    private let cartesian:MPlotRenderCartesian?
+    private let cartesian:MLinearEquationsPlotRenderCartesian?
     
     init(device:MTLDevice)
     {
@@ -20,7 +20,7 @@ class MLinearEquationsPlotRender:MetalRenderableProtocol
             image:#imageLiteral(resourceName: "assetTextureLine"))
         {
             self.textureLine = textureLine
-            cartesian = MPlotRenderCartesian(
+            cartesian = MLinearEquationsPlotRenderCartesian(
                 device:device,
                 texture:textureLine)
         }
@@ -43,7 +43,7 @@ class MLinearEquationsPlotRender:MetalRenderableProtocol
             
             let device:MTLDevice = self.device
             
-            else
+        else
         {
             return
         }
@@ -65,7 +65,7 @@ class MLinearEquationsPlotRender:MetalRenderableProtocol
             let texturePoint:MTLTexture = self.texturePoint,
             let textureLine:MTLTexture = self.textureLine
             
-            else
+        else
         {
             return
         }
@@ -73,7 +73,7 @@ class MLinearEquationsPlotRender:MetalRenderableProtocol
         let floatPositionX:Float = Float(positionX)
         let floatPositionY:Float = Float(positionY)
         
-        let indeterminate:MPlotRenderIndeterminate = MPlotRenderIndeterminate(
+        let indeterminate:MLinearEquationsPlotRenderIndeterminate = MLinearEquationsPlotRenderIndeterminate(
             device:device,
             texturePoint:texturePoint,
             textureLine:textureLine,
@@ -97,7 +97,7 @@ class MLinearEquationsPlotRender:MetalRenderableProtocol
             projection:projection)
         cartesian?.render(renderEncoder:renderEncoder)
         
-        for indeterminate:MPlotRenderIndeterminate in indeterminates
+        for indeterminate:MLinearEquationsPlotRenderIndeterminate in indeterminates
         {
             indeterminate.render(
                 renderEncoder:renderEncoder)

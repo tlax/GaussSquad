@@ -11,8 +11,8 @@ class MLinearEquationsPlotMenuItemOrigin:MLinearEquationsPlotMenuItem
         let reusableIdentifier:String = VLinearEquationsPlotMenuCellOrigin.reusableIdentifier
         
         super.init(
-            positionX:positionX,
-            positionY:positionY,
+            positionX:kPositionX,
+            positionY:kPositionY,
             cellWidth:kCellWidth,
             reusableIdentifier:reusableIdentifier)
     }

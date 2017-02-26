@@ -5,8 +5,8 @@ class MLinearEquationsPlot
 {
     weak var stepDone:MLinearEquationsSolutionStepDone?
     private(set) var zoom:Double = 1
-    private(set) var modelRender:MPlotRender?
-    private(set) var modelMenu:MPlotMenu?
+    private(set) var modelRender:MLinearEquationsPlotRender?
+    private(set) var modelMenu:MLinearEquationsPlotMenu?
     private weak var device:MTLDevice?
     private let kDeltaPosition:Double = 10
     private let colors:[UIColor]
@@ -34,14 +34,14 @@ class MLinearEquationsPlot
             
             let device:MTLDevice = self.device,
             let stepDone:MLinearEquationsSolutionStepDone = self.stepDone,
-            let modelRender:MPlotRender = self.modelRender
+            let modelRender:MLinearEquationsPlotRender = self.modelRender
             
-            else
+        else
         {
             return
         }
         
-        let modelMenu:MPlotMenu = MPlotMenu()
+        let modelMenu:MLinearEquationsPlotMenu = MLinearEquationsPlotMenu()
         modelRender.clearIndeterminates()
         
         let positionZoom:Double = kDeltaPosition * zoom
@@ -56,7 +56,7 @@ class MLinearEquationsPlot
                 let coefficient:MLinearEquationsSolutionEquationItemConstant = equation.result as? MLinearEquationsSolutionEquationItemConstant,
                 let polynomial:MLinearEquationsSolutionEquationItemPolynomial = equation.items.first as? MLinearEquationsSolutionEquationItemPolynomial
                 
-                else
+            else
             {
                 continue
             }
@@ -91,7 +91,7 @@ class MLinearEquationsPlot
     func makeRender(device:MTLDevice)
     {
         self.device = device
-        modelRender = MPlotRender(device:device)
+        modelRender = MLinearEquationsPlotRender(device:device)
         makeIndeterminates()
     }
     
