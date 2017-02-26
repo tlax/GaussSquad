@@ -1,9 +1,14 @@
-//
-//  MLinearEquationsPlotMenuItemOrigin.swift
-//  GaussSquad
-//
-//  Created by zero on 2/25/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MLinearEquationsPlotMenuItemOrigin:MPlotMenuItem
+{
+    private let kPositionX:CGFloat = 0
+    private let kPositionY:CGFloat = 0
+    
+    init()
+    {
+        super.init(
+            positionX:kPositionX,
+            positionY:kPositionY)
+    }
+}

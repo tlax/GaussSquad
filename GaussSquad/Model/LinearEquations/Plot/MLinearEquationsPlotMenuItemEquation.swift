@@ -1,9 +1,24 @@
-//
-//  MLinearEquationsPlotMenuItemEquation.swift
-//  GaussSquad
-//
-//  Created by zero on 2/25/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MLinearEquationsPlotMenuItemEquation:MPlotMenuItem
+{
+    let color:UIColor
+    let value:Double
+    
+    init(
+        color:UIColor,
+        title:String,
+        value:Double,
+        positionX:CGFloat,
+        positionY:CGFloat)
+    {
+        self.value = value
+        self.color = color
+        
+        super.init(
+            color:color,
+            title:title,
+            positionX:positionX,
+            positionY:positionY)
+    }
+}
