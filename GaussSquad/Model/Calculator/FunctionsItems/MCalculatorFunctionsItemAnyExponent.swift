@@ -12,20 +12,25 @@ class MCalculatorFunctionsItemAnyExponent:MCalculatorFunctionsItem
             title:title)
     }
     
-    override func processFunction(
-        currentValue:Double,
-        currentString:String,
-        modelKeyboard:MKeyboard,
-        view:UITextView)
+    override func selected(controller:CCalculator)
     {
-        let cbrtValue:Double = cbrt(currentValue)
-        let cbrtString:String = modelKeyboard.numberAsString(scalar:cbrtValue)
-        let descr:String = "cube root(\(currentString)) = \(cbrtString)"
+        guard
+            
+            let textView:UITextView = controller.viewCalculator.viewText,
+            let keyboard:VKeyboard = textView.inputView as? VKeyboard
+            
+        else
+        {
+            return
+        }
         
-        applyUpdate(
-            modelKeyboard:modelKeyboard,
-            view:view,
-            newEditing:cbrtString,
-            descr:descr)
+        let model:MKeyboard = keyboard.model
+        model.commitIfNeeded(view:textView)
+        
+        let previousValue:Double = model.lastNumber()
+        let stateExponent:MKeyboardStateExponent = MKeyboardStateExponent(
+            previousValue:previousValue,
+            editing:model.kInitial)
+        model.states.append(stateExponent)
     }
 }
