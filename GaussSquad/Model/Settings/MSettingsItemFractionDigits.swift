@@ -2,7 +2,7 @@ import UIKit
 
 class MSettingsItemFractionDigits:MSettingsItem
 {
-    let kMaxDigits:Double = 10
+    let kMaxDigits:Double = 15
     let kMinDigits:Double = 0
     private let kCellHeight:CGFloat = 100
     

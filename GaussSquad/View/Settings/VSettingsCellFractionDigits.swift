@@ -5,7 +5,7 @@ class VSettingsCellFractionDigits:VSettingsCell
     private weak var labelNumber:UILabel!
     private weak var stepper:UIStepper!
     private let kLabelTitleLeft:CGFloat = 10
-    private let kLabelNumberWidth:CGFloat = 50
+    private let kLabelNumberWidth:CGFloat = 60
     private let kLabelNumberRight:CGFloat = -5
     private let kStepperWidth:CGFloat = 110
     private let kStepperHeight:CGFloat = 70
@@ -19,7 +19,8 @@ class VSettingsCellFractionDigits:VSettingsCell
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.isUserInteractionEnabled = false
-        labelTitle.font = UIFont.regular(size:14)
+        labelTitle.font = UIFont.medium(size:15)
+        labelTitle.numberOfLines = 0
         labelTitle.textColor = UIColor.black
         labelTitle.text = NSLocalizedString("VSettingsCellFractionDigits_labelTitle", comment:"")
         
@@ -37,7 +38,7 @@ class VSettingsCellFractionDigits:VSettingsCell
         labelNumber.translatesAutoresizingMaskIntoConstraints = false
         labelNumber.backgroundColor = UIColor.clear
         labelNumber.textAlignment = NSTextAlignment.right
-        labelNumber.font = UIFont.numericBold(size:21)
+        labelNumber.font = UIFont.numericBold(size:24)
         labelNumber.textColor = UIColor.squadBlue
         self.labelNumber = labelNumber
         
@@ -129,7 +130,7 @@ class VSettingsCellFractionDigits:VSettingsCell
     
     private func displayValue()
     {
-        let current:Double = stepper.value
+        let current:Int = Int(stepper.value)
         let stringCurrent:String = "\(current)"
         labelNumber.text = stringCurrent
     }
