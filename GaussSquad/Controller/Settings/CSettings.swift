@@ -5,6 +5,7 @@ class CSettings:CController
     let model:MSettings
     private weak var viewSettings:VSettings!
     private let kSupportUrl:String = "mailto:squad@iturbi.de"
+    private let kRateUrl:String = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1206653108&type=Purple+Software&mt=8"
     private let kShareUrl:String = "https://itunes.apple.com/gb/app/gausssquad/id1206653108"
     
     override init()
@@ -43,7 +44,16 @@ class CSettings:CController
     
     func review()
     {
+        guard
+            
+            let url:URL = URL(string:kRateUrl)
+            
+        else
+        {
+            return
+        }
         
+        UIApplication.shared.openURL(url)
     }
     
     func share()
