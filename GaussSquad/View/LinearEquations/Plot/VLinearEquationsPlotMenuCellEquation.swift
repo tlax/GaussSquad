@@ -58,13 +58,18 @@ class VLinearEquationsPlotMenuCellEquation:VLinearEquationsPlotMenuCell
     
     //MARK: public
     
-    override func config(model:MPlotMenuItem)
+    override func config(model:MLinearEquationsPlotMenuItem)
     {
         super.config(model:model)
         
         guard
             
-            let model:MPlotMenuItemEquation
+            let model:MLinearEquationsPlotMenuItemEquation = model as? MLinearEquationsPlotMenuItemEquation
+        
+        else
+        {
+            return
+        }
         
         imageView.tintColor = model.color
         label.text = model.title
