@@ -71,6 +71,8 @@
 "VCalculatorOptionsHeader_title"="Functions";
 "VCalculatorOptionsHeader_buttonNone"="None";
 "VLinearEquationsPlotMenuCellOrigin_title"="Origin";
+"VSettingsCellSupport_labelTitle"="Need support?";
+"VSettingsCellSupport_labelSubtitle"="\nSend us your questions, we'd like to read you";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
 "VStoreCellDeferred_label"="Purchase deferred";
