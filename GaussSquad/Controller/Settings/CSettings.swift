@@ -4,13 +4,37 @@ class CSettings:CController
 {
     let model:MSettings
     private weak var viewSettings:VSettings!
-    private let kSupportUrl:String = "mailto:squad@iturbi.de"
-    private let kRateUrl:String = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1206653108&type=Purple+Software&mt=8"
-    private let kShareUrl:String = "https://itunes.apple.com/gb/app/gausssquad/id1206653108"
+    private let urlMap:[String:String]?
+    private let kResourceName:String = "ResourceUrl"
+    private let kResourceExtension:String = "plist"
+    private let kSupportKey:String = "support"
+    private let kReviewKey:String = "review"
+    private let kShareKey:String = "share"
     
     override init()
     {
         model = MSettings()
+        
+        guard
+            
+            let resourceUrl:URL = Bundle.main.url(
+                forResource:kResourceName,
+                withExtension:kResourceExtension),
+            let urlDictionary:NSDictionary = NSDictionary(
+                contentsOf:resourceUrl),
+            let urlMap:[String:String] = urlDictionary as? [String:String]
+            
+        else
+        {
+            self.urlMap = nil
+            
+            super.init()
+            
+            return
+        }
+        
+        self.urlMap = urlMap
+        
         super.init()
     }
     
@@ -32,7 +56,8 @@ class CSettings:CController
     {
         guard
             
-            let url:URL = URL(string:kSupportUrl)
+            let urlString:String = urlMap?[kSupportKey],
+            let url:URL = URL(string:urlString)
             
         else
         {
@@ -46,7 +71,8 @@ class CSettings:CController
     {
         guard
             
-            let url:URL = URL(string:kRateUrl)
+            let urlString:String = urlMap?[kReviewKey],
+            let url:URL = URL(string:urlString)
             
         else
         {
@@ -60,7 +86,8 @@ class CSettings:CController
     {
         guard
             
-            let url:URL = URL(string:kShareUrl)
+            let urlString:String = urlMap?[kShareKey],
+            let url:URL = URL(string:urlString)
         
         else
         {

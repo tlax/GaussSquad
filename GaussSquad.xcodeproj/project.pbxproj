@@ -216,6 +216,7 @@
 		DABC07C31E6377C700EC2FBE /* MSettingsItemReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC07C21E6377C700EC2FBE /* MSettingsItemReview.swift */; };
 		DABC07C51E63790200EC2FBE /* VSettingsCellShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC07C41E63790200EC2FBE /* VSettingsCellShare.swift */; };
 		DABC07C71E637A3D00EC2FBE /* MSettingsItemShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC07C61E637A3D00EC2FBE /* MSettingsItemShare.swift */; };
+		DABC07CB1E63805C00EC2FBE /* ResourceUrl.plist in Resources */ = {isa = PBXBuildFile; fileRef = DABC07CA1E63805C00EC2FBE /* ResourceUrl.plist */; };
 		DAC2164D1E42304E009EDBF7 /* VLinearEquationsProjectCellNewPolynomial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2164C1E42304E009EDBF7 /* VLinearEquationsProjectCellNewPolynomial.swift */; };
 		DAC216511E424DEC009EDBF7 /* VLinearEquationsProjectFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC216501E424DEC009EDBF7 /* VLinearEquationsProjectFlow.swift */; };
 		DAC216531E427D1C009EDBF7 /* VCollectionFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC216521E427D1C009EDBF7 /* VCollectionFlow.swift */; };
@@ -534,6 +535,7 @@
 		DABC07C21E6377C700EC2FBE /* MSettingsItemReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemReview.swift; sourceTree = "<group>"; };
 		DABC07C41E63790200EC2FBE /* VSettingsCellShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellShare.swift; sourceTree = "<group>"; };
 		DABC07C61E637A3D00EC2FBE /* MSettingsItemShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemShare.swift; sourceTree = "<group>"; };
+		DABC07CA1E63805C00EC2FBE /* ResourceUrl.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ResourceUrl.plist; sourceTree = "<group>"; };
 		DAC2164C1E42304E009EDBF7 /* VLinearEquationsProjectCellNewPolynomial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectCellNewPolynomial.swift; sourceTree = "<group>"; };
 		DAC216501E424DEC009EDBF7 /* VLinearEquationsProjectFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectFlow.swift; sourceTree = "<group>"; };
 		DAC216521E427D1C009EDBF7 /* VCollectionFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCollectionFlow.swift; sourceTree = "<group>"; };
@@ -1528,6 +1530,7 @@
 			isa = PBXGroup;
 			children = (
 				DAFF4A861E397B9600A2DD4B /* Localizable.strings */,
+				DABC07CA1E63805C00EC2FBE /* ResourceUrl.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1674,6 +1677,7 @@
 				DA9F6FA31E551C33003C5486 /* help.xcassets in Resources */,
 				DA033CEE1E3AA2DC00F7645C /* generic.xcassets in Resources */,
 				DAE4A87B1E5B3E93000A07A3 /* texture.xcassets in Resources */,
+				DABC07CB1E63805C00EC2FBE /* ResourceUrl.plist in Resources */,
 				DAFF4A961E397B9600A2DD4B /* LaunchScreen.storyboard in Resources */,
 				DA8118521E5E580100B6ED7C /* keyboard.xcassets in Resources */,
 				DAA4BD781E3A703900B0360D /* brand.xcassets in Resources */,
