@@ -16,7 +16,7 @@ class VSettingsCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MSettingsItem)
+    func config(controller:CSettings, model:MSettingsItem)
     {
         
     }

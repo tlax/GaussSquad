@@ -2,6 +2,7 @@ import UIKit
 
 class VSettingsCellSupport:VSettingsCell
 {
+    private let kLabelLeft:CGFloat = 10
     private let kButtonRight:CGFloat = 10
     private let kButtonWidth:CGFloat = 40
     
@@ -48,6 +49,27 @@ class VSettingsCellSupport:VSettingsCell
         
         addSubview(label)
         addSubview(button)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:label,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:label,
+            toView:self,
+            constant:kLabelLeft)
+        NSLayoutConstraint.rightToLeft(
+            view:label,
+            toView:button)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:button,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:button,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:button,
+            constant:kButtonWidth)
     }
     
     required init?(coder:NSCoder)

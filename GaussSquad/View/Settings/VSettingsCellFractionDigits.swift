@@ -87,7 +87,7 @@ class VSettingsCellFractionDigits:VSettingsCell
         return nil
     }
     
-    override func config(model:MSettingsItem)
+    override func config(controller:CSettings, model:MSettingsItem)
     {
         guard
         

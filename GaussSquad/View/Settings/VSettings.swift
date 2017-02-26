@@ -19,6 +19,7 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerCell(cell:VSettingsCellFractionDigits.self)
+        collectionView.registerCell(cell:VSettingsCellSupport.self)
         self.collectionView = collectionView
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
@@ -89,7 +90,7 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             withReuseIdentifier:
             item.reusableIdentifier,
             for:indexPath) as! VSettingsCell
-        cell.config(model:item)
+        cell.config(controller:controller, model:item)
         
         return cell
     }
