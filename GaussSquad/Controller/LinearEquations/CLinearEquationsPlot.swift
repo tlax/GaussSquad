@@ -125,15 +125,9 @@ class CLinearEquationsPlot:CController
                 y:currentY + kTextTop,
                 width:textWidth,
                 height:iconHeight)
-            let numberString:String = MSession.sharedInstance.stringFrom(
-                number:menuItem.value)
-            let indeterminate:String = menuItem.title
-            let compositeString:String = String(
-                format:NSLocalizedString("CLinearEquationsPlot_sharingText", comment:""),
-                indeterminate,
-                numberString)
+            let rawString:String = menuItem.title.string
             let attributedString:NSAttributedString = NSAttributedString(
-                string:compositeString,
+                string:rawString,
                 attributes:textAttributes)
             
             context.setBlendMode(CGBlendMode.normal)

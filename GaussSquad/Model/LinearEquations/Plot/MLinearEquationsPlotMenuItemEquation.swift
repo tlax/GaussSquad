@@ -2,27 +2,27 @@ import UIKit
 
 class MLinearEquationsPlotMenuItemEquation:MLinearEquationsPlotMenuItem
 {
+    let title:NSAttributedString
     let color:UIColor
-    let title:String
     let value:Double
-    private let kCellWidth:CGFloat = 150
     
     init(
+        title:NSAttributedString,
         color:UIColor,
-        title:String,
         value:Double,
         positionX:CGFloat,
-        positionY:CGFloat)
+        positionY:CGFloat,
+        cellWidth:CGFloat)
     {
-        self.value = value
         self.title = title
+        self.value = value
         self.color = color
         let reusableIdentifier:String = VLinearEquationsPlotMenuCellEquation.reusableIdentifier
         
         super.init(
             positionX:positionX,
             positionY:positionY,
-            cellWidth:kCellWidth,
+            cellWidth:cellWidth,
             reusableIdentifier:reusableIdentifier)
     }
 }

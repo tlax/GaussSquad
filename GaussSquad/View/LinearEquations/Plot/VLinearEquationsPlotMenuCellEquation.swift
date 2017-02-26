@@ -72,6 +72,6 @@ class VLinearEquationsPlotMenuCellEquation:VLinearEquationsPlotMenuCell
         }
         
         imageView.tintColor = model.color
-        label.text = model.title
+        label.attributedText = model.title
     }
 }
