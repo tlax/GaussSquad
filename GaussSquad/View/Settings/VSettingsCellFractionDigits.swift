@@ -6,7 +6,7 @@ class VSettingsCellFractionDigits:VSettingsCell
     private weak var stepper:UIStepper!
     private let kLabelTitleLeft:CGFloat = 10
     private let kLabelNumberWidth:CGFloat = 60
-    private let kLabelNumberRight:CGFloat = -5
+    private let kLabelNumberRight:CGFloat = -10
     private let kStepperWidth:CGFloat = 110
     private let kStepperHeight:CGFloat = 70
     private let kStepperTop:CGFloat = 34
@@ -38,7 +38,7 @@ class VSettingsCellFractionDigits:VSettingsCell
         labelNumber.translatesAutoresizingMaskIntoConstraints = false
         labelNumber.backgroundColor = UIColor.clear
         labelNumber.textAlignment = NSTextAlignment.right
-        labelNumber.font = UIFont.numericBold(size:24)
+        labelNumber.font = UIFont.numericBold(size:26)
         labelNumber.textColor = UIColor.squadBlue
         self.labelNumber = labelNumber
         
@@ -90,6 +90,8 @@ class VSettingsCellFractionDigits:VSettingsCell
     
     override func config(controller:CSettings, model:MSettingsItem)
     {
+        super.config(controller:controller, model:model)
+        
         guard
         
             let model:MSettingsItemFractionDigits = model as? MSettingsItemFractionDigits

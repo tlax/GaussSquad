@@ -4,6 +4,7 @@ class CSettings:CController
 {
     let model:MSettings
     private weak var viewSettings:VSettings!
+    private let kShareUrl:String = "https://itunes.apple.com/gb/app/gausssquad/id1206653108"
     
     override init()
     {

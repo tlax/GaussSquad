@@ -36,6 +36,10 @@ class VSettingsCellReview:VSettingsCell
         button.imageView!.clipsToBounds = true
         button.imageView!.contentMode = UIViewContentMode.center
         button.imageView!.tintColor = UIColor(white:0.8, alpha:1)
+        button.addTarget(
+            self,
+            action:#selector(actionReview(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
@@ -74,5 +78,12 @@ class VSettingsCellReview:VSettingsCell
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: actions
+    
+    func actionReview(sender button:UIButton)
+    {
+        controller?.review()
     }
 }
