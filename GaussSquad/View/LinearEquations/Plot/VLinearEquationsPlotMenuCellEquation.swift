@@ -46,9 +46,9 @@ class VLinearEquationsPlotMenuCellEquation:VLinearEquationsPlotMenuCell
         NSLayoutConstraint.leftToRight(
             view:label,
             toView:imageView)
-        NSLayoutConstraint.width(
+        NSLayoutConstraint.rightToRight(
             view:label,
-            constant:kLabelWidth)
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -61,6 +61,11 @@ class VLinearEquationsPlotMenuCellEquation:VLinearEquationsPlotMenuCell
     override func config(model:MPlotMenuItem)
     {
         super.config(model:model)
+        
+        guard
+            
+            let model:MPlotMenuItemEquation
+        
         imageView.tintColor = model.color
         label.text = model.title
     }

@@ -18,6 +18,14 @@
 		DA0CB8051E6271AE003AA283 /* MKeyboardStateExponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB8041E6271AE003AA283 /* MKeyboardStateExponent.swift */; };
 		DA0CB8071E6278B9003AA283 /* VLinearEquationsPlotMenuCellOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB8061E6278B9003AA283 /* VLinearEquationsPlotMenuCellOrigin.swift */; };
 		DA0CB8091E6278C4003AA283 /* VLinearEquationsPlotMenuCellEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB8081E6278C4003AA283 /* VLinearEquationsPlotMenuCellEquation.swift */; };
+		DA0CB80B1E627B5D003AA283 /* MLinearEquationsPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB80A1E627B5D003AA283 /* MLinearEquationsPlot.swift */; };
+		DA0CB80D1E627B6D003AA283 /* MLinearEquationsPlotRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB80C1E627B6D003AA283 /* MLinearEquationsPlotRender.swift */; };
+		DA0CB80F1E627B7C003AA283 /* MLinearEquationsPlotRenderCartesian.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB80E1E627B7C003AA283 /* MLinearEquationsPlotRenderCartesian.swift */; };
+		DA0CB8111E627B86003AA283 /* MLinearEquationsPlotRenderIndeterminate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB8101E627B86003AA283 /* MLinearEquationsPlotRenderIndeterminate.swift */; };
+		DA0CB8131E627B90003AA283 /* MLinearEquationsPlotMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB8121E627B90003AA283 /* MLinearEquationsPlotMenu.swift */; };
+		DA0CB8151E627B9A003AA283 /* MLinearEquationsPlotMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB8141E627B9A003AA283 /* MLinearEquationsPlotMenuItem.swift */; };
+		DA0CB8171E627BA4003AA283 /* MLinearEquationsPlotMenuItemOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB8161E627BA4003AA283 /* MLinearEquationsPlotMenuItemOrigin.swift */; };
+		DA0CB8191E627BAC003AA283 /* MLinearEquationsPlotMenuItemEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CB8181E627BAC003AA283 /* MLinearEquationsPlotMenuItemEquation.swift */; };
 		DA0D4DD91E4E1A8900699018 /* VLinearEquationsSolutionCellIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0D4DD81E4E1A8900699018 /* VLinearEquationsSolutionCellIndex.swift */; };
 		DA0D4DDB1E4E1C9500699018 /* MLinearEquationsSolutionEquationItemIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0D4DDA1E4E1C9500699018 /* MLinearEquationsSolutionEquationItemIndex.swift */; };
 		DA0D4DE11E4E5B6C00699018 /* MLinearEquationsSolutionStrategyReduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0D4DE01E4E5B6C00699018 /* MLinearEquationsSolutionStrategyReduction.swift */; };
@@ -329,6 +337,14 @@
 		DA0CB8041E6271AE003AA283 /* MKeyboardStateExponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardStateExponent.swift; sourceTree = "<group>"; };
 		DA0CB8061E6278B9003AA283 /* VLinearEquationsPlotMenuCellOrigin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPlotMenuCellOrigin.swift; sourceTree = "<group>"; };
 		DA0CB8081E6278C4003AA283 /* VLinearEquationsPlotMenuCellEquation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPlotMenuCellEquation.swift; sourceTree = "<group>"; };
+		DA0CB80A1E627B5D003AA283 /* MLinearEquationsPlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsPlot.swift; sourceTree = "<group>"; };
+		DA0CB80C1E627B6D003AA283 /* MLinearEquationsPlotRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsPlotRender.swift; sourceTree = "<group>"; };
+		DA0CB80E1E627B7C003AA283 /* MLinearEquationsPlotRenderCartesian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsPlotRenderCartesian.swift; sourceTree = "<group>"; };
+		DA0CB8101E627B86003AA283 /* MLinearEquationsPlotRenderIndeterminate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsPlotRenderIndeterminate.swift; sourceTree = "<group>"; };
+		DA0CB8121E627B90003AA283 /* MLinearEquationsPlotMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsPlotMenu.swift; sourceTree = "<group>"; };
+		DA0CB8141E627B9A003AA283 /* MLinearEquationsPlotMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsPlotMenuItem.swift; sourceTree = "<group>"; };
+		DA0CB8161E627BA4003AA283 /* MLinearEquationsPlotMenuItemOrigin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsPlotMenuItemOrigin.swift; sourceTree = "<group>"; };
+		DA0CB8181E627BAC003AA283 /* MLinearEquationsPlotMenuItemEquation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsPlotMenuItemEquation.swift; sourceTree = "<group>"; };
 		DA0D4DD81E4E1A8900699018 /* VLinearEquationsSolutionCellIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionCellIndex.swift; sourceTree = "<group>"; };
 		DA0D4DDA1E4E1C9500699018 /* MLinearEquationsSolutionEquationItemIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionEquationItemIndex.swift; sourceTree = "<group>"; };
 		DA0D4DE01E4E5B6C00699018 /* MLinearEquationsSolutionStrategyReduction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionStrategyReduction.swift; sourceTree = "<group>"; };
@@ -826,6 +842,14 @@
 				DAE4A88A1E5BA17D000A07A3 /* MPlotMenuItem.swift */,
 				DAE4A88C1E5BA4DC000A07A3 /* MPlotMenuItemOrigin.swift */,
 				DAD1A2B41E5C950400D90102 /* MPlotMenuItemEquation.swift */,
+				DA0CB80A1E627B5D003AA283 /* MLinearEquationsPlot.swift */,
+				DA0CB80C1E627B6D003AA283 /* MLinearEquationsPlotRender.swift */,
+				DA0CB80E1E627B7C003AA283 /* MLinearEquationsPlotRenderCartesian.swift */,
+				DA0CB8101E627B86003AA283 /* MLinearEquationsPlotRenderIndeterminate.swift */,
+				DA0CB8121E627B90003AA283 /* MLinearEquationsPlotMenu.swift */,
+				DA0CB8141E627B9A003AA283 /* MLinearEquationsPlotMenuItem.swift */,
+				DA0CB8161E627BA4003AA283 /* MLinearEquationsPlotMenuItemOrigin.swift */,
+				DA0CB8181E627BAC003AA283 /* MLinearEquationsPlotMenuItemEquation.swift */,
 			);
 			path = Plot;
 			sourceTree = "<group>";
@@ -1675,9 +1699,11 @@
 				DACC20D41E60EED700F8D2D7 /* MCalculatorFunctionsExponents.swift in Sources */,
 				DA5502391E58EEB600DF0F95 /* MetalShaderKernelEffects.metal in Sources */,
 				DA46915A1E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift in Sources */,
+				DA0CB8111E627B86003AA283 /* MLinearEquationsPlotRenderIndeterminate.swift in Sources */,
 				DA5502371E58ED2100DF0F95 /* MetalShaderVertexArrangement.metal in Sources */,
 				DA476F1C1E5634690058F4A4 /* VStoreCellNew.swift in Sources */,
 				DA033CEC1E3A99EE00F7645C /* VParentBar.swift in Sources */,
+				DA0CB80B1E627B5D003AA283 /* MLinearEquationsPlot.swift in Sources */,
 				DA23C3661E527145007C4C4D /* MLinearEquationsSolutionStrategyRemoveCoefficients.swift in Sources */,
 				DAEB54B81E5D0ED800492F38 /* MKeyboard.swift in Sources */,
 				DAFF4AA01E397B9600A2DD4B /* ExtensionNotification.swift in Sources */,
@@ -1776,6 +1802,7 @@
 				DAFF4ABF1E397B9600A2DD4B /* MSession.swift in Sources */,
 				DA316CEF1E45900D008E7270 /* VLinearEquationsIndeterminateListHeader.swift in Sources */,
 				DA7A9CEB1E5CBFC600ED71D1 /* VCalculator.swift in Sources */,
+				DA0CB8171E627BA4003AA283 /* MLinearEquationsPlotMenuItemOrigin.swift in Sources */,
 				DA476EF51E5611930058F4A4 /* VSettingsCellFractionDigits.swift in Sources */,
 				DA62D3531E4CD39C000D0387 /* MLinearEquationsSolution.swift in Sources */,
 				DAD518AD1E3FBCF90004C8D8 /* MLinearEquations.swift in Sources */,
@@ -1852,6 +1879,7 @@
 				DA46911F1E566EC400FAD188 /* VLinearEquationsPlotBar.swift in Sources */,
 				DA62D3781E4CE60E000D0387 /* MLinearEquationsSolutionStrategyParse.swift in Sources */,
 				DAFDD50A1E43DECC00880556 /* VLinearEquationsProjectBarIndeterminatesCell.swift in Sources */,
+				DA0CB80F1E627B7C003AA283 /* MLinearEquationsPlotRenderCartesian.swift in Sources */,
 				DACC20DA1E60F26E00F8D2D7 /* CCalculatorOptions.swift in Sources */,
 				DA89F1A31E4A957F0062DE48 /* DPolynomialExtension.swift in Sources */,
 				DA476F1A1E5634690058F4A4 /* VStoreCell.swift in Sources */,
@@ -1920,6 +1948,8 @@
 				DAE4A8811E5B7735000A07A3 /* MetalPosition.swift in Sources */,
 				DA476F071E562E740058F4A4 /* MStoreItem.swift in Sources */,
 				DA23C36C1E528AD9007C4C4D /* MLinearEquationsSolutionStrategyValidateRows.swift in Sources */,
+				DA0CB8131E627B90003AA283 /* MLinearEquationsPlotMenu.swift in Sources */,
+				DA0CB80D1E627B6D003AA283 /* MLinearEquationsPlotRender.swift in Sources */,
 				DAC9FEDC1E6161AB0085BA7F /* MCalculatorStepsItemFunction.swift in Sources */,
 				DACC20E11E60F2BE00F8D2D7 /* VCalculatorOptionsCell.swift in Sources */,
 				DA8118561E5E61D200B6ED7C /* MKeyboardRowItem3.swift in Sources */,
@@ -1945,6 +1975,7 @@
 				DA476EEF1E5610960058F4A4 /* MSettingsItem.swift in Sources */,
 				DAE4A88D1E5BA4DC000A07A3 /* MPlotMenuItemOrigin.swift in Sources */,
 				DA476F1F1E5634690058F4A4 /* VStoreCellPurchasing.swift in Sources */,
+				DA0CB8191E627BAC003AA283 /* MLinearEquationsPlotMenuItemEquation.swift in Sources */,
 				DA89F1A51E4A9FC00062DE48 /* DProjectExtension.swift in Sources */,
 				DA8118541E5E5CF200B6ED7C /* MKeyboardRowItem2.swift in Sources */,
 				DA6D62D51E560EC4002D9C1A /* VSettings.swift in Sources */,
@@ -1966,6 +1997,7 @@
 				DA2CE3A01E5F56E300626A43 /* MKeyboardRowItemNumeric.swift in Sources */,
 				DAFF4AC91E397B9600A2DD4B /* VView.swift in Sources */,
 				DA0CB8011E627092003AA283 /* MCalculatorFunctionsItemAnyExponent.swift in Sources */,
+				DA0CB8151E627B9A003AA283 /* MLinearEquationsPlotMenuItem.swift in Sources */,
 				DAEE488C1E57AE5A000D27A9 /* MPlotRenderIndeterminate.swift in Sources */,
 				DA033CF21E3AB68400F7645C /* VHomeCell.swift in Sources */,
 			);
