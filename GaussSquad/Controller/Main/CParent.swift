@@ -150,6 +150,7 @@ class CParent:UIViewController
         {
             controller.endAppearanceTransition()
             currentController.endAppearanceTransition()
+            self.viewParent.panRecognizer.isEnabled = true
         }
     }
     
@@ -264,6 +265,15 @@ class CParent:UIViewController
                 currentController.removeFromParentViewController()
                 
                 completion?()
+                
+                if self.childViewControllers.count > 1
+                {
+                    self.viewParent.panRecognizer.isEnabled = true
+                }
+                else
+                {
+                    self.viewParent.panRecognizer.isEnabled = false
+                }
             }
         }
     }

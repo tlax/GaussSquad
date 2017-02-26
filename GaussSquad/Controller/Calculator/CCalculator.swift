@@ -82,6 +82,14 @@ class CCalculator:CController
         viewCalculator.viewAppeared()
     }
     
+    override func viewWillDisappear(_ animated:Bool)
+    {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.shared.keyWindow!.endEditing(true)
+        parentController.hideBar(barHidden:false)
+    }
+    
     override func viewWillTransition(to size:CGSize, with coordinator:UIViewControllerTransitionCoordinator)
     {
         if parentController.childViewControllers.last === self
@@ -187,7 +195,6 @@ class CCalculator:CController
     func back()
     {
         UIApplication.shared.keyWindow!.endEditing(true)
-        parentController.hideBar(barHidden:false)
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
     

@@ -3,10 +3,15 @@ import UIKit
 class VParent:UIView
 {
     weak var viewBar:VParentBar!
+    weak var panRecognizer:UIPanGestureRecognizer!
     private weak var controller:CParent!
     private weak var layoutBarTop:NSLayoutConstraint!
+    private var panningX:CGFloat?
     private let kAnimationDuration:TimeInterval = 0.4
     private let kBarHeight:CGFloat = 70
+    private let kMaxXPanning:CGFloat = 70
+    private let kMaxXDelta:CGFloat = 150
+    private let kMinXDelta:CGFloat = 40
     
     convenience init(controller:CParent)
     {
@@ -29,6 +34,115 @@ class VParent:UIView
         NSLayoutConstraint.width(
             view:viewBar,
             toView:self)
+        
+        let panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(
+            target:self,
+            action:#selector(actionPanRecognized(sender:)))
+        panRecognizer.isEnabled = false
+        self.panRecognizer = panRecognizer
+        addGestureRecognizer(panRecognizer)
+    }
+    
+    //MARK: actions
+    
+    func actionPanRecognized(sender panGesture:UIPanGestureRecognizer)
+    {
+        let location:CGPoint = panGesture.location(
+            in:self)
+        let xPos:CGFloat = location.x
+        
+        switch panGesture.state
+        {
+        case UIGestureRecognizerState.began,
+             UIGestureRecognizerState.possible:
+            
+            if xPos < kMaxXPanning
+            {
+                self.panningX = xPos
+            }
+            
+            break
+            
+        case UIGestureRecognizerState.changed:
+            
+            if let panningX:CGFloat = self.panningX
+            {
+                var deltaX:CGFloat = xPos - panningX
+                
+                if deltaX > kMaxXDelta
+                {
+                    panRecognizer.isEnabled = false
+                }
+                else
+                {
+                    if deltaX < 0
+                    {
+                        deltaX = 0
+                    }
+                    
+                    guard
+                        
+                        let topView:VView = subviews.last as? VView
+                        
+                    else
+                    {
+                        return
+                    }
+                    
+                    topView.layoutLeft.constant = deltaX
+                }
+            }
+            
+            break
+            
+        case UIGestureRecognizerState.cancelled,
+             UIGestureRecognizerState.ended,
+             UIGestureRecognizerState.failed:
+            
+            if let panningX:CGFloat = self.panningX
+            {
+                let deltaX:CGFloat = xPos - panningX
+                
+                if deltaX > kMinXDelta
+                {
+                    gesturePop()
+                }
+                else
+                {
+                    gestureRestore()
+                }
+            }
+            
+            panningX = nil
+            
+            break
+        }
+    }
+    
+    //MARK: private
+    
+    private func gesturePop()
+    {
+        controller.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+    }
+    
+    private func gestureRestore()
+    {
+        guard
+            
+            let topView:VView = subviews.last as? VView
+            
+        else
+        {
+            return
+        }
+        
+        topView.layoutLeft.constant = 0
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        {
+            self.layoutIfNeeded()
+        }
     }
     
     //MARK: public
