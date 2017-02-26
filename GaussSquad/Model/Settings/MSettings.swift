@@ -8,10 +8,12 @@ class MSettings
     {
         let itemFractionDigits:MSettingsItemFractionDigits = MSettingsItemFractionDigits()
         let itemSupport:MSettingsItemSupport = MSettingsItemSupport()
+        let itemReview:MSettingsItemReview = MSettingsItemReview()
         
         items = [
             itemFractionDigits,
-            itemSupport
+            itemSupport,
+            itemReview
         ]
     }
 }

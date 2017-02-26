@@ -20,6 +20,7 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         collectionView.dataSource = self
         collectionView.registerCell(cell:VSettingsCellFractionDigits.self)
         collectionView.registerCell(cell:VSettingsCellSupport.self)
+        collectionView.registerCell(cell:VSettingsCellReview.self)
         self.collectionView = collectionView
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
