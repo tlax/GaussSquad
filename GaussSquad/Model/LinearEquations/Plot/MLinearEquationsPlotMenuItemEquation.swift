@@ -1,8 +1,9 @@
 import UIKit
 
-class MLinearEquationsPlotMenuItemEquation:MPlotMenuItem
+class MLinearEquationsPlotMenuItemEquation:MLinearEquationsPlotMenuItem
 {
     let color:UIColor
+    let title:String
     let value:Double
     private let kCellWidth:CGFloat = 200
     
@@ -14,12 +15,14 @@ class MLinearEquationsPlotMenuItemEquation:MPlotMenuItem
         positionY:CGFloat)
     {
         self.value = value
+        self.title = title
         self.color = color
+        let reusableIdentifier:String = VLinearEquationsPlotMenuCellEquation.reusableIdentifier
         
         super.init(
-            color:color,
-            title:title,
             positionX:positionX,
-            positionY:positionY)
+            positionY:positionY,
+            cellWidth:kCellWidth,
+            reusableIdentifier:reusableIdentifier)
     }
 }
