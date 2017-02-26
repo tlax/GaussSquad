@@ -12,6 +12,11 @@ class MCalculatorFunctionsItemAnyRoot:MCalculatorFunctionsItem
             title:title)
     }
     
+    override func selected(controller:CCalculator)
+    {
+        
+    }
+    
     override func processFunction(
         currentValue:Double,
         currentString:String,
