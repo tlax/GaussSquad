@@ -4,6 +4,7 @@ class MLinearEquationsPlotMenuItemEquation:MPlotMenuItem
 {
     let color:UIColor
     let value:Double
+    private let kCellWidth:CGFloat = 200
     
     init(
         color:UIColor,

@@ -4,7 +4,6 @@ class VLinearEquationsPlotMenu:UIView, UICollectionViewDelegate, UICollectionVie
 {
     private weak var controller:CLinearEquationsPlot!
     private weak var collectionView:VCollection!
-    private let kCellWidth:CGFloat = 140
     private let kInterLine:CGFloat = 1
     private let kBorderHeight:CGFloat = 1
     private let kDeselectTime:TimeInterval = 0.2

@@ -1,14 +1,19 @@
 import UIKit
 
-class MLinearEquationsPlotMenuItemOrigin:MPlotMenuItem
+class MLinearEquationsPlotMenuItemOrigin:MLinearEquationsPlotMenuItem
 {
+    private let kCellWidth:CGFloat = 70
     private let kPositionX:CGFloat = 0
     private let kPositionY:CGFloat = 0
     
     init()
     {
+        let reusableIdentifier:String = VLinearEquationsPlotMenuCellOrigin.reusableIdentifier
+        
         super.init(
-            positionX:kPositionX,
-            positionY:kPositionY)
+            positionX:positionX,
+            positionY:positionY,
+            cellWidth:kCellWidth,
+            reusableIdentifier:reusableIdentifier)
     }
 }
