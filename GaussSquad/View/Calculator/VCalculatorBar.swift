@@ -64,10 +64,10 @@ class VCalculatorBar:UIView
         let buttonHelp:UIButton = UIButton()
         buttonHelp.translatesAutoresizingMaskIntoConstraints = false
         buttonHelp.setImage(
-            #imageLiteral(resourceName: "assetGenericHelp").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            #imageLiteral(resourceName: "assetGenericHelpBlack").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
         buttonHelp.setImage(
-            #imageLiteral(resourceName: "assetGenericHelp").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            #imageLiteral(resourceName: "assetGenericHelpBlack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
         buttonHelp.imageView!.tintColor = UIColor(white:0, alpha:0.1)
         buttonHelp.imageView!.clipsToBounds = true
@@ -107,7 +107,7 @@ class VCalculatorBar:UIView
             toView:self)
         NSLayoutConstraint.leftToRight(
             view:buttonHelp,
-            toView:self)
+            toView:buttonOptions)
         NSLayoutConstraint.width(
             view:buttonHelp,
             constant:kButtonWidth)
