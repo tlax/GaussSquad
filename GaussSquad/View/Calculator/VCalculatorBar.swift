@@ -3,6 +3,7 @@ import UIKit
 class VCalculatorBar:UIView
 {
     private weak var controller:CCalculator!
+    private let kHelpLeft:CGFloat = 8
     private let kButtonWidth:CGFloat = 50
     
     init(controller:CCalculator)
@@ -107,7 +108,8 @@ class VCalculatorBar:UIView
             toView:self)
         NSLayoutConstraint.leftToRight(
             view:buttonHelp,
-            toView:buttonOptions)
+            toView:buttonOptions,
+            constant:kHelpLeft)
         NSLayoutConstraint.width(
             view:buttonHelp,
             constant:kButtonWidth)
