@@ -2,7 +2,6 @@ import UIKit
 
 class VHelpCellShort:VHelpCell
 {
-    private weak var label:UILabel!
     private let kLabelHeight:CGFloat = 110
     private let kLabelMargin:CGFloat = 30
     
@@ -19,6 +18,7 @@ class VHelpCellShort:VHelpCell
         label.numberOfLines = 0
         label.textColor = UIColor.black
         self.label = label
+        
         addSubview(label)
         
         NSLayoutConstraint.equalsHorizontal(
@@ -36,12 +36,5 @@ class VHelpCellShort:VHelpCell
     required init?(coder:NSCoder)
     {
         return nil
-    }
-    
-    //MARK: public
-    
-    func config(model:MHelpItem)
-    {
-        label.text = model.title
     }
 }

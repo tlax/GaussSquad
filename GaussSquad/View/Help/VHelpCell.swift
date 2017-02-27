@@ -2,6 +2,7 @@ import UIKit
 
 class VHelpCell:UICollectionViewCell
 {
+    weak var label:UILabel!
     private weak var imageView:UIImageView!
     private let kImageTop:CGFloat = 100
     private let kImageHeight:CGFloat = 160
@@ -20,18 +21,7 @@ class VHelpCell:UICollectionViewCell
         imageView.clipsToBounds = true
         self.imageView = imageView
         
-        let label:UILabel = UILabel()
-        label.isUserInteractionEnabled = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:20)
-        label.textAlignment = NSTextAlignment.center
-        label.numberOfLines = 0
-        label.textColor = UIColor.black
-        self.label = label
-        
         addSubview(imageView)
-        addSubview(label)
         
         NSLayoutConstraint.equalsHorizontal(
             view:imageView,
@@ -55,5 +45,6 @@ class VHelpCell:UICollectionViewCell
     func config(model:MHelpItem)
     {
         imageView.image = model.image
+        label.text = model.title
     }
 }
