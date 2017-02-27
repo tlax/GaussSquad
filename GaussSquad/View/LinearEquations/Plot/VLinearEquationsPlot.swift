@@ -64,7 +64,7 @@ class VLinearEquationsPlot:VView
         
         self.viewMetal = viewMetal
         insertSubview(viewMetal, belowSubview:viewBar)
-
+        
         NSLayoutConstraint.equals(
             view:viewMetal,
             toView:self)
