@@ -3,11 +3,8 @@ import UIKit
 class VHelpCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
-    private weak var label:UILabel!
     private let kImageTop:CGFloat = 100
     private let kImageHeight:CGFloat = 160
-    private let kLabelHeight:CGFloat = 110
-    private let kLabelMargin:CGFloat = 30
     
     override init(frame:CGRect)
     {
@@ -46,17 +43,6 @@ class VHelpCell:UICollectionViewCell
         NSLayoutConstraint.height(
             view:imageView,
             constant:kImageHeight)
-        
-        NSLayoutConstraint.equalsHorizontal(
-            view:label,
-            toView:self,
-            margin:kLabelMargin)
-        NSLayoutConstraint.topToBottom(
-            view:label,
-            toView:imageView)
-        NSLayoutConstraint.height(
-            view:label,
-            constant:kLabelHeight)
     }
     
     required init?(coder:NSCoder)
@@ -69,6 +55,5 @@ class VHelpCell:UICollectionViewCell
     func config(model:MHelpItem)
     {
         imageView.image = model.image
-        label.text = model.title
     }
 }
