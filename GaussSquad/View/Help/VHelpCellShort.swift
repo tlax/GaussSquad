@@ -2,6 +2,7 @@ import UIKit
 
 class VHelpCellShort:VHelpCell
 {
+    private weak var label:UILabel!
     private let kLabelHeight:CGFloat = 110
     private let kLabelMargin:CGFloat = 30
     

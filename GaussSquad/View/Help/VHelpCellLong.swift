@@ -2,21 +2,28 @@ import UIKit
 
 class VHelpCellLong:VHelpCell
 {
-    private let kLabelHeight:CGFloat = 110
-    private let kLabelMargin:CGFloat = 30
+    private weak var label:UILabel!
+    private weak var layoutLabelHeight:NSLayoutConstraint!
+    private let drawingOptions:NSStringDrawingOptions
+    private let labelMargin2:CGFloat
+    private let kLabelMargin:CGFloat = 20
+    private let kLabelMaxHeight:CGFloat = 900
     
     override init(frame:CGRect)
     {
+        drawingOptions = NSStringDrawingOptions([
+            NSStringDrawingOptions.usesLineFragmentOrigin,
+            NSStringDrawingOptions.usesFontLeading])
+        labelMargin2 = kLabelMargin + kLabelMargin
+        
         super.init(frame:frame)
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:20)
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
-        label.textColor = UIColor.black
         self.label = label
         
         addSubview(label)
@@ -27,14 +34,42 @@ class VHelpCellLong:VHelpCell
             margin:kLabelMargin)
         NSLayoutConstraint.topToBottom(
             view:label,
-            toView:imageView)
-        NSLayoutConstraint.height(
-            view:label,
-            constant:kLabelHeight)
+            toView:imageView,
+            constant:kLabelMargin)
+        layoutLabelHeight = NSLayoutConstraint.height(
+            view:label)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func layoutSubviews()
+    {
+        guard
+            
+            let attributedText:NSAttributedString = label.attributedText
+        
+        else
+        {
+            super.layoutSubviews()
+            
+            return
+        }
+        
+        let width:CGFloat = bounds.maxX
+        let usableWidth:CGFloat = width - labelMargin2
+        let usableSize:CGSize = CGSize(
+            width:usableWidth,
+            height:kLabelMaxHeight)
+        let textRect:CGRect = attributedText.boundingRect(
+            with:usableSize,
+            options:drawingOptions,
+            context:nil)
+        let textHeight:CGFloat = ceil(textRect.size.height)
+        layoutLabelHeight.constant = textHeight
+        
+        super.layoutSubviews()
     }
 }

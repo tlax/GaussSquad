@@ -2,7 +2,6 @@ import UIKit
 
 class VHelpCell:UICollectionViewCell
 {
-    weak var label:UILabel!
     weak var imageView:UIImageView!
     private let kImageTop:CGFloat = 100
     private let kImageHeight:CGFloat = 160
@@ -45,6 +44,5 @@ class VHelpCell:UICollectionViewCell
     func config(model:MHelpItem)
     {
         imageView.image = model.image
-        label.text = model.title
     }
 }

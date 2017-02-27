@@ -188,7 +188,7 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let item:MHelpItem = modelAtIndex(index:indexPath)
         let cell:VHelpCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
-            VHelpCell.reusableIdentifier,
+            item.reusableIdentifier,
             for:indexPath) as! VHelpCell
         cell.config(model:item)
         
