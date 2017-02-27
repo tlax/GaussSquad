@@ -3,7 +3,7 @@ import UIKit
 class VHelpCell:UICollectionViewCell
 {
     weak var label:UILabel!
-    private weak var imageView:UIImageView!
+    weak var imageView:UIImageView!
     private let kImageTop:CGFloat = 100
     private let kImageHeight:CGFloat = 160
     
