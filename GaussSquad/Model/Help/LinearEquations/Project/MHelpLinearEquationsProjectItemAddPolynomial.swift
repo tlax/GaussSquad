@@ -1,6 +1,6 @@
 import UIKit
 
-class MHelpLinearEquationsProjectItemAddPolynomial:MHelpItem
+class MHelpLinearEquationsProjectItemAddPolynomial:MHelpItemShort
 {
     init()
     {

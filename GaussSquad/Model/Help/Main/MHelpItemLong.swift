@@ -1,9 +1,14 @@
-//
-//  MHelpItemLong.swift
-//  GaussSquad
-//
-//  Created by zero on 2/27/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MHelpItemLong:MHelpItem
+{
+    init(image:UIImage, title:String)
+    {
+        let reusableIdentifier:String = VHelpCellLong.reusableIdentifier
+        
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            image:image,
+            title:title)
+    }
+}

@@ -4,7 +4,7 @@ class MHelpItemShort:MHelpItem
 {
     init(image:UIImage, title:String)
     {
-        let reusableIdentifier:String = ""
+        let reusableIdentifier:String = VHelpCellShort.reusableIdentifier
         
         super.init(
             reusableIdentifier:reusableIdentifier,
