@@ -141,6 +141,7 @@ class CParent:UIViewController
         addChildViewController(controller)
         controller.beginAppearanceTransition(true, animated:true)
         currentController.beginAppearanceTransition(false, animated:true)
+        viewParent.panRecognizer.isEnabled = true
         
         viewParent.push(
             newView:newView,
@@ -150,7 +151,6 @@ class CParent:UIViewController
         {
             controller.endAppearanceTransition()
             currentController.endAppearanceTransition()
-            self.viewParent.panRecognizer.isEnabled = true
         }
     }
     
