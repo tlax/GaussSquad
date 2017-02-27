@@ -12,7 +12,7 @@ class MLinearEquationsItem
         self.project = project
         
         attributes = [
-            NSFontAttributeName:UIFont.numeric(size:16),
+            NSFontAttributeName:UIFont.numericBold(size:16),
             NSForegroundColorAttributeName:UIColor.black]
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
