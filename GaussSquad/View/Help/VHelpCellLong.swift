@@ -72,4 +72,20 @@ class VHelpCellLong:VHelpCell
         
         super.layoutSubviews()
     }
+    
+    override func config(model:MHelpItem)
+    {
+        super.config(model:model)
+        
+        guard
+            
+            let model:MHelpItemLong = model as? MHelpItemLong
+            
+        else
+        {
+            return
+        }
+        
+        label.attributedText = model.title
+    }
 }

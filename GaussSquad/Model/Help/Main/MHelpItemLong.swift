@@ -2,13 +2,15 @@ import UIKit
 
 class MHelpItemLong:MHelpItem
 {
-    init(image:UIImage, title:String)
+    let title:NSAttributedString
+    
+    init(image:UIImage, title:NSAttributedString)
     {
+        self.title = title
         let reusableIdentifier:String = VHelpCellLong.reusableIdentifier
         
         super.init(
             reusableIdentifier:reusableIdentifier,
-            image:image,
-            title:title)
+            image:image)
     }
 }

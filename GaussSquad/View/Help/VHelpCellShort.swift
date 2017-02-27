@@ -38,4 +38,20 @@ class VHelpCellShort:VHelpCell
     {
         return nil
     }
+    
+    override func config(model:MHelpItem)
+    {
+        super.config(model:model)
+        
+        guard
+        
+            let model:MHelpItemShort = model as? MHelpItemShort
+        
+        else
+        {
+            return
+        }
+        
+        label.text = model.title
+    }
 }
