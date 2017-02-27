@@ -214,4 +214,9 @@ class CCalculator:CController
         parentController.animateOver(
             controller:controllerOptions)
     }
+    
+    func help()
+    {
+        
+    }
 }
