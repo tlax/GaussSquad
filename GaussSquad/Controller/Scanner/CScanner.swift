@@ -7,11 +7,12 @@ class CScanner:CController
     private weak var captureSession:AVCaptureSession?
     private weak var captureOutput:AVCaptureStillImageOutput?
     private weak var captureDeviceInput:AVCaptureDeviceInput?
+    private weak var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     private let devicePosition:AVCaptureDevicePosition
     private let queue:DispatchQueue
     private let kMediaType:String = AVMediaTypeVideo
     private let kSessionPreset:String = AVCaptureSessionPreset1280x720
-    private let kVideoGravity:String = AVLayerVideoGravityResizeAspect
+    private let kVideoGravity:String = AVLayerVideoGravityResize
     private let kVideoCodec:String = AVVideoCodecJPEG
     private let kQueueLabel:String = "cameraQueue"
     
@@ -63,6 +64,18 @@ class CScanner:CController
         parentController.hideBar(barHidden:false)
     }
     
+    override func viewWillTransition(to size:CGSize, with coordinator:UIViewControllerTransitionCoordinator)
+    {
+        coordinator.animate(
+            alongsideTransition:
+            { (context:UIViewControllerTransitionCoordinatorContext) in
+        })
+        { [weak self] (context:UIViewControllerTransitionCoordinatorContext) in
+            
+            self?.updatePreviewOrientation()
+        }
+    }
+    
     //MARK: private
     
     private func askAuthorization()
@@ -95,6 +108,7 @@ class CScanner:CController
         let videoPreviewLayer:AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(
             session:captureSession)
         videoPreviewLayer.videoGravity = kVideoGravity
+        self.videoPreviewLayer = videoPreviewLayer
         
         DispatchQueue.main.async
         { [weak self] in
@@ -193,6 +207,58 @@ class CScanner:CController
         { [weak self] in
             
 //            self?.viewCamera.viewMenu.activateButtons()
+            
+            self?.updatePreviewOrientation()
         }
+    }
+    
+    private func updatePreviewOrientation()
+    {
+        guard
+        
+            let connection:AVCaptureConnection = videoPreviewLayer?.connection
+        
+        else
+        {
+            return
+        }
+        
+        let orientation:UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
+        let videoOrientation:AVCaptureVideoOrientation
+        
+        switch orientation
+        {
+        case UIInterfaceOrientation.portrait:
+            
+            videoOrientation = AVCaptureVideoOrientation.portrait
+            
+            break
+            
+        case UIInterfaceOrientation.portraitUpsideDown:
+            
+            videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
+            
+            break
+            
+        case UIInterfaceOrientation.landscapeLeft:
+            
+            videoOrientation = AVCaptureVideoOrientation.landscapeLeft
+            
+            break
+            
+        case UIInterfaceOrientation.landscapeRight:
+            
+            videoOrientation = AVCaptureVideoOrientation.landscapeRight
+            
+            break
+            
+        case UIInterfaceOrientation.unknown:
+            
+            videoOrientation = AVCaptureVideoOrientation.portrait
+            
+            break
+        }
+        
+        connection.videoOrientation = videoOrientation
     }
 }
