@@ -9,7 +9,7 @@ class VLinearEquationsPlot:VView
     private weak var spinner:VSpinner?
     private var startingPoint:CGPoint?
     private let kBarHeight:CGFloat = 64
-    private let kMenuHeight:CGFloat = 46
+    private let kMenuHeight:CGFloat = 56
     private var positionX:CGFloat = 0
     private var positionY:CGFloat = 0
     
@@ -128,7 +128,7 @@ class VLinearEquationsPlot:VView
     
     //MARK: public
     
-    func centerItem(item:MPlotMenuItem)
+    func centerItem(item:MLinearEquationsPlotMenuItem)
     {
         positionX = -item.positionX
         positionY = -item.positionY

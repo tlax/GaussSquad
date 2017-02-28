@@ -17,8 +17,8 @@ class CParent:UIViewController
     }
     
     weak var viewParent:VParent!
+    private var barHidden:Bool = false
     private let kStatusBarStyle:UIStatusBarStyle = UIStatusBarStyle.default
-    private let kBarHidden:Bool = false
     
     init()
     {
@@ -54,7 +54,7 @@ class CParent:UIViewController
     
     override var prefersStatusBarHidden:Bool
     {
-        return kBarHidden
+        return barHidden
     }
     
     //MARK: private
@@ -89,6 +89,12 @@ class CParent:UIViewController
     
     //MARK: public
     
+    func hideBar(barHidden:Bool)
+    {
+        self.barHidden = barHidden
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
     func slideTo(horizontal:TransitionHorizontal, controller:CController)
     {
         let left:CGFloat = -viewParent.bounds.maxX * horizontal.rawValue
@@ -114,7 +120,8 @@ class CParent:UIViewController
     func push(
         controller:CController,
         horizontal:TransitionHorizontal = TransitionHorizontal.none,
-        vertical:TransitionVertical = TransitionVertical.none)
+        vertical:TransitionVertical = TransitionVertical.none,
+        background:Bool = true)
     {
         let width:CGFloat = viewParent.bounds.maxX
         let height:CGFloat = viewParent.bounds.maxY
@@ -138,10 +145,12 @@ class CParent:UIViewController
         viewParent.push(
             newView:newView,
             left:left,
-            top:top)
+            top:top,
+            background:background)
         {
             controller.endAppearanceTransition()
             currentController.endAppearanceTransition()
+            self.viewParent.panRecognizer.isEnabled = true
         }
     }
     
@@ -256,6 +265,15 @@ class CParent:UIViewController
                 currentController.removeFromParentViewController()
                 
                 completion?()
+                
+                if self.childViewControllers.count > 1
+                {
+                    self.viewParent.panRecognizer.isEnabled = true
+                }
+                else
+                {
+                    self.viewParent.panRecognizer.isEnabled = false
+                }
             }
         }
     }

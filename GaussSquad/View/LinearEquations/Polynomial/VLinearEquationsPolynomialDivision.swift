@@ -4,7 +4,6 @@ class VLinearEquationsPolynomialDivision:UIView
 {
     weak var fieldDividend:UITextView!
     weak var fieldDivisor:UITextView!
-    private weak var controller:CLinearEquationsPolynomial!
     private let kBorderHeight:CGFloat = 2
     private let kBorderMargin:CGFloat = 10
     private let kFontSize:CGFloat = 45
@@ -12,13 +11,12 @@ class VLinearEquationsPolynomialDivision:UIView
     private let kFieldsTop:CGFloat = 30
     private let kFieldsHeight:CGFloat = 55
     
-    init(controller:CLinearEquationsPolynomial)
+    init()
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
-        self.controller = controller
         
         let color:UIColor = UIColor.black
         let contentSize:UIEdgeInsets = UIEdgeInsets.zero

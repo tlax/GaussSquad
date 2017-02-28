@@ -7,9 +7,15 @@ class MSettings
     init()
     {
         let itemFractionDigits:MSettingsItemFractionDigits = MSettingsItemFractionDigits()
+        let itemSupport:MSettingsItemSupport = MSettingsItemSupport()
+        let itemReview:MSettingsItemReview = MSettingsItemReview()
+        let itemShare:MSettingsItemShare = MSettingsItemShare()
         
         items = [
-            itemFractionDigits
+            itemFractionDigits,
+            itemSupport,
+            itemReview,
+            itemShare
         ]
     }
 }

@@ -11,7 +11,7 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     override init(controller:CController)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor(white:0.97, alpha:1)
+        backgroundColor = UIColor(white:0.95, alpha:1)
         self.controller = controller as? CSettings
         
         let collectionView:VCollection = VCollection()
@@ -19,11 +19,15 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerCell(cell:VSettingsCellFractionDigits.self)
+        collectionView.registerCell(cell:VSettingsCellSupport.self)
+        collectionView.registerCell(cell:VSettingsCellReview.self)
+        collectionView.registerCell(cell:VSettingsCellShare.self)
         self.collectionView = collectionView
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             flow.minimumInteritemSpacing = kInterLine
+            flow.minimumLineSpacing = kInterLine
             flow.sectionInset = UIEdgeInsets(
                 top:kCollectionTop,
                 left:0,
@@ -89,7 +93,7 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             withReuseIdentifier:
             item.reusableIdentifier,
             for:indexPath) as! VSettingsCell
-        cell.config(model:item)
+        cell.config(controller:controller, model:item)
         
         return cell
     }

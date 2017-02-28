@@ -87,6 +87,16 @@ class VLinearEquationsIndeterminate:VView
             object:nil)
     }
     
+    required init?(coder:NSCoder)
+    {
+        return nil
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     //MARK: notifications
     
     func notifiedKeyboardChanged(sender notification:Notification)
@@ -122,11 +132,6 @@ class VLinearEquationsIndeterminate:VView
             
             self?.layoutIfNeeded()
         }
-    }
-    
-    required init?(coder:NSCoder)
-    {
-        return nil
     }
     
     //MARK: public

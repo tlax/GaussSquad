@@ -2,60 +2,29 @@ import UIKit
 
 class VLinearEquationsPlotMenuCell:UICollectionViewCell
 {
-    private weak var imageView:UIImageView!
-    private weak var label:UILabel!
-    private let kImageWidth:CGFloat = 40
-    private let kImageLeft:CGFloat = 10
-    private let kLabelWidth:CGFloat = 100
     private let kAlphaSelected:CGFloat = 0.15
     private let kAlphaNotSelected:CGFloat = 1
+    private let kBorderWidth:CGFloat = 1
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor(white:1, alpha:0.8)
+        backgroundColor = UIColor.clear
         
-        let imageView:UIImageView = UIImageView()
-        imageView.isUserInteractionEnabled = false
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.center
-        imageView.image = #imageLiteral(resourceName: "assetGenericPoint").withRenderingMode(
-            UIImageRenderingMode.alwaysTemplate)
-        self.imageView = imageView
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
-        let label:UILabel = UILabel()
-        label.isUserInteractionEnabled = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:16)
-        label.textColor = UIColor.black
-        self.label = label
-        
-        addSubview(imageView)
-        addSubview(label)
+        addSubview(border)
         
         NSLayoutConstraint.equalsVertical(
-            view:imageView,
+            view:border,
             toView:self)
-        NSLayoutConstraint.leftToLeft(
-            view:imageView,
-            toView:self,
-            constant:kImageLeft)
-        NSLayoutConstraint.width(
-            view:imageView,
-            constant:kImageWidth)
-        
-        NSLayoutConstraint.equalsVertical(
-            view:label,
+        NSLayoutConstraint.rightToRight(
+            view:border,
             toView:self)
-        NSLayoutConstraint.leftToRight(
-            view:label,
-            toView:imageView)
         NSLayoutConstraint.width(
-            view:label,
-            constant:kLabelWidth)
+            view:border,
+            constant:kBorderWidth)
     }
     
     required init?(coder:NSCoder)
@@ -95,10 +64,8 @@ class VLinearEquationsPlotMenuCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MPlotMenuItem)
+    func config(model:MLinearEquationsPlotMenuItem)
     {
-        imageView.tintColor = model.color
-        label.text = model.title
         hover()
     }
 }

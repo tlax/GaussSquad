@@ -2,7 +2,7 @@ import UIKit
 
 class CLinearEquationsPlot:CController
 {
-    let model:MPlot
+    let model:MLinearEquationsPlot
     weak var viewPlot:VLinearEquationsPlot!
     private let kIndeterminatesWidth:CGFloat = 350
     private let kEquationsMargin:CGFloat = 20
@@ -10,7 +10,7 @@ class CLinearEquationsPlot:CController
     
     init(stepDone:MLinearEquationsSolutionStepDone)
     {
-        model = MPlot(stepDone:stepDone)
+        model = MLinearEquationsPlot(stepDone:stepDone)
         super.init()
     }
     
@@ -60,7 +60,7 @@ class CLinearEquationsPlot:CController
         guard
             
             let texture:UIImage = viewPlot.viewMetal?.currentDrawable?.texture.exportImage(),
-            let modelMenu:MPlotMenu = model.modelMenu
+            let modelMenu:MLinearEquationsPlotMenu = model.modelMenu
             
         else
         {
@@ -104,11 +104,11 @@ class CLinearEquationsPlot:CController
         let currentX:CGFloat = textureWidth + kEquationsMargin
         var currentY:CGFloat = kEquationsMargin
         
-        for menuItem:MPlotMenuItem in modelMenu.items
+        for menuItem:MLinearEquationsPlotMenuItem in modelMenu.items
         {
             guard
                 
-                let menuItem:MPlotMenuItemEquation = menuItem as? MPlotMenuItemEquation
+                let menuItem:MLinearEquationsPlotMenuItemEquation = menuItem as? MLinearEquationsPlotMenuItemEquation
             
             else
             {
@@ -125,19 +125,13 @@ class CLinearEquationsPlot:CController
                 y:currentY + kTextTop,
                 width:textWidth,
                 height:iconHeight)
-            let numberString:String = MSession.sharedInstance.stringFrom(
-                number:menuItem.value)
-            let indeterminate:String = menuItem.title
-            let compositeString:String = String(
-                format:NSLocalizedString("CLinearEquationsPlot_sharingText", comment:""),
-                indeterminate,
-                numberString)
+            let rawString:String = menuItem.title.string
             let attributedString:NSAttributedString = NSAttributedString(
-                string:compositeString,
+                string:rawString,
                 attributes:textAttributes)
             
             context.setBlendMode(CGBlendMode.normal)
-            context.draw(equationIcon.cgImage!, in:iconRect)
+            equationIcon.draw(in:iconRect)
             context.setBlendMode(CGBlendMode.color)
             context.setFillColor(menuItem.color.cgColor)
             context.fill(iconRect)

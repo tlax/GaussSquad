@@ -104,6 +104,11 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         return nil
     }
     
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     //MARK: notifications
     
     func notifiedKeyboardChanged(sender notification:Notification)
@@ -148,8 +153,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         self.viewText?.removeFromSuperview()
         self.viewDivision?.removeFromSuperview()
         
-        let viewText:VLinearEquationsPolynomialText = VLinearEquationsPolynomialText(
-            controller:self.controller)
+        let viewText:VLinearEquationsPolynomialText = VLinearEquationsPolynomialText()
         viewText.delegate = self
         self.viewText = viewText
         
@@ -165,8 +169,7 @@ class VLinearEquationsPolynomial:VView, UITextViewDelegate
         self.viewText?.removeFromSuperview()
         self.viewDivision?.removeFromSuperview()
         
-        let viewDivision:VLinearEquationsPolynomialDivision = VLinearEquationsPolynomialDivision(
-            controller:self.controller)
+        let viewDivision:VLinearEquationsPolynomialDivision = VLinearEquationsPolynomialDivision()
         viewDivision.fieldDividend.delegate = self
         viewDivision.fieldDivisor.delegate = self
         self.viewDivision = viewDivision
