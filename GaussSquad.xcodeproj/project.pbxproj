@@ -279,6 +279,7 @@
 		DAE5050D1E662FF500B8F22A /* VScannerCropperThumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE5050C1E662FF500B8F22A /* VScannerCropperThumb.swift */; };
 		DAE5050F1E662FFF00B8F22A /* VScannerCropperMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE5050E1E662FFF00B8F22A /* VScannerCropperMover.swift */; };
 		DAE505111E663EB600B8F22A /* VScannerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE505101E663EB600B8F22A /* VScannerPreview.swift */; };
+		DAE505131E6644F400B8F22A /* VScannerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE505121E6644F400B8F22A /* VScannerMenu.swift */; };
 		DAEB54B81E5D0ED800492F38 /* MKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B41E5D0ED800492F38 /* MKeyboard.swift */; };
 		DAEB54B91E5D0ED800492F38 /* MKeyboardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B51E5D0ED800492F38 /* MKeyboardRow.swift */; };
 		DAEB54BA1E5D0ED800492F38 /* MKeyboardRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B61E5D0ED800492F38 /* MKeyboardRowItem.swift */; };
@@ -621,6 +622,7 @@
 		DAE5050C1E662FF500B8F22A /* VScannerCropperThumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerCropperThumb.swift; sourceTree = "<group>"; };
 		DAE5050E1E662FFF00B8F22A /* VScannerCropperMover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerCropperMover.swift; sourceTree = "<group>"; };
 		DAE505101E663EB600B8F22A /* VScannerPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerPreview.swift; sourceTree = "<group>"; };
+		DAE505121E6644F400B8F22A /* VScannerMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerMenu.swift; sourceTree = "<group>"; };
 		DAEB54B41E5D0ED800492F38 /* MKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboard.swift; sourceTree = "<group>"; };
 		DAEB54B51E5D0ED800492F38 /* MKeyboardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRow.swift; sourceTree = "<group>"; };
 		DAEB54B61E5D0ED800492F38 /* MKeyboardRowItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItem.swift; sourceTree = "<group>"; };
@@ -1312,6 +1314,7 @@
 				DAE5050C1E662FF500B8F22A /* VScannerCropperThumb.swift */,
 				DAE5050E1E662FFF00B8F22A /* VScannerCropperMover.swift */,
 				DAE505101E663EB600B8F22A /* VScannerPreview.swift */,
+				DAE505121E6644F400B8F22A /* VScannerMenu.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -2115,6 +2118,7 @@
 				DA46914C1E56744600FAD188 /* MetalVertex.swift in Sources */,
 				DAFF4AC61E397B9600A2DD4B /* VBorder.swift in Sources */,
 				DAFF4A991E397B9600A2DD4B /* CParent.swift in Sources */,
+				DAE505131E6644F400B8F22A /* VScannerMenu.swift in Sources */,
 				DA2CE3A01E5F56E300626A43 /* MKeyboardRowItemNumeric.swift in Sources */,
 				DAFF4AC91E397B9600A2DD4B /* VView.swift in Sources */,
 				DA0CB8011E627092003AA283 /* MCalculatorFunctionsItemAnyExponent.swift in Sources */,

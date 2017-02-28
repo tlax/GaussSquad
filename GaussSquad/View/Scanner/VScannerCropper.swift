@@ -11,8 +11,8 @@ class VScannerCropper:UIView
     private weak var draggingThumb:VScannerCropperThumb?
     private weak var draggingMover:VScannerCropperMover?
     private let thumbSize_2:CGFloat
-    private let kMinMargin:CGFloat = 15
-    private let kThumbSize:CGFloat = 48
+    private let kMinMargin:CGFloat = 10
+    private let kThumbSize:CGFloat = 60
     
     init(controller:CScanner)
     {
@@ -265,9 +265,8 @@ class VScannerCropper:UIView
             deltaY = kMinMargin
         }
         
-        let minDelta:CGFloat = min(deltaX, deltaY)
-        pointX = rightX - minDelta
-        pointY = bottomY - minDelta
+        pointX = rightX - deltaX
+        pointY = bottomY - deltaY
         
         thumbTopLeft.position(
             positionX:pointX,
@@ -312,9 +311,8 @@ class VScannerCropper:UIView
             deltaY = kMinMargin
         }
         
-        let minDelta:CGFloat = min(deltaX, deltaY)
-        pointX = leftX + minDelta
-        pointY = bottomY - minDelta
+        pointX = leftX + deltaX
+        pointY = bottomY - deltaY
         
         thumbTopRight.position(
             positionX:pointX,
@@ -359,9 +357,8 @@ class VScannerCropper:UIView
             deltaY = kMinMargin
         }
         
-        let minDelta:CGFloat = min(deltaX, deltaY)
-        pointX = rightX - minDelta
-        pointY = topY + minDelta
+        pointX = rightX - deltaX
+        pointY = topY + deltaY
         
         thumbBottomLeft.position(
             positionX:pointX,
@@ -406,9 +403,8 @@ class VScannerCropper:UIView
             deltaY = kMinMargin
         }
         
-        let minDelta:CGFloat = min(deltaX, deltaY)
-        pointX = leftX + minDelta
-        pointY = topY + minDelta
+        pointX = leftX + deltaX
+        pointY = topY + deltaY
         
         thumbBottomRight.position(
             positionX:pointX,
