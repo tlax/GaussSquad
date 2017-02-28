@@ -4,10 +4,14 @@ class MHelpLinearEquationsLanding:MHelp
 {
     init()
     {
-        let itemPolynomials:MHelpLinearEquationsProjectItemPolynomials = MHelpLinearEquationsProjectItemPolynomials()
+        let itemGauss:MHelpLinearEquationsLandingItemGauss = MHelpLinearEquationsLandingItemGauss()
+        let itemAddEquation:MHelpLinearEquationsLandingItemAddEquation = MHelpLinearEquationsLandingItemAddEquation()
+        let itemAutoSave:MHelpLinearEquationsLandingItemAutoSave = MHelpLinearEquationsLandingItemAutoSave()
         
         let items:[MHelpItem] = [
-            itemPolynomials
+            itemGauss,
+            itemAddEquation,
+            itemAutoSave
         ]
         
         super.init(items:items)

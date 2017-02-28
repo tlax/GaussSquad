@@ -51,7 +51,9 @@
 "MHelpCalculatorItemUndo_title"="Go back to any previous state";
 "MHelpLinearEquationsLandingItemGauss_title"="Johann Carl Friedrich Gauss";
 "MHelpLinearEquationsLandingItemGauss_date"="\n30/4/1777 – 23/2/1855";
-"MHelpLinearEquationsLandingItemGauss_subtitle"="\nGauss was a German mathematician referred to as the Princeps mathematicorum, he created the algorithm Gaussian Elimination for solving systems of linear equations.\nA linear equation is an algebraic equation in which each term is either a constant or the product of a constant and a single variable.";
+"MHelpLinearEquationsLandingItemGauss_subtitle"="\nThe Princeps mathematicorum, german mathematician who created Gaussian Elimination for solving systems of linear equations, algebraic equations in which each term is either a constant or the product of a constant and a single variable.";
+"MHelpLinearEquationsLandingItemAddEquation_title"="Create as many projects as you want";
+"MHelpLinearEquationsLandingItemAutoSave_title"="Come back and edit your projects any time";
 "MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition or change the indeterminate";
 "MHelpLinearEquationsProjectItemAddPolynomial_title"="Add polynomials";
 "MHelpLinearEquationsProjectItemEditRow_title"="Rearrange or delete equation";
