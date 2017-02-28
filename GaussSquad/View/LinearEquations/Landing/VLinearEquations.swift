@@ -156,7 +156,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         NSLayoutConstraint.size(
             view:buttonHelp,
             constant:kButtonsSize)
-        NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.rightToRight(
             view:buttonHelp,
             toView:self)
     }
