@@ -7,6 +7,9 @@
 "MLinearEquationsItem_negative"=" - ";
 "MLinearEquationsItem_division"="/";
 "MLinearEquationsItem_equals"=" = ";
+"MLinearEquationsItem_ageDay"="Yesterday";
+"MLinearEquationsItem_ageHour"="An hour ago";
+"MLinearEquationsItem_ageMinute"="A minute ago";
 "MLinearEquationsItem_ageDays"="%@ days ago";
 "MLinearEquationsItem_ageHours"="%@ hours ago";
 "MLinearEquationsItem_ageMinutes"="%@ minutes ago";
