@@ -6,7 +6,7 @@ class VLinearEquationsBar:UIView
     private weak var controller:CLinearEquations!
     private let kContentTop:CGFloat = 20
     private let kBorderHeight:CGFloat = 1
-    private let kBorderTop:CGFloat = 70
+    private let kBorderTop:CGFloat = 65
     private let kTitleHeight:CGFloat = 44
     
     init(controller:CLinearEquations)

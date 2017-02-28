@@ -42,6 +42,11 @@ class CLinearEquations:CController
         openProject(project:nil)
     }
     
+    func help()
+    {
+        
+    }
+    
     func modelLoaded()
     {
         viewLinearEquations.refresh()

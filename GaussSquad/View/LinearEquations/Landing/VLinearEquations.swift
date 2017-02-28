@@ -7,6 +7,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var viewBar:VLinearEquationsBar!
     private weak var buttonBack:UIButton!
     private weak var buttonAdd:UIButton!
+    private weak var buttonHelp:UIButton!
     private weak var spinner:VSpinner!
     private weak var layoutBarTop:NSLayoutConstraint!
     private weak var layoutBarHeight:NSLayoutConstraint!
@@ -18,8 +19,8 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     private let kBackTop:CGFloat = 20
     private let kBackWidth:CGFloat = 60
     private let kBackHeight:CGFloat = 44
-    private let kButtonAddSize:CGFloat = 50
-    private let kButtonAddBottom:CGFloat = -10
+    private let kButtonsSize:CGFloat = 50
+    private let kButtonsBottom:CGFloat = -10
     
     override init(controller:CController)
     {
@@ -51,6 +52,24 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
             for:UIControlEvents.touchUpInside)
         buttonAdd.isHidden = true
         self.buttonAdd = buttonAdd
+        
+        let buttonHelp:UIButton = UIButton()
+        buttonHelp.translatesAutoresizingMaskIntoConstraints = false
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetGenericHelp").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetGenericHelp").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonHelp.imageView!.contentMode = UIViewContentMode.center
+        buttonHelp.imageView!.clipsToBounds = true
+        buttonHelp.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        buttonHelp.addTarget(
+            self,
+            action:#selector(actionHelp(sender:)),
+            for:UIControlEvents.touchUpInside)
+        buttonHelp.isHidden = true
+        self.buttonHelp = buttonHelp
         
         let buttonBack:UIButton = UIButton()
         buttonBack.translatesAutoresizingMaskIntoConstraints = false
@@ -86,6 +105,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         addSubview(collectionView)
         addSubview(viewBar)
         addSubview(buttonBack)
+        addSubview(buttonHelp)
         addSubview(buttonAdd)
         
         NSLayoutConstraint.equals(
@@ -121,12 +141,23 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         NSLayoutConstraint.bottomToBottom(
             view:buttonAdd,
             toView:viewBar,
-            constant:kButtonAddBottom)
+            constant:kButtonsBottom)
         NSLayoutConstraint.size(
             view:buttonAdd,
-            constant:kButtonAddSize)
+            constant:kButtonsSize)
         layoutButtonAddLeft = NSLayoutConstraint.leftToLeft(
             view:buttonAdd,
+            toView:self)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonHelp,
+            toView:viewBar,
+            constant:kButtonsBottom)
+        NSLayoutConstraint.size(
+            view:buttonHelp,
+            constant:kButtonsSize)
+        NSLayoutConstraint.leftToLeft(
+            view:buttonHelp,
             toView:self)
     }
     
@@ -145,7 +176,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         viewBar.layoutIfNeeded()
         let width:CGFloat = bounds.maxX
         let barMaxHeight:CGFloat = viewBar.border.frame.maxY
-        let buttonAddRemain:CGFloat = width - kButtonAddSize
+        let buttonAddRemain:CGFloat = width - kButtonsSize
         let buttonAddMargin:CGFloat = buttonAddRemain / 2.0
         
         layoutBarHeight.constant = barMaxHeight
@@ -168,6 +199,12 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         controller.add()
     }
     
+    func actionHelp(sender button:UIButton)
+    {
+        button.isUserInteractionEnabled = false
+        controller.help()
+    }
+    
     //MARK: public
     
     func refresh()
@@ -177,8 +214,10 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         collectionView.isHidden = false
         viewBar.isHidden = false
         buttonAdd.isHidden = false
-        buttonAdd.isUserInteractionEnabled = true
+        buttonHelp.isHidden = false
         buttonBack.isHidden = false
+        buttonAdd.isUserInteractionEnabled = true
+        buttonHelp.isUserInteractionEnabled = true
     }
     
     //MARK: private
