@@ -11,6 +11,16 @@ class VScanner:VView
         super.init(controller:controller)
         backgroundColor = UIColor.black
         self.controller = controller as? CScanner
+        
+        let viewCropper:VScannerCropper = VScannerCropper(
+            controller:self.controller)
+        self.viewCropper = viewCropper
+        
+        addSubview(viewCropper)
+        
+        NSLayoutConstraint.equals(
+            view:viewCropper,
+            toView:self)
     }
     
     required init?(coder:NSCoder)

@@ -4,7 +4,7 @@ class VScannerCropper:UIView
 {
     private weak var controller:CScanner!
     
-    init(controller:Scanner)
+    init(controller:CScanner)
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
