@@ -6,7 +6,6 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     private weak var collectionView:VCollection!
     private weak var pageControl:UIPageControl!
     private weak var layoutButtonLeft:NSLayoutConstraint!
-    private let kControlBottom:CGFloat = -10
     private let kControlHeight:CGFloat = 50
     private let kButtonWidth:CGFloat = 120
     private let kButtonHeight:CGFloat = 34
@@ -93,8 +92,7 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         NSLayoutConstraint.bottomToTop(
             view:pageControl,
-            toView:button,
-            constant:kControlBottom)
+            toView:button)
         NSLayoutConstraint.height(
             view:pageControl,
             constant:kControlHeight)
