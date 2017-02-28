@@ -15,7 +15,7 @@ class MHomeItemScanner:MHomeItem
     
     override func selected() -> CController?
     {
-        let controller:CLinearEquations = CLinearEquations()
+        let controller:CScanner = CScanner()
         
         return controller
     }
