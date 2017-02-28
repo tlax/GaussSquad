@@ -49,6 +49,9 @@
 "MHelpCalculatorItemOptions_title"="Display the list of avaiable functions";
 "MHelpCalculatorItemFunctions_title"="Select a function card to use it";
 "MHelpCalculatorItemUndo_title"="Go back to any previous state";
+"MHelpLinearEquationsLandingItemGauss_title"="Johann Carl Friedrich Gauss";
+"MHelpLinearEquationsLandingItemGauss_date"="\n30/4/1777 – 23/2/1855";
+"MHelpLinearEquationsLandingItemGauss_subtitle"="\nGauss was a German mathematician referred to as the Princeps mathematicorum, he created the algorithm Gaussian Elimination for solving systems of linear equations.\nA linear equation is an algebraic equation in which each term is either a constant or the product of a constant and a single variable.";
 "MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition or change the indeterminate";
 "MHelpLinearEquationsProjectItemAddPolynomial_title"="Add polynomials";
 "MHelpLinearEquationsProjectItemEditRow_title"="Rearrange or delete equation";
@@ -60,9 +63,6 @@
 "MStoreItemPlus_descr"="Unlimited indeterminates.\nCreate as many variables as you need without restrictions";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
-"VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";
-"VLinearEquationsBar_labelGaussDate"="\n30/4/1777 – 23/2/1855";
-"VLinearEquationsBar_labelDescr"="A linear equation is an algebraic equation in which each term is either a constant or the product of a constant and a single variable.\n\nGauss was a German mathematician referred to as the Princeps mathematicorum, he created the algorithm Gaussian Elimination for solving systems of linear equations.";
 "VLinearEquationsPolynomialControl_buttonDone"="Done";
 "VLinearEquationsProjectBarIndeterminates_title"="Indeterminate";
 "VLinearEquationsIndeterminateControl_buttonSave"="Save";
