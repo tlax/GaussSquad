@@ -54,6 +54,7 @@ class CScanner:CController
         if captureSession == nil
         {
             askAuthorization()
+            viewScanner.viewCropper.viewDidAppeared()
         }
     }
     

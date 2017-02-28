@@ -10,16 +10,12 @@ class VScannerCropper:UIView
     private weak var controller:CScanner!
     private weak var draggingThumb:VScannerCropperThumb?
     private weak var draggingMover:VScannerCropperMover?
-    private var hadLayout:Bool
-    private var shadesCreated:Bool
     private let thumbSize_2:CGFloat
     private let kMinMargin:CGFloat = 40
     private let kThumbSize:CGFloat = 48
     
     init(controller:CScanner)
     {
-        hadLayout = false
-        shadesCreated = false
         thumbSize_2 = kThumbSize / 2.0
         
         super.init(frame:CGRect.zero)
@@ -58,38 +54,6 @@ class VScannerCropper:UIView
     required init?(coder:NSCoder)
     {
         return nil
-    }
-    
-    override func layoutSubviews()
-    {
-        if !hadLayout
-        {
-            let width:CGFloat = bounds.maxX
-            
-            if width > 0
-            {
-                hadLayout = true
-                
-                let height:CGFloat = bounds.maxY
-                let width_margin:CGFloat = width - kMinMargin
-                let height_margin:CGFloat = height - kMinMargin
-                
-                thumbTopLeft.position(
-                    positionX:kMinMargin,
-                    positionY:kMinMargin)
-                thumbTopRight.position(
-                    positionX:width_margin,
-                    positionY:kMinMargin)
-                thumbBottomLeft.position(
-                    positionX:kMinMargin,
-                    positionY:height_margin)
-                thumbBottomRight.position(
-                    positionX:width_margin,
-                    positionY:height_margin)
-            }
-        }
-        
-        super.layoutSubviews()
     }
     
     override func touchesBegan(_ touches:Set<UITouch>, with event:UIEvent?)
@@ -459,158 +423,182 @@ class VScannerCropper:UIView
     
     //MARK: public
     
-    func createShades()
+    private func createShades()
     {
-        if !shadesCreated
-        {
-            shadesCreated = true
-            
-            let shadeTop:VScannerCropperShade = VScannerCropperShade.borderBottom()
-            let shadeBottom:VScannerCropperShade = VScannerCropperShade.borderTop()
-            let shadeLeft:VScannerCropperShade = VScannerCropperShade.borderRight()
-            let shadeRight:VScannerCropperShade = VScannerCropperShade.borderLeft()
-            let shadeCornerTopLeft:VScannerCropperShade = VScannerCropperShade.noBorder()
-            let shadeCornerTopRight:VScannerCropperShade = VScannerCropperShade.noBorder()
-            let shadeCornerBottomLeft:VScannerCropperShade = VScannerCropperShade.noBorder()
-            let shadeCornerBottomRight:VScannerCropperShade = VScannerCropperShade.noBorder()
-            
-            insertSubview(shadeTop, belowSubview:viewMover)
-            insertSubview(shadeBottom, belowSubview:viewMover)
-            insertSubview(shadeLeft, belowSubview:viewMover)
-            insertSubview(shadeRight, belowSubview:viewMover)
-            insertSubview(shadeCornerTopLeft, belowSubview:viewMover)
-            insertSubview(shadeCornerTopRight, belowSubview:viewMover)
-            insertSubview(shadeCornerBottomLeft, belowSubview:viewMover)
-            insertSubview(shadeCornerBottomRight, belowSubview:viewMover)
-            
-            NSLayoutConstraint.topToTop(
-                view:shadeTop,
-                toView:self)
-            NSLayoutConstraint.bottomToTop(
-                view:shadeTop,
-                toView:thumbTopLeft,
-                constant:thumbSize_2)
-            NSLayoutConstraint.leftToLeft(
-                view:shadeTop,
-                toView:thumbTopLeft,
-                constant:thumbSize_2)
-            NSLayoutConstraint.rightToRight(
-                view:shadeTop,
-                toView:thumbTopRight,
-                constant:-thumbSize_2)
-            
-            NSLayoutConstraint.topToBottom(
-                view:shadeBottom,
-                toView:thumbBottomLeft,
-                constant:-thumbSize_2)
-            NSLayoutConstraint.bottomToBottom(
-                view:shadeBottom,
-                toView:self)
-            NSLayoutConstraint.leftToLeft(
-                view:shadeBottom,
-                toView:thumbBottomLeft,
-                constant:thumbSize_2)
-            NSLayoutConstraint.rightToRight(
-                view:shadeBottom,
-                toView:thumbBottomRight,
-                constant:-thumbSize_2)
-            
-            NSLayoutConstraint.topToTop(
-                view:shadeLeft,
-                toView:thumbTopLeft,
-                constant:thumbSize_2)
-            NSLayoutConstraint.bottomToBottom(
-                view:shadeLeft,
-                toView:thumbBottomLeft,
-                constant:-thumbSize_2)
-            NSLayoutConstraint.leftToLeft(
-                view:shadeLeft,
-                toView:self)
-            NSLayoutConstraint.rightToLeft(
-                view:shadeLeft,
-                toView:thumbTopLeft,
-                constant:thumbSize_2)
-            
-            NSLayoutConstraint.topToTop(
-                view:shadeRight,
-                toView:thumbTopRight,
-                constant:thumbSize_2)
-            NSLayoutConstraint.bottomToBottom(
-                view:shadeRight,
-                toView:thumbBottomRight,
-                constant:-thumbSize_2)
-            NSLayoutConstraint.leftToRight(
-                view:shadeRight,
-                toView:thumbTopRight,
-                constant:-thumbSize_2)
-            NSLayoutConstraint.rightToRight(
-                view:shadeRight,
-                toView:self)
-            
-            NSLayoutConstraint.topToTop(
-                view:shadeCornerTopLeft,
-                toView:self)
-            NSLayoutConstraint.bottomToTop(
-                view:shadeCornerTopLeft,
-                toView:shadeLeft)
-            NSLayoutConstraint.leftToLeft(
-                view:shadeCornerTopLeft,
-                toView:self)
-            NSLayoutConstraint.rightToLeft(
-                view:shadeCornerTopLeft,
-                toView:shadeTop)
-            
-            NSLayoutConstraint.topToTop(
-                view:shadeCornerTopRight,
-                toView:self)
-            NSLayoutConstraint.bottomToTop(
-                view:shadeCornerTopRight,
-                toView:shadeRight)
-            NSLayoutConstraint.leftToRight(
-                view:shadeCornerTopRight,
-                toView:shadeTop)
-            NSLayoutConstraint.rightToRight(
-                view:shadeCornerTopRight,
-                toView:self)
-            
-            NSLayoutConstraint.topToBottom(
-                view:shadeCornerBottomLeft,
-                toView:shadeLeft)
-            NSLayoutConstraint.bottomToBottom(
-                view:shadeCornerBottomLeft,
-                toView:self)
-            NSLayoutConstraint.leftToLeft(
-                view:shadeCornerBottomLeft,
-                toView:self)
-            NSLayoutConstraint.rightToLeft(
-                view:shadeCornerBottomLeft,
-                toView:shadeBottom)
-            
-            NSLayoutConstraint.topToBottom(
-                view:shadeCornerBottomRight,
-                toView:shadeRight)
-            NSLayoutConstraint.bottomToBottom(
-                view:shadeCornerBottomRight,
-                toView:self)
-            NSLayoutConstraint.leftToRight(
-                view:shadeCornerBottomRight,
-                toView:shadeBottom)
-            NSLayoutConstraint.rightToRight(
-                view:shadeCornerBottomRight,
-                toView:self)
-            
-            NSLayoutConstraint.topToBottom(
-                view:viewMover,
-                toView:shadeTop)
-            NSLayoutConstraint.bottomToTop(
-                view:viewMover,
-                toView:shadeBottom)
-            NSLayoutConstraint.leftToRight(
-                view:viewMover,
-                toView:shadeLeft)
-            NSLayoutConstraint.rightToLeft(
-                view:viewMover,
-                toView:shadeRight)
-        }
+        let shadeTop:VScannerCropperShade = VScannerCropperShade.borderBottom()
+        let shadeBottom:VScannerCropperShade = VScannerCropperShade.borderTop()
+        let shadeLeft:VScannerCropperShade = VScannerCropperShade.borderRight()
+        let shadeRight:VScannerCropperShade = VScannerCropperShade.borderLeft()
+        let shadeCornerTopLeft:VScannerCropperShade = VScannerCropperShade.noBorder()
+        let shadeCornerTopRight:VScannerCropperShade = VScannerCropperShade.noBorder()
+        let shadeCornerBottomLeft:VScannerCropperShade = VScannerCropperShade.noBorder()
+        let shadeCornerBottomRight:VScannerCropperShade = VScannerCropperShade.noBorder()
+        
+        insertSubview(shadeTop, belowSubview:viewMover)
+        insertSubview(shadeBottom, belowSubview:viewMover)
+        insertSubview(shadeLeft, belowSubview:viewMover)
+        insertSubview(shadeRight, belowSubview:viewMover)
+        insertSubview(shadeCornerTopLeft, belowSubview:viewMover)
+        insertSubview(shadeCornerTopRight, belowSubview:viewMover)
+        insertSubview(shadeCornerBottomLeft, belowSubview:viewMover)
+        insertSubview(shadeCornerBottomRight, belowSubview:viewMover)
+        
+        NSLayoutConstraint.topToTop(
+            view:shadeTop,
+            toView:self)
+        NSLayoutConstraint.bottomToTop(
+            view:shadeTop,
+            toView:thumbTopLeft,
+            constant:thumbSize_2)
+        NSLayoutConstraint.leftToLeft(
+            view:shadeTop,
+            toView:thumbTopLeft,
+            constant:thumbSize_2)
+        NSLayoutConstraint.rightToRight(
+            view:shadeTop,
+            toView:thumbTopRight,
+            constant:-thumbSize_2)
+        
+        NSLayoutConstraint.topToBottom(
+            view:shadeBottom,
+            toView:thumbBottomLeft,
+            constant:-thumbSize_2)
+        NSLayoutConstraint.bottomToBottom(
+            view:shadeBottom,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:shadeBottom,
+            toView:thumbBottomLeft,
+            constant:thumbSize_2)
+        NSLayoutConstraint.rightToRight(
+            view:shadeBottom,
+            toView:thumbBottomRight,
+            constant:-thumbSize_2)
+        
+        NSLayoutConstraint.topToTop(
+            view:shadeLeft,
+            toView:thumbTopLeft,
+            constant:thumbSize_2)
+        NSLayoutConstraint.bottomToBottom(
+            view:shadeLeft,
+            toView:thumbBottomLeft,
+            constant:-thumbSize_2)
+        NSLayoutConstraint.leftToLeft(
+            view:shadeLeft,
+            toView:self)
+        NSLayoutConstraint.rightToLeft(
+            view:shadeLeft,
+            toView:thumbTopLeft,
+            constant:thumbSize_2)
+        
+        NSLayoutConstraint.topToTop(
+            view:shadeRight,
+            toView:thumbTopRight,
+            constant:thumbSize_2)
+        NSLayoutConstraint.bottomToBottom(
+            view:shadeRight,
+            toView:thumbBottomRight,
+            constant:-thumbSize_2)
+        NSLayoutConstraint.leftToRight(
+            view:shadeRight,
+            toView:thumbTopRight,
+            constant:-thumbSize_2)
+        NSLayoutConstraint.rightToRight(
+            view:shadeRight,
+            toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:shadeCornerTopLeft,
+            toView:self)
+        NSLayoutConstraint.bottomToTop(
+            view:shadeCornerTopLeft,
+            toView:shadeLeft)
+        NSLayoutConstraint.leftToLeft(
+            view:shadeCornerTopLeft,
+            toView:self)
+        NSLayoutConstraint.rightToLeft(
+            view:shadeCornerTopLeft,
+            toView:shadeTop)
+        
+        NSLayoutConstraint.topToTop(
+            view:shadeCornerTopRight,
+            toView:self)
+        NSLayoutConstraint.bottomToTop(
+            view:shadeCornerTopRight,
+            toView:shadeRight)
+        NSLayoutConstraint.leftToRight(
+            view:shadeCornerTopRight,
+            toView:shadeTop)
+        NSLayoutConstraint.rightToRight(
+            view:shadeCornerTopRight,
+            toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:shadeCornerBottomLeft,
+            toView:shadeLeft)
+        NSLayoutConstraint.bottomToBottom(
+            view:shadeCornerBottomLeft,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:shadeCornerBottomLeft,
+            toView:self)
+        NSLayoutConstraint.rightToLeft(
+            view:shadeCornerBottomLeft,
+            toView:shadeBottom)
+        
+        NSLayoutConstraint.topToBottom(
+            view:shadeCornerBottomRight,
+            toView:shadeRight)
+        NSLayoutConstraint.bottomToBottom(
+            view:shadeCornerBottomRight,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:shadeCornerBottomRight,
+            toView:shadeBottom)
+        NSLayoutConstraint.rightToRight(
+            view:shadeCornerBottomRight,
+            toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:viewMover,
+            toView:shadeTop)
+        NSLayoutConstraint.bottomToTop(
+            view:viewMover,
+            toView:shadeBottom)
+        NSLayoutConstraint.leftToRight(
+            view:viewMover,
+            toView:shadeLeft)
+        NSLayoutConstraint.rightToLeft(
+            view:viewMover,
+            toView:shadeRight)
+    }
+    
+    private func positionThumbs()
+    {
+        let width:CGFloat = bounds.maxX
+        let height:CGFloat = bounds.maxY
+        let width_margin:CGFloat = width - kMinMargin
+        let height_margin:CGFloat = height - kMinMargin
+        
+        thumbTopLeft.position(
+            positionX:kMinMargin,
+            positionY:kMinMargin)
+        thumbTopRight.position(
+            positionX:width_margin,
+            positionY:kMinMargin)
+        thumbBottomLeft.position(
+            positionX:kMinMargin,
+            positionY:height_margin)
+        thumbBottomRight.position(
+            positionX:width_margin,
+            positionY:height_margin)
+    }
+    
+    //MARK: public
+    
+    func viewDidAppeared()
+    {
+        positionThumbs()
+        createShades()
     }
 }

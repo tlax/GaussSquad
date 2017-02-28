@@ -2,8 +2,8 @@ import UIKit
 
 class VScanner:VView
 {
+    weak var viewCropper:VScannerCropper!
     private weak var controller:CScanner!
-    private weak var viewCropper:VScannerCropper!
     private weak var previewLayer:CALayer?
     
     override init(controller:CController)
