@@ -3,8 +3,8 @@ import UIKit
 class VHelpCell:UICollectionViewCell
 {
     weak var imageView:UIImageView!
-    private let kImageTop:CGFloat = 100
-    private let kImageHeight:CGFloat = 160
+    private let kImageTop:CGFloat = 20
+    private let kImageHeight:CGFloat = 200
     
     override init(frame:CGRect)
     {

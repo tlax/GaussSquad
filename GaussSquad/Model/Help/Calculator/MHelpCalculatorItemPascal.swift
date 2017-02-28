@@ -4,15 +4,15 @@ class MHelpCalculatorItemPascal:MHelpItemLong
 {
     init()
     {
-        let image:UIImage = #imageLiteral(resourceName: "assetGenericGauss")
+        let image:UIImage = #imageLiteral(resourceName: "assetGenericPascal")
         let attributesTitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.bold(size:16),
+            NSFontAttributeName:UIFont.bold(size:17),
             NSForegroundColorAttributeName:UIColor.black]
         let attributesDate:[String:AnyObject] = [
             NSFontAttributeName:UIFont.regular(size:13),
             NSForegroundColorAttributeName:UIColor.black]
         let attributesSubtitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.regular(size:16),
+            NSFontAttributeName:UIFont.regular(size:17),
             NSForegroundColorAttributeName:UIColor.black]
         
         let rawTitle:String = NSLocalizedString("MHelpCalculatorItemPascal_title", comment:"")

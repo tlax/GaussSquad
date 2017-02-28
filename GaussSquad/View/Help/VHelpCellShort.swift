@@ -3,7 +3,7 @@ import UIKit
 class VHelpCellShort:VHelpCell
 {
     private weak var label:UILabel!
-    private let kLabelHeight:CGFloat = 110
+    private let kLabelHeight:CGFloat = 160
     private let kLabelMargin:CGFloat = 30
     
     override init(frame:CGRect)
