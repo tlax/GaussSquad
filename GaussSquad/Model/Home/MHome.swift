@@ -8,9 +8,11 @@ class MHome
     {
         let itemCalculator:MHomeItemCalculator = MHomeItemCalculator()
         let itemLinearEquations:MHomeItemLinearEquations = MHomeItemLinearEquations()
+        let itemScanner:MHomeItemScanner = MHomeItemScanner()
         
         items = [
             itemCalculator,
-            itemLinearEquations]
+            itemLinearEquations,
+            itemScanner]
     }
 }

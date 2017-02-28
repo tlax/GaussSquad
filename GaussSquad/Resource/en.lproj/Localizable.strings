@@ -2,6 +2,8 @@
 "MHomeItemCalculator_title"="Pascaline";
 "MHomeItemLinearEquations_symbol"="ax + b = 0";
 "MHomeItemLinearEquations_title"="Linear equations";
+"MHomeItemScanner_symbol"="Augmented Reality equations";
+"MHomeItemScanner_title"="Scanner";
 "MLinearEquationsProject_defaultIndeterminate"="x";
 "MLinearEquationsItem_positive"=" + ";
 "MLinearEquationsItem_negative"=" - ";
