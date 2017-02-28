@@ -269,6 +269,7 @@
 		DAE504F71E65F03200B8F22A /* MHelpLinearEquationsLandingItemGauss.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE504F61E65F03200B8F22A /* MHelpLinearEquationsLandingItemGauss.swift */; };
 		DAE504F91E65F04100B8F22A /* MHelpLinearEquationsLandingItemAddEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE504F81E65F04100B8F22A /* MHelpLinearEquationsLandingItemAddEquation.swift */; };
 		DAE504FB1E65F05200B8F22A /* MHelpLinearEquationsLandingItemAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE504FA1E65F05200B8F22A /* MHelpLinearEquationsLandingItemAutoSave.swift */; };
+		DAE504FD1E65FD3E00B8F22A /* MSettingsItemVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE504FC1E65FD3E00B8F22A /* MSettingsItemVersion.swift */; };
 		DAEB54B81E5D0ED800492F38 /* MKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B41E5D0ED800492F38 /* MKeyboard.swift */; };
 		DAEB54B91E5D0ED800492F38 /* MKeyboardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B51E5D0ED800492F38 /* MKeyboardRow.swift */; };
 		DAEB54BA1E5D0ED800492F38 /* MKeyboardRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B61E5D0ED800492F38 /* MKeyboardRowItem.swift */; };
@@ -601,6 +602,7 @@
 		DAE504F61E65F03200B8F22A /* MHelpLinearEquationsLandingItemGauss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpLinearEquationsLandingItemGauss.swift; sourceTree = "<group>"; };
 		DAE504F81E65F04100B8F22A /* MHelpLinearEquationsLandingItemAddEquation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpLinearEquationsLandingItemAddEquation.swift; sourceTree = "<group>"; };
 		DAE504FA1E65F05200B8F22A /* MHelpLinearEquationsLandingItemAutoSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpLinearEquationsLandingItemAutoSave.swift; sourceTree = "<group>"; };
+		DAE504FC1E65FD3E00B8F22A /* MSettingsItemVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemVersion.swift; sourceTree = "<group>"; };
 		DAEB54B41E5D0ED800492F38 /* MKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboard.swift; sourceTree = "<group>"; };
 		DAEB54B51E5D0ED800492F38 /* MKeyboardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRow.swift; sourceTree = "<group>"; };
 		DAEB54B61E5D0ED800492F38 /* MKeyboardRowItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItem.swift; sourceTree = "<group>"; };
@@ -1093,6 +1095,7 @@
 			children = (
 				DA476EEC1E56108E0058F4A4 /* MSettings.swift */,
 				DA476EEE1E5610960058F4A4 /* MSettingsItem.swift */,
+				DAE504FC1E65FD3E00B8F22A /* MSettingsItemVersion.swift */,
 				DA476EF01E5610A60058F4A4 /* MSettingsItemFractionDigits.swift */,
 				DABC07C01E63737300EC2FBE /* MSettingsItemSupport.swift */,
 				DABC07C21E6377C700EC2FBE /* MSettingsItemReview.swift */,
@@ -1848,6 +1851,7 @@
 				DA23C3571E522D99007C4C4D /* MLinearEquationsSolutionStrategyRowAddition.swift in Sources */,
 				DAFEB1A11E60A60D00E609C9 /* MCalculatorStepsItemBegin.swift in Sources */,
 				DAFEB1A21E60A60D00E609C9 /* MCalculatorStepsItemKeyboardState.swift in Sources */,
+				DAE504FD1E65FD3E00B8F22A /* MSettingsItemVersion.swift in Sources */,
 				DAEB54C21E5D105400492F38 /* MKeyboardRowItem0.swift in Sources */,
 				DA476F201E5634690058F4A4 /* VStoreFooter.swift in Sources */,
 				DA519BDB1E64DCA300F2673A /* MHelpCalculator.swift in Sources */,
