@@ -128,3 +128,5 @@
 "CLinearEquationsProject_alertEditRowMoveUp"="Move up";
 "CLinearEquationsProject_alertEditRowMoveDown"="Move down";
 "CLinearEquationsProject_alertEditRowCancel"="Cancel";
+"CScanner_noAuth"="Seems like we are not authorized to use your camera";
+"CScanner_errorCaptureDevice"="Couldn't find the camera";

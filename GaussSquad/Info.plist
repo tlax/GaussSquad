@@ -24,6 +24,8 @@
 	<string>1.3.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Scan equations</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Save equations</string>
 	<key>UILaunchStoryboardName</key>
