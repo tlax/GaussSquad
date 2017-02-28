@@ -4,22 +4,10 @@ class MHelpCalculator:MHelp
 {
     init()
     {
-        let itemPolynomials:MHelpLinearEquationsProjectItemPolynomials = MHelpLinearEquationsProjectItemPolynomials()
-        let itemAddPolynomial:MHelpLinearEquationsProjectItemAddPolynomial = MHelpLinearEquationsProjectItemAddPolynomial()
-        let itemEditRow:MHelpLinearEquationsProjectItemEditRow = MHelpLinearEquationsProjectItemEditRow()
-        let itemAddRow:MHelpLinearEquationsProjectItemAddRow = MHelpLinearEquationsProjectItemAddRow()
-        let itemIndeterminates:MHelpLinearEquationsProjectItemIndeterminates = MHelpLinearEquationsProjectItemIndeterminates()
-        let itemCompress:MHelpLinearEquationsProjectItemCompress = MHelpLinearEquationsProjectItemCompress()
-        let itemSolution:MHelpLinearEquationsProjectItemSolution = MHelpLinearEquationsProjectItemSolution()
+        let itemPascal:MHelpCalculatorItemPascal = MHelpCalculatorItemPascal()
         
         let items:[MHelpItem] = [
-            itemPolynomials,
-            itemAddPolynomial,
-            itemEditRow,
-            itemAddRow,
-            itemIndeterminates,
-            itemCompress,
-            itemSolution
+            itemPascal
         ]
         
         super.init(items:items)
