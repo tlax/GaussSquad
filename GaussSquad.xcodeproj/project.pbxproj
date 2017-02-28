@@ -270,6 +270,7 @@
 		DAE504F91E65F04100B8F22A /* MHelpLinearEquationsLandingItemAddEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE504F81E65F04100B8F22A /* MHelpLinearEquationsLandingItemAddEquation.swift */; };
 		DAE504FB1E65F05200B8F22A /* MHelpLinearEquationsLandingItemAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE504FA1E65F05200B8F22A /* MHelpLinearEquationsLandingItemAutoSave.swift */; };
 		DAE504FD1E65FD3E00B8F22A /* MSettingsItemVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE504FC1E65FD3E00B8F22A /* MSettingsItemVersion.swift */; };
+		DAE504FF1E65FDCF00B8F22A /* VSettingsCellVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE504FE1E65FDCF00B8F22A /* VSettingsCellVersion.swift */; };
 		DAEB54B81E5D0ED800492F38 /* MKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B41E5D0ED800492F38 /* MKeyboard.swift */; };
 		DAEB54B91E5D0ED800492F38 /* MKeyboardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B51E5D0ED800492F38 /* MKeyboardRow.swift */; };
 		DAEB54BA1E5D0ED800492F38 /* MKeyboardRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B61E5D0ED800492F38 /* MKeyboardRowItem.swift */; };
@@ -603,6 +604,7 @@
 		DAE504F81E65F04100B8F22A /* MHelpLinearEquationsLandingItemAddEquation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpLinearEquationsLandingItemAddEquation.swift; sourceTree = "<group>"; };
 		DAE504FA1E65F05200B8F22A /* MHelpLinearEquationsLandingItemAutoSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpLinearEquationsLandingItemAutoSave.swift; sourceTree = "<group>"; };
 		DAE504FC1E65FD3E00B8F22A /* MSettingsItemVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemVersion.swift; sourceTree = "<group>"; };
+		DAE504FE1E65FDCF00B8F22A /* VSettingsCellVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellVersion.swift; sourceTree = "<group>"; };
 		DAEB54B41E5D0ED800492F38 /* MKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboard.swift; sourceTree = "<group>"; };
 		DAEB54B51E5D0ED800492F38 /* MKeyboardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRow.swift; sourceTree = "<group>"; };
 		DAEB54B61E5D0ED800492F38 /* MKeyboardRowItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItem.swift; sourceTree = "<group>"; };
@@ -1066,6 +1068,7 @@
 			children = (
 				DA6D62D41E560EC4002D9C1A /* VSettings.swift */,
 				DA476EF21E5611820058F4A4 /* VSettingsCell.swift */,
+				DAE504FE1E65FDCF00B8F22A /* VSettingsCellVersion.swift */,
 				DA476EF41E5611930058F4A4 /* VSettingsCellFractionDigits.swift */,
 				DABC07BC1E636CCB00EC2FBE /* VSettingsCellSupport.swift */,
 				DABC07BE1E636CD400EC2FBE /* VSettingsCellReview.swift */,
@@ -1751,6 +1754,7 @@
 			files = (
 				DA0D4DDB1E4E1C9500699018 /* MLinearEquationsSolutionEquationItemIndex.swift in Sources */,
 				DABC07C11E63737300EC2FBE /* MSettingsItemSupport.swift in Sources */,
+				DAE504FF1E65FDCF00B8F22A /* VSettingsCellVersion.swift in Sources */,
 				DAC9FEE41E617CD70085BA7F /* MCalculatorFunctionsItemReciprocal.swift in Sources */,
 				DA4691211E56736D00FAD188 /* VLinearEquationsPlotMetal.swift in Sources */,
 				DACC20D41E60EED700F8D2D7 /* MCalculatorFunctionsExponents.swift in Sources */,
