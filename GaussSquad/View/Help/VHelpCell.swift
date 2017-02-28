@@ -4,7 +4,7 @@ class VHelpCell:UICollectionViewCell
 {
     weak var imageView:UIImageView!
     private let kImageTop:CGFloat = 20
-    private let kImageHeight:CGFloat = 200
+    private let kImageHeight:CGFloat = 250
     
     override init(frame:CGRect)
     {

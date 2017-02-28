@@ -5,7 +5,7 @@ class MHelpCalculatorItemOptions:MHelpItemShort
     init()
     {
         super.init(
-            image:#imageLiteral(resourceName: "assetHelpLinearEquationsProjectSolution"),
+            image:#imageLiteral(resourceName: "assetHelpCalculatorOptions"),
             title:NSLocalizedString("MHelpCalculatorItemOptions_title", comment:""))
     }
 }
