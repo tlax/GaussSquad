@@ -50,6 +50,7 @@ class CScanner:CController
     {
         super.viewDidAppear(animated)
         parentController.hideBar(barHidden:true)
+        parentController.viewParent.panRecognizer.isEnabled = false
         
         if captureSession == nil
         {
@@ -114,7 +115,7 @@ class CScanner:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.viewScanner.addPreviewLayer(
+            self?.viewScanner.viewPreview.addPreviewLayer(
                 previewLayer:videoPreviewLayer)
         }
         

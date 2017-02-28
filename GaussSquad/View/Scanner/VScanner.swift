@@ -3,8 +3,8 @@ import UIKit
 class VScanner:VView
 {
     weak var viewCropper:VScannerCropper!
+    weak var viewPreview:VScannerPreview!
     private weak var controller:CScanner!
-    private weak var previewLayer:CALayer?
     
     override init(controller:CController)
     {
@@ -12,11 +12,20 @@ class VScanner:VView
         backgroundColor = UIColor.black
         self.controller = controller as? CScanner
         
+        let viewPreview:VScannerPreview = VScannerPreview(
+            controller:self.controller)
+        self.viewPreview = viewPreview
+        
         let viewCropper:VScannerCropper = VScannerCropper(
             controller:self.controller)
         self.viewCropper = viewCropper
         
+        addSubview(viewPreview)
         addSubview(viewCropper)
+        
+        NSLayoutConstraint.equals(
+            view:viewPreview,
+            toView:self)
         
         NSLayoutConstraint.equals(
             view:viewCropper,
@@ -26,23 +35,5 @@ class VScanner:VView
     required init?(coder:NSCoder)
     {
         return nil
-    }
-    
-    override func layoutSubviews()
-    {
-        if let previewLayer:CALayer = self.previewLayer
-        {
-            previewLayer.frame = bounds
-        }
-        
-        super.layoutSubviews()
-    }
-    
-    //MARK: public
-    
-    func addPreviewLayer(previewLayer:CALayer)
-    {
-        self.previewLayer = previewLayer
-        layer.addSublayer(previewLayer)
     }
 }

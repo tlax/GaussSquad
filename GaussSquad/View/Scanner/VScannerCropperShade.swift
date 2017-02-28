@@ -3,7 +3,7 @@ import UIKit
 class VScannerCropperShade:UIView
 {
     private let kBorderSize:CGFloat = 1
-    private let kAlpha:CGFloat = 0.75
+    private let kAlpha:CGFloat = 0.8
     
     class func noBorder() -> VScannerCropperShade
     {
