@@ -43,6 +43,9 @@
 "MCalculatorFunctionsItemAnyExponent_title"="Any Exponent";
 "MCalculatorFunctionsTrigonometry_title"="Trigonometry";
 "MCalculatorFunctionsExponents_title"="Exponents";
+"MHelpCalculatorItemPascal_title"="Blaise Pascal";
+"MHelpCalculatorItemPascal_date"="\n19/6/1623 - 19/8/1662";
+"MHelpCalculatorItemPascal_subtitle"="\nFrench mathematician and philosopher, created the first mechanical calculator while still a teenager and by 1645 made a public presentation of 50 different prototypes.";
 "MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition or change the indeterminate";
 "MHelpLinearEquationsProjectItemAddPolynomial_title"="Add polynomials";
 "MHelpLinearEquationsProjectItemEditRow_title"="Rearrange or delete equation";
