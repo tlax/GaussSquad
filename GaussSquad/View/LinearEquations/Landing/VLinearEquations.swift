@@ -13,7 +13,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var layoutBarHeight:NSLayoutConstraint!
     private weak var layoutButtonAddLeft:NSLayoutConstraint!
     private let kDeselectTime:TimeInterval = 0.2
-    private let kCellHeight:CGFloat = 75
+    private let kCellHeight:CGFloat = 80
     private let kCollectionBottom:CGFloat = 20
     private let kInterline:CGFloat = 1
     private let kBackTop:CGFloat = 20
