@@ -3,9 +3,8 @@ import UIKit
 class VScanner:VView
 {
     private weak var controller:CScanner!
+    private weak var viewCropper:VScannerCropper!
     private weak var previewLayer:CALayer?
-    private let kMaxWidth:CGFloat = 720
-    private let kMaxHeight:CGFloat = 1280
     
     override init(controller:CController)
     {
@@ -23,19 +22,7 @@ class VScanner:VView
     {
         if let previewLayer:CALayer = self.previewLayer
         {
-            let width:CGFloat = bounds.maxX
-            let height:CGFloat = bounds.maxY
-            let remainX:CGFloat = width - kMaxWidth
-            let remainY:CGFloat = height - kMaxHeight
-            let marginX:CGFloat = remainX / 2.0
-            let marginY:CGFloat = remainY / 2.0
-            let previewSize:CGRect = CGRect(
-                x:marginX,
-                y:marginY,
-                width:kMaxWidth,
-                height:kMaxHeight)
-            
-            previewLayer.frame = previewSize
+            previewLayer.frame = bounds
         }
         
         super.layoutSubviews()

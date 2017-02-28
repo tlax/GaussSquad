@@ -12,7 +12,7 @@ class CScanner:CController
     private let queue:DispatchQueue
     private let kMediaType:String = AVMediaTypeVideo
     private let kSessionPreset:String = AVCaptureSessionPreset1280x720
-    private let kVideoGravity:String = AVLayerVideoGravityResize
+    private let kVideoGravity:String = AVLayerVideoGravityResizeAspectFill
     private let kVideoCodec:String = AVVideoCodecJPEG
     private let kQueueLabel:String = "cameraQueue"
     

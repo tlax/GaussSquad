@@ -274,6 +274,10 @@
 		DAE505011E6604F800B8F22A /* MHomeItemScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE505001E6604F800B8F22A /* MHomeItemScanner.swift */; };
 		DAE505041E66086300B8F22A /* CScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE505031E66086300B8F22A /* CScanner.swift */; };
 		DAE505071E6609D100B8F22A /* VScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE505061E6609D100B8F22A /* VScanner.swift */; };
+		DAE505091E662F7700B8F22A /* VScannerCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE505081E662F7700B8F22A /* VScannerCropper.swift */; };
+		DAE5050B1E662FEC00B8F22A /* VScannerCropperShade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE5050A1E662FEC00B8F22A /* VScannerCropperShade.swift */; };
+		DAE5050D1E662FF500B8F22A /* VScannerCropperThumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE5050C1E662FF500B8F22A /* VScannerCropperThumb.swift */; };
+		DAE5050F1E662FFF00B8F22A /* VScannerCropperMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE5050E1E662FFF00B8F22A /* VScannerCropperMover.swift */; };
 		DAEB54B81E5D0ED800492F38 /* MKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B41E5D0ED800492F38 /* MKeyboard.swift */; };
 		DAEB54B91E5D0ED800492F38 /* MKeyboardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B51E5D0ED800492F38 /* MKeyboardRow.swift */; };
 		DAEB54BA1E5D0ED800492F38 /* MKeyboardRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B61E5D0ED800492F38 /* MKeyboardRowItem.swift */; };
@@ -611,6 +615,10 @@
 		DAE505001E6604F800B8F22A /* MHomeItemScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemScanner.swift; sourceTree = "<group>"; };
 		DAE505031E66086300B8F22A /* CScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CScanner.swift; sourceTree = "<group>"; };
 		DAE505061E6609D100B8F22A /* VScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScanner.swift; sourceTree = "<group>"; };
+		DAE505081E662F7700B8F22A /* VScannerCropper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerCropper.swift; sourceTree = "<group>"; };
+		DAE5050A1E662FEC00B8F22A /* VScannerCropperShade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerCropperShade.swift; sourceTree = "<group>"; };
+		DAE5050C1E662FF500B8F22A /* VScannerCropperThumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerCropperThumb.swift; sourceTree = "<group>"; };
+		DAE5050E1E662FFF00B8F22A /* VScannerCropperMover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerCropperMover.swift; sourceTree = "<group>"; };
 		DAEB54B41E5D0ED800492F38 /* MKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboard.swift; sourceTree = "<group>"; };
 		DAEB54B51E5D0ED800492F38 /* MKeyboardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRow.swift; sourceTree = "<group>"; };
 		DAEB54B61E5D0ED800492F38 /* MKeyboardRowItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItem.swift; sourceTree = "<group>"; };
@@ -1297,6 +1305,10 @@
 			isa = PBXGroup;
 			children = (
 				DAE505061E6609D100B8F22A /* VScanner.swift */,
+				DAE505081E662F7700B8F22A /* VScannerCropper.swift */,
+				DAE5050A1E662FEC00B8F22A /* VScannerCropperShade.swift */,
+				DAE5050C1E662FF500B8F22A /* VScannerCropperThumb.swift */,
+				DAE5050E1E662FFF00B8F22A /* VScannerCropperMover.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -1929,6 +1941,7 @@
 				DAFEB19C1E60A60D00E609C9 /* MCalculator.swift in Sources */,
 				DA62D3701E4CD76F000D0387 /* MLinearEquationsSolutionStepError.swift in Sources */,
 				DAE505071E6609D100B8F22A /* VScanner.swift in Sources */,
+				DAE5050D1E662FF500B8F22A /* VScannerCropperThumb.swift in Sources */,
 				DAFEB1A91E60A6EC00E609C9 /* MCalculatorFunctionsItemCos.swift in Sources */,
 				DA0CB8091E6278C4003AA283 /* VLinearEquationsPlotMenuCellEquation.swift in Sources */,
 				DAFF4AC41E397B9600A2DD4B /* VAlert.swift in Sources */,
@@ -1951,6 +1964,7 @@
 				DA62D37E1E4CEC08000D0387 /* VLinearEquationsSolution.swift in Sources */,
 				DA2CE38B1E5F37F100626A43 /* MKeyboardRowItemClear.swift in Sources */,
 				DA476EF11E5610A60058F4A4 /* MSettingsItemFractionDigits.swift in Sources */,
+				DAE5050B1E662FEC00B8F22A /* VScannerCropperShade.swift in Sources */,
 				DA9F6FA51E5529C3003C5486 /* MHelpLinearEquationsProjectItemEditRow.swift in Sources */,
 				DAFDD50E1E443FBF00880556 /* CLinearEquationsIndeterminate.swift in Sources */,
 				DA476F271E5643720058F4A4 /* VStoreGoPlus.swift in Sources */,
@@ -1959,6 +1973,7 @@
 				DA476F0A1E562E740058F4A4 /* MStoreItemStatusNew.swift in Sources */,
 				DA62D3831E4CECC1000D0387 /* VLinearEquationsSolutionHeader.swift in Sources */,
 				DA62D36C1E4CD75C000D0387 /* MLinearEquationsSolutionStepProcess.swift in Sources */,
+				DAE5050F1E662FFF00B8F22A /* VScannerCropperMover.swift in Sources */,
 				DAD46DB41E46A13500AED3B9 /* MLinearEquationsIndeterminates.swift in Sources */,
 				DA476F2C1E5665E00058F4A4 /* CLinearEquationsPlot.swift in Sources */,
 				DA12D4751E414BC7008327B5 /* MLinearEquationsProjectRowItemIndex.swift in Sources */,
@@ -2072,6 +2087,7 @@
 				DA62D3611E4CD58D000D0387 /* MLinearEquationsSolutionEquationItemConstantDivision.swift in Sources */,
 				DA519BE31E64DE5000F2673A /* VHelpCellShort.swift in Sources */,
 				DACC20D61E60EFB600F8D2D7 /* MCalculatorFunctionsItemSquareRoot.swift in Sources */,
+				DAE505091E662F7700B8F22A /* VScannerCropper.swift in Sources */,
 				DA9F6F971E5518DC003C5486 /* MHelpLinearEquationsProjectItemAddPolynomial.swift in Sources */,
 				DAFEB1AF1E60A8B200E609C9 /* VCalculatorFunctionsCell.swift in Sources */,
 				DA476EEF1E5610960058F4A4 /* MSettingsItem.swift in Sources */,
