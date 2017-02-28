@@ -19,6 +19,7 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
     private let kBackWidth:CGFloat = 60
     private let kBackHeight:CGFloat = 44
     private let kButtonAddSize:CGFloat = 50
+    private let kButtonAddBottom:CGFloat = -10
     
     override init(controller:CController)
     {
@@ -119,7 +120,8 @@ class VLinearEquations:VView, UICollectionViewDelegate, UICollectionViewDataSour
         
         NSLayoutConstraint.bottomToBottom(
             view:buttonAdd,
-            toView:viewBar)
+            toView:viewBar,
+            constant:kButtonAddBottom)
         NSLayoutConstraint.size(
             view:buttonAdd,
             constant:kButtonAddSize)
