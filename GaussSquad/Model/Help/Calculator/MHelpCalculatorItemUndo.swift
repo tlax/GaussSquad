@@ -5,7 +5,7 @@ class MHelpCalculatorItemUndo:MHelpItemShort
     init()
     {
         super.init(
-            image:#imageLiteral(resourceName: "assetHelpLinearEquationsProjectSolution"),
+            image:#imageLiteral(resourceName: "assetHelpCalculatorUndo"),
             title:NSLocalizedString("MHelpCalculatorItemUndo_title", comment:""))
     }
 }
