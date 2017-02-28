@@ -6,7 +6,7 @@ class VScannerCropper:UIView
     weak var thumbTopRight:VScannerCropperThumb!
     weak var thumbBottomLeft:VScannerCropperThumb!
     weak var thumbBottomRight:VScannerCropperThumb!
-    private weak var viewMover:VCameraCropImageMover!
+    private weak var viewMover:VScannerCropperMover!
     private weak var controller:CScanner!
     private var hadLayout:Bool
     private var shadesCreated:Bool
@@ -26,19 +26,19 @@ class VScannerCropper:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let thumbTopLeft:VCameraCropImageThumb = VCameraCropImageThumb.topLeft()
+        let thumbTopLeft:VScannerCropperThumb = VScannerCropperThumb.topLeft()
         self.thumbTopLeft = thumbTopLeft
         
-        let thumbTopRight:VCameraCropImageThumb = VCameraCropImageThumb.topRight()
+        let thumbTopRight:VScannerCropperThumb = VScannerCropperThumb.topRight()
         self.thumbTopRight = thumbTopRight
         
-        let thumbBottomLeft:VCameraCropImageThumb = VCameraCropImageThumb.bottomLeft()
+        let thumbBottomLeft:VScannerCropperThumb = VScannerCropperThumb.bottomLeft()
         self.thumbBottomLeft = thumbBottomLeft
         
-        let thumbBottomRight:VCameraCropImageThumb = VCameraCropImageThumb.bottomRight()
+        let thumbBottomRight:VScannerCropperThumb = VScannerCropperThumb.bottomRight()
         self.thumbBottomRight = thumbBottomRight
         
-        let viewMover:VCameraCropImageMover = VCameraCropImageMover()
+        let viewMover:VScannerCropperMover = VScannerCropperMover()
         self.viewMover = viewMover
     }
     
