@@ -5,6 +5,7 @@ class VScanner:VView
     weak var viewCropper:VScannerCropper?
     weak var viewPreview:VScannerPreview!
     weak var viewMenu:VScannerMenu!
+    private weak var spinner:VSpinner!
     private weak var controller:CScanner!
     private let kMenuHeight:CGFloat = 65
     
@@ -22,8 +23,12 @@ class VScanner:VView
             controller:self.controller)
         self.viewMenu = viewMenu
         
+        let spinner:VSpinner = VSpinner()
+        self.spinner = spinner
+        
         addSubview(viewPreview)
         addSubview(viewMenu)
+        addSubview(spinner)
         
         NSLayoutConstraint.equals(
             view:viewPreview,
@@ -37,6 +42,10 @@ class VScanner:VView
             constant:kMenuHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewMenu,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:spinner,
             toView:self)
     }
     
@@ -73,9 +82,11 @@ class VScanner:VView
     
     //MARK: public
     
-    func viewAppeared()
+    func activated()
     {
+        spinner.stopAnimating()
         reloadCropper()
+        viewMenu.activateButtons()
     }
     
     func prepareForRotation()
@@ -85,6 +96,15 @@ class VScanner:VView
     
     func viewRotated()
     {
-        reloadCropper()
+        if !spinner.isAnimating
+        {
+            reloadCropper()
+        }
+    }
+    
+    func startLoading()
+    {
+        spinner.startAnimating()
+        viewCropper?.removeFromSuperview()
     }
 }

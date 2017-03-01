@@ -55,7 +55,6 @@ class CScanner:CController
         if captureSession == nil
         {
             askAuthorization()
-            viewScanner.viewAppeared()
         }
     }
     
@@ -77,7 +76,7 @@ class CScanner:CController
         { [weak self] (context:UIViewControllerTransitionCoordinatorContext) in
             
             self?.updatePreviewOrientation()
-            self?.viewScanner.viewAppeared()
+            self?.viewScanner.viewRotated()
         }
     }
     
@@ -127,8 +126,6 @@ class CScanner:CController
     
     private func cleanSession()
     {
-        
-        
         captureSession?.stopRunning()
         captureSession?.removeInput(captureDeviceInput)
         captureSession?.removeOutput(captureOutput)
@@ -213,7 +210,7 @@ class CScanner:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.viewScanner.viewMenu.activateButtons()
+            self?.viewScanner.activated()
             self?.updatePreviewOrientation()
         }
     }
@@ -268,6 +265,58 @@ class CScanner:CController
         connection.videoOrientation = videoOrientation
     }
     
+    private func stillImage()
+    {
+        guard
+            
+            let connection:AVCaptureConnection = captureOutput?.connection(
+                withMediaType:kMediaType)
+            
+        else
+        {
+            return
+        }
+        
+        captureOutput?.captureStillImageAsynchronously(
+            from:connection)
+        { [weak self] (sampleBuffer:CMSampleBuffer?, error:Error?) in
+            
+            guard
+                
+                let buffer:CMSampleBuffer = sampleBuffer,
+                let data:Data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(
+                    buffer),
+                let image:UIImage = UIImage(data:data)
+                
+            else
+            {
+                return
+            }
+            
+            self?.processImage(image:image)
+        }
+    }
+    
+    private func processImage(image:UIImage)
+    {
+        stopCamera()
+        
+        
+        
+    }
+    
+    private func stopCamera()
+    {
+        cleanSession()
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.videoPreviewLayer?.removeFromSuperlayer()
+            self?.viewScanner.startLoading()
+        }
+    }
+    
     //MARK: public
     
     func back()
@@ -283,5 +332,16 @@ class CScanner:CController
     func undo()
     {
         viewScanner.viewCropper?.resetThumbs()
+    }
+    
+    func shoot()
+    {
+        viewScanner.viewMenu.blockButtons()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.stillImage()
+        }
     }
 }

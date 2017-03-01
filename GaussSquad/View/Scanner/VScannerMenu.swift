@@ -3,11 +3,13 @@ import UIKit
 class VScannerMenu:UIView
 {
     private weak var controller:CScanner!
+    private weak var buttonBack:UIButton!
     private weak var buttonShoot:UIButton!
     private weak var buttonUndo:UIButton!
     private weak var layoutShootLeft:NSLayoutConstraint!
     private let kBorderHeight:CGFloat = 1
     private let kButtonsWidth:CGFloat = 50
+    private let kAlphaBlock:CGFloat = 0.3
     
     init(controller:CScanner)
     {
@@ -35,6 +37,7 @@ class VScannerMenu:UIView
             self,
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.buttonBack = buttonBack
         
         let buttonShoot:UIButton = UIButton()
         buttonShoot.translatesAutoresizingMaskIntoConstraints = false
@@ -48,6 +51,10 @@ class VScannerMenu:UIView
         buttonShoot.imageView!.clipsToBounds = true
         buttonShoot.imageView!.tintColor = UIColor.squadBlue
         buttonShoot.isHidden = true
+        buttonShoot.addTarget(
+            self,
+            action:#selector(actionShoot(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonShoot = buttonShoot
         
         let buttonUndo:UIButton = UIButton()
@@ -143,7 +150,7 @@ class VScannerMenu:UIView
     
     func actionShoot(sender button:UIButton)
     {
-        
+        controller.shoot()
     }
     
     func actionUndo(sender button:UIButton)
@@ -157,5 +164,15 @@ class VScannerMenu:UIView
     {
         buttonShoot.isHidden = false
         buttonUndo.isHidden = false
+    }
+    
+    func blockButtons()
+    {
+        buttonBack.isUserInteractionEnabled = false
+        buttonShoot.isUserInteractionEnabled = false
+        buttonUndo.isUserInteractionEnabled = false
+        buttonBack.alpha = kAlphaBlock
+        buttonShoot.alpha = kAlphaBlock
+        buttonUndo.alpha = kAlphaBlock
     }
 }
