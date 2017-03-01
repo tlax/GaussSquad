@@ -171,6 +171,7 @@
 		DA62D39D1E4D1B93000D0387 /* VLinearEquationsSolutionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D39C1E4D1B93000D0387 /* VLinearEquationsSolutionFooter.swift */; };
 		DA62D39F1E4D24CB000D0387 /* MLinearEquationsSolutionIndeterminatesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D39E1E4D24CB000D0387 /* MLinearEquationsSolutionIndeterminatesItem.swift */; };
 		DA62D3A11E4D24D3000D0387 /* MLinearEquationsSolutionIndeterminates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3A01E4D24D3000D0387 /* MLinearEquationsSolutionIndeterminates.swift */; };
+		DA6D32F81E678EC70013F08F /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = DA6D32F71E678EC70013F08F /* tessdata */; };
 		DA6D62D31E560CA3002D9C1A /* CSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6D62D21E560CA3002D9C1A /* CSettings.swift */; };
 		DA6D62D51E560EC4002D9C1A /* VSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6D62D41E560EC4002D9C1A /* VSettings.swift */; };
 		DA7A9CE51E5CBC4300ED71D1 /* MHomeItemCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */; };
@@ -518,6 +519,7 @@
 		DA62D39C1E4D1B93000D0387 /* VLinearEquationsSolutionFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionFooter.swift; sourceTree = "<group>"; };
 		DA62D39E1E4D24CB000D0387 /* MLinearEquationsSolutionIndeterminatesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionIndeterminatesItem.swift; sourceTree = "<group>"; };
 		DA62D3A01E4D24D3000D0387 /* MLinearEquationsSolutionIndeterminates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionIndeterminates.swift; sourceTree = "<group>"; };
+		DA6D32F71E678EC70013F08F /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		DA6D62D21E560CA3002D9C1A /* CSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSettings.swift; sourceTree = "<group>"; };
 		DA6D62D41E560EC4002D9C1A /* VSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettings.swift; sourceTree = "<group>"; };
 		DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemCalculator.swift; sourceTree = "<group>"; };
@@ -1535,6 +1537,7 @@
 		DAFF4A361E3979B600A2DD4B /* GaussSquad */ = {
 			isa = PBXGroup;
 			children = (
+				DA6D32F71E678EC70013F08F /* tessdata */,
 				DAFF4A491E397B9500A2DD4B /* Assets */,
 				DAFF4A4B1E397B9500A2DD4B /* Controller */,
 				DAFF4A501E397B9500A2DD4B /* Data */,
@@ -1819,6 +1822,7 @@
 				DAF37ADB1E3D6588005052D8 /* spinner.xcassets in Resources */,
 				DAFF4AC01E397B9600A2DD4B /* Localizable.strings in Resources */,
 				DACC20BD1E60B66A00F8D2D7 /* function.xcassets in Resources */,
+				DA6D32F81E678EC70013F08F /* tessdata in Resources */,
 				DA9F6FA31E551C33003C5486 /* help.xcassets in Resources */,
 				DA033CEE1E3AA2DC00F7645C /* generic.xcassets in Resources */,
 				DAE4A87B1E5B3E93000A07A3 /* texture.xcassets in Resources */,
