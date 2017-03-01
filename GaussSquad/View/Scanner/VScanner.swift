@@ -6,7 +6,7 @@ class VScanner:VView
     weak var viewPreview:VScannerPreview!
     weak var viewMenu:VScannerMenu!
     private weak var controller:CScanner!
-    private let kMenuHeight:CGFloat = 80
+    private let kMenuHeight:CGFloat = 65
     
     override init(controller:CController)
     {
