@@ -286,15 +286,63 @@ class CScanner:CController
                 let buffer:CMSampleBuffer = sampleBuffer,
                 let data:Data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(
                     buffer),
-                let image:UIImage = UIImage(data:data)
+                let cgImage:CGImage = UIImage(data:data)?.cgImage,
+                let orientation:UIImageOrientation = self?.imageOrientation()
                 
             else
             {
                 return
             }
             
+            let scale:CGFloat = UIScreen.main.scale
+            let image:UIImage = UIImage(
+                cgImage:cgImage,
+                scale:scale,
+                orientation:orientation)
+            
             self?.processImage(image:image)
         }
+    }
+    
+    private func imageOrientation() -> UIImageOrientation
+    {
+        let orientation:UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
+        let imageOrientation:UIImageOrientation
+        
+        switch orientation
+        {
+        case UIInterfaceOrientation.portrait:
+            
+            imageOrientation = UIImageOrientation.up
+            
+            break
+            
+        case UIInterfaceOrientation.portraitUpsideDown:
+            
+            imageOrientation = UIImageOrientation.down
+            
+            break
+            
+        case UIInterfaceOrientation.landscapeLeft:
+            
+            imageOrientation = UIImageOrientation.left
+            
+            break
+            
+        case UIInterfaceOrientation.landscapeRight:
+            
+            imageOrientation = UIImageOrientation.right
+            
+            break
+            
+        case UIInterfaceOrientation.unknown:
+            
+            imageOrientation = UIImageOrientation.up
+            
+            break
+        }
+        
+        return imageOrientation
     }
     
     private func processImage(image:UIImage)
