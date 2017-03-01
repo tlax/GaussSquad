@@ -211,8 +211,7 @@ class CScanner:CController
         DispatchQueue.main.async
         { [weak self] in
             
-//            self?.viewCamera.viewMenu.activateButtons()
-            
+            self?.viewScanner.viewMenu.activateButtons()
             self?.updatePreviewOrientation()
         }
     }
@@ -265,5 +264,13 @@ class CScanner:CController
         }
         
         connection.videoOrientation = videoOrientation
+    }
+    
+    //MARK: public
+    
+    func back()
+    {
+        cleanSession()
+        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
 }

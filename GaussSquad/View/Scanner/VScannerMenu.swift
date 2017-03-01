@@ -38,4 +38,11 @@ class VScannerMenu:UIView
     {
         return nil
     }
+    
+    //MARK: public
+    
+    func activateButtons()
+    {
+        
+    }
 }
