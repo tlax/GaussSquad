@@ -299,8 +299,61 @@ class CScanner:CController
     
     private func processImage(image:UIImage)
     {
+        guard
+            
+            let posLeft:CGFloat = viewScanner.viewCropper?.thumbTopLeft.positionX,
+            let posRight:CGFloat = viewScanner.viewCropper?.thumbTopRight.positionX,
+            let posTop:CGFloat = viewScanner.viewCropper?.thumbTopLeft.positionY,
+            let posBottom:CGFloat = viewScanner.viewCropper?.thumbBottomLeft.positionY
+        
+        else
+        {
+            return
+        }
+        
         stopCamera()
-        finishProcessing(image:image)
+        
+        let imageWidth:CGFloat = image.size.width
+        let imageHeight:CGFloat = image.size.height
+        let viewWidth:CGFloat = view.bounds.size.width
+        let viewHeight:CGFloat = view.bounds.size.height
+        let deltaRight:CGFloat = viewWidth - posRight
+        let deltaBottom:CGFloat = viewHeight - posBottom
+        let imageRatio:CGFloat = imageWidth / viewWidth
+        let distanceLeft:CGFloat = posLeft * imageRatio
+        let distanceRight:CGFloat = deltaRight * imageRatio
+        let distanceTop:CGFloat = posTop * imageRatio
+        let distanceBottom:CGFloat = deltaBottom * imageRatio
+        let distanceHorizontal:CGFloat = distanceLeft + distanceRight
+        let distanceVertical:CGFloat = distanceTop + distanceBottom
+        let newWidth:CGFloat = imageWidth - distanceHorizontal
+        let newHeight:CGFloat = imageHeight - distanceVertical
+        
+        let newSize:CGSize = CGSize(width:newWidth, height:newHeight)
+        
+        let drawingRect:CGRect = CGRect(
+            x:-distanceLeft,
+            y:-distanceTop,
+            width:imageWidth,
+            height:imageHeight)
+        
+        UIGraphicsBeginImageContext(newSize)
+        image.draw(in:drawingRect)
+        
+        guard
+            
+            let croppedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+            
+        else
+        {
+            UIGraphicsEndImageContext()
+            
+            return
+        }
+        
+        UIGraphicsEndImageContext()
+
+        finishProcessing(image:croppedImage)
     }
     
     private func stopCamera()

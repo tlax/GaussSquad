@@ -22,4 +22,22 @@ class CScannerOCR:CController
         self.viewOCR = viewOCR
         view = viewOCR
     }
+    
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        let activity:UIActivityViewController = UIActivityViewController(
+            activityItems:[image],
+            applicationActivities:nil)
+        
+        if activity.popoverPresentationController != nil
+        {
+            activity.popoverPresentationController!.sourceView = self.viewOCR
+            activity.popoverPresentationController!.sourceRect = CGRect.zero
+            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
+        present(activity, animated:true)
+    }
 }
