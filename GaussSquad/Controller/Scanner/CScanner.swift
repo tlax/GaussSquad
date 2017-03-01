@@ -300,9 +300,7 @@ class CScanner:CController
     private func processImage(image:UIImage)
     {
         stopCamera()
-        
-        
-        
+        finishProcessing(image:image)
     }
     
     private func stopCamera()
@@ -314,6 +312,18 @@ class CScanner:CController
             
             self?.videoPreviewLayer?.removeFromSuperlayer()
             self?.viewScanner.startLoading()
+        }
+    }
+    
+    private func finishProcessing(image:UIImage)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            let controllerOCR:CScannerOCR = CScannerOCR(image:image)
+            self?.parentController.push(
+                controller:controllerOCR,
+                horizontal:CParent.TransitionHorizontal.fromRight)
         }
     }
     
