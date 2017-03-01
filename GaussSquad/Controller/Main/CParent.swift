@@ -278,6 +278,32 @@ class CParent:UIViewController
         }
     }
     
+    func popSilent(removeIndex:Int)
+    {
+        let controllers:Int = childViewControllers.count
+        
+        if controllers > removeIndex
+        {
+            guard
+                
+                let removeController:CController = childViewControllers[removeIndex] as? CController,
+                let removeView:VView = removeController.view as? VView
+            
+            else
+            {
+                return
+            }
+            
+            removeView.pushBackground?.removeFromSuperview()
+            removeView.removeFromSuperview()
+            
+            if childViewControllers.count < 2
+            {
+                self.viewParent.panRecognizer.isEnabled = false
+            }
+        }
+    }
+    
     func dismissAnimateOver(completion:(() -> ())?)
     {
         guard
