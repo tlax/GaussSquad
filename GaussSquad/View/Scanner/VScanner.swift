@@ -67,6 +67,7 @@ class VScanner:VView
             view:viewCropper,
             toView:self)
         
+        layoutIfNeeded()
         viewCropper.viewAppeared()
     }
     
