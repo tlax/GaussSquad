@@ -11,7 +11,7 @@ class VScannerCropper:UIView
     private weak var draggingThumb:VScannerCropperThumb?
     private weak var draggingMover:VScannerCropperMover?
     private let thumbSize_2:CGFloat
-    private let kMinMargin:CGFloat = 10
+    private let kMinMargin:CGFloat = 25
     private let kThumbSize:CGFloat = 60
     
     init(controller:CScanner)
@@ -592,7 +592,7 @@ class VScannerCropper:UIView
     
     //MARK: public
     
-    func viewDidAppeared()
+    func viewAppeared()
     {
         positionThumbs()
         createShades()

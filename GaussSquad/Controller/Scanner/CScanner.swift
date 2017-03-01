@@ -55,7 +55,7 @@ class CScanner:CController
         if captureSession == nil
         {
             askAuthorization()
-            viewScanner.viewCropper.viewDidAppeared()
+            viewScanner.viewAppeared()
         }
     }
     
@@ -68,6 +68,8 @@ class CScanner:CController
     
     override func viewWillTransition(to size:CGSize, with coordinator:UIViewControllerTransitionCoordinator)
     {
+        viewScanner.prepareForRotation()
+        
         coordinator.animate(
             alongsideTransition:
             { (context:UIViewControllerTransitionCoordinatorContext) in
@@ -75,6 +77,7 @@ class CScanner:CController
         { [weak self] (context:UIViewControllerTransitionCoordinatorContext) in
             
             self?.updatePreviewOrientation()
+            self?.viewScanner.viewAppeared()
         }
     }
     
