@@ -1,9 +1,9 @@
 [logo]:http://is3.mzstatic.com/image/thumb/Purple111/v4/86/b3/d8/86b3d824-8341-5b50-c88e-457aeb4ea816/source/40x40bb.jpg "Gauss Squad"
-[brand1]:http://a3.mzstatic.com/us/r30/Purple82/v4/28/bb/94/28bb9496-6d46-e73e-d06b-3d02cb58356a/screen696x696.jpeg "Gaussian Elimination"
-[brand2]:http://a5.mzstatic.com/us/r30/Purple122/v4/fc/bd/1a/fcbd1aa5-8223-f661-e28d-f59347a30dd2/screen696x696.jpeg "As compex as needed"
-[brand3]:http://a4.mzstatic.com/us/r30/Purple122/v4/97/16/4d/97164d88-58e0-afdb-3660-3f336b328a60/screen696x696.jpeg "Easy to edit"
-[brand4]:http://a5.mzstatic.com/us/r30/Purple111/v4/24/bc/ee/24bceeef-aae6-9fb8-7fac-0957bfa6f69b/screen696x696.jpeg "Step by step"
-[brand5]:http://a1.mzstatic.com/us/r30/Purple122/v4/c3/29/a3/c329a339-e4ec-81a1-c826-08ea7cb12148/screen696x696.jpeg "Row echelon form"
+[brand1]:http://a3.mzstatic.com/eu/r30/Purple111/v4/d2/c2/81/d2c28138-c699-0a32-401c-61dd91d47c40/screen696x696.jpeg "Graph Equations"
+[brand2]:http://a4.mzstatic.com/eu/r30/Purple122/v4/cd/91/b8/cd91b8d9-1b68-fa6c-eb18-5a1049cbf479/screen696x696.jpeg "Pascaline"
+[brand3]:http://a4.mzstatic.com/eu/r30/Purple111/v4/dd/55/c8/dd55c812-7008-f06e-0e36-97ad6bed47ee/screen696x696.jpeg "Gaussian Elimination"
+[brand4]:http://a2.mzstatic.com/eu/r30/Purple122/v4/41/7c/d9/417cd908-4893-361f-8b92-261752f2d54b/screen696x696.jpeg "Dynamic Edition"
+[brand5]:http://a5.mzstatic.com/eu/r30/Purple111/v4/bb/df/c4/bbdfc483-ee90-4884-21aa-5f2d01b5584f/screen696x696.jpeg "Solutions step y step"
 
 # Gauss Squad ![alt text][logo]
 The squad is here to help you with Mathematics
