@@ -12,7 +12,7 @@ class MLinearEquationsItem
         self.project = project
         
         attributes = [
-            NSFontAttributeName:UIFont.numeric(size:16),
+            NSFontAttributeName:UIFont.numericBold(size:16),
             NSForegroundColorAttributeName:UIColor.black]
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
@@ -89,9 +89,18 @@ class MLinearEquationsItem
         
         if days >= 1
         {
-            let string:String = String(
-                format:NSLocalizedString("MLinearEquationsItem_ageDays", comment:""),
-                "\(days)")
+            let string:String
+            
+            if days == 1
+            {
+                string = NSLocalizedString("MLinearEquationsItem_ageDay", comment:"")
+            }
+            else
+            {
+                string = String(
+                    format:NSLocalizedString("MLinearEquationsItem_ageDays", comment:""),
+                    "\(days)")
+            }
             
             return string
         }
@@ -101,19 +110,36 @@ class MLinearEquationsItem
             
             if hours >= 1
             {
-                let string:String = String(
+                let string:String
+                
+                if hours == 1
+                {
+                    string = NSLocalizedString("MLinearEquationsItem_ageHour", comment:"")
+                }
+                else
+                {
+                    string = String(
                     format:NSLocalizedString("MLinearEquationsItem_ageHours", comment:""),
                     "\(hours)")
+                }
                 
                 return string
             }
             else
             {
                 let minutes:Int = Int(deltaTime / minutesCount)
+                let string:String
                 
-                let string:String = String(
+                if minutes == 1
+                {
+                    string = NSLocalizedString("MLinearEquationsItem_ageMinute", comment:"")
+                }
+                else
+                {
+                    string = String(
                     format:NSLocalizedString("MLinearEquationsItem_ageMinutes", comment:""),
                     "\(minutes)")
+                }
                 
                 return string
             }

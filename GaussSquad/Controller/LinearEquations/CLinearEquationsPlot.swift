@@ -44,6 +44,8 @@ class CLinearEquationsPlot:CController
             model.makeRender(device:device)
             viewPlot.viewMenu.refresh()
         }
+        
+        parentController.viewParent.panRecognizer.isEnabled = false
     }
     
     override func viewWillTransition(to size:CGSize, with coordinator:UIViewControllerTransitionCoordinator)

@@ -6,7 +6,6 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     private weak var collectionView:VCollection!
     private weak var pageControl:UIPageControl!
     private weak var layoutButtonLeft:NSLayoutConstraint!
-    private let kControlBottom:CGFloat = -30
     private let kControlHeight:CGFloat = 50
     private let kButtonWidth:CGFloat = 120
     private let kButtonHeight:CGFloat = 34
@@ -44,7 +43,8 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let collectionView:VCollection = VCollection()
         collectionView.alwaysBounceHorizontal = true
         collectionView.isPagingEnabled = true
-        collectionView.registerCell(cell:VHelpCell.self)
+        collectionView.registerCell(cell:VHelpCellShort.self)
+        collectionView.registerCell(cell:VHelpCellLong.self)
         collectionView.delegate = self
         collectionView.dataSource = self
         self.collectionView = collectionView
@@ -92,8 +92,7 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         NSLayoutConstraint.bottomToTop(
             view:pageControl,
-            toView:button,
-            constant:kControlBottom)
+            toView:button)
         NSLayoutConstraint.height(
             view:pageControl,
             constant:kControlHeight)
@@ -187,7 +186,7 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let item:MHelpItem = modelAtIndex(index:indexPath)
         let cell:VHelpCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
-            VHelpCell.reusableIdentifier,
+            item.reusableIdentifier,
             for:indexPath) as! VHelpCell
         cell.config(model:item)
         

@@ -214,4 +214,14 @@ class CCalculator:CController
         parentController.animateOver(
             controller:controllerOptions)
     }
+    
+    func help()
+    {
+        let modelHelp:MHelpCalculator = MHelpCalculator()
+        let controllerHelp:CHelp = CHelp(model:modelHelp)
+        parentController.push(
+            controller:controllerHelp,
+            vertical:CParent.TransitionVertical.fromTop,
+            background:false)
+    }
 }

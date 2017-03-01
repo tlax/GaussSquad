@@ -1,5 +1,5 @@
-"MHomeItemCalculator_symbol"="+ - × ÷ √ ^";
-"MHomeItemCalculator_title"="Calculator";
+"MHomeItemCalculator_symbol"="Calculator";
+"MHomeItemCalculator_title"="Pascaline";
 "MHomeItemLinearEquations_symbol"="ax + b = 0";
 "MHomeItemLinearEquations_title"="Linear equations";
 "MLinearEquationsProject_defaultIndeterminate"="x";
@@ -7,6 +7,9 @@
 "MLinearEquationsItem_negative"=" - ";
 "MLinearEquationsItem_division"="/";
 "MLinearEquationsItem_equals"=" = ";
+"MLinearEquationsItem_ageDay"="Yesterday";
+"MLinearEquationsItem_ageHour"="An hour ago";
+"MLinearEquationsItem_ageMinute"="A minute ago";
 "MLinearEquationsItem_ageDays"="%@ days ago";
 "MLinearEquationsItem_ageHours"="%@ hours ago";
 "MLinearEquationsItem_ageMinutes"="%@ minutes ago";
@@ -43,6 +46,17 @@
 "MCalculatorFunctionsItemAnyExponent_title"="Any Exponent";
 "MCalculatorFunctionsTrigonometry_title"="Trigonometry";
 "MCalculatorFunctionsExponents_title"="Exponents";
+"MHelpCalculatorItemPascal_title"="Blaise Pascal";
+"MHelpCalculatorItemPascal_date"="\n19/6/1623 - 19/8/1662";
+"MHelpCalculatorItemPascal_subtitle"="\nFrench mathematician and philosopher, created the first mechanical calculator while still a teenager and by 1645 made a public presentation of 50 different prototypes.";
+"MHelpCalculatorItemOptions_title"="Display the list of avaiable functions";
+"MHelpCalculatorItemFunctions_title"="Select a function card to use it";
+"MHelpCalculatorItemUndo_title"="Go back to any previous state";
+"MHelpLinearEquationsLandingItemGauss_title"="Johann Carl Friedrich Gauss";
+"MHelpLinearEquationsLandingItemGauss_date"="\n30/4/1777 – 23/2/1855";
+"MHelpLinearEquationsLandingItemGauss_subtitle"="\nThe Princeps mathematicorum, german mathematician who created Gaussian Elimination for solving systems of linear equations, algebraic equations in which each term is either a constant or the product of a constant and a single variable.";
+"MHelpLinearEquationsLandingItemAddEquation_title"="Create as many projects as you want";
+"MHelpLinearEquationsLandingItemAutoSave_title"="Come back and edit your projects any time";
 "MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition or change the indeterminate";
 "MHelpLinearEquationsProjectItemAddPolynomial_title"="Add polynomials";
 "MHelpLinearEquationsProjectItemEditRow_title"="Rearrange or delete equation";
@@ -54,9 +68,6 @@
 "MStoreItemPlus_descr"="Unlimited indeterminates.\nCreate as many variables as you need without restrictions";
 
 "VLinearEquationsBar_labelTitle"="Linear equations";
-"VLinearEquationsBar_labelGaussName"="Carl Friedrich Gauss";
-"VLinearEquationsBar_labelGaussDate"="\n30/4/1777 – 23/2/1855";
-"VLinearEquationsBar_labelDescr"="A linear equation is an algebraic equation in which each term is either a constant or the product of a constant and a single variable.\n\nGauss was a German mathematician referred to as the Princeps mathematicorum, he created the algorithm Gaussian Elimination for solving systems of linear equations.";
 "VLinearEquationsPolynomialControl_buttonDone"="Done";
 "VLinearEquationsProjectBarIndeterminates_title"="Indeterminate";
 "VLinearEquationsIndeterminateControl_buttonSave"="Save";
@@ -75,7 +86,7 @@
 "VSettingsCellSupport_labelSubtitle"="\nSend us your questions, we'd like to read you";
 "VSettingsCellReview_labelTitle"="You like Gauss Squad?";
 "VSettingsCellReview_labelSubtitle"="\nWrite a review on the App Store";
-"VSettingsCellShare_labelTitle"="Share the app";
+"VSettingsCellShare_labelTitle"="Share app";
 "VSettingsCellShare_labelSubtitle"="\nLet others know about Gauss Squad";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";

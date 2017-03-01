@@ -42,6 +42,16 @@ class CLinearEquations:CController
         openProject(project:nil)
     }
     
+    func help()
+    {
+        let modelHelp:MHelpLinearEquationsLanding = MHelpLinearEquationsLanding()
+        let controllerHelp:CHelp = CHelp(model:modelHelp)
+        parentController.push(
+            controller:controllerHelp,
+            vertical:CParent.TransitionVertical.fromTop,
+            background:false)
+    }
+    
     func modelLoaded()
     {
         viewLinearEquations.refresh()

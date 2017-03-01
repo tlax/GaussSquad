@@ -1,6 +1,6 @@
 import UIKit
 
-class MHelpLinearEquationsProjectItemSolution:MHelpItem
+class MHelpLinearEquationsProjectItemSolution:MHelpItemShort
 {
     init()
     {

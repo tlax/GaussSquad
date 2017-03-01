@@ -3,6 +3,7 @@ import UIKit
 class VCalculatorBar:UIView
 {
     private weak var controller:CCalculator!
+    private let kHelpLeft:CGFloat = 8
     private let kButtonWidth:CGFloat = 50
     
     init(controller:CCalculator)
@@ -61,6 +62,23 @@ class VCalculatorBar:UIView
             action:#selector(actionUndo(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonHelp:UIButton = UIButton()
+        buttonHelp.translatesAutoresizingMaskIntoConstraints = false
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetGenericHelpBlack").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetGenericHelpBlack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonHelp.imageView!.tintColor = UIColor(white:0, alpha:0.1)
+        buttonHelp.imageView!.clipsToBounds = true
+        buttonHelp.imageView!.contentMode = UIViewContentMode.center
+        buttonHelp.addTarget(
+            self,
+            action:#selector(actionHelp(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
+        addSubview(buttonHelp)
         addSubview(buttonBack)
         addSubview(buttonOptions)
         addSubview(buttonUndo)
@@ -83,6 +101,17 @@ class VCalculatorBar:UIView
             toView:buttonBack)
         NSLayoutConstraint.width(
             view:buttonOptions,
+            constant:kButtonWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonHelp,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:buttonHelp,
+            toView:buttonOptions,
+            constant:kHelpLeft)
+        NSLayoutConstraint.width(
+            view:buttonHelp,
             constant:kButtonWidth)
         
         NSLayoutConstraint.equalsVertical(
@@ -117,5 +146,10 @@ class VCalculatorBar:UIView
     func actionUndo(sender button:UIButton)
     {
         controller.undo()
+    }
+    
+    func actionHelp(sender button:UIButton)
+    {
+        controller.help()
     }
 }
