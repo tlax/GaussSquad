@@ -127,6 +127,8 @@ class CScanner:CController
     
     private func cleanSession()
     {
+        
+        
         captureSession?.stopRunning()
         captureSession?.removeInput(captureDeviceInput)
         captureSession?.removeOutput(captureOutput)
@@ -270,7 +272,16 @@ class CScanner:CController
     
     func back()
     {
-        cleanSession()
-        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+        parentController.pop(
+            horizontal:CParent.TransitionHorizontal.fromRight)
+        { [weak self] in
+            
+            self?.cleanSession()
+        }
+    }
+    
+    func undo()
+    {
+        viewScanner.viewCropper?.resetThumbs()
     }
 }

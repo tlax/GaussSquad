@@ -597,4 +597,12 @@ class VScannerCropper:UIView
         positionThumbs()
         createShades()
     }
+    
+    func resetThumbs()
+    {
+        thumbTopLeft.reset()
+        thumbTopRight.reset()
+        thumbBottomLeft.reset()
+        thumbBottomRight.reset()
+    }
 }

@@ -3,6 +3,8 @@ import UIKit
 class VScannerMenu:UIView
 {
     private weak var controller:CScanner!
+    private weak var buttonShoot:UIButton!
+    private weak var buttonUndo:UIButton!
     private weak var layoutShootLeft:NSLayoutConstraint!
     private let kBorderHeight:CGFloat = 1
     private let kButtonsWidth:CGFloat = 50
@@ -44,11 +46,32 @@ class VScannerMenu:UIView
             for:UIControlState.highlighted)
         buttonShoot.imageView!.contentMode = UIViewContentMode.center
         buttonShoot.imageView!.clipsToBounds = true
-        buttonShoot.imageView!.tintColor = UIColor(white:1, alpha:0.2)
+        buttonShoot.imageView!.tintColor = UIColor.squadBlue
+        buttonShoot.isHidden = true
+        self.buttonShoot = buttonShoot
+        
+        let buttonUndo:UIButton = UIButton()
+        buttonUndo.translatesAutoresizingMaskIntoConstraints = false
+        buttonUndo.setImage(
+            #imageLiteral(resourceName: "assetGenericUndoWhite").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonUndo.setImage(
+            #imageLiteral(resourceName: "assetGenericUndoWhite").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonUndo.imageView!.contentMode = UIViewContentMode.center
+        buttonUndo.imageView!.clipsToBounds = true
+        buttonUndo.imageView!.tintColor = UIColor(white:1, alpha:0.2)
+        buttonUndo.addTarget(
+            self,
+            action:#selector(actionUndo(sender:)),
+            for:UIControlEvents.touchUpInside)
+        buttonUndo.isHidden = true
+        self.buttonUndo = buttonUndo
         
         addSubview(blur)
         addSubview(border)
         addSubview(buttonBack)
+        addSubview(buttonUndo)
         addSubview(buttonShoot)
         
         NSLayoutConstraint.equals(
@@ -84,6 +107,16 @@ class VScannerMenu:UIView
         NSLayoutConstraint.width(
             view:buttonShoot,
             constant:kButtonsWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonUndo,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:buttonUndo,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:buttonUndo,
+            constant:kButtonsWidth)
     }
     
     required init?(coder:NSCoder)
@@ -108,10 +141,21 @@ class VScannerMenu:UIView
         controller.back()
     }
     
+    func actionShoot(sender button:UIButton)
+    {
+        
+    }
+    
+    func actionUndo(sender button:UIButton)
+    {
+        controller.undo()
+    }
+    
     //MARK: public
     
     func activateButtons()
     {
-        
+        buttonShoot.isHidden = false
+        buttonUndo.isHidden = false
     }
 }
