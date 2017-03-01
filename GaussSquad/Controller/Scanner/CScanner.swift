@@ -317,6 +317,8 @@ class CScanner:CController
     
     private func finishProcessing(image:UIImage)
     {
+        let indexController:Int = parentController.childViewControllers.count - 1
+        
         DispatchQueue.main.async
         { [weak self] in
             
@@ -324,6 +326,10 @@ class CScanner:CController
             self?.parentController.push(
                 controller:controllerOCR,
                 horizontal:CParent.TransitionHorizontal.fromRight)
+            { [weak self] in
+                
+                self?.parentController.popSilent(removeIndex:indexController)
+            }
         }
     }
     

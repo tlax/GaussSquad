@@ -121,7 +121,8 @@ class CParent:UIViewController
         controller:CController,
         horizontal:TransitionHorizontal = TransitionHorizontal.none,
         vertical:TransitionVertical = TransitionVertical.none,
-        background:Bool = true)
+        background:Bool = true,
+        completion:(() -> ())? = nil)
     {
         let width:CGFloat = viewParent.bounds.maxX
         let height:CGFloat = viewParent.bounds.maxY
@@ -151,6 +152,7 @@ class CParent:UIViewController
         {
             controller.endAppearanceTransition()
             currentController.endAppearanceTransition()
+            completion?()
         }
     }
     
