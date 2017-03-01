@@ -16,6 +16,15 @@ class VScannerMenu:UIView
         let blur:VBlur = VBlur.dark()
         let border:VBorder = VBorder(color:UIColor(white:1, alpha:0.2))
         
+        let buttonBack:UIButton = UIButton()
+        buttonBack.translatesAutoresizingMaskIntoConstraints = false
+        buttonBack.setImage(
+            #imageLiteral(resourceName: "assetGenericBackWhite").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonBack.setImage(
+            #imageLiteral(resourceName: "assetGenericBackWhite").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        
         addSubview(blur)
         addSubview(border)
         
