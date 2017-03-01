@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB861AE98FABE6EE5E446B6A /* Pods_GaussSquad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC933455CF792297B32B845F /* Pods_GaussSquad.framework */; };
 		DA033CEA1E3A935700F7645C /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA033CE91E3A935700F7645C /* VHome.swift */; };
 		DA033CEC1E3A99EE00F7645C /* VParentBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA033CEB1E3A99EE00F7645C /* VParentBar.swift */; };
 		DA033CEE1E3AA2DC00F7645C /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA033CED1E3AA2DC00F7645C /* generic.xcassets */; };
@@ -351,6 +352,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F99750C1DB046BE7763F9A9 /* Pods-GaussSquad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GaussSquad.release.xcconfig"; path = "Pods/Target Support Files/Pods-GaussSquad/Pods-GaussSquad.release.xcconfig"; sourceTree = "<group>"; };
+		C30B31239DC7A228EC040980 /* Pods-GaussSquad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GaussSquad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GaussSquad/Pods-GaussSquad.debug.xcconfig"; sourceTree = "<group>"; };
 		DA033CE91E3A935700F7645C /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DA033CEB1E3A99EE00F7645C /* VParentBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParentBar.swift; sourceTree = "<group>"; };
 		DA033CED1E3AA2DC00F7645C /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
@@ -695,6 +698,7 @@
 		DAFF4A951E397B9600A2DD4B /* VView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VView.swift; sourceTree = "<group>"; };
 		DAFF4AD21E397D9A00A2DD4B /* CHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHelp.swift; sourceTree = "<group>"; };
 		DAFF4AD51E397E0100A2DD4B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
+		DC933455CF792297B32B845F /* Pods_GaussSquad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GaussSquad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -702,12 +706,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB861AE98FABE6EE5E446B6A /* Pods_GaussSquad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C16394EB9D9C96B5D39A629 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C30B31239DC7A228EC040980 /* Pods-GaussSquad.debug.xcconfig */,
+				4F99750C1DB046BE7763F9A9 /* Pods-GaussSquad.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9575A607AFA87AD4C8968F84 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC933455CF792297B32B845F /* Pods_GaussSquad.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DA033CE81E3A934800F7645C /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -1497,6 +1519,8 @@
 			children = (
 				DAFF4A361E3979B600A2DD4B /* GaussSquad */,
 				DAFF4A351E3979B600A2DD4B /* Products */,
+				4C16394EB9D9C96B5D39A629 /* Pods */,
+				9575A607AFA87AD4C8968F84 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1737,9 +1761,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAFF4A461E3979B600A2DD4B /* Build configuration list for PBXNativeTarget "GaussSquad" */;
 			buildPhases = (
+				8939F9E34ABBBC7929A747A5 /* [CP] Check Pods Manifest.lock */,
 				DAFF4A301E3979B600A2DD4B /* Sources */,
 				DAFF4A311E3979B600A2DD4B /* Frameworks */,
 				DAFF4A321E3979B600A2DD4B /* Resources */,
+				68123D9FAD6AAC3C540B31D7 /* [CP] Embed Pods Frameworks */,
+				B10F0504571FC648AD55AF3E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1803,6 +1830,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		68123D9FAD6AAC3C540B31D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GaussSquad/Pods-GaussSquad-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8939F9E34ABBBC7929A747A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B10F0504571FC648AD55AF3E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GaussSquad/Pods-GaussSquad-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DAFF4A301E3979B600A2DD4B /* Sources */ = {
@@ -2252,6 +2327,7 @@
 		};
 		DAFF4A471E3979B600A2DD4B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C30B31239DC7A228EC040980 /* Pods-GaussSquad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
@@ -2267,6 +2343,7 @@
 		};
 		DAFF4A481E3979B600A2DD4B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F99750C1DB046BE7763F9A9 /* Pods-GaussSquad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
