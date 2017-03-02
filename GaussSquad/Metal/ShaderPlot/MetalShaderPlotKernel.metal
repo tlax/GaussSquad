@@ -1,14 +1,14 @@
 #include <metal_stdlib>
 
 using namespace metal;
-#include "MetalShaderStructs.h"
+#include "MetalShaderPlotStructs.h"
 
 static constant float min_white = 0.97;
 
 kernel void
-kernel_effects(texture2d<float, access::read> read_texture [[texture(0)]],
-               texture2d<float, access::write> write_texture [[texture(1)]],
-               uint2 grid_id [[thread_position_in_grid]])
+plot_kernel(texture2d<float, access::read> read_texture [[texture(0)]],
+            texture2d<float, access::write> write_texture [[texture(1)]],
+            uint2 grid_id [[thread_position_in_grid]])
 {
     float4 textel = read_texture.read(grid_id);
     float x_pos = grid_id.x;

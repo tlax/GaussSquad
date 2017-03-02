@@ -88,7 +88,6 @@
 		DA46913E1E56744600FAD188 /* MetalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691251E56744600FAD188 /* MetalConstants.swift */; };
 		DA4691401E56744600FAD188 /* MetalProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691271E56744600FAD188 /* MetalProjection.swift */; };
 		DA4691421E56744600FAD188 /* MetalRenderableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691291E56744600FAD188 /* MetalRenderableProtocol.swift */; };
-		DA4691441E56744600FAD188 /* MetalShaderFragmentSimple.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA46912C1E56744600FAD188 /* MetalShaderFragmentSimple.metal */; };
 		DA46914C1E56744600FAD188 /* MetalVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46913A1E56744600FAD188 /* MetalVertex.swift */; };
 		DA46914D1E56744600FAD188 /* MetalVertexFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46913B1E56744600FAD188 /* MetalVertexFace.swift */; };
 		DA4691581E56766500FAD188 /* ExtensionMTKTextureLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691541E56766500FAD188 /* ExtensionMTKTextureLoader.swift */; };
@@ -137,8 +136,6 @@
 		DA519BE91E64FD0000F2673A /* MHelpCalculatorItemOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA519BE81E64FD0000F2673A /* MHelpCalculatorItemOptions.swift */; };
 		DA519BEB1E64FDAA00F2673A /* MHelpCalculatorItemFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA519BEA1E64FDAA00F2673A /* MHelpCalculatorItemFunctions.swift */; };
 		DA519BED1E64FDBD00F2673A /* MHelpCalculatorItemUndo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA519BEC1E64FDBD00F2673A /* MHelpCalculatorItemUndo.swift */; };
-		DA5502371E58ED2100DF0F95 /* MetalShaderVertexArrangement.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA5502361E58ED2100DF0F95 /* MetalShaderVertexArrangement.metal */; };
-		DA5502391E58EEB600DF0F95 /* MetalShaderKernelEffects.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA5502381E58EEB600DF0F95 /* MetalShaderKernelEffects.metal */; };
 		DA62D3461E4CCA0A000D0387 /* CLinearEquationsSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3451E4CCA0A000D0387 /* CLinearEquationsSolution.swift */; };
 		DA62D3531E4CD39C000D0387 /* MLinearEquationsSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3511E4CD39C000D0387 /* MLinearEquationsSolution.swift */; };
 		DA62D3551E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3541E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift */; };
@@ -177,6 +174,9 @@
 		DA723F171E68B01300030738 /* MScannerFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F161E68B01300030738 /* MScannerFilter.swift */; };
 		DA723F1B1E68B57500030738 /* MScannerFilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F1A1E68B57500030738 /* MScannerFilterItem.swift */; };
 		DA723F1D1E68B58700030738 /* MScannerFilterItemHighContrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F1C1E68B58700030738 /* MScannerFilterItemHighContrast.swift */; };
+		DA723F231E68BD9A00030738 /* MetalShaderPlotFragment.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA723F221E68BD9A00030738 /* MetalShaderPlotFragment.metal */; };
+		DA723F251E68BDAA00030738 /* MetalShaderPlotVertex.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA723F241E68BDAA00030738 /* MetalShaderPlotVertex.metal */; };
+		DA723F271E68BDB600030738 /* MetalShaderPlotKernel.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA723F261E68BDB600030738 /* MetalShaderPlotKernel.metal */; };
 		DA7A9CE51E5CBC4300ED71D1 /* MHomeItemCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */; };
 		DA7A9CE81E5CBECE00ED71D1 /* CCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CE71E5CBECE00ED71D1 /* CCalculator.swift */; };
 		DA7A9CEB1E5CBFC600ED71D1 /* VCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CEA1E5CBFC600ED71D1 /* VCalculator.swift */; };
@@ -438,8 +438,6 @@
 		DA4691251E56744600FAD188 /* MetalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalConstants.swift; sourceTree = "<group>"; };
 		DA4691271E56744600FAD188 /* MetalProjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalProjection.swift; sourceTree = "<group>"; };
 		DA4691291E56744600FAD188 /* MetalRenderableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalRenderableProtocol.swift; sourceTree = "<group>"; };
-		DA46912C1E56744600FAD188 /* MetalShaderFragmentSimple.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderFragmentSimple.metal; sourceTree = "<group>"; };
-		DA46912D1E56744600FAD188 /* MetalShaderStructs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalShaderStructs.h; sourceTree = "<group>"; };
 		DA46913A1E56744600FAD188 /* MetalVertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertex.swift; sourceTree = "<group>"; };
 		DA46913B1E56744600FAD188 /* MetalVertexFace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertexFace.swift; sourceTree = "<group>"; };
 		DA4691541E56766500FAD188 /* ExtensionMTKTextureLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTKTextureLoader.swift; sourceTree = "<group>"; };
@@ -488,8 +486,6 @@
 		DA519BE81E64FD0000F2673A /* MHelpCalculatorItemOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpCalculatorItemOptions.swift; sourceTree = "<group>"; };
 		DA519BEA1E64FDAA00F2673A /* MHelpCalculatorItemFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpCalculatorItemFunctions.swift; sourceTree = "<group>"; };
 		DA519BEC1E64FDBD00F2673A /* MHelpCalculatorItemUndo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpCalculatorItemUndo.swift; sourceTree = "<group>"; };
-		DA5502361E58ED2100DF0F95 /* MetalShaderVertexArrangement.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderVertexArrangement.metal; sourceTree = "<group>"; };
-		DA5502381E58EEB600DF0F95 /* MetalShaderKernelEffects.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderKernelEffects.metal; sourceTree = "<group>"; };
 		DA62D3451E4CCA0A000D0387 /* CLinearEquationsSolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquationsSolution.swift; sourceTree = "<group>"; };
 		DA62D3511E4CD39C000D0387 /* MLinearEquationsSolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolution.swift; sourceTree = "<group>"; };
 		DA62D3541E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionEquation.swift; sourceTree = "<group>"; };
@@ -528,6 +524,10 @@
 		DA723F161E68B01300030738 /* MScannerFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerFilter.swift; sourceTree = "<group>"; };
 		DA723F1A1E68B57500030738 /* MScannerFilterItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerFilterItem.swift; sourceTree = "<group>"; };
 		DA723F1C1E68B58700030738 /* MScannerFilterItemHighContrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerFilterItemHighContrast.swift; sourceTree = "<group>"; };
+		DA723F211E68BD6800030738 /* MetalShaderPlotStructs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalShaderPlotStructs.h; sourceTree = "<group>"; };
+		DA723F221E68BD9A00030738 /* MetalShaderPlotFragment.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderPlotFragment.metal; sourceTree = "<group>"; };
+		DA723F241E68BDAA00030738 /* MetalShaderPlotVertex.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderPlotVertex.metal; sourceTree = "<group>"; };
+		DA723F261E68BDB600030738 /* MetalShaderPlotKernel.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderPlotKernel.metal; sourceTree = "<group>"; };
 		DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemCalculator.swift; sourceTree = "<group>"; };
 		DA7A9CE71E5CBECE00ED71D1 /* CCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCalculator.swift; sourceTree = "<group>"; };
 		DA7A9CEA1E5CBFC600ED71D1 /* VCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCalculator.swift; sourceTree = "<group>"; };
@@ -859,8 +859,9 @@
 		DA4691221E56744600FAD188 /* Metal */ = {
 			isa = PBXGroup;
 			children = (
+				DA723F1E1E68BD2E00030738 /* ShaderFilter */,
+				DA723F1F1E68BD2E00030738 /* ShaderPlot */,
 				DA4691231E56744600FAD188 /* General */,
-				DA46912B1E56744600FAD188 /* Shader */,
 				DA46912F1E56744600FAD188 /* Spatial */,
 				DA4691391E56744600FAD188 /* Vertex */,
 			);
@@ -878,17 +879,6 @@
 				DAE4A8801E5B7735000A07A3 /* MetalPosition.swift */,
 			);
 			path = General;
-			sourceTree = "<group>";
-		};
-		DA46912B1E56744600FAD188 /* Shader */ = {
-			isa = PBXGroup;
-			children = (
-				DA46912D1E56744600FAD188 /* MetalShaderStructs.h */,
-				DA46912C1E56744600FAD188 /* MetalShaderFragmentSimple.metal */,
-				DA5502361E58ED2100DF0F95 /* MetalShaderVertexArrangement.metal */,
-				DA5502381E58EEB600DF0F95 /* MetalShaderKernelEffects.metal */,
-			);
-			path = Shader;
 			sourceTree = "<group>";
 		};
 		DA46912F1E56744600FAD188 /* Spatial */ = {
@@ -1184,6 +1174,24 @@
 				DA723F1C1E68B58700030738 /* MScannerFilterItemHighContrast.swift */,
 			);
 			path = Filter;
+			sourceTree = "<group>";
+		};
+		DA723F1E1E68BD2E00030738 /* ShaderFilter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ShaderFilter;
+			sourceTree = "<group>";
+		};
+		DA723F1F1E68BD2E00030738 /* ShaderPlot */ = {
+			isa = PBXGroup;
+			children = (
+				DA723F211E68BD6800030738 /* MetalShaderPlotStructs.h */,
+				DA723F221E68BD9A00030738 /* MetalShaderPlotFragment.metal */,
+				DA723F241E68BDAA00030738 /* MetalShaderPlotVertex.metal */,
+				DA723F261E68BDB600030738 /* MetalShaderPlotKernel.metal */,
+			);
+			path = ShaderPlot;
 			sourceTree = "<group>";
 		};
 		DA7A9CE61E5CBEC500ED71D1 /* Calculator */ = {
@@ -1919,10 +1927,8 @@
 				DAC9FEE41E617CD70085BA7F /* MCalculatorFunctionsItemReciprocal.swift in Sources */,
 				DA4691211E56736D00FAD188 /* VLinearEquationsPlotMetal.swift in Sources */,
 				DACC20D41E60EED700F8D2D7 /* MCalculatorFunctionsExponents.swift in Sources */,
-				DA5502391E58EEB600DF0F95 /* MetalShaderKernelEffects.metal in Sources */,
 				DA46915A1E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift in Sources */,
 				DA0CB8111E627B86003AA283 /* MLinearEquationsPlotRenderIndeterminate.swift in Sources */,
-				DA5502371E58ED2100DF0F95 /* MetalShaderVertexArrangement.metal in Sources */,
 				DA476F1C1E5634690058F4A4 /* VStoreCellNew.swift in Sources */,
 				DA033CEC1E3A99EE00F7645C /* VParentBar.swift in Sources */,
 				DA0CB80B1E627B5D003AA283 /* MLinearEquationsPlot.swift in Sources */,
@@ -2124,6 +2130,7 @@
 				DA0CB80F1E627B7C003AA283 /* MLinearEquationsPlotRenderCartesian.swift in Sources */,
 				DACC20DA1E60F26E00F8D2D7 /* CCalculatorOptions.swift in Sources */,
 				DA89F1A31E4A957F0062DE48 /* DPolynomialExtension.swift in Sources */,
+				DA723F271E68BDB600030738 /* MetalShaderPlotKernel.metal in Sources */,
 				DA476F1A1E5634690058F4A4 /* VStoreCell.swift in Sources */,
 				DA62D3551E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift in Sources */,
 				DAFF4AA31E397B9600A2DD4B /* ExtensionUICollectionReusableView.swift in Sources */,
@@ -2141,7 +2148,6 @@
 				DA2CE3951E5F3D8900626A43 /* MKeyboardRowItemSubtract.swift in Sources */,
 				DA133A401E410F710028D90F /* MLinearEquationsProjectRowItem.swift in Sources */,
 				DAE504F91E65F04100B8F22A /* MHelpLinearEquationsLandingItemAddEquation.swift in Sources */,
-				DA4691441E56744600FAD188 /* MetalShaderFragmentSimple.metal in Sources */,
 				DAFF4AA61E397B9600A2DD4B /* ExtensionURL.swift in Sources */,
 				DA033CF01E3AA30700F7645C /* VParentBarButton.swift in Sources */,
 				DA476F0B1E562E740058F4A4 /* MStoreItemStatusNotAvailable.swift in Sources */,
@@ -2236,6 +2242,8 @@
 				DA81185A1E5E61DF00B6ED7C /* MKeyboardRowItem5.swift in Sources */,
 				DAD46DB61E46A15C00AED3B9 /* MLinearEquationsIndeterminatesItem.swift in Sources */,
 				DAF37AE51E3D6EA1005052D8 /* VLinearEquationsBar.swift in Sources */,
+				DA723F251E68BDAA00030738 /* MetalShaderPlotVertex.metal in Sources */,
+				DA723F231E68BD9A00030738 /* MetalShaderPlotFragment.metal in Sources */,
 				DA23C34D1E512046007C4C4D /* MLinearEquationsSolutionStrategyFractionReduction.swift in Sources */,
 				DA133A631E4119E00028D90F /* VLinearEquationsProjectCell.swift in Sources */,
 				DA46914C1E56744600FAD188 /* MetalVertex.swift in Sources */,

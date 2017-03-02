@@ -1,5 +1,5 @@
-#ifndef MetalShaderStructs_h
-#define MetalShaderStructs_h
+#ifndef MetalShaderPlotStructs_h
+#define MetalShaderPlotStructs_h
 
 struct vertex_source
 {

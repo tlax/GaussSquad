@@ -1,16 +1,16 @@
 #include <metal_stdlib>
 
 using namespace metal;
-#include "MetalShaderStructs.h"
+#include "MetalShaderPlotStructs.h"
 
 static constant float destination_position = 1;
 static constant float coord_z = 0;
 
 vertex vertex_destination
-vertex_arrangement(constant vertex_source* vertex_array [[buffer(0)]],
-                   constant projection_matrix& projection [[buffer(1)]],
-                   constant position_matrix& position [[buffer(2)]],
-                   unsigned int vid [[vertex_id]])
+plot_vertex(constant vertex_source* vertex_array [[buffer(0)]],
+            constant projection_matrix& projection [[buffer(1)]],
+            constant position_matrix& position [[buffer(2)]],
+            unsigned int vid [[vertex_id]])
 {
     vertex_source source = vertex_array[vid];
     vertex_destination destination;
