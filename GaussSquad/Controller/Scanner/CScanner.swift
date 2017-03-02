@@ -11,7 +11,7 @@ class CScanner:CController
     private let devicePosition:AVCaptureDevicePosition
     private let queue:DispatchQueue
     private let kMediaType:String = AVMediaTypeVideo
-    private let kSessionPreset:String = AVCaptureSessionPreset640x480
+    private let kSessionPreset:String = AVCaptureSessionPreset1280x720
     private let kVideoGravity:String = AVLayerVideoGravityResizeAspectFill
     private let kVideoCodec:String = AVVideoCodecJPEG
     private let kQueueLabel:String = "cameraQueue"
@@ -361,19 +361,19 @@ class CScanner:CController
         
         stopCamera()
         
-        let menuHeight:CGFloat = viewScanner.kMenuHeight
         let scale:CGFloat = image.scale
         let imageWidth:CGFloat = image.size.width * scale
         let imageHeight:CGFloat = image.size.height * scale
         let viewWidth:CGFloat = view.bounds.size.width
         let viewHeight:CGFloat = view.bounds.size.height
         let deltaRight:CGFloat = viewWidth - posRight
-        let deltaBottom:CGFloat = viewHeight - (posBottom + menuHeight)
-        let imageRatio:CGFloat = imageWidth / viewWidth
-        let distanceLeft:CGFloat = posLeft * imageRatio
-        let distanceRight:CGFloat = deltaRight * imageRatio
-        let distanceTop:CGFloat = posTop * imageRatio
-        let distanceBottom:CGFloat = deltaBottom * imageRatio
+        let deltaBottom:CGFloat = viewHeight - posBottom
+        let imageRatioWidth:CGFloat = imageWidth / viewWidth
+        let imageRatioHeight:CGFloat = imageHeight / viewHeight
+        let distanceLeft:CGFloat = floor(posLeft * imageRatioWidth)
+        let distanceRight:CGFloat = floor(deltaRight * imageRatioWidth)
+        let distanceTop:CGFloat = floor(posTop * imageRatioHeight)
+        let distanceBottom:CGFloat = floor(deltaBottom * imageRatioHeight)
         let distanceHorizontal:CGFloat = distanceLeft + distanceRight
         let distanceVertical:CGFloat = distanceTop + distanceBottom
         let newWidth:CGFloat = imageWidth - distanceHorizontal
@@ -386,8 +386,6 @@ class CScanner:CController
             y:-distanceTop,
             width:imageWidth,
             height:imageHeight)
-        
-        print("new size\(newSize)")
         
         UIGraphicsBeginImageContext(newSize)
         image.draw(in:drawingRect)
