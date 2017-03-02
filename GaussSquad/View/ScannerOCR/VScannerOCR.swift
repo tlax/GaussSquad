@@ -24,4 +24,11 @@ class VScannerOCR:VView
     {
         return nil
     }
+    
+    //MARK: public
+    
+    func textRecognized(text:String)
+    {
+        spinner.stopAnimating()
+    }
 }

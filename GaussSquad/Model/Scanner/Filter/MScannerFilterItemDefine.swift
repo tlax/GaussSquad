@@ -15,9 +15,8 @@ class MScannerFilterItemDefine:MScannerFilterItem
         let commandQueue:MTLCommandQueue = device.makeCommandQueue()
         let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
         
-        let minSize:Int = min(width, height)
-        let corners:Float = Float(minSize)
-        let center:Float = (corners * 4.0) + 1.0
+        let corners:Float = -1
+        let center:Float = 6
         
         let weights:[Float] = [
             corners, 0, corners,

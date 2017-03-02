@@ -25,8 +25,10 @@ class MScannerFilter
     init()
     {
         let itemHighContrast:MScannerFilterItemHighContrast.Type = MScannerFilterItemHighContrast.self
+        let itemDefine:MScannerFilterItemDefine.Type = MScannerFilterItemDefine.self
         
         items = [
+            itemDefine,
             itemHighContrast]
     }
     
