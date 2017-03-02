@@ -186,11 +186,11 @@ class CLinearEquationsSolution:CController
             activityItems:items,
             applicationActivities:nil)
         
-        if activity.popoverPresentationController != nil
+        if let popover:UIPopoverPresentationController = activity.popoverPresentationController
         {
-            activity.popoverPresentationController!.sourceView = self.viewSolution
-            activity.popoverPresentationController!.sourceRect = CGRect.zero
-            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+            popover.sourceView = viewSolution
+            popover.sourceRect = CGRect.zero
+            popover.permittedArrowDirections = UIPopoverArrowDirection.up
         }
         
         present(activity, animated:true)

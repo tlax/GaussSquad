@@ -112,9 +112,9 @@ class CLinearEquationsPolynomial:CController
         alert.addAction(actionDelete)
         alert.addAction(actionCancel)
         
-        if let popover:UIPopoverPresentationController = activity.popoverPresentationController
+        if let popover:UIPopoverPresentationController = alert.popoverPresentationController
         {
-            popover.sourceView = self.viewPlot
+            popover.sourceView = viewPolynomial
             popover.sourceRect = CGRect.zero
             popover.permittedArrowDirections = UIPopoverArrowDirection.up
         }
