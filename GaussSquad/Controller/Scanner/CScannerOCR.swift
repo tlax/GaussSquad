@@ -31,16 +31,29 @@ class CScannerOCR:CController, G8TesseractDelegate
     {
         super.viewDidAppear(animated)
         
-        if !recognized
+//        if !recognized
+//        {
+//            recognized = true
+//            
+//            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+//            { [weak self] in
+//                
+//                self?.imageRecognition()
+//            }
+//        }
+        
+        let activity:UIActivityViewController = UIActivityViewController(
+            activityItems:[image],
+            applicationActivities:nil)
+        
+        if activity.popoverPresentationController != nil
         {
-            recognized = true
-            
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self] in
-                
-                self?.imageRecognition()
-            }
+            activity.popoverPresentationController!.sourceView = self.viewOCR
+            activity.popoverPresentationController!.sourceRect = CGRect.zero
+            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
         }
+        
+        present(activity, animated:true)
     }
     
     //MARK: private
@@ -49,13 +62,12 @@ class CScannerOCR:CController, G8TesseractDelegate
     {
         let tesseract:G8Tesseract = G8Tesseract(
             language:kLanguage,
-            engineMode:G8OCREngineMode.tesseractOnly)
-        tesseract.pageSegmentationMode = G8PageSegmentationMode.auto
+            engineMode:G8OCREngineMode.tesseractCubeCombined)
+        tesseract.pageSegmentationMode = G8PageSegmentationMode.singleBlock
         tesseract.image = image.g8_blackAndWhite()
         tesseract.recognize()
-        tesseract.charWhitelist = "123"
         
-        print("text:\(tesseract.recognizedText)")
+        print("text:\(tesseract.recognizedText!)")
     }
     
     //MARK: tesseract delegate
