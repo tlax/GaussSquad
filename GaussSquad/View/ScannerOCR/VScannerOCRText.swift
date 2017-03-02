@@ -4,7 +4,7 @@ class VScannerOCRText:UITextView
 {
     private weak var controller:CScannerOCR!
     private let kFontSize:CGFloat = 30
-    private let kInsetsTop:CGFloat = 30
+    private let kInsetsTop:CGFloat = 25
     private let kInsetsHorizontal:CGFloat = 5
     
     init(controller:CScannerOCR)
