@@ -2,7 +2,6 @@ import UIKit
 
 class VScannerCropper:UIView
 {
-    let thumbSize_2:CGFloat
     weak var thumbTopLeft:VScannerCropperThumb!
     weak var thumbTopRight:VScannerCropperThumb!
     weak var thumbBottomLeft:VScannerCropperThumb!
@@ -11,6 +10,7 @@ class VScannerCropper:UIView
     private weak var controller:CScanner!
     private weak var draggingThumb:VScannerCropperThumb?
     private weak var draggingMover:VScannerCropperMover?
+    private let thumbSize_2:CGFloat
     private let kMinMargin:CGFloat = 25
     private let kThumbSize:CGFloat = 60
     

@@ -10,7 +10,7 @@ class CScannerOCR:CController, G8TesseractDelegate
     
     init(image:UIImage)
     {
-        self.image = image
+        self.image = #imageLiteral(resourceName: "assetTextureTest")
         recognized = false
         super.init()
     }
@@ -31,30 +31,16 @@ class CScannerOCR:CController, G8TesseractDelegate
     {
         super.viewDidAppear(animated)
         
-//        if !recognized
-//        {
-//            recognized = true
-//            
-//            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-//            { [weak self] in
-//                
-//                self?.imageRecognition()
-//            }
-//        }
-        
-        let activity:UIActivityViewController = UIActivityViewController(
-            activityItems:[image],
-            applicationActivities:nil)
-
-        
-        if let popover:UIPopoverPresentationController = activity.popoverPresentationController
+        if !recognized
         {
-            popover.sourceView = viewOCR
-            popover.sourceRect = CGRect.zero
-            popover.permittedArrowDirections = UIPopoverArrowDirection.up
+            recognized = true
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.imageRecognition()
+            }
         }
-        
-        present(activity, animated:true)
     }
     
     //MARK: private
@@ -63,16 +49,15 @@ class CScannerOCR:CController, G8TesseractDelegate
     {
         let tesseract:G8Tesseract = G8Tesseract(
             language:kLanguage,
-            engineMode:G8OCREngineMode.tesseractCubeCombined)
+            engineMode:G8OCREngineMode.cubeOnly)
         tesseract.pageSegmentationMode = G8PageSegmentationMode.singleBlock
-        tesseract.image = image.g8_blackAndWhite()
+        tesseract.image = image
         tesseract.recognize()
-        
+
         print("text:\(tesseract.recognizedText!)")
     }
     
     //MARK: tesseract delegate
-    
     
     func shouldCancelImageRecognition(for tesseract:G8Tesseract!) -> Bool
     {

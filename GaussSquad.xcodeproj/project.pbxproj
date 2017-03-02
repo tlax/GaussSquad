@@ -174,6 +174,7 @@
 		DA6D32F81E678EC70013F08F /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = DA6D32F71E678EC70013F08F /* tessdata */; };
 		DA6D62D31E560CA3002D9C1A /* CSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6D62D21E560CA3002D9C1A /* CSettings.swift */; };
 		DA6D62D51E560EC4002D9C1A /* VSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6D62D41E560EC4002D9C1A /* VSettings.swift */; };
+		DA723F171E68B01300030738 /* MScannerFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F161E68B01300030738 /* MScannerFilter.swift */; };
 		DA7A9CE51E5CBC4300ED71D1 /* MHomeItemCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */; };
 		DA7A9CE81E5CBECE00ED71D1 /* CCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CE71E5CBECE00ED71D1 /* CCalculator.swift */; };
 		DA7A9CEB1E5CBFC600ED71D1 /* VCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CEA1E5CBFC600ED71D1 /* VCalculator.swift */; };
@@ -522,6 +523,7 @@
 		DA6D32F71E678EC70013F08F /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		DA6D62D21E560CA3002D9C1A /* CSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSettings.swift; sourceTree = "<group>"; };
 		DA6D62D41E560EC4002D9C1A /* VSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettings.swift; sourceTree = "<group>"; };
+		DA723F161E68B01300030738 /* MScannerFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerFilter.swift; sourceTree = "<group>"; };
 		DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemCalculator.swift; sourceTree = "<group>"; };
 		DA7A9CE71E5CBECE00ED71D1 /* CCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCalculator.swift; sourceTree = "<group>"; };
 		DA7A9CEA1E5CBFC600ED71D1 /* VCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCalculator.swift; sourceTree = "<group>"; };
@@ -1162,6 +1164,22 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
+		DA723F141E68AF5900030738 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				DA723F151E68AF7D00030738 /* Filter */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		DA723F151E68AF7D00030738 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				DA723F161E68B01300030738 /* MScannerFilter.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		DA7A9CE61E5CBEC500ED71D1 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1626,6 +1644,7 @@
 		DAFF4A7E1E397B9600A2DD4B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA723F141E68AF5900030738 /* Scanner */,
 				DA7A9CF61E5D0C2900ED71D1 /* Keyboard */,
 				DA7A9CF41E5D0BF800ED71D1 /* Calculator */,
 				DA6D62D01E560C9A002D9C1A /* Settings */,
@@ -2124,6 +2143,7 @@
 				DA476F231E5643000058F4A4 /* CStoreGoPlus.swift in Sources */,
 				DAE4A87F1E5B5551000A07A3 /* MetalVertexTextured.swift in Sources */,
 				DA46915B1E56766500FAD188 /* ExtensionMTLTexture.swift in Sources */,
+				DA723F171E68B01300030738 /* MScannerFilter.swift in Sources */,
 				DA9F6FA11E55191B003C5486 /* MHelpLinearEquationsProjectItemSolution.swift in Sources */,
 				DA62D3651E4CD5A5000D0387 /* MLinearEquationsSolutionEquationItemPolynomialDivision.swift in Sources */,
 				DAFDD4FE1E43D2EA00880556 /* MLinearEquationsProjectBarItemHelp.swift in Sources */,
