@@ -180,6 +180,8 @@
 		DA723F291E68CA8400030738 /* MetalShaderFilterHighContrastKernel.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA723F281E68CA8400030738 /* MetalShaderFilterHighContrastKernel.metal */; };
 		DA723F2B1E68D19D00030738 /* MScannerFilterItemDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F2A1E68D19D00030738 /* MScannerFilterItemDefine.swift */; };
 		DA723F2D1E68DD1600030738 /* VScannerOCRText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F2C1E68DD1600030738 /* VScannerOCRText.swift */; };
+		DA723F2F1E68E5A800030738 /* VScannerOCRMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F2E1E68E5A800030738 /* VScannerOCRMenu.swift */; };
+		DA723F311E68E5B200030738 /* VScannerOCRMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F301E68E5B200030738 /* VScannerOCRMenuCell.swift */; };
 		DA7A9CE51E5CBC4300ED71D1 /* MHomeItemCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */; };
 		DA7A9CE81E5CBECE00ED71D1 /* CCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CE71E5CBECE00ED71D1 /* CCalculator.swift */; };
 		DA7A9CEB1E5CBFC600ED71D1 /* VCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CEA1E5CBFC600ED71D1 /* VCalculator.swift */; };
@@ -534,6 +536,8 @@
 		DA723F281E68CA8400030738 /* MetalShaderFilterHighContrastKernel.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderFilterHighContrastKernel.metal; sourceTree = "<group>"; };
 		DA723F2A1E68D19D00030738 /* MScannerFilterItemDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerFilterItemDefine.swift; sourceTree = "<group>"; };
 		DA723F2C1E68DD1600030738 /* VScannerOCRText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerOCRText.swift; sourceTree = "<group>"; };
+		DA723F2E1E68E5A800030738 /* VScannerOCRMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerOCRMenu.swift; sourceTree = "<group>"; };
+		DA723F301E68E5B200030738 /* VScannerOCRMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerOCRMenuCell.swift; sourceTree = "<group>"; };
 		DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemCalculator.swift; sourceTree = "<group>"; };
 		DA7A9CE71E5CBECE00ED71D1 /* CCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCalculator.swift; sourceTree = "<group>"; };
 		DA7A9CEA1E5CBFC600ED71D1 /* VCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCalculator.swift; sourceTree = "<group>"; };
@@ -1297,6 +1301,8 @@
 			children = (
 				DAB345D51E675D6A000FE9AC /* VScannerOCR.swift */,
 				DA723F2C1E68DD1600030738 /* VScannerOCRText.swift */,
+				DA723F2E1E68E5A800030738 /* VScannerOCRMenu.swift */,
+				DA723F301E68E5B200030738 /* VScannerOCRMenuCell.swift */,
 			);
 			path = ScannerOCR;
 			sourceTree = "<group>";
@@ -2019,6 +2025,7 @@
 				DA316CF11E459016008E7270 /* VLinearEquationsIndeterminateListCell.swift in Sources */,
 				DACC20C61E60E46A00F8D2D7 /* MCalculatorFunctionsItemSinDeg.swift in Sources */,
 				DA62D35B1E4CD51D000D0387 /* MLinearEquationsSolutionEquationItemConstant.swift in Sources */,
+				DA723F311E68E5B200030738 /* VScannerOCRMenuCell.swift in Sources */,
 				DA2CE38D1E5F37FA00626A43 /* MKeyboardRowItemBackspace.swift in Sources */,
 				DAF37AD91E3D51D7005052D8 /* VLinearEquations.swift in Sources */,
 				DA723F2D1E68DD1600030738 /* VScannerOCRText.swift in Sources */,
@@ -2193,6 +2200,7 @@
 				DAE4A8851E5B9FF9000A07A3 /* VLinearEquationsPlotMenu.swift in Sources */,
 				DA62D3911E4CF85B000D0387 /* VLinearEquationsSolutionCellPolynomialDivision.swift in Sources */,
 				DAC2164D1E42304E009EDBF7 /* VLinearEquationsProjectCellNewPolynomial.swift in Sources */,
+				DA723F2F1E68E5A800030738 /* VScannerOCRMenu.swift in Sources */,
 				DAE504F51E65EEDF00B8F22A /* MHelpLinearEquationsLanding.swift in Sources */,
 				DAFEB19F1E60A60D00E609C9 /* MCalculatorSteps.swift in Sources */,
 				DA133A641E4119E00028D90F /* VLinearEquationsProject.swift in Sources */,
