@@ -1,5 +1,6 @@
 import UIKit
 import TesseractOCR
+import MetalKit
 
 class CScannerOCR:CController, G8TesseractDelegate
 {
@@ -38,14 +39,30 @@ class CScannerOCR:CController, G8TesseractDelegate
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             { [weak self] in
                 
-                self?.imageRecognition()
+                self?.preProcess()
             }
         }
     }
     
     //MARK: private
     
-    private func imageRecognition()
+    private func preProcess()
+    {
+        var image:UIImage = self.image
+        
+        if let device:MTLDevice = MTLCreateSystemDefaultDevice()
+        {
+            
+        }
+        else
+        {
+            image = self.image.g8_blackAndWhite()
+        }
+        
+        imageRecognition(image:image)
+    }
+    
+    private func imageRecognition(image:UIImage)
     {
         let tesseract:G8Tesseract = G8Tesseract(
             language:kLanguage,

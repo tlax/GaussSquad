@@ -175,6 +175,7 @@
 		DA6D62D31E560CA3002D9C1A /* CSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6D62D21E560CA3002D9C1A /* CSettings.swift */; };
 		DA6D62D51E560EC4002D9C1A /* VSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6D62D41E560EC4002D9C1A /* VSettings.swift */; };
 		DA723F171E68B01300030738 /* MScannerFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F161E68B01300030738 /* MScannerFilter.swift */; };
+		DA723F191E68B3D700030738 /* MScannerFilterHighContrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F181E68B3D700030738 /* MScannerFilterHighContrast.swift */; };
 		DA7A9CE51E5CBC4300ED71D1 /* MHomeItemCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */; };
 		DA7A9CE81E5CBECE00ED71D1 /* CCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CE71E5CBECE00ED71D1 /* CCalculator.swift */; };
 		DA7A9CEB1E5CBFC600ED71D1 /* VCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CEA1E5CBFC600ED71D1 /* VCalculator.swift */; };
@@ -524,6 +525,7 @@
 		DA6D62D21E560CA3002D9C1A /* CSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSettings.swift; sourceTree = "<group>"; };
 		DA6D62D41E560EC4002D9C1A /* VSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettings.swift; sourceTree = "<group>"; };
 		DA723F161E68B01300030738 /* MScannerFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerFilter.swift; sourceTree = "<group>"; };
+		DA723F181E68B3D700030738 /* MScannerFilterHighContrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerFilterHighContrast.swift; sourceTree = "<group>"; };
 		DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemCalculator.swift; sourceTree = "<group>"; };
 		DA7A9CE71E5CBECE00ED71D1 /* CCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCalculator.swift; sourceTree = "<group>"; };
 		DA7A9CEA1E5CBFC600ED71D1 /* VCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCalculator.swift; sourceTree = "<group>"; };
@@ -1176,6 +1178,7 @@
 			isa = PBXGroup;
 			children = (
 				DA723F161E68B01300030738 /* MScannerFilter.swift */,
+				DA723F181E68B3D700030738 /* MScannerFilterHighContrast.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -2019,6 +2022,7 @@
 				DA476F201E5634690058F4A4 /* VStoreFooter.swift in Sources */,
 				DA519BDB1E64DCA300F2673A /* MHelpCalculator.swift in Sources */,
 				DA62D35D1E4CD53F000D0387 /* MLinearEquationsSolutionEquationItemPolynomial.swift in Sources */,
+				DA723F191E68B3D700030738 /* MScannerFilterHighContrast.swift in Sources */,
 				DA8118621E5E61FA00B6ED7C /* MKeyboardRowItem9.swift in Sources */,
 				DAD518951E3F978D0004C8D8 /* DGaussSquad.xcdatamodeld in Sources */,
 				DA519BEB1E64FDAA00F2673A /* MHelpCalculatorItemFunctions.swift in Sources */,
