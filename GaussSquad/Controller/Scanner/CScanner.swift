@@ -286,14 +286,15 @@ class CScanner:CController
                 let buffer:CMSampleBuffer = sampleBuffer,
                 let data:Data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(
                     buffer),
-                let cgImage:CGImage = UIImage(data:data)?.cgImage
+                let cgImage:CGImage = UIImage(data:data)?.cgImage,
+                let orientation:UIImageOrientation = self?.imageOrientation()
                 
             else
             {
                 return
             }
             
-            let orientation:UIImageOrientation = UIImageOrientation.up
+            
             let scale:CGFloat = UIScreen.main.scale
             let image:UIImage = UIImage(
                 cgImage:cgImage,
@@ -302,6 +303,47 @@ class CScanner:CController
             
             self?.processImage(image:image)
         }
+    }
+    
+    private func imageOrientation() -> UIImageOrientation
+    {
+        let orientation:UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
+        let imageOrientation:UIImageOrientation
+        
+        switch orientation
+        {
+        case UIInterfaceOrientation.portrait:
+            
+            imageOrientation = UIImageOrientation.right
+            
+            break
+            
+        case UIInterfaceOrientation.portraitUpsideDown:
+            
+            imageOrientation = UIImageOrientation.left
+            
+            break
+            
+        case UIInterfaceOrientation.landscapeLeft:
+            
+            imageOrientation = UIImageOrientation.down
+            
+            break
+            
+        case UIInterfaceOrientation.landscapeRight:
+            
+            imageOrientation = UIImageOrientation.up
+            
+            break
+            
+        case UIInterfaceOrientation.unknown:
+            
+            imageOrientation = UIImageOrientation.right
+            
+            break
+        }
+        
+        return imageOrientation
     }
     
     private func processImage(image:UIImage)
