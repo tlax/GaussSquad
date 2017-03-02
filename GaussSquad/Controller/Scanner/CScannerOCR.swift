@@ -65,6 +65,8 @@ class CScannerOCR:CController, G8TesseractDelegate
         {
             image = self.image.g8_blackAndWhite()
         }
+        
+        imageRecognition(image:image)
     }
     
     private func imageRecognition(image:UIImage)
