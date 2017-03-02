@@ -3,20 +3,17 @@ import MetalKit
 
 class MScannerFilter
 {
-    weak var device:MTLDevice!
-    weak var mtlLibrary:MTLLibrary!
-    let commandQueue:MTLCommandQueue
-    let textureLoader:MTKTextureLoader
-    let originZero:MTLOrigin
-    let sizeOfFloat:Int
+    private let items:[MScannerFilterItem]
     
-    init(device:MTLDevice, mtlLibrary:MTLLibrary)
+    init()
     {
-        self.device = device
-        self.mtlLibrary = mtlLibrary
-        commandQueue = device.makeCommandQueue()
-        textureLoader = MTKTextureLoader(device:device)
-        originZero = MTLOriginMake(0, 0, 0)
-        sizeOfFloat = MemoryLayout.size(ofValue:MetalConstants.kRepeatingElement)
+        items = []
+    }
+    
+    //MARK: public
+    
+    func filter(device:MTLDevice, image:UIImage) -> UIImage?
+    {
+        return nil
     }
 }

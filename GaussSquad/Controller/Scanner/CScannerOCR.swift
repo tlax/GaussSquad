@@ -52,7 +52,14 @@ class CScannerOCR:CController, G8TesseractDelegate
         
         if let device:MTLDevice = MTLCreateSystemDefaultDevice()
         {
+            let filter:MScannerFilter = MScannerFilter()
             
+            if let filteredImage:UIImage = filter.filter(
+                device:device,
+                image:image)
+            {
+                image = filteredImage
+            }
         }
         else
         {
