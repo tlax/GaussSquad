@@ -4,6 +4,7 @@ class VScannerOCR:VView
 {
     private weak var controller:CScannerOCR!
     private weak var viewText:VScannerOCRText!
+    private weak var viewMenu:VScannerOCRMenu!
     private weak var spinner:VSpinner!
     private let kMenuHeight:CGFloat = 80
     private let kBorderHeight:CGFloat = 1
@@ -17,6 +18,8 @@ class VScannerOCR:VView
             controller:self.controller)
         viewText.isHidden = true
         self.viewText = viewText
+        
+        let viewMenu:VScannerOCRMenu = VScannerOCRMenu
         
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
