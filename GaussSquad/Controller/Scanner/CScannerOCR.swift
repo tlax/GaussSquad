@@ -1,13 +1,17 @@
 import UIKit
+import TesseractOCR
 
-class CScannerOCR:CController
+class CScannerOCR:CController, G8TesseractDelegate
 {
     private weak var viewOCR:VScannerOCR!
+    private var recognized:Bool
     private let image:UIImage
+    private let kLanguage:String = "equ"
     
     init(image:UIImage)
     {
         self.image = image
+        recognized = false
         super.init()
     }
     
@@ -27,6 +31,17 @@ class CScannerOCR:CController
     {
         super.viewDidAppear(animated)
         
+//        if !recognized
+//        {
+//            recognized = true
+//            
+//            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+//            { [weak self] in
+//                
+//                self?.imageRecognition()
+//            }
+//        }
+        
         let activity:UIActivityViewController = UIActivityViewController(
             activityItems:[image],
             applicationActivities:nil)
@@ -39,5 +54,27 @@ class CScannerOCR:CController
         }
         
         present(activity, animated:true)
+    }
+    
+    //MARK: private
+    
+    private func imageRecognition()
+    {
+        let tesseract:G8Tesseract = G8Tesseract(
+            language:kLanguage,
+            engineMode:G8OCREngineMode.tesseractOnly)
+        tesseract.pageSegmentationMode = G8PageSegmentationMode.singleBlock
+        tesseract.image = image
+        tesseract.recognize()
+        
+        print("text:\(tesseract.recognizedText)")
+    }
+    
+    //MARK: tesseract delegate
+    
+    
+    func shouldCancelImageRecognition(for tesseract:G8Tesseract!) -> Bool
+    {
+        return false
     }
 }
