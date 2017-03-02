@@ -368,11 +368,12 @@ class CScanner:CController
         let viewHeight:CGFloat = view.bounds.size.height
         let deltaRight:CGFloat = viewWidth - posRight
         let deltaBottom:CGFloat = viewHeight - posBottom
-        let imageRatio:CGFloat = imageWidth / viewWidth
-        let distanceLeft:CGFloat = posLeft * imageRatio
-        let distanceRight:CGFloat = deltaRight * imageRatio
-        let distanceTop:CGFloat = posTop * imageRatio
-        let distanceBottom:CGFloat = deltaBottom * imageRatio
+        let imageRatioWidth:CGFloat = imageWidth / viewWidth
+        let imageRatioHeight:CGFloat = imageHeight / viewHeight
+        let distanceLeft:CGFloat = posLeft * imageRatioWidth
+        let distanceRight:CGFloat = deltaRight * imageRatioWidth
+        let distanceTop:CGFloat = posTop * imageRatioHeight
+        let distanceBottom:CGFloat = deltaBottom * imageRatioHeight
         let distanceHorizontal:CGFloat = distanceLeft + distanceRight
         let distanceVertical:CGFloat = distanceTop + distanceBottom
         let newWidth:CGFloat = imageWidth - distanceHorizontal
