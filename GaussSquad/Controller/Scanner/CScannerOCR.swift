@@ -82,7 +82,7 @@ class CScannerOCR:CController, G8TesseractDelegate
             self.present(activity, animated:true)
         }
         
-        //imageRecognition(image:image)
+        imageRecognition(image:image)
     }
     
     private func imageRecognition(image:UIImage)

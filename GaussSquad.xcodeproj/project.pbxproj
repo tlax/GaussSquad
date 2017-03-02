@@ -178,6 +178,7 @@
 		DA723F251E68BDAA00030738 /* MetalShaderPlotVertex.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA723F241E68BDAA00030738 /* MetalShaderPlotVertex.metal */; };
 		DA723F271E68BDB600030738 /* MetalShaderPlotKernel.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA723F261E68BDB600030738 /* MetalShaderPlotKernel.metal */; };
 		DA723F291E68CA8400030738 /* MetalShaderFilterHighContrastKernel.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA723F281E68CA8400030738 /* MetalShaderFilterHighContrastKernel.metal */; };
+		DA723F2B1E68D19D00030738 /* MScannerFilterItemDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F2A1E68D19D00030738 /* MScannerFilterItemDefine.swift */; };
 		DA7A9CE51E5CBC4300ED71D1 /* MHomeItemCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */; };
 		DA7A9CE81E5CBECE00ED71D1 /* CCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CE71E5CBECE00ED71D1 /* CCalculator.swift */; };
 		DA7A9CEB1E5CBFC600ED71D1 /* VCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CEA1E5CBFC600ED71D1 /* VCalculator.swift */; };
@@ -530,6 +531,7 @@
 		DA723F241E68BDAA00030738 /* MetalShaderPlotVertex.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderPlotVertex.metal; sourceTree = "<group>"; };
 		DA723F261E68BDB600030738 /* MetalShaderPlotKernel.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderPlotKernel.metal; sourceTree = "<group>"; };
 		DA723F281E68CA8400030738 /* MetalShaderFilterHighContrastKernel.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderFilterHighContrastKernel.metal; sourceTree = "<group>"; };
+		DA723F2A1E68D19D00030738 /* MScannerFilterItemDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerFilterItemDefine.swift; sourceTree = "<group>"; };
 		DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemCalculator.swift; sourceTree = "<group>"; };
 		DA7A9CE71E5CBECE00ED71D1 /* CCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCalculator.swift; sourceTree = "<group>"; };
 		DA7A9CEA1E5CBFC600ED71D1 /* VCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCalculator.swift; sourceTree = "<group>"; };
@@ -1174,6 +1176,7 @@
 				DA723F161E68B01300030738 /* MScannerFilter.swift */,
 				DA723F1A1E68B57500030738 /* MScannerFilterItem.swift */,
 				DA723F1C1E68B58700030738 /* MScannerFilterItemHighContrast.swift */,
+				DA723F2A1E68D19D00030738 /* MScannerFilterItemDefine.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -1972,6 +1975,7 @@
 				DA3F44181E5F87CC003336C7 /* MKeyboardStateAdd.swift in Sources */,
 				DA723F1D1E68B58700030738 /* MScannerFilterItemHighContrast.swift in Sources */,
 				DA81185C1E5E61E600B6ED7C /* MKeyboardRowItem6.swift in Sources */,
+				DA723F2B1E68D19D00030738 /* MScannerFilterItemDefine.swift in Sources */,
 				DA476F2F1E5666270058F4A4 /* VLinearEquationsPlot.swift in Sources */,
 				DA476F0C1E562E740058F4A4 /* MStoreItemStatusPurchased.swift in Sources */,
 				DAC9FEE21E617CCE0085BA7F /* MCalculatorFunctionsItemCube.swift in Sources */,

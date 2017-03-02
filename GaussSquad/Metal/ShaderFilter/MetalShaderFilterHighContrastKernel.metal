@@ -2,7 +2,7 @@
 using namespace metal;
 
 static constant float3 kLightScale(0.299, 0.587, 0.114);
-static constant float kLightThreshold = 0.25;
+static constant float kLightThreshold = 0.14;
 static constant float kMinColor = 0;
 static constant float kMaxColor = 1;
 
