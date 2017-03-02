@@ -2,13 +2,13 @@ import UIKit
 
 class VScannerOCRText:UITextView, UITextViewDelegate
 {
-    private weak var controller:CCalculator!
+    private weak var controller:CScannerOCR!
     private let drawingOptions:NSStringDrawingOptions
     private let insetsHorizontal3:CGFloat
     private let kFontSize:CGFloat = 20
     private let kInsetsHorizontal:CGFloat = 5
     
-    init(controller:CCalculator)
+    init(controller:CScannerOCR)
     {
         drawingOptions = NSStringDrawingOptions([
             NSStringDrawingOptions.usesLineFragmentOrigin,
