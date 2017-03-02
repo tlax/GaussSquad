@@ -361,19 +361,19 @@ class CScanner:CController
         
         stopCamera()
         
+        let menuHeight:CGFloat = viewScanner.kMenuHeight
         let scale:CGFloat = image.scale
         let imageWidth:CGFloat = image.size.width * scale
         let imageHeight:CGFloat = image.size.height * scale
         let viewWidth:CGFloat = view.bounds.size.width
         let viewHeight:CGFloat = view.bounds.size.height
         let deltaRight:CGFloat = viewWidth - posRight
-        let deltaBottom:CGFloat = viewHeight - posBottom
-        let imageRatioWidth:CGFloat = imageWidth / viewWidth
-        let imageRatioHeight:CGFloat = imageHeight / viewHeight
-        let distanceLeft:CGFloat = posLeft * imageRatioWidth
-        let distanceRight:CGFloat = deltaRight * imageRatioWidth
-        let distanceTop:CGFloat = posTop * imageRatioHeight
-        let distanceBottom:CGFloat = deltaBottom * imageRatioHeight
+        let deltaBottom:CGFloat = viewHeight - (posBottom + menuHeight)
+        let imageRatio:CGFloat = imageWidth / viewWidth
+        let distanceLeft:CGFloat = posLeft * imageRatio
+        let distanceRight:CGFloat = deltaRight * imageRatio
+        let distanceTop:CGFloat = posTop * imageRatio
+        let distanceBottom:CGFloat = deltaBottom * imageRatio
         let distanceHorizontal:CGFloat = distanceLeft + distanceRight
         let distanceVertical:CGFloat = distanceTop + distanceBottom
         let newWidth:CGFloat = imageWidth - distanceHorizontal
