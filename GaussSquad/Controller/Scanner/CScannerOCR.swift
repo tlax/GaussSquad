@@ -6,7 +6,7 @@ class CScannerOCR:CController, G8TesseractDelegate
     private weak var viewOCR:VScannerOCR!
     private var recognized:Bool
     private let image:UIImage
-    private let kLanguage:String = "equ"
+    private let kLanguage:String = "eng"
     
     init(image:UIImage)
     {
@@ -31,29 +31,16 @@ class CScannerOCR:CController, G8TesseractDelegate
     {
         super.viewDidAppear(animated)
         
-//        if !recognized
-//        {
-//            recognized = true
-//            
-//            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-//            { [weak self] in
-//                
-//                self?.imageRecognition()
-//            }
-//        }
-        
-        let activity:UIActivityViewController = UIActivityViewController(
-            activityItems:[image],
-            applicationActivities:nil)
-        
-        if activity.popoverPresentationController != nil
+        if !recognized
         {
-            activity.popoverPresentationController!.sourceView = self.viewOCR
-            activity.popoverPresentationController!.sourceRect = CGRect.zero
-            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+            recognized = true
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.imageRecognition()
+            }
         }
-        
-        present(activity, animated:true)
     }
     
     //MARK: private
@@ -63,9 +50,10 @@ class CScannerOCR:CController, G8TesseractDelegate
         let tesseract:G8Tesseract = G8Tesseract(
             language:kLanguage,
             engineMode:G8OCREngineMode.tesseractOnly)
-        tesseract.pageSegmentationMode = G8PageSegmentationMode.singleBlock
-        tesseract.image = image
+        tesseract.pageSegmentationMode = G8PageSegmentationMode.auto
+        tesseract.image = image.g8_blackAndWhite()
         tesseract.recognize()
+        tesseract.charWhitelist = "123"
         
         print("text:\(tesseract.recognizedText)")
     }

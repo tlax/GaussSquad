@@ -11,7 +11,7 @@ class CScanner:CController
     private let devicePosition:AVCaptureDevicePosition
     private let queue:DispatchQueue
     private let kMediaType:String = AVMediaTypeVideo
-    private let kSessionPreset:String = AVCaptureSessionPreset1280x720
+    private let kSessionPreset:String = AVCaptureSessionPreset1920x1080
     private let kVideoGravity:String = AVLayerVideoGravityResizeAspectFill
     private let kVideoCodec:String = AVVideoCodecJPEG
     private let kQueueLabel:String = "cameraQueue"
@@ -294,7 +294,6 @@ class CScanner:CController
                 return
             }
             
-            
             let scale:CGFloat = UIScreen.main.scale
             let image:UIImage = UIImage(
                 cgImage:cgImage,
@@ -362,8 +361,9 @@ class CScanner:CController
         
         stopCamera()
         
-        let imageWidth:CGFloat = image.size.width
-        let imageHeight:CGFloat = image.size.height
+        let scale:CGFloat = image.scale
+        let imageWidth:CGFloat = image.size.width * scale
+        let imageHeight:CGFloat = image.size.height * scale
         let viewWidth:CGFloat = view.bounds.size.width
         let viewHeight:CGFloat = view.bounds.size.height
         let deltaRight:CGFloat = viewWidth - posRight
@@ -385,6 +385,8 @@ class CScanner:CController
             y:-distanceTop,
             width:imageWidth,
             height:imageHeight)
+        
+        print("new size\(newSize)")
         
         UIGraphicsBeginImageContext(newSize)
         image.draw(in:drawingRect)
