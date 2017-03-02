@@ -3,6 +3,23 @@ import MetalKit
 
 class MScannerFilter
 {
+    class func blankTexure(
+        device:MTLDevice,
+        width:Int,
+        height:Int) -> MTLTexture
+    {
+        let textureDescriptor:MTLTextureDescriptor = MTLTextureDescriptor.texture2DDescriptor(
+            pixelFormat:MetalConstants.kPixelFormat,
+            width:width,
+            height:height,
+            mipmapped:MetalConstants.kTextureMipMapped)
+        
+        let newTexture:MTLTexture = device.makeTexture(
+            descriptor:textureDescriptor)
+        
+        return newTexture
+    }
+    
     private let items:[MScannerFilterItem.Type]
     
     init()
@@ -72,10 +89,19 @@ class MScannerFilter
         
         for item:MScannerFilterItem.Type in items
         {
-            exportTexture = item.filterTexture(
-                device:device,
-                library:library,
-                texture:exportTexture)
+            guard
+            
+                let filteredTexture:MTLTexture = item.filterTexture(
+                    device:device,
+                    library:library,
+                    texture:exportTexture)
+            
+            else
+            {
+                continue
+            }
+            
+            exportTexture = filteredTexture
         }
         
         let exportImage:UIImage? = exportTexture.exportImage()

@@ -66,7 +66,23 @@ class CScannerOCR:CController, G8TesseractDelegate
             image = self.image.g8_blackAndWhite()
         }
         
-        imageRecognition(image:image)
+        DispatchQueue.main.async
+        {
+            let activity:UIActivityViewController = UIActivityViewController(
+                activityItems:[image],
+                applicationActivities:nil)
+            
+            if let popover:UIPopoverPresentationController = activity.popoverPresentationController
+            {
+                popover.sourceView = self.viewOCR
+                popover.sourceRect = CGRect.zero
+                popover.permittedArrowDirections = UIPopoverArrowDirection.up
+            }
+            
+            self.present(activity, animated:true)
+        }
+        
+        //imageRecognition(image:image)
     }
     
     private func imageRecognition(image:UIImage)
