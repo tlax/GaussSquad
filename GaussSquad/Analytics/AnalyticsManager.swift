@@ -35,12 +35,6 @@ class AnalyticsManager
     
     private init?()
     {
-        #if DEBUG
-            
-            return nil
-            
-        #endif
-        
         var configurationError:NSError?
         
         GGLContext.sharedInstance().configureWithError(&configurationError)
@@ -66,6 +60,12 @@ class AnalyticsManager
             return
         }
         
+        #if DEBUG
+            
+            gai.dryRun = true
+            
+        #endif
+
         gai.trackUncaughtExceptions = true
         gai.logger.logLevel = GAILogLevel.none
         gai.dispatchInterval = kDispatchInterval
