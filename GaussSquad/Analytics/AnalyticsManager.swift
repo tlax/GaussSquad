@@ -35,6 +35,12 @@ class AnalyticsManager
     
     private init?()
     {
+        #if DEBUG
+            
+            return nil
+            
+        #endif
+        
         var configurationError:NSError?
         
         GGLContext.sharedInstance().configureWithError(&configurationError)

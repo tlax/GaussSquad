@@ -10,7 +10,7 @@ class MHomeItemScanner:MHomeItem
         super.init(
             symbol:symbol,
             title:title,
-            image:#imageLiteral(resourceName: "assetGenericLinearEquations"))
+            image:#imageLiteral(resourceName: "assetGenericScanner"))
     }
     
     override func selected() -> CController?
