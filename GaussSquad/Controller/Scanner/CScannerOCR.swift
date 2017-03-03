@@ -101,6 +101,11 @@ class CScannerOCR:CController, G8TesseractDelegate
         }
     }
     
+    private func asyncClean(text:String)
+    {
+        
+    }
+    
     //MARK: public
     
     func back()
@@ -120,7 +125,13 @@ class CScannerOCR:CController, G8TesseractDelegate
     
     func clean()
     {
+        let text:String = viewOCR.viewText.text
         
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncClean(text:text)
+        }
     }
     
     func calculator()

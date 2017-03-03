@@ -2,9 +2,9 @@ import UIKit
 
 class VScannerOCR:VView
 {
+    weak var viewText:VScannerOCRText!
     private weak var controller:CScannerOCR!
     private weak var viewBar:VScannerOCRBar!
-    private weak var viewText:VScannerOCRText!
     private weak var viewMenu:VScannerOCRMenu!
     private weak var spinner:VSpinner!
     private let kBarHeight:CGFloat = 64
