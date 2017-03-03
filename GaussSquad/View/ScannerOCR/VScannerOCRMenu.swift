@@ -95,6 +95,7 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     {
         collectionView.isUserInteractionEnabled = false
         
+        UIApplication.shared.keyWindow!.endEditing(true)
         let item:MScannerMenuItem = modelAtIndex(index:indexPath)
         item.selected(controller:controller)
         

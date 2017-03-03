@@ -194,11 +194,13 @@ class CScannerOCR:CController, G8TesseractDelegate
     
     func back()
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
     
     func help()
-    {
+    {   
         let modelHelp:MHelpScanner = MHelpScanner()
         let controllerHelp:CHelp = CHelp(model:modelHelp)
         parentController.push(

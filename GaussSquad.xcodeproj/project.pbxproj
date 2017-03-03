@@ -134,6 +134,7 @@
 		DA48DC211E69EC3700EA8B83 /* MHelpScannerItemEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48DC201E69EC3700EA8B83 /* MHelpScannerItemEdit.swift */; };
 		DA48DC231E69F04F00EA8B83 /* MHelpScannerItemClean.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48DC221E69F04F00EA8B83 /* MHelpScannerItemClean.swift */; };
 		DA48DC251E69FAA800EA8B83 /* MHelpScannerItemCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48DC241E69FAA800EA8B83 /* MHelpScannerItemCalculator.swift */; };
+		DA48DC271E6A087000EA8B83 /* VScannerOCRTextDismisser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48DC261E6A087000EA8B83 /* VScannerOCRTextDismisser.swift */; };
 		DA519BDB1E64DCA300F2673A /* MHelpCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA519BDA1E64DCA300F2673A /* MHelpCalculator.swift */; };
 		DA519BDD1E64DCB000F2673A /* MHelpCalculatorItemPascal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA519BDC1E64DCB000F2673A /* MHelpCalculatorItemPascal.swift */; };
 		DA519BDF1E64DCEF00F2673A /* MHelpItemShort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA519BDE1E64DCEF00F2673A /* MHelpItemShort.swift */; };
@@ -501,6 +502,7 @@
 		DA48DC201E69EC3700EA8B83 /* MHelpScannerItemEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpScannerItemEdit.swift; sourceTree = "<group>"; };
 		DA48DC221E69F04F00EA8B83 /* MHelpScannerItemClean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpScannerItemClean.swift; sourceTree = "<group>"; };
 		DA48DC241E69FAA800EA8B83 /* MHelpScannerItemCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpScannerItemCalculator.swift; sourceTree = "<group>"; };
+		DA48DC261E6A087000EA8B83 /* VScannerOCRTextDismisser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerOCRTextDismisser.swift; sourceTree = "<group>"; };
 		DA519BDA1E64DCA300F2673A /* MHelpCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpCalculator.swift; sourceTree = "<group>"; };
 		DA519BDC1E64DCB000F2673A /* MHelpCalculatorItemPascal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpCalculatorItemPascal.swift; sourceTree = "<group>"; };
 		DA519BDE1E64DCEF00F2673A /* MHelpItemShort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpItemShort.swift; sourceTree = "<group>"; };
@@ -1352,6 +1354,7 @@
 				DAB345D51E675D6A000FE9AC /* VScannerOCR.swift */,
 				DA723F3D1E68E79D00030738 /* VScannerOCRBar.swift */,
 				DA723F2C1E68DD1600030738 /* VScannerOCRText.swift */,
+				DA48DC261E6A087000EA8B83 /* VScannerOCRTextDismisser.swift */,
 				DA723F2E1E68E5A800030738 /* VScannerOCRMenu.swift */,
 				DA723F301E68E5B200030738 /* VScannerOCRMenuCell.swift */,
 			);
@@ -2073,6 +2076,7 @@
 				DAD518971E3FAF1D0004C8D8 /* CLinearEquationsProject.swift in Sources */,
 				DACC20DD1E60F2AC00F8D2D7 /* VCalculatorOptions.swift in Sources */,
 				DA519BE91E64FD0000F2673A /* MHelpCalculatorItemOptions.swift in Sources */,
+				DA48DC271E6A087000EA8B83 /* VScannerOCRTextDismisser.swift in Sources */,
 				DAFDD5021E43D3E800880556 /* MLinearEquationsProjectBarItemCompress.swift in Sources */,
 				DA316CE51E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift in Sources */,
 				DAFF4AA41E397B9600A2DD4B /* ExtensionUIColor.swift in Sources */,
