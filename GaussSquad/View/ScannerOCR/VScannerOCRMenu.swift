@@ -13,6 +13,7 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        self.controller = controller
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
