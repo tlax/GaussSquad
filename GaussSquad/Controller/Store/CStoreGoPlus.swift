@@ -15,11 +15,15 @@ class CStoreGoPlus:CController
     
     func close()
     {
+        AnalyticsManager.sharedInstance?.trackFroob(action:AnalyticsManager.FroobAction.plusClose)
+        
         parentController.dismissAnimateOver(completion:nil)
     }
     
     func openStore()
     {
+        AnalyticsManager.sharedInstance?.trackFroob(action:AnalyticsManager.FroobAction.plusStore)
+        
         let parentController:CParent = self.parentController
         
         parentController.dismissAnimateOver
