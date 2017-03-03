@@ -283,6 +283,7 @@
 		DAD518CA1E4006420004C8D8 /* MLinearEquationsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518C91E4006420004C8D8 /* MLinearEquationsItem.swift */; };
 		DADA15821E44D71100766103 /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA15811E44D71100766103 /* VToast.swift */; };
 		DADDF86B1E4AA31100447C55 /* DEquationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADDF86A1E4AA31100447C55 /* DEquationExtension.swift */; };
+		DADF64D31E6A250300B8DC1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DADF64D21E6A250300B8DC1E /* GoogleService-Info.plist */; };
 		DAE4A87B1E5B3E93000A07A3 /* texture.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE4A87A1E5B3E93000A07A3 /* texture.xcassets */; };
 		DAE4A87D1E5B4909000A07A3 /* MetalSpatialPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4A87C1E5B4909000A07A3 /* MetalSpatialPoint.swift */; };
 		DAE4A87F1E5B5551000A07A3 /* MetalVertexTextured.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4A87E1E5B5551000A07A3 /* MetalVertexTextured.swift */; };
@@ -652,6 +653,7 @@
 		DAD518C91E4006420004C8D8 /* MLinearEquationsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsItem.swift; sourceTree = "<group>"; };
 		DADA15811E44D71100766103 /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
 		DADDF86A1E4AA31100447C55 /* DEquationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEquationExtension.swift; sourceTree = "<group>"; };
+		DADF64D21E6A250300B8DC1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DAE4A87A1E5B3E93000A07A3 /* texture.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = texture.xcassets; sourceTree = "<group>"; };
 		DAE4A87C1E5B4909000A07A3 /* MetalSpatialPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialPoint.swift; sourceTree = "<group>"; };
 		DAE4A87E1E5B5551000A07A3 /* MetalVertexTextured.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertexTextured.swift; sourceTree = "<group>"; };
@@ -1423,6 +1425,14 @@
 			path = Projects;
 			sourceTree = "<group>";
 		};
+		DADF64D11E6A250300B8DC1E /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				DADF64D21E6A250300B8DC1E /* GoogleService-Info.plist */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 		DAE504F31E65EED200B8F22A /* Landing */ = {
 			isa = PBXGroup;
 			children = (
@@ -1639,6 +1649,7 @@
 			isa = PBXGroup;
 			children = (
 				DA6D32F71E678EC70013F08F /* tessdata */,
+				DADF64D11E6A250300B8DC1E /* Analytics */,
 				DAFF4A491E397B9500A2DD4B /* Assets */,
 				DAFF4A4B1E397B9500A2DD4B /* Controller */,
 				DAFF4A501E397B9500A2DD4B /* Data */,
@@ -1927,6 +1938,7 @@
 				DACC20BD1E60B66A00F8D2D7 /* function.xcassets in Resources */,
 				DA6D32F81E678EC70013F08F /* tessdata in Resources */,
 				DA9F6FA31E551C33003C5486 /* help.xcassets in Resources */,
+				DADF64D31E6A250300B8DC1E /* GoogleService-Info.plist in Resources */,
 				DA033CEE1E3AA2DC00F7645C /* generic.xcassets in Resources */,
 				DAE4A87B1E5B3E93000A07A3 /* texture.xcassets in Resources */,
 				DABC07CB1E63805C00EC2FBE /* ResourceUrl.plist in Resources */,
