@@ -6,6 +6,13 @@ class MScannerMenu
     
     init()
     {
-        items = []
+        let itemHelp:MScannerMenuItemHelp = MScannerMenuItemHelp()
+        let itemClean:MScannerMenuItemClean = MScannerMenuItemClean()
+        let itemCalculator:MScannerMenuItemCalculator = MScannerMenuItemCalculator()
+        
+        items = [
+            itemHelp,
+            itemClean,
+            itemCalculator]
     }
 }

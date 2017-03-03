@@ -1,9 +1,14 @@
-//
-//  MScannerMenuItemCalculator.swift
-//  GaussSquad
-//
-//  Created by zero on 3/2/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MScannerMenuItemCalculator:MScannerMenuItem
+{
+    init()
+    {
+        let image:UIImage = #imageLiteral(resourceName: "assetGenericBack")
+        let title:String = NSLocalizedString("MScannerMenuItemCalculator_title", comment:"")
+        
+        super.init(
+            image:image,
+            title:title)
+    }
+}
