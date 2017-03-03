@@ -15,11 +15,17 @@ class VScannerOCRMenuCell:UICollectionViewCell
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.center
         self.imageView = imageView
         
         let labelTitle:UILabel = UILabel()
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.isUserInteractionEnabled = false
+        labelTitle.font = UIFont.regular(size:12)
+        labelTitle.textColor = UIColor.black
+        labelTitle.backgroundColor = UIColor.clear
+        labelTitle.textAlignment = NSTextAlignment.center
         self.labelTitle = labelTitle
         
         addSubview(labelTitle)
@@ -49,5 +55,13 @@ class VScannerOCRMenuCell:UICollectionViewCell
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: public
+    
+    func config(model:MScannerMenuItem)
+    {
+        imageView.image = model.image
+        labelTitle.text = model.title
     }
 }

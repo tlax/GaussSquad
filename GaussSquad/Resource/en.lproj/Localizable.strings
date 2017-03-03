@@ -93,7 +93,7 @@
 "VSettingsCellReview_labelSubtitle"="\nWrite a review on the App Store";
 "VSettingsCellShare_labelTitle"="Share app";
 "VSettingsCellShare_labelSubtitle"="\nLet others know about Gauss Squad";
-"VScannerOCRBar_label"="Edit if needed before import";
+"VScannerOCRBar_label"="Scanned result";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
 "VStoreCellDeferred_label"="Purchase deferred";

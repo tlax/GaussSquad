@@ -36,8 +36,9 @@ class VScannerOCRBar:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.font = UIFont.bold(size:16)
+        label.font = UIFont.regular(size:16)
         label.textColor = UIColor.black
+        label.textAlignment = NSTextAlignment.center
         label.text = NSLocalizedString("VScannerOCRBar_label", comment:"")
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
@@ -53,10 +54,7 @@ class VScannerOCRBar:UIView
         NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:self)
-        NSLayoutConstraint.leftToRight(
-            view:label,
-            toView:backButton)
-        NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:label,
             toView:self)
         

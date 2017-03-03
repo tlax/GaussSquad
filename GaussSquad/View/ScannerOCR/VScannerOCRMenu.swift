@@ -5,7 +5,7 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var controller:CScannerOCR!
     private weak var collectionView:VCollection!
     private let kBorderHeight:CGFloat = 1
-    private let kCellWidth:CGFloat = 70
+    private let kCellWidth:CGFloat = 80
     
     init(controller:CScannerOCR)
     {
@@ -48,6 +48,15 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         return nil
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MScannerMenuItem
+    {
+        let item:MScannerMenuItem = controller.modelMenu.items[index.item]
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
@@ -64,9 +73,11 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MScannerMenuItem = modelAtIndex(index:indexPath)
         let cell:VScannerOCRMenuCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:VScannerOCRMenuCell.reusableIdentifier,
             for:indexPath) as! VScannerOCRMenuCell
+        cell.config(model:item)
         
         return cell
     }
