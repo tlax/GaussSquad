@@ -7,8 +7,8 @@ class VScannerOCR:VView
     private weak var viewText:VScannerOCRText!
     private weak var viewMenu:VScannerOCRMenu!
     private weak var spinner:VSpinner!
-    private let kBarHeight:CGFloat = 90
-    private let kMenuHeight:CGFloat = 80
+    private let kBarHeight:CGFloat = 60
+    private let kMenuHeight:CGFloat = 74
     
     override init(controller:CController)
     {

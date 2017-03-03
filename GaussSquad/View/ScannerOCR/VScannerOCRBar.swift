@@ -3,7 +3,7 @@ import UIKit
 class VScannerOCRBar:UIView
 {
     private let kLabelHorizontal:CGFloat = 10
-    private let kLabelTop:CGFloat = 22
+    private let kLabelTop:CGFloat = 20
     private let kBorderHeight:CGFloat = 1
     
     init()
@@ -19,7 +19,7 @@ class VScannerOCRBar:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.font = UIFont.regular(size:16)
+        label.font = UIFont.bold(size:16)
         label.textColor = UIColor.black
         label.text = NSLocalizedString("VScannerOCRBar_label", comment:"")
         

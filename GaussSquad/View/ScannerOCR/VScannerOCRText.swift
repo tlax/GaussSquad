@@ -4,8 +4,7 @@ class VScannerOCRText:UITextView
 {
     private weak var controller:CScannerOCR!
     private let kFontSize:CGFloat = 30
-    private let kInsetsTop:CGFloat = 25
-    private let kInsetsHorizontal:CGFloat = 5
+    private let kInsets:CGFloat = 5
     
     init(controller:CScannerOCR)
     {
@@ -16,6 +15,7 @@ class VScannerOCRText:UITextView
         textColor = UIColor.black
         tintColor = UIColor.black
         bounces = true
+        alwaysBounceVertical = true
         isScrollEnabled = true
         showsVerticalScrollIndicator = true
         showsHorizontalScrollIndicator = true
@@ -28,10 +28,10 @@ class VScannerOCRText:UITextView
         contentInset = UIEdgeInsets.zero
         font = UIFont.numeric(size:kFontSize)
         textContainerInset = UIEdgeInsets(
-            top:kInsetsTop,
-            left:kInsetsHorizontal,
+            top:kInsets,
+            left:kInsets,
             bottom:0,
-            right:kInsetsHorizontal)
+            right:kInsets)
         
         self.controller = controller
     }

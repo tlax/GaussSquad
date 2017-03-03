@@ -4,6 +4,8 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
 {
     private weak var controller:CScannerOCR!
     private weak var collectionView:VCollection!
+    private let kBorderHeight:CGFloat = 1
+    private let kCellWidth:CGFloat = 65
     
     init(controller:CScannerOCR)
     {
@@ -12,13 +14,31 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
+        
         let collectionView:VCollection = VCollection()
+        collectionView.isScrollEnabled = false
+        collectionView.bounces = false
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.registerCell(cell:VScannerOCRMenuCell.self)
         self.collectionView = collectionView
         
+        addSubview(border)
         addSubview(collectionView)
         
         NSLayoutConstraint.equals(
             view:collectionView,
+            toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
             toView:self)
     }
     
