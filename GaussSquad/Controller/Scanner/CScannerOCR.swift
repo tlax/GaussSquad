@@ -9,6 +9,19 @@ class CScannerOCR:CController, G8TesseractDelegate
     private var recognized:Bool
     private let image:UIImage
     private let kLanguage:String = "eng"
+    private let kNumbersMin:UInt32 = 48
+    private let kNumbersMax:UInt32 = 57
+    private let kAlphaCapsMin:UInt32 = 65
+    private let kAlphaCapsMax:UInt32 = 90
+    private let kAlphaMin:UInt32 = 97
+    private let kAlphaMax:UInt32 = 122
+    private let kSignPoint:UInt32 = 46
+    private let kSignAdd:UInt32 = 43
+    private let kSignSubtract:UInt32 = 45
+    private let kSignDivide:UInt32 = 47
+    private let kSignMultiply:UInt32 = 42
+    private let kSignEquals:UInt32 = 61
+    private let kNewLine:UInt32 = 10
     
     init(image:UIImage)
     {
@@ -103,7 +116,78 @@ class CScannerOCR:CController, G8TesseractDelegate
     
     private func asyncClean(text:String)
     {
+        var cleanText:String = ""
+        var prevSign:String?
+        var newLine:String?
         
+        for character:Character in text.characters
+        {
+            let characterString:String = "\(character)"
+            
+            guard
+            
+                let unicodeScalar:UnicodeScalar = UnicodeScalar(characterString)
+            
+            else
+            {
+                continue
+            }
+            
+            let unicodeInt:UInt32 = unicodeScalar.value
+            
+            if (unicodeInt >= kNumbersMin && unicodeInt <= kNumbersMax) ||
+                (unicodeInt >= kAlphaMin && unicodeInt <= kAlphaMax) ||
+                (unicodeInt >= kAlphaCapsMin && unicodeInt <= kAlphaCapsMax)
+            {
+                if let newLine:String = newLine
+                {
+                    cleanText.append(newLine)
+                }
+                
+                if let prevSign:String = prevSign
+                {
+                    cleanText.append(prevSign)
+                }
+                
+                cleanText.append(characterString)
+                prevSign = nil
+                newLine = nil
+            }
+            else if unicodeInt == kNewLine
+            {
+                newLine = characterString
+            }
+            else
+            {
+                switch unicodeInt
+                {
+                case kSignAdd,
+                     kSignSubtract,
+                     kSignMultiply,
+                     kSignDivide,
+                     kSignEquals,
+                     kSignPoint:
+                    
+                    prevSign = characterString
+                    
+                    break
+                    
+                default:
+                    break
+                }
+            }
+        }
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.cleanFinished(newText:cleanText)
+        }
+    }
+    
+    private func cleanFinished(newText:String)
+    {
+        viewOCR.viewText.text = newText
     }
     
     //MARK: public
