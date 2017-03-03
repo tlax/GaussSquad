@@ -4,6 +4,14 @@ import MetalKit
 
 class CScannerOCR:CController, G8TesseractDelegate
 {
+    private enum CalculatorModifier
+    {
+        case add
+        case subtract
+        case multiply
+        case divide
+    }
+    
     let modelMenu:MScannerMenu
     private weak var viewOCR:VScannerOCR!
     private var recognized:Bool
@@ -190,6 +198,163 @@ class CScannerOCR:CController, G8TesseractDelegate
         viewOCR.viewText.text = newText
     }
     
+    private func asyncCalculator(text:String)
+    {
+        var total:Double = 0
+        var coefficient:String?
+        var modifier:CalculatorModifier = CalculatorModifier.add
+        var equaled:Bool = false
+        
+        for character:Character in text.characters
+        {
+            let characterString:String = "\(character)"
+            
+            guard
+                
+                let unicodeScalar:UnicodeScalar = UnicodeScalar(characterString)
+                
+            else
+            {
+                continue
+            }
+            
+            let unicodeInt:UInt32 = unicodeScalar.value
+            
+            if (unicodeInt >= kNumbersMin && unicodeInt <= kNumbersMax) ||
+                (unicodeInt == kSignPoint)
+            {
+                if coefficient == nil
+                {
+                    coefficient = ""
+                }
+                
+                coefficient?.append(characterString)
+            }
+            else
+            {
+                switch unicodeInt
+                {
+                case kSignAdd,
+                     kSignSubtract,
+                     kSignMultiply,
+                     kSignDivide,
+                     kSignEquals:
+                    
+                    if let coefficient:String = coefficient
+                    {
+                        var coefficientNumber:Double = MSession.sharedInstance.numberFrom(
+                            string:coefficient)
+                        
+                        if equaled
+                        {
+                            coefficientNumber = -coefficientNumber
+                        }
+                        
+                        switch modifier
+                        {
+                        case CalculatorModifier.add:
+                            
+                            total += coefficientNumber
+                            
+                            break
+                            
+                        case CalculatorModifier.subtract:
+                            
+                            total -= coefficientNumber
+                            
+                            break
+                            
+                        case CalculatorModifier.multiply:
+                            
+                            total *= coefficientNumber
+                            
+                            break
+                            
+                        case CalculatorModifier.divide:
+                            
+                            if coefficientNumber != 0
+                            {
+                                total /= coefficientNumber
+                            }
+                            
+                            break
+                        }
+                    }
+                    
+                    break
+                    
+                default:
+                    
+                    continue
+                }
+                
+                coefficient = nil
+                
+                switch unicodeInt
+                {
+                case kSignEquals:
+                    
+                    equaled = true
+                    modifier = CalculatorModifier.add
+                    
+                    break
+                    
+                case kSignAdd:
+                    
+                    modifier = CalculatorModifier.add
+                    
+                    break
+                    
+                case kSignSubtract:
+                    
+                    modifier = CalculatorModifier.subtract
+                    
+                    break
+                    
+                case kSignMultiply:
+                    
+                    modifier = CalculatorModifier.multiply
+                    
+                    break
+                
+                case kSignDivide:
+                    
+                    modifier = CalculatorModifier.divide
+                    
+                    break
+                    
+                default:
+                    break
+                }
+            }
+        }
+        
+        if let coefficient:String = coefficient
+        {
+            let coefficientNumber:Double = MSession.sharedInstance.numberFrom(
+                string:coefficient)
+            total += coefficientNumber
+        }
+        
+        let calculatorString:String = MSession.sharedInstance.stringFrom(
+            number:total)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.calculatorFinished(
+                newText:calculatorString)
+        }
+    }
+    
+    private func calculatorFinished(newText:String)
+    {
+        let controllerCalculator:CCalculator = CCalculator(initial:newText)
+        parentController.push(
+            controller:controllerCalculator,
+            horizontal:CParent.TransitionHorizontal.fromRight)
+    }
+    
     //MARK: public
     
     func back()
@@ -222,7 +387,13 @@ class CScannerOCR:CController, G8TesseractDelegate
     
     func calculator()
     {
+        let text:String = viewOCR.viewText.text
         
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncCalculator(text:text)
+        }
     }
     
     //MARK: tesseract delegate

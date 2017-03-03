@@ -3,10 +3,12 @@ import UIKit
 class CCalculator:CController
 {
     let model:MCalculator
+    var initial:String?
     weak var viewCalculator:VCalculator!
     
-    override init()
+    init(initial:String?)
     {
+        self.initial = initial
         model = MCalculator()
         
         super.init()
@@ -32,6 +34,12 @@ class CCalculator:CController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        if let initial:String = self.initial
+        {
+            viewCalculator.viewText.text = ""
+            viewCalculator.viewText.insertText(initial)
+        }
         
         NotificationCenter.default.addObserver(
             forName:Notification.keyboardUpdate,
