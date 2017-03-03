@@ -4,7 +4,11 @@ class VScannerOCRMenuCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var labelTitle:UILabel!
-    private let kLabelHeight:CGFloat = 20
+    private let kLabelHeight:CGFloat = 13
+    private let kLabelBottom:CGFloat = -7
+    private let kImageTop:CGFloat = 8
+    private let kAlphaSelected:CGFloat = 0.2
+    private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)
     {
@@ -22,10 +26,10 @@ class VScannerOCRMenuCell:UICollectionViewCell
         let labelTitle:UILabel = UILabel()
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.isUserInteractionEnabled = false
-        labelTitle.font = UIFont.regular(size:12)
-        labelTitle.textColor = UIColor.black
+        labelTitle.font = UIFont.regular(size:11)
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
+        labelTitle.textColor = UIColor.black
         self.labelTitle = labelTitle
         
         addSubview(labelTitle)
@@ -33,8 +37,9 @@ class VScannerOCRMenuCell:UICollectionViewCell
         
         NSLayoutConstraint.topToTop(
             view:imageView,
-            toView:self)
-        NSLayoutConstraint.bottomToBottom(
+            toView:self,
+            constant:kImageTop)
+        NSLayoutConstraint.bottomToTop(
             view:imageView,
             toView:labelTitle)
         NSLayoutConstraint.equalsHorizontal(
@@ -43,7 +48,8 @@ class VScannerOCRMenuCell:UICollectionViewCell
         
         NSLayoutConstraint.bottomToBottom(
             view:labelTitle,
-            toView:self)
+            toView:self,
+            constant:kLabelBottom)
         NSLayoutConstraint.height(
             view:labelTitle,
             constant:kLabelHeight)
@@ -57,11 +63,42 @@ class VScannerOCRMenuCell:UICollectionViewCell
         return nil
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            alpha = kAlphaSelected
+        }
+        else
+        {
+            alpha = kAlphaNotSelected
+        }
+    }
+    
     //MARK: public
     
     func config(model:MScannerMenuItem)
     {
         imageView.image = model.image
         labelTitle.text = model.title
+        hover()
     }
 }

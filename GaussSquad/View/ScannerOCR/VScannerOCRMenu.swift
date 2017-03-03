@@ -50,6 +50,14 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     //MARK: private
     
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let height:CGFloat = collectionView.bounds.maxY
+        let size:CGSize = CGSize(width:kCellWidth, height:height)
+        
+        return size
+    }
+    
     private func modelAtIndex(index:IndexPath) -> MScannerMenuItem
     {
         let item:MScannerMenuItem = controller.modelMenu.items[index.item]
