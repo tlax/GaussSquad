@@ -284,6 +284,7 @@
 		DADA15821E44D71100766103 /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA15811E44D71100766103 /* VToast.swift */; };
 		DADDF86B1E4AA31100447C55 /* DEquationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADDF86A1E4AA31100447C55 /* DEquationExtension.swift */; };
 		DADF64D31E6A250300B8DC1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DADF64D21E6A250300B8DC1E /* GoogleService-Info.plist */; };
+		DADF64D51E6A252800B8DC1E /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADF64D41E6A252800B8DC1E /* AnalyticsManager.swift */; };
 		DAE4A87B1E5B3E93000A07A3 /* texture.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE4A87A1E5B3E93000A07A3 /* texture.xcassets */; };
 		DAE4A87D1E5B4909000A07A3 /* MetalSpatialPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4A87C1E5B4909000A07A3 /* MetalSpatialPoint.swift */; };
 		DAE4A87F1E5B5551000A07A3 /* MetalVertexTextured.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4A87E1E5B5551000A07A3 /* MetalVertexTextured.swift */; };
@@ -654,6 +655,8 @@
 		DADA15811E44D71100766103 /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
 		DADDF86A1E4AA31100447C55 /* DEquationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEquationExtension.swift; sourceTree = "<group>"; };
 		DADF64D21E6A250300B8DC1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DADF64D41E6A252800B8DC1E /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
+		DADF64D61E6A25EC00B8DC1E /* CBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBridgingHeader.h; sourceTree = "<group>"; };
 		DAE4A87A1E5B3E93000A07A3 /* texture.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = texture.xcassets; sourceTree = "<group>"; };
 		DAE4A87C1E5B4909000A07A3 /* MetalSpatialPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialPoint.swift; sourceTree = "<group>"; };
 		DAE4A87E1E5B5551000A07A3 /* MetalVertexTextured.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertexTextured.swift; sourceTree = "<group>"; };
@@ -1429,6 +1432,7 @@
 			isa = PBXGroup;
 			children = (
 				DADF64D21E6A250300B8DC1E /* GoogleService-Info.plist */,
+				DADF64D41E6A252800B8DC1E /* AnalyticsManager.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -1699,6 +1703,7 @@
 				DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */,
 				DAFF4A4E1E397B9500A2DD4B /* CController.swift */,
 				DAFF4A4F1E397B9500A2DD4B /* CParent.swift */,
+				DADF64D61E6A25EC00B8DC1E /* CBridgingHeader.h */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -2152,6 +2157,7 @@
 				DA8D8D281E5FACD3006F1488 /* VCalculatorHistoryCell.swift in Sources */,
 				DA99E1821E53A96200DB692B /* MLinearEquationsSolutionBarItemBack.swift in Sources */,
 				DA48DC251E69FAA800EA8B83 /* MHelpScannerItemCalculator.swift in Sources */,
+				DADF64D51E6A252800B8DC1E /* AnalyticsManager.swift in Sources */,
 				DA9F6F951E5518A6003C5486 /* MHelpLinearEquationsProject.swift in Sources */,
 				DAC216551E42989A009EDBF7 /* CLinearEquationsPolynomial.swift in Sources */,
 				DAA4BD721E3A4C4100B0360D /* MHomeItem.swift in Sources */,
