@@ -1,6 +1,6 @@
 import UIKit
 
-class MHelpCalculatorItemCrop:MHelpItemShort
+class MHelpScannerItemCrop:MHelpItemShort
 {
     init()
     {

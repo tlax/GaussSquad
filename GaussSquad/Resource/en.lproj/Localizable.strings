@@ -72,7 +72,7 @@
 "MHelpLinearEquationsProjectItemIndeterminates_title"="Add or delete indeterminate";
 "MHelpLinearEquationsProjectItemCompress_title"="Compress equations and remove unnecesary polynomials";
 "MHelpLinearEquationsProjectItemSolution_title"="Apply Gaussian Elimination displaying every step";
-"MHelpCalculatorItemCrop_title"="Try to exclude whats not necessary for scanning";
+"MHelpCalculatorItemCrop_title"="Try to center the scanning region in just equations and operations";
 "MStoreItemPlus_title"="Plus\n";
 "MStoreItemPlus_descr"="Unlimited indeterminates.\nCreate as many variables as you need without restrictions";
 
