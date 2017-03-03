@@ -101,6 +101,13 @@ class CScannerOCR:CController, G8TesseractDelegate
         }
     }
     
+    //MARK: public
+    
+    func back()
+    {
+        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+    }
+    
     //MARK: tesseract delegate
     
     func shouldCancelImageRecognition(for tesseract:G8Tesseract!) -> Bool

@@ -7,7 +7,7 @@ class VScannerOCR:VView
     private weak var viewText:VScannerOCRText!
     private weak var viewMenu:VScannerOCRMenu!
     private weak var spinner:VSpinner!
-    private let kBarHeight:CGFloat = 60
+    private let kBarHeight:CGFloat = 64
     private let kMenuHeight:CGFloat = 74
     
     override init(controller:CController)
@@ -20,7 +20,8 @@ class VScannerOCR:VView
         viewText.isHidden = true
         self.viewText = viewText
         
-        let viewBar:VScannerOCRBar = VScannerOCRBar()
+        let viewBar:VScannerOCRBar = VScannerOCRBar(
+            controller:self.controller)
         viewBar.isHidden = true
         self.viewBar = viewBar
         

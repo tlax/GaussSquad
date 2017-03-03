@@ -2,17 +2,34 @@ import UIKit
 
 class VScannerOCRBar:UIView
 {
-    private let kLabelHorizontal:CGFloat = 10
-    private let kLabelTop:CGFloat = 20
+    private weak var controller:CScannerOCR!
+    private let kContentTop:CGFloat = 20
     private let kBorderHeight:CGFloat = 1
+    private let kBackWidth:CGFloat = 50
     
-    init()
+    init(controller:CScannerOCR)
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
-        isUserInteractionEnabled = false
+        self.controller = controller
+        
+        let backButton:UIButton = UIButton()
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.setImage(
+            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        backButton.setImage(
+            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        backButton.imageView!.clipsToBounds = true
+        backButton.imageView!.contentMode = UIViewContentMode.center
+        backButton.imageView!.tintColor = UIColor(white:0, alpha:0.1)
+        backButton.addTarget(
+            self,
+            action:#selector(actionBack(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let label:UILabel = UILabel()
         label.backgroundColor = UIColor.clear
@@ -31,14 +48,16 @@ class VScannerOCRBar:UIView
         NSLayoutConstraint.topToTop(
             view:label,
             toView:self,
-            constant:kLabelTop)
+            constant:kContentTop)
         NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:self)
-        NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.leftToRight(
             view:label,
-            toView:self,
-            margin:kLabelHorizontal)
+            toView:backButton)
+        NSLayoutConstraint.rightToRight(
+            view:label,
+            toView:self)
         
         NSLayoutConstraint.bottomToBottom(
             view:border,
@@ -49,10 +68,31 @@ class VScannerOCRBar:UIView
         NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:backButton,
+            toView:self,
+            constant:kContentTop)
+        NSLayoutConstraint.bottomToBottom(
+            view:backButton,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:backButton,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:backButton,
+            constant:kBackWidth)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: actions
+    
+    func actionBack(sender button:UIButton)
+    {
+        controller.back()
     }
 }

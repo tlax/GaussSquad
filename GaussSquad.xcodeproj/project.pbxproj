@@ -184,7 +184,6 @@
 		DA723F311E68E5B200030738 /* VScannerOCRMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F301E68E5B200030738 /* VScannerOCRMenuCell.swift */; };
 		DA723F341E68E70C00030738 /* MScannerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F331E68E70C00030738 /* MScannerMenu.swift */; };
 		DA723F361E68E71700030738 /* MScannerMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F351E68E71700030738 /* MScannerMenuItem.swift */; };
-		DA723F381E68E74900030738 /* MScannerMenuItemBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F371E68E74900030738 /* MScannerMenuItemBack.swift */; };
 		DA723F3A1E68E75600030738 /* MScannerMenuItemCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F391E68E75600030738 /* MScannerMenuItemCalculator.swift */; };
 		DA723F3C1E68E78000030738 /* MScannerMenuItemClean.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F3B1E68E78000030738 /* MScannerMenuItemClean.swift */; };
 		DA723F3E1E68E79D00030738 /* VScannerOCRBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F3D1E68E79D00030738 /* VScannerOCRBar.swift */; };
@@ -546,7 +545,6 @@
 		DA723F301E68E5B200030738 /* VScannerOCRMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerOCRMenuCell.swift; sourceTree = "<group>"; };
 		DA723F331E68E70C00030738 /* MScannerMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerMenu.swift; sourceTree = "<group>"; };
 		DA723F351E68E71700030738 /* MScannerMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerMenuItem.swift; sourceTree = "<group>"; };
-		DA723F371E68E74900030738 /* MScannerMenuItemBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerMenuItemBack.swift; sourceTree = "<group>"; };
 		DA723F391E68E75600030738 /* MScannerMenuItemCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerMenuItemCalculator.swift; sourceTree = "<group>"; };
 		DA723F3B1E68E78000030738 /* MScannerMenuItemClean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerMenuItemClean.swift; sourceTree = "<group>"; };
 		DA723F3D1E68E79D00030738 /* VScannerOCRBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerOCRBar.swift; sourceTree = "<group>"; };
@@ -1224,7 +1222,6 @@
 			children = (
 				DA723F331E68E70C00030738 /* MScannerMenu.swift */,
 				DA723F351E68E71700030738 /* MScannerMenuItem.swift */,
-				DA723F371E68E74900030738 /* MScannerMenuItemBack.swift */,
 				DA723F3B1E68E78000030738 /* MScannerMenuItemClean.swift */,
 				DA723F391E68E75600030738 /* MScannerMenuItemCalculator.swift */,
 			);
@@ -2046,7 +2043,6 @@
 				DA23C35B1E525FE7007C4C4D /* VLinearEquationsSolutionBarCell.swift in Sources */,
 				DAD518971E3FAF1D0004C8D8 /* CLinearEquationsProject.swift in Sources */,
 				DACC20DD1E60F2AC00F8D2D7 /* VCalculatorOptions.swift in Sources */,
-				DA723F381E68E74900030738 /* MScannerMenuItemBack.swift in Sources */,
 				DA519BE91E64FD0000F2673A /* MHelpCalculatorItemOptions.swift in Sources */,
 				DAFDD5021E43D3E800880556 /* MLinearEquationsProjectBarItemCompress.swift in Sources */,
 				DA316CE51E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift in Sources */,
