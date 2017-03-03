@@ -23,6 +23,8 @@ class CParent:UIViewController
     init()
     {
         super.init(nibName:nil, bundle:nil)
+        
+        AnalyticsManager.sharedInstance?.startAnalytics()
     }
     
     required init?(coder:NSCoder)
