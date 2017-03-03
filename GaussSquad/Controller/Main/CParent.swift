@@ -298,6 +298,7 @@ class CParent:UIViewController
             
             removeView.pushBackground?.removeFromSuperview()
             removeView.removeFromSuperview()
+            removeController.removeFromParentViewController()
             
             if childViewControllers.count < 2
             {

@@ -60,9 +60,6 @@
 "MHelpLinearEquationsLandingItemGauss_title"="Johann Carl Friedrich Gauss";
 "MHelpLinearEquationsLandingItemGauss_date"="\n30/4/1777 – 23/2/1855";
 "MHelpLinearEquationsLandingItemGauss_subtitle"="\nThe Princeps mathematicorum, german mathematician who created Gaussian Elimination for solving systems of linear equations, algebraic equations in which each term is either a constant or the product of a constant and a single variable.";
-"MHelpScannerItemTuring_title"="Alan Mathison Turing";
-"MHelpScannerItemTuring_date"="\n23/6/1912 - 7/6/1954";
-"MHelpScannerItemTuring_subtitle"="\nEnglish computer scientist, father of Artificial Intelligence and modern computers in general, cracked the german Engima Machine during the Second World War.";
 "MHelpLinearEquationsLandingItemAddEquation_title"="Create as many projects as you want";
 "MHelpLinearEquationsLandingItemAutoSave_title"="Come back and edit your projects any time";
 "MHelpLinearEquationsProjectItemPolynomials_title"="Select a polynomial for edition or change the indeterminate";
@@ -72,7 +69,12 @@
 "MHelpLinearEquationsProjectItemIndeterminates_title"="Add or delete indeterminate";
 "MHelpLinearEquationsProjectItemCompress_title"="Compress equations and remove unnecesary polynomials";
 "MHelpLinearEquationsProjectItemSolution_title"="Apply Gaussian Elimination displaying every step";
+"MHelpScannerItemTuring_title"="Alan Mathison Turing";
+"MHelpScannerItemTuring_date"="\n23/6/1912 - 7/6/1954";
+"MHelpScannerItemTuring_subtitle"="\nEnglish computer scientist, father of Artificial Intelligence and modern computers in general, cracked the german Engima Machine during the Second World War.";
 "MHelpCalculatorItemCrop_title"="Try to center the scanning region in just equations and operations";
+"MHelpCalculatorItemEdit_title"="Edit the result if needed";
+"MHelpCalculatorItemClean_title"="Compress tool will remove repeated or wrong characters";
 "MStoreItemPlus_title"="Plus\n";
 "MStoreItemPlus_descr"="Unlimited indeterminates.\nCreate as many variables as you need without restrictions";
 
