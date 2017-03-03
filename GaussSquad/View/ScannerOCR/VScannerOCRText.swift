@@ -32,6 +32,7 @@ class VScannerOCRText:UITextView
             left:kInsets,
             bottom:0,
             right:kInsets)
+        inputAccessoryView = VScannerOCRTextDismisser()
         
         self.controller = controller
     }

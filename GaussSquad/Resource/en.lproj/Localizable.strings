@@ -101,6 +101,7 @@
 "VSettingsCellShare_labelTitle"="Share app";
 "VSettingsCellShare_labelSubtitle"="\nLet others know about Gauss Squad";
 "VScannerOCRBar_label"="Scanned result";
+"VScannerOCRTextDismisser_buttonDismiss"="Done";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
 "VStoreCellDeferred_label"="Purchase deferred";
