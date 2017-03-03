@@ -10,4 +10,10 @@ class MScannerMenuItem
         self.image = image
         self.title = title
     }
+    
+    //MARK: public
+    
+    func selected(controller:CScannerOCR)
+    {
+    }
 }

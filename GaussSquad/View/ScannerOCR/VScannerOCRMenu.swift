@@ -6,7 +6,7 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var collectionView:VCollection!
     private let kBorderHeight:CGFloat = 1
     private let kCellWidth:CGFloat = 80
-    private let kDeselectTime:TimeInterval = 0.2
+    private let kDeselectTime:TimeInterval = 0.3
     
     init(controller:CScannerOCR)
     {
@@ -93,7 +93,10 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        collectionView.isUserInteractionEnabled = false
+        
         let item:MScannerMenuItem = modelAtIndex(index:indexPath)
+        item.selected(controller:controller)
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)
@@ -103,6 +106,7 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
                 at:nil,
                 animated:true,
                 scrollPosition:UICollectionViewScrollPosition())
+            collectionView?.isUserInteractionEnabled = true
         }
     }
 }

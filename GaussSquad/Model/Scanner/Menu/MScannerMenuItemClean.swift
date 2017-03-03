@@ -11,4 +11,9 @@ class MScannerMenuItemClean:MScannerMenuItem
             image:image,
             title:title)
     }
+    
+    override func selected(controller:CScannerOCR)
+    {
+        controller.clean()
+    }
 }
