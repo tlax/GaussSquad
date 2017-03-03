@@ -7,7 +7,7 @@ class VScannerOCRMenuCell:UICollectionViewCell
     private let kLabelHeight:CGFloat = 13
     private let kLabelBottom:CGFloat = -7
     private let kImageTop:CGFloat = 8
-    private let kAlphaSelected:CGFloat = 0.2
+    private let kAlphaSelected:CGFloat = 0.15
     private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)
