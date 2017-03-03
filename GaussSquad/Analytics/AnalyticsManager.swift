@@ -18,9 +18,12 @@ class AnalyticsManager
     
     enum ShareAction:String
     {
-        case solutionComplete = "SolutionComplete"
-        case solutionStep = "SolutionStep"
+        case solutionImageComplete = "Solution/Image/Complete"
+        case solutionImageStep = "Solution/Image/Step"
+        case solutionTextComplete = "Solution/Text/Complete"
+        case solutionTextStep = "Solution/Text/Step"
         case plot = "Plot"
+        case app = "App"
     }
     
     static let sharedInstance:AnalyticsManager? = AnalyticsManager()

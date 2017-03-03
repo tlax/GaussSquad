@@ -262,7 +262,7 @@ class CLinearEquationsSolution:CController
             DispatchQueue.main.async
             { [weak self] in
                 
-                self?.viewSolution.startExporting()
+                AnalyticsManager.sharedInstance?.trackShare(action:AnalyticsManager.ShareAction.solutionImageComplete)
                 
                 DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
                 { [weak self] in
@@ -292,6 +292,8 @@ class CLinearEquationsSolution:CController
             
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             { [weak self] in
+                
+                AnalyticsManager.sharedInstance?.trackShare(action:AnalyticsManager.ShareAction.solutionTextComplete)
                 
                 guard
                     
@@ -356,6 +358,8 @@ class CLinearEquationsSolution:CController
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             { [weak self] in
                 
+                AnalyticsManager.sharedInstance?.trackShare(action:AnalyticsManager.ShareAction.solutionImageStep)
+                
                 guard
                 
                     let step:MLinearEquationsSolutionStep = self?.model.steps[stepIndex]
@@ -381,6 +385,8 @@ class CLinearEquationsSolution:CController
             
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             { [weak self] in
+                
+                AnalyticsManager.sharedInstance?.trackShare(action:AnalyticsManager.ShareAction.solutionTextStep)
                 
                 guard
                     

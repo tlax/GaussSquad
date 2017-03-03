@@ -106,5 +106,7 @@ class CSettings:CController
         }
         
         present(activity, animated:true)
+        
+        AnalyticsManager.sharedInstance?.trackShare(action:AnalyticsManager.ShareAction.app)
     }
 }

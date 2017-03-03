@@ -181,6 +181,8 @@ class CLinearEquationsPlot:CController
         
         finishLoading()
         present(activity, animated:true)
+        
+        AnalyticsManager.sharedInstance?.trackShare(action:AnalyticsManager.ShareAction.plot)
     }
     
     private func finishLoading()
