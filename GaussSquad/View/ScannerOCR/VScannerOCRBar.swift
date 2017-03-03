@@ -44,6 +44,7 @@ class VScannerOCRBar:UIView
         
         addSubview(border)
         addSubview(label)
+        addSubview(backButton)
         
         NSLayoutConstraint.topToTop(
             view:label,

@@ -1,9 +1,14 @@
-//
-//  MScannerMenuItemClean.swift
-//  GaussSquad
-//
-//  Created by zero on 3/2/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MScannerMenuItemClean:MScannerMenuItem
+{
+    init()
+    {
+        let image:UIImage = #imageLiteral(resourceName: "assetGenericBack")
+        let title:String = NSLocalizedString("MScannerMenuItemClean_title", comment:"")
+        
+        super.init(
+            image:image,
+            title:title)
+    }
+}

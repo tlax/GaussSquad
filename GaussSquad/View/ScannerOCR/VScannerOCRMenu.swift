@@ -5,7 +5,7 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var controller:CScannerOCR!
     private weak var collectionView:VCollection!
     private let kBorderHeight:CGFloat = 1
-    private let kCellWidth:CGFloat = 65
+    private let kCellWidth:CGFloat = 70
     
     init(controller:CScannerOCR)
     {

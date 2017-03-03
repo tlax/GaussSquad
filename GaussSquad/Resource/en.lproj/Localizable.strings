@@ -48,6 +48,8 @@
 "MCalculatorFunctionsItemAnyExponent_title"="Any Exponent";
 "MCalculatorFunctionsTrigonometry_title"="Trigonometry";
 "MCalculatorFunctionsExponents_title"="Exponents";
+"MScannerMenuItemClean_title"="Clean";
+"MScannerMenuItemHelp_title"="Help";
 "MHelpCalculatorItemPascal_title"="Blaise Pascal";
 "MHelpCalculatorItemPascal_date"="\n19/6/1623 - 19/8/1662";
 "MHelpCalculatorItemPascal_subtitle"="\nFrench mathematician and philosopher, created the first mechanical calculator while still a teenager and by 1645 made a public presentation of 50 different prototypes.";
@@ -90,7 +92,7 @@
 "VSettingsCellReview_labelSubtitle"="\nWrite a review on the App Store";
 "VSettingsCellShare_labelTitle"="Share app";
 "VSettingsCellShare_labelSubtitle"="\nLet others know about Gauss Squad";
-"VScannerOCRBar_label"="Edit text if needed before import";
+"VScannerOCRBar_label"="Edit if needed before import";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
 "VStoreCellDeferred_label"="Purchase deferred";
