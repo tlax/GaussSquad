@@ -8,12 +8,14 @@ class MHelpScanner:MHelp
         let itemCrop:MHelpScannerItemCrop = MHelpScannerItemCrop()
         let itemEdit:MHelpScannerItemEdit = MHelpScannerItemEdit()
         let itemClean:MHelpScannerItemClean = MHelpScannerItemClean()
+        let itemCalculator:MHelpScannerItemCalculator = MHelpScannerItemCalculator()
         
         let items:[MHelpItem] = [
             itemTuring,
             itemCrop,
             itemEdit,
-            itemClean
+            itemClean,
+            itemCalculator
         ]
         
         super.init(items:items)
