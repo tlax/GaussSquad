@@ -33,7 +33,7 @@ class CScannerOCR:CController, G8TesseractDelegate
     
     init(image:UIImage)
     {
-        self.image = #imageLiteral(resourceName: "assetTextureTest")
+        self.image = image
         recognized = false
         modelMenu = MScannerMenu()
         super.init()
@@ -87,6 +87,22 @@ class CScannerOCR:CController, G8TesseractDelegate
         else
         {
             image = self.image.g8_blackAndWhite()
+        }
+        
+        DispatchQueue.main.async
+            {
+                let activity:UIActivityViewController = UIActivityViewController(
+                    activityItems:[self.image,image],
+                    applicationActivities:nil)
+                
+                if let popover:UIPopoverPresentationController = activity.popoverPresentationController
+                {
+                    popover.sourceView = self.viewOCR
+                    popover.sourceRect = CGRect.zero
+                    popover.permittedArrowDirections = UIPopoverArrowDirection.up
+                }
+                
+                self.present(activity, animated:true)
         }
         
         imageRecognition(image:image)
