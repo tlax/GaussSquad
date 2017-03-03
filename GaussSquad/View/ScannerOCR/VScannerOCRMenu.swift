@@ -22,6 +22,11 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
             toView:self)
     }
     
+    required init?(coder:NSCoder)
+    {
+        return nil
+    }
+    
     //MARK: collectionView delegate
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
@@ -31,6 +36,17 @@ class VScannerOCRMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        return
+        let count:Int = controller.modelMenu.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let cell:VScannerOCRMenuCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:VScannerOCRMenuCell.reusableIdentifier,
+            for:indexPath) as! VScannerOCRMenuCell
+        
+        return cell
     }
 }

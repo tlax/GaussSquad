@@ -3,11 +3,12 @@ import UIKit
 class VScannerOCR:VView
 {
     private weak var controller:CScannerOCR!
+    private weak var viewBar:VScannerOCRBar!
     private weak var viewText:VScannerOCRText!
     private weak var viewMenu:VScannerOCRMenu!
     private weak var spinner:VSpinner!
+    private let kBarHeight:CGFloat = 90
     private let kMenuHeight:CGFloat = 80
-    private let kBorderHeight:CGFloat = 1
     
     override init(controller:CController)
     {
@@ -19,27 +20,55 @@ class VScannerOCR:VView
         viewText.isHidden = true
         self.viewText = viewText
         
-        let viewMenu:VScannerOCRMenu = VScannerOCRMenu
+        let viewBar:VScannerOCRBar = VScannerOCRBar()
+        viewBar.isHidden = true
+        self.viewBar = viewBar
+        
+        let viewMenu:VScannerOCRMenu = VScannerOCRMenu(
+            controller:self.controller)
+        viewMenu.isHidden = true
+        self.viewMenu = viewMenu
         
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
         
+        addSubview(viewBar)
         addSubview(viewText)
+        addSubview(viewMenu)
         addSubview(spinner)
-        addSubview(border)
         
         NSLayoutConstraint.equals(
             view:spinner,
             toView:self)
         
-        NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToBottom(
             view:viewText,
-            toView:self)
-        NSLayoutConstraint.height(
+            toView:viewBar)
+        NSLayoutConstraint.bottomToTop(
             view:viewText,
-            constant:kTextHeight)
+            toView:viewMenu)
         NSLayoutConstraint.equalsHorizontal(
             view:viewText,
+            toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewBar,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:viewBar,
+            constant:kBarHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewBar,
+            toView:self)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:viewMenu,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:viewMenu,
+            constant:kMenuHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewMenu,
             toView:self)
     }
     
@@ -53,6 +82,8 @@ class VScannerOCR:VView
     func textRecognized(text:String)
     {
         spinner.stopAnimating()
+        viewBar.isHidden = false
+        viewMenu.isHidden = false
         viewText.isHidden = false
         viewText.text = text
     }

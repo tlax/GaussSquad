@@ -4,6 +4,7 @@ import MetalKit
 
 class CScannerOCR:CController, G8TesseractDelegate
 {
+    let modelMenu:MScannerMenu
     private weak var viewOCR:VScannerOCR!
     private var recognized:Bool
     private let image:UIImage
@@ -13,6 +14,7 @@ class CScannerOCR:CController, G8TesseractDelegate
     {
         self.image = #imageLiteral(resourceName: "assetTextureTest")
         recognized = false
+        modelMenu = MScannerMenu()
         super.init()
     }
     
