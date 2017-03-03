@@ -17,14 +17,19 @@ class VKeyboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         let screenSize:CGSize = UIScreen.main.bounds.size
         let width:CGFloat = screenSize.width
         let height:CGFloat = screenSize.height
+        let initial:String = textView.text
         
         if height >= width
         {
-            model = MKeyboardPortrait(states:states)
+            model = MKeyboardPortrait(
+                states:states,
+                initial:initial)
         }
         else
         {
-            model = MKeyboardLandscape(states:states)
+            model = MKeyboardLandscape(
+                states:states,
+                initial:initial)
         }
         
         let countRows:CGFloat = CGFloat(model.rows.count)

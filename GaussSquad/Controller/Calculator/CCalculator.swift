@@ -37,7 +37,6 @@ class CCalculator:CController
         
         if let initial:String = self.initial
         {
-            viewCalculator.viewText.text = ""
             viewCalculator.viewText.insertText(initial)
         }
         
