@@ -51,7 +51,7 @@ class VAlert:UIView
         layer.borderWidth = kBorderWidth
         layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
         
-        let blur:VBlur = VBlur.light()
+        let blur:VBlur = VBlur.extraLight()
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false

@@ -172,15 +172,17 @@ class CLinearEquationsPlot:CController
             activityItems:[image],
             applicationActivities:nil)
         
-        if activity.popoverPresentationController != nil
+        if let popover:UIPopoverPresentationController = activity.popoverPresentationController
         {
-            activity.popoverPresentationController!.sourceView = self.viewPlot
-            activity.popoverPresentationController!.sourceRect = CGRect.zero
-            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+            popover.sourceView = viewPlot
+            popover.sourceRect = CGRect.zero
+            popover.permittedArrowDirections = UIPopoverArrowDirection.up
         }
         
         finishLoading()
         present(activity, animated:true)
+        
+        AnalyticsManager.sharedInstance?.trackShare(action:AnalyticsManager.ShareAction.plot)
     }
     
     private func finishLoading()

@@ -2,6 +2,8 @@
 "MHomeItemCalculator_title"="Pascaline";
 "MHomeItemLinearEquations_symbol"="ax + b = 0";
 "MHomeItemLinearEquations_title"="Linear equations";
+"MHomeItemScanner_symbol"="Import equations and operations";
+"MHomeItemScanner_title"="Scanner";
 "MLinearEquationsProject_defaultIndeterminate"="x";
 "MLinearEquationsItem_positive"=" + ";
 "MLinearEquationsItem_negative"=" - ";
@@ -46,6 +48,9 @@
 "MCalculatorFunctionsItemAnyExponent_title"="Any Exponent";
 "MCalculatorFunctionsTrigonometry_title"="Trigonometry";
 "MCalculatorFunctionsExponents_title"="Exponents";
+"MScannerMenuItemClean_title"="Compress";
+"MScannerMenuItemHelp_title"="Help";
+"MScannerMenuItemCalculator_title"="Calculator";
 "MHelpCalculatorItemPascal_title"="Blaise Pascal";
 "MHelpCalculatorItemPascal_date"="\n19/6/1623 - 19/8/1662";
 "MHelpCalculatorItemPascal_subtitle"="\nFrench mathematician and philosopher, created the first mechanical calculator while still a teenager and by 1645 made a public presentation of 50 different prototypes.";
@@ -64,6 +69,13 @@
 "MHelpLinearEquationsProjectItemIndeterminates_title"="Add or delete indeterminate";
 "MHelpLinearEquationsProjectItemCompress_title"="Compress equations and remove unnecesary polynomials";
 "MHelpLinearEquationsProjectItemSolution_title"="Apply Gaussian Elimination displaying every step";
+"MHelpScannerItemTuring_title"="Alan Mathison Turing";
+"MHelpScannerItemTuring_date"="\n23/6/1912 - 7/6/1954";
+"MHelpScannerItemTuring_subtitle"="\nEnglish computer scientist, father of Artificial Intelligence and modern computers in general, cracked the german Engima Machine during the Second World War.";
+"MHelpCalculatorItemCrop_title"="Try to center the scanning region in just equations and operations";
+"MHelpCalculatorItemEdit_title"="Edit the result if needed";
+"MHelpCalculatorItemClean_title"="Compress tool will remove repeated or wrong characters";
+"MHelpCalculatorItemCalculator_title"="Import to Calculator";
 "MStoreItemPlus_title"="Plus\n";
 "MStoreItemPlus_descr"="Unlimited indeterminates.\nCreate as many variables as you need without restrictions";
 
@@ -88,6 +100,8 @@
 "VSettingsCellReview_labelSubtitle"="\nWrite a review on the App Store";
 "VSettingsCellShare_labelTitle"="Share app";
 "VSettingsCellShare_labelSubtitle"="\nLet others know about Gauss Squad";
+"VScannerOCRBar_label"="Scanned result";
+"VScannerOCRTextDismisser_buttonDismiss"="Done";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
 "VStoreCellDeferred_label"="Purchase deferred";
@@ -126,3 +140,5 @@
 "CLinearEquationsProject_alertEditRowMoveUp"="Move up";
 "CLinearEquationsProject_alertEditRowMoveDown"="Move down";
 "CLinearEquationsProject_alertEditRowCancel"="Cancel";
+"CScanner_noAuth"="Seems like we are not authorized to use your camera";
+"CScanner_errorCaptureDevice"="Couldn't find the camera";
