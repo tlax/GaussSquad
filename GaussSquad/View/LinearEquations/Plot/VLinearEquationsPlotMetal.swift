@@ -12,9 +12,6 @@ class VLinearEquationsPlotMetal:MTKView
     private let kernelFunction:MTLFunction
     private let commandQueue:MTLCommandQueue
     private let pipelineState:MTLRenderPipelineState
-    private let kThreadgroupWidth:Int = 2
-    private let kThreadgroupHeight:Int = 2
-    private let kThreadgroupDeep:Int = 1
     
     init?(controller:CLinearEquationsPlot)
     {
@@ -23,11 +20,11 @@ class VLinearEquationsPlotMetal:MTKView
             let device:MTLDevice = MTLCreateSystemDefaultDevice(),
             let library:MTLLibrary = device.newDefaultLibrary(),
             let vertexFunction:MTLFunction = library.makeFunction(
-                name:MetalConstants.kVertexFunction),
+                name:MetalConstants.kPlotVertexFunction),
             let fragmentFunction:MTLFunction = library.makeFunction(
-                name:MetalConstants.kFragmentFunction),
+                name:MetalConstants.kPlotFragmentFunction),
             let kernelFunction:MTLFunction = library.makeFunction(
-                name:MetalConstants.kKernelFunction)
+                name:MetalConstants.kPlotKernelFunction)
             
         else
         {
@@ -85,13 +82,13 @@ class VLinearEquationsPlotMetal:MTKView
         }
         
         threadgroupCounts = MTLSizeMake(
-            kThreadgroupWidth,
-            kThreadgroupHeight,
-            kThreadgroupDeep)
+            MetalConstants.kThreadgroupWidth,
+            MetalConstants.kThreadgroupHeight,
+            MetalConstants.kThreadgroupDeep)
         threadgroups = MTLSizeMake(
             0,
             0,
-            kThreadgroupDeep)
+            MetalConstants.kThreadgroupDeep)
         
         positionBuffer = MetalPosition.position(
             device:device,
@@ -121,16 +118,16 @@ class VLinearEquationsPlotMetal:MTKView
         let scale:Int = Int(UIScreen.main.scale)
         let width:Int = Int(bounds.maxX) * scale
         let height:Int = Int(bounds.maxY) * scale
-        let threadgroupsHorizontal:Int = width / kThreadgroupWidth
-        let threadgroupsVertical:Int = height / kThreadgroupHeight
+        let threadgroupsHorizontal:Int = width / MetalConstants.kThreadgroupWidth
+        let threadgroupsVertical:Int = height / MetalConstants.kThreadgroupHeight
         threadgroupCounts = MTLSizeMake(
-            kThreadgroupWidth,
-            kThreadgroupHeight,
-            kThreadgroupDeep)
+            MetalConstants.kThreadgroupWidth,
+            MetalConstants.kThreadgroupHeight,
+            MetalConstants.kThreadgroupDeep)
         threadgroups = MTLSizeMake(
             threadgroupsHorizontal,
             threadgroupsVertical,
-            kThreadgroupDeep)
+            MetalConstants.kThreadgroupDeep)
         
         super.layoutSubviews()
     }

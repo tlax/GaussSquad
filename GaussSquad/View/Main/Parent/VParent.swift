@@ -9,9 +9,9 @@ class VParent:UIView
     private var panningX:CGFloat?
     private let kAnimationDuration:TimeInterval = 0.4
     private let kBarHeight:CGFloat = 70
-    private let kMaxXPanning:CGFloat = 70
-    private let kMaxXDelta:CGFloat = 150
-    private let kMinXDelta:CGFloat = 40
+    private let kMaxXPanning:CGFloat = 60
+    private let kMaxXDelta:CGFloat = 90
+    private let kMinXDelta:CGFloat = 30
     
     convenience init(controller:CParent)
     {

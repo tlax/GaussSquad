@@ -98,13 +98,15 @@ class CSettings:CController
             activityItems:[url],
             applicationActivities:nil)
         
-        if activity.popoverPresentationController != nil
+        if let popover:UIPopoverPresentationController = activity.popoverPresentationController
         {
-            activity.popoverPresentationController!.sourceView = self.viewSettings
-            activity.popoverPresentationController!.sourceRect = CGRect.zero
-            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+            popover.sourceView = viewSettings
+            popover.sourceRect = CGRect.zero
+            popover.permittedArrowDirections = UIPopoverArrowDirection.up
         }
         
         present(activity, animated:true)
+        
+        AnalyticsManager.sharedInstance?.trackShare(action:AnalyticsManager.ShareAction.app)
     }
 }

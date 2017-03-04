@@ -16,7 +16,7 @@ class MKeyboard
     private let kMinDecimals:Int = 0
     private let kMaxDecimals:Int = 9
     
-    init(rows:[MKeyboardRow], states:[MKeyboardState]?)
+    init(rows:[MKeyboardRow], states:[MKeyboardState]?, initial:String)
     {
         self.rows = rows
         
@@ -40,7 +40,19 @@ class MKeyboard
         }
         else
         {
-            let stateInitial:MKeyboardStatePlain = MKeyboardStatePlain(editing:kInitial)
+            let modelInitial:String
+            
+            if initial.isEmpty
+            {
+                modelInitial = kInitial
+            }
+            else
+            {
+                modelInitial = initial
+            }
+            
+            let stateInitial:MKeyboardStatePlain = MKeyboardStatePlain(
+                editing:modelInitial)
             self.states = [stateInitial]
         }
         

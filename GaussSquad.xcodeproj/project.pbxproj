@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB861AE98FABE6EE5E446B6A /* Pods_GaussSquad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC933455CF792297B32B845F /* Pods_GaussSquad.framework */; };
 		DA033CEA1E3A935700F7645C /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA033CE91E3A935700F7645C /* VHome.swift */; };
 		DA033CEC1E3A99EE00F7645C /* VParentBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA033CEB1E3A99EE00F7645C /* VParentBar.swift */; };
 		DA033CEE1E3AA2DC00F7645C /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA033CED1E3AA2DC00F7645C /* generic.xcassets */; };
@@ -87,7 +88,6 @@
 		DA46913E1E56744600FAD188 /* MetalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691251E56744600FAD188 /* MetalConstants.swift */; };
 		DA4691401E56744600FAD188 /* MetalProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691271E56744600FAD188 /* MetalProjection.swift */; };
 		DA4691421E56744600FAD188 /* MetalRenderableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691291E56744600FAD188 /* MetalRenderableProtocol.swift */; };
-		DA4691441E56744600FAD188 /* MetalShaderFragmentSimple.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA46912C1E56744600FAD188 /* MetalShaderFragmentSimple.metal */; };
 		DA46914C1E56744600FAD188 /* MetalVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46913A1E56744600FAD188 /* MetalVertex.swift */; };
 		DA46914D1E56744600FAD188 /* MetalVertexFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46913B1E56744600FAD188 /* MetalVertexFace.swift */; };
 		DA4691581E56766500FAD188 /* ExtensionMTKTextureLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4691541E56766500FAD188 /* ExtensionMTKTextureLoader.swift */; };
@@ -127,6 +127,14 @@
 		DA476F2A1E5662860058F4A4 /* VParentPushBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476F291E5662860058F4A4 /* VParentPushBackground.swift */; };
 		DA476F2C1E5665E00058F4A4 /* CLinearEquationsPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476F2B1E5665E00058F4A4 /* CLinearEquationsPlot.swift */; };
 		DA476F2F1E5666270058F4A4 /* VLinearEquationsPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA476F2E1E5666270058F4A4 /* VLinearEquationsPlot.swift */; };
+		DA48DC181E69D30300EA8B83 /* MScannerMenuItemHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48DC171E69D30300EA8B83 /* MScannerMenuItemHelp.swift */; };
+		DA48DC1B1E69E29B00EA8B83 /* MHelpScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48DC1A1E69E29B00EA8B83 /* MHelpScanner.swift */; };
+		DA48DC1D1E69E2A500EA8B83 /* MHelpScannerItemTuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48DC1C1E69E2A500EA8B83 /* MHelpScannerItemTuring.swift */; };
+		DA48DC1F1E69E64A00EA8B83 /* MHelpScannerItemCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48DC1E1E69E64A00EA8B83 /* MHelpScannerItemCrop.swift */; };
+		DA48DC211E69EC3700EA8B83 /* MHelpScannerItemEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48DC201E69EC3700EA8B83 /* MHelpScannerItemEdit.swift */; };
+		DA48DC231E69F04F00EA8B83 /* MHelpScannerItemClean.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48DC221E69F04F00EA8B83 /* MHelpScannerItemClean.swift */; };
+		DA48DC251E69FAA800EA8B83 /* MHelpScannerItemCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48DC241E69FAA800EA8B83 /* MHelpScannerItemCalculator.swift */; };
+		DA48DC271E6A087000EA8B83 /* VScannerOCRTextDismisser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48DC261E6A087000EA8B83 /* VScannerOCRTextDismisser.swift */; };
 		DA519BDB1E64DCA300F2673A /* MHelpCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA519BDA1E64DCA300F2673A /* MHelpCalculator.swift */; };
 		DA519BDD1E64DCB000F2673A /* MHelpCalculatorItemPascal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA519BDC1E64DCB000F2673A /* MHelpCalculatorItemPascal.swift */; };
 		DA519BDF1E64DCEF00F2673A /* MHelpItemShort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA519BDE1E64DCEF00F2673A /* MHelpItemShort.swift */; };
@@ -136,8 +144,6 @@
 		DA519BE91E64FD0000F2673A /* MHelpCalculatorItemOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA519BE81E64FD0000F2673A /* MHelpCalculatorItemOptions.swift */; };
 		DA519BEB1E64FDAA00F2673A /* MHelpCalculatorItemFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA519BEA1E64FDAA00F2673A /* MHelpCalculatorItemFunctions.swift */; };
 		DA519BED1E64FDBD00F2673A /* MHelpCalculatorItemUndo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA519BEC1E64FDBD00F2673A /* MHelpCalculatorItemUndo.swift */; };
-		DA5502371E58ED2100DF0F95 /* MetalShaderVertexArrangement.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA5502361E58ED2100DF0F95 /* MetalShaderVertexArrangement.metal */; };
-		DA5502391E58EEB600DF0F95 /* MetalShaderKernelEffects.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA5502381E58EEB600DF0F95 /* MetalShaderKernelEffects.metal */; };
 		DA62D3461E4CCA0A000D0387 /* CLinearEquationsSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3451E4CCA0A000D0387 /* CLinearEquationsSolution.swift */; };
 		DA62D3531E4CD39C000D0387 /* MLinearEquationsSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3511E4CD39C000D0387 /* MLinearEquationsSolution.swift */; };
 		DA62D3551E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3541E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift */; };
@@ -170,8 +176,25 @@
 		DA62D39D1E4D1B93000D0387 /* VLinearEquationsSolutionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D39C1E4D1B93000D0387 /* VLinearEquationsSolutionFooter.swift */; };
 		DA62D39F1E4D24CB000D0387 /* MLinearEquationsSolutionIndeterminatesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D39E1E4D24CB000D0387 /* MLinearEquationsSolutionIndeterminatesItem.swift */; };
 		DA62D3A11E4D24D3000D0387 /* MLinearEquationsSolutionIndeterminates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62D3A01E4D24D3000D0387 /* MLinearEquationsSolutionIndeterminates.swift */; };
+		DA6D32F81E678EC70013F08F /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = DA6D32F71E678EC70013F08F /* tessdata */; };
 		DA6D62D31E560CA3002D9C1A /* CSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6D62D21E560CA3002D9C1A /* CSettings.swift */; };
 		DA6D62D51E560EC4002D9C1A /* VSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6D62D41E560EC4002D9C1A /* VSettings.swift */; };
+		DA723F171E68B01300030738 /* MScannerFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F161E68B01300030738 /* MScannerFilter.swift */; };
+		DA723F1B1E68B57500030738 /* MScannerFilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F1A1E68B57500030738 /* MScannerFilterItem.swift */; };
+		DA723F1D1E68B58700030738 /* MScannerFilterItemHighContrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F1C1E68B58700030738 /* MScannerFilterItemHighContrast.swift */; };
+		DA723F231E68BD9A00030738 /* MetalShaderPlotFragment.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA723F221E68BD9A00030738 /* MetalShaderPlotFragment.metal */; };
+		DA723F251E68BDAA00030738 /* MetalShaderPlotVertex.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA723F241E68BDAA00030738 /* MetalShaderPlotVertex.metal */; };
+		DA723F271E68BDB600030738 /* MetalShaderPlotKernel.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA723F261E68BDB600030738 /* MetalShaderPlotKernel.metal */; };
+		DA723F291E68CA8400030738 /* MetalShaderFilterHighContrastKernel.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA723F281E68CA8400030738 /* MetalShaderFilterHighContrastKernel.metal */; };
+		DA723F2B1E68D19D00030738 /* MScannerFilterItemDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F2A1E68D19D00030738 /* MScannerFilterItemDefine.swift */; };
+		DA723F2D1E68DD1600030738 /* VScannerOCRText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F2C1E68DD1600030738 /* VScannerOCRText.swift */; };
+		DA723F2F1E68E5A800030738 /* VScannerOCRMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F2E1E68E5A800030738 /* VScannerOCRMenu.swift */; };
+		DA723F311E68E5B200030738 /* VScannerOCRMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F301E68E5B200030738 /* VScannerOCRMenuCell.swift */; };
+		DA723F341E68E70C00030738 /* MScannerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F331E68E70C00030738 /* MScannerMenu.swift */; };
+		DA723F361E68E71700030738 /* MScannerMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F351E68E71700030738 /* MScannerMenuItem.swift */; };
+		DA723F3A1E68E75600030738 /* MScannerMenuItemCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F391E68E75600030738 /* MScannerMenuItemCalculator.swift */; };
+		DA723F3C1E68E78000030738 /* MScannerMenuItemClean.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F3B1E68E78000030738 /* MScannerMenuItemClean.swift */; };
+		DA723F3E1E68E79D00030738 /* VScannerOCRBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA723F3D1E68E79D00030738 /* VScannerOCRBar.swift */; };
 		DA7A9CE51E5CBC4300ED71D1 /* MHomeItemCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */; };
 		DA7A9CE81E5CBECE00ED71D1 /* CCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CE71E5CBECE00ED71D1 /* CCalculator.swift */; };
 		DA7A9CEB1E5CBFC600ED71D1 /* VCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A9CEA1E5CBFC600ED71D1 /* VCalculator.swift */; };
@@ -216,6 +239,8 @@
 		DAA4BD721E3A4C4100B0360D /* MHomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4BD711E3A4C4100B0360D /* MHomeItem.swift */; };
 		DAA4BD741E3A5DBD00B0360D /* MHomeItemLinearEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4BD731E3A5DBD00B0360D /* MHomeItemLinearEquations.swift */; };
 		DAA4BD781E3A703900B0360D /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAA4BD771E3A703900B0360D /* brand.xcassets */; };
+		DAB345D11E675C96000FE9AC /* CScannerOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB345D01E675C96000FE9AC /* CScannerOCR.swift */; };
+		DAB345D61E675D6A000FE9AC /* VScannerOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB345D51E675D6A000FE9AC /* VScannerOCR.swift */; };
 		DAB84C311E4168100052F778 /* VLinearEquationsProjectCellPolynomialDecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB84C301E4168100052F778 /* VLinearEquationsProjectCellPolynomialDecimal.swift */; };
 		DAB84C331E41681A0052F778 /* VLinearEquationsProjectCellPolynomialDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB84C321E41681A0052F778 /* VLinearEquationsProjectCellPolynomialDivision.swift */; };
 		DAB84C351E416AB10052F778 /* MLinearEquationsProjectRowItemNewPolynomial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB84C341E416AB10052F778 /* MLinearEquationsProjectRowItemNewPolynomial.swift */; };
@@ -258,6 +283,8 @@
 		DAD518CA1E4006420004C8D8 /* MLinearEquationsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD518C91E4006420004C8D8 /* MLinearEquationsItem.swift */; };
 		DADA15821E44D71100766103 /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA15811E44D71100766103 /* VToast.swift */; };
 		DADDF86B1E4AA31100447C55 /* DEquationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADDF86A1E4AA31100447C55 /* DEquationExtension.swift */; };
+		DADF64D31E6A250300B8DC1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DADF64D21E6A250300B8DC1E /* GoogleService-Info.plist */; };
+		DADF64D51E6A252800B8DC1E /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADF64D41E6A252800B8DC1E /* AnalyticsManager.swift */; };
 		DAE4A87B1E5B3E93000A07A3 /* texture.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE4A87A1E5B3E93000A07A3 /* texture.xcassets */; };
 		DAE4A87D1E5B4909000A07A3 /* MetalSpatialPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4A87C1E5B4909000A07A3 /* MetalSpatialPoint.swift */; };
 		DAE4A87F1E5B5551000A07A3 /* MetalVertexTextured.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4A87E1E5B5551000A07A3 /* MetalVertexTextured.swift */; };
@@ -271,6 +298,15 @@
 		DAE504FB1E65F05200B8F22A /* MHelpLinearEquationsLandingItemAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE504FA1E65F05200B8F22A /* MHelpLinearEquationsLandingItemAutoSave.swift */; };
 		DAE504FD1E65FD3E00B8F22A /* MSettingsItemVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE504FC1E65FD3E00B8F22A /* MSettingsItemVersion.swift */; };
 		DAE504FF1E65FDCF00B8F22A /* VSettingsCellVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE504FE1E65FDCF00B8F22A /* VSettingsCellVersion.swift */; };
+		DAE505011E6604F800B8F22A /* MHomeItemScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE505001E6604F800B8F22A /* MHomeItemScanner.swift */; };
+		DAE505041E66086300B8F22A /* CScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE505031E66086300B8F22A /* CScanner.swift */; };
+		DAE505071E6609D100B8F22A /* VScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE505061E6609D100B8F22A /* VScanner.swift */; };
+		DAE505091E662F7700B8F22A /* VScannerCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE505081E662F7700B8F22A /* VScannerCropper.swift */; };
+		DAE5050B1E662FEC00B8F22A /* VScannerCropperShade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE5050A1E662FEC00B8F22A /* VScannerCropperShade.swift */; };
+		DAE5050D1E662FF500B8F22A /* VScannerCropperThumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE5050C1E662FF500B8F22A /* VScannerCropperThumb.swift */; };
+		DAE5050F1E662FFF00B8F22A /* VScannerCropperMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE5050E1E662FFF00B8F22A /* VScannerCropperMover.swift */; };
+		DAE505111E663EB600B8F22A /* VScannerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE505101E663EB600B8F22A /* VScannerPreview.swift */; };
+		DAE505131E6644F400B8F22A /* VScannerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE505121E6644F400B8F22A /* VScannerMenu.swift */; };
 		DAEB54B81E5D0ED800492F38 /* MKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B41E5D0ED800492F38 /* MKeyboard.swift */; };
 		DAEB54B91E5D0ED800492F38 /* MKeyboardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B51E5D0ED800492F38 /* MKeyboardRow.swift */; };
 		DAEB54BA1E5D0ED800492F38 /* MKeyboardRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB54B61E5D0ED800492F38 /* MKeyboardRowItem.swift */; };
@@ -340,6 +376,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F99750C1DB046BE7763F9A9 /* Pods-GaussSquad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GaussSquad.release.xcconfig"; path = "Pods/Target Support Files/Pods-GaussSquad/Pods-GaussSquad.release.xcconfig"; sourceTree = "<group>"; };
+		C30B31239DC7A228EC040980 /* Pods-GaussSquad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GaussSquad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GaussSquad/Pods-GaussSquad.debug.xcconfig"; sourceTree = "<group>"; };
 		DA033CE91E3A935700F7645C /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DA033CEB1E3A99EE00F7645C /* VParentBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParentBar.swift; sourceTree = "<group>"; };
 		DA033CED1E3AA2DC00F7645C /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
@@ -420,8 +458,6 @@
 		DA4691251E56744600FAD188 /* MetalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalConstants.swift; sourceTree = "<group>"; };
 		DA4691271E56744600FAD188 /* MetalProjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalProjection.swift; sourceTree = "<group>"; };
 		DA4691291E56744600FAD188 /* MetalRenderableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalRenderableProtocol.swift; sourceTree = "<group>"; };
-		DA46912C1E56744600FAD188 /* MetalShaderFragmentSimple.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderFragmentSimple.metal; sourceTree = "<group>"; };
-		DA46912D1E56744600FAD188 /* MetalShaderStructs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalShaderStructs.h; sourceTree = "<group>"; };
 		DA46913A1E56744600FAD188 /* MetalVertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertex.swift; sourceTree = "<group>"; };
 		DA46913B1E56744600FAD188 /* MetalVertexFace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertexFace.swift; sourceTree = "<group>"; };
 		DA4691541E56766500FAD188 /* ExtensionMTKTextureLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTKTextureLoader.swift; sourceTree = "<group>"; };
@@ -461,6 +497,14 @@
 		DA476F291E5662860058F4A4 /* VParentPushBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParentPushBackground.swift; sourceTree = "<group>"; };
 		DA476F2B1E5665E00058F4A4 /* CLinearEquationsPlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquationsPlot.swift; sourceTree = "<group>"; };
 		DA476F2E1E5666270058F4A4 /* VLinearEquationsPlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsPlot.swift; sourceTree = "<group>"; };
+		DA48DC171E69D30300EA8B83 /* MScannerMenuItemHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerMenuItemHelp.swift; sourceTree = "<group>"; };
+		DA48DC1A1E69E29B00EA8B83 /* MHelpScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpScanner.swift; sourceTree = "<group>"; };
+		DA48DC1C1E69E2A500EA8B83 /* MHelpScannerItemTuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpScannerItemTuring.swift; sourceTree = "<group>"; };
+		DA48DC1E1E69E64A00EA8B83 /* MHelpScannerItemCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpScannerItemCrop.swift; sourceTree = "<group>"; };
+		DA48DC201E69EC3700EA8B83 /* MHelpScannerItemEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpScannerItemEdit.swift; sourceTree = "<group>"; };
+		DA48DC221E69F04F00EA8B83 /* MHelpScannerItemClean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpScannerItemClean.swift; sourceTree = "<group>"; };
+		DA48DC241E69FAA800EA8B83 /* MHelpScannerItemCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpScannerItemCalculator.swift; sourceTree = "<group>"; };
+		DA48DC261E6A087000EA8B83 /* VScannerOCRTextDismisser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerOCRTextDismisser.swift; sourceTree = "<group>"; };
 		DA519BDA1E64DCA300F2673A /* MHelpCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpCalculator.swift; sourceTree = "<group>"; };
 		DA519BDC1E64DCB000F2673A /* MHelpCalculatorItemPascal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpCalculatorItemPascal.swift; sourceTree = "<group>"; };
 		DA519BDE1E64DCEF00F2673A /* MHelpItemShort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpItemShort.swift; sourceTree = "<group>"; };
@@ -470,8 +514,6 @@
 		DA519BE81E64FD0000F2673A /* MHelpCalculatorItemOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpCalculatorItemOptions.swift; sourceTree = "<group>"; };
 		DA519BEA1E64FDAA00F2673A /* MHelpCalculatorItemFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpCalculatorItemFunctions.swift; sourceTree = "<group>"; };
 		DA519BEC1E64FDBD00F2673A /* MHelpCalculatorItemUndo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpCalculatorItemUndo.swift; sourceTree = "<group>"; };
-		DA5502361E58ED2100DF0F95 /* MetalShaderVertexArrangement.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderVertexArrangement.metal; sourceTree = "<group>"; };
-		DA5502381E58EEB600DF0F95 /* MetalShaderKernelEffects.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderKernelEffects.metal; sourceTree = "<group>"; };
 		DA62D3451E4CCA0A000D0387 /* CLinearEquationsSolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinearEquationsSolution.swift; sourceTree = "<group>"; };
 		DA62D3511E4CD39C000D0387 /* MLinearEquationsSolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolution.swift; sourceTree = "<group>"; };
 		DA62D3541E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionEquation.swift; sourceTree = "<group>"; };
@@ -504,8 +546,26 @@
 		DA62D39C1E4D1B93000D0387 /* VLinearEquationsSolutionFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsSolutionFooter.swift; sourceTree = "<group>"; };
 		DA62D39E1E4D24CB000D0387 /* MLinearEquationsSolutionIndeterminatesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionIndeterminatesItem.swift; sourceTree = "<group>"; };
 		DA62D3A01E4D24D3000D0387 /* MLinearEquationsSolutionIndeterminates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsSolutionIndeterminates.swift; sourceTree = "<group>"; };
+		DA6D32F71E678EC70013F08F /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		DA6D62D21E560CA3002D9C1A /* CSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSettings.swift; sourceTree = "<group>"; };
 		DA6D62D41E560EC4002D9C1A /* VSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettings.swift; sourceTree = "<group>"; };
+		DA723F161E68B01300030738 /* MScannerFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerFilter.swift; sourceTree = "<group>"; };
+		DA723F1A1E68B57500030738 /* MScannerFilterItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerFilterItem.swift; sourceTree = "<group>"; };
+		DA723F1C1E68B58700030738 /* MScannerFilterItemHighContrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerFilterItemHighContrast.swift; sourceTree = "<group>"; };
+		DA723F211E68BD6800030738 /* MetalShaderPlotStructs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalShaderPlotStructs.h; sourceTree = "<group>"; };
+		DA723F221E68BD9A00030738 /* MetalShaderPlotFragment.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderPlotFragment.metal; sourceTree = "<group>"; };
+		DA723F241E68BDAA00030738 /* MetalShaderPlotVertex.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderPlotVertex.metal; sourceTree = "<group>"; };
+		DA723F261E68BDB600030738 /* MetalShaderPlotKernel.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderPlotKernel.metal; sourceTree = "<group>"; };
+		DA723F281E68CA8400030738 /* MetalShaderFilterHighContrastKernel.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalShaderFilterHighContrastKernel.metal; sourceTree = "<group>"; };
+		DA723F2A1E68D19D00030738 /* MScannerFilterItemDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerFilterItemDefine.swift; sourceTree = "<group>"; };
+		DA723F2C1E68DD1600030738 /* VScannerOCRText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerOCRText.swift; sourceTree = "<group>"; };
+		DA723F2E1E68E5A800030738 /* VScannerOCRMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerOCRMenu.swift; sourceTree = "<group>"; };
+		DA723F301E68E5B200030738 /* VScannerOCRMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerOCRMenuCell.swift; sourceTree = "<group>"; };
+		DA723F331E68E70C00030738 /* MScannerMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerMenu.swift; sourceTree = "<group>"; };
+		DA723F351E68E71700030738 /* MScannerMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerMenuItem.swift; sourceTree = "<group>"; };
+		DA723F391E68E75600030738 /* MScannerMenuItemCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerMenuItemCalculator.swift; sourceTree = "<group>"; };
+		DA723F3B1E68E78000030738 /* MScannerMenuItemClean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MScannerMenuItemClean.swift; sourceTree = "<group>"; };
+		DA723F3D1E68E79D00030738 /* VScannerOCRBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerOCRBar.swift; sourceTree = "<group>"; };
 		DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemCalculator.swift; sourceTree = "<group>"; };
 		DA7A9CE71E5CBECE00ED71D1 /* CCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCalculator.swift; sourceTree = "<group>"; };
 		DA7A9CEA1E5CBFC600ED71D1 /* VCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCalculator.swift; sourceTree = "<group>"; };
@@ -550,6 +610,8 @@
 		DAA4BD711E3A4C4100B0360D /* MHomeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItem.swift; sourceTree = "<group>"; };
 		DAA4BD731E3A5DBD00B0360D /* MHomeItemLinearEquations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemLinearEquations.swift; sourceTree = "<group>"; };
 		DAA4BD771E3A703900B0360D /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
+		DAB345D01E675C96000FE9AC /* CScannerOCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CScannerOCR.swift; sourceTree = "<group>"; };
+		DAB345D51E675D6A000FE9AC /* VScannerOCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerOCR.swift; sourceTree = "<group>"; };
 		DAB84C301E4168100052F778 /* VLinearEquationsProjectCellPolynomialDecimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectCellPolynomialDecimal.swift; sourceTree = "<group>"; };
 		DAB84C321E41681A0052F778 /* VLinearEquationsProjectCellPolynomialDivision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLinearEquationsProjectCellPolynomialDivision.swift; sourceTree = "<group>"; };
 		DAB84C341E416AB10052F778 /* MLinearEquationsProjectRowItemNewPolynomial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsProjectRowItemNewPolynomial.swift; sourceTree = "<group>"; };
@@ -592,6 +654,9 @@
 		DAD518C91E4006420004C8D8 /* MLinearEquationsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLinearEquationsItem.swift; sourceTree = "<group>"; };
 		DADA15811E44D71100766103 /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
 		DADDF86A1E4AA31100447C55 /* DEquationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEquationExtension.swift; sourceTree = "<group>"; };
+		DADF64D21E6A250300B8DC1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DADF64D41E6A252800B8DC1E /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
+		DADF64D61E6A25EC00B8DC1E /* CBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBridgingHeader.h; sourceTree = "<group>"; };
 		DAE4A87A1E5B3E93000A07A3 /* texture.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = texture.xcassets; sourceTree = "<group>"; };
 		DAE4A87C1E5B4909000A07A3 /* MetalSpatialPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalSpatialPoint.swift; sourceTree = "<group>"; };
 		DAE4A87E1E5B5551000A07A3 /* MetalVertexTextured.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalVertexTextured.swift; sourceTree = "<group>"; };
@@ -605,6 +670,15 @@
 		DAE504FA1E65F05200B8F22A /* MHelpLinearEquationsLandingItemAutoSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpLinearEquationsLandingItemAutoSave.swift; sourceTree = "<group>"; };
 		DAE504FC1E65FD3E00B8F22A /* MSettingsItemVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemVersion.swift; sourceTree = "<group>"; };
 		DAE504FE1E65FDCF00B8F22A /* VSettingsCellVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellVersion.swift; sourceTree = "<group>"; };
+		DAE505001E6604F800B8F22A /* MHomeItemScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemScanner.swift; sourceTree = "<group>"; };
+		DAE505031E66086300B8F22A /* CScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CScanner.swift; sourceTree = "<group>"; };
+		DAE505061E6609D100B8F22A /* VScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScanner.swift; sourceTree = "<group>"; };
+		DAE505081E662F7700B8F22A /* VScannerCropper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerCropper.swift; sourceTree = "<group>"; };
+		DAE5050A1E662FEC00B8F22A /* VScannerCropperShade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerCropperShade.swift; sourceTree = "<group>"; };
+		DAE5050C1E662FF500B8F22A /* VScannerCropperThumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerCropperThumb.swift; sourceTree = "<group>"; };
+		DAE5050E1E662FFF00B8F22A /* VScannerCropperMover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerCropperMover.swift; sourceTree = "<group>"; };
+		DAE505101E663EB600B8F22A /* VScannerPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerPreview.swift; sourceTree = "<group>"; };
+		DAE505121E6644F400B8F22A /* VScannerMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VScannerMenu.swift; sourceTree = "<group>"; };
 		DAEB54B41E5D0ED800492F38 /* MKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboard.swift; sourceTree = "<group>"; };
 		DAEB54B51E5D0ED800492F38 /* MKeyboardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRow.swift; sourceTree = "<group>"; };
 		DAEB54B61E5D0ED800492F38 /* MKeyboardRowItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKeyboardRowItem.swift; sourceTree = "<group>"; };
@@ -673,6 +747,7 @@
 		DAFF4A951E397B9600A2DD4B /* VView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VView.swift; sourceTree = "<group>"; };
 		DAFF4AD21E397D9A00A2DD4B /* CHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHelp.swift; sourceTree = "<group>"; };
 		DAFF4AD51E397E0100A2DD4B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
+		DC933455CF792297B32B845F /* Pods_GaussSquad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GaussSquad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -680,12 +755,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB861AE98FABE6EE5E446B6A /* Pods_GaussSquad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C16394EB9D9C96B5D39A629 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C30B31239DC7A228EC040980 /* Pods-GaussSquad.debug.xcconfig */,
+				4F99750C1DB046BE7763F9A9 /* Pods-GaussSquad.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9575A607AFA87AD4C8968F84 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC933455CF792297B32B845F /* Pods_GaussSquad.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DA033CE81E3A934800F7645C /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -807,8 +900,9 @@
 		DA4691221E56744600FAD188 /* Metal */ = {
 			isa = PBXGroup;
 			children = (
+				DA723F1E1E68BD2E00030738 /* ShaderFilter */,
+				DA723F1F1E68BD2E00030738 /* ShaderPlot */,
 				DA4691231E56744600FAD188 /* General */,
-				DA46912B1E56744600FAD188 /* Shader */,
 				DA46912F1E56744600FAD188 /* Spatial */,
 				DA4691391E56744600FAD188 /* Vertex */,
 			);
@@ -826,17 +920,6 @@
 				DAE4A8801E5B7735000A07A3 /* MetalPosition.swift */,
 			);
 			path = General;
-			sourceTree = "<group>";
-		};
-		DA46912B1E56744600FAD188 /* Shader */ = {
-			isa = PBXGroup;
-			children = (
-				DA46912D1E56744600FAD188 /* MetalShaderStructs.h */,
-				DA46912C1E56744600FAD188 /* MetalShaderFragmentSimple.metal */,
-				DA5502361E58ED2100DF0F95 /* MetalShaderVertexArrangement.metal */,
-				DA5502381E58EEB600DF0F95 /* MetalShaderKernelEffects.metal */,
-			);
-			path = Shader;
 			sourceTree = "<group>";
 		};
 		DA46912F1E56744600FAD188 /* Spatial */ = {
@@ -919,6 +1002,19 @@
 				DA0CB8081E6278C4003AA283 /* VLinearEquationsPlotMenuCellEquation.swift */,
 			);
 			path = Plot;
+			sourceTree = "<group>";
+		};
+		DA48DC191E69E28F00EA8B83 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				DA48DC1A1E69E29B00EA8B83 /* MHelpScanner.swift */,
+				DA48DC1C1E69E2A500EA8B83 /* MHelpScannerItemTuring.swift */,
+				DA48DC1E1E69E64A00EA8B83 /* MHelpScannerItemCrop.swift */,
+				DA48DC201E69EC3700EA8B83 /* MHelpScannerItemEdit.swift */,
+				DA48DC221E69F04F00EA8B83 /* MHelpScannerItemClean.swift */,
+				DA48DC241E69FAA800EA8B83 /* MHelpScannerItemCalculator.swift */,
+			);
+			path = Scanner;
 			sourceTree = "<group>";
 		};
 		DA519BD91E64DC1300F2673A /* Calculator */ = {
@@ -1116,6 +1212,57 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
+		DA723F141E68AF5900030738 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				DA723F321E68E70100030738 /* Menu */,
+				DA723F151E68AF7D00030738 /* Filter */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		DA723F151E68AF7D00030738 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				DA723F161E68B01300030738 /* MScannerFilter.swift */,
+				DA723F1A1E68B57500030738 /* MScannerFilterItem.swift */,
+				DA723F1C1E68B58700030738 /* MScannerFilterItemHighContrast.swift */,
+				DA723F2A1E68D19D00030738 /* MScannerFilterItemDefine.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		DA723F1E1E68BD2E00030738 /* ShaderFilter */ = {
+			isa = PBXGroup;
+			children = (
+				DA723F281E68CA8400030738 /* MetalShaderFilterHighContrastKernel.metal */,
+			);
+			path = ShaderFilter;
+			sourceTree = "<group>";
+		};
+		DA723F1F1E68BD2E00030738 /* ShaderPlot */ = {
+			isa = PBXGroup;
+			children = (
+				DA723F211E68BD6800030738 /* MetalShaderPlotStructs.h */,
+				DA723F221E68BD9A00030738 /* MetalShaderPlotFragment.metal */,
+				DA723F241E68BDAA00030738 /* MetalShaderPlotVertex.metal */,
+				DA723F261E68BDB600030738 /* MetalShaderPlotKernel.metal */,
+			);
+			path = ShaderPlot;
+			sourceTree = "<group>";
+		};
+		DA723F321E68E70100030738 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				DA723F331E68E70C00030738 /* MScannerMenu.swift */,
+				DA723F351E68E71700030738 /* MScannerMenuItem.swift */,
+				DA48DC171E69D30300EA8B83 /* MScannerMenuItemHelp.swift */,
+				DA723F3B1E68E78000030738 /* MScannerMenuItemClean.swift */,
+				DA723F391E68E75600030738 /* MScannerMenuItemCalculator.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		DA7A9CE61E5CBEC500ED71D1 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1201,8 +1348,22 @@
 				DAA4BD711E3A4C4100B0360D /* MHomeItem.swift */,
 				DA7A9CE41E5CBC4300ED71D1 /* MHomeItemCalculator.swift */,
 				DAA4BD731E3A5DBD00B0360D /* MHomeItemLinearEquations.swift */,
+				DAE505001E6604F800B8F22A /* MHomeItemScanner.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		DAB345D41E675D61000FE9AC /* ScannerOCR */ = {
+			isa = PBXGroup;
+			children = (
+				DAB345D51E675D6A000FE9AC /* VScannerOCR.swift */,
+				DA723F3D1E68E79D00030738 /* VScannerOCRBar.swift */,
+				DA723F2C1E68DD1600030738 /* VScannerOCRText.swift */,
+				DA48DC261E6A087000EA8B83 /* VScannerOCRTextDismisser.swift */,
+				DA723F2E1E68E5A800030738 /* VScannerOCRMenu.swift */,
+				DA723F301E68E5B200030738 /* VScannerOCRMenuCell.swift */,
+			);
+			path = ScannerOCR;
 			sourceTree = "<group>";
 		};
 		DAC216561E429D06009EDBF7 /* Polynomial */ = {
@@ -1267,6 +1428,15 @@
 			path = Projects;
 			sourceTree = "<group>";
 		};
+		DADF64D11E6A250300B8DC1E /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				DADF64D21E6A250300B8DC1E /* GoogleService-Info.plist */,
+				DADF64D41E6A252800B8DC1E /* AnalyticsManager.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 		DAE504F31E65EED200B8F22A /* Landing */ = {
 			isa = PBXGroup;
 			children = (
@@ -1276,6 +1446,29 @@
 				DAE504FA1E65F05200B8F22A /* MHelpLinearEquationsLandingItemAutoSave.swift */,
 			);
 			path = Landing;
+			sourceTree = "<group>";
+		};
+		DAE505021E6607CD00B8F22A /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				DAE505031E66086300B8F22A /* CScanner.swift */,
+				DAB345D01E675C96000FE9AC /* CScannerOCR.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		DAE505051E6609C900B8F22A /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				DAE505061E6609D100B8F22A /* VScanner.swift */,
+				DAE505081E662F7700B8F22A /* VScannerCropper.swift */,
+				DAE5050A1E662FEC00B8F22A /* VScannerCropperShade.swift */,
+				DAE5050C1E662FF500B8F22A /* VScannerCropperThumb.swift */,
+				DAE5050E1E662FFF00B8F22A /* VScannerCropperMover.swift */,
+				DAE505101E663EB600B8F22A /* VScannerPreview.swift */,
+				DAE505121E6644F400B8F22A /* VScannerMenu.swift */,
+			);
+			path = Scanner;
 			sourceTree = "<group>";
 		};
 		DAEB54B11E5D0ED800492F38 /* Items */ = {
@@ -1443,6 +1636,8 @@
 			children = (
 				DAFF4A361E3979B600A2DD4B /* GaussSquad */,
 				DAFF4A351E3979B600A2DD4B /* Products */,
+				4C16394EB9D9C96B5D39A629 /* Pods */,
+				9575A607AFA87AD4C8968F84 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1457,6 +1652,8 @@
 		DAFF4A361E3979B600A2DD4B /* GaussSquad */ = {
 			isa = PBXGroup;
 			children = (
+				DA6D32F71E678EC70013F08F /* tessdata */,
+				DADF64D11E6A250300B8DC1E /* Analytics */,
 				DAFF4A491E397B9500A2DD4B /* Assets */,
 				DAFF4A4B1E397B9500A2DD4B /* Controller */,
 				DAFF4A501E397B9500A2DD4B /* Data */,
@@ -1488,6 +1685,7 @@
 		DAFF4A4B1E397B9500A2DD4B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DAE505021E6607CD00B8F22A /* Scanner */,
 				DA7A9CE61E5CBEC500ED71D1 /* Calculator */,
 				DA6D62CC1E560C8A002D9C1A /* Settings */,
 				DA6D62CD1E560C8A002D9C1A /* Store */,
@@ -1505,6 +1703,7 @@
 				DAFF4A4D1E397B9500A2DD4B /* CAppDelegate.swift */,
 				DAFF4A4E1E397B9500A2DD4B /* CController.swift */,
 				DAFF4A4F1E397B9500A2DD4B /* CParent.swift */,
+				DADF64D61E6A25EC00B8DC1E /* CBridgingHeader.h */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1544,6 +1743,7 @@
 		DAFF4A7E1E397B9600A2DD4B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA723F141E68AF5900030738 /* Scanner */,
 				DA7A9CF61E5D0C2900ED71D1 /* Keyboard */,
 				DA7A9CF41E5D0BF800ED71D1 /* Calculator */,
 				DA6D62D01E560C9A002D9C1A /* Settings */,
@@ -1559,6 +1759,7 @@
 		DAFF4A7F1E397B9600A2DD4B /* Help */ = {
 			isa = PBXGroup;
 			children = (
+				DA48DC191E69E28F00EA8B83 /* Scanner */,
 				DA519BD91E64DC1300F2673A /* Calculator */,
 				DA9F6F921E55188A003C5486 /* LinearEquations */,
 				DAFF4A801E397B9600A2DD4B /* Main */,
@@ -1597,6 +1798,8 @@
 		DAFF4A881E397B9600A2DD4B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DAB345D41E675D61000FE9AC /* ScannerOCR */,
+				DAE505051E6609C900B8F22A /* Scanner */,
 				DA7A9CF51E5D0C2200ED71D1 /* Keyboard */,
 				DACC20DB1E60F29B00F8D2D7 /* CalculatorOptions */,
 				DA7A9CE91E5CBFA600ED71D1 /* Calculator */,
@@ -1680,9 +1883,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAFF4A461E3979B600A2DD4B /* Build configuration list for PBXNativeTarget "GaussSquad" */;
 			buildPhases = (
+				8939F9E34ABBBC7929A747A5 /* [CP] Check Pods Manifest.lock */,
 				DAFF4A301E3979B600A2DD4B /* Sources */,
 				DAFF4A311E3979B600A2DD4B /* Frameworks */,
 				DAFF4A321E3979B600A2DD4B /* Resources */,
+				68123D9FAD6AAC3C540B31D7 /* [CP] Embed Pods Frameworks */,
+				B10F0504571FC648AD55AF3E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1735,7 +1941,9 @@
 				DAF37ADB1E3D6588005052D8 /* spinner.xcassets in Resources */,
 				DAFF4AC01E397B9600A2DD4B /* Localizable.strings in Resources */,
 				DACC20BD1E60B66A00F8D2D7 /* function.xcassets in Resources */,
+				DA6D32F81E678EC70013F08F /* tessdata in Resources */,
 				DA9F6FA31E551C33003C5486 /* help.xcassets in Resources */,
+				DADF64D31E6A250300B8DC1E /* GoogleService-Info.plist in Resources */,
 				DA033CEE1E3AA2DC00F7645C /* generic.xcassets in Resources */,
 				DAE4A87B1E5B3E93000A07A3 /* texture.xcassets in Resources */,
 				DABC07CB1E63805C00EC2FBE /* ResourceUrl.plist in Resources */,
@@ -1746,6 +1954,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		68123D9FAD6AAC3C540B31D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GaussSquad/Pods-GaussSquad-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8939F9E34ABBBC7929A747A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B10F0504571FC648AD55AF3E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GaussSquad/Pods-GaussSquad-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DAFF4A301E3979B600A2DD4B /* Sources */ = {
@@ -1758,10 +2014,8 @@
 				DAC9FEE41E617CD70085BA7F /* MCalculatorFunctionsItemReciprocal.swift in Sources */,
 				DA4691211E56736D00FAD188 /* VLinearEquationsPlotMetal.swift in Sources */,
 				DACC20D41E60EED700F8D2D7 /* MCalculatorFunctionsExponents.swift in Sources */,
-				DA5502391E58EEB600DF0F95 /* MetalShaderKernelEffects.metal in Sources */,
 				DA46915A1E56766500FAD188 /* ExtensionMTLRenderCommandEncoder.swift in Sources */,
 				DA0CB8111E627B86003AA283 /* MLinearEquationsPlotRenderIndeterminate.swift in Sources */,
-				DA5502371E58ED2100DF0F95 /* MetalShaderVertexArrangement.metal in Sources */,
 				DA476F1C1E5634690058F4A4 /* VStoreCellNew.swift in Sources */,
 				DA033CEC1E3A99EE00F7645C /* VParentBar.swift in Sources */,
 				DA0CB80B1E627B5D003AA283 /* MLinearEquationsPlot.swift in Sources */,
@@ -1795,11 +2049,16 @@
 				DAEB54B91E5D0ED800492F38 /* MKeyboardRow.swift in Sources */,
 				DA0D4DE11E4E5B6C00699018 /* MLinearEquationsSolutionStrategyReduction.swift in Sources */,
 				DA133A6C1E411B070028D90F /* VLinearEquationsProjectCellEquals.swift in Sources */,
+				DAB345D11E675C96000FE9AC /* CScannerOCR.swift in Sources */,
 				DAE504F71E65F03200B8F22A /* MHelpLinearEquationsLandingItemGauss.swift in Sources */,
 				DAFF4AC71E397B9600A2DD4B /* VCollection.swift in Sources */,
 				DA8AFE4D1E53D82D0098CF2F /* MLinearEquationsSolutionDrawableProtocol.swift in Sources */,
+				DA723F361E68E71700030738 /* MScannerMenuItem.swift in Sources */,
+				DA723F3A1E68E75600030738 /* MScannerMenuItemCalculator.swift in Sources */,
 				DA3F44181E5F87CC003336C7 /* MKeyboardStateAdd.swift in Sources */,
+				DA723F1D1E68B58700030738 /* MScannerFilterItemHighContrast.swift in Sources */,
 				DA81185C1E5E61E600B6ED7C /* MKeyboardRowItem6.swift in Sources */,
+				DA723F2B1E68D19D00030738 /* MScannerFilterItemDefine.swift in Sources */,
 				DA476F2F1E5666270058F4A4 /* VLinearEquationsPlot.swift in Sources */,
 				DA476F0C1E562E740058F4A4 /* MStoreItemStatusPurchased.swift in Sources */,
 				DAC9FEE21E617CCE0085BA7F /* MCalculatorFunctionsItemCube.swift in Sources */,
@@ -1810,6 +2069,7 @@
 				DA2CE3991E5F3D9A00626A43 /* MKeyboardRowItemEquals.swift in Sources */,
 				DA23C3681E527C40007C4C4D /* MLinearEquationsSolutionStrategyResultsOnly.swift in Sources */,
 				DA476EED1E56108E0058F4A4 /* MSettings.swift in Sources */,
+				DAE505111E663EB600B8F22A /* VScannerPreview.swift in Sources */,
 				DA23C3601E5260DE007C4C4D /* MLinearEquationsSolutionBarItem.swift in Sources */,
 				DAFDD5061E43D95600880556 /* VLinearEquationsProjectBarIndeterminates.swift in Sources */,
 				DA0CB8031E6271A4003AA283 /* MKeyboardStateRoot.swift in Sources */,
@@ -1818,8 +2078,10 @@
 				DA2CE38F1E5F3AFC00626A43 /* MKeyboardRowItemPercent.swift in Sources */,
 				DA8D8D1E1E5F9BF1006F1488 /* MKeyboardRowItemDivide.swift in Sources */,
 				DA7A9CF81E5D0C3700ED71D1 /* VKeyboard.swift in Sources */,
+				DAE505041E66086300B8F22A /* CScanner.swift in Sources */,
 				DAFEB18F1E60993800E609C9 /* MKeyboardRowItemHide.swift in Sources */,
 				DA519BE51E64DE5C00F2673A /* VHelpCellLong.swift in Sources */,
+				DAB345D61E675D6A000FE9AC /* VScannerOCR.swift in Sources */,
 				DA62D36A1E4CD752000D0387 /* MLinearEquationsSolutionStepStart.swift in Sources */,
 				DA23C3531E5218CF007C4C4D /* MLinearEquationsSolutionStrategyOrderIndeterminates.swift in Sources */,
 				DA23C36E1E528D27007C4C4D /* MLinearEquationsSolutionBarItemPlot.swift in Sources */,
@@ -1831,14 +2093,17 @@
 				DAD518971E3FAF1D0004C8D8 /* CLinearEquationsProject.swift in Sources */,
 				DACC20DD1E60F2AC00F8D2D7 /* VCalculatorOptions.swift in Sources */,
 				DA519BE91E64FD0000F2673A /* MHelpCalculatorItemOptions.swift in Sources */,
+				DA48DC271E6A087000EA8B83 /* VScannerOCRTextDismisser.swift in Sources */,
 				DAFDD5021E43D3E800880556 /* MLinearEquationsProjectBarItemCompress.swift in Sources */,
 				DA316CE51E4571C2008E7270 /* VLinearEquationsPolynomialIndeterminate.swift in Sources */,
 				DAFF4AA41E397B9600A2DD4B /* ExtensionUIColor.swift in Sources */,
 				DA316CF11E459016008E7270 /* VLinearEquationsIndeterminateListCell.swift in Sources */,
 				DACC20C61E60E46A00F8D2D7 /* MCalculatorFunctionsItemSinDeg.swift in Sources */,
 				DA62D35B1E4CD51D000D0387 /* MLinearEquationsSolutionEquationItemConstant.swift in Sources */,
+				DA723F311E68E5B200030738 /* VScannerOCRMenuCell.swift in Sources */,
 				DA2CE38D1E5F37FA00626A43 /* MKeyboardRowItemBackspace.swift in Sources */,
 				DAF37AD91E3D51D7005052D8 /* VLinearEquations.swift in Sources */,
+				DA723F2D1E68DD1600030738 /* VScannerOCRText.swift in Sources */,
 				DA12D47B1E41599A008327B5 /* MLinearEquationsProjectRowItemPolynomialDivision.swift in Sources */,
 				DABC07C71E637A3D00EC2FBE /* MSettingsItemShare.swift in Sources */,
 				DA476F1B1E5634690058F4A4 /* VStoreCellDeferred.swift in Sources */,
@@ -1891,16 +2156,22 @@
 				DAFF4AA11E397B9600A2DD4B /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DA8D8D281E5FACD3006F1488 /* VCalculatorHistoryCell.swift in Sources */,
 				DA99E1821E53A96200DB692B /* MLinearEquationsSolutionBarItemBack.swift in Sources */,
+				DA48DC251E69FAA800EA8B83 /* MHelpScannerItemCalculator.swift in Sources */,
+				DADF64D51E6A252800B8DC1E /* AnalyticsManager.swift in Sources */,
 				DA9F6F951E5518A6003C5486 /* MHelpLinearEquationsProject.swift in Sources */,
 				DAC216551E42989A009EDBF7 /* CLinearEquationsPolynomial.swift in Sources */,
 				DAA4BD721E3A4C4100B0360D /* MHomeItem.swift in Sources */,
+				DAE505011E6604F800B8F22A /* MHomeItemScanner.swift in Sources */,
 				DA8D8D221E5FA2A6006F1488 /* MKeyboardStateMultiply.swift in Sources */,
 				DA23C3491E500955007C4C4D /* MLinearEquationsSolutionStrategyIndeterminatesLeft.swift in Sources */,
 				DA4691651E567BCD00FAD188 /* MetalSpatialRect.swift in Sources */,
 				DAF37AE11E3D6BCE005052D8 /* VLinearEquationsCell.swift in Sources */,
 				DAFF4AA21E397B9600A2DD4B /* ExtensionNSManagedObject.swift in Sources */,
+				DA48DC1F1E69E64A00EA8B83 /* MHelpScannerItemCrop.swift in Sources */,
 				DAFEB19C1E60A60D00E609C9 /* MCalculator.swift in Sources */,
 				DA62D3701E4CD76F000D0387 /* MLinearEquationsSolutionStepError.swift in Sources */,
+				DAE505071E6609D100B8F22A /* VScanner.swift in Sources */,
+				DAE5050D1E662FF500B8F22A /* VScannerCropperThumb.swift in Sources */,
 				DAFEB1A91E60A6EC00E609C9 /* MCalculatorFunctionsItemCos.swift in Sources */,
 				DA0CB8091E6278C4003AA283 /* VLinearEquationsPlotMenuCellEquation.swift in Sources */,
 				DAFF4AC41E397B9600A2DD4B /* VAlert.swift in Sources */,
@@ -1915,6 +2186,7 @@
 				DA62D3931E4CF865000D0387 /* VLinearEquationsSolutionCellConstantDecimal.swift in Sources */,
 				DA0D4DE31E4E99A300699018 /* MLinearEquationsSolutionStrategyReductionConstants.swift in Sources */,
 				DAFF4AD31E397D9A00A2DD4B /* CHelp.swift in Sources */,
+				DA723F1B1E68B57500030738 /* MScannerFilterItem.swift in Sources */,
 				DA7A9CEF1E5CE09E00ED71D1 /* VCalculatorText.swift in Sources */,
 				DAFF4AD61E397E0100A2DD4B /* CHome.swift in Sources */,
 				DA476F0D1E562E740058F4A4 /* MStoreItemStatusPurchasing.swift in Sources */,
@@ -1923,6 +2195,8 @@
 				DA62D37E1E4CEC08000D0387 /* VLinearEquationsSolution.swift in Sources */,
 				DA2CE38B1E5F37F100626A43 /* MKeyboardRowItemClear.swift in Sources */,
 				DA476EF11E5610A60058F4A4 /* MSettingsItemFractionDigits.swift in Sources */,
+				DA723F341E68E70C00030738 /* MScannerMenu.swift in Sources */,
+				DAE5050B1E662FEC00B8F22A /* VScannerCropperShade.swift in Sources */,
 				DA9F6FA51E5529C3003C5486 /* MHelpLinearEquationsProjectItemEditRow.swift in Sources */,
 				DAFDD50E1E443FBF00880556 /* CLinearEquationsIndeterminate.swift in Sources */,
 				DA476F271E5643720058F4A4 /* VStoreGoPlus.swift in Sources */,
@@ -1931,6 +2205,8 @@
 				DA476F0A1E562E740058F4A4 /* MStoreItemStatusNew.swift in Sources */,
 				DA62D3831E4CECC1000D0387 /* VLinearEquationsSolutionHeader.swift in Sources */,
 				DA62D36C1E4CD75C000D0387 /* MLinearEquationsSolutionStepProcess.swift in Sources */,
+				DAE5050F1E662FFF00B8F22A /* VScannerCropperMover.swift in Sources */,
+				DA48DC1D1E69E2A500EA8B83 /* MHelpScannerItemTuring.swift in Sources */,
 				DAD46DB41E46A13500AED3B9 /* MLinearEquationsIndeterminates.swift in Sources */,
 				DA476F2C1E5665E00058F4A4 /* CLinearEquationsPlot.swift in Sources */,
 				DA12D4751E414BC7008327B5 /* MLinearEquationsProjectRowItemIndex.swift in Sources */,
@@ -1939,7 +2215,9 @@
 				DA2B22671E5F958900A8B416 /* MKeyboardStateSubtract.swift in Sources */,
 				DAFEB1A71E60A6E400E609C9 /* MCalculatorFunctionsItemSin.swift in Sources */,
 				DAE504FB1E65F05200B8F22A /* MHelpLinearEquationsLandingItemAutoSave.swift in Sources */,
+				DA48DC181E69D30300EA8B83 /* MScannerMenuItemHelp.swift in Sources */,
 				DA133A601E4119E00028D90F /* VLinearEquationsProjectBarCell.swift in Sources */,
+				DA723F3C1E68E78000030738 /* MScannerMenuItemClean.swift in Sources */,
 				DA9F6F9B1E5518F5003C5486 /* MHelpLinearEquationsProjectItemIndeterminates.swift in Sources */,
 				DA133A381E410F710028D90F /* MLinearEquationsProjectBar.swift in Sources */,
 				DAFEB1AD1E60A8A900E609C9 /* VCalculatorFunctions.swift in Sources */,
@@ -1952,6 +2230,7 @@
 				DA0CB80F1E627B7C003AA283 /* MLinearEquationsPlotRenderCartesian.swift in Sources */,
 				DACC20DA1E60F26E00F8D2D7 /* CCalculatorOptions.swift in Sources */,
 				DA89F1A31E4A957F0062DE48 /* DPolynomialExtension.swift in Sources */,
+				DA723F271E68BDB600030738 /* MetalShaderPlotKernel.metal in Sources */,
 				DA476F1A1E5634690058F4A4 /* VStoreCell.swift in Sources */,
 				DA62D3551E4CD3F1000D0387 /* MLinearEquationsSolutionEquation.swift in Sources */,
 				DAFF4AA31E397B9600A2DD4B /* ExtensionUICollectionReusableView.swift in Sources */,
@@ -1959,6 +2238,8 @@
 				DA7A9CE51E5CBC4300ED71D1 /* MHomeItemCalculator.swift in Sources */,
 				DA476F211E5634690058F4A4 /* VStoreHeader.swift in Sources */,
 				DAFF4AC51E397B9600A2DD4B /* VBlur.swift in Sources */,
+				DA48DC211E69EC3700EA8B83 /* MHelpScannerItemEdit.swift in Sources */,
+				DA48DC1B1E69E29B00EA8B83 /* MHelpScanner.swift in Sources */,
 				DA0CB7FF1E62702E003AA283 /* MCalculatorFunctionsItemAnyRoot.swift in Sources */,
 				DA4691581E56766500FAD188 /* ExtensionMTKTextureLoader.swift in Sources */,
 				DA12D4791E415990008327B5 /* MLinearEquationsProjectRowItemPolynomialDecimal.swift in Sources */,
@@ -1969,7 +2250,6 @@
 				DA2CE3951E5F3D8900626A43 /* MKeyboardRowItemSubtract.swift in Sources */,
 				DA133A401E410F710028D90F /* MLinearEquationsProjectRowItem.swift in Sources */,
 				DAE504F91E65F04100B8F22A /* MHelpLinearEquationsLandingItemAddEquation.swift in Sources */,
-				DA4691441E56744600FAD188 /* MetalShaderFragmentSimple.metal in Sources */,
 				DAFF4AA61E397B9600A2DD4B /* ExtensionURL.swift in Sources */,
 				DA033CF01E3AA30700F7645C /* VParentBarButton.swift in Sources */,
 				DA476F0B1E562E740058F4A4 /* MStoreItemStatusNotAvailable.swift in Sources */,
@@ -1979,6 +2259,7 @@
 				DA476F231E5643000058F4A4 /* CStoreGoPlus.swift in Sources */,
 				DAE4A87F1E5B5551000A07A3 /* MetalVertexTextured.swift in Sources */,
 				DA46915B1E56766500FAD188 /* ExtensionMTLTexture.swift in Sources */,
+				DA723F171E68B01300030738 /* MScannerFilter.swift in Sources */,
 				DA9F6FA11E55191B003C5486 /* MHelpLinearEquationsProjectItemSolution.swift in Sources */,
 				DA62D3651E4CD5A5000D0387 /* MLinearEquationsSolutionEquationItemPolynomialDivision.swift in Sources */,
 				DAFDD4FE1E43D2EA00880556 /* MLinearEquationsProjectBarItemHelp.swift in Sources */,
@@ -1988,6 +2269,7 @@
 				DA62D3A11E4D24D3000D0387 /* MLinearEquationsSolutionIndeterminates.swift in Sources */,
 				DA4691671E567BD500FAD188 /* MetalSpatialLine.swift in Sources */,
 				DA89F19D1E4A47080062DE48 /* VLinearEquationsPolynomialShowAs.swift in Sources */,
+				DA723F291E68CA8400030738 /* MetalShaderFilterHighContrastKernel.metal in Sources */,
 				DAEB54BA1E5D0ED800492F38 /* MKeyboardRowItem.swift in Sources */,
 				DA133A441E410F710028D90F /* MLinearEquationsProject.swift in Sources */,
 				DA316CED1E458B16008E7270 /* VLinearEquationsIndeterminateList.swift in Sources */,
@@ -1995,6 +2277,7 @@
 				DA476F1E1E5634690058F4A4 /* VStoreCellPurchased.swift in Sources */,
 				DAC216511E424DEC009EDBF7 /* VLinearEquationsProjectFlow.swift in Sources */,
 				DA316CE91E458373008E7270 /* CLinearEquationsPolynomialIndeterminate.swift in Sources */,
+				DA48DC231E69F04F00EA8B83 /* MHelpScannerItemClean.swift in Sources */,
 				DACC20C81E60E6B400F8D2D7 /* MCalculatorFunctionsItemCosDeg.swift in Sources */,
 				DA62D3671E4CD6C3000D0387 /* MLinearEquationsSolutionStep.swift in Sources */,
 				DAEB54BC1E5D0F6F00492F38 /* MKeyboardPortrait.swift in Sources */,
@@ -2002,6 +2285,7 @@
 				DAE4A8851E5B9FF9000A07A3 /* VLinearEquationsPlotMenu.swift in Sources */,
 				DA62D3911E4CF85B000D0387 /* VLinearEquationsSolutionCellPolynomialDivision.swift in Sources */,
 				DAC2164D1E42304E009EDBF7 /* VLinearEquationsProjectCellNewPolynomial.swift in Sources */,
+				DA723F2F1E68E5A800030738 /* VScannerOCRMenu.swift in Sources */,
 				DAE504F51E65EEDF00B8F22A /* MHelpLinearEquationsLanding.swift in Sources */,
 				DAFEB19F1E60A60D00E609C9 /* MCalculatorSteps.swift in Sources */,
 				DA133A641E4119E00028D90F /* VLinearEquationsProject.swift in Sources */,
@@ -2016,6 +2300,7 @@
 				DA2CE3971E5F3D9100626A43 /* MKeyboardRowItemAdd.swift in Sources */,
 				DA8D8D1C1E5F9BD9006F1488 /* MKeyboardStateDivide.swift in Sources */,
 				DA89F1A11E4A549B0062DE48 /* VLinearEquationsPolynomialDivision.swift in Sources */,
+				DA723F3E1E68E79D00030738 /* VScannerOCRBar.swift in Sources */,
 				DA62D3721E4CD77D000D0387 /* MLinearEquationsSolutionStepDone.swift in Sources */,
 				DAE4A8811E5B7735000A07A3 /* MetalPosition.swift in Sources */,
 				DA476F071E562E740058F4A4 /* MStoreItem.swift in Sources */,
@@ -2044,6 +2329,7 @@
 				DA62D3611E4CD58D000D0387 /* MLinearEquationsSolutionEquationItemConstantDivision.swift in Sources */,
 				DA519BE31E64DE5000F2673A /* VHelpCellShort.swift in Sources */,
 				DACC20D61E60EFB600F8D2D7 /* MCalculatorFunctionsItemSquareRoot.swift in Sources */,
+				DAE505091E662F7700B8F22A /* VScannerCropper.swift in Sources */,
 				DA9F6F971E5518DC003C5486 /* MHelpLinearEquationsProjectItemAddPolynomial.swift in Sources */,
 				DAFEB1AF1E60A8B200E609C9 /* VCalculatorFunctionsCell.swift in Sources */,
 				DA476EEF1E5610960058F4A4 /* MSettingsItem.swift in Sources */,
@@ -2062,11 +2348,14 @@
 				DA81185A1E5E61DF00B6ED7C /* MKeyboardRowItem5.swift in Sources */,
 				DAD46DB61E46A15C00AED3B9 /* MLinearEquationsIndeterminatesItem.swift in Sources */,
 				DAF37AE51E3D6EA1005052D8 /* VLinearEquationsBar.swift in Sources */,
+				DA723F251E68BDAA00030738 /* MetalShaderPlotVertex.metal in Sources */,
+				DA723F231E68BD9A00030738 /* MetalShaderPlotFragment.metal in Sources */,
 				DA23C34D1E512046007C4C4D /* MLinearEquationsSolutionStrategyFractionReduction.swift in Sources */,
 				DA133A631E4119E00028D90F /* VLinearEquationsProjectCell.swift in Sources */,
 				DA46914C1E56744600FAD188 /* MetalVertex.swift in Sources */,
 				DAFF4AC61E397B9600A2DD4B /* VBorder.swift in Sources */,
 				DAFF4A991E397B9600A2DD4B /* CParent.swift in Sources */,
+				DAE505131E6644F400B8F22A /* VScannerMenu.swift in Sources */,
 				DA2CE3A01E5F56E300626A43 /* MKeyboardRowItemNumeric.swift in Sources */,
 				DAFF4AC91E397B9600A2DD4B /* VView.swift in Sources */,
 				DA0CB8011E627092003AA283 /* MCalculatorFunctionsItemAnyExponent.swift in Sources */,
@@ -2113,6 +2402,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2134,6 +2424,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = /devel/iturbide/GaussSquad/GaussSquad/Controller/Main/CBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2163,6 +2454,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2176,6 +2468,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = /devel/iturbide/GaussSquad/GaussSquad/Controller/Main/CBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2184,9 +2477,11 @@
 		};
 		DAFF4A471E3979B600A2DD4B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C30B31239DC7A228EC040980 /* Pods-GaussSquad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = GaussSquad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2199,9 +2494,11 @@
 		};
 		DAFF4A481E3979B600A2DD4B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F99750C1DB046BE7763F9A9 /* Pods-GaussSquad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = GaussSquad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

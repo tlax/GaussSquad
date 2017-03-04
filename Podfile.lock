@@ -1,0 +1,35 @@
+PODS:
+  - FirebaseAnalytics (3.7.0):
+    - FirebaseCore (~> 3.5)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.5.1):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (1.0.9)
+  - Google/Analytics (3.0.3):
+    - Google/Core
+    - GoogleAnalytics (~> 3.12)
+  - Google/Core (3.0.3):
+    - FirebaseAnalytics (~> 3.2)
+  - GoogleAnalytics (3.17.0)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - TesseractOCRiOS (4.0.0)
+
+DEPENDENCIES:
+  - Google/Analytics
+  - TesseractOCRiOS (= 4.0.0)
+
+SPEC CHECKSUMS:
+  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
+  FirebaseCore: 225d40532489835a034b8f4e2c9c87fbf4f615a2
+  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  TesseractOCRiOS: 90638afbe43d082433f2e76b384c7901d23956df
+
+PODFILE CHECKSUM: 775cfdc366f71ef88ecad8c895147e95951e7576
+
+COCOAPODS: 1.2.0

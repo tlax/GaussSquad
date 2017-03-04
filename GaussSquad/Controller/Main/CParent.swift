@@ -23,6 +23,8 @@ class CParent:UIViewController
     init()
     {
         super.init(nibName:nil, bundle:nil)
+        
+        AnalyticsManager.sharedInstance?.startAnalytics()
     }
     
     required init?(coder:NSCoder)
@@ -121,7 +123,8 @@ class CParent:UIViewController
         controller:CController,
         horizontal:TransitionHorizontal = TransitionHorizontal.none,
         vertical:TransitionVertical = TransitionVertical.none,
-        background:Bool = true)
+        background:Bool = true,
+        completion:(() -> ())? = nil)
     {
         let width:CGFloat = viewParent.bounds.maxX
         let height:CGFloat = viewParent.bounds.maxY
@@ -151,6 +154,7 @@ class CParent:UIViewController
         {
             controller.endAppearanceTransition()
             currentController.endAppearanceTransition()
+            completion?()
         }
     }
     
@@ -274,6 +278,33 @@ class CParent:UIViewController
                 {
                     self.viewParent.panRecognizer.isEnabled = false
                 }
+            }
+        }
+    }
+    
+    func popSilent(removeIndex:Int)
+    {
+        let controllers:Int = childViewControllers.count
+        
+        if controllers > removeIndex
+        {
+            guard
+                
+                let removeController:CController = childViewControllers[removeIndex] as? CController,
+                let removeView:VView = removeController.view as? VView
+            
+            else
+            {
+                return
+            }
+            
+            removeView.pushBackground?.removeFromSuperview()
+            removeView.removeFromSuperview()
+            removeController.removeFromParentViewController()
+            
+            if childViewControllers.count < 2
+            {
+                self.viewParent.panRecognizer.isEnabled = false
             }
         }
     }

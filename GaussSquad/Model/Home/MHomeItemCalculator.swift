@@ -15,7 +15,7 @@ class MHomeItemCalculator:MHomeItem
     
     override func selected() -> CController?
     {
-        let controller:CCalculator = CCalculator()
+        let controller:CCalculator = CCalculator(initial:nil)
         
         return controller
     }
