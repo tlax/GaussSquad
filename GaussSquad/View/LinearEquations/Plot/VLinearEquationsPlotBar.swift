@@ -6,8 +6,7 @@ class VLinearEquationsPlotBar:UIView
     private weak var viewZoom:VLinearEquationsPlotBarZoom!
     private let kBorderHeight:CGFloat = 1
     private let kContentTop:CGFloat = 20
-    private let kBackWidth:CGFloat = 50
-    private let kShareWidth:CGFloat = 50
+    private let kButtonWidth:CGFloat = 50
     private let kZoomWidth:CGFloat = 170
     
     init(controller:CLinearEquationsPlot)
@@ -53,6 +52,22 @@ class VLinearEquationsPlotBar:UIView
             action:#selector(actionShare(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonHelp:UIButton = UIButton()
+        buttonHelp.translatesAutoresizingMaskIntoConstraints = false
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetGenericHelpGreen").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetGenericHelpGreen").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonHelp.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        buttonHelp.imageView!.clipsToBounds = true
+        buttonHelp.imageView!.contentMode = UIViewContentMode.center
+        buttonHelp.addTarget(
+            self,
+            action:#selector(actionHelp(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         let viewZoom:VLinearEquationsPlotBarZoom = VLinearEquationsPlotBarZoom(
             controller:controller)
         self.viewZoom = viewZoom
@@ -60,6 +75,7 @@ class VLinearEquationsPlotBar:UIView
         addSubview(blur)
         addSubview(border)
         addSubview(buttonBack)
+        addSubview(buttonHelp)
         addSubview(buttonShare)
         addSubview(viewZoom)
         
@@ -89,7 +105,7 @@ class VLinearEquationsPlotBar:UIView
             toView:self)
         NSLayoutConstraint.width(
             view:buttonBack,
-            constant:kBackWidth)
+            constant:kButtonWidth)
         
         NSLayoutConstraint.equalsVertical(
             view:viewZoom,
@@ -113,7 +129,21 @@ class VLinearEquationsPlotBar:UIView
             toView:buttonBack)
         NSLayoutConstraint.width(
             view:buttonShare,
-            constant:kShareWidth)
+            constant:kButtonWidth)
+        
+        NSLayoutConstraint.topToTop(
+            view:buttonHelp,
+            toView:self,
+            constant:kContentTop)
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonHelp,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:buttonHelp,
+            toView:buttonShare)
+        NSLayoutConstraint.width(
+            view:buttonHelp,
+            constant:kButtonWidth)
     }
     
     required init?(coder:NSCoder)
@@ -129,6 +159,11 @@ class VLinearEquationsPlotBar:UIView
     }
     
     func actionShare(sender button:UIButton)
+    {
+        controller.share()
+    }
+    
+    func actionHelp(sender button:UIButton)
     {
         controller.share()
     }
