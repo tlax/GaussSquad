@@ -69,6 +69,25 @@ class CScannerOCR:CController, G8TesseractDelegate
     
     //MARK: private
     
+    private func shareImage(image:UIImage)
+    {
+        DispatchQueue.main.async
+        {
+            let activity:UIActivityViewController = UIActivityViewController(
+                activityItems:[image],
+                applicationActivities:nil)
+            
+            if let popover:UIPopoverPresentationController = activity.popoverPresentationController
+            {
+                popover.sourceView = self.viewOCR
+                popover.sourceRect = CGRect.zero
+                popover.permittedArrowDirections = UIPopoverArrowDirection.up
+            }
+            
+            self.present(activity, animated:true)
+        }
+    }
+    
     private func preProcess()
     {
         var image:UIImage = self.image
@@ -89,6 +108,7 @@ class CScannerOCR:CController, G8TesseractDelegate
             image = self.image.g8_blackAndWhite()
         }
         
+        shareImage(image:image)
         imageRecognition(image:image)
     }
     
