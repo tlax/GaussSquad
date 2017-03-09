@@ -2,8 +2,8 @@
 "MHomeItemCalculator_title"="Pascaline";
 "MHomeItemLinearEquations_symbol"="ax + b = 0";
 "MHomeItemLinearEquations_title"="Linear equations";
-"MHomeItemScanner_symbol"="Import equations and operations";
-"MHomeItemScanner_title"="Scanner";
+"MHomeItemScanner_symbol"="Augmented reality equations";
+"MHomeItemScanner_title"="Turing vision";
 "MLinearEquationsProject_defaultIndeterminate"="x";
 "MLinearEquationsItem_positive"=" + ";
 "MLinearEquationsItem_negative"=" - ";
@@ -76,6 +76,12 @@
 "MHelpCalculatorItemEdit_title"="Edit the result if needed";
 "MHelpCalculatorItemClean_title"="Compress tool will remove repeated or wrong characters";
 "MHelpCalculatorItemCalculator_title"="Import to Calculator";
+"MHelpLinearEquationsPlotItemDescartes_title"="René Descartes";
+"MHelpLinearEquationsPlotItemDescartes_date"="\n31/3/1596 - 11/2/1650";
+"MHelpLinearEquationsPlotItemDescartes_subtitle"="\nFrench mathematician known as the father of modern philosophy and analytical geometry, which relates algebra and geometry using the Cartesian Coordinate System.";
+"MHelpLinearEquationsPlotItemOrigin_title"="Center on the Cartesian Coordinate System's origin";
+"MHelpLinearEquationsPlotItemCenter_title"="Center on a indeterminate";
+"MHelpLinearEquationsPlotItemZoom_title"="Zoom in and out";
 "MStoreItemPlus_title"="Plus\n";
 "MStoreItemPlus_descr"="Unlimited indeterminates.\nCreate as many variables as you need without restrictions";
 
