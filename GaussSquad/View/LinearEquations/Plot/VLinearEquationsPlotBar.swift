@@ -165,6 +165,6 @@ class VLinearEquationsPlotBar:UIView
     
     func actionHelp(sender button:UIButton)
     {
-        controller.share()
+        controller.help()
     }
 }

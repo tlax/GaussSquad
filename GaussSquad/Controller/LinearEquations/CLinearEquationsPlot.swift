@@ -212,6 +212,11 @@ class CLinearEquationsPlot:CController
         }
     }
     
+    func help()
+    {
+        
+    }
+    
     func updateZoom(zoom:Double)
     {
         let increase:Double = model.updateZoom(zoom:zoom)
