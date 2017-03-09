@@ -4,22 +4,16 @@ class MHelpLinearEquationsPlot:MHelp
 {
     init()
     {
-        let itemPolynomials:MHelpLinearEquationsProjectItemPolynomials = MHelpLinearEquationsProjectItemPolynomials()
-        let itemAddPolynomial:MHelpLinearEquationsProjectItemAddPolynomial = MHelpLinearEquationsProjectItemAddPolynomial()
-        let itemEditRow:MHelpLinearEquationsProjectItemEditRow = MHelpLinearEquationsProjectItemEditRow()
-        let itemAddRow:MHelpLinearEquationsProjectItemAddRow = MHelpLinearEquationsProjectItemAddRow()
-        let itemIndeterminates:MHelpLinearEquationsProjectItemIndeterminates = MHelpLinearEquationsProjectItemIndeterminates()
-        let itemCompress:MHelpLinearEquationsProjectItemCompress = MHelpLinearEquationsProjectItemCompress()
-        let itemSolution:MHelpLinearEquationsProjectItemSolution = MHelpLinearEquationsProjectItemSolution()
+        let itemDescartes:MHelpLinearEquationsPlotItemDescartes = MHelpLinearEquationsPlotItemDescartes()
+        let itemOrigin:MHelpLinearEquationsPlotItemOrigin = MHelpLinearEquationsPlotItemOrigin()
+        let itemCenter:MHelpLinearEquationsPlotItemCenter = MHelpLinearEquationsPlotItemCenter()
+        let itemZoom:MHelpLinearEquationsPlotItemZoom = MHelpLinearEquationsPlotItemZoom()
         
         let items:[MHelpItem] = [
-            itemPolynomials,
-            itemAddPolynomial,
-            itemEditRow,
-            itemAddRow,
-            itemIndeterminates,
-            itemCompress,
-            itemSolution
+            itemDescartes,
+            itemOrigin,
+            itemCenter,
+            itemZoom
         ]
         
         super.init(items:items)

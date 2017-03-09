@@ -1369,9 +1369,9 @@
 			children = (
 				DAAB7FE21E71BC860069274F /* MHelpLinearEquationsPlot.swift */,
 				DAAB7FE41E71BC9A0069274F /* MHelpLinearEquationsPlotItemDescartes.swift */,
+				DAAB7FEA1E71BCD30069274F /* MHelpLinearEquationsPlotItemOrigin.swift */,
 				DAAB7FE61E71BCB40069274F /* MHelpLinearEquationsPlotItemCenter.swift */,
 				DAAB7FE81E71BCC40069274F /* MHelpLinearEquationsPlotItemZoom.swift */,
-				DAAB7FEA1E71BCD30069274F /* MHelpLinearEquationsPlotItemOrigin.swift */,
 			);
 			path = Plot;
 			sourceTree = "<group>";

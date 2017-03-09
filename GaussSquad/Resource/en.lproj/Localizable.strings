@@ -72,13 +72,16 @@
 "MHelpScannerItemTuring_title"="Alan Mathison Turing";
 "MHelpScannerItemTuring_date"="\n23/6/1912 - 7/6/1954";
 "MHelpScannerItemTuring_subtitle"="\nEnglish computer scientist, father of Artificial Intelligence and modern computers in general, cracked the german Engima Machine during the Second World War.";
-"MHelpLinearEquationsPlotItemDescartes_title"="René Descartes";
-"MHelpLinearEquationsPlotItemDescartes_date"="\n31/3/1596 - 11/2/1650";
-"MHelpLinearEquationsPlotItemDescartes_subtitle"="\nFrench mathematician known as the father of modern philosophy and analytical geometry, which relates algebra and geometry using the Cartesian Coordinate System.";
 "MHelpCalculatorItemCrop_title"="Try to center the scanning region in just equations and operations";
 "MHelpCalculatorItemEdit_title"="Edit the result if needed";
 "MHelpCalculatorItemClean_title"="Compress tool will remove repeated or wrong characters";
 "MHelpCalculatorItemCalculator_title"="Import to Calculator";
+"MHelpLinearEquationsPlotItemDescartes_title"="René Descartes";
+"MHelpLinearEquationsPlotItemDescartes_date"="\n31/3/1596 - 11/2/1650";
+"MHelpLinearEquationsPlotItemDescartes_subtitle"="\nFrench mathematician known as the father of modern philosophy and analytical geometry, which relates algebra and geometry using the Cartesian Coordinate System.";
+"MHelpLinearEquationsPlotItemOrigin_title"="Center on the Cartesian Coordinate System' origin";
+"MHelpLinearEquationsPlotItemCenter_title"="Center on a indeterminate";
+"MHelpLinearEquationsPlotItemZoom_title"="Zoom in and out";
 "MStoreItemPlus_title"="Plus\n";
 "MStoreItemPlus_descr"="Unlimited indeterminates.\nCreate as many variables as you need without restrictions";
 

@@ -1,9 +1,11 @@
-//
-//  MHelpLinearEquationsPlotItemZoom.swift
-//  GaussSquad
-//
-//  Created by zero on 3/9/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MHelpLinearEquationsPlotItemZoom:MHelpItemShort
+{
+    init()
+    {
+        super.init(
+            image:#imageLiteral(resourceName: "assetHelpPlotZoom"),
+            title:NSLocalizedString("MHelpLinearEquationsPlotItemZoom_title", comment:""))
+    }
+}
