@@ -28,8 +28,7 @@ class MScannerFilter
         let itemDefine:MScannerFilterItemDefine.Type = MScannerFilterItemDefine.self
         
         items = [
-            itemDefine,
-            itemHighContrast]
+            itemDefine]
     }
     
     //MARK: private

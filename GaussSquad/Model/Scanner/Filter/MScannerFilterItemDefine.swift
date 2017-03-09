@@ -16,7 +16,7 @@ class MScannerFilterItemDefine:MScannerFilterItem
         let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
         
         let corners:Float = -1
-        let center:Float = 6
+        let center:Float = 5
         
         let weights:[Float] = [
             corners, 0, corners,
